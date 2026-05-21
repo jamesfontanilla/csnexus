@@ -1,0 +1,178 @@
+"""Pydantic schemas for the quizzes slice (Task 11.4).
+
+Two response shapes per attempt lifecycle stage:
+
+- :class:`QuizAttemptInProgressResponse` — for ``status == IN_PROGRESS``.
+  No correctness fields; satisfies Property 17 (mid-attempt
+  non-disclosure, Req 7.4).
+- :class:`QuizSubmittedResponse` — for ``status == SUBMITTED``. Carries
+  per-question ``correct_answer`` / ``is_correct`` / ``explanation``
+  plus aggregate stats and awarded XP (Req 7.5).
+
+The PATCH-answer request body is a one-field schema with strict bounds
+to keep injection / oversized-payload risk minimal.
+"""
+
+from __future__ import annotations
+
+from datetime import datetime
+
+from pydantic import BaseModel, ConfigDict, Field
+
+from app.features.content.models import LevelScope, QuestionType
+
+
+# --- mid-attempt question shape --------------------------------------------
+
+
+class QuizAttemptInProgressQuestion(BaseModel):
+    """A question as the learner sees it during an in-progress attempt.
+
+    Property 17: this shape MUST NOT contain ``correct_answer``,
+    ``is_correct``, or ``explanation``. The fields below are
+    intentionally an exhaustive enumeration so any future addition has
+    to consciously decide whether it's safe to disclose.
+    """
+
+    id: int
+    ordinal: int
+    stem: str
+    qtype: QuestionType
+    difficulty: str
+    # Per-attempt shuffled options for MULTIPLE_CHOICE; ``None`` for
+    # free-text qtypes.
+    options: list[str] | None
+    # The learner's last submitted choice for this question, or ``None``
+    # if they haven't answered yet. Showing the selection back is safe
+    # — the rule is "don't reveal correctness".
+    selected_answer: str | None
+
+
+class QuizAttemptInProgressResponse(BaseModel):
+    """Response shape for in-progress GETs and start-quiz returns."""
+
+    attempt_id: int
+    scope_level: LevelScope
+    scope_id: int
+    status: str  # "IN_PROGRESS"
+    started_at: datetime
+    time_limit_seconds: int | None
+    questions: list[QuizAttemptInProgressQuestion]
+    total_questions: int
+
+
+# --- start-quiz request ----------------------------------------------------
+
+
+class QuizStartRequest(BaseModel):
+    """Optional body for start-quiz endpoints.
+
+    ``time_limit_seconds`` lets the client specify a countdown timer
+    for the attempt. Accepted values map to the three quiz modes:
+      - Practice: 1200 (20 min)
+      - Exam:      900 (15 min)
+      - Power:     600 (10 min)
+
+    ``None`` (or omitting the body entirely) means no timer — the
+    attempt runs until the learner submits manually.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    time_limit_seconds: int | None = Field(
+        default=None,
+        ge=60,       # minimum 1 minute — guards against accidental 0
+        le=3600,     # maximum 1 hour — sanity cap
+    )
+
+
+# --- answer PATCH request --------------------------------------------------
+
+
+class QuizAnswerPatchRequest(BaseModel):
+    """One-field PATCH body for ``/quiz-attempts/{id}/answers/{qid}``.
+
+    ``min_length=1`` rejects the empty string (a deliberate "submit
+    empty answer" should null out via a different route, not here).
+    ``max_length=512`` is large enough for any sensible
+    multiple-choice option label or short identification answer while
+    bounding payload size.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    selected_answer: str = Field(min_length=1, max_length=512)
+
+
+# --- submitted-attempt question shape --------------------------------------
+
+
+class QuizGradedQuestion(BaseModel):
+    """A graded question record (Req 7.5).
+
+    Mirrors :class:`~app.features.quizzes.algorithms.grading.GradedAnswer`
+    on the wire; the service projects one to the other directly.
+    """
+
+    id: int
+    ordinal: int
+    stem: str
+    selected_answer: str | None
+    correct_answer: str
+    is_correct: bool
+    explanation: str
+
+
+class QuizSummary(BaseModel):
+    """Human-readable summary of a submitted quiz attempt.
+
+    Aggregates the graded result into a concise overview so clients
+    can render a results screen without re-deriving the numbers from
+    the raw ``questions`` list.
+
+    Fields:
+    - ``total_questions``: total number of questions in the attempt.
+    - ``correct``: number of questions answered correctly.
+    - ``incorrect``: number of questions answered incorrectly.
+    - ``unanswered``: number of questions left without a selection.
+    - ``score``: raw correct-answer count (mirrors the top-level field
+      for convenience).
+    - ``max_score``: maximum achievable score.
+    - ``percentage``: ``score / max_score`` as a value in ``[0, 1]``.
+    - ``is_passing``: ``True`` when ``percentage >= 0.80``.
+    - ``is_perfect``: ``True`` when every question was answered
+      correctly.
+    - ``result_label``: short display string — ``"Perfect"``,
+      ``"Passed"``, or ``"Failed"``.
+    """
+
+    total_questions: int
+    correct: int
+    incorrect: int
+    unanswered: int
+    score: int
+    max_score: int
+    percentage: float
+    is_passing: bool
+    is_perfect: bool
+    result_label: str
+
+
+class QuizSubmittedResponse(BaseModel):
+    """Response shape for submit + GET-on-already-submitted reads."""
+
+    attempt_id: int
+    scope_level: LevelScope
+    scope_id: int
+    status: str  # "SUBMITTED"
+    started_at: datetime
+    submitted_at: datetime
+    time_limit_seconds: int | None
+    score: int
+    max_score: int
+    percentage: float
+    is_perfect: bool
+    is_passing: bool
+    awarded_xp: int
+    summary: QuizSummary
+    questions: list[QuizGradedQuestion]
