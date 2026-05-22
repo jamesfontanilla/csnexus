@@ -79,12 +79,13 @@ export function GoogleSignInButton({
           callback: handleCredentialResponse,
         });
 
+        const containerWidth = buttonRef.current.offsetWidth || 360;
         window.google.accounts.id.renderButton(buttonRef.current, {
           theme: "outline",
           size: "large",
           text,
           shape: "rectangular",
-          width: 360,
+          width: containerWidth,
           logo_alignment: "left",
         });
       }
@@ -180,7 +181,7 @@ export function GoogleSignInWithCategoryPicker() {
           size: "large",
           text: "continue_with",
           shape: "rectangular",
-          width: 360,
+          width: buttonRef.current.offsetWidth || 360,
           logo_alignment: "left",
         });
       }
