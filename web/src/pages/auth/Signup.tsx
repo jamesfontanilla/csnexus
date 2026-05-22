@@ -33,7 +33,7 @@ export function Signup() {
         age: parseInt(age, 10),
         category,
       });
-      navigate("/login");
+      navigate("/verify-otp", { state: { email, purpose: "VERIFY_EMAIL" } });
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Signup failed";
       setError(msg);

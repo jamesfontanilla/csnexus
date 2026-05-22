@@ -97,7 +97,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://csnexus.space", "https://www.csnexus.space", "http://localhost:5173"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -134,15 +134,3 @@ app.include_router(focus_router)
 def health() -> dict[str, str]:
     """Unauthenticated health probe per ``api-standard.md``."""
     return {"status": "ok"}
-
-
-@app.get("/debug-cors")
-def debug_cors() -> dict[str, str]:
-    """Temporary: confirms latest code is deployed."""
-    return {"cors": "v3-wildcard-no-creds", "deployed": "true"}
-
-
-@app.post("/debug-cors-post")
-def debug_cors_post() -> dict[str, str]:
-    """Temporary: test POST preflight."""
-    return {"cors_post": "works"}
