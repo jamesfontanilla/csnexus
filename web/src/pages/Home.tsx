@@ -96,7 +96,7 @@ export function Home() {
             fontSize: "var(--font-size-sm)",
           }}
         >
-          CSNexus — Built for Filipino CSE candidates. Free and open.
+          CSNexus — Your path to passing the Civil Service Exam. Free and open.
         </footer>
       </main>
     </PageTransition>
