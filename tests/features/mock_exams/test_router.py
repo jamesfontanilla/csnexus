@@ -82,6 +82,7 @@ def _make_start_response() -> MockExamStartResponse:
                 ordinal=1,
                 stem="Q1?",
                 qtype="MULTIPLE_CHOICE",
+                difficulty="MEDIUM",
                 options=["A", "B", "C", "D"],
                 selected_answer=None,
             )
@@ -105,6 +106,7 @@ def _make_in_progress_response() -> MockExamAttemptResponse:
                 ordinal=1,
                 stem="Q1?",
                 qtype="MULTIPLE_CHOICE",
+                difficulty="MEDIUM",
                 options=["A", "B", "C", "D"],
                 selected_answer=None,
             )

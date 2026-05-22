@@ -612,6 +612,7 @@ class MockExamService:
                     ordinal=a.ordinal,
                     stem=q.stem,
                     qtype=QuestionType(q.qtype),
+                    difficulty=q.difficulty,
                     options=options,
                     selected_answer=a.selected_answer,
                 )
