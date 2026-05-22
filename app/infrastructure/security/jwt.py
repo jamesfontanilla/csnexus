@@ -28,9 +28,10 @@ _JWT_SECRET_ENV: Final[str] = "JWT_SECRET"
 def _secret() -> str:
     secret = os.environ.get(_JWT_SECRET_ENV)
     if not secret:
-        # Fallback for demo/free-tier deploys where env vars aren't set.
-        # In production, always set JWT_SECRET to a unique random value.
-        secret = "csnexus-demo-secret-change-me-in-production-32b"
+        raise RuntimeError(
+            f"{_JWT_SECRET_ENV} environment variable is not set. "
+            "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\""
+        )
     return secret
 
 

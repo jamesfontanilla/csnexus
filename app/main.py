@@ -58,8 +58,10 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         try:
             from app.features.users.models import User
 
+            import os
+            admin_email = os.environ.get("ADMIN_EMAIL", "admin@cse.local")
             admin_exists = session.query(User).filter(
-                User.email == "admin@cse.local"
+                User.email == admin_email
             ).first()
             if admin_exists is None:
                 from scripts.seed import seed_database

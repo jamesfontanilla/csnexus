@@ -91,16 +91,26 @@ def seed_database(session: Session) -> dict[str, Any]:
     """Seed the database with minimal fixtures. Returns a summary dict.
 
     Idempotent: checks if admin user exists before creating anything.
+
+    Admin credentials are read from environment variables:
+        ADMIN_EMAIL    (default: admin@cse.local)
+        ADMIN_PASSWORD (default: Admin1Pass!)
+    In production, always set these to unique values.
     """
+    import os
+
+    admin_email = os.environ.get("ADMIN_EMAIL", "admin@cse.local")
+    admin_password = os.environ.get("ADMIN_PASSWORD", "Admin1Pass!")
+
     # Check idempotency — if admin already exists, skip
-    existing_admin = session.query(User).filter(User.email == "admin@cse.local").first()
+    existing_admin = session.query(User).filter(User.email == admin_email).first()
     if existing_admin is not None:
         return {"status": "already_seeded", "admin_id": existing_admin.id}
 
     # --- Users ---
-    admin_hash = hash_password("Admin1Pass!")
+    admin_hash = hash_password(admin_password)
     admin = User(
-        email="admin@cse.local",
+        email=admin_email,
         display_name="Admin User",
         age=30,
         category=Category.PROFESSIONAL.value,
