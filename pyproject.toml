@@ -22,6 +22,7 @@ dependencies = [
     "psycopg2-binary>=2.9,<3",
     "google-auth>=2.29,<3",
     "requests>=2.31,<3",
+    "slowapi>=0.1.9,<1",
 ]
 
 [project.optional-dependencies]

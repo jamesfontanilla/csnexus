@@ -442,7 +442,7 @@ class AuthService:
                 detail=_ERR_GOOGLE_TOKEN_INVALID,
             )
 
-        if not google_info.email:
+        if not google_info.email or not google_info.email_verified:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail=_ERR_GOOGLE_TOKEN_INVALID,

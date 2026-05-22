@@ -22,6 +22,8 @@ from fastapi import FastAPI
 from app.common.middlewares.auth import AuthMiddleware
 from app.common.middlewares.error_handler import register_exception_handlers
 from app.common.middlewares.logging import RequestLoggingMiddleware
+from app.common.middlewares.rate_limit import limiter
+from app.common.middlewares.security_headers import SecurityHeadersMiddleware
 from app.features.achievements.router import router as achievement_router
 from app.features.admin.router import router as admin_router
 from app.features.audit.router import router as audit_router
@@ -87,19 +89,32 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 app = FastAPI(lifespan=lifespan)
 
+# Attach the rate limiter state to the app (required by slowapi).
+app.state.limiter = limiter
+
 # --- Middlewares -----------------------------------------------------------
 # Starlette processes in reverse-add order: LAST added runs FIRST.
 # We add CORS LAST so it runs FIRST and handles OPTIONS preflight
 # before any other middleware touches the request.
 app.add_middleware(RequestLoggingMiddleware)
+app.add_middleware(SecurityHeadersMiddleware)
 app.add_middleware(AuthMiddleware)
 
 # --- CORS (added last = runs first) ----------------------------------------
+import os
+
 from fastapi.middleware.cors import CORSMiddleware
+
+_ENV = os.environ.get("APP_ENV", "development")
+_CORS_ORIGINS: list[str] = (
+    ["https://csnexus.space", "https://www.csnexus.space"]
+    if _ENV == "production"
+    else ["https://csnexus.space", "https://www.csnexus.space", "http://localhost:5173"]
+)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://csnexus.space", "https://www.csnexus.space", "http://localhost:5173"],
+    allow_origins=_CORS_ORIGINS,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -107,6 +122,12 @@ app.add_middleware(
 
 # --- Exception handlers ----------------------------------------------------
 register_exception_handlers(app)
+
+# slowapi 429 handler — returns the canonical ErrorResponse envelope.
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # --- Feature routers -------------------------------------------------------
 # Each router already carries its own prefix (e.g. /v1/auth, /v1, /v1/admin).

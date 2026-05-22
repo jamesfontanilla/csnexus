@@ -27,6 +27,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from sqlalchemy.orm import Session
 
 from app.common.deps import get_current_user
+from app.common.middlewares.rate_limit import AUTH_RATE_LIMIT, limiter
 from app.features.auth.repository import AuthRepository
 from app.features.auth.schemas import (
     GoogleAuthRequest,
@@ -90,7 +91,9 @@ def get_auth_service(
     status_code=status.HTTP_201_CREATED,
     response_model=UserResponse,
 )
+@limiter.limit(AUTH_RATE_LIMIT)
 def signup(
+    request: Request,
     payload: UserCreate,
     service: AuthService = Depends(get_auth_service),
 ) -> User:
@@ -99,7 +102,9 @@ def signup(
 
 
 @router.post("/email-verifications", response_model=UserResponse)
+@limiter.limit(AUTH_RATE_LIMIT)
 def verify_email(
+    request: Request,
     payload: OTPVerifyRequest,
     service: AuthService = Depends(get_auth_service),
 ) -> User:
@@ -111,7 +116,9 @@ def verify_email(
     "/email-verifications:resend",
     status_code=status.HTTP_204_NO_CONTENT,
 )
+@limiter.limit(AUTH_RATE_LIMIT)
 def resend_email_verification(
+    request: Request,
     payload: OTPIssueRequest,
     service: AuthService = Depends(get_auth_service),
 ) -> Response:
@@ -129,7 +136,9 @@ def resend_email_verification(
     status_code=status.HTTP_201_CREATED,
     response_model=LoginResponse,
 )
+@limiter.limit(AUTH_RATE_LIMIT)
 def login(
+    request: Request,
     payload: LoginRequest,
     service: AuthService = Depends(get_auth_service),
 ) -> LoginResponse:
@@ -183,7 +192,9 @@ def get_me(user: User = Depends(get_current_user)) -> User:
     "/password-reset-requests",
     status_code=status.HTTP_204_NO_CONTENT,
 )
+@limiter.limit(AUTH_RATE_LIMIT)
 def request_password_reset(
+    request: Request,
     payload: PasswordResetRequest,
     service: AuthService = Depends(get_auth_service),
 ) -> Response:
@@ -196,7 +207,9 @@ def request_password_reset(
 
 
 @router.post("/password-resets", status_code=status.HTTP_204_NO_CONTENT)
+@limiter.limit(AUTH_RATE_LIMIT)
 def reset_password(
+    request: Request,
     payload: PasswordResetConfirmRequest,
     service: AuthService = Depends(get_auth_service),
 ) -> Response:
@@ -210,7 +223,9 @@ def reset_password(
     status_code=status.HTTP_200_OK,
     response_model=GoogleAuthResponse,
 )
+@limiter.limit(AUTH_RATE_LIMIT)
 def google_authenticate(
+    request: Request,
     payload: GoogleAuthRequest,
     service: AuthService = Depends(get_auth_service),
 ) -> dict:

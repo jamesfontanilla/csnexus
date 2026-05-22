@@ -23,6 +23,7 @@ interface UserEntry {
   email: string;
   display_name: string;
   username: string | null;
+  google_id: string | null;
   role: string;
   account_state: string;
   is_banned: boolean;
@@ -188,6 +189,7 @@ export function AdminDashboard() {
                   <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Email</th>
                   <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Name</th>
                   <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Username</th>
+                  <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Auth</th>
                   <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Role</th>
                   <th style={{ textAlign: "center", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Banned</th>
                   <th style={{ textAlign: "center", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Actions</th>
@@ -199,6 +201,7 @@ export function AdminDashboard() {
                     <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text)" }}>{u.email}</td>
                     <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text)" }}>{u.display_name}</td>
                     <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)" }}>{u.username || "—"}</td>
+                    <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)" }}>{u.google_id ? "🔵 Google" : "✉️ Email"}</td>
                     <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)" }}>{u.role}</td>
                     <td style={{ textAlign: "center", padding: "0.75rem 0.5rem", color: "var(--color-text)" }}>{u.is_banned ? "🚫" : "—"}</td>
                     <td style={{ textAlign: "center", padding: "0.75rem 0.5rem" }}>

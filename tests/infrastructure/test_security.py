@@ -107,12 +107,11 @@ def test_decode_rejects_tampered_signature(monkeypatch: pytest.MonkeyPatch) -> N
         decode_token(tampered)
 
 
-def test_encode_uses_fallback_secret_when_env_unset(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_encode_raises_when_jwt_secret_unset(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.delenv("JWT_SECRET", raising=False)
-    # Should not raise — falls back to the demo secret for free-tier deploys.
-    token, claims = encode_token(sub="1")
-    assert isinstance(token, str)
-    assert claims["sub"] == "1"
+    # Must raise RuntimeError — no silent fallback to a hardcoded secret.
+    with pytest.raises(RuntimeError, match="JWT_SECRET environment variable is not set"):
+        encode_token(sub="1")
 
 
 # --- RNG sanity ----------------------------------------------------------------
