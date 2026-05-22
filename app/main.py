@@ -90,7 +90,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://csnexus.space", "https://www.csnexus.space", "http://localhost:5173"],
+    allow_origins=["https://csnexus.space", "https://www.csnexus.space", "http://localhost:5173", "https://csnexus.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
