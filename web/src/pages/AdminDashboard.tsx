@@ -64,6 +64,9 @@ export function AdminDashboard() {
       await apiClient.delete(`/v1/admin/users/${userId}`);
       toast.success(`User "${email}" deleted.`);
       setUsers((prev) => prev.filter((u) => u.id !== userId));
+      // Refresh analytics to reflect the updated counts
+      const updatedAnalytics = await apiClient.get<Analytics>("/v1/admin/analytics");
+      setAnalytics(updatedAnalytics);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Delete failed";
       toast.error(msg);

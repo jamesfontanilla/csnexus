@@ -42,7 +42,7 @@ async function request<T>(method: string, url: string, body?: unknown): Promise<
   const requestId = response.headers.get("X-Request-ID");
 
   if (!response.ok) {
-    let errorBody: ErrorResponse | null = null;
+    let errorBody: unknown = null;
     try {
       errorBody = await response.json();
     } catch {
@@ -56,12 +56,34 @@ async function request<T>(method: string, url: string, body?: unknown): Promise<
       window.location.replace("/login");
     }
 
-    throw new ApiError(
-      response.status,
-      errorBody?.error?.message ?? `Request failed with status ${response.status}`,
-      errorBody?.error?.code ?? "UNKNOWN",
-      requestId
-    );
+    // Extract error message from various response shapes
+    let message = `Request failed with status ${response.status}`;
+    let code = "UNKNOWN";
+
+    if (errorBody && typeof errorBody === "object") {
+      const body = errorBody as Record<string, unknown>;
+      // Shape 1: {"error": {"message": "...", "code": "..."}}
+      if (body.error && typeof body.error === "object") {
+        const err = body.error as Record<string, unknown>;
+        if (err.message) message = String(err.message);
+        if (err.code) code = String(err.code);
+      }
+      // Shape 2: FastAPI 422 {"detail": [{"msg": "...", "loc": [...]}]}
+      else if (Array.isArray(body.detail)) {
+        const messages = (body.detail as Array<{ msg?: string; loc?: string[] }>)
+          .map((d) => d.msg || "Validation error")
+          .join("; ");
+        message = messages;
+        code = "VALIDATION_ERROR";
+      }
+      // Shape 3: {"detail": "some string"}
+      else if (typeof body.detail === "string") {
+        message = body.detail;
+        code = `HTTP_${response.status}`;
+      }
+    }
+
+    throw new ApiError(response.status, message, code, requestId);
   }
 
   if (response.status === 204) {
