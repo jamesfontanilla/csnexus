@@ -16,6 +16,12 @@ interface XPData {
   streak: number;
 }
 
+interface UserProfile {
+  display_name: string;
+  email: string;
+  category: string;
+}
+
 interface Achievement {
   achievement_id: string;
   title: string;
@@ -38,6 +44,7 @@ export function Profile() {
   const navigate = useNavigate();
   const toast = useToast();
   const [xp, setXp] = useState<XPData | null>(null);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -46,10 +53,12 @@ export function Profile() {
     Promise.all([
       apiClient.get<XPData>("/v1/xp/me"),
       apiClient.get<Achievement[]>("/v1/achievements/me"),
+      apiClient.get<UserProfile>("/v1/auth/me"),
     ])
-      .then(([xpRes, achRes]) => {
+      .then(([xpRes, achRes, profileRes]) => {
         setXp(xpRes);
         setAchievements(achRes);
+        setProfile(profileRes);
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
@@ -96,9 +105,20 @@ export function Profile() {
   return (
     <PageTransition>
       <div className="page container" style={{ maxWidth: 600 }}>
-        <h1 style={{ fontFamily: "var(--font-family)", marginBottom: "1.5rem", ...gradientTextStyle }}>
+        <h1 style={{ fontFamily: "var(--font-family)", marginBottom: "0.5rem", ...gradientTextStyle }}>
           Profile
         </h1>
+
+        {profile && (
+          <div style={{ marginBottom: "1.5rem" }}>
+            <p style={{ fontSize: "1.25rem", fontWeight: 600, margin: "0 0 0.25rem 0", color: "var(--color-text)" }}>
+              {profile.display_name}
+            </p>
+            <p style={{ fontSize: "var(--font-size-sm)", margin: 0, color: "var(--color-text-secondary)" }}>
+              {profile.email}
+            </p>
+          </div>
+        )}
 
         {xp && (
           <GlassCard>

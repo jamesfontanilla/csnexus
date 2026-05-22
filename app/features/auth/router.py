@@ -26,6 +26,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from sqlalchemy.orm import Session
 
+from app.common.deps import get_current_user
 from app.features.auth.repository import AuthRepository
 from app.features.auth.schemas import (
     GoogleAuthRequest,
@@ -170,6 +171,12 @@ def logout(
     service.get_current_user_from_jti(jti)
     service.logout(jti)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@router.get("/me", response_model=UserResponse)
+def get_me(user: User = Depends(get_current_user)) -> User:
+    """Return the current authenticated user's profile."""
+    return user
 
 
 @router.post(
