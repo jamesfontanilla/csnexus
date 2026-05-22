@@ -12998,5 +12998,2505 @@
     ],
     "category": "Professional",
     "language": "English"
+  },
+  {
+    "id": 501,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee agreed ___ the proposal after a lengthy deliberation.",
+    "choices": [
+      "with",
+      "to",
+      "on",
+      "upon"
+    ],
+    "answer": "to",
+    "explanation": "'Agree to' a proposal/plan/suggestion. 'Agree with' a person. 'Agree on' a point/issue.",
+    "tags": [
+      "agree to",
+      "proposal"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 502,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director is not amenable ___ the idea of extending the deadline.",
+    "choices": [
+      "with",
+      "to",
+      "for",
+      "on"
+    ],
+    "answer": "to",
+    "explanation": "'Amenable to' means open/receptive to something.",
+    "tags": [
+      "amenable to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 503,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The new policy is tantamount ___ an admission of failure.",
+    "choices": [
+      "with",
+      "to",
+      "as",
+      "for"
+    ],
+    "answer": "to",
+    "explanation": "'Tantamount to' means equivalent to.",
+    "tags": [
+      "tantamount to",
+      "fixed expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 504,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was charged ___ neglect of duty.",
+    "choices": [
+      "for",
+      "with",
+      "of",
+      "about"
+    ],
+    "answer": "with",
+    "explanation": "'Charged with' an offense/crime. 'Charged for' a fee.",
+    "tags": [
+      "charged with",
+      "legal context"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 505,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor is averse ___ making hasty decisions without consulting the team.",
+    "choices": [
+      "with",
+      "to",
+      "from",
+      "for"
+    ],
+    "answer": "to",
+    "explanation": "'Averse to' means opposed to or reluctant about.",
+    "tags": [
+      "averse to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 506,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The memorandum is replete ___ grammatical errors that need to be corrected.",
+    "choices": [
+      "of",
+      "with",
+      "in",
+      "by"
+    ],
+    "answer": "with",
+    "explanation": "'Replete with' means full of or abundantly supplied with.",
+    "tags": [
+      "replete with",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 507,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The findings are consistent ___ the initial assessment made by the audit team.",
+    "choices": [
+      "to",
+      "with",
+      "in",
+      "for"
+    ],
+    "answer": "with",
+    "explanation": "'Consistent with' means in agreement with.",
+    "tags": [
+      "consistent with",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 508,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was absolved ___ all charges after the investigation.",
+    "choices": [
+      "from",
+      "of",
+      "with",
+      "for"
+    ],
+    "answer": "of",
+    "explanation": "'Absolved of' charges/blame/responsibility.",
+    "tags": [
+      "absolved of",
+      "legal context"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 509,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is incumbent ___ all government employees regardless of rank.",
+    "choices": [
+      "to",
+      "upon",
+      "for",
+      "with"
+    ],
+    "answer": "upon",
+    "explanation": "'Incumbent upon/on' means obligatory for.",
+    "tags": [
+      "incumbent upon",
+      "formal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 510,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The decision is contingent ___ the availability of funds.",
+    "choices": [
+      "to",
+      "upon",
+      "with",
+      "for"
+    ],
+    "answer": "upon",
+    "explanation": "'Contingent upon/on' means dependent on.",
+    "tags": [
+      "contingent upon",
+      "formal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 511,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The officer was remiss ___ his duties during the critical period.",
+    "choices": [
+      "of",
+      "in",
+      "with",
+      "about"
+    ],
+    "answer": "in",
+    "explanation": "'Remiss in' one's duties/responsibilities.",
+    "tags": [
+      "remiss in",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 512,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The department head takes pride ___ the accomplishments of her team.",
+    "choices": [
+      "of",
+      "in",
+      "with",
+      "for"
+    ],
+    "answer": "in",
+    "explanation": "'Take pride in' something (not 'of').",
+    "tags": [
+      "take pride in",
+      "idiomatic expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 513,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The applicant was disqualified ___ the examination for submitting fraudulent documents.",
+    "choices": [
+      "in",
+      "from",
+      "of",
+      "to"
+    ],
+    "answer": "from",
+    "explanation": "'Disqualified from' an activity/competition/examination.",
+    "tags": [
+      "disqualified from",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 514,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The new employee is oblivious ___ the office protocols that have been in place for years.",
+    "choices": [
+      "about",
+      "to",
+      "of",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Oblivious to/of' means unaware of. 'To' is more common in modern usage.",
+    "tags": [
+      "oblivious to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 515,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee's decision is predicated ___ the assumption that all data submitted are accurate.",
+    "choices": [
+      "in",
+      "on",
+      "to",
+      "with"
+    ],
+    "answer": "on",
+    "explanation": "'Predicated on/upon' means based on.",
+    "tags": [
+      "predicated on",
+      "formal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 516,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor prevailed ___ the employee to reconsider his resignation.",
+    "choices": [
+      "on",
+      "upon",
+      "over",
+      "with"
+    ],
+    "answer": "upon",
+    "explanation": "'Prevail upon/on' someone means to persuade them.",
+    "tags": [
+      "prevail upon",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 517,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The government agency prides itself ___ its efficient delivery of public services.",
+    "choices": [
+      "in",
+      "on",
+      "with",
+      "for"
+    ],
+    "answer": "on",
+    "explanation": "'Pride oneself on' something.",
+    "tags": [
+      "pride oneself on",
+      "reflexive + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 518,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was admonished ___ his repeated tardiness.",
+    "choices": [
+      "about",
+      "for",
+      "of",
+      "with"
+    ],
+    "answer": "for",
+    "explanation": "'Admonished for' a fault/offense.",
+    "tags": [
+      "admonished for",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 519,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation militated ___ the approval of the request.",
+    "choices": [
+      "for",
+      "against",
+      "to",
+      "with"
+    ],
+    "answer": "against",
+    "explanation": "'Militate against' means to work against or make less likely.",
+    "tags": [
+      "militate against",
+      "formal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 520,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director acquiesced ___ the demands of the union after prolonged negotiations.",
+    "choices": [
+      "with",
+      "to",
+      "in",
+      "on"
+    ],
+    "answer": "in",
+    "explanation": "'Acquiesce in/to' means to accept reluctantly. 'In' is more formal/traditional.",
+    "tags": [
+      "acquiesce in",
+      "formal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 521,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The findings are at variance ___ the conclusions stated in the previous report.",
+    "choices": [
+      "to",
+      "with",
+      "from",
+      "against"
+    ],
+    "answer": "with",
+    "explanation": "'At variance with' means in disagreement with.",
+    "tags": [
+      "at variance with",
+      "fixed expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 522,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee has an aversion ___ public speaking.",
+    "choices": [
+      "for",
+      "to",
+      "of",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Aversion to' something one dislikes.",
+    "tags": [
+      "aversion to",
+      "noun + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 523,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee deliberated ___ the matter for three hours before reaching a consensus.",
+    "choices": [
+      "about",
+      "on",
+      "over",
+      "upon"
+    ],
+    "answer": "on",
+    "explanation": "'Deliberate on/upon' a matter (formal). 'About' is also acceptable but less formal.",
+    "tags": [
+      "deliberate on",
+      "formal usage"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 524,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor is conversant ___ the new regulations governing overtime pay.",
+    "choices": [
+      "about",
+      "with",
+      "in",
+      "of"
+    ],
+    "answer": "with",
+    "explanation": "'Conversant with' means familiar with or knowledgeable about.",
+    "tags": [
+      "conversant with",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 525,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was prevailed ___ to withdraw his complaint.",
+    "choices": [
+      "on",
+      "upon",
+      "over",
+      "with"
+    ],
+    "answer": "upon",
+    "explanation": "'Prevailed upon' means persuaded.",
+    "tags": [
+      "prevailed upon",
+      "passive + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 526,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The new policy is inimical ___ the interests of rank-and-file employees.",
+    "choices": [
+      "for",
+      "to",
+      "with",
+      "against"
+    ],
+    "answer": "to",
+    "explanation": "'Inimical to' means harmful or hostile to.",
+    "tags": [
+      "inimical to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 527,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director took umbrage ___ the employee's insinuation of favoritism.",
+    "choices": [
+      "with",
+      "at",
+      "to",
+      "for"
+    ],
+    "answer": "at",
+    "explanation": "'Take umbrage at' means to feel offended by.",
+    "tags": [
+      "take umbrage at",
+      "idiomatic expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 528,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee arrived ___ a decision after considering all the evidence.",
+    "choices": [
+      "to",
+      "at",
+      "on",
+      "in"
+    ],
+    "answer": "at",
+    "explanation": "'Arrive at' a decision/conclusion/agreement.",
+    "tags": [
+      "arrive at",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 529,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was exonerated ___ the charges of misconduct.",
+    "choices": [
+      "from",
+      "of",
+      "with",
+      "for"
+    ],
+    "answer": "of",
+    "explanation": "'Exonerated of/from' charges. Both are acceptable; 'of' is more common.",
+    "tags": [
+      "exonerated of",
+      "legal context"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 530,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is binding ___ all employees of the agency.",
+    "choices": [
+      "to",
+      "on",
+      "for",
+      "with"
+    ],
+    "answer": "on",
+    "explanation": "'Binding on/upon' means obligatory for.",
+    "tags": [
+      "binding on",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 531,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor is impervious ___ criticism from subordinates.",
+    "choices": [
+      "from",
+      "to",
+      "of",
+      "against"
+    ],
+    "answer": "to",
+    "explanation": "'Impervious to' means unaffected by.",
+    "tags": [
+      "impervious to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 532,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was bereft ___ any support from his colleagues during the hearing.",
+    "choices": [
+      "from",
+      "of",
+      "with",
+      "by"
+    ],
+    "answer": "of",
+    "explanation": "'Bereft of' means deprived of or lacking.",
+    "tags": [
+      "bereft of",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 533,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The new system is conducive ___ greater efficiency in processing applications.",
+    "choices": [
+      "for",
+      "to",
+      "of",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Conducive to' means favorable to or promoting.",
+    "tags": [
+      "conducive to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 534,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director is disposed ___ granting the request provided all requirements are met.",
+    "choices": [
+      "for",
+      "to",
+      "of",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Disposed to' means inclined or willing to.",
+    "tags": [
+      "disposed to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 535,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee took exception ___ the manner in which the investigation was conducted.",
+    "choices": [
+      "with",
+      "to",
+      "at",
+      "for"
+    ],
+    "answer": "to",
+    "explanation": "'Take exception to' means to object to.",
+    "tags": [
+      "take exception to",
+      "idiomatic expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 536,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee is liable ___ disciplinary action for his repeated violations.",
+    "choices": [
+      "for",
+      "to",
+      "of",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Liable to' a penalty/action. 'Liable for' damages/costs.",
+    "tags": [
+      "liable to",
+      "legal context"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 537,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is applicable ___ all government employees without exception.",
+    "choices": [
+      "for",
+      "to",
+      "on",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Applicable to' means relevant to or affecting.",
+    "tags": [
+      "applicable to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 538,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor is partial ___ employees who arrive early.",
+    "choices": [
+      "for",
+      "to",
+      "with",
+      "of"
+    ],
+    "answer": "to",
+    "explanation": "'Partial to' means having a preference for.",
+    "tags": [
+      "partial to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 539,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is seized ___ the matter and will render a decision within thirty days.",
+    "choices": [
+      "with",
+      "of",
+      "by",
+      "on"
+    ],
+    "answer": "of",
+    "explanation": "'Seized of' a matter (legal) means having jurisdiction over or being aware of.",
+    "tags": [
+      "seized of",
+      "legal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 540,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was divested ___ his authority pending the investigation.",
+    "choices": [
+      "from",
+      "of",
+      "with",
+      "by"
+    ],
+    "answer": "of",
+    "explanation": "'Divested of' means stripped of or deprived of.",
+    "tags": [
+      "divested of",
+      "formal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 541,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The findings are indicative ___ a systemic problem within the organization.",
+    "choices": [
+      "for",
+      "of",
+      "to",
+      "about"
+    ],
+    "answer": "of",
+    "explanation": "'Indicative of' means suggesting or pointing to.",
+    "tags": [
+      "indicative of",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 542,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director is amenable ___ suggestions from the rank and file.",
+    "choices": [
+      "for",
+      "to",
+      "with",
+      "of"
+    ],
+    "answer": "to",
+    "explanation": "'Amenable to' means receptive to.",
+    "tags": [
+      "amenable to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 543,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was enjoined ___ disclosing confidential information.",
+    "choices": [
+      "against",
+      "from",
+      "to",
+      "of"
+    ],
+    "answer": "from",
+    "explanation": "'Enjoined from' means prohibited from (legal).",
+    "tags": [
+      "enjoined from",
+      "legal context"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 544,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is predicated ___ the principle of accountability in public service.",
+    "choices": [
+      "in",
+      "on",
+      "to",
+      "with"
+    ],
+    "answer": "on",
+    "explanation": "'Predicated on/upon' means based on or founded on.",
+    "tags": [
+      "predicated on",
+      "formal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 545,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is cognizant ___ the difficulties faced by field employees.",
+    "choices": [
+      "about",
+      "of",
+      "with",
+      "to"
+    ],
+    "answer": "of",
+    "explanation": "'Cognizant of' means aware of.",
+    "tags": [
+      "cognizant of",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 546,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor was negligent ___ performing his supervisory functions.",
+    "choices": [
+      "of",
+      "in",
+      "about",
+      "for"
+    ],
+    "answer": "in",
+    "explanation": "'Negligent in' performing duties.",
+    "tags": [
+      "negligent in",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 547,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was derelict ___ his duty when he failed to report the irregularity.",
+    "choices": [
+      "of",
+      "in",
+      "from",
+      "with"
+    ],
+    "answer": "in",
+    "explanation": "'Derelict in' one's duty means failing to fulfill obligations.",
+    "tags": [
+      "derelict in",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 548,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The new policy redounds ___ the benefit of all government employees.",
+    "choices": [
+      "for",
+      "to",
+      "in",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Redound to' the benefit/credit/advantage of someone.",
+    "tags": [
+      "redound to",
+      "formal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 549,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is tasked ___ reviewing all pending applications.",
+    "choices": [
+      "for",
+      "with",
+      "to",
+      "in"
+    ],
+    "answer": "with",
+    "explanation": "'Tasked with' means assigned the responsibility of.",
+    "tags": [
+      "tasked with",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 550,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was made to account ___ the missing funds.",
+    "choices": [
+      "about",
+      "for",
+      "of",
+      "to"
+    ],
+    "answer": "for",
+    "explanation": "'Account for' means to explain or answer for.",
+    "tags": [
+      "account for",
+      "phrasal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 551,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is commensurate ___ the gravity of the offense committed.",
+    "choices": [
+      "to",
+      "with",
+      "for",
+      "in"
+    ],
+    "answer": "with",
+    "explanation": "'Commensurate with' means proportionate to.",
+    "tags": [
+      "commensurate with",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 552,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director is intent ___ implementing reforms despite opposition.",
+    "choices": [
+      "in",
+      "on",
+      "to",
+      "for"
+    ],
+    "answer": "on",
+    "explanation": "'Intent on' means determined to.",
+    "tags": [
+      "intent on",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 553,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was oblivious ___ the consequences of his actions.",
+    "choices": [
+      "about",
+      "to",
+      "of",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Oblivious to' means unaware of.",
+    "tags": [
+      "oblivious to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 554,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is comprised ___ representatives from all regional offices.",
+    "choices": [
+      "with",
+      "of",
+      "by",
+      "from"
+    ],
+    "answer": "of",
+    "explanation": "'Comprised of' (though debated, widely used) means composed of.",
+    "tags": [
+      "comprised of",
+      "composition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 555,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor is answerable ___ the director for the performance of his division.",
+    "choices": [
+      "for",
+      "to",
+      "with",
+      "before"
+    ],
+    "answer": "to",
+    "explanation": "'Answerable to' a person (authority). 'Answerable for' an action/result.",
+    "tags": [
+      "answerable to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 556,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was confronted ___ evidence of his involvement in the anomaly.",
+    "choices": [
+      "by",
+      "with",
+      "of",
+      "about"
+    ],
+    "answer": "with",
+    "explanation": "'Confronted with' evidence/facts/problems.",
+    "tags": [
+      "confronted with",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 557,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is tantamount ___ a prohibition on overtime work.",
+    "choices": [
+      "as",
+      "to",
+      "with",
+      "for"
+    ],
+    "answer": "to",
+    "explanation": "'Tantamount to' means equivalent to.",
+    "tags": [
+      "tantamount to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 558,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee dispensed ___ the formalities and proceeded directly to the main agenda.",
+    "choices": [
+      "of",
+      "with",
+      "from",
+      "about"
+    ],
+    "answer": "with",
+    "explanation": "'Dispense with' means to do without or skip.",
+    "tags": [
+      "dispense with",
+      "phrasal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 559,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was imbued ___ a strong sense of public service.",
+    "choices": [
+      "by",
+      "with",
+      "of",
+      "in"
+    ],
+    "answer": "with",
+    "explanation": "'Imbued with' means filled with or inspired by.",
+    "tags": [
+      "imbued with",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 560,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director is predisposed ___ approving requests that are well-documented.",
+    "choices": [
+      "for",
+      "to",
+      "in",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Predisposed to' means inclined toward.",
+    "tags": [
+      "predisposed to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 561,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The findings are symptomatic ___ deeper organizational problems.",
+    "choices": [
+      "for",
+      "of",
+      "to",
+      "with"
+    ],
+    "answer": "of",
+    "explanation": "'Symptomatic of' means indicative of or characteristic of.",
+    "tags": [
+      "symptomatic of",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 562,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was precluded ___ participating in the bidding process.",
+    "choices": [
+      "to",
+      "from",
+      "of",
+      "against"
+    ],
+    "answer": "from",
+    "explanation": "'Precluded from' means prevented from.",
+    "tags": [
+      "precluded from",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 563,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is subservient ___ the provisions of the Constitution.",
+    "choices": [
+      "with",
+      "to",
+      "for",
+      "under"
+    ],
+    "answer": "to",
+    "explanation": "'Subservient to' means subordinate to.",
+    "tags": [
+      "subservient to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 564,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is vested ___ the authority to impose sanctions.",
+    "choices": [
+      "by",
+      "with",
+      "of",
+      "in"
+    ],
+    "answer": "with",
+    "explanation": "'Vested with' authority/power means given or endowed with.",
+    "tags": [
+      "vested with",
+      "legal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 565,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor was remonstrated ___ for his harsh treatment of subordinates.",
+    "choices": [
+      "about",
+      "with",
+      "against",
+      "for"
+    ],
+    "answer": "with",
+    "explanation": "'Remonstrate with' someone means to protest to them.",
+    "tags": [
+      "remonstrate with",
+      "formal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 566,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee is susceptible ___ flattery and may be easily manipulated.",
+    "choices": [
+      "for",
+      "to",
+      "of",
+      "with"
+    ],
+    "answer": "to",
+    "explanation": "'Susceptible to' means vulnerable to or easily affected by.",
+    "tags": [
+      "susceptible to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 567,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The new policy is consonant ___ the agency's mandate to improve public service delivery.",
+    "choices": [
+      "to",
+      "with",
+      "in",
+      "for"
+    ],
+    "answer": "with",
+    "explanation": "'Consonant with' means in harmony with or consistent with.",
+    "tags": [
+      "consonant with",
+      "formal adjective"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 568,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is incumbent ___ to act on the complaint within the prescribed period.",
+    "choices": [
+      "with",
+      "upon",
+      "to",
+      "for"
+    ],
+    "answer": "upon",
+    "explanation": "'Incumbent upon' means obligatory for. (Note: 'It is incumbent upon the committee to act' is the full construction.)",
+    "tags": [
+      "incumbent upon",
+      "formal obligation"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 569,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was deprived ___ his right to due process.",
+    "choices": [
+      "from",
+      "of",
+      "with",
+      "to"
+    ],
+    "answer": "of",
+    "explanation": "'Deprived of' means denied or stripped of.",
+    "tags": [
+      "deprived of",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 570,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is ancillary ___ the main policy on employee conduct.",
+    "choices": [
+      "for",
+      "to",
+      "with",
+      "of"
+    ],
+    "answer": "to",
+    "explanation": "'Ancillary to' means supplementary to or subordinate to.",
+    "tags": [
+      "ancillary to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 571,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director is loath ___ admit that the project has failed.",
+    "choices": [
+      "in",
+      "to",
+      "for",
+      "of"
+    ],
+    "answer": "to",
+    "explanation": "'Loath to' means reluctant to.",
+    "tags": [
+      "loath to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 572,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is apprised ___ all developments in the case.",
+    "choices": [
+      "about",
+      "of",
+      "with",
+      "on"
+    ],
+    "answer": "of",
+    "explanation": "'Apprised of' means informed of.",
+    "tags": [
+      "apprised of",
+      "formal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 573,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was inured ___ the hardships of fieldwork after years of service.",
+    "choices": [
+      "with",
+      "to",
+      "from",
+      "by"
+    ],
+    "answer": "to",
+    "explanation": "'Inured to' means accustomed to (something unpleasant).",
+    "tags": [
+      "inured to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 574,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is germane ___ the issue being discussed.",
+    "choices": [
+      "for",
+      "to",
+      "with",
+      "about"
+    ],
+    "answer": "to",
+    "explanation": "'Germane to' means relevant to.",
+    "tags": [
+      "germane to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 575,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor was remiss ___ not informing the employees about the schedule change.",
+    "choices": [
+      "for",
+      "in",
+      "of",
+      "about"
+    ],
+    "answer": "in",
+    "explanation": "'Remiss in' not doing something (negligent in).",
+    "tags": [
+      "remiss in",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 576,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is amenable ___ compromise on non-essential provisions.",
+    "choices": [
+      "for",
+      "to",
+      "with",
+      "about"
+    ],
+    "answer": "to",
+    "explanation": "'Amenable to' means open to or willing to accept.",
+    "tags": [
+      "amenable to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 577,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was imputed ___ having falsified his daily time record.",
+    "choices": [
+      "of",
+      "with",
+      "for",
+      "to"
+    ],
+    "answer": "with",
+    "explanation": "'Imputed with' means accused of or attributed with (in Philippine legal usage).",
+    "tags": [
+      "imputed with",
+      "Philippine legal usage"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 578,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is coterminous ___ the term of the appointing authority.",
+    "choices": [
+      "to",
+      "with",
+      "as",
+      "for"
+    ],
+    "answer": "with",
+    "explanation": "'Coterminous with' means having the same boundaries or duration as.",
+    "tags": [
+      "coterminous with",
+      "formal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 579,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director is abreast ___ the latest developments in the case.",
+    "choices": [
+      "with",
+      "of",
+      "about",
+      "on"
+    ],
+    "answer": "of",
+    "explanation": "'Abreast of' means up to date with.",
+    "tags": [
+      "abreast of",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 580,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was adept ___ handling difficult clients.",
+    "choices": [
+      "in",
+      "at",
+      "with",
+      "for"
+    ],
+    "answer": "at",
+    "explanation": "'Adept at' means skilled at.",
+    "tags": [
+      "adept at",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 581,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is seized ___ jurisdiction over the complaint.",
+    "choices": [
+      "with",
+      "of",
+      "by",
+      "in"
+    ],
+    "answer": "of",
+    "explanation": "'Seized of jurisdiction' (legal) means having taken cognizance of.",
+    "tags": [
+      "seized of",
+      "legal jurisdiction"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 582,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is repugnant ___ the constitutional guarantee of equal protection.",
+    "choices": [
+      "with",
+      "to",
+      "against",
+      "for"
+    ],
+    "answer": "to",
+    "explanation": "'Repugnant to' means contrary to or inconsistent with.",
+    "tags": [
+      "repugnant to",
+      "legal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 583,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was constrained ___ file the complaint due to the persistent harassment.",
+    "choices": [
+      "in",
+      "to",
+      "for",
+      "from"
+    ],
+    "answer": "to",
+    "explanation": "'Constrained to' means compelled to or forced to.",
+    "tags": [
+      "constrained to",
+      "formal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 584,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The supervisor is conversant ___ the intricacies of the procurement process.",
+    "choices": [
+      "about",
+      "with",
+      "in",
+      "of"
+    ],
+    "answer": "with",
+    "explanation": "'Conversant with' means thoroughly familiar with.",
+    "tags": [
+      "conversant with",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 585,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is mandated ___ law to act on complaints within sixty days.",
+    "choices": [
+      "under",
+      "by",
+      "with",
+      "from"
+    ],
+    "answer": "by",
+    "explanation": "'Mandated by law' means required by law.",
+    "tags": [
+      "mandated by",
+      "legal expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 586,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was inveigled ___ signing the document without reading it.",
+    "choices": [
+      "to",
+      "into",
+      "for",
+      "with"
+    ],
+    "answer": "into",
+    "explanation": "'Inveigled into' means tricked or persuaded into.",
+    "tags": [
+      "inveigled into",
+      "verb + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 587,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The regulation is antithetical ___ the principles of transparency and accountability.",
+    "choices": [
+      "with",
+      "to",
+      "for",
+      "against"
+    ],
+    "answer": "to",
+    "explanation": "'Antithetical to' means directly opposed to.",
+    "tags": [
+      "antithetical to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 588,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The director is beholden ___ no one for his appointment to the position.",
+    "choices": [
+      "with",
+      "to",
+      "for",
+      "by"
+    ],
+    "answer": "to",
+    "explanation": "'Beholden to' means indebted to or obligated to.",
+    "tags": [
+      "beholden to",
+      "adjective + preposition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 589,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The employee was mulcted ___ a fine equivalent to one month's salary.",
+    "choices": [
+      "with",
+      "of",
+      "by",
+      "for"
+    ],
+    "answer": "of",
+    "explanation": "'Mulcted of' means penalized by having something taken away.",
+    "tags": [
+      "mulcted of",
+      "formal/legal verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 590,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The committee is enjoined ___ acting on the matter pending resolution of the preliminary issue.",
+    "choices": [
+      "against",
+      "from",
+      "to",
+      "of"
+    ],
+    "answer": "from",
+    "explanation": "'Enjoined from' means prohibited from or restrained from.",
+    "tags": [
+      "enjoined from",
+      "legal prohibition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 591,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The official was arraigned ___ charges of graft and corruption.",
+    "choices": [
+      "with",
+      "on",
+      "for",
+      "of"
+    ],
+    "answer": "on",
+    "explanation": "'Arraigned on' is the correct legal collocation meaning formally charged with.",
+    "tags": [
+      "arraigned on",
+      "legal collocation"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 592,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The witness was prevailed ___ to testify before the tribunal.",
+    "choices": [
+      "on",
+      "upon",
+      "over",
+      "with"
+    ],
+    "answer": "upon",
+    "explanation": "'Prevailed upon' means persuaded or induced someone to do something.",
+    "tags": [
+      "prevailed upon",
+      "formal persuasion"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 593,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The agency is vested ___ the authority to promulgate rules.",
+    "choices": [
+      "of",
+      "by",
+      "with",
+      "in"
+    ],
+    "answer": "with",
+    "explanation": "'Vested with' means endowed with or given authority or power.",
+    "tags": [
+      "vested with",
+      "authority collocation"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 594,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The decision is predicated ___ the assumption that all parties acted in good faith.",
+    "choices": [
+      "on",
+      "upon",
+      "by",
+      "in"
+    ],
+    "answer": "on",
+    "explanation": "'Predicated on/upon' means based on or founded upon a premise.",
+    "tags": [
+      "predicated on",
+      "formal reasoning"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 595,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The officer was remiss ___ his duty to secure the premises.",
+    "choices": [
+      "of",
+      "in",
+      "on",
+      "with"
+    ],
+    "answer": "in",
+    "explanation": "'Remiss in' means negligent or careless in performing a duty.",
+    "tags": [
+      "remiss in",
+      "negligence collocation"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 596,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The petitioner is bereft ___ any legal basis for the claim.",
+    "choices": [
+      "from",
+      "with",
+      "of",
+      "in"
+    ],
+    "answer": "of",
+    "explanation": "'Bereft of' means completely lacking or deprived of something.",
+    "tags": [
+      "bereft of",
+      "formal deprivation"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 597,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The new policy is tantamount ___ an admission of liability.",
+    "choices": [
+      "with",
+      "as",
+      "to",
+      "for"
+    ],
+    "answer": "to",
+    "explanation": "'Tantamount to' means equivalent to or virtually the same as.",
+    "tags": [
+      "tantamount to",
+      "equivalence collocation"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 598,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The board is precluded ___ revisiting the matter once a final order is issued.",
+    "choices": [
+      "of",
+      "against",
+      "from",
+      "in"
+    ],
+    "answer": "from",
+    "explanation": "'Precluded from' means prevented or barred from doing something.",
+    "tags": [
+      "precluded from",
+      "legal prohibition"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 599,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The administrator was impervious ___ the repeated entreaties of the complainants.",
+    "choices": [
+      "from",
+      "against",
+      "of",
+      "to"
+    ],
+    "answer": "to",
+    "explanation": "'Impervious to' means unaffected by or resistant to.",
+    "tags": [
+      "impervious to",
+      "adjective-preposition collocation"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 600,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Prepositions",
+    "difficulty": "Hard",
+    "question": "The counsel was disabused ___ the notion that the case would be dismissed summarily.",
+    "choices": [
+      "from",
+      "of",
+      "about",
+      "with"
+    ],
+    "answer": "of",
+    "explanation": "'Disabused of' means freed from a mistaken belief or false impression.",
+    "tags": [
+      "disabused of",
+      "formal correction"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
   }
 ]

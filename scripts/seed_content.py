@@ -14,6 +14,8 @@ Hierarchy created:
       Subtopic 6: "Modifiers"
       Subtopic 7: "Parallelism"
       Subtopic 8: "Articles"
+      Subtopic 9: "Active and Passive Voice"
+      Subtopic 10: "Direct and Indirect Speech"
 
 Usage:
     python -m scripts.seed_content
@@ -62,6 +64,8 @@ SUBTOPICS_CONFIG: list[tuple[str, str, str]] = [
     ("modifiers", "Modifiers", "modifiers"),
     ("parallelism", "Parallelism", "parallelism"),
     ("articles", "Articles", "articles"),
+    ("active-and-passive-voice", "Active and Passive Voice", "active-and-passive-voice"),
+    ("direct-and-indirect-speech", "Direct and Indirect Speech", "direct-and-indirect-speech"),
 ]
 
 # Legacy aliases for backward compatibility
@@ -181,6 +185,8 @@ def seed_content(session: Session) -> dict[str, Any]:
       6. Modifiers
       7. Parallelism
       8. Articles
+      9. Active and Passive Voice
+      10. Direct and Indirect Speech
     """
     results: dict[str, Any] = {"modules": [], "questions_loaded": 0}
 

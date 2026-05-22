@@ -12498,5 +12498,2505 @@
       "Sub-Professional"
     ],
     "language": "English"
+  },
+  {
+    "id": 501,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The committee, along with several advisors from the regional offices, ___ decided to postpone the evaluation.",
+    "choices": [
+      "have",
+      "has",
+      "are",
+      "were"
+    ],
+    "answer": "has",
+    "explanation": "The subject is 'committee' (singular collective noun). 'Along with several advisors' is a parenthetical phrase that does not make the subject plural.",
+    "tags": [
+      "collective noun",
+      "intervening phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 502,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Neither the department heads nor the director ___ informed about the policy change.",
+    "choices": [
+      "were",
+      "was",
+      "are",
+      "have been"
+    ],
+    "answer": "was",
+    "explanation": "With 'neither...nor,' the verb agrees with the nearest subject. 'Director' is singular, so 'was' is correct.",
+    "tags": [
+      "neither/nor",
+      "proximity rule"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 503,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The number of applicants who passed the examination ___ increasing every year.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'The number of' is always singular. Do not confuse with 'A number of' which is plural.",
+    "tags": [
+      "the number of",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 504,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "A number of employees in the government agency ___ requesting a salary adjustment.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'A number of' is always plural, meaning 'many/several.' The verb must be plural.",
+    "tags": [
+      "a number of",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 505,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Every one of the documents submitted by the applicants from the provincial offices ___ been reviewed.",
+    "choices": [
+      "have",
+      "has",
+      "were",
+      "are"
+    ],
+    "answer": "has",
+    "explanation": "'Every one' is singular. The long prepositional phrase does not change the singular subject.",
+    "tags": [
+      "every",
+      "intervening phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 506,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The quality of the services rendered by the local government units in the region ___ commendable.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "The subject is 'quality' (singular). Multiple prepositional phrases do not affect agreement.",
+    "tags": [
+      "prepositional phrase",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 507,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Mathematics, along with Science and English, ___ a required subject in the civil service examination.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Mathematics' is singular (academic subject). 'Along with' does not create a compound subject.",
+    "tags": [
+      "academic subject",
+      "intervening phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 508,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "One of the supervisors who ___ assigned to the project has resigned.",
+    "choices": [
+      "was",
+      "were",
+      "is",
+      "are"
+    ],
+    "answer": "were",
+    "explanation": "The relative pronoun 'who' refers to 'supervisors' (plural), so the verb in the relative clause is 'were.'",
+    "tags": [
+      "relative clause",
+      "antecedent agreement"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 509,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "She is the only one of the applicants who ___ qualified for the position.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "When 'the only one' precedes the relative clause, the pronoun refers to 'one' (singular), requiring 'is.'",
+    "tags": [
+      "relative clause",
+      "the only one"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 510,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "There ___ several reasons why the memorandum was not implemented on time.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "In expletive constructions with 'there,' the verb agrees with the true subject that follows. 'Reasons' is plural.",
+    "tags": [
+      "expletive construction",
+      "inverted subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 511,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Either the secretary or the board members ___ responsible for disseminating the information.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "With 'either...or,' the verb agrees with the nearest subject. 'Board members' is plural.",
+    "tags": [
+      "either/or",
+      "proximity rule"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 512,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The staff, together with the department manager, ___ attending the seminar next week.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Together with' does not form a compound subject. The subject remains 'staff' (collective, singular in formal usage).",
+    "tags": [
+      "collective noun",
+      "together with"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 513,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Not only the employees but also the director ___ expected to comply with the new regulation.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "With 'not only...but also,' the verb agrees with the nearest subject. 'Director' is singular.",
+    "tags": [
+      "not only/but also",
+      "proximity rule"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 514,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Each of the regional directors, as well as their respective staff members, ___ required to submit a quarterly report.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Each' is always singular. 'As well as their respective staff members' is parenthetical.",
+    "tags": [
+      "each",
+      "intervening phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 515,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The proceeds from the charity event ___ donated to the local orphanage.",
+    "choices": [
+      "was",
+      "were",
+      "is",
+      "has been"
+    ],
+    "answer": "were",
+    "explanation": "'Proceeds' is always plural (it has no singular form), requiring a plural verb.",
+    "tags": [
+      "plural-only noun",
+      "subject identification"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 516,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Politics ___ a sensitive topic that government employees should discuss with caution.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Politics' as a field of study or general concept is singular.",
+    "tags": [
+      "singular noun ending in -s",
+      "academic subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 517,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The news about the reorganization of several government agencies ___ alarming to many employees.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'News' is always singular despite ending in -s.",
+    "tags": [
+      "uncountable noun",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 518,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Ten thousand pesos ___ not enough to cover the expenses for the entire training program.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "Amounts of money, when considered as a single unit, take a singular verb.",
+    "tags": [
+      "amount as unit",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 519,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Two-thirds of the budget ___ allocated to personnel services.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "When a fraction refers to a singular/uncountable noun ('budget'), the verb is singular.",
+    "tags": [
+      "fraction",
+      "uncountable reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 520,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Two-thirds of the employees ___ already submitted their performance evaluation forms.",
+    "choices": [
+      "has",
+      "have",
+      "is",
+      "was"
+    ],
+    "answer": "have",
+    "explanation": "When a fraction refers to a plural noun ('employees'), the verb is plural.",
+    "tags": [
+      "fraction",
+      "plural reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 521,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The committee ___ divided in their opinions regarding the proposed amendment.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "were"
+    ],
+    "answer": "are",
+    "explanation": "When a collective noun's members act individually (shown by 'their opinions'), a plural verb is acceptable.",
+    "tags": [
+      "collective noun",
+      "individual action"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 522,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Measles ___ a highly contagious disease that requires immediate medical attention.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Measles' is singular despite its -s ending.",
+    "tags": [
+      "disease name",
+      "singular noun ending in -s"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 523,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The Philippines ___ an archipelago consisting of more than 7,000 islands.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "Country names are always singular, even when they appear plural in form.",
+    "tags": [
+      "proper noun",
+      "country name"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 524,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "None of the information provided by the witnesses ___ verified by the investigating officer.",
+    "choices": [
+      "were",
+      "was",
+      "are",
+      "have been"
+    ],
+    "answer": "was",
+    "explanation": "'None' with an uncountable noun ('information') takes a singular verb.",
+    "tags": [
+      "none",
+      "uncountable noun"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 525,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "None of the documents ___ signed by the authorized representative.",
+    "choices": [
+      "was",
+      "were",
+      "is",
+      "has been"
+    ],
+    "answer": "were",
+    "explanation": "'None' with a plural countable noun ('documents') takes a plural verb.",
+    "tags": [
+      "none",
+      "plural countable"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 526,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Here ___ the results of the investigation conducted by the internal audit team.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "In inverted sentences beginning with 'here,' the verb agrees with the subject that follows. 'Results' is plural.",
+    "tags": [
+      "inverted sentence",
+      "expletive"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 527,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "What ___ needed are additional funds for the completion of the infrastructure project.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "were"
+    ],
+    "answer": "is",
+    "explanation": "The subject of the first clause is 'what' (singular concept), requiring 'is.'",
+    "tags": [
+      "what-clause",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 528,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The majority of the respondents ___ in favor of the proposed policy.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'The majority of' with a plural noun takes a plural verb.",
+    "tags": [
+      "majority",
+      "plural reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 529,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Bread and butter ___ his usual breakfast before reporting to the office.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "When two nouns joined by 'and' refer to a single concept or dish, the verb is singular.",
+    "tags": [
+      "compound subject as unit",
+      "singular concept"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 530,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The rise and fall of empires ___ a recurring theme in world history.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Rise and fall' is treated as a single concept, requiring a singular verb.",
+    "tags": [
+      "compound subject as unit",
+      "singular concept"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 531,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Either of the two proposals ___ acceptable to the board of directors.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Either' as a pronoun is always singular, meaning 'one or the other.'",
+    "tags": [
+      "either as pronoun",
+      "singular"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 532,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The acoustics in the newly renovated conference hall ___ excellent.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'Acoustics' referring to sound quality in a specific place is plural.",
+    "tags": [
+      "plural-only noun",
+      "context-dependent"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 533,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Economics ___ one of the subjects included in the civil service examination.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Economics' as an academic discipline is singular.",
+    "tags": [
+      "academic subject",
+      "singular noun ending in -s"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 534,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Five years ___ a long time to wait for a promotion in the government service.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "A period of time considered as a single unit takes a singular verb.",
+    "tags": [
+      "time as unit",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 535,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The scissors on the desk ___ to the administrative assistant.",
+    "choices": [
+      "belongs",
+      "belong",
+      "is belonging",
+      "has belonged"
+    ],
+    "answer": "belong",
+    "explanation": "'Scissors' is always plural, requiring a plural verb.",
+    "tags": [
+      "plural-only noun",
+      "paired noun"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 536,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "No fewer than twenty applicants ___ expected to take the qualifying examination.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'No fewer than twenty applicants' is plural. The subject is 'applicants.'",
+    "tags": [
+      "quantifier",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 537,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Many a government employee ___ struggled with the grammar section of the CSE.",
+    "choices": [
+      "have",
+      "has",
+      "were",
+      "are"
+    ],
+    "answer": "has",
+    "explanation": "'Many a' + singular noun takes a singular verb despite implying plurality.",
+    "tags": [
+      "many a",
+      "singular verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 538,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "More than one memorandum ___ issued regarding the new attendance policy.",
+    "choices": [
+      "were",
+      "was",
+      "are",
+      "have been"
+    ],
+    "answer": "was",
+    "explanation": "'More than one' + singular noun takes a singular verb.",
+    "tags": [
+      "more than one",
+      "singular verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 539,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "A series of workshops ___ been conducted to prepare employees for the examination.",
+    "choices": [
+      "have",
+      "has",
+      "were",
+      "are"
+    ],
+    "answer": "has",
+    "explanation": "'A series of' is singular (one series), requiring a singular verb.",
+    "tags": [
+      "a series of",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 540,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The data collected from the survey ___ inconclusive according to the research team.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "were"
+    ],
+    "answer": "are",
+    "explanation": "In formal/academic usage, 'data' is plural (singular: datum). The verb should be plural.",
+    "tags": [
+      "data",
+      "formal plural"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 541,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Not one of the employees who were interviewed ___ willing to testify against the supervisor.",
+    "choices": [
+      "were",
+      "was",
+      "are",
+      "have been"
+    ],
+    "answer": "was",
+    "explanation": "'Not one' is singular. The relative clause 'who were interviewed' modifies 'employees' but doesn't change the main subject.",
+    "tags": [
+      "not one",
+      "relative clause"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 542,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The trousers that the applicant wore to the interview ___ inappropriate for a government office.",
+    "choices": [
+      "was",
+      "were",
+      "is",
+      "has been"
+    ],
+    "answer": "were",
+    "explanation": "'Trousers' is always plural, requiring a plural verb.",
+    "tags": [
+      "plural-only noun",
+      "paired noun"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 543,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "All of the equipment in the three satellite offices ___ been inventoried.",
+    "choices": [
+      "have",
+      "has",
+      "were",
+      "are"
+    ],
+    "answer": "has",
+    "explanation": "'Equipment' is uncountable/singular. 'All of' with uncountable nouns takes a singular verb.",
+    "tags": [
+      "all of",
+      "uncountable noun"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 544,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Statistics ___ required for the research methodology course in the graduate program.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Statistics' as an academic subject is singular.",
+    "tags": [
+      "academic subject",
+      "singular noun ending in -s"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 545,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The statistics in the annual report ___ inaccurate and need to be corrected.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'Statistics' meaning 'numerical data/figures' is plural.",
+    "tags": [
+      "statistics as data",
+      "context-dependent"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 546,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Half of the allotted time for the examination ___ already elapsed.",
+    "choices": [
+      "have",
+      "has",
+      "are",
+      "were"
+    ],
+    "answer": "has",
+    "explanation": "'Half of' with a singular/uncountable noun ('time') takes a singular verb.",
+    "tags": [
+      "fraction",
+      "uncountable reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 547,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Half of the examinees ___ already finished the grammar section.",
+    "choices": [
+      "has",
+      "have",
+      "is",
+      "was"
+    ],
+    "answer": "have",
+    "explanation": "'Half of' with a plural noun ('examinees') takes a plural verb.",
+    "tags": [
+      "fraction",
+      "plural reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 548,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "There ___ a pen and two notebooks on the proctor's desk.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "When 'there' introduces a compound subject, the verb agrees with the first/nearest noun. 'A pen' is singular.",
+    "tags": [
+      "expletive",
+      "proximity in there-construction"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 549,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The singer and songwriter ___ performing at the government anniversary celebration.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "When two nouns joined by 'and' refer to the same person (one person who is both), the verb is singular.",
+    "tags": [
+      "same person",
+      "compound subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 550,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The singer and the songwriter ___ performing at the government anniversary celebration.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "Two separate people (indicated by repeating 'the') joined by 'and' require a plural verb.",
+    "tags": [
+      "two people",
+      "compound subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 551,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Every employee and every supervisor ___ expected to attend the flag ceremony.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Every' before each noun makes each one singular. Even with 'and,' the verb is singular when 'every' precedes each noun.",
+    "tags": [
+      "every",
+      "distributive"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 552,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The furniture in all the offices on the third floor ___ been replaced.",
+    "choices": [
+      "have",
+      "has",
+      "were",
+      "are"
+    ],
+    "answer": "has",
+    "explanation": "'Furniture' is uncountable and always singular.",
+    "tags": [
+      "uncountable noun",
+      "intervening phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 553,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Either the manager or I ___ going to represent the department at the conference.",
+    "choices": [
+      "is",
+      "am",
+      "are",
+      "was"
+    ],
+    "answer": "am",
+    "explanation": "With 'either...or,' the verb agrees with the nearest subject. 'I' takes 'am.'",
+    "tags": [
+      "either/or",
+      "first person proximity"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 554,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Neither I nor he ___ responsible for the missing documents.",
+    "choices": [
+      "am",
+      "is",
+      "are",
+      "were"
+    ],
+    "answer": "is",
+    "explanation": "With 'neither...nor,' the verb agrees with the nearest subject. 'He' takes 'is.'",
+    "tags": [
+      "neither/nor",
+      "proximity rule"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 555,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The group of trainees from the different regional offices ___ scheduled to arrive tomorrow.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "The subject is 'group' (singular collective noun). The prepositional phrases do not change this.",
+    "tags": [
+      "collective noun",
+      "multiple prepositional phrases"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 556,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Included in the report ___ the findings of the three-month investigation.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "Inverted sentence: the subject is 'findings' (plural), which comes after the verb.",
+    "tags": [
+      "inverted sentence",
+      "subject after verb"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 557,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Among the requirements for the position ___ a master's degree and five years of experience.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "Inverted sentence: the compound subject 'a master's degree and five years of experience' is plural.",
+    "tags": [
+      "inverted sentence",
+      "compound subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 558,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "What concerns the administration ___ the declining performance ratings of the employees.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'What concerns the administration' is a noun clause acting as a singular subject.",
+    "tags": [
+      "noun clause",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 559,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The number of hours spent on training, not the number of certificates earned, ___ what matters.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "The subject is 'the number of hours' (singular). The parenthetical 'not the number of certificates earned' does not affect agreement.",
+    "tags": [
+      "the number of",
+      "parenthetical"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 560,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Civics, which deals with the rights and duties of citizens, ___ an important subject for government employees.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Civics' is singular (academic subject). The relative clause is parenthetical.",
+    "tags": [
+      "academic subject",
+      "relative clause"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 561,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The memoranda issued by the central office ___ clear and comprehensive.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'Memoranda' is the plural of 'memorandum,' requiring a plural verb.",
+    "tags": [
+      "Latin plural",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 562,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The criteria for promotion ___ been revised by the human resource department.",
+    "choices": [
+      "has",
+      "have",
+      "is",
+      "was"
+    ],
+    "answer": "have",
+    "explanation": "'Criteria' is the plural of 'criterion,' requiring a plural verb.",
+    "tags": [
+      "Latin plural",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 563,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The phenomenon observed in several government agencies ___ alarming.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Phenomenon' is singular (plural: phenomena), requiring a singular verb.",
+    "tags": [
+      "Latin singular",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 564,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The alumni of the training program ___ invited to the anniversary celebration.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'Alumni' is plural (singular: alumnus/alumna), requiring a plural verb.",
+    "tags": [
+      "Latin plural",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 565,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "No sooner ___ the director arrived than the meeting started.",
+    "choices": [
+      "has",
+      "had",
+      "have",
+      "was"
+    ],
+    "answer": "had",
+    "explanation": "'No sooner had...than' is the correct construction. The subject 'director' requires 'had' in this inverted past perfect structure.",
+    "tags": [
+      "inverted sentence",
+      "no sooner"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 566,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Not only ___ the employees required to attend, but they must also submit a written report.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "were"
+    ],
+    "answer": "are",
+    "explanation": "Inverted structure after 'not only': the subject 'employees' is plural.",
+    "tags": [
+      "inversion after not only",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 567,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Little ___ the supervisor know that the documents had already been forwarded.",
+    "choices": [
+      "do",
+      "does",
+      "did",
+      "has"
+    ],
+    "answer": "did",
+    "explanation": "Inverted sentence with 'little' (negative adverb). The subject 'supervisor' is singular, and the context is past tense.",
+    "tags": [
+      "inversion after negative adverb",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 568,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Such ___ the consequences of failing to comply with the memorandum.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'Such' refers to 'consequences' (plural), requiring a plural verb.",
+    "tags": [
+      "such as subject",
+      "plural reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 569,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The wages of government employees in the lower salary grades ___ barely enough to cover basic necessities.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'Wages' is plural, requiring a plural verb. The prepositional phrases do not change this.",
+    "tags": [
+      "plural subject",
+      "intervening phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 570,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Writing reports and attending meetings ___ part of a supervisor's daily routine.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "Two gerund phrases joined by 'and' form a compound subject (plural).",
+    "tags": [
+      "gerund compound subject",
+      "plural"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 571,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Reading official memoranda carefully before signing them ___ a good practice for all government employees.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "A single gerund phrase as subject is singular, even if it contains plural objects.",
+    "tags": [
+      "gerund phrase",
+      "singular subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 572,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The board of directors, whose members represent various sectors, ___ convening this afternoon.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "The subject is 'board' (singular collective noun). The relative clause is parenthetical.",
+    "tags": [
+      "collective noun",
+      "relative clause"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 573,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Three-fourths of the building ___ damaged by the typhoon.",
+    "choices": [
+      "were",
+      "was",
+      "are",
+      "have been"
+    ],
+    "answer": "was",
+    "explanation": "Three-fourths of a singular noun ('building') takes a singular verb.",
+    "tags": [
+      "fraction",
+      "singular reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 574,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Three-fourths of the buildings in the compound ___ damaged by the typhoon.",
+    "choices": [
+      "was",
+      "were",
+      "is",
+      "has been"
+    ],
+    "answer": "were",
+    "explanation": "Three-fourths of a plural noun ('buildings') takes a plural verb.",
+    "tags": [
+      "fraction",
+      "plural reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 575,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The rest of the paperwork ___ to be completed before the end of the fiscal year.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'The rest of' with an uncountable noun ('paperwork') takes a singular verb.",
+    "tags": [
+      "the rest of",
+      "uncountable"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 576,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The rest of the employees ___ to be evaluated before the end of the quarter.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'The rest of' with a plural noun ('employees') takes a plural verb.",
+    "tags": [
+      "the rest of",
+      "plural"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 577,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "It is the supervisor, not the rank-and-file employees, who ___ accountable for the delay.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "The relative pronoun 'who' refers to 'supervisor' (singular), not 'employees.'",
+    "tags": [
+      "relative clause",
+      "not-phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 578,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "It is the employees, not the supervisor, who ___ responsible for submitting their own DTRs.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "The relative pronoun 'who' refers to 'employees' (plural).",
+    "tags": [
+      "relative clause",
+      "not-phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 579,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The only criterion that ___ been consistently applied across all regional offices is seniority.",
+    "choices": [
+      "have",
+      "has",
+      "were",
+      "are"
+    ],
+    "answer": "has",
+    "explanation": "'Criterion' is singular, so the relative clause verb must be singular.",
+    "tags": [
+      "Latin singular",
+      "relative clause"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 580,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "A large percentage of the workforce ___ dissatisfied with the current compensation package.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'A large percentage of' with a plural noun ('workforce' meaning the workers) takes a plural verb when referring to the individuals.",
+    "tags": [
+      "percentage",
+      "collective meaning"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 581,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Neither the union representatives nor the management spokesperson ___ willing to compromise.",
+    "choices": [
+      "were",
+      "was",
+      "are",
+      "have been"
+    ],
+    "answer": "was",
+    "explanation": "With 'neither...nor,' the verb agrees with the nearest subject. 'Spokesperson' is singular.",
+    "tags": [
+      "neither/nor",
+      "proximity rule"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 582,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The phenomena observed during the audit ___ indicative of systemic problems.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "'Phenomena' is the plural of 'phenomenon,' requiring a plural verb.",
+    "tags": [
+      "Latin plural",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 583,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Whoever ___ responsible for the oversight must submit a written explanation.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Whoever' is singular when referring to one unspecified person.",
+    "tags": [
+      "whoever",
+      "singular pronoun"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 584,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "All that ___ required is a valid government-issued identification card.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'All that is required' — 'all' here refers to a single thing/requirement, taking a singular verb.",
+    "tags": [
+      "all",
+      "singular reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 585,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The majority of the budget allocation ___ spent on personnel services.",
+    "choices": [
+      "were",
+      "was",
+      "are",
+      "have been"
+    ],
+    "answer": "was",
+    "explanation": "'The majority of' with a singular/uncountable noun ('budget allocation') takes a singular verb.",
+    "tags": [
+      "majority",
+      "singular reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 586,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Where ___ the documents that were supposed to be submitted last Friday?",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "The subject is 'documents' (plural). The sentence is inverted (question form).",
+    "tags": [
+      "inverted question",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 587,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Attached hereto ___ the certified true copies of the required documents.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "Inverted sentence: the subject is 'copies' (plural), requiring a plural verb.",
+    "tags": [
+      "inverted sentence",
+      "formal correspondence"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 588,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The information contained in the annexes ___ confidential and must not be disclosed.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Information' is uncountable and always singular.",
+    "tags": [
+      "uncountable noun",
+      "intervening phrase"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 589,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Gymnastics ___ one of the events in the annual government employees' sportsfest.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "'Gymnastics' as a sport/discipline is singular.",
+    "tags": [
+      "sport name",
+      "singular noun ending in -s"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 590,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The goods confiscated during the operation ___ been turned over to the proper authorities.",
+    "choices": [
+      "has",
+      "have",
+      "is",
+      "was"
+    ],
+    "answer": "have",
+    "explanation": "'Goods' is always plural, requiring a plural verb.",
+    "tags": [
+      "plural-only noun",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 591,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Not only the director but also the division chiefs ___ expected to attend the flag ceremony.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "With 'not only...but also,' the verb agrees with the nearer subject. 'Division chiefs' is plural, so the plural verb 'are' is correct.",
+    "tags": [
+      "not only but also",
+      "proximity rule"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 592,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The committee, along with its advisory board members, ___ issued a resolution on the matter.",
+    "choices": [
+      "have",
+      "has",
+      "are",
+      "were"
+    ],
+    "answer": "has",
+    "explanation": "Phrases introduced by 'along with' do not form a compound subject. The true subject is 'committee' (singular), requiring 'has.'",
+    "tags": [
+      "along with",
+      "parenthetical"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 593,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "What ___ needed are concrete solutions, not more studies.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "answer": "is",
+    "explanation": "The 'what' clause functions as a singular noun clause ('what is needed' = the thing that is needed), taking a singular verb.",
+    "tags": [
+      "what clause",
+      "noun clause"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 594,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Three-fourths of the allotted budget ___ already been disbursed.",
+    "choices": [
+      "have",
+      "has",
+      "are",
+      "were"
+    ],
+    "answer": "has",
+    "explanation": "When a fraction refers to a singular/uncountable noun ('budget'), the verb is singular.",
+    "tags": [
+      "fraction",
+      "uncountable reference"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 595,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Each of the memoranda that ___ circulated contains factual errors.",
+    "choices": [
+      "was",
+      "were",
+      "is",
+      "has been"
+    ],
+    "answer": "were",
+    "explanation": "The relative pronoun 'that' refers to 'memoranda' (plural of memorandum). The verb in the relative clause must be plural: 'were circulated.'",
+    "tags": [
+      "relative pronoun",
+      "Latin plural"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 596,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "There ___ been several amendments to the implementing rules since 2020.",
+    "choices": [
+      "has",
+      "have",
+      "is",
+      "was"
+    ],
+    "answer": "have",
+    "explanation": "In existential 'there' constructions, the verb agrees with the real subject. 'Amendments' is plural, requiring 'have.'",
+    "tags": [
+      "expletive there",
+      "plural subject"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 597,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "The data gathered from the field offices ___ that absenteeism has increased.",
+    "choices": [
+      "shows",
+      "show",
+      "showing",
+      "has shown"
+    ],
+    "answer": "show",
+    "explanation": "'Data' is the plural of 'datum.' In formal usage, it takes a plural verb. The intervening phrase does not change the subject.",
+    "tags": [
+      "Latin plural",
+      "data"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 598,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "It is the policies, not the individual officer, that ___ under review.",
+    "choices": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "answer": "are",
+    "explanation": "In a cleft sentence, the relative pronoun 'that' refers to 'policies' (plural), so the verb must be plural.",
+    "tags": [
+      "cleft sentence",
+      "relative pronoun"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 599,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "A series of workshops ___ been scheduled for the newly hired employees.",
+    "choices": [
+      "have",
+      "has",
+      "are",
+      "were"
+    ],
+    "answer": "has",
+    "explanation": "'A series of' is treated as a singular expression (one series), taking the singular verb 'has.'",
+    "tags": [
+      "a series of",
+      "singular expression"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
+  },
+  {
+    "id": 600,
+    "subtest": "Verbal Ability",
+    "module": "Grammar and Correct Usage",
+    "subtopic": "Subject-Verb Agreement",
+    "difficulty": "Hard",
+    "question": "Every report and every memorandum submitted to the office ___ to be reviewed within five working days.",
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "have"
+    ],
+    "answer": "is",
+    "explanation": "When 'every' precedes each noun in a compound subject, the subject is treated as singular because 'every' emphasizes individuality.",
+    "tags": [
+      "every",
+      "compound subject singular"
+    ],
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English"
   }
 ]
