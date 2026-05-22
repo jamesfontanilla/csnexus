@@ -37,6 +37,7 @@ def _make_user(**overrides: object) -> User:
         "id": 1,
         "email": "alice@example.com",
         "display_name": "Alice",
+        "username": "alice_test",
         "age": 25,
         "category": Category.PROFESSIONAL.value,
         "role": Role.LEARNER.value,
@@ -53,6 +54,7 @@ def _make_signup_payload(**overrides: object) -> UserCreate:
     defaults: dict[str, object] = {
         "email": "alice@example.com",
         "display_name": "Alice",
+        "username": "alice_test",
         "age": 25,
         "category": "PROFESSIONAL",
         "password": _RIGHT_PASSWORD,
@@ -77,6 +79,7 @@ def _make_service(
     otp_service = otp_service or MagicMock(spec=OTPService)
 
     user_repo.get_by_email.return_value = None
+    user_repo.get_by_username.return_value = None
     auth_repo.get_lockout.return_value = None
     auth_repo.failed_count_in_window.return_value = 0
 

@@ -65,6 +65,9 @@ class User(Base):
     display_name: Mapped[str] = mapped_column(String(255), nullable=False)
     age: Mapped[int] = mapped_column(Integer, nullable=False)
     category: Mapped[str] = mapped_column(String(32), nullable=False)
+    username: Mapped[str | None] = mapped_column(
+        String(30), nullable=True, unique=True, default=None, index=True
+    )
     google_id: Mapped[str | None] = mapped_column(
         String(255), nullable=True, unique=True, default=None
     )

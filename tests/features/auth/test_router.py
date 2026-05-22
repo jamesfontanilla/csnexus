@@ -110,6 +110,7 @@ def _make_user(**overrides: object) -> User:
         "id": 1,
         "email": "alice@example.com",
         "display_name": "Alice",
+        "username": "alice_test",
         "age": 25,
         "category": Category.PROFESSIONAL.value,
         "role": Role.LEARNER.value,
@@ -127,6 +128,7 @@ def _signup_payload(**overrides: object) -> dict[str, object]:
     base: dict[str, object] = {
         "email": "alice@example.com",
         "display_name": "Alice",
+        "username": "alice_test",
         "age": 25,
         "category": "PROFESSIONAL",
         "password": "Strong1Pass!",

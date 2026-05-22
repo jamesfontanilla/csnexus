@@ -276,6 +276,7 @@ def test_require_no_active_mock_passes_when_no_in_progress_attempt(
         UserCreate(
             email="alice-clean@example.com",
             display_name="Alice",
+            username="alice_clean",
             age=25,
             category=Category.PROFESSIONAL.value,
             password="Strong1Pass!",
@@ -320,6 +321,7 @@ def test_require_no_active_mock_409_when_attempt_in_progress(
         UserCreate(
             email="alice-deps@example.com",
             display_name="Alice",
+            username="alice_deps",
             age=25,
             category=Category.PROFESSIONAL.value,
             password="Strong1Pass!",

@@ -86,10 +86,12 @@ _PBT_SETTINGS = dict(
 
 
 def _make_user(db_session: Session, *, email: str) -> User:
+    username = email.split("@")[0].replace(".", "_").replace("-", "_")
     return UserRepository(db=db_session).create(
         UserCreate(
             email=email,
             display_name="Alice",
+            username=username,
             age=25,
             category=Category.PROFESSIONAL.value,
             password="Strong1Pass!",

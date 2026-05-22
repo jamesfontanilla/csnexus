@@ -37,6 +37,7 @@ from app.features.mock_exams.router import router as mock_exam_router
 from app.features.otp.router import router as otp_router
 from app.features.progress.router import router as progress_router
 from app.features.quizzes.router import router as quiz_router
+from app.features.users.router import router as users_router
 from app.features.xp.router import router as xp_router
 from app.infrastructure.scheduler.jobs import start_scheduler, stop_scheduler
 
@@ -89,7 +90,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Tighten to your Vercel domain in production
+    allow_origins=["https://csnexus.space", "https://www.csnexus.space", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -109,6 +110,7 @@ register_exception_handlers(app)
 # Each router already carries its own prefix (e.g. /v1/auth, /v1, /v1/admin).
 app.include_router(auth_router)
 app.include_router(otp_router)
+app.include_router(users_router)
 app.include_router(content_router)
 app.include_router(progress_router)
 app.include_router(xp_router)

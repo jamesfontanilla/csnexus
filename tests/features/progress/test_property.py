@@ -55,10 +55,12 @@ def _make_user(
     db_session, *, email: str = "alice@example.com"
 ) -> User:
     repo = UserRepository(db=db_session)
+    username = email.split("@")[0].replace(".", "_").replace("-", "_")
     return repo.create(
         UserCreate(
             email=email,
             display_name="Alice",
+            username=username,
             age=25,
             category=Category.PROFESSIONAL.value,
             password="Strong1Pass!",

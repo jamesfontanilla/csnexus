@@ -179,6 +179,7 @@ def test_full_e2e_flow(smoke_env: tuple[TestClient, str]) -> None:
     signup_payload = {
         "email": "smoketest@cse.local",
         "display_name": "Smoke Tester",
+        "username": "smoke_tester",
         "age": 25,
         "category": "PROFESSIONAL",
         "password": "Smoke1Pass!",

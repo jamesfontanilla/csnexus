@@ -276,10 +276,12 @@ def test_property_29_mock_exam_in_progress_guard(
     from app.features.users.schemas import UserCreate
 
     user_repo = UserRepository(db=db_session)
+    username = f"alice_p29_{has_in_progress_mock}"
     user = user_repo.create(
         UserCreate(
             email=f"alice-prop29-{has_in_progress_mock}@example.com",
             display_name="Alice",
+            username=username,
             age=25,
             category=Cat.PROFESSIONAL.value,
             password="Strong1Pass!",

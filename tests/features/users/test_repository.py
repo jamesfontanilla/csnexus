@@ -18,11 +18,21 @@ def _make_payload(**overrides: object) -> UserCreate:
     defaults: dict[str, object] = {
         "email": "alice@example.com",
         "display_name": "Alice",
+        "username": "alice_test",
         "age": 25,
         "category": "PROFESSIONAL",
         "password": "Strong1Pass!",
     }
-    return UserCreate(**{**defaults, **overrides})
+    merged = {**defaults, **overrides}
+    # Derive username from email if not explicitly overridden
+    if "username" not in overrides and "email" in overrides:
+        email_str = str(merged["email"])
+        local = email_str.split("@")[0].replace(".", "_").replace("-", "_")
+        # Ensure minimum 3 chars for username validation
+        if len(local) < 3:
+            local = local + "_user"
+        merged["username"] = local
+    return UserCreate(**merged)
 
 
 def _create_user(repo: UserRepository, **overrides: object) -> User:

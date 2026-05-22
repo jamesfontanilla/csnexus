@@ -26,6 +26,9 @@ from app.features.users.models import AccountState, Category, Role
 # Project-local email regex. See module docstring for the deviation note.
 _EMAIL_RE = re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
 
+# Username: 3-30 chars, alphanumeric + underscores, must start with a letter.
+_USERNAME_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_]{2,29}$")
+
 # Symbol set per Req 1.3.
 _PASSWORD_SYMBOLS = frozenset("!@#$%^&*()-_=+[]{};:,.<>?/")
 
@@ -67,11 +70,28 @@ def _validate_password(value: str) -> str:
 validate_password = _validate_password
 
 
+def _validate_username(value: str) -> str:
+    """Validate username format: 3-30 chars, starts with letter, alphanumeric + underscores.
+
+    Stored as-is (case-sensitive display) but uniqueness checks are case-insensitive.
+    """
+    if not _USERNAME_RE.fullmatch(value):
+        raise ValueError(
+            "username must be 3-30 characters, start with a letter, "
+            "and contain only letters, digits, or underscores"
+        )
+    return value
+
+
+validate_username = _validate_username
+
+
 class UserCreate(BaseModel):
     """Signup payload (Req 1.1, 1.3, 1.4, 1.5)."""
 
     email: str
     display_name: str = Field(min_length=1, max_length=255)
+    username: str = Field(min_length=3, max_length=30)
     age: int = Field(ge=15, le=100)
     category: Category
     password: str
@@ -80,6 +100,11 @@ class UserCreate(BaseModel):
     @classmethod
     def _normalize_email(cls, v: str) -> str:
         return _validate_email(v)
+
+    @field_validator("username")
+    @classmethod
+    def _validate_username_field(cls, v: str) -> str:
+        return _validate_username(v)
 
     @field_validator("password")
     @classmethod
@@ -91,7 +116,15 @@ class UserUpdate(BaseModel):
     """Self-edit payload. ``PATCH`` semantics: omitted fields stay unchanged."""
 
     display_name: str | None = Field(default=None, min_length=1, max_length=255)
+    username: str | None = Field(default=None, min_length=3, max_length=30)
     tz_name: str | None = None
+
+    @field_validator("username")
+    @classmethod
+    def _validate_username_field(cls, v: str | None) -> str | None:
+        if v is None:
+            return None
+        return _validate_username(v)
 
 
 class UserResponse(BaseModel):
@@ -102,6 +135,7 @@ class UserResponse(BaseModel):
     id: int
     email: str
     display_name: str
+    username: str | None
     age: int
     category: Category
     role: Role

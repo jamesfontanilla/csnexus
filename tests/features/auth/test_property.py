@@ -119,6 +119,7 @@ def test_property_1_password_rule_completeness(p: str) -> None:
 _BASE_SIGNUP_PAYLOAD: dict[str, object] = {
     "email": "alice@example.com",
     "display_name": "Alice",
+    "username": "alice_test",
     "category": "PROFESSIONAL",
     "password": _RIGHT_PASSWORD,
 }

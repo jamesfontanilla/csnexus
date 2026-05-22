@@ -62,10 +62,12 @@ def _make_user_orm(**overrides: object) -> User:
 
 def _make_user(db: Session, *, email: str = "alice@example.com") -> User:
     """Persist a real :class:`User` for behavior tests."""
+    username = email.split("@")[0].replace(".", "_").replace("-", "_")
     return UserRepository(db=db).create(
         UserCreate(
             email=email,
             display_name="Alice",
+            username=username,
             age=25,
             category=Category.PROFESSIONAL.value,
             password="Strong1Pass!",

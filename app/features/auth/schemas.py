@@ -121,4 +121,5 @@ class GoogleUserResponse(BaseModel):
     id: int
     email: str
     display_name: str
+    username: str | None
     category: str

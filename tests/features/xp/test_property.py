@@ -80,10 +80,12 @@ def _make_user(*, tz_name: str = "UTC") -> User:
 
 
 def _persist_user(db: Session, *, email: str = "pbt@example.com") -> User:
+    username = email.split("@")[0].replace(".", "_").replace("-", "_")
     return UserRepository(db=db).create(
         UserCreate(
             email=email,
             display_name="Alice",
+            username=username,
             age=25,
             category=Category.PROFESSIONAL.value,
             password="Strong1Pass!",

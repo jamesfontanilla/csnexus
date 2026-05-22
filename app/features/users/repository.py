@@ -38,6 +38,15 @@ class UserRepository(BaseRepository[User]):
         stmt = select(User).where(User.email == normalized)
         return self.db.execute(stmt).scalar_one_or_none()
 
+    def get_by_username(self, username: str) -> User | None:
+        """Return the user with ``username`` (case-insensitive) or ``None``.
+
+        Usernames are stored as-is for display but uniqueness is enforced
+        case-insensitively via ``func.lower``.
+        """
+        stmt = select(User).where(func.lower(User.username) == username.lower())
+        return self.db.execute(stmt).scalar_one_or_none()
+
     def get_by_google_id(self, google_id: str) -> User | None:
         """Return the user linked to ``google_id`` or ``None``."""
         stmt = select(User).where(User.google_id == google_id)
@@ -59,6 +68,7 @@ class UserRepository(BaseRepository[User]):
         user = User(
             email=payload.email,
             display_name=payload.display_name,
+            username=payload.username,
             age=payload.age,
             category=payload.category.value,
             role=role.value,
@@ -77,6 +87,7 @@ class UserRepository(BaseRepository[User]):
         display_name: str,
         google_id: str,
         category: str,
+        username: str,
     ) -> User:
         """Create a user from Google OAuth data (no password, auto-verified).
 
@@ -87,6 +98,7 @@ class UserRepository(BaseRepository[User]):
         user = User(
             email=email.strip().lower(),
             display_name=display_name,
+            username=username,
             age=18,  # Default age for Google OAuth users; can be updated later
             category=category,
             google_id=google_id,

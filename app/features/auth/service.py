@@ -20,6 +20,9 @@ Time injection: every method that depends on wall-clock time accepts a
 
 from __future__ import annotations
 
+import random
+import re
+import string
 from datetime import datetime, timedelta, timezone
 from typing import Any, Final
 
@@ -98,6 +101,12 @@ class AuthService:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
                 detail=_ERR_EMAIL_TAKEN,
+            )
+
+        if self._user_repo.get_by_username(payload.username) is not None:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="username_taken",
             )
 
         password_hash = hash_password(payload.password)
@@ -471,6 +480,7 @@ class AuthService:
                     display_name=google_info.name or google_info.email.split("@")[0],
                     google_id=google_info.google_id,
                     category=category,
+                    username=self._derive_unique_username(google_info.email),
                 )
                 is_new_user = True
         else:
@@ -490,3 +500,36 @@ class AuthService:
             expires_at=datetime.fromtimestamp(claims["exp"], tz=timezone.utc),
         )
         return token, claims, user, is_new_user
+
+    # ------------------------------------------------------------------
+    # username derivation
+    # ------------------------------------------------------------------
+
+    def _derive_unique_username(self, email: str) -> str:
+        """Derive a unique username from an email address.
+
+        Takes the local part of the email, sanitizes it to valid username
+        characters (letters, digits, underscores), ensures it starts with a
+        letter and is 3-30 chars. If the result collides with an existing
+        username, appends random digits until unique.
+        """
+        local = email.split("@")[0].lower()
+        # Keep only alphanumeric and underscores
+        sanitized = re.sub(r"[^a-z0-9_]", "_", local)
+        # Ensure starts with a letter
+        if not sanitized or not sanitized[0].isalpha():
+            sanitized = "u" + sanitized
+        # Clamp to 3-30 chars
+        if len(sanitized) < 3:
+            sanitized = sanitized + "_user"
+        sanitized = sanitized[:30]
+
+        # Check uniqueness; append random suffix if taken
+        candidate = sanitized
+        while self._user_repo.get_by_username(candidate) is not None:
+            suffix = "".join(random.choices(string.digits, k=4))
+            # Trim base to leave room for suffix
+            base = sanitized[:25]
+            candidate = f"{base}_{suffix}"
+
+        return candidate

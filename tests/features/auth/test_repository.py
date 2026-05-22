@@ -20,9 +20,11 @@ from app.features.users.schemas import UserCreate
 
 def _make_user(db: DBSession, email: str = "alice@example.com") -> User:
     repo = UserRepository(db=db)
+    username = email.split("@")[0].replace(".", "_").replace("-", "_")
     payload = UserCreate(
         email=email,
         display_name="Alice",
+        username=username,
         age=25,
         category="PROFESSIONAL",
         password="Strong1Pass!",

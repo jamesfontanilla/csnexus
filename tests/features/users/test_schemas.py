@@ -19,6 +19,7 @@ from app.features.users.schemas import UserCreate, UserResponse
 _VALID_PAYLOAD: dict[str, object] = {
     "email": "Alice@Example.com",
     "display_name": "Alice",
+    "username": "alice_test",
     "age": 25,
     "category": "PROFESSIONAL",
     "password": "Strong1Pass!",
@@ -96,6 +97,7 @@ def test_user_response_serializes_from_attributes() -> None:
         id = 1
         email = "alice@example.com"
         display_name = "Alice"
+        username = "alice_test"
         age = 25
         category = "PROFESSIONAL"
         role = "LEARNER"

@@ -75,6 +75,7 @@ def _make_user(db: Session) -> User:
         UserCreate(
             email="alice@example.com",
             display_name="Alice",
+            username="alice_test",
             age=25,
             category=Category.PROFESSIONAL.value,
             password="Strong1Pass!",
