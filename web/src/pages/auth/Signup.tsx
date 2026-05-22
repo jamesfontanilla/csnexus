@@ -12,6 +12,7 @@ export function Signup() {
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [email, setEmail] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [age, setAge] = useState("");
   const [category, setCategory] = useState("PROFESSIONAL");
@@ -27,6 +28,7 @@ export function Signup() {
       await apiClient.post("/v1/auth/signups", {
         email,
         display_name: displayName,
+        username,
         password,
         age: parseInt(age, 10),
         category,
@@ -131,6 +133,19 @@ export function Signup() {
                 maxLength={255}
                 placeholder="Your name"
                 autoComplete="name"
+              />
+
+              <GlassInput
+                id="signup-username"
+                label="Username"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                minLength={3}
+                maxLength={30}
+                placeholder="Choose a username"
+                autoComplete="username"
               />
 
               <GlassInput
