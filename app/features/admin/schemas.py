@@ -41,6 +41,7 @@ class AdminUserResponse(BaseModel):
     id: int
     email: str
     display_name: str
+    username: str | None = None
     category: str
     role: str
     account_state: str

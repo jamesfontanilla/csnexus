@@ -40,6 +40,7 @@ export function OTPVerification() {
         const res = await apiClient.post<VerifyResponse>("/v1/auth/email-verifications", {
           email,
           code,
+          purpose: "VERIFY_EMAIL",
         });
         if (res.token) {
           login(res.token);

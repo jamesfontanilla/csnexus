@@ -22,6 +22,7 @@ interface UserEntry {
   id: number;
   email: string;
   display_name: string;
+  username: string | null;
   role: string;
   account_state: string;
   is_banned: boolean;
@@ -183,6 +184,7 @@ export function AdminDashboard() {
                 <tr style={{ borderBottom: "2px solid var(--glass-border-medium)" }}>
                   <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Email</th>
                   <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Name</th>
+                  <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Username</th>
                   <th style={{ textAlign: "left", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Role</th>
                   <th style={{ textAlign: "center", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Banned</th>
                   <th style={{ textAlign: "center", padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)", fontWeight: 500 }}>Actions</th>
@@ -193,6 +195,7 @@ export function AdminDashboard() {
                   <tr key={u.id} style={{ borderBottom: "1px solid var(--glass-border-light)" }}>
                     <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text)" }}>{u.email}</td>
                     <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text)" }}>{u.display_name}</td>
+                    <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)" }}>{u.username || "—"}</td>
                     <td style={{ padding: "0.75rem 0.5rem", color: "var(--color-text-secondary)" }}>{u.role}</td>
                     <td style={{ textAlign: "center", padding: "0.75rem 0.5rem", color: "var(--color-text)" }}>{u.is_banned ? "🚫" : "—"}</td>
                     <td style={{ textAlign: "center", padding: "0.75rem 0.5rem" }}>
