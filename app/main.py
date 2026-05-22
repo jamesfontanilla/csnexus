@@ -85,23 +85,23 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 app = FastAPI(lifespan=lifespan)
 
-# --- CORS ------------------------------------------------------------------
+# --- Middlewares -----------------------------------------------------------
+# Starlette processes in reverse-add order: LAST added runs FIRST.
+# We add CORS LAST so it runs FIRST and handles OPTIONS preflight
+# before any other middleware touches the request.
+app.add_middleware(RequestLoggingMiddleware)
+app.add_middleware(AuthMiddleware)
+
+# --- CORS (added last = runs first) ----------------------------------------
 from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://csnexus.space", "https://www.csnexus.space", "http://localhost:5173", "https://csnexus.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# --- Middlewares -----------------------------------------------------------
-# Add order: logging first, auth second. Starlette processes in reverse-add
-# order, so the actual request flow is: RequestLoggingMiddleware (sets
-# request_id) → AuthMiddleware (decodes bearer) → route handler.
-app.add_middleware(RequestLoggingMiddleware)
-app.add_middleware(AuthMiddleware)
 
 # --- Exception handlers ----------------------------------------------------
 register_exception_handlers(app)
@@ -134,3 +134,9 @@ app.include_router(focus_router)
 def health() -> dict[str, str]:
     """Unauthenticated health probe per ``api-standard.md``."""
     return {"status": "ok"}
+
+
+@app.get("/debug-cors")
+def debug_cors() -> dict[str, str]:
+    """Temporary: confirms latest code is deployed."""
+    return {"cors": "v2-reordered", "deployed": "true"}
