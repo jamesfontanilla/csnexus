@@ -2305,15 +2305,15 @@
     "module": "Vocabulary Development",
     "subtopic": "Synonyms",
     "difficulty": "Easy",
-    "question": "The word 'rich' most nearly means:",
+    "question": "The word 'tired' most nearly means:",
     "choices": [
-      "affluent",
-      "poor",
-      "needy",
-      "destitute"
+      "fatigued",
+      "energetic",
+      "refreshed",
+      "lively"
     ],
-    "answer": "affluent",
-    "explanation": "Rich and affluent both describe having an abundance of wealth or resources.",
+    "answer": "fatigued",
+    "explanation": "Tired and fatigued both describe the state of feeling drained of energy or strength.",
     "tags": [
       "common synonyms",
       "basic vocabulary"
@@ -4555,15 +4555,15 @@
     "module": "Vocabulary Development",
     "subtopic": "Synonyms",
     "difficulty": "Easy",
-    "question": "The word 'whole' most nearly means:",
+    "question": "The word 'loud' most nearly means:",
     "choices": [
-      "complete",
-      "partial",
-      "incomplete",
-      "fragment"
+      "noisy",
+      "silent",
+      "hushed",
+      "muted"
     ],
-    "answer": "complete",
-    "explanation": "Whole and complete both describe something with all parts included.",
+    "answer": "noisy",
+    "explanation": "Loud and noisy both describe sounds that are strong and easily heard.",
     "tags": [
       "common synonyms",
       "basic vocabulary"
@@ -6530,15 +6530,15 @@
     "module": "Vocabulary Development",
     "subtopic": "Synonyms",
     "difficulty": "Medium",
-    "question": "Which of the following is a synonym of 'endeavor'?",
+    "question": "Which of the following is a synonym of 'perpetuate'?",
     "choices": [
-      "effort",
-      "indifference",
-      "neglect",
-      "apathy"
+      "sustain",
+      "terminate",
+      "abolish",
+      "discard"
     ],
-    "answer": "effort",
-    "explanation": "Endeavor and effort both describe a determined attempt to accomplish something.",
+    "answer": "sustain",
+    "explanation": "Perpetuate and sustain both mean to cause something to continue indefinitely.",
     "tags": [
       "formal vocabulary",
       "workplace communication"
@@ -6680,15 +6680,15 @@
     "module": "Vocabulary Development",
     "subtopic": "Synonyms",
     "difficulty": "Medium",
-    "question": "Which of the following is a synonym of 'substantial'?",
+    "question": "Which of the following is a synonym of 'tenacious'?",
     "choices": [
-      "significant",
-      "minimal",
-      "meager",
-      "slight"
+      "persistent",
+      "indifferent",
+      "yielding",
+      "apathetic"
     ],
-    "answer": "significant",
-    "explanation": "Substantial and significant both describe something large enough to be meaningful.",
+    "answer": "persistent",
+    "explanation": "Tenacious and persistent both describe someone who holds firmly to a purpose and does not give up easily.",
     "tags": [
       "formal vocabulary",
       "administrative vocabulary"
@@ -13480,15 +13480,15 @@
     "module": "Vocabulary Development",
     "subtopic": "Synonyms",
     "difficulty": "Hard",
-    "question": "Which of the following is a synonym of 'inexorable'?",
+    "question": "Which of the following is a synonym of 'bellicose'?",
     "choices": [
-      "unyielding",
-      "flexible",
-      "lenient",
-      "forgiving"
+      "combative",
+      "peaceful",
+      "diplomatic",
+      "conciliatory"
     ],
-    "answer": "unyielding",
-    "explanation": "Inexorable and unyielding both describe something that cannot be persuaded or stopped.",
+    "answer": "combative",
+    "explanation": "Bellicose and combative both describe a disposition that is eager to fight or engage in conflict.",
     "tags": [
       "advanced vocabulary",
       "formal vocabulary"
@@ -14780,15 +14780,15 @@
     "module": "Vocabulary Development",
     "subtopic": "Synonyms",
     "difficulty": "Hard",
-    "question": "Select the word that has the same meaning as 'recalcitrant'.",
+    "question": "Select the word that has the same meaning as 'avaricious'.",
     "choices": [
-      "obstinate",
-      "compliant",
-      "docile",
-      "cooperative"
+      "greedy",
+      "generous",
+      "altruistic",
+      "benevolent"
     ],
-    "answer": "obstinate",
-    "explanation": "Recalcitrant and obstinate both describe someone stubbornly refusing to obey or comply.",
+    "answer": "greedy",
+    "explanation": "Avaricious and greedy both describe an excessive desire to accumulate wealth or possessions.",
     "tags": [
       "advanced vocabulary",
       "formal vocabulary"
