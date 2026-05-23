@@ -63,6 +63,18 @@ DIFFICULTY_MAP = {
 # Each subtopic: (slug, title, order_index)
 
 VERBAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
+    ("grammar-and-correct-usage", "Grammar and Correct Usage", [
+        ("subject-verb-agreement", "Subject-Verb Agreement", 1),
+        ("verb-tenses", "Verb Tenses", 2),
+        ("pronouns", "Pronouns", 3),
+        ("prepositions", "Prepositions", 4),
+        ("conjunctions", "Conjunctions", 5),
+        ("modifiers", "Modifiers", 6),
+        ("parallelism", "Parallelism", 7),
+        ("articles", "Articles", 8),
+        ("active-and-passive-voice", "Active and Passive Voice", 9),
+        ("direct-and-indirect-speech", "Direct and Indirect Speech", 10),
+    ]),
     ("vocabulary-development", "Vocabulary Development", [
         ("synonyms", "Synonyms", 1),
         ("antonyms", "Antonyms", 2),
@@ -93,12 +105,14 @@ NUMERICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
 
 # Map topic slugs to their lesson/question directories
 LESSON_DIRS = {
+    "grammar-and-correct-usage": SEED_BASE / "lessons" / "verbal-ability" / "grammar",
     "vocabulary-development": SEED_BASE / "lessons" / "verbal-ability" / "vocabulary-development",
     "reading-comprehension": SEED_BASE / "lessons" / "verbal-ability" / "reading-comprehension",
     "basic-operations": SEED_BASE / "lessons" / "numerical-ability" / "basic-operations",
 }
 
 QUESTION_DIRS = {
+    "grammar-and-correct-usage": SEED_BASE / "questions" / "verbal-ability" / "grammar",
     "vocabulary-development": SEED_BASE / "questions" / "verbal-ability" / "vocabulary-development",
     "reading-comprehension": SEED_BASE / "questions" / "verbal-ability" / "reading-comprehension",
     "basic-operations": SEED_BASE / "questions" / "numerical-ability" / "basic-operations",
@@ -257,10 +271,10 @@ def main() -> None:
                 order_index=10,
             )
 
-            for topic_slug, topic_title, subtopics in VERBAL_ABILITY_TOPICS:
+            for topic_idx, (topic_slug, topic_title, subtopics) in enumerate(VERBAL_ABILITY_TOPICS, start=1):
                 topic = get_or_create_topic(
                     session, va_module.id, topic_slug, topic_title,
-                    order_index=VERBAL_ABILITY_TOPICS.index((topic_slug, topic_title, subtopics)) + 2,
+                    order_index=topic_idx,
                 )
 
                 lesson_dir = LESSON_DIRS[topic_slug]
