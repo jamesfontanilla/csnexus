@@ -49,6 +49,46 @@ interface ModeConfig {
   icon: string;
 }
 
+// ---------------------------------------------------------------------------
+// SVG-aware rendering helpers
+// ---------------------------------------------------------------------------
+
+/** Detect if a string contains SVG and render it safely. */
+function StemRenderer({ text }: { text: string }) {
+  if (!text.includes("<svg")) {
+    return <>{text}</>;
+  }
+  // Split into text part and SVG part
+  const svgStart = text.indexOf("<svg");
+  const textPart = text.slice(0, svgStart).trim();
+  const svgPart = text.slice(svgStart).trim();
+
+  return (
+    <>
+      {textPart && <span>{textPart}</span>}
+      {svgPart && (
+        <div
+          style={{ marginTop: "0.75rem", display: "flex", justifyContent: "center", overflow: "auto" }}
+          dangerouslySetInnerHTML={{ __html: svgPart }}
+          role="img"
+          aria-label="Question diagram"
+        />
+      )}
+    </>
+  );
+}
+
+/** Parse an option string that may contain "LABEL: <svg...>" format. */
+function parseOption(opt: string): { label: string; hasSvg: boolean; svgContent: string } {
+  const svgIdx = opt.indexOf("<svg");
+  if (svgIdx === -1) {
+    return { label: opt, hasSvg: false, svgContent: "" };
+  }
+  const label = opt.slice(0, svgIdx).replace(/:$/, "").trim();
+  const svgContent = opt.slice(svgIdx);
+  return { label, hasSvg: true, svgContent };
+}
+
 const MODES: Record<QuizMode, ModeConfig> = {
   practice: {
     label: "Practice Mode",
@@ -175,10 +215,20 @@ export function QuizPlayer() {
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  // Timer — only active during in-progress phase
-  const timeLimitSeconds = attempt?.time_limit_seconds ?? null;
+  // Timer — only active during in-progress phase.
+  // Account for elapsed time since the quiz started so a page refresh
+  // doesn't reset the countdown.
+  const computedTimeLimit = (() => {
+    if (phase !== "in-progress" || !attempt?.time_limit_seconds) return null;
+    const elapsed = Math.floor(
+      (Date.now() - new Date(attempt.started_at).getTime()) / 1000
+    );
+    const left = attempt.time_limit_seconds - elapsed;
+    return left > 0 ? left : 0;
+  })();
+
   const remaining = useCountdown(
-    phase === "in-progress" ? timeLimitSeconds : null,
+    computedTimeLimit,
     () => {
       // Auto-submit when timer expires
       if (phase === "in-progress" && attempt) {
@@ -475,6 +525,53 @@ export function QuizPlayer() {
             </GlassCard>
           </motion.div>
 
+          {/* Summary jump links */}
+          <div style={{ marginBottom: "1.5rem" }}>
+            <p style={{
+              color: "var(--color-text-secondary)",
+              fontSize: "0.75rem",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              marginBottom: "0.5rem",
+            }}>
+              Jump to Question
+            </p>
+            <div style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.375rem",
+            }}>
+              {attempt.questions.map((q, i) => {
+                const isCorrect = q.is_correct === true;
+                return (
+                  <a
+                    key={q.id}
+                    href={`#result-q-${i + 1}`}
+                    aria-label={`Jump to question ${i + 1} — ${isCorrect ? "correct" : "incorrect"}`}
+                    style={{
+                      width: "2rem",
+                      height: "2rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "var(--radius-sm, 6px)",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      textDecoration: "none",
+                      border: `1px solid ${isCorrect ? "var(--color-success)" : "var(--color-danger)"}44`,
+                      background: isCorrect ? "var(--color-success)1a" : "var(--color-danger)1a",
+                      color: isCorrect ? "var(--color-success)" : "var(--color-danger)",
+                      transition: "all 150ms ease",
+                    }}
+                  >
+                    {i + 1}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -482,7 +579,7 @@ export function QuizPlayer() {
             style={{ display: "grid", gap: "1rem" }}
           >
             {attempt.questions.map((q, i) => (
-              <motion.div key={q.id} variants={staggerItem} transition={springDefault}>
+              <motion.div key={q.id} id={`result-q-${i + 1}`} variants={staggerItem} transition={springDefault}>
                 <GlassCard blur="sm" style={{
                   borderLeft: `3px solid ${q.is_correct ? "var(--color-success)" : "var(--color-danger)"}`,
                 }}>
@@ -493,7 +590,7 @@ export function QuizPlayer() {
                     {q.difficulty && <DifficultyBadge difficulty={q.difficulty} />}
                   </div>
                   <p style={{ color: "var(--color-text)", marginBottom: "0.5rem" }}>
-                    <strong>{q.stem}</strong>
+                    <strong><StemRenderer text={q.stem} /></strong>
                   </p>
                   <p style={{ color: "var(--color-text-secondary)", fontSize: "0.875rem" }}>
                     Your answer:{" "}
@@ -567,7 +664,7 @@ export function QuizPlayer() {
           </div>
 
           {/* Timer */}
-          {remaining !== null && timeLimitSeconds !== null && (
+          {remaining !== null && attempt.time_limit_seconds !== null && (
             <div style={{
               display: "flex",
               alignItems: "center",
@@ -575,13 +672,13 @@ export function QuizPlayer() {
               padding: "0.375rem 0.875rem",
               borderRadius: "var(--radius-full, 9999px)",
               background: "var(--glass-bg-subtle)",
-              border: `1.5px solid ${timerColor(remaining, timeLimitSeconds)}44`,
+              border: `1.5px solid ${timerColor(remaining, attempt.time_limit_seconds)}44`,
             }}>
               <span style={{ fontSize: "0.875rem" }}>⏱</span>
               <span style={{
                 fontWeight: 700,
                 fontSize: "1rem",
-                color: timerColor(remaining, timeLimitSeconds),
+                color: timerColor(remaining, attempt.time_limit_seconds),
                 fontVariantNumeric: "tabular-nums",
                 letterSpacing: "0.05em",
               }}>
@@ -622,7 +719,7 @@ export function QuizPlayer() {
             </div>
           )}
           <h2 style={{ color: "var(--color-text)", margin: 0, fontSize: "1.0625rem", lineHeight: 1.5 }}>
-            {question.stem}
+            <StemRenderer text={question.stem} />
           </h2>
         </GlassCard>
 
@@ -631,6 +728,7 @@ export function QuizPlayer() {
           <div style={{ display: "grid", gap: "0.5rem" }}>
             {question.options.map((opt) => {
               const isSelected = question.selected_answer === opt;
+              const { label, hasSvg, svgContent } = parseOption(opt);
               return (
                 <motion.button
                   key={opt}
@@ -638,10 +736,12 @@ export function QuizPlayer() {
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={springDefault}
-                  aria-label={`Select option: ${opt}`}
+                  aria-label={`Select option: ${label}`}
                   aria-pressed={isSelected}
                   style={{
-                    display: "block",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.75rem",
                     width: "100%",
                     textAlign: "left",
                     cursor: "pointer",
@@ -660,7 +760,14 @@ export function QuizPlayer() {
                     transition: "box-shadow 150ms ease, border-color 150ms ease, background 150ms ease",
                   }}
                 >
-                  {opt}
+                  {hasSvg ? (
+                    <>
+                      <span style={{ fontWeight: 600, minWidth: "1.25rem" }}>{label}</span>
+                      <span dangerouslySetInnerHTML={{ __html: svgContent }} />
+                    </>
+                  ) : (
+                    <span>{opt}</span>
+                  )}
                 </motion.button>
               );
             })}
@@ -698,7 +805,7 @@ export function QuizPlayer() {
         )}
 
         {/* Navigation */}
-        <div style={{ display: "flex", gap: "0.5rem", marginTop: "1.5rem" }}>
+        <div style={{ display: "flex", gap: "0.5rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
           <GlassButton
             variant="secondary"
             onClick={() => setCurrentIdx((i) => Math.max(0, i - 1))}
@@ -707,7 +814,7 @@ export function QuizPlayer() {
           >
             Previous
           </GlassButton>
-          {currentIdx < totalQuestions - 1 ? (
+          {currentIdx < totalQuestions - 1 && (
             <GlassButton
               variant="primary"
               onClick={() => setCurrentIdx((i) => i + 1)}
@@ -715,17 +822,77 @@ export function QuizPlayer() {
             >
               Next
             </GlassButton>
-          ) : (
-            <GlassButton
-              variant="primary"
-              onClick={handleSubmitQuiz}
-              disabled={submitting}
-              loading={submitting}
-              aria-label="Submit quiz"
-            >
-              {submitting ? "Submitting…" : "Submit Quiz"}
-            </GlassButton>
           )}
+          <GlassButton
+            variant={currentIdx === totalQuestions - 1 ? "primary" : "danger"}
+            onClick={handleSubmitQuiz}
+            disabled={submitting}
+            loading={submitting}
+            aria-label="Submit quiz"
+            style={{ marginLeft: "auto" }}
+          >
+            {submitting ? "Submitting…" : "Submit Quiz"}
+          </GlassButton>
+        </div>
+
+        {/* Question jump links */}
+        <div style={{ marginTop: "1.5rem" }}>
+          <p style={{
+            color: "var(--color-text-secondary)",
+            fontSize: "0.75rem",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+            marginBottom: "0.5rem",
+          }}>
+            Jump to Question
+          </p>
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "0.375rem",
+          }}>
+            {attempt.questions.map((q, i) => {
+              const isActive = i === currentIdx;
+              const isAnswered = q.selected_answer != null;
+              return (
+                <button
+                  key={q.id}
+                  onClick={() => setCurrentIdx(i)}
+                  aria-label={`Go to question ${i + 1}${isAnswered ? " (answered)" : ""}`}
+                  aria-current={isActive ? "step" : undefined}
+                  style={{
+                    width: "2rem",
+                    height: "2rem",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "var(--radius-sm, 6px)",
+                    fontSize: "0.75rem",
+                    fontWeight: 600,
+                    fontFamily: "var(--font-family)",
+                    cursor: "pointer",
+                    border: isActive
+                      ? `2px solid ${modeConfig ? modeConfig.color : "var(--color-accent)"}`
+                      : "1px solid var(--glass-border-medium)",
+                    background: isAnswered
+                      ? isActive
+                        ? `${modeConfig ? modeConfig.color : "var(--color-accent)"}33`
+                        : "var(--glass-bg-medium)"
+                      : "var(--glass-bg-subtle)",
+                    color: isActive
+                      ? (modeConfig ? modeConfig.color : "var(--color-accent)")
+                      : isAnswered
+                        ? "var(--color-text)"
+                        : "var(--color-text-muted)",
+                    transition: "all 150ms ease",
+                  }}
+                >
+                  {i + 1}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </PageTransition>

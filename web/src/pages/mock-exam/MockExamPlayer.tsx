@@ -26,6 +26,29 @@ interface WeaknessSummary {
   percentage: number;
 }
 
+/** Detect if stem contains SVG and render it safely. */
+function MockStemRenderer({ text }: { text: string }) {
+  if (!text.includes("<svg")) {
+    return <>{text}</>;
+  }
+  const svgStart = text.indexOf("<svg");
+  const textPart = text.slice(0, svgStart).trim();
+  const svgPart = text.slice(svgStart).trim();
+  return (
+    <>
+      {textPart && <span>{textPart}</span>}
+      {svgPart && (
+        <div
+          style={{ marginTop: "0.75rem", display: "flex", justifyContent: "center", overflow: "auto" }}
+          dangerouslySetInnerHTML={{ __html: svgPart }}
+          role="img"
+          aria-label="Question diagram"
+        />
+      )}
+    </>
+  );
+}
+
 interface MockAttempt {
   id: number;
   status: string;
@@ -307,7 +330,7 @@ export function MockExamPlayer() {
         </div>
 
         <GlassCard blur="md" style={{ marginBottom: "1.5rem" }}>
-          <h2 style={{ color: "var(--color-text)", margin: 0 }}>{question.stem}</h2>
+          <h2 style={{ color: "var(--color-text)", margin: 0 }}><MockStemRenderer text={question.stem} /></h2>
         </GlassCard>
 
         {question.qtype === "MULTIPLE_CHOICE" && question.options && (

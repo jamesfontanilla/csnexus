@@ -32,6 +32,8 @@ from app.features.content.repository import (
     SubtopicRepository,
     TopicRepository,
 )
+from app.features.gamification.repository import DailyGoalRepository
+from app.features.gamification.service import DailyGoalService
 from app.features.progress.repository import ProgressRepository
 from app.features.quizzes.repository import QuizRepository
 from app.features.quizzes.schemas import (
@@ -53,6 +55,9 @@ router = APIRouter(prefix="/v1", tags=["quizzes"])
 
 def get_quiz_service(db: Session = Depends(get_db)) -> QuizService:
     """Construct :class:`QuizService` for the request."""
+    daily_goal_service = DailyGoalService(
+        goal_repo=DailyGoalRepository(db=db),
+    )
     return QuizService(
         quiz_repo=QuizRepository(db=db),
         question_repo=QuestionRepository(db=db),
@@ -62,6 +67,7 @@ def get_quiz_service(db: Session = Depends(get_db)) -> QuizService:
         xp_service=XPService(
             xp_repo=XPRepository(db=db),
             user_repo=UserRepository(db=db),
+            daily_goal_service=daily_goal_service,
         ),
     )
 

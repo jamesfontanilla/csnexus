@@ -37,6 +37,8 @@ from app.features.content.repository import (
     LessonRepository,
     SubtopicRepository,
 )
+from app.features.gamification.repository import DailyGoalRepository
+from app.features.gamification.service import DailyGoalService
 from app.features.mock_exams.repository import MockExamRepository
 from app.features.progress.repository import ProgressRepository
 from app.features.progress.schemas import (
@@ -109,6 +111,9 @@ def get_sync_service(db: Session = Depends(get_db)) -> SyncService:
         xp_repo=xp_repo,
         user_repo=UserRepository(db=db),
         achievement_service=achievement_service,
+        daily_goal_service=DailyGoalService(
+            goal_repo=DailyGoalRepository(db=db),
+        ),
     )
     return SyncService(
         progress_service=progress_service,

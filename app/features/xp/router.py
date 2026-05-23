@@ -21,6 +21,8 @@ from sqlalchemy.orm import Session
 from app.common.deps import get_current_user
 from app.features.achievements.repository import AchievementRepository
 from app.features.achievements.service import AchievementService
+from app.features.gamification.repository import DailyGoalRepository
+from app.features.gamification.service import DailyGoalService
 from app.features.mock_exams.repository import MockExamRepository
 from app.features.progress.repository import ProgressRepository
 from app.features.quizzes.repository import QuizRepository
@@ -43,6 +45,9 @@ def get_xp_service(db: Session = Depends(get_db)) -> XPService:
     service is held by the XP service for the duration of the request
     only; both share the same DB session so the evaluator's writes are
     transactionally consistent with the XP event that triggered them.
+
+    The daily goal service is wired in so every positive XP award
+    increments today's daily goal progress automatically.
     """
     achievement_service = AchievementService(
         ach_repo=AchievementRepository(db=db),
@@ -51,10 +56,14 @@ def get_xp_service(db: Session = Depends(get_db)) -> XPService:
         mock_repo=MockExamRepository(db=db),
         progress_repo=ProgressRepository(db=db),
     )
+    daily_goal_service = DailyGoalService(
+        goal_repo=DailyGoalRepository(db=db),
+    )
     return XPService(
         xp_repo=XPRepository(db=db),
         user_repo=UserRepository(db=db),
         achievement_service=achievement_service,
+        daily_goal_service=daily_goal_service,
     )
 
 

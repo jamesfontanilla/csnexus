@@ -39,6 +39,7 @@ from app.features.xp.schemas import UserXPResponse
 
 if TYPE_CHECKING:
     from app.features.achievements.service import AchievementService
+    from app.features.gamification.service import DailyGoalService
 
 
 # Per-source default amounts (Req 7.6, 7.7, 8.4, 9.4, 10.6, 11.2, 11.3).
@@ -86,6 +87,7 @@ class XPService:
         xp_repo: XPRepository,
         user_repo: UserRepository,
         achievement_service: "AchievementService | None" = None,
+        daily_goal_service: "DailyGoalService | None" = None,
     ) -> None:
         self._xp_repo = xp_repo
         # ``user_repo`` is wired in for parity with other slice services and
@@ -99,6 +101,9 @@ class XPService:
         # :func:`app.features.xp.router.get_xp_service` always supplies
         # one so production behaviour matches Req 13.1.
         self._achievement_service = achievement_service
+        # Optional daily goal service. When provided, every positive XP
+        # award increments today's daily goal progress.
+        self._daily_goal_service = daily_goal_service
 
     # ------------------------------------------------------------------
     # award
@@ -216,6 +221,13 @@ class XPService:
             self._achievement_service.evaluate_after_xp_event(
                 user=user, xp_event=event, now=when
             )
+
+        # Increment today's daily goal progress for positive awards.
+        if self._daily_goal_service is not None and amount > 0:
+            self._daily_goal_service.record_xp_earned(
+                user.id, amount, now=when
+            )
+
         return event, user_xp
 
     def _apply_streak_rollover(

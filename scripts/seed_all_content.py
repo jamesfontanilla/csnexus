@@ -100,6 +100,14 @@ NUMERICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
         ("addition", "Addition", 2),
         ("subtraction", "Subtraction", 3),
         ("multiplication", "Multiplication", 4),
+        ("division", "Division", 5),
+    ]),
+    ("percentages", "Percentages", [
+        ("fundamentals-of-percentages", "Fundamentals of Percentages", 1),
+        ("basic-percentage-problems", "Basic Percentage Problems", 2),
+        ("percentage-increase-and-decrease", "Percentage Increase and Decrease", 3),
+        ("discounts-markups-and-sales", "Discounts, Markups, and Sales", 4),
+        ("profit-loss-and-tax", "Profit, Loss, and Tax", 5),
     ]),
 ]
 
@@ -109,6 +117,7 @@ LESSON_DIRS = {
     "vocabulary-development": SEED_BASE / "lessons" / "verbal-ability" / "vocabulary-development",
     "reading-comprehension": SEED_BASE / "lessons" / "verbal-ability" / "reading-comprehension",
     "basic-operations": SEED_BASE / "lessons" / "numerical-ability" / "basic-operations",
+    "percentages": SEED_BASE / "lessons" / "numerical-ability" / "percentages",
 }
 
 QUESTION_DIRS = {
@@ -116,6 +125,7 @@ QUESTION_DIRS = {
     "vocabulary-development": SEED_BASE / "questions" / "verbal-ability" / "vocabulary-development",
     "reading-comprehension": SEED_BASE / "questions" / "verbal-ability" / "reading-comprehension",
     "basic-operations": SEED_BASE / "questions" / "numerical-ability" / "basic-operations",
+    "percentages": SEED_BASE / "questions" / "numerical-ability" / "percentages",
 }
 
 

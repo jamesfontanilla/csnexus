@@ -36,6 +36,8 @@ from app.features.content.repository import (
     ModuleRepository,
     QuestionRepository,
 )
+from app.features.gamification.repository import DailyGoalRepository
+from app.features.gamification.service import DailyGoalService
 from app.features.mock_exams.repository import MockExamRepository
 from app.features.mock_exams.schemas import (
     FocusLossReportRequest,
@@ -65,6 +67,9 @@ def get_mock_exam_service(
         xp_service=XPService(
             xp_repo=XPRepository(db=db),
             user_repo=UserRepository(db=db),
+            daily_goal_service=DailyGoalService(
+                goal_repo=DailyGoalRepository(db=db),
+            ),
         ),
     )
 

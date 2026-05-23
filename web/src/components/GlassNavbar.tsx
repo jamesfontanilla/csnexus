@@ -2,8 +2,15 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { isAuthenticated } from "../stores/auth";
+import { apiClient } from "../api/client";
 import { slideDown, springDefault } from "../design-system";
 import "./GlassNavbar.css";
+
+interface XPData {
+  cumulative_xp: number;
+  level: number;
+  streak: number;
+}
 
 const NAV_LINKS = [
   { to: "/modules", label: "Modules" },
@@ -21,6 +28,7 @@ export function GlassNavbar() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [xp, setXp] = useState<XPData | null>(null);
 
   useEffect(() => {
     function handleScroll() {
@@ -33,6 +41,12 @@ export function GlassNavbar() {
   // Close mobile menu on route change
   useEffect(() => {
     setMenuOpen(false);
+  }, [location.pathname]);
+
+  // Fetch XP data when authenticated
+  useEffect(() => {
+    if (!isAuthenticated()) return;
+    apiClient.get<XPData>("/v1/xp/me").then(setXp).catch(() => {});
   }, [location.pathname]);
 
   const authenticated = isAuthenticated();
@@ -74,6 +88,33 @@ export function GlassNavbar() {
 
       {/* Right side */}
       <div className="glass-navbar-right">
+        {authenticated && xp && (
+          <Link
+            to="/profile"
+            className="glass-navbar-xp"
+            aria-label={`Level ${xp.level}, ${xp.cumulative_xp} XP, ${xp.streak} day streak`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.25rem 0.75rem",
+              borderRadius: "var(--radius-full, 9999px)",
+              background: "var(--glass-bg-subtle)",
+              border: "1px solid var(--glass-border-light)",
+              textDecoration: "none",
+              fontSize: "0.8125rem",
+              fontWeight: 600,
+              color: "var(--color-text)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <span style={{ color: "var(--color-accent)" }}>⚡ {xp.cumulative_xp.toLocaleString()}</span>
+            <span style={{ color: "var(--color-text-muted)", fontSize: "0.6875rem" }}>Lv{xp.level}</span>
+            {xp.streak > 0 && (
+              <span style={{ color: "var(--color-warning)" }}>🔥{xp.streak}</span>
+            )}
+          </Link>
+        )}
         {authenticated && (
           <Link to="/profile" className="glass-navbar-profile" aria-label="Profile">
             👤

@@ -32,6 +32,7 @@ BLOCK_TYPE_WARNING = "warning"
 BLOCK_TYPE_EXAMPLE = "example"
 BLOCK_TYPE_STEP_BY_STEP = "step_by_step"
 BLOCK_TYPE_LIST = "list"
+BLOCK_TYPE_SVG = "svg"
 
 # Average reading speed in words per minute for educational content
 _WORDS_PER_MINUTE = 200
@@ -337,6 +338,25 @@ def _parse_content_blocks(text: str) -> list[dict[str, Any]]:
     while i < len(lines):
         line = lines[i]
 
+        # SVG block: <svg ...> ... </svg>
+        if re.match(r"^\s*<svg[\s>]", line, re.IGNORECASE):
+            svg_lines = [line]
+            # Check if the SVG closes on the same line
+            if "</svg>" in line.lower():
+                blocks.append({"type": BLOCK_TYPE_SVG, "content": line.strip()})
+                i += 1
+                continue
+            # Multi-line SVG: collect until closing </svg>
+            i += 1
+            while i < len(lines):
+                svg_lines.append(lines[i])
+                if "</svg>" in lines[i].lower():
+                    i += 1
+                    break
+                i += 1
+            blocks.append({"type": BLOCK_TYPE_SVG, "content": "\n".join(svg_lines).strip()})
+            continue
+
         # Code block (``` fenced)
         if line.strip().startswith("```"):
             code_lines = []
@@ -449,11 +469,12 @@ def _parse_content_blocks(text: str) -> list[dict[str, Any]]:
             i += 1
             while i < len(lines):
                 next_line = lines[i]
-                # Stop at empty lines, headings, tables, code blocks, special patterns
+                # Stop at empty lines, headings, tables, code blocks, special patterns, SVG
                 if (not next_line.strip() or
                     next_line.startswith("#") or
                     next_line.strip().startswith("|") or
                     next_line.strip().startswith("```") or
+                    re.match(r"^\s*<svg[\s>]", next_line, re.IGNORECASE) or
                     re.match(r"^\*\*(Example|Tip|Note|CSE|Common|Warning|Error)", next_line.strip()) or
                     next_line.strip().startswith("> ") or
                     re.match(r"^(Step\s+\d)", next_line.strip()) or
@@ -688,6 +709,8 @@ def _blocks_to_markdown(blocks: list[dict[str, Any]]) -> str:
         if block["type"] == BLOCK_TYPE_CODE or block["type"] == BLOCK_TYPE_FORMULA:
             lang = block.get("language", "")
             parts.append(f"```{lang}\n{block['content']}\n```")
+        elif block["type"] == BLOCK_TYPE_SVG:
+            parts.append(block["content"])
         elif block["type"] == BLOCK_TYPE_TABLE:
             table = block["content"]
             if table and "headers" in table:

@@ -211,6 +211,31 @@ function RawMarkdownBlock({ text }: { text: string }) {
   while (i < lines.length) {
     const trimmed = lines[i].trim();
 
+    // SVG block: <svg ...> ... </svg>
+    if (/^\s*<svg[\s>]/i.test(lines[i])) {
+      flushBullets();
+      flushTable();
+      const svgLines: string[] = [lines[i]];
+      // Check if SVG closes on the same line
+      if (/<\/svg>/i.test(lines[i])) {
+        elements.push(<SvgBlock key={key++} svg={lines[i].trim()} />);
+        i++;
+        continue;
+      }
+      // Multi-line SVG
+      i++;
+      while (i < lines.length) {
+        svgLines.push(lines[i]);
+        if (/<\/svg>/i.test(lines[i])) {
+          i++;
+          break;
+        }
+        i++;
+      }
+      elements.push(<SvgBlock key={key++} svg={svgLines.join("\n").trim()} />);
+      continue;
+    }
+
     // Blockquote callouts: > prefixed lines
     if (trimmed.startsWith("> ")) {
       flushBullets();
@@ -381,6 +406,36 @@ function MarkdownTable({ rows }: { rows: string[] }) {
         </tbody>
       </table>
     </div>
+  );
+}
+
+/**
+ * Renders an inline SVG diagram safely using dangerouslySetInnerHTML.
+ * Only allows content that starts with a valid <svg tag.
+ */
+function SvgBlock({ svg }: { svg: string }) {
+  // Basic validation: must start with <svg and end with </svg>
+  const trimmed = svg.trim();
+  if (!(/^<svg[\s>]/i.test(trimmed) && /<\/svg>\s*$/i.test(trimmed))) {
+    return null;
+  }
+
+  return (
+    <div
+      style={{
+        margin: "0.75rem 0",
+        display: "flex",
+        justifyContent: "center",
+        overflow: "auto",
+        padding: "0.5rem",
+        background: "rgba(255,255,255,0.03)",
+        borderRadius: "var(--radius-md, 8px)",
+        border: "1px solid rgba(255,255,255,0.08)",
+      }}
+      dangerouslySetInnerHTML={{ __html: trimmed }}
+      aria-label="Diagram"
+      role="img"
+    />
   );
 }
 
