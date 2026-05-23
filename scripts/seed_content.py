@@ -78,44 +78,11 @@ QUESTIONS_PATH = GRAMMAR_QUESTIONS / "subject-verb-agreement" / "questions.json"
 def parse_lesson_markdown(md_text: str) -> dict[str, Any]:
     """Parse lesson markdown into LessonContent JSON structure.
 
-    Expected H2 sections: Explanations, Worked Examples, Key Takeaways, Summary.
-    H3 headings under Explanations/Worked Examples become individual entries.
+    Delegates to the enhanced parser in scripts/parse_lesson.py which
+    produces both legacy-compatible fields and rich UI metadata.
     """
-    sections: dict[str, str] = {}
-    current_h2 = None
-    lines = md_text.split("\n")
-    buffer: list[str] = []
-
-    for line in lines:
-        if line.startswith("## "):
-            if current_h2 is not None:
-                sections[current_h2] = "\n".join(buffer).strip()
-            current_h2 = line[3:].strip()
-            buffer = []
-        else:
-            buffer.append(line)
-
-    if current_h2 is not None:
-        sections[current_h2] = "\n".join(buffer).strip()
-
-    # Parse Explanations (H3 → entries)
-    explanations = _parse_h3_entries(sections.get("Explanations", ""))
-
-    # Parse Worked Examples (H3 → entries)
-    worked_examples = _parse_h3_entries(sections.get("Worked Examples", ""))
-
-    # Parse Key Takeaways (bullet points)
-    key_takeaways = _parse_bullets(sections.get("Key Takeaways", ""))
-
-    # Summary is the raw text
-    summary = sections.get("Summary", "").strip()
-
-    return {
-        "explanations": [{"title": e[0], "body": e[1]} for e in explanations],
-        "worked_examples": [{"title": e[0], "problem": "", "solution": e[1]} for e in worked_examples],
-        "key_takeaways": key_takeaways,
-        "summary": summary,
-    }
+    from scripts.parse_lesson import parse_lesson_markdown as _enhanced_parse
+    return _enhanced_parse(md_text)
 
 
 def _parse_h3_entries(text: str) -> list[tuple[str, str]]:

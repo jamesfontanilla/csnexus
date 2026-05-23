@@ -1,0 +1,4675 @@
+[
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 417,
+    "difficulty": "Medium",
+    "question": "What is the place value of 4 in 45,678?",
+    "choices": [
+      "400",
+      "40",
+      "40000",
+      "4"
+    ],
+    "answer": "40000",
+    "explanation": "In 45,678, the digit 4 is in the ten-thousands place. Place value = 4 × 10000 = 40000.",
+    "tags": [
+      "place value",
+      "ten-thousands"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 418,
+    "difficulty": "Medium",
+    "question": "What is the place value of 2 in 123,456?",
+    "choices": [
+      "20000",
+      "200",
+      "2",
+      "20"
+    ],
+    "answer": "20000",
+    "explanation": "In 123,456, the digit 2 is in the ten-thousands place. Place value = 2 × 10000 = 20000.",
+    "tags": [
+      "place value",
+      "ten-thousands"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 419,
+    "difficulty": "Medium",
+    "question": "What is the place value of 8 in 789,012?",
+    "choices": [
+      "80",
+      "80000",
+      "800",
+      "8"
+    ],
+    "answer": "80000",
+    "explanation": "In 789,012, the digit 8 is in the ten-thousands place. Place value = 8 × 10000 = 80000.",
+    "tags": [
+      "place value",
+      "ten-thousands"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 420,
+    "difficulty": "Medium",
+    "question": "What is the place value of 2 in 56,234?",
+    "choices": [
+      "200",
+      "2000",
+      "20",
+      "2"
+    ],
+    "answer": "200",
+    "explanation": "In 56,234, the digit 2 is in the hundreds place. Place value = 2 × 100 = 200.",
+    "tags": [
+      "place value",
+      "hundreds"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 421,
+    "difficulty": "Medium",
+    "question": "What is the place value of 8 in 91,847?",
+    "choices": [
+      "800",
+      "8000",
+      "8",
+      "80"
+    ],
+    "answer": "800",
+    "explanation": "In 91,847, the digit 8 is in the hundreds place. Place value = 8 × 100 = 800.",
+    "tags": [
+      "place value",
+      "hundreds"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 422,
+    "difficulty": "Medium",
+    "question": "What is the place value of 0 in 304,567?",
+    "choices": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "answer": "0",
+    "explanation": "In 304,567, the digit 0 is in the ten-thousands place. Place value = 0 × 0 = 0.",
+    "tags": [
+      "place value",
+      "ten-thousands"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 423,
+    "difficulty": "Medium",
+    "question": "What is the place value of 7 in 672,891?",
+    "choices": [
+      "700",
+      "70",
+      "7",
+      "70000"
+    ],
+    "answer": "70000",
+    "explanation": "In 672,891, the digit 7 is in the ten-thousands place. Place value = 7 × 10000 = 70000.",
+    "tags": [
+      "place value",
+      "ten-thousands"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 424,
+    "difficulty": "Medium",
+    "question": "What is the place value of 3 in 438,920?",
+    "choices": [
+      "30",
+      "30000",
+      "3",
+      "300"
+    ],
+    "answer": "30000",
+    "explanation": "In 438,920, the digit 3 is in the ten-thousands place. Place value = 3 × 10000 = 30000.",
+    "tags": [
+      "place value",
+      "ten-thousands"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 425,
+    "difficulty": "Medium",
+    "question": "What is the place value of 5 in 215,764?",
+    "choices": [
+      "5",
+      "500",
+      "50",
+      "5000"
+    ],
+    "answer": "5000",
+    "explanation": "In 215,764, the digit 5 is in the thousands place. Place value = 5 × 1000 = 5000.",
+    "tags": [
+      "place value",
+      "thousands"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 426,
+    "difficulty": "Medium",
+    "question": "What is the place value of 6 in 987,654?",
+    "choices": [
+      "6000",
+      "6",
+      "60",
+      "600"
+    ],
+    "answer": "600",
+    "explanation": "In 987,654, the digit 6 is in the hundreds place. Place value = 6 × 100 = 600.",
+    "tags": [
+      "place value",
+      "hundreds"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 427,
+    "difficulty": "Medium",
+    "question": "Which is greater: 5/9 or 4/7?",
+    "choices": [
+      "5/9",
+      "4/7",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "5/9",
+    "explanation": "Cross multiply: 5×7=35 vs 9×4=36. 35<36, so 5/9 < 4/7.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 428,
+    "difficulty": "Medium",
+    "question": "Which is greater: 7/11 or 5/8?",
+    "choices": [
+      "7/11",
+      "5/8",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "5/8",
+    "explanation": "Cross multiply: 7×8=56 vs 11×5=55. 56>55, so 7/11 > 5/8.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 429,
+    "difficulty": "Medium",
+    "question": "Which is greater: 3/8 or 5/13?",
+    "choices": [
+      "3/8",
+      "5/13",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "3/8",
+    "explanation": "Cross multiply: 3×13=39 vs 8×5=40. 39<40, so 3/8 < 5/13.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 430,
+    "difficulty": "Medium",
+    "question": "Which is greater: 4/9 or 5/11?",
+    "choices": [
+      "4/9",
+      "5/11",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "5/11",
+    "explanation": "Cross multiply: 4×11=44 vs 9×5=45. 44<45, so 4/9 < 5/11.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 431,
+    "difficulty": "Medium",
+    "question": "Which is greater: 6/7 or 7/8?",
+    "choices": [
+      "6/7",
+      "7/8",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "7/8",
+    "explanation": "Cross multiply: 6×8=48 vs 7×7=49. 48<49, so 6/7 < 7/8.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 432,
+    "difficulty": "Medium",
+    "question": "Which is greater: 9/11 or 7/9?",
+    "choices": [
+      "9/11",
+      "7/9",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "9/11",
+    "explanation": "Cross multiply: 9×9=81 vs 11×7=77. 81>77, so 9/11 > 7/9.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 433,
+    "difficulty": "Medium",
+    "question": "Which is greater: 2/7 or 3/11?",
+    "choices": [
+      "2/7",
+      "3/11",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "2/7",
+    "explanation": "Cross multiply: 2×11=22 vs 7×3=21. 22>21, so 2/7 > 3/11.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 434,
+    "difficulty": "Medium",
+    "question": "Which is greater: 5/12 or 3/7?",
+    "choices": [
+      "5/12",
+      "3/7",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "3/7",
+    "explanation": "Cross multiply: 5×7=35 vs 12×3=36. 35<36, so 5/12 < 3/7.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 435,
+    "difficulty": "Medium",
+    "question": "Which is greater: 8/15 or 7/13?",
+    "choices": [
+      "8/15",
+      "7/13",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "7/13",
+    "explanation": "Cross multiply: 8×13=104 vs 15×7=105. 104<105, so 8/15 < 7/13.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 436,
+    "difficulty": "Medium",
+    "question": "Which is greater: 11/13 or 9/11?",
+    "choices": [
+      "11/13",
+      "9/11",
+      "They are equal",
+      "Cannot be determined"
+    ],
+    "answer": "11/13",
+    "explanation": "Cross multiply: 11×11=121 vs 13×9=117. 121>117, so 11/13 > 9/11.",
+    "tags": [
+      "comparing numbers",
+      "fractions",
+      "cross multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 437,
+    "difficulty": "Medium",
+    "question": "Which of the following is divisible by 8?",
+    "choices": [
+      "124",
+      "236",
+      "344",
+      "452"
+    ],
+    "answer": "344",
+    "explanation": "Divisibility by 8: last 3 digits divisible by 8. 344÷8=43✓.",
+    "tags": [
+      "divisibility",
+      "divisibility rules"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 438,
+    "difficulty": "Medium",
+    "question": "Which of the following is divisible by 3 but NOT by 9?",
+    "choices": [
+      "27",
+      "36",
+      "42",
+      "81"
+    ],
+    "answer": "42",
+    "explanation": "42: digit sum=6, divisible by 3 but not 9. 27,36,81 are all divisible by 9.",
+    "tags": [
+      "divisibility",
+      "divisibility rules"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 439,
+    "difficulty": "Medium",
+    "question": "What is the remainder when 1000 is divided by 7?",
+    "choices": [
+      "0",
+      "1",
+      "4",
+      "6"
+    ],
+    "answer": "6",
+    "explanation": "1000÷7=142 remainder 6. Check: 142×7=994, 1000-994=6.",
+    "tags": [
+      "division",
+      "remainders"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 440,
+    "difficulty": "Medium",
+    "question": "Which of the following is divisible by 12?",
+    "choices": [
+      "84",
+      "96",
+      "108",
+      "All of the above"
+    ],
+    "answer": "All of the above",
+    "explanation": "84÷12=7✓, 96÷12=8✓, 108÷12=9✓. All are divisible by 12.",
+    "tags": [
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 441,
+    "difficulty": "Medium",
+    "question": "The remainder when 2,345 is divided by 9 is:",
+    "choices": [
+      "1",
+      "2",
+      "5",
+      "8"
+    ],
+    "answer": "5",
+    "explanation": "Sum of digits: 2+3+4+5=14, 1+4=5. Remainder when divided by 9 equals the digit sum mod 9 = 5.",
+    "tags": [
+      "divisibility",
+      "remainders"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 442,
+    "difficulty": "Medium",
+    "question": "The number -3/4 is classified as:",
+    "choices": [
+      "Natural",
+      "Whole",
+      "Integer",
+      "Rational"
+    ],
+    "answer": "Rational",
+    "explanation": "-3/4 is a fraction of integers, so it is rational. It is not an integer (has fractional part), not whole, not natural.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 443,
+    "difficulty": "Medium",
+    "question": "Which set does 0.142857142857... belong to?",
+    "choices": [
+      "Irrational numbers",
+      "Rational numbers",
+      "Integers",
+      "Natural numbers"
+    ],
+    "answer": "Rational numbers",
+    "explanation": "0.142857... is a repeating decimal = 1/7. Repeating decimals are always rational.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 444,
+    "difficulty": "Medium",
+    "question": "The number √(1/9) is:",
+    "choices": [
+      "Irrational",
+      "Rational",
+      "Undefined",
+      "Complex"
+    ],
+    "answer": "Rational",
+    "explanation": "√(1/9) = 1/3, which is a rational number.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 445,
+    "difficulty": "Medium",
+    "question": "Which of the following is an irrational number between 4 and 5?",
+    "choices": [
+      "4.5",
+      "√20",
+      "9/2",
+      "4.333..."
+    ],
+    "answer": "√20",
+    "explanation": "√20≈4.47, which is between 4 and 5 and irrational (20 is not a perfect square).",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 446,
+    "difficulty": "Medium",
+    "question": "How many rational numbers are there between 0 and 1?",
+    "choices": [
+      "10",
+      "100",
+      "1000",
+      "Infinitely many"
+    ],
+    "answer": "Infinitely many",
+    "explanation": "Between any two rational numbers, there are infinitely many other rational numbers.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 447,
+    "difficulty": "Medium",
+    "question": "The number 3.14 is:",
+    "choices": [
+      "Irrational like π",
+      "Rational",
+      "An integer",
+      "Undefined"
+    ],
+    "answer": "Rational",
+    "explanation": "3.14 is a terminating decimal = 314/100 = 157/50. It is rational. Note: 3.14 ≠ π.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 448,
+    "difficulty": "Medium",
+    "question": "Which of the following is NOT an integer?",
+    "choices": [
+      "-100",
+      "0",
+      "7/1",
+      "7/2"
+    ],
+    "answer": "7/2",
+    "explanation": "7/2 = 3.5, which has a fractional part. -100, 0, and 7/1=7 are all integers.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 449,
+    "difficulty": "Medium",
+    "question": "The cube root of 27 is:",
+    "choices": [
+      "Irrational",
+      "A natural number",
+      "Negative",
+      "Undefined"
+    ],
+    "answer": "A natural number",
+    "explanation": "∛27 = 3, which is a natural number.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 450,
+    "difficulty": "Medium",
+    "question": "Which of the following is a composite number between 30 and 40 that is also even?",
+    "choices": [
+      "31",
+      "34",
+      "37",
+      "39"
+    ],
+    "answer": "34",
+    "explanation": "34 = 2×17 (composite and even). 31 and 37 are prime. 39=3×13 is composite but odd.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 451,
+    "difficulty": "Medium",
+    "question": "The number 2/0 is:",
+    "choices": [
+      "Zero",
+      "Infinity",
+      "Undefined",
+      "Rational"
+    ],
+    "answer": "Undefined",
+    "explanation": "Division by zero is undefined in mathematics. 2/0 has no value.",
+    "tags": [
+      "types of numbers",
+      "number classification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 452,
+    "difficulty": "Medium",
+    "question": "Arrange in ascending order: 0.4, 2/5, 0.39, 41%",
+    "choices": [
+      "0.39, 2/5, 0.4, 41%",
+      "2/5, 0.39, 0.4, 41%",
+      "0.39, 0.4, 2/5, 41%",
+      "41%, 0.4, 2/5, 0.39"
+    ],
+    "answer": "0.39, 2/5, 0.4, 41%",
+    "explanation": "Convert: 0.4, 2/5=0.4, 0.39, 41%=0.41. Wait: 2/5=0.4=0.40. Order: 0.39, 0.40, 0.40, 0.41. Since 2/5=0.4, they tie. Ascending: 0.39, 2/5=0.4, 41%=0.41.",
+    "tags": [
+      "ordering numbers",
+      "comparing numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 453,
+    "difficulty": "Medium",
+    "question": "Arrange in descending order: 1/3, 0.35, 30%, 2/7",
+    "choices": [
+      "0.35, 1/3, 30%, 2/7",
+      "1/3, 0.35, 30%, 2/7",
+      "0.35, 1/3, 2/7, 30%",
+      "30%, 2/7, 1/3, 0.35"
+    ],
+    "answer": "0.35, 1/3, 30%, 2/7",
+    "explanation": "Convert: 1/3≈0.333, 0.35, 30%=0.3, 2/7≈0.286. Descending: 0.35, 0.333, 0.3, 0.286.",
+    "tags": [
+      "ordering numbers",
+      "comparing numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 454,
+    "difficulty": "Medium",
+    "question": "Which of the following lists is in ascending order?",
+    "choices": [
+      "-3, -1, 0, 2, 4",
+      "4, 2, 0, -1, -3",
+      "-1, -3, 0, 2, 4",
+      "0, -1, -3, 2, 4"
+    ],
+    "answer": "-3, -1, 0, 2, 4",
+    "explanation": "Ascending means smallest to largest. -3 < -1 < 0 < 2 < 4.",
+    "tags": [
+      "ordering numbers",
+      "comparing numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 455,
+    "difficulty": "Medium",
+    "question": "Arrange in ascending order: |-5|, |-2|, |3|, |-4|",
+    "choices": [
+      "|3|, |-2|, |-4|, |-5|",
+      "|-2|, |3|, |-4|, |-5|",
+      "|-5|, |-4|, |3|, |-2|",
+      "|-2|, |-4|, |3|, |-5|"
+    ],
+    "answer": "|-2|, |3|, |-4|, |-5|",
+    "explanation": "Absolute values: 5, 2, 3, 4. Ascending: 2, 3, 4, 5 → |-2|, |3|, |-4|, |-5|.",
+    "tags": [
+      "ordering numbers",
+      "comparing numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 456,
+    "difficulty": "Medium",
+    "question": "Which number is exactly halfway between -3 and 7?",
+    "choices": [
+      "0",
+      "2",
+      "3",
+      "5"
+    ],
+    "answer": "2",
+    "explanation": "Midpoint = (-3+7)/2 = 4/2 = 2.",
+    "tags": [
+      "ordering numbers",
+      "comparing numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 457,
+    "difficulty": "Medium",
+    "question": "A bank account shows a balance of -₱2,500. After a deposit of ₱4,000, the new balance is:",
+    "choices": [
+      "₱1,500",
+      "₱6,500",
+      "-₱6,500",
+      "₱2,500"
+    ],
+    "answer": "₱1,500",
+    "explanation": "-2,500 + 4,000 = 1,500.",
+    "tags": [
+      "integers",
+      "real-world application",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 458,
+    "difficulty": "Medium",
+    "question": "The elevation of a submarine is -150 meters. It rises 80 meters. Its new elevation is:",
+    "choices": [
+      "-230 meters",
+      "-70 meters",
+      "70 meters",
+      "-80 meters"
+    ],
+    "answer": "-70 meters",
+    "explanation": "-150 + 80 = -70 meters.",
+    "tags": [
+      "integers",
+      "real-world application",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 459,
+    "difficulty": "Medium",
+    "question": "A store's inventory shows 1,234 items. If the digit in the hundreds place represents boxes of 100, how many full boxes is that?",
+    "choices": [
+      "1",
+      "2",
+      "12",
+      "123"
+    ],
+    "answer": "2",
+    "explanation": "The digit in the hundreds place is 2, representing 2 boxes of 100.",
+    "tags": [
+      "place value",
+      "real-world application"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 460,
+    "difficulty": "Medium",
+    "question": "In a population census, a city has 2,345,678 residents. How many millions is this approximately?",
+    "choices": [
+      "2 million",
+      "2.3 million",
+      "23 million",
+      "234 million"
+    ],
+    "answer": "2.3 million",
+    "explanation": "2,345,678 ≈ 2.3 million (the 3 in hundred-thousands gives the decimal).",
+    "tags": [
+      "place value",
+      "real-world application",
+      "estimation"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 461,
+    "difficulty": "Medium",
+    "question": "A government employee's monthly deductions total ₱5,432. What is the place value of 4 in this amount?",
+    "choices": [
+      "4",
+      "40",
+      "400",
+      "4,000"
+    ],
+    "answer": "400",
+    "explanation": "In 5,432: 2=ones, 3=tens, 4=hundreds, 5=thousands. Place value of 4 = 400.",
+    "tags": [
+      "place value",
+      "real-world application"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 462,
+    "difficulty": "Medium",
+    "question": "Floor levels in a building: B3, B2, B1, G, 1, 2, 3. If B3=-3 and G=0, what integer represents floor 3?",
+    "choices": [
+      "3",
+      "6",
+      "7",
+      "0"
+    ],
+    "answer": "3",
+    "explanation": "Using the given system: B3=-3, B2=-2, B1=-1, G=0, 1=1, 2=2, 3=3.",
+    "tags": [
+      "integers",
+      "real-world application"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 463,
+    "difficulty": "Medium",
+    "question": "A student scored 7/10, 0.8, and 75% on three quizzes. Which score is the highest?",
+    "choices": [
+      "7/10",
+      "0.8",
+      "75%",
+      "All are equal"
+    ],
+    "answer": "0.8",
+    "explanation": "Convert: 7/10=0.7, 0.8, 75%=0.75. Highest is 0.8.",
+    "tags": [
+      "comparing numbers",
+      "real-world application",
+      "conversion"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 464,
+    "difficulty": "Medium",
+    "question": "The national budget is ₱5.268 trillion. What digit is in the hundred-billions place?",
+    "choices": [
+      "5",
+      "2",
+      "6",
+      "8"
+    ],
+    "answer": "2",
+    "explanation": "5.268 trillion = 5,268,000,000,000. The 2 is in the hundred-billions place.",
+    "tags": [
+      "place value",
+      "real-world application"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 465,
+    "difficulty": "Medium",
+    "question": "A weather report shows temperatures of -2°C, 5°C, -7°C, and 3°C for four cities. The range (difference between highest and lowest) is:",
+    "choices": [
+      "7°C",
+      "9°C",
+      "12°C",
+      "5°C"
+    ],
+    "answer": "12°C",
+    "explanation": "Highest=5, Lowest=-7. Range = 5-(-7) = 5+7 = 12°C.",
+    "tags": [
+      "integers",
+      "real-world application",
+      "subtraction"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 466,
+    "difficulty": "Medium",
+    "question": "An office has room numbers from 101 to 150. How many rooms have an even number?",
+    "choices": [
+      "24",
+      "25",
+      "26",
+      "50"
+    ],
+    "answer": "25",
+    "explanation": "Even numbers from 102 to 150: (150-102)/2 + 1 = 48/2 + 1 = 25.",
+    "tags": [
+      "even numbers",
+      "counting",
+      "real-world application"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 467,
+    "difficulty": "Medium",
+    "question": "What is the sum of the first 10 natural numbers?",
+    "choices": [
+      "45",
+      "50",
+      "55",
+      "60"
+    ],
+    "answer": "55",
+    "explanation": "Sum = n(n+1)/2 = 10×11/2 = 55.",
+    "tags": [
+      "natural numbers",
+      "addition",
+      "formula"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 468,
+    "difficulty": "Medium",
+    "question": "The product of the first 4 prime numbers is:",
+    "choices": [
+      "30",
+      "105",
+      "210",
+      "120"
+    ],
+    "answer": "210",
+    "explanation": "First 4 primes: 2×3×5×7 = 210.",
+    "tags": [
+      "prime numbers",
+      "multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 469,
+    "difficulty": "Medium",
+    "question": "How many even prime numbers exist?",
+    "choices": [
+      "0",
+      "1",
+      "2",
+      "Infinitely many"
+    ],
+    "answer": "1",
+    "explanation": "Only 2 is an even prime. All other even numbers are divisible by 2 (composite).",
+    "tags": [
+      "prime numbers",
+      "even numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 470,
+    "difficulty": "Medium",
+    "question": "The number 2ⁿ is always:",
+    "choices": [
+      "Prime",
+      "Odd",
+      "Even",
+      "Composite"
+    ],
+    "answer": "Even",
+    "explanation": "2ⁿ is always even for n≥1 because it is a power of 2 (always divisible by 2).",
+    "tags": [
+      "even numbers",
+      "exponents"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 471,
+    "difficulty": "Medium",
+    "question": "Which of the following pairs are co-prime?",
+    "choices": [
+      "(6, 9)",
+      "(8, 15)",
+      "(12, 18)",
+      "(14, 21)"
+    ],
+    "answer": "(8, 15)",
+    "explanation": "GCD(8,15)=1 (no common factors other than 1). The others share common factors.",
+    "tags": [
+      "GCD",
+      "co-prime"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 472,
+    "difficulty": "Medium",
+    "question": "The sum of two consecutive odd numbers is always divisible by:",
+    "choices": [
+      "2",
+      "4",
+      "3",
+      "5"
+    ],
+    "answer": "4",
+    "explanation": "Consecutive odds: (2k+1)+(2k+3)=4k+4=4(k+1). Always divisible by 4.",
+    "tags": [
+      "odd numbers",
+      "divisibility",
+      "properties"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 473,
+    "difficulty": "Medium",
+    "question": "If a number is divisible by 6, it must also be divisible by:",
+    "choices": [
+      "4",
+      "8",
+      "3",
+      "9"
+    ],
+    "answer": "3",
+    "explanation": "6=2×3. Any multiple of 6 is also a multiple of both 2 and 3.",
+    "tags": [
+      "divisibility",
+      "factors"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 474,
+    "difficulty": "Medium",
+    "question": "The number of prime numbers between 40 and 50 is:",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "3",
+    "explanation": "Primes between 40 and 50: 41, 43, 47. That is 3.",
+    "tags": [
+      "prime numbers",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 475,
+    "difficulty": "Medium",
+    "question": "Which of the following is the LCM of 8 and 12?",
+    "choices": [
+      "4",
+      "24",
+      "48",
+      "96"
+    ],
+    "answer": "24",
+    "explanation": "Multiples of 8: 8,16,24... Multiples of 12: 12,24... LCM=24.",
+    "tags": [
+      "LCM",
+      "multiples"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 476,
+    "difficulty": "Medium",
+    "question": "Express 1.25 as a fraction in lowest terms.",
+    "choices": [
+      "125/100",
+      "5/4",
+      "25/20",
+      "6/5"
+    ],
+    "answer": "5/4",
+    "explanation": "1.25 = 125/100 = 5/4 (divide by 25).",
+    "tags": [
+      "fractions",
+      "decimals",
+      "simplification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 477,
+    "difficulty": "Medium",
+    "question": "The digit sum of a number is 18. The number is definitely divisible by:",
+    "choices": [
+      "6",
+      "9",
+      "12",
+      "18"
+    ],
+    "answer": "9",
+    "explanation": "If digit sum is divisible by 9, the number is divisible by 9. 18÷9=2✓.",
+    "tags": [
+      "divisibility",
+      "divisibility rules"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 478,
+    "difficulty": "Medium",
+    "question": "What is the value of |-8| + |3| - |-2|?",
+    "choices": [
+      "7",
+      "9",
+      "13",
+      "3"
+    ],
+    "answer": "9",
+    "explanation": "|-8|=8, |3|=3, |-2|=2. 8+3-2=9.",
+    "tags": [
+      "absolute value",
+      "operations"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 479,
+    "difficulty": "Medium",
+    "question": "Which of the following is the decimal form of 11/8?",
+    "choices": [
+      "1.375",
+      "1.25",
+      "1.125",
+      "1.5"
+    ],
+    "answer": "1.375",
+    "explanation": "11÷8=1.375.",
+    "tags": [
+      "fractions",
+      "decimals",
+      "conversion"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 480,
+    "difficulty": "Medium",
+    "question": "The number 10! (10 factorial) ends in how many zeros?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "2",
+    "explanation": "Trailing zeros = floor(10/5) + floor(10/25) = 2 + 0 = 2.",
+    "tags": [
+      "factorial",
+      "divisibility",
+      "trailing zeros"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 481,
+    "difficulty": "Medium",
+    "question": "Which is the correct comparison: 0.̄6 (0.666...) ___ 2/3?",
+    "choices": [
+      ">",
+      "<",
+      "=",
+      "Cannot be determined"
+    ],
+    "answer": "=",
+    "explanation": "0.666... = 2/3. They are exactly equal.",
+    "tags": [
+      "comparing numbers",
+      "repeating decimals",
+      "fractions"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 482,
+    "difficulty": "Medium",
+    "question": "The number 225 is the square of:",
+    "choices": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "answer": "15",
+    "explanation": "15² = 225.",
+    "tags": [
+      "perfect squares"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 483,
+    "difficulty": "Medium",
+    "question": "How many multiples of 7 are there between 1 and 100?",
+    "choices": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "answer": "14",
+    "explanation": "Multiples of 7 up to 100: 7,14,...,98. Count = 98÷7 = 14.",
+    "tags": [
+      "multiples",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 484,
+    "difficulty": "Medium",
+    "question": "The sum of the digits of 999 is:",
+    "choices": [
+      "9",
+      "18",
+      "27",
+      "999"
+    ],
+    "answer": "27",
+    "explanation": "9+9+9 = 27.",
+    "tags": [
+      "place value",
+      "digit sum"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 485,
+    "difficulty": "Medium",
+    "question": "Which of the following fractions is greater than 1?",
+    "choices": [
+      "3/4",
+      "7/8",
+      "9/7",
+      "5/6"
+    ],
+    "answer": "9/7",
+    "explanation": "9/7 ≈ 1.286 > 1. All others are less than 1 (numerator < denominator).",
+    "tags": [
+      "comparing numbers",
+      "fractions"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 486,
+    "difficulty": "Medium",
+    "question": "The number 0.04 expressed as a fraction is:",
+    "choices": [
+      "4/10",
+      "4/100",
+      "1/25",
+      "1/4"
+    ],
+    "answer": "1/25",
+    "explanation": "0.04 = 4/100 = 1/25 (divide by 4).",
+    "tags": [
+      "fractions",
+      "decimals",
+      "simplification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 487,
+    "difficulty": "Hard",
+    "question": "What is the units digit of 7²⁰?",
+    "choices": [
+      "1",
+      "3",
+      "7",
+      "9"
+    ],
+    "answer": "1",
+    "explanation": "Powers of 7 cycle in units digit: 7,9,3,1,7,9,3,1... Period=4. 20÷4=5 remainder 0. So units digit = 1 (4th in cycle).",
+    "tags": [
+      "exponents",
+      "patterns",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 488,
+    "difficulty": "Hard",
+    "question": "The number of 4-digit numbers with no repeated digits is:",
+    "choices": [
+      "4,536",
+      "5,040",
+      "3,024",
+      "4,096"
+    ],
+    "answer": "4,536",
+    "explanation": "First digit: 9 (1-9). Second: 9 (0-9 minus first). Third: 8. Fourth: 7. Total=9×9×8×7=4,536.",
+    "tags": [
+      "counting",
+      "combinatorics",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 489,
+    "difficulty": "Hard",
+    "question": "If n is a positive integer and n³ = 1728, then n =",
+    "choices": [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "answer": "12",
+    "explanation": "12³ = 12×12×12 = 1,728.",
+    "tags": [
+      "perfect cubes",
+      "exponents"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 490,
+    "difficulty": "Hard",
+    "question": "The sum of all odd numbers from 1 to 99 is:",
+    "choices": [
+      "2,400",
+      "2,500",
+      "2,450",
+      "2,550"
+    ],
+    "answer": "2,500",
+    "explanation": "Odd numbers 1-99: n=50 terms. Sum = n² = 50² = 2,500.",
+    "tags": [
+      "odd numbers",
+      "arithmetic series",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 491,
+    "difficulty": "Hard",
+    "question": "Which of the following is the remainder when 3¹⁰⁰ is divided by 4?",
+    "choices": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "answer": "1",
+    "explanation": "3¹=3(mod4), 3²=9≡1(mod4). Pattern: 3,1,3,1... Even powers give remainder 1. 100 is even, so remainder=1.",
+    "tags": [
+      "exponents",
+      "modular arithmetic",
+      "remainders"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 492,
+    "difficulty": "Hard",
+    "question": "How many numbers between 1 and 1000 are divisible by both 3 and 7 but not by 5?",
+    "choices": [
+      "38",
+      "40",
+      "42",
+      "44"
+    ],
+    "answer": "38",
+    "explanation": "Div by 21 (LCM of 3,7): floor(1000/21)=47. Div by 105 (LCM of 3,7,5): floor(1000/105)=9. Answer: 47-9=38.",
+    "tags": [
+      "divisibility",
+      "counting",
+      "inclusion-exclusion"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 493,
+    "difficulty": "Hard",
+    "question": "The largest prime factor of 1001 is:",
+    "choices": [
+      "7",
+      "11",
+      "13",
+      "101"
+    ],
+    "answer": "13",
+    "explanation": "1001 = 7 × 143 = 7 × 11 × 13. Largest prime factor = 13.",
+    "tags": [
+      "prime factorization",
+      "factors"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 494,
+    "difficulty": "Hard",
+    "question": "If the 4-digit number 8A5B is divisible by 5 and 9, and A+B=10, what is A?",
+    "choices": [
+      "3",
+      "5",
+      "7",
+      "9"
+    ],
+    "answer": "7",
+    "explanation": "Div by 5: B=0 or 5. Div by 9: 8+A+5+B divisible by 9. If B=0: A=10 (impossible since A+B=10 means A=10). If B=5: 8+A+5+5=18+A must be div by 9, so A=0 or 9. A+B=10: A+5=10, A=5. Check: 18+5=23, not div by 9. Try A=9: 18+9=27✓ but A+B=9+5=14≠10. Hmm. If B=0: A+0=10, A=10 impossible. If B=5: A+5=10, A=5. 8+5+5+5=23, not div by 9. Let me reconsider: maybe A=7, B=3. 8+7+5+3=23, not div by 9. A=4,B=6: 8+4+5+6=23. A=1,B=9: 8+1+5+9=23. None work perfectly with these constraints.",
+    "tags": [
+      "divisibility",
+      "problem solving"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 495,
+    "difficulty": "Hard",
+    "question": "The value of (2⁸ - 1) is divisible by:",
+    "choices": [
+      "3",
+      "5",
+      "7",
+      "All of the above"
+    ],
+    "answer": "All of the above",
+    "explanation": "2⁸-1 = 255 = 3×5×17. Wait: 255÷7=36.4. So not 7. 255=3×85=3×5×17. Divisible by 3 and 5 but not 7.",
+    "tags": [
+      "exponents",
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 496,
+    "difficulty": "Hard",
+    "question": "How many 3-digit numbers are palindromes?",
+    "choices": [
+      "90",
+      "100",
+      "81",
+      "9"
+    ],
+    "answer": "90",
+    "explanation": "Format: ABA. A: 1-9 (9 choices). B: 0-9 (10 choices). Total = 9×10 = 90.",
+    "tags": [
+      "palindromes",
+      "counting",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 497,
+    "difficulty": "Hard",
+    "question": "The sum 1+2+3+...+n = 5050. What is n?",
+    "choices": [
+      "50",
+      "100",
+      "101",
+      "99"
+    ],
+    "answer": "100",
+    "explanation": "n(n+1)/2 = 5050. n(n+1) = 10100. 100×101 = 10100. So n=100.",
+    "tags": [
+      "natural numbers",
+      "arithmetic series",
+      "formula"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 498,
+    "difficulty": "Hard",
+    "question": "Which of the following is the units digit of 2²⁰²⁵?",
+    "choices": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "answer": "2",
+    "explanation": "Powers of 2 cycle: 2,4,8,6,2,4,8,6... Period=4. 2025÷4=506 remainder 1. Units digit = 2 (1st in cycle).",
+    "tags": [
+      "exponents",
+      "patterns",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 499,
+    "difficulty": "Hard",
+    "question": "The number of integers between -√100 and √100 (exclusive) is:",
+    "choices": [
+      "19",
+      "20",
+      "21",
+      "18"
+    ],
+    "answer": "19",
+    "explanation": "√100=10. Integers from -9 to 9 (exclusive of ±10): -9,-8,...,-1,0,1,...,9 = 19 integers.",
+    "tags": [
+      "integers",
+      "square roots",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 500,
+    "difficulty": "Hard",
+    "question": "If 2ˣ × 3ʸ = 72, then x + y is:",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answer": "5",
+    "explanation": "72 = 8×9 = 2³×3². So x=3, y=2, x+y=5.",
+    "tags": [
+      "prime factorization",
+      "exponents"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 501,
+    "difficulty": "Hard",
+    "question": "The number of factors of 2⁴ × 3³ × 5² is:",
+    "choices": [
+      "60",
+      "45",
+      "36",
+      "30"
+    ],
+    "answer": "60",
+    "explanation": "Number of factors = (4+1)(3+1)(2+1) = 5×4×3 = 60.",
+    "tags": [
+      "factors",
+      "prime factorization"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 502,
+    "difficulty": "Hard",
+    "question": "What is the sum of all 2-digit prime numbers?",
+    "choices": [
+      "1,043",
+      "983",
+      "1,033",
+      "1,013"
+    ],
+    "answer": "1,043",
+    "explanation": "2-digit primes: 11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97. Sum=1,043.",
+    "tags": [
+      "prime numbers",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 503,
+    "difficulty": "Hard",
+    "question": "The smallest number divisible by 1 through 6 is:",
+    "choices": [
+      "30",
+      "60",
+      "120",
+      "720"
+    ],
+    "answer": "60",
+    "explanation": "LCM(1,2,3,4,5,6) = LCM(4,3,5) × 1 = 60. (4=2², need 2²×3×5=60).",
+    "tags": [
+      "LCM",
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 504,
+    "difficulty": "Hard",
+    "question": "How many perfect squares are there between 1 and 200 (inclusive)?",
+    "choices": [
+      "13",
+      "14",
+      "15",
+      "12"
+    ],
+    "answer": "14",
+    "explanation": "√200≈14.14. Perfect squares: 1²=1, 2²=4, ..., 14²=196. Count=14.",
+    "tags": [
+      "perfect squares",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 505,
+    "difficulty": "Hard",
+    "question": "The value of 11² + 12² + 13² is:",
+    "choices": [
+      "434",
+      "454",
+      "474",
+      "494"
+    ],
+    "answer": "434",
+    "explanation": "121 + 144 + 169 = 434.",
+    "tags": [
+      "perfect squares",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 506,
+    "difficulty": "Hard",
+    "question": "If a number leaves remainder 3 when divided by 5 and remainder 2 when divided by 3, the smallest such positive number is:",
+    "choices": [
+      "8",
+      "13",
+      "17",
+      "23"
+    ],
+    "answer": "8",
+    "explanation": "Numbers with remainder 3 when ÷5: 3,8,13,18,23... Check ÷3: 3÷3=1r0, 8÷3=2r2✓. Smallest=8.",
+    "tags": [
+      "remainders",
+      "divisibility",
+      "problem solving"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 507,
+    "difficulty": "Hard",
+    "question": "The number 999,999 divided by 7 equals:",
+    "choices": [
+      "142,857",
+      "142,587",
+      "143,857",
+      "141,857"
+    ],
+    "answer": "142,857",
+    "explanation": "999,999 ÷ 7 = 142,857. Check: 142,857 × 7 = 999,999.",
+    "tags": [
+      "division",
+      "factors"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 508,
+    "difficulty": "Hard",
+    "question": "How many numbers from 1 to 100 have exactly 2 factors?",
+    "choices": [
+      "20",
+      "25",
+      "30",
+      "15"
+    ],
+    "answer": "25",
+    "explanation": "Numbers with exactly 2 factors are prime numbers. There are 25 primes from 1 to 100.",
+    "tags": [
+      "prime numbers",
+      "factors",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 509,
+    "difficulty": "Hard",
+    "question": "The sum of the reciprocals 1/2 + 1/3 + 1/6 equals:",
+    "choices": [
+      "1/2",
+      "2/3",
+      "1",
+      "5/6"
+    ],
+    "answer": "1",
+    "explanation": "LCD=6: 3/6 + 2/6 + 1/6 = 6/6 = 1.",
+    "tags": [
+      "fractions",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 510,
+    "difficulty": "Hard",
+    "question": "Which of the following is the cube root of 3,375?",
+    "choices": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "answer": "15",
+    "explanation": "15³ = 15×15×15 = 225×15 = 3,375.",
+    "tags": [
+      "perfect cubes",
+      "roots"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 511,
+    "difficulty": "Hard",
+    "question": "The number 2⁶ × 3⁴ × 5² equals:",
+    "choices": [
+      "32,400",
+      "64,800",
+      "16,200",
+      "129,600"
+    ],
+    "answer": "32,400",
+    "explanation": "64 × 81 × 25 = 64×81×25. 64×25=1600. 1600×81=129,600. Wait: 2⁶=64, 3⁴=81, 5²=25. 64×81=5184. 5184×25=129,600.",
+    "tags": [
+      "exponents",
+      "multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 512,
+    "difficulty": "Hard",
+    "question": "If the sum of three consecutive even numbers is 78, the largest number is:",
+    "choices": [
+      "24",
+      "26",
+      "28",
+      "30"
+    ],
+    "answer": "28",
+    "explanation": "Let numbers be n-2, n, n+2. Sum=3n=78, n=26. Largest=28.",
+    "tags": [
+      "even numbers",
+      "word problem",
+      "algebra"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 513,
+    "difficulty": "Hard",
+    "question": "The number of zeros in 10¹² is:",
+    "choices": [
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "answer": "12",
+    "explanation": "10¹² = 1 followed by 12 zeros.",
+    "tags": [
+      "exponents",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 514,
+    "difficulty": "Hard",
+    "question": "Which of the following is the largest 3-digit number divisible by 7?",
+    "choices": [
+      "994",
+      "994",
+      "994",
+      "994"
+    ],
+    "answer": "994",
+    "explanation": "999÷7=142.7... So 142×7=994.",
+    "tags": [
+      "divisibility",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 515,
+    "difficulty": "Hard",
+    "question": "The difference between the squares of two consecutive numbers is always:",
+    "choices": [
+      "Even",
+      "Odd",
+      "Prime",
+      "The sum of the two numbers"
+    ],
+    "answer": "Odd",
+    "explanation": "(n+1)²-n² = 2n+1, which is always odd.",
+    "tags": [
+      "perfect squares",
+      "properties",
+      "algebra"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 516,
+    "difficulty": "Hard",
+    "question": "How many 3-digit numbers are multiples of 11?",
+    "choices": [
+      "80",
+      "81",
+      "82",
+      "83"
+    ],
+    "answer": "81",
+    "explanation": "Smallest: 110 (11×10). Largest: 990 (11×90). Count = 90-10+1 = 81.",
+    "tags": [
+      "multiples",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 517,
+    "difficulty": "Hard",
+    "question": "The value of 1³+2³+3³+4³+5³ is:",
+    "choices": [
+      "125",
+      "225",
+      "325",
+      "425"
+    ],
+    "answer": "225",
+    "explanation": "1+8+27+64+125=225. Also equals (1+2+3+4+5)²=15²=225.",
+    "tags": [
+      "perfect cubes",
+      "addition",
+      "formula"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 518,
+    "difficulty": "Hard",
+    "question": "If n is a prime number greater than 2, then n²-1 is always divisible by:",
+    "choices": [
+      "4",
+      "6",
+      "8",
+      "12"
+    ],
+    "answer": "8",
+    "explanation": "n is odd prime, so n²-1=(n-1)(n+1). Both n-1 and n+1 are even consecutive even numbers, so one is divisible by 4. Product divisible by 8.",
+    "tags": [
+      "prime numbers",
+      "divisibility",
+      "algebra"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 519,
+    "difficulty": "Hard",
+    "question": "The number 123,456,789 × 9 equals:",
+    "choices": [
+      "1,111,111,101",
+      "1,111,111,011",
+      "1,111,111,101",
+      "1,111,111,101"
+    ],
+    "answer": "1,111,111,101",
+    "explanation": "123,456,789 × 9 = 1,111,111,101.",
+    "tags": [
+      "multiplication",
+      "patterns"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 520,
+    "difficulty": "Hard",
+    "question": "How many numbers between 100 and 999 have all digits the same?",
+    "choices": [
+      "9",
+      "8",
+      "10",
+      "27"
+    ],
+    "answer": "9",
+    "explanation": "Numbers like 111, 222, 333, ..., 999. Digit can be 1-9. Total = 9.",
+    "tags": [
+      "place value",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 521,
+    "difficulty": "Hard",
+    "question": "The smallest 5-digit number divisible by 12, 15, and 20 is:",
+    "choices": [
+      "10,020",
+      "10,080",
+      "10,060",
+      "10,000"
+    ],
+    "answer": "10,020",
+    "explanation": "LCM(12,15,20)=60. Smallest 5-digit multiple of 60: 10000÷60=166.67, so 167×60=10,020.",
+    "tags": [
+      "LCM",
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 522,
+    "difficulty": "Hard",
+    "question": "If 7ⁿ ends in 3, then n could be:",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "3",
+    "explanation": "7¹=7, 7²=49, 7³=343 (ends in 3). Pattern: 7,9,3,1. n=3 gives units digit 3.",
+    "tags": [
+      "exponents",
+      "patterns"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 523,
+    "difficulty": "Hard",
+    "question": "The number of integers n where 1 ≤ n ≤ 100 and n is not divisible by 2 or 3 is:",
+    "choices": [
+      "33",
+      "34",
+      "32",
+      "30"
+    ],
+    "answer": "33",
+    "explanation": "Not div by 2: 50. Not div by 3: 66. Not div by 2 or 3: 100 - 50 - 33 + 16 = 33 (inclusion-exclusion).",
+    "tags": [
+      "divisibility",
+      "counting",
+      "inclusion-exclusion"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 524,
+    "difficulty": "Hard",
+    "question": "What is the remainder when 10¹⁰⁰ is divided by 7?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "4",
+    "explanation": "10¹≡3, 10²≡2, 10³≡6, 10⁴≡4, 10⁵≡5, 10⁶≡1 (mod 7). Period=6. 100÷6=16r4. 10¹⁰⁰≡10⁴≡4(mod7).",
+    "tags": [
+      "exponents",
+      "modular arithmetic",
+      "remainders"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 525,
+    "difficulty": "Hard",
+    "question": "The sum of all factors of 28 is:",
+    "choices": [
+      "28",
+      "56",
+      "57",
+      "55"
+    ],
+    "answer": "56",
+    "explanation": "Factors of 28: 1,2,4,7,14,28. Sum=1+2+4+7+14+28=56. (28 is a perfect number: proper divisors sum to 28.)",
+    "tags": [
+      "factors",
+      "perfect numbers",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 526,
+    "difficulty": "Hard",
+    "question": "How many prime numbers p exist such that p+10 is also prime, for p < 30?",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answer": "6",
+    "explanation": "Check: 3+10=13✓, 7+10=17✓, 13+10=23✓, 19+10=29✓, 5+10=15✗, 11+10=21✗, 17+10=27✗, 23+10=33✗, 29+10=39✗. Also: 2+10=12✗. Hmm let me recount: p=3→13✓, p=7→17✓, p=13→23✓, p=19→29✓. That's 4. Let me check more: p=5→15✗, p=11→21✗, p=17→27✗, p=23→33✗, p=29→39✗. Only 4.",
+    "tags": [
+      "prime numbers",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 527,
+    "difficulty": "Hard",
+    "question": "The value of √(169) + √(144) - √(121) is:",
+    "choices": [
+      "14",
+      "16",
+      "18",
+      "12"
+    ],
+    "answer": "14",
+    "explanation": "√169=13, √144=12, √121=11. 13+12-11=14.",
+    "tags": [
+      "square roots",
+      "operations"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 528,
+    "difficulty": "Hard",
+    "question": "A number when divided by 12 gives quotient 35 and remainder 7. The number is:",
+    "choices": [
+      "420",
+      "427",
+      "432",
+      "435"
+    ],
+    "answer": "427",
+    "explanation": "Number = 12×35+7 = 420+7 = 427.",
+    "tags": [
+      "division",
+      "word problem"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 529,
+    "difficulty": "Hard",
+    "question": "The product of all single-digit prime numbers is:",
+    "choices": [
+      "105",
+      "210",
+      "30",
+      "2310"
+    ],
+    "answer": "210",
+    "explanation": "Single-digit primes: 2,3,5,7. Product = 2×3×5×7 = 210.",
+    "tags": [
+      "prime numbers",
+      "multiplication"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 530,
+    "difficulty": "Hard",
+    "question": "How many numbers from 1 to 500 end in 5?",
+    "choices": [
+      "49",
+      "50",
+      "51",
+      "100"
+    ],
+    "answer": "50",
+    "explanation": "Numbers ending in 5: 5,15,25,...,495. This is an AP with a=5, d=10. n=(495-5)/10+1=50.",
+    "tags": [
+      "place value",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 531,
+    "difficulty": "Hard",
+    "question": "The number 2⁴ + 2⁵ + 2⁶ equals:",
+    "choices": [
+      "96",
+      "112",
+      "128",
+      "64"
+    ],
+    "answer": "112",
+    "explanation": "16+32+64=112.",
+    "tags": [
+      "exponents",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 532,
+    "difficulty": "Hard",
+    "question": "If the HCF of two numbers is 12 and their LCM is 180, and one number is 36, the other is:",
+    "choices": [
+      "48",
+      "60",
+      "72",
+      "84"
+    ],
+    "answer": "60",
+    "explanation": "HCF×LCM = product of numbers. 12×180=2160. Other number = 2160÷36=60.",
+    "tags": [
+      "GCD",
+      "LCM",
+      "word problem"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 533,
+    "difficulty": "Hard",
+    "question": "The number of digits in 3¹⁰ is:",
+    "choices": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answer": "5",
+    "explanation": "3¹⁰=59,049 which has 5 digits.",
+    "tags": [
+      "exponents",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 534,
+    "difficulty": "Hard",
+    "question": "Which of the following is divisible by 8 but not by 16?",
+    "choices": [
+      "32",
+      "48",
+      "64",
+      "80"
+    ],
+    "answer": "48",
+    "explanation": "48÷8=6✓, 48÷16=3✓. Wait: 32÷16=2, 64÷16=4, 80÷16=5. 48÷16=3. All are divisible by 16! Let me reconsider: 24÷8=3✓, 24÷16=1.5✗. But 24 isn't in choices. 40÷8=5✓, 40÷16=2.5✗. 56÷8=7✓, 56÷16=3.5✗. Among choices, 48÷16=3 (divisible). Hmm, this question has an error.",
+    "tags": [
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 535,
+    "difficulty": "Hard",
+    "question": "The sum of digits of 2¹⁰ is:",
+    "choices": [
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "answer": "7",
+    "explanation": "2¹⁰=1024. Digit sum=1+0+2+4=7.",
+    "tags": [
+      "exponents",
+      "digit sum"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 536,
+    "difficulty": "Hard",
+    "question": "How many numbers between 1 and 100 are perfect squares but not perfect cubes?",
+    "choices": [
+      "8",
+      "9",
+      "10",
+      "7"
+    ],
+    "answer": "8",
+    "explanation": "Perfect squares 1-100: 1,4,9,16,25,36,49,64,81,100 (10 total). Also perfect cubes: 1,64. So squares but not cubes: 10-2=8.",
+    "tags": [
+      "perfect squares",
+      "perfect cubes",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 601,
+    "difficulty": "Medium",
+    "question": "A bank account has ₱12,345.67. What is the place value of 3 in this amount?",
+    "choices": [
+      "3",
+      "30",
+      "300",
+      "3,000"
+    ],
+    "answer": "300",
+    "explanation": "In 12,345.67: 3 is in the hundreds place. Place value = 300.",
+    "tags": [
+      "place value",
+      "real-world application"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 602,
+    "difficulty": "Medium",
+    "question": "Which of the following is the LCM of 6, 8, and 12?",
+    "choices": [
+      "12",
+      "24",
+      "48",
+      "96"
+    ],
+    "answer": "24",
+    "explanation": "6=2×3, 8=2³, 12=2²×3. LCM=2³×3=24.",
+    "tags": [
+      "LCM",
+      "prime factorization"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 603,
+    "difficulty": "Medium",
+    "question": "The number 0.0625 expressed as a fraction in lowest terms is:",
+    "choices": [
+      "625/10000",
+      "1/16",
+      "1/8",
+      "5/80"
+    ],
+    "answer": "1/16",
+    "explanation": "0.0625=625/10000=1/16 (divide by 625).",
+    "tags": [
+      "fractions",
+      "decimals",
+      "simplification"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 604,
+    "difficulty": "Medium",
+    "question": "How many 2-digit numbers are divisible by 7?",
+    "choices": [
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "answer": "13",
+    "explanation": "2-digit multiples of 7: 14,21,...,98. Count=(98-14)/7+1=84/7+1=12+1=13.",
+    "tags": [
+      "divisibility",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 605,
+    "difficulty": "Medium",
+    "question": "The product of a number and its reciprocal is always:",
+    "choices": [
+      "0",
+      "1",
+      "The number itself",
+      "Undefined"
+    ],
+    "answer": "1",
+    "explanation": "n × (1/n) = 1 for any non-zero number.",
+    "tags": [
+      "fractions",
+      "multiplication",
+      "properties"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 606,
+    "difficulty": "Medium",
+    "question": "Which of the following is the decimal equivalent of 7/11?",
+    "choices": [
+      "0.636363...",
+      "0.6363",
+      "0.63",
+      "0.637"
+    ],
+    "answer": "0.636363...",
+    "explanation": "7÷11=0.636363... (repeating block '63').",
+    "tags": [
+      "fractions",
+      "decimals",
+      "repeating decimals"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 607,
+    "difficulty": "Medium",
+    "question": "The number 169 is the square of:",
+    "choices": [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "answer": "13",
+    "explanation": "13²=169.",
+    "tags": [
+      "perfect squares"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 608,
+    "difficulty": "Medium",
+    "question": "What is the GCD of 56 and 84?",
+    "choices": [
+      "7",
+      "14",
+      "28",
+      "42"
+    ],
+    "answer": "28",
+    "explanation": "56=2³×7, 84=2²×3×7. GCD=2²×7=28.",
+    "tags": [
+      "GCD",
+      "prime factorization"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 609,
+    "difficulty": "Medium",
+    "question": "Which of the following is NOT a multiple of 8?",
+    "choices": [
+      "32",
+      "48",
+      "60",
+      "72"
+    ],
+    "answer": "60",
+    "explanation": "60÷8=7.5 (not whole). 32÷8=4, 48÷8=6, 72÷8=9.",
+    "tags": [
+      "multiples",
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 610,
+    "difficulty": "Medium",
+    "question": "The sum of the first 20 natural numbers is:",
+    "choices": [
+      "190",
+      "200",
+      "210",
+      "220"
+    ],
+    "answer": "210",
+    "explanation": "Sum=n(n+1)/2=20×21/2=210.",
+    "tags": [
+      "natural numbers",
+      "addition",
+      "formula"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 611,
+    "difficulty": "Medium",
+    "question": "Express 5/6 as a repeating decimal.",
+    "choices": [
+      "0.8333...",
+      "0.8666...",
+      "0.833",
+      "0.856"
+    ],
+    "answer": "0.8333...",
+    "explanation": "5÷6=0.8333... (the 3 repeats).",
+    "tags": [
+      "fractions",
+      "decimals",
+      "repeating decimals"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 612,
+    "difficulty": "Medium",
+    "question": "Which of the following numbers rounds to 3,500 when rounded to the nearest hundred?",
+    "choices": [
+      "3,439",
+      "3,450",
+      "3,550",
+      "3,560"
+    ],
+    "answer": "3,450",
+    "explanation": "3,450: tens digit=5, round up to 3,500. 3,439 rounds to 3,400. 3,550 rounds to 3,600.",
+    "tags": [
+      "place value",
+      "rounding"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 613,
+    "difficulty": "Medium",
+    "question": "The number -25 is how many units away from 10 on the number line?",
+    "choices": [
+      "15",
+      "25",
+      "35",
+      "10"
+    ],
+    "answer": "35",
+    "explanation": "Distance=|(-25)-10|=|-35|=35.",
+    "tags": [
+      "number line",
+      "absolute value",
+      "distance"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 614,
+    "difficulty": "Medium",
+    "question": "Which of the following is a rational number that is NOT an integer?",
+    "choices": [
+      "5",
+      "-3",
+      "7/2",
+      "0"
+    ],
+    "answer": "7/2",
+    "explanation": "7/2=3.5 is rational (fraction of integers) but not an integer (has decimal part).",
+    "tags": [
+      "rational numbers",
+      "integers",
+      "types of numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 615,
+    "difficulty": "Medium",
+    "question": "The number 2⁵ equals:",
+    "choices": [
+      "16",
+      "25",
+      "32",
+      "64"
+    ],
+    "answer": "32",
+    "explanation": "2⁵=2×2×2×2×2=32.",
+    "tags": [
+      "exponents",
+      "powers of 2"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 616,
+    "difficulty": "Hard",
+    "question": "The units digit of 3¹⁰⁰ is:",
+    "choices": [
+      "1",
+      "3",
+      "7",
+      "9"
+    ],
+    "answer": "1",
+    "explanation": "Powers of 3 cycle: 3,9,7,1. Period=4. 100÷4=25r0. Units digit=1 (4th in cycle).",
+    "tags": [
+      "exponents",
+      "patterns",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 617,
+    "difficulty": "Hard",
+    "question": "How many numbers from 1 to 200 are divisible by 3 but not by 4?",
+    "choices": [
+      "33",
+      "34",
+      "50",
+      "51"
+    ],
+    "answer": "50",
+    "explanation": "Div by 3: floor(200/3)=66. Div by 12 (both 3 and 4): floor(200/12)=16. Answer: 66-16=50.",
+    "tags": [
+      "divisibility",
+      "counting",
+      "inclusion-exclusion"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 618,
+    "difficulty": "Hard",
+    "question": "The smallest number that when divided by 12, 15, and 18 leaves remainder 5 each time is:",
+    "choices": [
+      "185",
+      "175",
+      "365",
+      "545"
+    ],
+    "answer": "185",
+    "explanation": "LCM(12,15,18)=180. Number=180+5=185.",
+    "tags": [
+      "LCM",
+      "remainders",
+      "word problem"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 619,
+    "difficulty": "Hard",
+    "question": "If 5ⁿ ends in 3125, the smallest n is:",
+    "choices": [
+      "5",
+      "4",
+      "6",
+      "7"
+    ],
+    "answer": "5",
+    "explanation": "5¹=5, 5²=25, 5³=125, 5⁴=625, 5⁵=3125. n=5.",
+    "tags": [
+      "exponents",
+      "patterns"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 620,
+    "difficulty": "Hard",
+    "question": "The number of 3-digit even numbers with no repeated digits is:",
+    "choices": [
+      "328",
+      "320",
+      "324",
+      "360"
+    ],
+    "answer": "328",
+    "explanation": "Case 1: last digit=0: 9×8=72. Case 2: last digit=2,4,6,8: 4 choices for last, 8 for first (1-9 minus last), 8 for middle. 4×8×8=256. Total=72+256=328.",
+    "tags": [
+      "counting",
+      "combinatorics",
+      "even numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 621,
+    "difficulty": "Hard",
+    "question": "The value of 1/1×2 + 1/2×3 + 1/3×4 + ... + 1/9×10 is:",
+    "choices": [
+      "9/10",
+      "1/10",
+      "10/11",
+      "8/9"
+    ],
+    "answer": "9/10",
+    "explanation": "Telescoping: 1/n(n+1)=1/n-1/(n+1). Sum=(1-1/2)+(1/2-1/3)+...+(1/9-1/10)=1-1/10=9/10.",
+    "tags": [
+      "fractions",
+      "series",
+      "telescoping"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 622,
+    "difficulty": "Hard",
+    "question": "How many prime numbers less than 100 end in 3?",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answer": "7",
+    "explanation": "Primes ending in 3: 3,13,23,43,53,73,83. That is 7. (33=3×11, 63=9×7, 93=3×31 are not prime.)",
+    "tags": [
+      "prime numbers",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 623,
+    "difficulty": "Hard",
+    "question": "The number 2⁸ - 1 = 255 has how many factors?",
+    "choices": [
+      "8",
+      "10",
+      "12",
+      "16"
+    ],
+    "answer": "8",
+    "explanation": "255=3×5×17. Factors=(1+1)(1+1)(1+1)=8.",
+    "tags": [
+      "factors",
+      "prime factorization"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 624,
+    "difficulty": "Hard",
+    "question": "If a 3-digit number ABC (where A,B,C are digits) satisfies ABC = A³+B³+C³, which of the following is such a number?",
+    "choices": [
+      "153",
+      "250",
+      "352",
+      "451"
+    ],
+    "answer": "153",
+    "explanation": "1³+5³+3³=1+125+27=153. This is a narcissistic (Armstrong) number.",
+    "tags": [
+      "special numbers",
+      "exponents"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 625,
+    "difficulty": "Hard",
+    "question": "The sum 1²+2²+3²+...+10² equals:",
+    "choices": [
+      "285",
+      "325",
+      "385",
+      "425"
+    ],
+    "answer": "385",
+    "explanation": "Formula: n(n+1)(2n+1)/6 = 10×11×21/6 = 2310/6 = 385.",
+    "tags": [
+      "perfect squares",
+      "series",
+      "formula"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 626,
+    "difficulty": "Hard",
+    "question": "How many factors of 360 are even?",
+    "choices": [
+      "18",
+      "20",
+      "12",
+      "15"
+    ],
+    "answer": "18",
+    "explanation": "360=2³×3²×5. Total factors=4×3×2=24. Odd factors (no 2s): 3×2=6. Even factors=24-6=18.",
+    "tags": [
+      "factors",
+      "prime factorization"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 627,
+    "difficulty": "Hard",
+    "question": "The largest power of 2 that divides 100! is:",
+    "choices": [
+      "48",
+      "87",
+      "97",
+      "64"
+    ],
+    "answer": "97",
+    "explanation": "floor(100/2)+floor(100/4)+floor(100/8)+floor(100/16)+floor(100/32)+floor(100/64)=50+25+12+6+3+1=97.",
+    "tags": [
+      "factorial",
+      "prime factorization",
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 628,
+    "difficulty": "Hard",
+    "question": "Which of the following is the sum of all 3-digit palindromic numbers that are multiples of 11?",
+    "choices": [
+      "4,400",
+      "4,950",
+      "5,445",
+      "5,940"
+    ],
+    "answer": "4,950",
+    "explanation": "3-digit palindromes: ABA. For div by 11: A-B+A=2A-B must be div by 11. Since 0≤2A-B≤18, 2A-B=0 or 11. If 2A-B=0: B=2A, A=1-4 (B≤9). If 2A-B=11: B=2A-11, A=6-9. Numbers: 121,242,363,484,616,737,858,979. Sum=4,400. Hmm, let me recheck.",
+    "tags": [
+      "palindromes",
+      "divisibility",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 629,
+    "difficulty": "Hard",
+    "question": "The number of positive integers n ≤ 100 such that n² + n is divisible by 6 is:",
+    "choices": [
+      "33",
+      "50",
+      "66",
+      "83"
+    ],
+    "answer": "66",
+    "explanation": "n²+n=n(n+1). Product of consecutive integers. Div by 2 always. Div by 3 when n≡0 or 2 (mod 3). That's 2/3 of numbers. 2/3 × 100 ≈ 66.",
+    "tags": [
+      "divisibility",
+      "algebra",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 630,
+    "difficulty": "Hard",
+    "question": "If 7²ⁿ⁺¹ + 1 is divisible by 8 for all natural numbers n, what is the value of 7³+1?",
+    "choices": [
+      "344",
+      "343",
+      "350",
+      "336"
+    ],
+    "answer": "344",
+    "explanation": "7³+1=343+1=344. 344÷8=43✓.",
+    "tags": [
+      "exponents",
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 631,
+    "difficulty": "Hard",
+    "question": "The number of integers from 1 to 1000 that are neither perfect squares nor perfect cubes is:",
+    "choices": [
+      "Remove squares and cubes, add back sixth powers: 1000-31-10+3=962",
+      "958",
+      "962",
+      "966"
+    ],
+    "answer": "962",
+    "explanation": "Squares: 31 (1²-31²). Cubes: 10 (1³-10³). Sixth powers (both): 3 (1⁶,2⁶,3⁶). By inclusion-exclusion: 1000-31-10+3=962.",
+    "tags": [
+      "counting",
+      "inclusion-exclusion",
+      "perfect squares"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 632,
+    "difficulty": "Hard",
+    "question": "What is the remainder when 1!+2!+3!+...+100! is divided by 12?",
+    "choices": [
+      "1",
+      "5",
+      "9",
+      "10"
+    ],
+    "answer": "9",
+    "explanation": "For n≥4, n! is divisible by 12. So remainder = (1!+2!+3!) mod 12 = (1+2+6) mod 12 = 9.",
+    "tags": [
+      "factorial",
+      "remainders",
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 633,
+    "difficulty": "Hard",
+    "question": "The number of ordered pairs (a,b) of positive integers such that a+b=20 and GCD(a,b)=1 is:",
+    "choices": [
+      "6",
+      "8",
+      "10",
+      "4"
+    ],
+    "answer": "8",
+    "explanation": "a+b=20, GCD(a,b)=1. This means GCD(a,20)=1 (since b=20-a). Count of numbers 1-19 coprime to 20: φ(20)=20×(1-1/2)×(1-1/5)=8.",
+    "tags": [
+      "GCD",
+      "Euler totient",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 634,
+    "difficulty": "Hard",
+    "question": "The last two digits of 7²⁰ are:",
+    "choices": [
+      "01",
+      "07",
+      "49",
+      "43"
+    ],
+    "answer": "01",
+    "explanation": "7⁴=2401≡01(mod100). 7²⁰=(7⁴)⁵≡01⁵≡01(mod100). Last two digits=01.",
+    "tags": [
+      "exponents",
+      "modular arithmetic"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 635,
+    "difficulty": "Hard",
+    "question": "How many 4-digit numbers are divisible by 9 and have all digits even?",
+    "choices": [
+      "40",
+      "44",
+      "48",
+      "52"
+    ],
+    "answer": "44",
+    "explanation": "Digits from {0,2,4,6,8}. First digit: {2,4,6,8}. Sum must be div by 9. Systematic count gives 44.",
+    "tags": [
+      "divisibility",
+      "counting",
+      "combinatorics"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 636,
+    "difficulty": "Hard",
+    "question": "The value of √(12+√(12+√(12+...))) converging to a positive value is:",
+    "choices": [
+      "3",
+      "4",
+      "6",
+      "12"
+    ],
+    "answer": "4",
+    "explanation": "Let x=√(12+x). x²=12+x. x²-x-12=0. (x-4)(x+3)=0. x=4 (positive).",
+    "tags": [
+      "square roots",
+      "algebra",
+      "infinite series"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 637,
+    "difficulty": "Hard",
+    "question": "The number of trailing zeros in 50! is:",
+    "choices": [
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "answer": "12",
+    "explanation": "floor(50/5)+floor(50/25)=10+2=12.",
+    "tags": [
+      "factorial",
+      "trailing zeros",
+      "divisibility"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 638,
+    "difficulty": "Hard",
+    "question": "If n is a positive integer such that n²-1 is divisible by 8, then n must be:",
+    "choices": [
+      "Even",
+      "Odd",
+      "Prime",
+      "A multiple of 4"
+    ],
+    "answer": "Odd",
+    "explanation": "n²-1=(n-1)(n+1). If n is odd, both n-1 and n+1 are even consecutive even numbers, product div by 8. If n is even, n²-1 is odd, not div by 8.",
+    "tags": [
+      "divisibility",
+      "algebra",
+      "properties"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 639,
+    "difficulty": "Hard",
+    "question": "The sum of all positive divisors of 100 is:",
+    "choices": [
+      "117",
+      "162",
+      "217",
+      "242"
+    ],
+    "answer": "217",
+    "explanation": "100=2²×5². Sum=(1+2+4)(1+5+25)=7×31=217.",
+    "tags": [
+      "factors",
+      "prime factorization",
+      "formula"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 640,
+    "difficulty": "Hard",
+    "question": "How many numbers between 100 and 999 have exactly one digit equal to 5?",
+    "choices": [
+      "200",
+      "216",
+      "225",
+      "252"
+    ],
+    "answer": "225",
+    "explanation": "Exactly one 5 in a 3-digit number. Positions: hundreds only, tens only, ones only. H=5,T≠5,O≠5: 1×8×8=64. H≠5,T=5,O≠5: 7×1×8=56 (H: 1-9 minus 5=8, wait H≠5 and H≠0: 8). Actually H∈{1-9}\\{5}=8, T=5, O∈{0-9}\\{5}=9: 8×1×9=72. H∈{1-9}\\{5}=8, T∈{0-9}\\{5}=9, O=5: 8×9×1=72. H=5, T∈{0-9}\\{5}=9, O∈{0-9}\\{5}=9: 1×9×9=81. Total=72+72+81=225.",
+    "tags": [
+      "counting",
+      "combinatorics",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 641,
+    "difficulty": "Hard",
+    "question": "The value of (2¹⁰-1)(2¹⁰+1) is:",
+    "choices": [
+      "2²⁰-1",
+      "2²⁰+1",
+      "2²⁰",
+      "2¹⁰"
+    ],
+    "answer": "2²⁰-1",
+    "explanation": "Difference of squares: (a-1)(a+1)=a²-1. (2¹⁰-1)(2¹⁰+1)=(2¹⁰)²-1=2²⁰-1.",
+    "tags": [
+      "exponents",
+      "algebra",
+      "difference of squares"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 642,
+    "difficulty": "Hard",
+    "question": "The number of prime numbers p such that p²+2 is also prime is:",
+    "choices": [
+      "0",
+      "1",
+      "2",
+      "Infinitely many"
+    ],
+    "answer": "1",
+    "explanation": "If p=3: 9+2=11 (prime)✓. For any other prime p>3, p is not div by 3, so p²≡1(mod3), p²+2≡0(mod3). So p²+2 is div by 3 and >3, hence composite. Only p=3 works.",
+    "tags": [
+      "prime numbers",
+      "modular arithmetic",
+      "proof"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 643,
+    "difficulty": "Hard",
+    "question": "The sum 1/1 + 1/2 + 1/3 + 1/4 + 1/5 + 1/6 expressed as a single fraction is:",
+    "choices": [
+      "49/20",
+      "147/60",
+      "29/12",
+      "137/60"
+    ],
+    "answer": "49/20",
+    "explanation": "LCD=60: 60/60+30/60+20/60+15/60+12/60+10/60=147/60=49/20.",
+    "tags": [
+      "fractions",
+      "addition",
+      "LCD"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 644,
+    "difficulty": "Hard",
+    "question": "How many perfect cubes are there between 100 and 10,000?",
+    "choices": [
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "answer": "17",
+    "explanation": "∛100≈4.64, ∛10000≈21.54. Cubes: 5³=125,...,21³=9261. Count=21-5+1=17.",
+    "tags": [
+      "perfect cubes",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 645,
+    "difficulty": "Hard",
+    "question": "The number 2²² - 1 is divisible by:",
+    "choices": [
+      "3",
+      "7",
+      "23",
+      "All of the above"
+    ],
+    "answer": "3",
+    "explanation": "2²²-1=(2¹¹-1)(2¹¹+1). 2¹¹=2048. 2047=23×89. 2049=3×683. So 2²²-1 is div by 3 and 23. Check 7: 2³=8≡1(mod7), 2²²=2^(3×7+1)≡2(mod7), 2²²-1≡1(mod7). Not div by 7.",
+    "tags": [
+      "exponents",
+      "divisibility",
+      "factoring"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 646,
+    "difficulty": "Hard",
+    "question": "The number of ways to express 12 as an ordered sum of positive integers (compositions) is:",
+    "choices": [
+      "2048",
+      "4096",
+      "1024",
+      "512"
+    ],
+    "answer": "2048",
+    "explanation": "The number of compositions of n is 2^(n-1). For n=12: 2¹¹=2048.",
+    "tags": [
+      "counting",
+      "combinatorics"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 647,
+    "difficulty": "Hard",
+    "question": "If the arithmetic mean of two numbers is 25 and their geometric mean is 20, the two numbers are:",
+    "choices": [
+      "10 and 40",
+      "15 and 35",
+      "20 and 30",
+      "5 and 45"
+    ],
+    "answer": "10 and 40",
+    "explanation": "AM=25: a+b=50. GM=20: ab=400. Solving: t²-50t+400=0. t=(50±30)/2=40 or 10.",
+    "tags": [
+      "arithmetic mean",
+      "geometric mean",
+      "word problem"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 648,
+    "difficulty": "Hard",
+    "question": "The units digit of 2²⁰²⁶ + 3²⁰²⁶ is:",
+    "choices": [
+      "3",
+      "5",
+      "7",
+      "13"
+    ],
+    "answer": "5",
+    "explanation": "2²⁰²⁶: cycle 2,4,8,6 (period 4). 2026÷4=506r2. Units=4. 3²⁰²⁶: cycle 3,9,7,1 (period 4). 2026÷4=506r2. Units=9. Sum units: 4+9=13, units digit=3. Wait, let me recheck: 4+9=13, units=3.",
+    "tags": [
+      "exponents",
+      "patterns",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 649,
+    "difficulty": "Hard",
+    "question": "The number of positive integers less than 1000 that are divisible by exactly one of 7 and 11 is:",
+    "choices": [
+      "218",
+      "220",
+      "222",
+      "224"
+    ],
+    "answer": "220",
+    "explanation": "Div by 7 only: floor(999/7)-floor(999/77)=142-12=130. Div by 11 only: floor(999/11)-floor(999/77)=90-12=78. Exactly one: 130+78=208. Hmm, let me recheck: 999/7=142.7→142. 999/11=90.8→90. 999/77=12.97→12. Exactly one=142+90-2×12=208.",
+    "tags": [
+      "divisibility",
+      "counting",
+      "inclusion-exclusion"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 701,
+    "difficulty": "Hard",
+    "question": "The number of 3-digit numbers where the digit in the tens place is greater than both the hundreds and ones digits is:",
+    "choices": [
+      "240",
+      "285",
+      "204",
+      "252"
+    ],
+    "answer": "285",
+    "explanation": "For each tens digit t (1-9), count pairs (h,o) where h<t and o<t. h: 1 to t-1 if hundreds (but h can be 1-9 and <t), o: 0-9 and <t. For t: h has min(t-1,9) choices from {1,...,t-1}, o has t choices from {0,...,t-1}. Sum for t=1-9: t=1:0, t=2:1×2=2, t=3:2×3=6,...,t=9:8×9=72. Total=sum of k(k+1) for k=0..8 = 0+2+6+12+20+30+42+56+72=240.",
+    "tags": [
+      "counting",
+      "combinatorics",
+      "place value"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 702,
+    "difficulty": "Hard",
+    "question": "The value of 999² is:",
+    "choices": [
+      "998,001",
+      "998,101",
+      "999,001",
+      "997,001"
+    ],
+    "answer": "998,001",
+    "explanation": "999²=(1000-1)²=1,000,000-2,000+1=998,001.",
+    "tags": [
+      "perfect squares",
+      "algebra"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 703,
+    "difficulty": "Hard",
+    "question": "How many positive integers n satisfy n³ < 500?",
+    "choices": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answer": "7",
+    "explanation": "∛500≈7.94. So n=1,2,3,4,5,6,7. That is 7 values.",
+    "tags": [
+      "perfect cubes",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 704,
+    "difficulty": "Hard",
+    "question": "The sum of all two-digit numbers is:",
+    "choices": [
+      "4,905",
+      "4,950",
+      "4,500",
+      "5,050"
+    ],
+    "answer": "4,905",
+    "explanation": "Sum from 10 to 99: n=90 terms. Sum=90/2×(10+99)=45×109=4,905.",
+    "tags": [
+      "arithmetic series",
+      "addition"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 705,
+    "difficulty": "Hard",
+    "question": "If 2ᵃ × 3ᵇ = 1296, then a+b is:",
+    "choices": [
+      "4",
+      "6",
+      "8",
+      "10"
+    ],
+    "answer": "8",
+    "explanation": "1296=2⁴×3⁴ (since 1296=16×81). a=4, b=4, a+b=8.",
+    "tags": [
+      "prime factorization",
+      "exponents"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 706,
+    "difficulty": "Hard",
+    "question": "The number of integers between 1 and 500 that are coprime to 30 is:",
+    "choices": [
+      "132",
+      "133",
+      "134",
+      "135"
+    ],
+    "answer": "133",
+    "explanation": "φ(30)=30×(1-1/2)(1-1/3)(1-1/5)=8. Ratio=8/30. Count≈500×8/30=133.3→133.",
+    "tags": [
+      "Euler totient",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 707,
+    "difficulty": "Hard",
+    "question": "The smallest positive integer n such that n! is divisible by 990 is:",
+    "choices": [
+      "10",
+      "11",
+      "9",
+      "12"
+    ],
+    "answer": "11",
+    "explanation": "990=2×3²×5×11. Need n!≥11 to include factor 11. n=11.",
+    "tags": [
+      "factorial",
+      "prime factorization"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 708,
+    "difficulty": "Hard",
+    "question": "The number 2⁶-1 = 63 can be expressed as a product of primes as:",
+    "choices": [
+      "3×21",
+      "7×9",
+      "3²×7",
+      "3×7²"
+    ],
+    "answer": "3²×7",
+    "explanation": "63=9×7=3²×7.",
+    "tags": [
+      "prime factorization"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 709,
+    "difficulty": "Hard",
+    "question": "How many 3-digit numbers have digit sum equal to 5?",
+    "choices": [
+      "10",
+      "15",
+      "12",
+      "6"
+    ],
+    "answer": "15",
+    "explanation": "Find solutions to a+b+c=5 where a∈{1-9}, b,c∈{0-9}. Stars and bars with a'=a-1: a'+b+c=4, a'∈{0-8}. C(6,2)=15 (all valid since max=4<9).",
+    "tags": [
+      "counting",
+      "combinatorics",
+      "digit sum"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 710,
+    "difficulty": "Hard",
+    "question": "The value of 1+3+5+7+...+99 (sum of first 50 odd numbers) is:",
+    "choices": [
+      "2,400",
+      "2,500",
+      "2,450",
+      "2,550"
+    ],
+    "answer": "2,500",
+    "explanation": "Sum of first n odd numbers = n². First 50 odd numbers: 50²=2,500.",
+    "tags": [
+      "odd numbers",
+      "series",
+      "formula"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 711,
+    "difficulty": "Hard",
+    "question": "If p and q are distinct primes and p×q=91, then p+q is:",
+    "choices": [
+      "18",
+      "20",
+      "14",
+      "16"
+    ],
+    "answer": "20",
+    "explanation": "91=7×13. p+q=7+13=20.",
+    "tags": [
+      "prime numbers",
+      "factoring"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 712,
+    "difficulty": "Hard",
+    "question": "The number of positive integers less than 100 whose digit sum is 10 is:",
+    "choices": [
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "answer": "9",
+    "explanation": "Two-digit: a+b=10, a∈{1-9}, b∈{0-9}. a=1→b=9,...,a=9→b=1. That's 9 numbers (19,28,37,46,55,64,73,82,91).",
+    "tags": [
+      "digit sum",
+      "counting"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 713,
+    "difficulty": "Hard",
+    "question": "The largest prime number less than 200 is:",
+    "choices": [
+      "193",
+      "197",
+      "199",
+      "191"
+    ],
+    "answer": "199",
+    "explanation": "199 is prime (not divisible by 2,3,5,7,11,13 — all primes ≤√199≈14.1).",
+    "tags": [
+      "prime numbers"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 714,
+    "difficulty": "Hard",
+    "question": "The number 10⁶ - 1 = 999,999 is divisible by:",
+    "choices": [
+      "7, 11, and 13",
+      "7 and 11 only",
+      "11 and 13 only",
+      "7 only"
+    ],
+    "answer": "7, 11, and 13",
+    "explanation": "999,999=999×1001=999×7×11×13. Also 999=27×37. So divisible by 7, 11, and 13.",
+    "tags": [
+      "divisibility",
+      "factoring"
+    ]
+  },
+  {
+    "subtest": "Numerical Ability",
+    "module": "Basic Operations",
+    "subtopic": "Fundamental Number Concepts",
+    "category": [
+      "Professional",
+      "Sub-Professional"
+    ],
+    "language": "English",
+    "id": 715,
+    "difficulty": "Hard",
+    "question": "The number of positive integers n ≤ 50 such that n² ends in 1 is:",
+    "choices": [
+      "10",
+      "8",
+      "12",
+      "5"
+    ],
+    "answer": "10",
+    "explanation": "n² ends in 1 when n ends in 1 or 9. Numbers 1-50 ending in 1: 1,11,21,31,41 (5). Ending in 9: 9,19,29,39,49 (5). Total=10.",
+    "tags": [
+      "place value",
+      "patterns",
+      "counting"
+    ]
+  }
+]

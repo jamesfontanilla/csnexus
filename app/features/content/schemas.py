@@ -48,6 +48,78 @@ class LessonWorkedExample(BaseModel):
     body: str = Field(min_length=1)
 
 
+# ----- Enhanced content blocks for rich UI rendering ------------------------
+
+
+class ContentBlock(BaseModel):
+    """A typed content block within a lesson section.
+
+    The ``type`` field tells the frontend which component to render:
+    - prose: regular paragraph text
+    - table: structured table data (content is a dict with headers/rows)
+    - code: code/computation block with optional language
+    - formula: mathematical formula or arithmetic example
+    - tip: CSE tip or helpful note (visually distinct callout)
+    - warning: common mistake or error warning (red callout)
+    - example: worked example with problem/solution
+    - step_by_step: numbered procedure
+    - list: bullet or numbered list
+    """
+
+    type: str
+    content: Any
+    language: str | None = None
+
+
+class LessonSection(BaseModel):
+    """A navigable section within a lesson (corresponds to one H3 heading).
+
+    Each section is independently addressable for:
+    - Table of contents navigation
+    - Progress tracking (which sections read)
+    - Mobile pagination (one section per screen)
+    """
+
+    title: str
+    blocks: list[ContentBlock]
+    difficulty: list[str] = Field(default_factory=list)
+    word_count: int = 0
+    estimated_reading_seconds: int = 0
+
+
+class PracticeProblem(BaseModel):
+    """An interactive practice problem extracted from the lesson.
+
+    Designed for tap-to-reveal UI: show question first, reveal answer on
+    user interaction, then show explanation.
+    """
+
+    number: int
+    question: str
+    answer: str = ""
+    explanation: str = ""
+    difficulty: str = "medium"
+
+
+class LessonMetadata(BaseModel):
+    """Computed metadata about a lesson for frontend rendering decisions."""
+
+    title: str = ""
+    estimated_reading_minutes: int = 0
+    section_count: int = 0
+    has_practice_problems: bool = False
+    practice_problem_count: int = 0
+    difficulty_distribution: dict[str, int] = Field(default_factory=dict)
+    total_word_count: int = 0
+
+
+class TableOfContentsEntry(BaseModel):
+    """One entry in the lesson's table of contents."""
+
+    title: str
+    index: int
+
+
 class LessonContent(BaseModel):
     """The validated shape of a published lesson's ``content_json``.
 
@@ -58,6 +130,14 @@ class LessonContent(BaseModel):
     - A non-empty ``key_takeaways`` list (no blank-string entries).
     - A non-empty ``summary`` string.
 
+    Enhanced fields (optional, populated by the new parser):
+    - metadata: reading time, section count, difficulty distribution
+    - table_of_contents: section titles for navigation
+    - sections: typed content blocks for rich rendering
+    - practice_problems: interactive quiz items
+    - memory_aids: mnemonic devices
+    - exam_strategies: test-taking tips
+
     Req 6.4 says a lesson lacking any of these is flagged ``INCOMPLETE`` and
     hidden from learners. This schema is strict — admin writes that fail
     validation surface as 422 from the service. The ``INCOMPLETE`` status is
@@ -67,10 +147,19 @@ class LessonContent(BaseModel):
     and are validated.
     """
 
+    # Legacy fields (required for backward compatibility)
     explanations: list[LessonExplanation] = Field(min_length=1)
     worked_examples: list[LessonWorkedExample] = Field(min_length=1)
     key_takeaways: list[str] = Field(min_length=1)
     summary: str = Field(min_length=1)
+
+    # Enhanced fields (optional — present when parsed with new parser)
+    metadata: LessonMetadata | None = None
+    table_of_contents: list[TableOfContentsEntry] | None = None
+    sections: list[LessonSection] | None = None
+    practice_problems: list[PracticeProblem] | None = None
+    memory_aids: list[str] | None = None
+    exam_strategies: list[str] | None = None
 
     @field_validator("key_takeaways")
     @classmethod
@@ -199,6 +288,14 @@ class LessonUpdate(BaseModel):
 
 
 class LessonResponse(BaseModel):
+    """Read-side projection of a lesson.
+
+    Returns the full ``content_json`` (which now includes enhanced fields
+    like metadata, sections, practice_problems, etc.) plus top-level
+    convenience fields extracted from the content for quick access without
+    parsing the full JSON.
+    """
+
     model_config = ConfigDict(from_attributes=True)
 
     id: int
