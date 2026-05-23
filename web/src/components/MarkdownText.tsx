@@ -220,34 +220,41 @@ function MarkdownTable({ rows }: { rows: string[] }) {
   const tableStyle: React.CSSProperties = {
     width: "100%",
     borderCollapse: "collapse",
-    margin: "0.75rem 0",
-    fontSize: "0.9em",
-    lineHeight: 1.5,
+    margin: "0.5rem 0",
+    fontSize: "0.8125em",
+    lineHeight: 1.4,
+    tableLayout: "auto",
   };
 
   const thStyle: React.CSSProperties = {
-    padding: "0.5rem 0.75rem",
-    borderBottom: "2px solid var(--color-border, #ddd)",
+    padding: "0.375rem 0.5rem",
+    borderBottom: "2px solid var(--color-border, rgba(255,255,255,0.15))",
+    borderRight: "1px solid var(--color-border, rgba(255,255,255,0.08))",
     textAlign: "left",
     fontWeight: 600,
-    background: "var(--color-bg-secondary, rgba(0,0,0,0.03))",
+    fontSize: "0.8125rem",
+    background: "rgba(212, 165, 116, 0.08)",
+    whiteSpace: "nowrap",
   };
 
   const tdStyle: React.CSSProperties = {
-    padding: "0.5rem 0.75rem",
-    borderBottom: "1px solid var(--color-border, #eee)",
+    padding: "0.3rem 0.5rem",
+    borderBottom: "1px solid var(--color-border, rgba(255,255,255,0.06))",
+    borderRight: "1px solid var(--color-border, rgba(255,255,255,0.06))",
     textAlign: "left",
+    fontSize: "0.8125rem",
+    verticalAlign: "top",
   };
 
   return (
-    <div style={{ overflowX: "auto", margin: "0.75rem 0" }}>
+    <div style={{ overflowX: "auto", margin: "0.5rem 0", borderRadius: "var(--radius-sm, 6px)", border: "1px solid var(--color-border, rgba(255,255,255,0.1))" }}>
       <table style={tableStyle}>
         {headerRows.length > 0 && (
           <thead>
             {headerRows.map((row, ri) => (
               <tr key={ri}>
                 {normalizedCells(row).map((cell, ci) => (
-                  <th key={ci} style={thStyle}>
+                  <th key={ci} style={{ ...thStyle, ...(ci === colCount - 1 ? { borderRight: "none" } : {}) }}>
                     <InlineMarkdown text={cell} />
                   </th>
                 ))}
@@ -257,9 +264,9 @@ function MarkdownTable({ rows }: { rows: string[] }) {
         )}
         <tbody>
           {bodyRows.map((row, ri) => (
-            <tr key={ri}>
+            <tr key={ri} style={ri % 2 === 1 ? { background: "rgba(255,255,255,0.02)" } : undefined}>
               {normalizedCells(row).map((cell, ci) => (
-                <td key={ci} style={tdStyle}>
+                <td key={ci} style={{ ...tdStyle, ...(ci === colCount - 1 ? { borderRight: "none" } : {}) }}>
                   <InlineMarkdown text={cell} />
                 </td>
               ))}
