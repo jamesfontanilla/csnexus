@@ -385,8 +385,29 @@ def _parse_content_blocks(text: str) -> list[dict[str, Any]]:
             blocks.append({"type": BLOCK_TYPE_WARNING, "content": "\n".join(warn_lines)})
             continue
 
-        # Example blocks (lines starting with **Example** or > blockquote)
-        if re.match(r"^\*\*Example", line.strip()) or line.strip().startswith("> "):
+        # Blockquote callouts (> 💡, > ⚠️, > 🧠) — classify by emoji/keyword
+        if line.strip().startswith("> "):
+            bq_lines = [line]
+            i += 1
+            while i < len(lines) and lines[i].strip().startswith("> "):
+                bq_lines.append(lines[i])
+                i += 1
+            bq_content = "\n".join(bq_lines)
+            # Strip the "> " prefix for content storage
+            stripped_bq = "\n".join(l.lstrip("> ").rstrip() for l in bq_lines)
+            # Classify based on emoji or keywords
+            if "💡" in bq_content or "tip" in bq_content.lower()[:40]:
+                blocks.append({"type": BLOCK_TYPE_TIP, "content": stripped_bq})
+            elif "⚠️" in bq_content or "warning" in bq_content.lower()[:40] or "caution" in bq_content.lower()[:40]:
+                blocks.append({"type": BLOCK_TYPE_WARNING, "content": stripped_bq})
+            elif "🧠" in bq_content or "mnemonic" in bq_content.lower()[:40] or "memory" in bq_content.lower()[:40]:
+                blocks.append({"type": BLOCK_TYPE_TIP, "content": stripped_bq})
+            else:
+                blocks.append({"type": BLOCK_TYPE_EXAMPLE, "content": stripped_bq})
+            continue
+
+        # Example blocks (lines starting with **Example**)
+        if re.match(r"^\*\*Example", line.strip()):
             example_lines = [line]
             i += 1
             while i < len(lines) and lines[i].strip() and not lines[i].startswith("#"):
@@ -462,7 +483,11 @@ def _is_formula(content: str) -> bool:
 
 
 def _parse_table(lines: list[str]) -> dict[str, Any] | None:
-    """Parse markdown table lines into structured data."""
+    """Parse markdown table lines into structured data.
+
+    Ensures all rows have the same number of cells as the header
+    to prevent 'undefined' values in the frontend.
+    """
     if len(lines) < 2:
         return None
 
@@ -477,16 +502,25 @@ def _parse_table(lines: list[str]) -> dict[str, Any] | None:
     # Second row is typically the separator (---|---|---)
     # Check if it's a separator row
     header = rows[0]
-    separator_idx = 1
+    col_count = len(header)
+
     if all(re.match(r"^[-:]+$", cell.strip()) for cell in rows[1] if cell.strip()):
         data_rows = rows[2:]
     else:
         data_rows = rows[1:]
-        separator_idx = -1
+
+    # Normalize: pad short rows with empty strings, trim long rows
+    normalized_rows: list[list[str]] = []
+    for row in data_rows:
+        if len(row) < col_count:
+            row = row + [""] * (col_count - len(row))
+        elif len(row) > col_count:
+            row = row[:col_count]
+        normalized_rows.append(row)
 
     return {
         "headers": header,
-        "rows": data_rows,
+        "rows": normalized_rows,
     }
 
 
@@ -661,8 +695,13 @@ def _blocks_to_markdown(blocks: list[dict[str, Any]]) -> str:
                 sep_line = "| " + " | ".join(["---"] * len(table["headers"])) + " |"
                 parts.append(header_line)
                 parts.append(sep_line)
+                col_count = len(table["headers"])
                 for row in table["rows"]:
-                    parts.append("| " + " | ".join(row) + " |")
+                    # Ensure row has correct number of string cells
+                    cells = [(c if c else "") for c in row]
+                    while len(cells) < col_count:
+                        cells.append("")
+                    parts.append("| " + " | ".join(cells[:col_count]) + " |")
         else:
             parts.append(block["content"])
     return "\n\n".join(parts)

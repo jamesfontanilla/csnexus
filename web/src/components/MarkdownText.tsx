@@ -201,6 +201,22 @@ function MarkdownTable({ rows }: { rows: string[] }) {
   const headerRows = sepIdx > 0 ? rows.slice(0, sepIdx) : [];
   const bodyRows = sepIdx >= 0 ? rows.slice(sepIdx + 1) : rows;
 
+  // Determine column count from header (or first body row)
+  const colCount = headerRows.length > 0
+    ? parseCells(headerRows[0]).length
+    : bodyRows.length > 0
+      ? parseCells(bodyRows[0]).length
+      : 0;
+
+  // Pad row cells to match column count
+  function normalizedCells(row: string): string[] {
+    const cells = parseCells(row);
+    while (cells.length < colCount) {
+      cells.push("");
+    }
+    return cells.slice(0, colCount);
+  }
+
   const tableStyle: React.CSSProperties = {
     width: "100%",
     borderCollapse: "collapse",
@@ -230,7 +246,7 @@ function MarkdownTable({ rows }: { rows: string[] }) {
           <thead>
             {headerRows.map((row, ri) => (
               <tr key={ri}>
-                {parseCells(row).map((cell, ci) => (
+                {normalizedCells(row).map((cell, ci) => (
                   <th key={ci} style={thStyle}>
                     <InlineMarkdown text={cell} />
                   </th>
@@ -242,7 +258,7 @@ function MarkdownTable({ rows }: { rows: string[] }) {
         <tbody>
           {bodyRows.map((row, ri) => (
             <tr key={ri}>
-              {parseCells(row).map((cell, ci) => (
+              {normalizedCells(row).map((cell, ci) => (
                 <td key={ci} style={tdStyle}>
                   <InlineMarkdown text={cell} />
                 </td>
