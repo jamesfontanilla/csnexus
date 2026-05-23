@@ -194,7 +194,7 @@ def parse_lesson_markdown(md_text: str) -> dict[str, Any]:
     # Build the legacy-compatible fields too (explanations/worked_examples)
     # so existing consumers don't break
     explanations_legacy = [
-        {"heading": s["title"], "body": _blocks_to_markdown(s["blocks"])}
+        {"title": s["title"], "body": _blocks_to_markdown(s["blocks"])}
         for s in sections
     ]
 

@@ -9,7 +9,8 @@ import { MarkdownText } from "../../components/MarkdownText";
 import { useToast } from "../../context/ToastContext";
 
 interface LessonExplanation {
-  title: string;
+  title?: string;
+  heading?: string;
   body: string;
 }
 
@@ -99,7 +100,7 @@ export function LessonReader() {
 
   const content = lesson.content_json;
   const sections = [
-    { key: "explanations", title: "📖 Explanations", items: content.explanations.map((e) => typeof e === "string" ? e : `**${e.title}**\n\n${e.body}`) },
+    { key: "explanations", title: "📖 Explanations", items: content.explanations.map((e) => typeof e === "string" ? e : `**${e.title || e.heading || ""}**\n\n${e.body}`) },
     { key: "examples", title: "💡 Worked Examples", items: content.worked_examples.map((e) => typeof e === "string" ? e : `**${e.title}**\n\n${e.problem || ""}${e.solution ? "\n\n" + e.solution : ""}${e.body ? "\n\n" + e.body : ""}`) },
     { key: "takeaways", title: "🔑 Key Takeaways", items: content.key_takeaways },
   ];
