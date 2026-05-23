@@ -3,11 +3,10 @@ import React from "react";
 /**
  * Lightweight inline markdown renderer.
  * Handles: **bold**, *italic*, `code`, - bullet lists, | tables |,
- * #### H4 section boxes, and line breaks.
+ * #### H4 section boxes, > blockquote callouts, and line breaks.
  * No external dependencies.
  */
 export function MarkdownText({ text, style }: { text: string; style?: React.CSSProperties }) {
-  // First pass: split content into H4 sections and non-H4 content blocks
   const blocks = splitByH4(text);
 
   return (
@@ -36,9 +35,7 @@ function splitByH4(text: string): ContentBlock[] {
 
   function flushRaw() {
     const joined = rawBuffer.join("\n").trim();
-    if (joined) {
-      blocks.push({ type: "raw", text: joined });
-    }
+    if (joined) blocks.push({ type: "raw", text: joined });
     rawBuffer = [];
   }
 
@@ -53,12 +50,8 @@ function splitByH4(text: string): ContentBlock[] {
   for (const line of lines) {
     const trimmed = line.trim();
     if (trimmed.startsWith("#### ")) {
-      // Starting a new H4 section — flush whatever was pending
-      if (h4Title !== null) {
-        flushH4();
-      } else {
-        flushRaw();
-      }
+      if (h4Title !== null) flushH4();
+      else flushRaw();
       h4Title = trimmed.slice(5);
       h4Buffer = [];
     } else if (h4Title !== null) {
@@ -67,13 +60,8 @@ function splitByH4(text: string): ContentBlock[] {
       rawBuffer.push(line);
     }
   }
-
-  // Flush remaining
-  if (h4Title !== null) {
-    flushH4();
-  } else {
-    flushRaw();
-  }
+  if (h4Title !== null) flushH4();
+  else flushRaw();
 
   return blocks;
 }
@@ -82,7 +70,7 @@ function H4SectionBox({ title, body }: { title: string; body: string }) {
   return (
     <div
       style={{
-        margin: "1rem 0",
+        margin: "0.75rem 0",
         border: "1px solid var(--glass-border-medium, rgba(255,255,255,0.12))",
         borderRadius: "var(--radius-md, 8px)",
         overflow: "hidden",
@@ -90,21 +78,49 @@ function H4SectionBox({ title, body }: { title: string; body: string }) {
     >
       <div
         style={{
-          padding: "0.5rem 0.75rem",
-          background: "rgba(212, 165, 116, 0.1)",
+          padding: "0.4rem 0.75rem",
+          background: "rgba(212, 165, 116, 0.08)",
           borderBottom: "1px solid var(--glass-border-medium, rgba(255,255,255,0.12))",
           fontWeight: 600,
-          fontSize: "0.9375rem",
+          fontSize: "0.8125rem",
           color: "var(--color-text)",
         }}
       >
         <InlineMarkdown text={title} />
       </div>
       {body && (
-        <div style={{ padding: "0.75rem" }}>
+        <div style={{ padding: "0.5rem 0.75rem" }}>
           <RawMarkdownBlock text={body} />
         </div>
       )}
+    </div>
+  );
+}
+
+function CalloutBox({ text, variant }: { text: string; variant: "tip" | "warning" | "note" }) {
+  const styles: Record<string, { bg: string; border: string; icon: string }> = {
+    tip: { bg: "rgba(212, 165, 116, 0.06)", border: "rgba(212, 165, 116, 0.3)", icon: "💡" },
+    warning: { bg: "rgba(220, 80, 80, 0.06)", border: "rgba(220, 80, 80, 0.3)", icon: "⚠️" },
+    note: { bg: "rgba(100, 160, 220, 0.06)", border: "rgba(100, 160, 220, 0.3)", icon: "📝" },
+  };
+  const s = styles[variant];
+
+  // Strip leading emoji if already present in text
+  const cleanText = text.replace(/^[💡⚠️🧠📝]\s*/, "").replace(/^\*\*/, "").replace(/\*\*$/, "");
+
+  return (
+    <div
+      style={{
+        margin: "0.5rem 0",
+        padding: "0.5rem 0.75rem",
+        background: s.bg,
+        borderLeft: `3px solid ${s.border}`,
+        borderRadius: "0 var(--radius-sm, 4px) var(--radius-sm, 4px) 0",
+        fontSize: "0.8125rem",
+        lineHeight: 1.5,
+      }}
+    >
+      <InlineMarkdown text={cleanText} />
     </div>
   );
 }
@@ -115,13 +131,14 @@ function RawMarkdownBlock({ text }: { text: string }) {
   let bulletBuffer: string[] = [];
   let tableBuffer: string[] = [];
   let key = 0;
+  let i = 0;
 
   function flushBullets() {
     if (bulletBuffer.length > 0) {
       elements.push(
-        <ul key={key++} style={{ margin: "0.5rem 0", paddingLeft: "1.5rem" }}>
-          {bulletBuffer.map((b, i) => (
-            <li key={i} style={{ marginBottom: "0.375rem", lineHeight: 1.6 }}>
+        <ul key={key++} style={{ margin: "0.25rem 0", paddingLeft: "1.25rem" }}>
+          {bulletBuffer.map((b, bi) => (
+            <li key={bi} style={{ marginBottom: "0.2rem", lineHeight: 1.5, fontSize: "inherit" }}>
               <InlineMarkdown text={b} />
             </li>
           ))}
@@ -138,40 +155,81 @@ function RawMarkdownBlock({ text }: { text: string }) {
     }
   }
 
-  for (const line of lines) {
-    const trimmed = line.trim();
+  while (i < lines.length) {
+    const trimmed = lines[i].trim();
 
-    // Table row: starts with |
+    // Blockquote callouts: > prefixed lines
+    if (trimmed.startsWith("> ")) {
+      flushBullets();
+      flushTable();
+      const calloutLines: string[] = [];
+      while (i < lines.length && lines[i].trim().startsWith("> ")) {
+        calloutLines.push(lines[i].trim().slice(2));
+        i++;
+      }
+      const calloutText = calloutLines.join(" ");
+      const isWarning = calloutText.includes("⚠️") || calloutText.toLowerCase().includes("critical") || calloutText.toLowerCase().includes("common trap");
+      const isTip = calloutText.includes("💡") || calloutText.includes("🧠");
+      elements.push(<CalloutBox key={key++} text={calloutText} variant={isWarning ? "warning" : isTip ? "tip" : "note"} />);
+      continue;
+    }
+
+    // Standalone emoji callouts (stripped blockquotes from parser)
+    if (trimmed.startsWith("💡") || trimmed.startsWith("⚠️") || trimmed.startsWith("🧠")) {
+      flushBullets();
+      flushTable();
+      const calloutLines: string[] = [trimmed];
+      i++;
+      while (i < lines.length && lines[i].trim() && !lines[i].trim().startsWith("|") && !lines[i].trim().startsWith("#") && !lines[i].trim().startsWith(">")) {
+        calloutLines.push(lines[i].trim());
+        i++;
+      }
+      const calloutText = calloutLines.join(" ");
+      const isWarning = calloutText.includes("⚠️");
+      elements.push(<CalloutBox key={key++} text={calloutText} variant={isWarning ? "warning" : "tip"} />);
+      continue;
+    }
+
+    // Table row: starts and ends with |
     if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
       flushBullets();
       tableBuffer.push(trimmed);
+      i++;
       continue;
     }
 
-    // Flush any pending table before non-table content
+    // Flush pending table
     flushTable();
 
-    // Bullet point
-    if (trimmed.startsWith("- ")) {
+    // Bullet point (- or *)
+    if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
       bulletBuffer.push(trimmed.slice(2));
+      i++;
       continue;
     }
 
-    // Flush any pending bullets before non-bullet content
+    // Flush pending bullets
     flushBullets();
 
-    // Empty line = paragraph break
+    // Horizontal rule — skip
+    if (trimmed === "---" || trimmed === "***" || trimmed === "- - -") {
+      i++;
+      continue;
+    }
+
+    // Empty line — skip (no <br> spam)
     if (trimmed === "") {
-      elements.push(<br key={key++} />);
+      i++;
       continue;
     }
 
     // Regular paragraph
     elements.push(
-      <p key={key++} style={{ margin: "0 0 0.5rem 0", lineHeight: 1.7 }}>
+      <p key={key++} style={{ margin: "0 0 0.375rem 0", lineHeight: 1.6 }}>
         <InlineMarkdown text={trimmed} />
       </p>
     );
+    i++;
   }
 
   flushBullets();
@@ -181,80 +239,51 @@ function RawMarkdownBlock({ text }: { text: string }) {
 }
 
 /**
- * Renders a markdown table from buffered pipe-delimited rows.
- * Detects the separator row (|---|---|) and splits header from body.
+ * Renders a markdown table with compact styling and distinct columns.
  */
 function MarkdownTable({ rows }: { rows: string[] }) {
   function parseCells(row: string): string[] {
-    return row
-      .split("|")
-      .slice(1, -1) // remove empty first/last from leading/trailing |
-      .map((cell) => cell.trim());
+    return row.split("|").slice(1, -1).map((cell) => cell.trim());
   }
 
   function isSeparatorRow(row: string): boolean {
     return /^\|[\s\-:|]+\|$/.test(row);
   }
 
-  // Find separator row index
   const sepIdx = rows.findIndex(isSeparatorRow);
   const headerRows = sepIdx > 0 ? rows.slice(0, sepIdx) : [];
   const bodyRows = sepIdx >= 0 ? rows.slice(sepIdx + 1) : rows;
 
-  // Determine column count from header (or first body row)
   const colCount = headerRows.length > 0
     ? parseCells(headerRows[0]).length
-    : bodyRows.length > 0
-      ? parseCells(bodyRows[0]).length
-      : 0;
+    : bodyRows.length > 0 ? parseCells(bodyRows[0]).length : 0;
 
-  // Pad row cells to match column count
   function normalizedCells(row: string): string[] {
     const cells = parseCells(row);
-    while (cells.length < colCount) {
-      cells.push("");
-    }
+    while (cells.length < colCount) cells.push("");
     return cells.slice(0, colCount);
   }
 
-  const tableStyle: React.CSSProperties = {
-    width: "100%",
-    borderCollapse: "collapse",
-    margin: "0.5rem 0",
-    fontSize: "0.8125em",
-    lineHeight: 1.4,
-    tableLayout: "auto",
-  };
-
-  const thStyle: React.CSSProperties = {
-    padding: "0.375rem 0.5rem",
-    borderBottom: "2px solid var(--color-border, rgba(255,255,255,0.15))",
-    borderRight: "1px solid var(--color-border, rgba(255,255,255,0.08))",
-    textAlign: "left",
-    fontWeight: 600,
-    fontSize: "0.8125rem",
-    background: "rgba(212, 165, 116, 0.08)",
-    whiteSpace: "nowrap",
-  };
-
-  const tdStyle: React.CSSProperties = {
-    padding: "0.3rem 0.5rem",
-    borderBottom: "1px solid var(--color-border, rgba(255,255,255,0.06))",
-    borderRight: "1px solid var(--color-border, rgba(255,255,255,0.06))",
-    textAlign: "left",
-    fontSize: "0.8125rem",
-    verticalAlign: "top",
-  };
-
   return (
-    <div style={{ overflowX: "auto", margin: "0.5rem 0", borderRadius: "var(--radius-sm, 6px)", border: "1px solid var(--color-border, rgba(255,255,255,0.1))" }}>
-      <table style={tableStyle}>
+    <div style={{ overflowX: "auto", margin: "0.5rem 0", borderRadius: "4px", border: "1px solid rgba(255,255,255,0.1)" }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8125rem", lineHeight: 1.4, tableLayout: "auto" }}>
         {headerRows.length > 0 && (
           <thead>
             {headerRows.map((row, ri) => (
               <tr key={ri}>
                 {normalizedCells(row).map((cell, ci) => (
-                  <th key={ci} style={{ ...thStyle, ...(ci === colCount - 1 ? { borderRight: "none" } : {}) }}>
+                  <th
+                    key={ci}
+                    style={{
+                      padding: "0.35rem 0.5rem",
+                      borderBottom: "2px solid rgba(255,255,255,0.15)",
+                      borderRight: ci < colCount - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
+                      textAlign: "left",
+                      fontWeight: 600,
+                      background: "rgba(212, 165, 116, 0.08)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
                     <InlineMarkdown text={cell} />
                   </th>
                 ))}
@@ -266,7 +295,16 @@ function MarkdownTable({ rows }: { rows: string[] }) {
           {bodyRows.map((row, ri) => (
             <tr key={ri} style={ri % 2 === 1 ? { background: "rgba(255,255,255,0.02)" } : undefined}>
               {normalizedCells(row).map((cell, ci) => (
-                <td key={ci} style={{ ...tdStyle, ...(ci === colCount - 1 ? { borderRight: "none" } : {}) }}>
+                <td
+                  key={ci}
+                  style={{
+                    padding: "0.3rem 0.5rem",
+                    borderBottom: "1px solid rgba(255,255,255,0.06)",
+                    borderRight: ci < colCount - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                    textAlign: "left",
+                    verticalAlign: "top",
+                  }}
+                >
                   <InlineMarkdown text={cell} />
                 </td>
               ))}
@@ -279,10 +317,9 @@ function MarkdownTable({ rows }: { rows: string[] }) {
 }
 
 /**
- * Renders inline markdown: **bold**, *italic*, `code`
+ * Renders inline markdown: **bold**, *italic*, `code`, ~~strikethrough~~
  */
 function InlineMarkdown({ text }: { text: string }) {
-  // Split by markdown patterns and render with appropriate styling
   const parts: React.ReactNode[] = [];
   let remaining = text;
   let key = 0;
@@ -311,7 +348,7 @@ function InlineMarkdown({ text }: { text: string }) {
     if (codeMatch) {
       if (codeMatch[1]) parts.push(<span key={key++}>{codeMatch[1]}</span>);
       parts.push(
-        <code key={key++} style={{ background: "var(--color-bg-secondary, #f0f0f0)", padding: "0.125rem 0.375rem", borderRadius: "3px", fontSize: "0.875em" }}>
+        <code key={key++} style={{ background: "rgba(255,255,255,0.06)", padding: "0.1rem 0.3rem", borderRadius: "3px", fontSize: "0.85em" }}>
           {codeMatch[2]}
         </code>
       );
@@ -319,7 +356,7 @@ function InlineMarkdown({ text }: { text: string }) {
       continue;
     }
 
-    // No more patterns — output the rest as plain text
+    // No more patterns
     parts.push(<span key={key++}>{remaining}</span>);
     break;
   }
