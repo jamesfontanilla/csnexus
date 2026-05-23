@@ -691,17 +691,16 @@ def _blocks_to_markdown(blocks: list[dict[str, Any]]) -> str:
         elif block["type"] == BLOCK_TYPE_TABLE:
             table = block["content"]
             if table and "headers" in table:
-                header_line = "| " + " | ".join(table["headers"]) + " |"
-                sep_line = "| " + " | ".join(["---"] * len(table["headers"])) + " |"
-                parts.append(header_line)
-                parts.append(sep_line)
                 col_count = len(table["headers"])
+                table_lines = []
+                table_lines.append("| " + " | ".join(table["headers"]) + " |")
+                table_lines.append("| " + " | ".join(["---"] * col_count) + " |")
                 for row in table["rows"]:
-                    # Ensure row has correct number of string cells
                     cells = [(c if c else "") for c in row]
                     while len(cells) < col_count:
                         cells.append("")
-                    parts.append("| " + " | ".join(cells[:col_count]) + " |")
+                    table_lines.append("| " + " | ".join(cells[:col_count]) + " |")
+                parts.append("\n".join(table_lines))
         else:
             parts.append(block["content"])
     return "\n\n".join(parts)
