@@ -33,6 +33,7 @@ from app.features.content.router import router as content_router
 from app.features.gamification.router import router as gamification_router
 from app.features.tutor.router import router as tutor_router
 from app.features.focus.router import router as focus_router
+from app.features.flashcards.router import router as flashcard_router
 from app.features.planner.router import router as planner_router
 from app.features.leaderboards.router import router as leaderboard_router
 from app.features.mock_exams.router import router as mock_exam_router
@@ -69,6 +70,14 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
                 from scripts.seed import seed_database
 
                 seed_database(session)
+
+            # Always run content seed — it's non-destructive (skips existing
+            # content by slug) so it's safe on every boot. This ensures new
+            # lessons/questions added to data/seed/ land in production
+            # automatically on the next deploy.
+            from scripts.seed_all_content import main as seed_all_content
+
+            seed_all_content()
         finally:
             session.close()
     except Exception as exc:
@@ -148,6 +157,7 @@ app.include_router(gamification_router)
 app.include_router(tutor_router)
 app.include_router(planner_router)
 app.include_router(focus_router)
+app.include_router(flashcard_router)
 
 
 # --- Health probe ----------------------------------------------------------

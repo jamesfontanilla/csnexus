@@ -1,22 +1,55 @@
-"""Seed ALL content (vocabulary, reading comprehension, numerical ability) into the database.
+"""Seed ALL content (verbal ability, numerical ability, analytical ability) into the database.
 
 NON-DESTRUCTIVE: Only inserts new modules/topics/subtopics/lessons/questions.
-Skips anything that already exists (matched by slug).
+Skips anything that already exists (matched by slug). Updates lesson content
+for existing subtopics if the lesson.md file has changed.
 
 Creates the full hierarchy:
   Module: "Verbal Ability" (per category)
+    Topic: "Grammar and Correct Usage"
+      Subtopics: subject-verb-agreement, verb-tenses, pronouns, prepositions,
+                 conjunctions, modifiers, parallelism, articles,
+                 active-and-passive-voice, direct-and-indirect-speech
     Topic: "Vocabulary Development"
       Subtopics: synonyms, antonyms, analogies, context-clues, word-formation,
-                 idioms-and-expressions, denotation-and-connotation, formal-and-informal-language
+                 idioms-and-expressions, denotation-and-connotation,
+                 formal-and-informal-language
     Topic: "Reading Comprehension"
       Subtopics: fundamentals-of-reading-comprehension, vocabulary-in-context,
-                 analytical-comprehension, authors-purpose-and-tone, organization-of-ideas
+                 analytical-comprehension, authors-purpose-and-tone,
+                 organization-of-ideas
   Module: "Numerical Ability" (per category)
     Topic: "Basic Operations"
-      Subtopics: fundamental-number-concepts, addition, subtraction, multiplication
+      Subtopics: fundamental-number-concepts, addition, subtraction,
+                 multiplication, division, order-of-operations,
+                 exponents-and-roots, estimation-and-mental-math,
+                 operations-with-signed-numbers, word-problems
+    Topic: "Percentages"
+      Subtopics: fundamentals-of-percentages, basic-percentage-problems,
+                 percentage-increase-and-decrease, discounts-markups-and-sales,
+                 profit-loss-and-tax, percentage-applications,
+                 percentage-mental-math-and-shortcuts, percentage-word-problems
+    Topic: "Ratio, Proportion, and Average"
+      Subtopics: introduction-to-ratios, types-of-ratios,
+                 direct-and-inverse-proportions, ratio-word-problems,
+                 proportion-word-problems, scale-and-map-problems
+  Module: "Analytical Ability" (per category)
+    Topic: "Abstract Reasoning"
+      Subtopics: shape-patterns
+    Topic: "Symbolic Logic"
+      Subtopics: logical-statements, logical-operators, truth-and-validity,
+                 conditional-reasoning, syllogisms
+    Topic: "Word Analogy"
+      Subtopics: synonym-and-antonym-analogies,
+                 part-whole-and-classification-relationships,
+                 cause-effect-and-progression-relationships,
+                 function-and-purpose-relationships,
+                 symbolic-characteristic-and-location-relationships,
+                 language-meaning-and-context-relationships,
+                 numerical-letter-and-abstract-analogies
 
 Usage:
-    DATABASE_URL=postgresql://... python scripts/seed_all_content.py
+    python scripts/seed_all_content.py
 """
 
 from __future__ import annotations
@@ -101,6 +134,11 @@ NUMERICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
         ("subtraction", "Subtraction", 3),
         ("multiplication", "Multiplication", 4),
         ("division", "Division", 5),
+        ("order-of-operations", "Order of Operations", 6),
+        ("exponents-and-roots", "Exponents and Roots", 7),
+        ("estimation-and-mental-math", "Estimation and Mental Math", 8),
+        ("operations-with-signed-numbers", "Operations with Signed Numbers", 9),
+        ("word-problems", "Word Problems", 10),
     ]),
     ("percentages", "Percentages", [
         ("fundamentals-of-percentages", "Fundamentals of Percentages", 1),
@@ -108,6 +146,39 @@ NUMERICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
         ("percentage-increase-and-decrease", "Percentage Increase and Decrease", 3),
         ("discounts-markups-and-sales", "Discounts, Markups, and Sales", 4),
         ("profit-loss-and-tax", "Profit, Loss, and Tax", 5),
+        ("percentage-applications", "Percentage Applications", 6),
+        ("percentage-mental-math-and-shortcuts", "Percentage Mental Math and Shortcuts", 7),
+        ("percentage-word-problems", "Percentage Word Problems", 8),
+    ]),
+    ("ratio-proportion-and-average", "Ratio, Proportion, and Average", [
+        ("introduction-to-ratios", "Introduction to Ratios", 1),
+        ("types-of-ratios", "Types of Ratios", 2),
+        ("direct-and-inverse-proportions", "Direct and Inverse Proportions", 3),
+        ("ratio-word-problems", "Ratio Word Problems", 4),
+        ("proportion-word-problems", "Proportion Word Problems", 5),
+        ("scale-and-map-problems", "Scale and Map Problems", 6),
+    ]),
+]
+
+ANALYTICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
+    ("abstract-reasoning", "Abstract Reasoning", [
+        ("shape-patterns", "Shape Patterns", 1),
+    ]),
+    ("symbolic-logic", "Symbolic Logic", [
+        ("logical-statements", "Logical Statements", 1),
+        ("logical-operators", "Logical Operators", 2),
+        ("truth-and-validity", "Truth and Validity", 3),
+        ("conditional-reasoning", "Conditional Reasoning", 4),
+        ("syllogisms", "Syllogisms", 5),
+    ]),
+    ("word-analogy", "Word Analogy", [
+        ("synonym-and-antonym-analogies", "Synonym and Antonym Analogies", 1),
+        ("part-whole-and-classification-relationships", "Part-Whole and Classification Relationships", 2),
+        ("cause-effect-and-progression-relationships", "Cause-Effect and Progression Relationships", 3),
+        ("function-and-purpose-relationships", "Function and Purpose Relationships", 4),
+        ("symbolic-characteristic-and-location-relationships", "Symbolic, Characteristic, and Location Relationships", 5),
+        ("language-meaning-and-context-relationships", "Language, Meaning, and Context Relationships", 6),
+        ("numerical-letter-and-abstract-analogies", "Numerical, Letter, and Abstract Analogies", 7),
     ]),
 ]
 
@@ -118,6 +189,10 @@ LESSON_DIRS = {
     "reading-comprehension": SEED_BASE / "lessons" / "verbal-ability" / "reading-comprehension",
     "basic-operations": SEED_BASE / "lessons" / "numerical-ability" / "basic-operations",
     "percentages": SEED_BASE / "lessons" / "numerical-ability" / "percentages",
+    "ratio-proportion-and-average": SEED_BASE / "lessons" / "numerical-ability" / "ratio-proportion-and-average",
+    "abstract-reasoning": SEED_BASE / "lessons" / "analytical-ability" / "abstract-reasoning",
+    "symbolic-logic": SEED_BASE / "lessons" / "analytical-ability" / "symbolic-logic",
+    "word-analogy": SEED_BASE / "lessons" / "analytical-ability" / "word-analogy",
 }
 
 QUESTION_DIRS = {
@@ -126,6 +201,10 @@ QUESTION_DIRS = {
     "reading-comprehension": SEED_BASE / "questions" / "verbal-ability" / "reading-comprehension",
     "basic-operations": SEED_BASE / "questions" / "numerical-ability" / "basic-operations",
     "percentages": SEED_BASE / "questions" / "numerical-ability" / "percentages",
+    "ratio-proportion-and-average": SEED_BASE / "questions" / "numerical-ability" / "ratio-proportion-and-average",
+    "abstract-reasoning": SEED_BASE / "questions" / "analytical-ability" / "abstract-reasoning",
+    "symbolic-logic": SEED_BASE / "questions" / "analytical-ability" / "symbolic-logic",
+    "word-analogy": SEED_BASE / "questions" / "analytical-ability" / "word-analogy",
 }
 
 
@@ -189,22 +268,62 @@ def seed_subtopic(
     existing = session.query(Subtopic).filter(
         Subtopic.topic_id == topic.id, Subtopic.slug == slug
     ).first()
+
     if existing:
-        # Check if lesson needs updating
+        subtopic = existing
+        questions_added = 0
+
+        # Update lesson content if the markdown file exists
         lesson = session.query(Lesson).filter(
             Lesson.subtopic_id == existing.id
         ).first()
         lesson_path = lesson_dir / slug / "lesson.md"
-        if lesson and lesson_path.exists():
+        if lesson_path.exists():
             md_text = lesson_path.read_text(encoding="utf-8")
             new_content = parse_lesson_markdown(md_text)
-            lesson.content_json = new_content
-            print(f"      [UPDATED] {slug} lesson content")
-        else:
-            print(f"      [EXISTS] {slug}")
-        return 0
+            if lesson:
+                lesson.content_json = new_content
+            else:
+                # Lesson row missing — create it
+                session.add(Lesson(
+                    subtopic_id=existing.id,
+                    content_json=new_content,
+                    status=LessonStatus.PUBLISHED.value,
+                ))
 
-    # Create subtopic
+        # Seed questions that are not yet in the DB for this subtopic
+        questions_path = question_dir / slug / "questions.json"
+        if questions_path.exists():
+            existing_count = session.query(Question).filter(
+                Question.subtopic_id == existing.id
+            ).count()
+            if existing_count == 0:
+                questions_raw = json.loads(questions_path.read_text(encoding="utf-8"))
+                for q in questions_raw:
+                    session.add(Question(
+                        subtopic_id=existing.id,
+                        topic_id=topic.id,
+                        module_id=module.id,
+                        category=module.category,
+                        level_scope=LevelScope.SUBTOPIC.value,
+                        stem=q["question"],
+                        options=q["choices"],
+                        correct_answer=q["answer"],
+                        explanation=q["explanation"],
+                        difficulty=DIFFICULTY_MAP.get(q["difficulty"], Difficulty.EASY.value),
+                        qtype=QuestionType.MULTIPLE_CHOICE.value,
+                        is_active=True,
+                    ))
+                questions_added = len(questions_raw)
+                print(f"      [QUESTIONS ADDED] {slug} ({questions_added} questions)")
+            else:
+                print(f"      [EXISTS] {slug} ({existing_count} questions already present)")
+        else:
+            print(f"      [EXISTS] {slug} (no questions.json)")
+
+        return questions_added
+
+    # --- New subtopic ---
     subtopic = Subtopic(
         topic_id=topic.id,
         slug=slug,
@@ -307,10 +426,10 @@ def main() -> None:
                 order_index=20,
             )
 
-            for topic_slug, topic_title, subtopics in NUMERICAL_ABILITY_TOPICS:
+            for topic_idx, (topic_slug, topic_title, subtopics) in enumerate(NUMERICAL_ABILITY_TOPICS, start=1):
                 topic = get_or_create_topic(
                     session, na_module.id, topic_slug, topic_title,
-                    order_index=1,
+                    order_index=topic_idx,
                 )
 
                 lesson_dir = LESSON_DIRS[topic_slug]
@@ -319,6 +438,32 @@ def main() -> None:
                 for slug, title, order_idx in subtopics:
                     added = seed_subtopic(
                         session, topic, na_module,
+                        slug, title, order_idx,
+                        lesson_dir, question_dir,
+                    )
+                    total_questions += added
+
+            # --- Analytical Ability module ---
+            aa_module = get_or_create_module(
+                session,
+                slug=f"analytical-ability-{cat_key}",
+                title="Analytical Ability",
+                category=cat_value,
+                order_index=30,
+            )
+
+            for topic_idx, (topic_slug, topic_title, subtopics) in enumerate(ANALYTICAL_ABILITY_TOPICS, start=1):
+                topic = get_or_create_topic(
+                    session, aa_module.id, topic_slug, topic_title,
+                    order_index=topic_idx,
+                )
+
+                lesson_dir = LESSON_DIRS[topic_slug]
+                question_dir = QUESTION_DIRS[topic_slug]
+
+                for slug, title, order_idx in subtopics:
+                    added = seed_subtopic(
+                        session, topic, aa_module,
                         slug, title, order_idx,
                         lesson_dir, question_dir,
                     )
