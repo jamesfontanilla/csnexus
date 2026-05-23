@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { apiClient } from "../../api/client";
 import { GlassCard } from "../../components/GlassCard";
@@ -35,28 +35,23 @@ interface LessonResponse {
   status: string;
 }
 
-// Preamble sections rendered as fixed header content (not in dropdowns)
-const PREAMBLE_TITLES = [
-  "introduction",
-  "why subject-verb agreement matters",
-  "why subject-verb agreement is tested in the cse",
-  "why parallelism matters",
-  "why parallelism is tested in the cse",
-  "why direct and indirect speech are tested in the cse",
-  "common mistakes examinees make",
-  "learning objectives",
-  "focus areas",
-];
-
 function isPreambleSection(title: string): boolean {
   const lower = title.toLowerCase();
-  return PREAMBLE_TITLES.some((p) => lower.includes(p)) ||
+  return lower.includes("introduction") ||
     lower.startsWith("why ") ||
-    lower.includes("learning objective");
+    lower.includes("learning objective") ||
+    lower.includes("common mistakes examinees") ||
+    lower.includes("focus areas");
 }
 
 function isLearningObjectives(title: string): boolean {
   return title.toLowerCase().includes("learning objective");
+}
+
+/** Extract short label from section title: "4.1 The Basic Rule" → "4.1" */
+function shortLabel(title: string): string {
+  const match = title.match(/^(\d+\.\d+)/);
+  return match ? match[1] : title.slice(0, 8);
 }
 
 export function LessonReader() {
@@ -67,12 +62,8 @@ export function LessonReader() {
   const [error, setError] = useState<string | null>(null);
   const [completing, setCompleting] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    explanations: true,
-    examples: false,
-    takeaways: false,
-    summary: false,
-  });
+  const [activeNavIdx, setActiveNavIdx] = useState(0);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     apiClient
@@ -81,6 +72,24 @@ export function LessonReader() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, [subtopicId]);
+
+  // Intersection observer for sticky nav highlighting
+  useEffect(() => {
+    if (!lesson || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const idx = sectionRefs.current.indexOf(entry.target as HTMLDivElement);
+            if (idx >= 0) setActiveNavIdx(idx);
+          }
+        }
+      },
+      { rootMargin: "-80px 0px -60% 0px", threshold: 0.1 }
+    );
+    sectionRefs.current.forEach((ref) => { if (ref) observer.observe(ref); });
+    return () => observer.disconnect();
+  }, [lesson]);
 
   async function handleMarkComplete() {
     setCompleting(true);
@@ -97,17 +106,14 @@ export function LessonReader() {
     }
   }
 
-  function toggleSection(key: string) {
-    setExpandedSections((prev) => ({ ...prev, [key]: !prev[key] }));
+  function scrollToSection(idx: number) {
+    sectionRefs.current[idx]?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   if (loading) {
     return (
       <PageTransition>
         <div className="page container" style={{ maxWidth: 720 }}>
-          <div style={{ marginBottom: "1.5rem" }}>
-            <GlassSkeleton width="120px" height="1rem" />
-          </div>
           <GlassSkeleton width="100%" height="4px" borderRadius="var(--radius-full)" />
           <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
             <GlassSkeleton width="60%" height="1.25rem" />
@@ -123,8 +129,6 @@ export function LessonReader() {
   if (!lesson) return <div className="page container" style={{ color: "var(--color-text-secondary)" }}>Lesson not found.</div>;
 
   const content = lesson.content_json;
-
-  // Separate preamble (intro, objectives) from numbered lesson sections
   const allExplanations = content.explanations.map((e) => ({
     title: (typeof e === "string" ? "" : (e.title || e.heading || "")),
     body: typeof e === "string" ? e : e.body,
@@ -133,118 +137,170 @@ export function LessonReader() {
 
   const preambleSections = allExplanations.filter((e) => isPreambleSection(e.title));
   const lessonSections = allExplanations.filter((e) => !isPreambleSection(e.title));
-
-  const totalSteps = 4; // preamble + lesson + examples/takeaways + summary
-  const expandedCount = Object.values(expandedSections).filter(Boolean).length;
+  const totalSteps = lessonSections.length;
 
   return (
     <PageTransition>
-      <div className="page container" style={{ maxWidth: 720 }}>
-        {/* Header */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-          <Link
-            to="/modules"
-            aria-label="Back to modules"
-            className="btn-glass"
-            style={{ padding: "0.375rem 0.75rem", fontSize: "var(--font-size-sm)" }}
-          >
+      <div className="page container" style={{ maxWidth: 720, paddingBottom: "5rem" }}>
+        {/* Top bar */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem" }}>
+          <Link to="/modules" aria-label="Back to modules" className="btn-glass" style={{ padding: "0.3rem 0.6rem", fontSize: "0.75rem" }}>
             ← Back
           </Link>
-          <div style={{ fontSize: "var(--font-size-sm)", color: "var(--color-text-secondary)" }}>
-            Step {expandedCount} of {totalSteps}
-          </div>
+          <span style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
+            {activeNavIdx + 1} / {totalSteps}
+          </span>
         </div>
 
-        <GlassProgressBar value={expandedCount} max={totalSteps} height={4} />
+        <GlassProgressBar value={activeNavIdx + 1} max={totalSteps} height={3} />
 
-        <article style={{ marginTop: "1.25rem" }}>
+        {/* Sticky section nav pills */}
+        {lessonSections.length > 1 && (
+          <nav
+            aria-label="Section navigation"
+            style={{
+              position: "sticky",
+              top: 0,
+              zIndex: 10,
+              background: "var(--color-bg, #1a1a1a)",
+              padding: "0.5rem 0",
+              marginBottom: "1rem",
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
+              overflowX: "auto",
+              display: "flex",
+              gap: "0.25rem",
+              scrollbarWidth: "none",
+            }}
+          >
+            {lessonSections.map((s, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollToSection(idx)}
+                title={s.title}
+                style={{
+                  flexShrink: 0,
+                  padding: "0.25rem 0.5rem",
+                  fontSize: "0.6875rem",
+                  fontWeight: idx === activeNavIdx ? 700 : 500,
+                  borderRadius: "var(--radius-full, 999px)",
+                  border: "1px solid",
+                  borderColor: idx === activeNavIdx ? "var(--color-accent, #d4a574)" : "rgba(255,255,255,0.1)",
+                  background: idx === activeNavIdx ? "rgba(212, 165, 116, 0.15)" : "transparent",
+                  color: idx === activeNavIdx ? "var(--color-accent, #d4a574)" : "var(--color-text-muted)",
+                  cursor: "pointer",
+                  transition: "all 0.15s ease",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {shortLabel(s.title)}
+              </button>
+            ))}
+          </nav>
+        )}
 
-          {/* Preamble: Introduction + Learning Objectives (always visible, no dropdown) */}
+        <article>
+          {/* Preamble (always visible, compact) */}
           {preambleSections.length > 0 && (
-            <div style={{ marginBottom: "1.5rem" }}>
+            <div style={{ marginBottom: "1.25rem" }}>
               {preambleSections.map((section, i) => (
                 isLearningObjectives(section.title) ? (
                   <LearningObjectivesCard key={i} body={section.body} />
                 ) : (
-                  <div key={i} style={{ marginBottom: "1rem" }}>
-                    <MarkdownText text={section.raw} style={{ lineHeight: 1.6, color: "var(--color-text)", fontSize: "0.9375rem" }} />
+                  <div key={i} style={{ marginBottom: "0.75rem" }}>
+                    <MarkdownText text={section.raw} style={{ lineHeight: 1.5, color: "var(--color-text)", fontSize: "0.875rem" }} />
                   </div>
                 )
               ))}
             </div>
           )}
 
-          {/* Lesson Content Sections (numbered 4.1, 4.2, etc.) */}
-          <CollapsibleSection
-            title="📖 Lesson Content"
-            expanded={expandedSections.explanations}
-            onToggle={() => toggleSection("explanations")}
-          >
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              {lessonSections.map((section, i) => (
-                <LessonSectionDropdown key={i} title={section.title} body={section.body} index={i} />
-              ))}
+          {/* Lesson sections (all expanded, scrollable with nav) */}
+          {lessonSections.map((section, idx) => (
+            <div
+              key={idx}
+              ref={(el) => { sectionRefs.current[idx] = el; }}
+              style={{ marginBottom: "2rem", scrollMarginTop: "3.5rem" }}
+            >
+              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "0.375rem" }}>
+                {section.title}
+              </h3>
+              <MarkdownText text={section.body} style={{ lineHeight: 1.6, color: "var(--color-text)", fontSize: "0.875rem" }} />
             </div>
-          </CollapsibleSection>
+          ))}
 
           {/* Worked Examples */}
-          <CollapsibleSection
-            title="💡 Worked Examples"
-            expanded={expandedSections.examples}
-            onToggle={() => toggleSection("examples")}
-          >
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-              {content.worked_examples.map((e, i) => {
-                const text = typeof e === "string" ? e : `**${e.title}**\n\n${e.problem || ""}${e.solution ? "\n\n" + e.solution : ""}${e.body ? "\n\n" + e.body : ""}`;
-                return (
-                  <GlassCard key={i} blur="sm">
-                    <MarkdownText text={text} style={{ lineHeight: 1.6, color: "var(--color-text)", fontSize: "0.9375rem" }} />
-                  </GlassCard>
-                );
-              })}
+          {content.worked_examples.length > 0 && content.worked_examples[0].title !== "See lesson sections" && (
+            <div style={{ marginBottom: "2rem" }}>
+              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "0.375rem" }}>
+                💡 Worked Examples
+              </h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                {content.worked_examples.map((e, i) => {
+                  const text = typeof e === "string" ? e : `**${e.title}**\n\n${e.problem || ""}${e.solution ? "\n\n" + e.solution : ""}${e.body ? "\n\n" + e.body : ""}`;
+                  return (
+                    <GlassCard key={i} blur="sm">
+                      <MarkdownText text={text} style={{ lineHeight: 1.5, color: "var(--color-text)", fontSize: "0.8125rem" }} />
+                    </GlassCard>
+                  );
+                })}
+              </div>
             </div>
-          </CollapsibleSection>
+          )}
 
           {/* Key Takeaways */}
-          <CollapsibleSection
-            title="🔑 Key Takeaways"
-            expanded={expandedSections.takeaways}
-            onToggle={() => toggleSection("takeaways")}
-          >
-            <GlassCard blur="sm" style={{ background: "rgba(212, 165, 116, 0.06)", border: "1px solid rgba(212, 165, 116, 0.2)" }}>
-              <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
-                {content.key_takeaways.map((text, i) => (
-                  <li key={i} style={{ marginBottom: "0.375rem", lineHeight: 1.6, color: "var(--color-text)", fontSize: "0.875rem" }}>
-                    <MarkdownText text={text} />
-                  </li>
-                ))}
-              </ul>
-            </GlassCard>
-          </CollapsibleSection>
+          {content.key_takeaways.length > 0 && (
+            <div style={{ marginBottom: "2rem" }}>
+              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "0.375rem" }}>
+                🔑 Key Takeaways
+              </h3>
+              <GlassCard blur="sm" style={{ background: "rgba(212, 165, 116, 0.05)", border: "1px solid rgba(212, 165, 116, 0.15)" }}>
+                <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
+                  {content.key_takeaways.map((text, i) => (
+                    <li key={i} style={{ marginBottom: "0.25rem", lineHeight: 1.5, color: "var(--color-text)", fontSize: "0.8125rem" }}>
+                      <MarkdownText text={text} />
+                    </li>
+                  ))}
+                </ul>
+              </GlassCard>
+            </div>
+          )}
 
           {/* Summary */}
-          <CollapsibleSection
-            title="📝 Summary"
-            expanded={expandedSections.summary}
-            onToggle={() => toggleSection("summary")}
-          >
-            <MarkdownText text={content.summary} style={{ lineHeight: 1.6, color: "var(--color-text)", fontSize: "0.9375rem" }} />
-          </CollapsibleSection>
+          {content.summary && (
+            <div style={{ marginBottom: "2rem" }}>
+              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "0.375rem" }}>
+                📝 Summary
+              </h3>
+              <MarkdownText text={content.summary} style={{ lineHeight: 1.5, color: "var(--color-text)", fontSize: "0.875rem" }} />
+            </div>
+          )}
         </article>
 
-        {/* Complete button */}
-        <div style={{ marginTop: "1.5rem", paddingBottom: "2rem" }}>
+        {/* Sticky complete button */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            padding: "0.75rem 1rem",
+            background: "linear-gradient(transparent, var(--color-bg, #1a1a1a) 30%)",
+            display: "flex",
+            justifyContent: "center",
+            zIndex: 20,
+          }}
+        >
           {completed ? (
-            <p style={{ color: "var(--color-success)", fontWeight: 600 }}>✓ Lesson completed</p>
+            <span style={{ color: "var(--color-success)", fontWeight: 600, fontSize: "0.875rem" }}>✓ Lesson completed</span>
           ) : (
             <button
               className="btn-glass btn-glass-primary"
               onClick={handleMarkComplete}
               disabled={completing}
               aria-label="Mark lesson as complete"
-              style={{ padding: "0.75rem 1.5rem" }}
+              style={{ padding: "0.625rem 2rem", fontSize: "0.875rem" }}
             >
-              {completing ? "Marking…" : "Mark Complete"}
+              {completing ? "Marking…" : "✓ Mark Complete"}
             </button>
           )}
         </div>
@@ -258,138 +314,21 @@ export function LessonReader() {
 // ---------------------------------------------------------------------------
 
 function LearningObjectivesCard({ body }: { body: string }) {
-  // Extract bullet items from the body
-  const items = body
-    .split("\n")
-    .map((l) => l.trim())
-    .filter((l) => l.startsWith("- ") || l.startsWith("* "))
-    .map((l) => l.slice(2));
+  const items = body.split("\n").map((l) => l.trim()).filter((l) => l.startsWith("- ") || l.startsWith("* ")).map((l) => l.slice(2));
 
   return (
-    <div
-      style={{
-        margin: "0.75rem 0",
-        padding: "0.75rem 1rem",
-        background: "rgba(212, 165, 116, 0.06)",
-        border: "1px solid rgba(212, 165, 116, 0.2)",
-        borderLeft: "3px solid var(--color-accent, #d4a574)",
-        borderRadius: "var(--radius-md, 8px)",
-      }}
-    >
-      <div style={{ fontWeight: 600, fontSize: "0.875rem", marginBottom: "0.5rem", color: "var(--color-accent, #d4a574)" }}>
+    <div style={{ margin: "0.5rem 0", padding: "0.6rem 0.75rem", background: "rgba(212, 165, 116, 0.05)", border: "1px solid rgba(212, 165, 116, 0.15)", borderLeft: "3px solid var(--color-accent, #d4a574)", borderRadius: "6px" }}>
+      <div style={{ fontWeight: 600, fontSize: "0.8125rem", marginBottom: "0.375rem", color: "var(--color-accent, #d4a574)" }}>
         🎯 Learning Objectives
       </div>
       {items.length > 0 ? (
         <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
           {items.map((item, i) => (
-            <li key={i} style={{ marginBottom: "0.25rem", lineHeight: 1.5, fontSize: "0.8125rem", color: "var(--color-text-secondary)" }}>
-              {item}
-            </li>
+            <li key={i} style={{ marginBottom: "0.2rem", lineHeight: 1.4, fontSize: "0.75rem", color: "var(--color-text-secondary)" }}>{item}</li>
           ))}
         </ul>
       ) : (
-        <MarkdownText text={body} style={{ fontSize: "0.8125rem", lineHeight: 1.5, color: "var(--color-text-secondary)" }} />
-      )}
-    </div>
-  );
-}
-
-function CollapsibleSection({
-  title,
-  expanded,
-  onToggle,
-  children,
-}: {
-  title: string;
-  expanded: boolean;
-  onToggle: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <section aria-label={title} style={{ marginBottom: "1rem" }}>
-      <button
-        onClick={onToggle}
-        aria-expanded={expanded}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "100%",
-          padding: "0.625rem 0",
-          background: "none",
-          border: "none",
-          borderBottom: "1px solid var(--glass-border-medium)",
-          cursor: "pointer",
-          fontSize: "0.9375rem",
-          fontWeight: 600,
-          color: "var(--color-text)",
-          textAlign: "left",
-        }}
-      >
-        {title}
-        <span style={{ fontSize: "0.75rem", color: "var(--color-text-muted)", transition: "transform var(--transition-fast)", transform: expanded ? "rotate(180deg)" : "rotate(0)" }}>
-          ▼
-        </span>
-      </button>
-      {expanded && (
-        <div style={{ padding: "0.75rem 0", animation: "fadeIn 0.2s ease" }}>
-          {children}
-        </div>
-      )}
-    </section>
-  );
-}
-
-function LessonSectionDropdown({ title, body, index }: { title: string; body: string; index: number }) {
-  const [open, setOpen] = useState(index === 0);
-
-  return (
-    <div>
-      <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "100%",
-          padding: "0.5rem 0.75rem",
-          background: open ? "rgba(212, 165, 116, 0.04)" : "rgba(255, 255, 255, 0.02)",
-          border: "1px solid var(--glass-border-medium)",
-          borderRadius: "var(--radius-md)",
-          cursor: "pointer",
-          fontSize: "0.875rem",
-          fontWeight: 600,
-          color: "var(--color-text)",
-          textAlign: "left",
-          transition: "background var(--transition-fast)",
-        }}
-      >
-        <span style={{ flex: 1 }}>{title || `Section ${index + 1}`}</span>
-        <span
-          style={{
-            fontSize: "0.6875rem",
-            color: "var(--color-text-muted)",
-            transition: "transform var(--transition-fast)",
-            transform: open ? "rotate(180deg)" : "rotate(0)",
-            flexShrink: 0,
-            marginLeft: "0.5rem",
-          }}
-        >
-          ▼
-        </span>
-      </button>
-      {open && (
-        <div
-          style={{
-            padding: "0.75rem 0.75rem 0.75rem 1rem",
-            borderLeft: "2px solid var(--color-accent, #d4a574)",
-            marginLeft: "0.5rem",
-            marginTop: "0.25rem",
-          }}
-        >
-          <MarkdownText text={body} style={{ lineHeight: 1.6, color: "var(--color-text)", fontSize: "0.875rem" }} />
-        </div>
+        <MarkdownText text={body} style={{ fontSize: "0.75rem", lineHeight: 1.4, color: "var(--color-text-secondary)" }} />
       )}
     </div>
   );

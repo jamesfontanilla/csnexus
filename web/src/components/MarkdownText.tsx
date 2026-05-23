@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * Lightweight inline markdown renderer.
@@ -125,6 +125,59 @@ function CalloutBox({ text, variant }: { text: string; variant: "tip" | "warning
   );
 }
 
+function CSEExample({ question, details }: { question: string; details: string[] }) {
+  const [revealed, setRevealed] = useState(false);
+
+  // Separate choices from explanation
+  const choicesLine = details.find((l) => l.startsWith("- (") || l.startsWith("* ("));
+  const explanationLine = details.find((l) => l.startsWith("- *") || l.startsWith("* *"));
+
+  // Extract difficulty badge
+  const diffMatch = question.match(/^\*\*(Easy|Medium|Hard):\*\*/);
+  const difficulty = diffMatch ? diffMatch[1] : "";
+  const questionText = question.replace(/^\*\*(Easy|Medium|Hard):\*\*\s*/, "");
+
+  const badgeColors: Record<string, string> = {
+    Easy: "rgba(80, 200, 120, 0.2)",
+    Medium: "rgba(212, 165, 116, 0.2)",
+    Hard: "rgba(220, 80, 80, 0.2)",
+  };
+
+  return (
+    <div style={{ margin: "0.5rem 0", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "6px", overflow: "hidden" }}>
+      <div style={{ padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.02)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}>
+          {difficulty && (
+            <span style={{ fontSize: "0.625rem", fontWeight: 700, padding: "0.1rem 0.4rem", borderRadius: "3px", background: badgeColors[difficulty] || "rgba(255,255,255,0.1)", textTransform: "uppercase", letterSpacing: "0.03em" }}>
+              {difficulty}
+            </span>
+          )}
+        </div>
+        <p style={{ margin: 0, fontSize: "0.8125rem", lineHeight: 1.5 }}>
+          <InlineMarkdown text={questionText} />
+        </p>
+        {choicesLine && (
+          <p style={{ margin: "0.25rem 0 0 0", fontSize: "0.75rem", color: "var(--color-text-secondary)" }}>
+            <InlineMarkdown text={choicesLine.slice(2)} />
+          </p>
+        )}
+      </div>
+      {!revealed ? (
+        <button
+          onClick={() => setRevealed(true)}
+          style={{ width: "100%", padding: "0.375rem", background: "rgba(212, 165, 116, 0.06)", border: "none", borderTop: "1px solid rgba(255,255,255,0.06)", cursor: "pointer", fontSize: "0.6875rem", color: "var(--color-accent, #d4a574)", fontWeight: 600 }}
+        >
+          Show Answer
+        </button>
+      ) : (
+        <div style={{ padding: "0.4rem 0.75rem", borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(80, 200, 120, 0.04)", fontSize: "0.75rem", lineHeight: 1.5 }}>
+          {explanationLine && <InlineMarkdown text={explanationLine.slice(2)} />}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function RawMarkdownBlock({ text }: { text: string }) {
   const lines = text.split("\n");
   const elements: React.ReactNode[] = [];
@@ -200,6 +253,21 @@ function RawMarkdownBlock({ text }: { text: string }) {
 
     // Flush pending table
     flushTable();
+
+    // CSE-Style interactive example: **Easy:**/**Medium:**/**Hard:** followed by choices
+    if (/^\*\*(Easy|Medium|Hard):\*\*/.test(trimmed)) {
+      flushBullets();
+      const questionLine = trimmed;
+      const exampleLines: string[] = [];
+      i++;
+      // Collect subsequent bullet lines (choices + explanation)
+      while (i < lines.length && (lines[i].trim().startsWith("- ") || lines[i].trim().startsWith("* ") || lines[i].trim() === "")) {
+        if (lines[i].trim()) exampleLines.push(lines[i].trim());
+        i++;
+      }
+      elements.push(<CSEExample key={key++} question={questionLine} details={exampleLines} />);
+      continue;
+    }
 
     // Bullet point (- or *)
     if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
