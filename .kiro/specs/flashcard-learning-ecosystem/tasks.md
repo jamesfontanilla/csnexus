@@ -6,20 +6,20 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
 
 ## Tasks
 
-- [ ] 1. Set up project structure, models, and schemas
-  - [ ] 1.1 Create feature directory structure and `__init__.py` files
+- [x] 1. Set up project structure, models, and schemas
+  - [x] 1.1 Create feature directory structure and `__init__.py` files
     - Create `app/features/flashcards/__init__.py`
     - Create `app/features/flashcards/algorithms/__init__.py`
     - Create `tests/features/flashcards/__init__.py`
     - _Requirements: 30.1, 30.5_
 
-  - [ ] 1.2 Implement SQLAlchemy ORM models
+  - [x] 1.2 Implement SQLAlchemy ORM models
     - Create `app/features/flashcards/models.py` with all models: Deck, Flashcard, ReviewLog, StudySession, DeckRating, DeckBookmark, DeckComment, Follow, DeckReport, ExamSimulation, ExamSimulationAnswer, FlashcardNotification
     - Include all enums: DeckVisibility, DeckCategory, CardType, StudyMode, ConfidenceLevel, ResponseType
     - Include all constraints, indexes, and check constraints as specified in the design
     - _Requirements: 30.1, 30.4, 30.8_
 
-  - [ ] 1.3 Implement Pydantic schemas
+  - [x] 1.3 Implement Pydantic schemas
     - Create `app/features/flashcards/schemas.py` with request/response schemas
     - DeckCreate, DeckUpdate, DeckResponse, DeckFilters
     - FlashcardCreate, FlashcardUpdate, FlashcardResponse
@@ -33,8 +33,8 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Use `model_config = {"from_attributes": True}` for ORM serialization
     - _Requirements: 30.2, 30.3, 30.6_
 
-- [ ] 2. Implement FSRS spaced repetition algorithm
-  - [ ] 2.1 Implement FSRS engine pure functions
+- [x] 2. Implement FSRS spaced repetition algorithm
+  - [x] 2.1 Implement FSRS engine pure functions
     - Create `app/features/flashcards/algorithms/fsrs.py`
     - Implement `CardState` frozen dataclass, `SchedulingResult` frozen dataclass
     - Implement `compute_next_interval(state, response, confidence, today)` with all interval formulas and confidence multipliers
@@ -43,58 +43,58 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Ensure all parameter clamping: ease_factor [1.3, 3.5], memory_stability ≥ 0.1, review_interval [1, 365]
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 10.2_
 
-  - [ ]* 2.2 Write property test: FSRS interval computation correctness
+  - [x] 2.2 Write property test: FSRS interval computation correctness
     - **Property 1: FSRS interval computation correctness**
     - **Validates: Requirements 5.2, 5.3, 5.4, 5.5, 10.2**
 
-  - [ ]* 2.3 Write property test: FSRS parameter invariants
+  - [x] 2.3 Write property test: FSRS parameter invariants
     - **Property 2: FSRS parameter invariants**
     - **Validates: Requirements 5.1, 5.8, 5.9**
 
-  - [ ]* 2.4 Write property test: FSRS determinism
+  - [x] 2.4 Write property test: FSRS determinism
     - **Property 3: FSRS determinism**
     - **Validates: Requirements 5.10**
 
-  - [ ]* 2.5 Write property test: FSRS round-trip scheduling
+  - [x] 2.5 Write property test: FSRS round-trip scheduling
     - **Property 4: FSRS round-trip scheduling**
     - **Validates: Requirements 5.11**
 
-  - [ ]* 2.6 Write property test: Retention score formula
+  - [x] 2.6 Write property test: Retention score formula
     - **Property 5: Retention score formula**
     - **Validates: Requirements 5.6**
 
-  - [ ]* 2.7 Write property test: Mastery percentage formula
+  - [x] 2.7 Write property test: Mastery percentage formula
     - **Property 6: Mastery percentage formula**
     - **Validates: Requirements 5.7**
 
-- [ ] 3. Implement similarity and interleaving algorithms
-  - [ ] 3.1 Implement similarity engine
+- [x] 3. Implement similarity and interleaving algorithms
+  - [x] 3.1 Implement similarity engine
     - Create `app/features/flashcards/algorithms/similarity.py`
     - Implement `AnswerComparison` dataclass, `Strictness` enum
     - Implement `compare_typed_answer(user_answer, correct_answer, strictness)` using Levenshtein distance ratio
     - Support EXACT, CONTAINS, and FUZZY strictness modes
     - _Requirements: 8.4_
 
-  - [ ]* 3.2 Write property test: Typed answer comparison
+  - [x] 3.2 Write property test: Typed answer comparison
     - **Property 13: Typed answer comparison**
     - **Validates: Requirements 8.4**
 
-  - [ ] 3.3 Implement interleaving algorithm
+  - [x] 3.3 Implement interleaving algorithm
     - Create `app/features/flashcards/algorithms/interleaving.py`
     - Implement `interleave_cards(cards, max_consecutive_same_category=3)`
     - Round-robin across categories, swap to fix consecutive violations
     - Pure function — does not modify input list
     - _Requirements: 9.1, 9.2_
 
-  - [ ]* 3.4 Write property test: Interleaving constraint
+  - [x] 3.4 Write property test: Interleaving constraint
     - **Property 12: Interleaving constraint**
     - **Validates: Requirements 9.1, 9.2**
 
-- [ ] 4. Checkpoint - Ensure all algorithm tests pass
+- [x] 4. Checkpoint - Ensure all algorithm tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 5. Implement repository layer
-  - [ ] 5.1 Implement FlashcardRepository
+- [x] 5. Implement repository layer
+  - [x] 5.1 Implement FlashcardRepository
     - Create `app/features/flashcards/repository.py`
     - Deck CRUD methods: create_deck, get_deck, update_deck, soft_delete_deck, list_user_decks, duplicate_deck
     - Flashcard CRUD methods: create_flashcard, get_flashcard, update_flashcard, soft_delete_flashcard, list_deck_flashcards, count_deck_flashcards
@@ -110,7 +110,7 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - All queries filter `WHERE deleted_at IS NULL` by default
     - _Requirements: 1.1–1.12, 2.1–2.8, 6.1–6.7, 14.1–14.9, 15.1–15.5, 16.1–16.6, 17.1–17.7, 22.1–22.9, 26.1–26.6, 27.1–27.6, 28.1–28.7_
 
-  - [ ]* 5.2 Write repository layer unit tests
+  - [x] 5.2 Write repository layer unit tests
     - Create `tests/features/flashcards/test_repository.py`
     - Test deck CRUD with soft-delete filtering
     - Test flashcard CRUD with deck association and capacity limit (500)
@@ -124,7 +124,7 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - _Requirements: 30.4_
 
 - [ ] 6. Implement service layer - Core CRUD and study sessions
-  - [ ] 6.1 Implement FlashcardService - Deck and card CRUD
+  - [x] 6.1 Implement FlashcardService - Deck and card CRUD
     - Create `app/features/flashcards/service.py`
     - Implement constructor with dependency injection (FlashcardRepository, XPService, AchievementService, FocusService)
     - Implement create_deck, update_deck, delete_deck, list_user_decks, duplicate_deck
@@ -136,15 +136,15 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Enforce ownership checks on all mutations
     - _Requirements: 1.1–1.12, 2.1–2.8, 29.2_
 
-  - [ ]* 6.2 Write property test: Card type-specific validation
+  - [x] 6.2 Write property test: Card type-specific validation
     - **Property 7: Card type-specific validation**
     - **Validates: Requirements 1.3, 1.4, 1.5, 1.6, 1.12**
 
-  - [ ]* 6.3 Write property test: Flashcard update preserves scheduling
+  - [x] 6.3 Write property test: Flashcard update preserves scheduling
     - **Property 8: Flashcard update preserves scheduling**
     - **Validates: Requirements 1.7**
 
-  - [ ] 6.4 Implement FlashcardService - Study sessions and review queue
+  - [x] 6.4 Implement FlashcardService - Study sessions and review queue
     - Implement start_study_session (all 6 modes: swipe, typing, rapid_recall, quiz, timed, exam_simulation)
     - Implement record_response: call FSRS engine, update card scheduling, record review log, handle confidence tracking
     - Implement end_study_session: compute summary stats, award XP
@@ -154,31 +154,31 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Implement graduation logic (5 consecutive mastered → graduated)
     - _Requirements: 3.1–3.7, 4.1–4.6, 5.1–5.11, 6.1–6.7, 8.1–8.4, 9.1–9.4, 10.1–10.5_
 
-  - [ ]* 6.5 Write property test: Daily queue priority ordering
+  - [x] 6.5 Write property test: Daily queue priority ordering
     - **Property 9: Daily queue priority ordering**
     - **Validates: Requirements 6.1**
 
-  - [ ]* 6.6 Write property test: Queue cap truncation
+  - [x] 6.6 Write property test: Queue cap truncation
     - **Property 10: Queue cap truncation**
     - **Validates: Requirements 6.4**
 
-  - [ ]* 6.7 Write property test: Queue summary computation
+  - [x] 6.7 Write property test: Queue summary computation
     - **Property 11: Queue summary computation**
     - **Validates: Requirements 6.6**
 
-  - [ ]* 6.8 Write property test: Graduation after consecutive mastered reviews
+  - [x] 6.8 Write property test: Graduation after consecutive mastered reviews
     - **Property 14: Graduation after consecutive mastered reviews**
     - **Validates: Requirements 10.5**
 
-  - [ ]* 6.9 Write property test: Study session result accuracy
+  - [x] 6.9 Write property test: Study session result accuracy
     - **Property 15: Study session result accuracy**
     - **Validates: Requirements 3.7**
 
-- [ ] 7. Checkpoint - Ensure all core service tests pass
+- [x] 7. Checkpoint - Ensure all core service tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 8. Implement service layer - Marketplace, social, and deck operations
-  - [ ] 8.1 Implement FlashcardService - Marketplace and social features
+  - [x] 8.1 Implement FlashcardService - Marketplace and social features
     - Implement search_marketplace with full-text search, sorting, filtering, pagination
     - Implement rate_deck: enforce 1–5 range, one per user, no self-rating, recompute average
     - Implement clone_deck: full copy with attribution, increment clone_count, award XP to creator
@@ -190,20 +190,20 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Implement comment moderation keyword filter (hold for review)
     - _Requirements: 14.1–14.9, 15.1–15.5, 16.1–16.6, 17.1–17.7_
 
-  - [ ]* 8.2 Write property test: Deck duplication content fidelity
+  - [x] 8.2 Write property test: Deck duplication content fidelity
     - **Property 16: Deck duplication content fidelity**
     - **Validates: Requirements 2.5, 14.6**
 
-  - [ ]* 8.3 Write property test: Deck rating average computation
+  - [x] 8.3 Write property test: Deck rating average computation
     - **Property 17: Deck rating average computation**
     - **Validates: Requirements 14.4, 14.5**
 
-  - [ ]* 8.4 Write property test: Deck soft-delete cascades to all cards
+  - [x] 8.4 Write property test: Deck soft-delete cascades to all cards
     - **Property 24: Deck soft-delete cascades to all cards**
     - **Validates: Requirements 2.6**
 
 - [ ] 9. Implement pseudo-AI generator and recommendation engine
-  - [ ] 9.1 Implement pseudo-AI flashcard generator
+  - [x] 9.1 Implement pseudo-AI flashcard generator
     - Create `app/features/flashcards/algorithms/generator.py`
     - Implement term extraction using regex patterns: "Term: Definition", "Term — Definition", bold markdown, italic markdown, markdown table rows
     - Implement difficulty classification using word frequency thresholds (easy/medium/hard)
@@ -216,15 +216,15 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - No paid LLM APIs — all deterministic heuristics
     - _Requirements: 11.1–11.10_
 
-  - [ ]* 9.2 Write property test: Generated card validity invariant
+  - [x] 9.2 Write property test: Generated card validity invariant
     - **Property 18: Generated card validity invariant**
     - **Validates: Requirements 11.10**
 
-  - [ ]* 9.3 Write property test: Difficulty classification correctness
+  - [x] 9.3 Write property test: Difficulty classification correctness
     - **Property 19: Difficulty classification correctness**
     - **Validates: Requirements 11.4**
 
-  - [ ] 9.4 Implement recommendation engine
+  - [x] 9.4 Implement recommendation engine
     - Create `app/features/flashcards/algorithms/recommendation.py`
     - Implement weak subtopic identification (5 lowest retention_score tags)
     - Implement marketplace deck recommendations for weak areas
@@ -233,7 +233,7 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Implement starter deck recommendations for new users
     - _Requirements: 12.1–12.5_
 
-  - [ ] 9.5 Implement explanation engine in service layer
+  - [x] 9.5 Implement explanation engine in service layer
     - Implement template-based explanations by card tag category
     - Grammar → grammar rule templates, vocabulary → etymology templates, numerical → formula templates, analytical → logic templates
     - Deep link to relevant lesson section by tag-to-slug matching
@@ -242,7 +242,7 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - _Requirements: 13.1–13.5_
 
 - [ ] 10. Implement gamification integrations
-  - [ ] 10.1 Implement XP integration
+  - [x] 10.1 Implement XP integration
     - Call XPService.award() on session end: (2 × cards_reviewed) + (1 × cards_remembered)
     - Call XPService.award() on deck creation (10th card milestone): 25 XP
     - Call XPService.award() on deck clone (to original creator): 10 XP
@@ -252,24 +252,24 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Handle XP failures gracefully (persist session, log error)
     - _Requirements: 18.1–18.7_
 
-  - [ ] 10.2 Implement achievement integration
+  - [x] 10.2 Implement achievement integration
     - Trigger achievement checks at qualifying events: 100 reviews, 1000 reviews, 7-day streak, 30-day streak, 90% deck mastery, 5 published decks
     - Call existing AchievementService after qualifying events
     - _Requirements: 19.1–19.7_
 
-  - [ ] 10.3 Implement leaderboard and focus mode integration
+  - [x] 10.3 Implement leaderboard and focus mode integration
     - Expose flashcard_review_streak, total_cards_mastered, deck_popularity_score metrics
     - Implement focus mode: call FocusService.start_session() and complete_session()
     - Return wellness reminder when session exceeds threshold
     - Include focus_session_id in response when active
     - _Requirements: 20.1–20.4, 21.1–21.4_
 
-  - [ ]* 10.4 Write property test: Deck popularity score formula
+  - [x] 10.4 Write property test: Deck popularity score formula
     - **Property 20: Deck popularity score formula**
     - **Validates: Requirements 20.3**
 
 - [ ] 11. Implement exam simulation and analytics
-  - [ ] 11.1 Implement exam simulation service methods
+  - [x] 11.1 Implement exam simulation service methods
     - Implement start_exam_simulation: validate deck card counts, category distribution, select random cards
     - Implement submit_exam_answer: lock answer on submission, prevent changes
     - Implement complete_exam_simulation: compute scores, percentile estimate, store results
@@ -277,11 +277,11 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Reject if insufficient cards or category cards
     - _Requirements: 22.1–22.9_
 
-  - [ ]* 11.2 Write property test: Exam simulation scoring
+  - [x] 11.2 Write property test: Exam simulation scoring
     - **Property 21: Exam simulation scoring**
     - **Validates: Requirements 22.7**
 
-  - [ ] 11.3 Implement user analytics dashboard
+  - [x] 11.3 Implement user analytics dashboard
     - Overall retention percentage, current/longest streak
     - Strongest/weakest subjects (top/bottom 3 tags)
     - Mastery heatmap (90-day grid)
@@ -289,11 +289,11 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Predicted exam readiness score (weighted by CSE distribution)
     - _Requirements: 26.1–26.6_
 
-  - [ ]* 11.4 Write property test: Predicted exam readiness
+  - [x] 11.4 Write property test: Predicted exam readiness
     - **Property 22: Predicted exam readiness**
     - **Validates: Requirements 26.6**
 
-  - [ ] 11.5 Implement admin analytics and moderation
+  - [x] 11.5 Implement admin analytics and moderation
     - Top 20 most-failed cards and decks
     - Engagement metrics (daily active reviewers, avg cards/session, etc.)
     - Category breakdown
@@ -305,22 +305,22 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Restrict to admin role via RBAC middleware
     - _Requirements: 27.1–27.6, 28.1–28.7_
 
-- [ ] 12. Checkpoint - Ensure all service layer tests pass
+- [x] 12. Checkpoint - Ensure all service layer tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 13. Implement sync endpoint and retention analytics
-  - [ ] 13.1 Implement batch sync endpoint
+  - [x] 13.1 Implement batch sync endpoint
     - Implement POST `/v1/flashcards/sync` accepting SyncBatchRequest (max 50 items)
     - Deduplicate by client_event_id (skip already-persisted)
     - Process reviews in chronological order
     - Return accepted count, duplicate count, and failures
     - _Requirements: 24.1–24.10_
 
-  - [ ]* 13.2 Write property test: Sync deduplication by client_event_id
+  - [x] 13.2 Write property test: Sync deduplication by client_event_id
     - **Property 23: Sync deduplication by client_event_id**
     - **Validates: Requirements 24.3, 24.8**
 
-  - [ ] 13.3 Implement retention analytics endpoints
+  - [x] 13.3 Implement retention analytics endpoints
     - Per-tag retention averages
     - Forgetting curve predictions (day 1, 3, 7, 14, 30)
     - Retention heatmap (90-day daily review counts + avg retention)
@@ -328,8 +328,8 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Date range filtering
     - _Requirements: 7.1–7.5_
 
-- [ ] 14. Implement router layer
-  - [ ] 14.1 Implement flashcard router - Deck and card endpoints
+- [x] 14. Implement router layer
+  - [x] 14.1 Implement flashcard router - Deck and card endpoints
     - Create `app/features/flashcards/router.py`
     - POST `/v1/flashcards/decks` (201), GET `/v1/flashcards/decks` (200), GET `/v1/flashcards/decks/{id}` (200)
     - PATCH `/v1/flashcards/decks/{id}` (200), DELETE `/v1/flashcards/decks/{id}` (204)
@@ -340,13 +340,13 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Use `get_current_user` dependency for auth
     - _Requirements: 29.1–29.5, 30.2, 30.3_
 
-  - [ ] 14.2 Implement flashcard router - Study session and queue endpoints
+  - [x] 14.2 Implement flashcard router - Study session and queue endpoints
     - POST `/v1/flashcards/sessions` (201), POST `/v1/flashcards/sessions/{id}/respond` (200)
     - POST `/v1/flashcards/sessions/{id}/:end` (200)
     - GET `/v1/flashcards/queue` (200), GET `/v1/flashcards/queue/summary` (200)
     - _Requirements: 3.1–3.7, 6.1–6.7_
 
-  - [ ] 14.3 Implement flashcard router - Marketplace and social endpoints
+  - [x] 14.3 Implement flashcard router - Marketplace and social endpoints
     - GET `/v1/flashcards/marketplace` (200, public)
     - POST `/v1/flashcards/marketplace/{id}/:clone` (201)
     - POST `/v1/flashcards/marketplace/{id}/ratings` (201)
@@ -359,7 +359,7 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - GET `/v1/flashcards/feed` (200)
     - _Requirements: 14.1–14.9, 15.1–15.5, 16.1–16.6, 17.1–17.7_
 
-  - [ ] 14.4 Implement flashcard router - Generation, analytics, exam, sync, and admin endpoints
+  - [x] 14.4 Implement flashcard router - Generation, analytics, exam, sync, and admin endpoints
     - POST `/v1/flashcards/generate` (201)
     - GET `/v1/flashcards/recommendations` (200)
     - GET `/v1/flashcards/analytics/retention` (200)
@@ -376,8 +376,8 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Register router in `app/main.py`
     - _Requirements: 11.7, 12.1–12.5, 22.1–22.9, 26.1–26.6, 27.1–27.6, 28.1–28.7, 24.1–24.10_
 
-- [ ] 15. Write service and router layer tests
-  - [ ]* 15.1 Write service layer unit tests
+- [x] 15. Write service and router layer tests
+  - [x] 15.1 Write service layer unit tests
     - Create `tests/features/flashcards/test_service.py`
     - Test all business rule validations (card type, deck capacity, ownership)
     - Test FSRS scheduling integration (service calls algorithm, updates card)
@@ -390,7 +390,7 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Use MagicMock(spec=FlashcardRepository) for repository mocking
     - _Requirements: 30.1_
 
-  - [ ]* 15.2 Write router layer unit tests
+  - [x] 15.2 Write router layer unit tests
     - Create `tests/features/flashcards/test_router.py`
     - Test every endpoint: happy path + auth failure + validation failure
     - Test pagination parameter handling
@@ -399,7 +399,7 @@ This plan implements the Flashcard Learning Ecosystem in 7 phases following the 
     - Use TestClient with mocked service via dependency_overrides
     - _Requirements: 29.1–29.5, 30.2, 30.3_
 
-- [ ] 16. Final checkpoint - Ensure all tests pass
+- [x] 16. Final checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes

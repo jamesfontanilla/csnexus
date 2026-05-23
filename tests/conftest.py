@@ -40,6 +40,7 @@ from app.features.gamification import models as _gamification_models  # noqa: F4
 from app.features.tutor import models as _tutor_models  # noqa: F401
 from app.features.planner import models as _planner_models  # noqa: F401
 from app.features.focus import models as _focus_models  # noqa: F401
+from app.features.flashcards import models as _flashcard_models  # noqa: F401
 
 
 @pytest.fixture(scope="session", autouse=True)
