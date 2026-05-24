@@ -31,7 +31,6 @@ export function PracticePanel({ problems, memoryAids, examStrategies, keyTakeawa
         top: "5rem",
         maxHeight: "calc(100vh - 6rem)",
         overflowY: "auto",
-        scrollbarWidth: "thin",
       }}
     >
       {/* Tab bar */}

@@ -7,28 +7,38 @@ import { MarkdownText } from "../../../components/MarkdownText";
  * This replaces the "dump everything through MarkdownText" approach.
  */
 export function BlockRenderer({ block }: { block: ContentBlock }) {
+  // Safety: if content is null/undefined, skip rendering
+  if (block.content == null) return null;
+
+  // Coerce content to string for non-table types
+  const textContent = typeof block.content === "string"
+    ? block.content
+    : typeof block.content === "object" && "headers" in block.content
+      ? "" // table data handled separately
+      : String(block.content);
+
   switch (block.type) {
     case "table":
       return <InteractiveTable data={block.content as TableData} />;
     case "formula":
-      return <FormulaBlock content={block.content as string} language={block.language} />;
+      return <FormulaBlock content={textContent} language={block.language} />;
     case "code":
-      return <CodeBlock content={block.content as string} language={block.language} />;
+      return <CodeBlock content={textContent} language={block.language} />;
     case "tip":
-      return <CalloutCard variant="tip" content={block.content as string} />;
+      return <CalloutCard variant="tip" content={textContent} />;
     case "warning":
-      return <CalloutCard variant="warning" content={block.content as string} />;
+      return <CalloutCard variant="warning" content={textContent} />;
     case "example":
-      return <ExampleCard content={block.content as string} />;
+      return <ExampleCard content={textContent} />;
     case "step_by_step":
-      return <StepByStepBlock content={block.content as string} />;
+      return <StepByStepBlock content={textContent} />;
     case "list":
-      return <StyledList content={block.content as string} />;
+      return <StyledList content={textContent} />;
     case "svg":
-      return <SvgBlock content={block.content as string} />;
+      return <SvgBlock content={textContent} />;
     case "prose":
     default:
-      return <ProseBlock content={block.content as string} />;
+      return <ProseBlock content={textContent} />;
   }
 }
 
@@ -37,9 +47,10 @@ export function BlockRenderer({ block }: { block: ContentBlock }) {
 // ---------------------------------------------------------------------------
 
 function ProseBlock({ content }: { content: string }) {
+  if (!content || !content.trim()) return null;
   return (
     <div className="lesson-block lesson-block--prose">
-      <MarkdownText text={content} style={{ lineHeight: 1.7, fontSize: "0.9rem" }} />
+      <MarkdownText text={content} style={{ lineHeight: 1.7, fontSize: "0.9rem", color: "var(--color-text)" }} />
     </div>
   );
 }

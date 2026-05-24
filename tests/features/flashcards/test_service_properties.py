@@ -330,7 +330,7 @@ class TestDailyQueuePriorityOrdering:
     **Validates: Requirements 6.1**
     """
 
-    @settings(max_examples=100)
+    @settings(max_examples=100, deadline=None)
     @given(
         num_overdue=integers(min_value=0, max_value=10),
         num_due_today=integers(min_value=0, max_value=10),

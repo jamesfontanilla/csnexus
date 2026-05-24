@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import type { EnhancedLessonContent, LessonSection } from "./types";
 import { BlockRenderer } from "./BlockRenderer";
@@ -20,10 +20,13 @@ interface DesktopLessonLayoutProps {
  * - Left: Persistent sidebar TOC with scroll-spy
  * - Center: Main content with typed block rendering
  * - Right: Practice problems & study aids companion panel
+ *
+ * Falls back to a two-column layout (TOC + content) when no practice content,
+ * and to a single wide column when no enhanced sections exist at all.
  */
 export function DesktopLessonLayout({
   content,
-  subtopicId,
+  subtopicId: _subtopicId,
   onMarkComplete,
   completing,
   completed,
@@ -31,9 +34,33 @@ export function DesktopLessonLayout({
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Use enhanced sections if available, fall back to legacy
-  const hasEnhancedSections = content.sections && content.sections.length > 0;
-  const sections = hasEnhancedSections ? content.sections : [];
+  // Use enhanced sections if available, fall back to legacy explanations
+  const hasEnhancedSections = Array.isArray(content.sections) && content.sections.length > 0;
+
+  // Build navigable sections: prefer enhanced, fall back to legacy explanations
+  const sections: LessonSection[] = hasEnhancedSections
+    ? content.sections!
+    : content.explanations.map((exp) => ({
+        title: (typeof exp === "string" ? "" : (exp.title || exp.heading || "Section")),
+        blocks: [{
+          type: "prose" as const,
+          content: typeof exp === "string" ? exp : exp.body,
+        }],
+        difficulty: [],
+        word_count: (typeof exp === "string" ? exp : exp.body).split(" ").length,
+        estimated_reading_seconds: Math.ceil((typeof exp === "string" ? exp : exp.body).split(" ").length / 200 * 60),
+      }));
+
+  // Build metadata: use enhanced or synthesize from legacy
+  const metadata = content.metadata || {
+    title: "",
+    estimated_reading_minutes: Math.ceil(sections.reduce((acc, s) => acc + s.word_count, 0) / 200),
+    section_count: sections.length,
+    has_practice_problems: false,
+    practice_problem_count: 0,
+    difficulty_distribution: {},
+    total_word_count: sections.reduce((acc, s) => acc + s.word_count, 0),
+  };
 
   // Intersection observer for scroll-spy
   useEffect(() => {
@@ -62,19 +89,19 @@ export function DesktopLessonLayout({
     sectionRefs.current[idx]?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  // If no enhanced sections, fall back to legacy rendering
-  if (!hasEnhancedSections) {
-    return <LegacyDesktopFallback content={content} subtopicId={subtopicId} onMarkComplete={onMarkComplete} completing={completing} completed={completed} />;
-  }
+  const practiceProblems = Array.isArray(content.practice_problems) ? content.practice_problems : [];
+  const memoryAids = Array.isArray(content.memory_aids) ? content.memory_aids : [];
+  const examStrategies = Array.isArray(content.exam_strategies) ? content.exam_strategies : [];
+  const keyTakeaways = Array.isArray(content.key_takeaways) ? content.key_takeaways : [];
 
   const hasPracticeContent =
-    content.practice_problems.length > 0 ||
-    content.memory_aids.length > 0 ||
-    content.exam_strategies.length > 0 ||
-    content.key_takeaways.length > 0;
+    practiceProblems.length > 0 ||
+    memoryAids.length > 0 ||
+    examStrategies.length > 0 ||
+    keyTakeaways.length > 0;
 
   return (
-    <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "1.5rem 2rem 4rem" }}>
+    <div className="desktop-lesson-root" style={{ maxWidth: "1400px", margin: "0 auto", padding: "1.5rem 2rem 4rem" }}>
       {/* Top bar */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
         <Link to="/modules" aria-label="Back to modules" className="btn-glass" style={{ padding: "0.3rem 0.6rem", fontSize: "0.75rem" }}>
@@ -82,7 +109,7 @@ export function DesktopLessonLayout({
         </Link>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <span style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
-            ~{content.metadata.estimated_reading_minutes} min read
+            ~{metadata.estimated_reading_minutes} min read
           </span>
           <span style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
             {activeIndex + 1} / {sections.length}
@@ -105,17 +132,17 @@ export function DesktopLessonLayout({
         {/* Left: TOC sidebar */}
         <SidebarTOC
           sections={sections}
-          metadata={content.metadata}
+          metadata={metadata}
           activeIndex={activeIndex}
           onNavigate={scrollToSection}
         />
 
         {/* Center: Main content */}
-        <main aria-label="Lesson content" style={{ minWidth: 0 }}>
+        <main aria-label="Lesson content" style={{ minWidth: 0, overflow: "hidden" }}>
           {/* Title */}
-          {content.metadata.title && (
+          {metadata.title && (
             <h1 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 1.5rem 0" }}>
-              {content.metadata.title}
+              {metadata.title}
             </h1>
           )}
 
@@ -167,6 +194,22 @@ export function DesktopLessonLayout({
             </div>
           )}
 
+          {/* Key Takeaways (inline in main content for visibility) */}
+          {keyTakeaways.length > 0 && (
+            <div style={{ marginTop: "2rem", padding: "1rem 1.25rem", background: "rgba(212, 165, 116, 0.04)", border: "1px solid rgba(212, 165, 116, 0.15)", borderRadius: "8px" }}>
+              <h2 style={{ fontSize: "0.875rem", fontWeight: 600, margin: "0 0 0.5rem 0", color: "var(--color-accent, #d4a574)" }}>
+                🔑 Key Takeaways
+              </h2>
+              <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
+                {keyTakeaways.map((t, i) => (
+                  <li key={i} style={{ marginBottom: "0.25rem", fontSize: "0.8125rem", lineHeight: 1.5, color: "var(--color-text)" }}>
+                    <MarkdownText text={t} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Complete button */}
           <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center" }}>
             {completed ? (
@@ -188,10 +231,10 @@ export function DesktopLessonLayout({
         {/* Right: Practice panel */}
         {hasPracticeContent && (
           <PracticePanel
-            problems={content.practice_problems}
-            memoryAids={content.memory_aids}
-            examStrategies={content.exam_strategies}
-            keyTakeaways={content.key_takeaways}
+            problems={practiceProblems}
+            memoryAids={memoryAids}
+            examStrategies={examStrategies}
+            keyTakeaways={keyTakeaways}
           />
         )}
       </div>
@@ -202,8 +245,6 @@ export function DesktopLessonLayout({
 // ---------------------------------------------------------------------------
 // Section block with ref forwarding
 // ---------------------------------------------------------------------------
-
-import { forwardRef } from "react";
 
 const SectionBlock = forwardRef<HTMLDivElement, { section: LessonSection }>(
   function SectionBlock({ section }, ref) {
@@ -272,74 +313,5 @@ function DifficultyBadges({ difficulties }: { difficulties: string[] }) {
         </span>
       ))}
     </span>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Legacy fallback (when enhanced sections aren't available)
-// ---------------------------------------------------------------------------
-
-function LegacyDesktopFallback({
-  content,
-  subtopicId: _subtopicId,
-  onMarkComplete,
-  completing,
-  completed,
-}: DesktopLessonLayoutProps) {
-  return (
-    <div style={{ maxWidth: "900px", margin: "0 auto", padding: "1.5rem 2rem 4rem" }}>
-      <Link to="/modules" aria-label="Back to modules" className="btn-glass" style={{ padding: "0.3rem 0.6rem", fontSize: "0.75rem", marginBottom: "1rem", display: "inline-block" }}>
-        ← Back
-      </Link>
-
-      <article>
-        {content.explanations.map((exp, i) => (
-          <div key={i} style={{ marginBottom: "2rem" }}>
-            {(exp.title || exp.heading) && (
-              <h2 style={{ fontSize: "1.125rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 0.75rem 0" }}>
-                {exp.title || exp.heading}
-              </h2>
-            )}
-            <MarkdownText text={exp.body} style={{ lineHeight: 1.7, fontSize: "0.9rem", color: "var(--color-text)" }} />
-          </div>
-        ))}
-
-        {content.key_takeaways.length > 0 && (
-          <div style={{ marginTop: "2rem", padding: "1rem", background: "rgba(212, 165, 116, 0.04)", border: "1px solid rgba(212, 165, 116, 0.15)", borderRadius: "8px" }}>
-            <h2 style={{ fontSize: "0.875rem", fontWeight: 600, margin: "0 0 0.5rem 0", color: "var(--color-accent, #d4a574)" }}>
-              🔑 Key Takeaways
-            </h2>
-            <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
-              {content.key_takeaways.map((t, i) => (
-                <li key={i} style={{ marginBottom: "0.25rem", fontSize: "0.8125rem", lineHeight: 1.5, color: "var(--color-text)" }}>{t}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {content.summary && (
-          <div style={{ marginTop: "1.5rem" }}>
-            <h2 style={{ fontSize: "0.875rem", fontWeight: 600, margin: "0 0 0.5rem 0", color: "var(--color-text)" }}>📝 Summary</h2>
-            <MarkdownText text={content.summary} style={{ fontSize: "0.8125rem", lineHeight: 1.6, color: "var(--color-text)" }} />
-          </div>
-        )}
-      </article>
-
-      <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center" }}>
-        {completed ? (
-          <span style={{ color: "var(--color-success)", fontWeight: 600, fontSize: "0.875rem" }}>✓ Lesson completed</span>
-        ) : (
-          <button
-            className="btn-glass btn-glass-primary"
-            onClick={onMarkComplete}
-            disabled={completing}
-            aria-label="Mark lesson as complete"
-            style={{ padding: "0.75rem 2.5rem", fontSize: "0.875rem" }}
-          >
-            {completing ? "Marking…" : "✓ Mark Complete"}
-          </button>
-        )}
-      </div>
-    </div>
   );
 }

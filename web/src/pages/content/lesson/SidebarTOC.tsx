@@ -24,7 +24,6 @@ export function SidebarTOC({ sections, metadata, activeIndex, onNavigate }: Side
         maxHeight: "calc(100vh - 6rem)",
         overflowY: "auto",
         paddingRight: "0.75rem",
-        scrollbarWidth: "thin",
       }}
     >
       {/* Metadata header */}
