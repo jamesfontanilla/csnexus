@@ -966,6 +966,47 @@ For "_____ and I" vs. "_____ and me" questions:
 
 ---
 
+### Memory Aids
+
+**For Who vs. Whom:**
+- "Who did it? He did." (both subjects)
+- "To whom? To him." (both objects, both end in M)
+
+**For Reflexive Pronoun Rule:**
+- "Mirror Rule" — reflexive pronouns are like mirrors: the subject must see ITSELF in the object. If the subject and object are different people, no mirror (no reflexive).
+
+**For Possessive Pronouns (no apostrophe):**
+- "Possessive pronouns are already possessive — they don't need an apostrophe's help."
+- Remember: his, hers, its, ours, yours, theirs — NONE have apostrophes.
+
+**For Singular Indefinite Pronouns:**
+- **ONE** mnemonic: every**one**, some**one**, any**one**, no **one**, each **one** — they all contain "one" (singular!)
+
+**For Compound Pronoun Case:**
+- "Strip and test" — remove the other person, test the pronoun alone.
+
+**For Agreement with "or"/"nor":**
+- "Nearest wins" — the pronoun matches the antecedent closest to it.
+
+---
+
+### Mastery Checklist
+
+After completing this lesson, you can now:
+
+- ✅ Identify all eight pronoun types in any sentence
+- ✅ Apply correct pronoun case (subject/object/possessive) in simple and compound structures
+- ✅ Distinguish who (subject) from whom (object) using the he/him substitution test
+- ✅ Recognize and correct pronoun-antecedent agreement errors with singular indefinite pronouns
+- ✅ Detect ambiguous pronoun references and know how to fix them
+- ✅ Differentiate reflexive from intensive pronouns
+- ✅ Avoid the "between you and I" trap and similar preposition errors
+- ✅ Correctly use possessive pronouns without apostrophes (its vs. it's)
+- ✅ Apply the "nearest antecedent" rule for or/nor compounds
+- ✅ Solve CSE-style pronoun questions using systematic elimination strategies
+
+---
+
 ## Worked Examples
 
 ### Example 1: Pronoun Case in Compound Structures
@@ -1057,43 +1098,4 @@ For "_____ and I" vs. "_____ and me" questions:
 
 Pronouns replace nouns to create fluid, efficient communication. The CSE tests eight major pronoun types (personal, possessive, reflexive, intensive, demonstrative, interrogative, relative, indefinite) plus two critical skill areas: pronoun-antecedent agreement and ambiguous reference detection. The most common exam traps involve compound structures ("between you and I" errors), indefinite pronoun agreement ("everyone...their"), who/whom confusion, and reflexive pronoun misuse ("submit to myself"). Master the substitution tests (he/him for who/whom, removal test for compounds) and you can solve virtually any CSE pronoun question through systematic elimination rather than guessing.
 
----
 
-## Memory Aids
-
-**For Who vs. Whom:**
-- "Who did it? He did." (both subjects)
-- "To whom? To him." (both objects, both end in M)
-
-**For Reflexive Pronoun Rule:**
-- "Mirror Rule" — reflexive pronouns are like mirrors: the subject must see ITSELF in the object. If the subject and object are different people, no mirror (no reflexive).
-
-**For Possessive Pronouns (no apostrophe):**
-- "Possessive pronouns are already possessive — they don't need an apostrophe's help."
-- Remember: his, hers, its, ours, yours, theirs — NONE have apostrophes.
-
-**For Singular Indefinite Pronouns:**
-- **ONE** mnemonic: every**one**, some**one**, any**one**, no **one**, each **one** — they all contain "one" (singular!)
-
-**For Compound Pronoun Case:**
-- "Strip and test" — remove the other person, test the pronoun alone.
-
-**For Agreement with "or"/"nor":**
-- "Nearest wins" — the pronoun matches the antecedent closest to it.
-
----
-
-## Mastery Checklist
-
-After completing this lesson, you can now:
-
-- ✅ Identify all eight pronoun types in any sentence
-- ✅ Apply correct pronoun case (subject/object/possessive) in simple and compound structures
-- ✅ Distinguish who (subject) from whom (object) using the he/him substitution test
-- ✅ Recognize and correct pronoun-antecedent agreement errors with singular indefinite pronouns
-- ✅ Detect ambiguous pronoun references and know how to fix them
-- ✅ Differentiate reflexive from intensive pronouns
-- ✅ Avoid the "between you and I" trap and similar preposition errors
-- ✅ Correctly use possessive pronouns without apostrophes (its vs. it's)
-- ✅ Apply the "nearest antecedent" rule for or/nor compounds
-- ✅ Solve CSE-style pronoun questions using systematic elimination strategies

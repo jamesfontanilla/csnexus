@@ -810,7 +810,7 @@ When the main clause is in the past, dependent clauses typically shift back:
 
 ### Exam Strategies
 
-### Strategy 1: Identify Time Signals First
+#### Strategy 1: Identify Time Signals First
 
 Before looking at the choices, find the time clue in the sentence:
 - "yesterday," "last week," "in 2020" → Simple Past
@@ -820,7 +820,7 @@ Before looking at the choices, find the time clue in the sentence:
 - "tomorrow," "next week," "will" → Future
 - "by next year," "by the time (future)" → Future Perfect
 
-### Strategy 2: Check the Sentence Structure
+#### Strategy 2: Check the Sentence Structure
 
 Look for structural clues:
 - "While ___" or "When ___ happened" → Past Continuous for the longer action
@@ -829,21 +829,21 @@ Look for structural clues:
 - "has/have + V3" → Present Perfect
 - "had + V3" → Past Perfect
 
-### Strategy 3: Elimination Technique
+#### Strategy 3: Elimination Technique
 
 1. Eliminate choices that don't match the time frame
 2. Eliminate choices with wrong subject-verb agreement
 3. Eliminate choices with incorrect verb forms
 4. Choose from remaining options based on tense rules
 
-### Strategy 4: Watch for Tense Consistency
+#### Strategy 4: Watch for Tense Consistency
 
 If the sentence has two clauses:
 - Check if both should be in the same tense
 - Check if one should be "earlier" (perfect) than the other
 - Check for reported speech backshift
 
-### Strategy 5: Stative Verb Check
+#### Strategy 5: Stative Verb Check
 
 If a continuous form (-ing) is offered as a choice, ask: "Is this verb stative?"
 - If yes (know, believe, own, want, need, understand) → eliminate the continuous option
@@ -866,18 +866,18 @@ If a continuous form (-ing) is offered as a choice, ask: "Is this verb stative?"
 
 ### Memory Aids
 
-### Mnemonic: "SINCE = Starting point, FOR = Full duration"
+#### Mnemonic: "SINCE = Starting point, FOR = Full duration"
 - **Since** 2020 (a point in time)
 - **For** four years (a length of time)
 
-### Mnemonic: "HAD = the EARLIER past"
+#### Mnemonic: "HAD = the EARLIER past"
 When you see two past events, the one that happened FIRST gets "had":
 - She **had left** (first) before he **arrived** (second).
 
-### Mnemonic: "WILL HAVE = done BEFORE future deadline"
+#### Mnemonic: "WILL HAVE = done BEFORE future deadline"
 - By Friday, I **will have finished**. (completed before Friday arrives)
 
-### Tense Identification Hack: "The Auxiliary Tells All"
+#### Tense Identification Hack: "The Auxiliary Tells All"
 
 | If you see... | The tense is... |
 |---------------|-----------------|
@@ -891,7 +891,7 @@ When you see two past events, the one that happened FIRST gets "had":
 | No auxiliary (present) | Simple Present |
 | No auxiliary (past form) | Simple Past |
 
-### Recognition Trick: Signal Word → Tense
+#### Recognition Trick: Signal Word → Tense
 
 Memorize these pairings:
 - **every day** → Simple Present
