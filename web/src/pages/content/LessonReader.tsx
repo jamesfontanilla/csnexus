@@ -7,6 +7,8 @@ import { PageTransition } from "../../components/PageTransition";
 import { GlassProgressBar } from "../../components/GlassProgressBar";
 import { MarkdownText } from "../../components/MarkdownText";
 import { useToast } from "../../context/ToastContext";
+import { DesktopLessonLayout, useIsDesktop } from "./lesson";
+import type { EnhancedLessonContent } from "./lesson";
 
 interface LessonExplanation {
   title?: string;
@@ -57,6 +59,7 @@ function shortLabel(title: string): string {
 export function LessonReader() {
   const { subtopicId } = useParams<{ subtopicId: string }>();
   const toast = useToast();
+  const isDesktop = useIsDesktop();
   const [lesson, setLesson] = useState<LessonResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -129,6 +132,23 @@ export function LessonReader() {
   if (!lesson) return <div className="page container" style={{ color: "var(--color-text-secondary)" }}>Lesson not found.</div>;
 
   const content = lesson.content_json;
+
+  // Desktop layout: three-column with typed block rendering
+  if (isDesktop) {
+    return (
+      <PageTransition>
+        <DesktopLessonLayout
+          content={content as unknown as EnhancedLessonContent}
+          subtopicId={subtopicId || ""}
+          onMarkComplete={handleMarkComplete}
+          completing={completing}
+          completed={completed}
+        />
+      </PageTransition>
+    );
+  }
+
+  // Mobile layout: original single-column
   const allExplanations = content.explanations.map((e) => ({
     title: (typeof e === "string" ? "" : (e.title || e.heading || "")),
     body: typeof e === "string" ? e : e.body,
