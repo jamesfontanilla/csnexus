@@ -629,25 +629,19 @@ class FlashcardService:
     def _award_xp_safely(
         self, user: User, amount: int, *, client_event_id: str | None = None
     ) -> None:
-        """Award XP via XPService, handling failures gracefully (Req 18.7).
-
-        NOTE: XP integration is stubbed until a FLASHCARD_REVIEW source is
-        added to the XPSource enum. The service interface is ready — only
-        the enum extension + DB migration is needed to activate.
-        """
+        """Award XP via XPService, handling failures gracefully (Req 18.7)."""
         if self._xp_service is None:
             return
-        # TODO: Add XPSource.FLASHCARD_REVIEW to the enum and uncomment:
-        # try:
-        #     from app.features.xp.models import XPSource
-        #     self._xp_service.award(
-        #         user=user,
-        #         source=XPSource.FLASHCARD_REVIEW,
-        #         amount=amount,
-        #         client_event_id=client_event_id,
-        #     )
-        # except Exception:
-        #     pass
+        try:
+            from app.features.xp.models import XPSource
+            self._xp_service.award(
+                user=user,
+                source=XPSource.FLASHCARD_REVIEW,
+                amount=amount,
+                client_event_id=client_event_id,
+            )
+        except Exception:
+            pass
 
     def compute_deck_popularity_score(self, deck_id: int) -> float:
         """Compute deck popularity score for leaderboard (Req 20.3).

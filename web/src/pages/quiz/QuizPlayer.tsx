@@ -89,6 +89,26 @@ function parseOption(opt: string): { label: string; hasSvg: boolean; svgContent:
   return { label, hasSvg: true, svgContent };
 }
 
+/** Render an option value (selected_answer or correct_answer) with SVG support. */
+function OptionDisplay({ value, isCorrect }: { value: string; isCorrect?: boolean }) {
+  const { label, hasSvg, svgContent } = parseOption(value);
+  const color = isCorrect ? "var(--color-success)" : "var(--color-danger)";
+
+  if (!hasSvg) {
+    return <code style={{ color }}>{value}</code>;
+  }
+
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+      <code style={{ color, fontWeight: 600 }}>{label}</code>
+      <span
+        dangerouslySetInnerHTML={{ __html: svgContent }}
+        style={{ display: "inline-block", verticalAlign: "middle" }}
+      />
+    </span>
+  );
+}
+
 const MODES: Record<QuizMode, ModeConfig> = {
   practice: {
     label: "Practice Mode",
@@ -594,9 +614,7 @@ export function QuizPlayer() {
                   </p>
                   <p style={{ color: "var(--color-text-secondary)", fontSize: "0.875rem" }}>
                     Your answer:{" "}
-                    <code style={{ color: q.is_correct ? "var(--color-success)" : "var(--color-danger)" }}>
-                      {q.selected_answer ?? "(no answer)"}
-                    </code>
+                    <OptionDisplay value={q.selected_answer ?? "(no answer)"} isCorrect={q.is_correct} />
                     {q.is_correct !== undefined && (
                       <span style={{ marginLeft: "0.5rem" }}>
                         {q.is_correct ? "✓" : "✗"}
@@ -606,7 +624,7 @@ export function QuizPlayer() {
                   {!q.is_correct && q.correct_answer && (
                     <p style={{ color: "var(--color-text-secondary)", fontSize: "0.875rem" }}>
                       Correct:{" "}
-                      <code style={{ color: "var(--color-success)" }}>{q.correct_answer}</code>
+                      <OptionDisplay value={q.correct_answer} isCorrect={true} />
                     </p>
                   )}
                   {q.explanation && (

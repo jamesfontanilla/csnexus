@@ -65,6 +65,7 @@ class XPSource(str, Enum):
     QUIZ_PERFECT = "QUIZ_PERFECT"
     MOCK_PASS = "MOCK_PASS"
     STREAK_DAY = "STREAK_DAY"
+    FLASHCARD_REVIEW = "FLASHCARD_REVIEW"
     ADMIN_CORRECTION = "ADMIN_CORRECTION"
 
 
@@ -196,7 +197,7 @@ class XPEvent(Base):
         CheckConstraint(
             "source IN ("
             "'LESSON_FIRST_COMPLETE', 'QUIZ_PASS', 'QUIZ_PERFECT', "
-            "'MOCK_PASS', 'STREAK_DAY', 'ADMIN_CORRECTION'"
+            "'MOCK_PASS', 'STREAK_DAY', 'FLASHCARD_REVIEW', 'ADMIN_CORRECTION'"
             ")",
             name="ck_xp_events_source",
         ),

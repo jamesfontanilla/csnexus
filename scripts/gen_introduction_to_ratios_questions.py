@@ -274,8 +274,8 @@ for i in range(30):
         "language": "English"
     })
 
-# --- Category 6: Part-to-part vs part-to-whole (Easy, ~30 questions) ---
-for i in range(30):
+# --- Category 6: Part-to-part vs part-to-whole (Easy, ~15 questions) ---
+for i in range(15):
     part_a = random.randint(3, 20)
     part_b = random.randint(3, 20)
     while part_a == part_b:
@@ -594,9 +594,10 @@ for i in range(30):
     conv = unit_conversions[i % len(unit_conversions)]
     b_units = random.randint(1, 3)
     b_base = b_units * conv[2]  # convert to smaller unit
-    a_val = random.choice([15, 20, 25, 30, 40, 45, 50, 60, 75, 80, 90, 100, 120, 150, 200, 250, 300, 500])
-    while a_val >= b_base:
-        a_val = random.choice([15, 20, 25, 30, 40, 45, 50, 60, 75, 80, 90])
+    candidates = [v for v in [15, 20, 25, 30, 40, 45, 50, 60, 75, 80, 90, 100, 120, 150, 200, 250, 300, 500] if v < b_base]
+    if not candidates:
+        candidates = [10, 15, 20, 25, 30]
+    a_val = random.choice(candidates)
     sa, sb = simplify(a_val, b_base)
     question_text = conv[0].format(a_val=a_val, b_hours=b_units, b_meters=b_units, b_kg=b_units, b_min=b_units)
     correct = f"{sa}:{sb}"
@@ -1016,10 +1017,18 @@ for i in range(35):
     sa = random.randint(2, 6)
     sb = random.randint(2, 6)
     sc = random.randint(2, 6)
-    while gcd(sa, sb) != 1 or sa == sb:
+    attempts = 0
+    while (gcd(sa, sb) != 1 or sa == sb) and attempts < 200:
         sb = random.randint(2, 6)
-    while gcd(sb, sc) != 1 or sb == sc:
+        attempts += 1
+    if gcd(sa, sb) != 1 or sa == sb:
+        sa, sb = 2, 3  # fallback
+    attempts = 0
+    while (gcd(sb, sc) != 1 or sb == sc) and attempts < 200:
         sc = random.randint(2, 6)
+        attempts += 1
+    if gcd(sb, sc) != 1 or sb == sc:
+        sc = 5 if sb != 5 else 2  # fallback
 
     mult = random.randint(3, 10)
     a_val = sa * mult
@@ -1183,11 +1192,15 @@ hard_gov_scenarios = [
 for i in range(25):
     sa = random.randint(3, 8)
     sb = random.randint(2, 7)
+    while sa == sb:
+        sb = random.randint(2, 7)
     sc = random.randint(1, 5)
-    while gcd(gcd(sa, sb), sc) != 1:
+    attempts = 0
+    while (gcd(gcd(sa, sb), sc) != 1 or sc == sa or sc == sb) and attempts < 200:
         sc = random.randint(1, 5)
-    while sa == sb or sb == sc or sa == sc:
-        sc = random.randint(1, 5)
+        attempts += 1
+    if gcd(gcd(sa, sb), sc) != 1 or sc == sa or sc == sb:
+        sa, sb, sc = 3, 5, 2  # fallback
     mult = random.randint(5, 15)
 
     scenario_idx = i % 5

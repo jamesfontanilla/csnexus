@@ -26,6 +26,16 @@ import { Tutor } from "./pages/Tutor";
 import { StudyPlan } from "./pages/StudyPlan";
 import { Readiness } from "./pages/Readiness";
 import { Focus } from "./pages/Focus";
+import { Flashcards } from "./pages/flashcards/Flashcards";
+import { DeckDetail } from "./pages/flashcards/DeckDetail";
+import { CreateDeck } from "./pages/flashcards/CreateDeck";
+import { StudySession } from "./pages/flashcards/StudySession";
+import { Marketplace } from "./pages/flashcards/Marketplace";
+import { FlashcardAnalytics } from "./pages/flashcards/FlashcardAnalytics";
+import { ExamSimulation } from "./pages/flashcards/ExamSimulation";
+import { Social } from "./pages/flashcards/Social";
+import { GenerateCards } from "./pages/flashcards/GenerateCards";
+import { FlashcardAdmin } from "./pages/flashcards/FlashcardAdmin";
 
 function AppContent() {
   const location = useLocation();
@@ -176,6 +186,86 @@ function AppContent() {
             element={
               <AuthGuard>
                 <Focus />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards"
+            element={
+              <AuthGuard>
+                <Flashcards />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/decks/new"
+            element={
+              <AuthGuard>
+                <CreateDeck />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/decks/:deckId"
+            element={
+              <AuthGuard>
+                <DeckDetail />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/study"
+            element={
+              <AuthGuard>
+                <StudySession />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/marketplace"
+            element={
+              <AuthGuard>
+                <Marketplace />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/analytics"
+            element={
+              <AuthGuard>
+                <FlashcardAnalytics />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/exam"
+            element={
+              <AuthGuard>
+                <ExamSimulation />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/social"
+            element={
+              <AuthGuard>
+                <Social />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/generate"
+            element={
+              <AuthGuard>
+                <GenerateCards />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/flashcards/admin"
+            element={
+              <AuthGuard>
+                <FlashcardAdmin />
               </AuthGuard>
             }
           />

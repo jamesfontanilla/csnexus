@@ -14,6 +14,7 @@ interface XPData {
 
 const NAV_LINKS = [
   { to: "/modules", label: "Modules" },
+  { to: "/flashcards", label: "Flashcards" },
   { to: "/mastery", label: "Mastery" },
   { to: "/focus", label: "Focus" },
   { to: "/study-plan", label: "Study Plan" },

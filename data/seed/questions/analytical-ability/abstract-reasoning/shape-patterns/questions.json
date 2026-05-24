@@ -2114,6 +2114,855 @@
     "module": "Abstract Reasoning",
     "subtopic": "Shape Patterns",
     "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='58.0' x2='30.0' y2='22.0' stroke='#E91E63' stroke-width='2'/><polygon points='30.0,22.0 33.6,28.2 26.4,28.2' fill='none' stroke='#E91E63' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='67.0' y1='40.0' x2='103.0' y2='40.0' stroke='#E91E63' stroke-width='2'/><polygon points='103.0,40.0 96.8,43.6 96.8,36.4' fill='none' stroke='#E91E63' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='140.0' y1='22.0' x2='140.0' y2='58.0' stroke='#E91E63' stroke-width='2'/><polygon points='140.0,58.0 136.4,51.8 143.6,51.8' fill='none' stroke='#E91E63' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#E91E63' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#E91E63' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#E91E63' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#E91E63' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#E91E63' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#E91E63' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#E91E63' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#E91E63' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#E91E63' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#E91E63' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° clockwise each step: up → right → down → left.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "clockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 96,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='40.0' x2='48.0' y2='40.0' stroke='#9C27B0' stroke-width='2'/><polygon points='48.0,40.0 41.8,43.6 41.8,36.4' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='85.0' y1='22.0' x2='85.0' y2='58.0' stroke='#9C27B0' stroke-width='2'/><polygon points='85.0,58.0 81.4,51.8 88.6,51.8' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='158.0' y1='40.0' x2='122.0' y2='40.0' stroke='#9C27B0' stroke-width='2'/><polygon points='122.0,40.0 128.2,36.4 128.2,43.6' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#9C27B0' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#9C27B0' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° clockwise each step: right → down → left → up.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "clockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 97,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='40.0' x2='12.0' y2='40.0' stroke='#9C27B0' stroke-width='2'/><polygon points='12.0,40.0 18.2,36.4 18.2,43.6' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='85.0' y1='58.0' x2='85.0' y2='22.0' stroke='#9C27B0' stroke-width='2'/><polygon points='85.0,22.0 88.6,28.2 81.4,28.2' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='122.0' y1='40.0' x2='158.0' y2='40.0' stroke='#9C27B0' stroke-width='2'/><polygon points='158.0,40.0 151.8,43.6 151.8,36.4' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#9C27B0' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#9C27B0' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° clockwise each step: left → up → right → down.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "clockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 98,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='58.0' x2='30.0' y2='22.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,22.0 33.6,28.2 26.4,28.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='103.0' y1='40.0' x2='67.0' y2='40.0' stroke='#00BCD4' stroke-width='2'/><polygon points='67.0,40.0 73.2,36.4 73.2,43.6' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='140.0' y1='22.0' x2='140.0' y2='58.0' stroke='#00BCD4' stroke-width='2'/><polygon points='140.0,58.0 136.4,51.8 143.6,51.8' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° counterclockwise each step: up → left → down → right.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "counterclockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 99,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='40.0' x2='12.0' y2='40.0' stroke='#FF9800' stroke-width='2'/><polygon points='12.0,40.0 18.2,36.4 18.2,43.6' fill='none' stroke='#FF9800' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='85.0' y1='22.0' x2='85.0' y2='58.0' stroke='#FF9800' stroke-width='2'/><polygon points='85.0,58.0 81.4,51.8 88.6,51.8' fill='none' stroke='#FF9800' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='122.0' y1='40.0' x2='158.0' y2='40.0' stroke='#FF9800' stroke-width='2'/><polygon points='158.0,40.0 151.8,43.6 151.8,36.4' fill='none' stroke='#FF9800' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#FF9800' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#FF9800' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#FF9800' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#FF9800' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#FF9800' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° counterclockwise each step: left → down → right → up.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "counterclockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 100,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='22.0' x2='30.0' y2='58.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,58.0 26.4,51.8 33.6,51.8' fill='none' stroke='#4CAF50' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='67.0' y1='40.0' x2='103.0' y2='40.0' stroke='#4CAF50' stroke-width='2'/><polygon points='103.0,40.0 96.8,43.6 96.8,36.4' fill='none' stroke='#4CAF50' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='140.0' y1='58.0' x2='140.0' y2='22.0' stroke='#4CAF50' stroke-width='2'/><polygon points='140.0,22.0 143.6,28.2 136.4,28.2' fill='none' stroke='#4CAF50' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#4CAF50' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#4CAF50' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#4CAF50' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#4CAF50' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#4CAF50' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#4CAF50' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#4CAF50' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#4CAF50' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° counterclockwise each step: down → right → up → left.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "counterclockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 101,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='40.0' x2='48.0' y2='40.0' stroke='#00BCD4' stroke-width='2'/><polygon points='48.0,40.0 41.8,43.6 41.8,36.4' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='85.0' y1='58.0' x2='85.0' y2='22.0' stroke='#00BCD4' stroke-width='2'/><polygon points='85.0,22.0 88.6,28.2 81.4,28.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='158.0' y1='40.0' x2='122.0' y2='40.0' stroke='#00BCD4' stroke-width='2'/><polygon points='122.0,40.0 128.2,36.4 128.2,43.6' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° counterclockwise each step: right → up → left → down.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "counterclockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 102,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the pattern?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,22.0 41.6,26.2 47.7,36.9 45.6,49.0 36.2,56.9 23.8,56.9 14.4,49.0 12.3,36.9 18.4,26.2' fill='none' stroke='#9C27B0' stroke-width='2'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>9 sides</text><polygon points='85.0,22.0 95.6,25.4 102.1,34.4 102.1,45.6 95.6,54.6 85.0,58.0 74.4,54.6 67.9,45.6 67.9,34.4 74.4,25.4' fill='none' stroke='#9C27B0' stroke-width='2'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>10 sides</text><polygon points='140.0,22.0 149.7,24.9 156.4,32.5 157.8,42.6 153.6,51.8 145.1,57.3 134.9,57.3 126.4,51.8 122.2,42.6 123.6,32.5 130.3,24.9' fill='none' stroke='#9C27B0' stroke-width='2'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>11 sides</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 41.9,11.5 50.0,20.9 51.8,33.1 46.6,44.4 36.2,51.1 23.8,51.1 13.4,44.4 8.2,33.1 10.0,20.9 18.1,11.5' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 41.0,10.9 49.1,19.0 52.0,30.0 49.1,41.0 41.0,49.1 30.0,52.0 19.0,49.1 10.9,41.0 8.0,30.0 10.9,19.0 19.0,10.9' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 39.5,10.2 47.2,16.3 51.4,25.1 51.4,34.9 47.2,43.7 39.5,49.8 30.0,52.0 20.5,49.8 12.8,43.7 8.6,34.9 8.6,25.1 12.8,16.3 20.5,10.2' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 40.2,10.5 48.1,17.5 51.8,27.3 50.6,37.8 44.6,46.5 35.3,51.4 24.7,51.4 15.4,46.5 9.4,37.8 8.2,27.3 11.9,17.5 19.8,10.5' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 41.0,10.9 49.1,19.0 52.0,30.0 49.1,41.0 41.0,49.1 30.0,52.0 19.0,49.1 10.9,41.0 8.0,30.0 10.9,19.0 19.0,10.9' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+    "explanation": "The number of sides increases by 1 each step: 9 → 10 → 11 → 12 (12-gon).",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "side count",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 103,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the pattern?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,22.0 40.6,25.4 47.1,34.4 47.1,45.6 40.6,54.6 30.0,58.0 19.4,54.6 12.9,45.6 12.9,34.4 19.4,25.4' fill='none' stroke='#00BCD4' stroke-width='2'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>10 sides</text><polygon points='85.0,22.0 94.7,24.9 101.4,32.5 102.8,42.6 98.6,51.8 90.1,57.3 79.9,57.3 71.4,51.8 67.2,42.6 68.6,32.5 75.3,24.9' fill='none' stroke='#00BCD4' stroke-width='2'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>11 sides</text><polygon points='140.0,22.0 149.0,24.4 155.6,31.0 158.0,40.0 155.6,49.0 149.0,55.6 140.0,58.0 131.0,55.6 124.4,49.0 122.0,40.0 124.4,31.0 131.0,24.4' fill='none' stroke='#00BCD4' stroke-width='2'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>12 sides</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 38.9,9.9 46.3,15.3 50.9,23.2 51.9,32.3 49.1,41.0 42.9,47.8 34.6,51.5 25.4,51.5 17.1,47.8 10.9,41.0 8.1,32.3 9.1,23.2 13.7,15.3 21.1,9.9' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 39.5,10.2 47.2,16.3 51.4,25.1 51.4,34.9 47.2,43.7 39.5,49.8 30.0,52.0 20.5,49.8 12.8,43.7 8.6,34.9 8.6,25.1 12.8,16.3 20.5,10.2' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 41.0,10.9 49.1,19.0 52.0,30.0 49.1,41.0 41.0,49.1 30.0,52.0 19.0,49.1 10.9,41.0 8.0,30.0 10.9,19.0 19.0,10.9' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 40.2,10.5 48.1,17.5 51.8,27.3 50.6,37.8 44.6,46.5 35.3,51.4 24.7,51.4 15.4,46.5 9.4,37.8 8.2,27.3 11.9,17.5 19.8,10.5' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>"
+    ],
+    "answer": "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 40.2,10.5 48.1,17.5 51.8,27.3 50.6,37.8 44.6,46.5 35.3,51.4 24.7,51.4 15.4,46.5 9.4,37.8 8.2,27.3 11.9,17.5 19.8,10.5' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>",
+    "explanation": "The number of sides increases by 1 each step: 10 → 11 → 12 → 13 (13-gon).",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "side count",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 104,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the pattern?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,22.0 39.7,24.9 46.4,32.5 47.8,42.6 43.6,51.8 35.1,57.3 24.9,57.3 16.4,51.8 12.2,42.6 13.6,32.5 20.3,24.9' fill='none' stroke='#2196F3' stroke-width='2'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>11 sides</text><polygon points='85.0,22.0 94.0,24.4 100.6,31.0 103.0,40.0 100.6,49.0 94.0,55.6 85.0,58.0 76.0,55.6 69.4,49.0 67.0,40.0 69.4,31.0 76.0,24.4' fill='none' stroke='#2196F3' stroke-width='2'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>12 sides</text><polygon points='140.0,22.0 148.4,24.1 154.8,29.8 157.9,37.8 156.8,46.4 151.9,53.5 144.3,57.5 135.7,57.5 128.1,53.5 123.2,46.4 122.1,37.8 125.2,29.8 131.6,24.1' fill='none' stroke='#2196F3' stroke-width='2'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>13 sides</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 39.5,10.2 47.2,16.3 51.4,25.1 51.4,34.9 47.2,43.7 39.5,49.8 30.0,52.0 20.5,49.8 12.8,43.7 8.6,34.9 8.6,25.1 12.8,16.3 20.5,10.2' fill='none' stroke='#2196F3' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 38.9,9.9 46.3,15.3 50.9,23.2 51.9,32.3 49.1,41.0 42.9,47.8 34.6,51.5 25.4,51.5 17.1,47.8 10.9,41.0 8.1,32.3 9.1,23.2 13.7,15.3 21.1,9.9' fill='none' stroke='#2196F3' stroke-width='2'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 38.4,9.7 45.6,14.4 50.3,21.6 52.0,30.0 50.3,38.4 45.6,45.6 38.4,50.3 30.0,52.0 21.6,50.3 14.4,45.6 9.7,38.4 8.0,30.0 9.7,21.6 14.4,14.4 21.6,9.7' fill='none' stroke='#2196F3' stroke-width='2'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 40.2,10.5 48.1,17.5 51.8,27.3 50.6,37.8 44.6,46.5 35.3,51.4 24.7,51.4 15.4,46.5 9.4,37.8 8.2,27.3 11.9,17.5 19.8,10.5' fill='none' stroke='#2196F3' stroke-width='2'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 39.5,10.2 47.2,16.3 51.4,25.1 51.4,34.9 47.2,43.7 39.5,49.8 30.0,52.0 20.5,49.8 12.8,43.7 8.6,34.9 8.6,25.1 12.8,16.3 20.5,10.2' fill='none' stroke='#2196F3' stroke-width='2'/></svg>",
+    "explanation": "The number of sides increases by 1 each step: 11 → 12 → 13 → 14 (14-gon).",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "side count",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 105,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "How many dots should appear in the next figure?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><rect x='20.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='27.5' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='35.0' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='42.5' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='27.5' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='35.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='42.5' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='27.5' cy='47.5' r='3.0' fill='#4CAF50'/><circle cx='35.0' cy='47.5' r='3.0' fill='#4CAF50'/><text x='35.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>8 dots</text><rect x='80.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='87.5' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='95.0' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='102.5' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='87.5' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='95.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='102.5' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='87.5' cy='47.5' r='3.0' fill='#4CAF50'/><circle cx='95.0' cy='47.5' r='3.0' fill='#4CAF50'/><circle cx='102.5' cy='47.5' r='3.0' fill='#4CAF50'/><text x='95.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>9 dots</text><rect x='140.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='146.0' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='152.0' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='158.0' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='164.0' cy='32.5' r='3.0' fill='#4CAF50'/><circle cx='146.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='152.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='158.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='164.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='146.0' cy='47.5' r='3.0' fill='#4CAF50'/><circle cx='152.0' cy='47.5' r='3.0' fill='#4CAF50'/><text x='155.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>10 dots</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='40.0' r='3.0' fill='#4CAF50'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='40.0' r='3.0' fill='#4CAF50'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='40.0' r='3.0' fill='#4CAF50'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='18.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='18.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='18.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='18.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='26.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='26.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='26.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='26.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='34.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='34.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='34.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='34.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='42.0' r='3.0' fill='#4CAF50'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='20.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='42.0' cy='30.0' r='3.0' fill='#4CAF50'/><circle cx='18.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='26.0' cy='40.0' r='3.0' fill='#4CAF50'/><circle cx='34.0' cy='40.0' r='3.0' fill='#4CAF50'/></svg>",
+    "explanation": "The number of dots increases by 1 each step: 8 → 9 → 10 → 11.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "element count",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 106,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "How many dots should appear in the next figure?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><rect x='20.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='27.5' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='35.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='42.5' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='27.5' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='35.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='42.5' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='27.5' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='35.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='42.5' cy='47.5' r='3.0' fill='#00BCD4'/><text x='35.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>9 dots</text><rect x='80.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='86.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='92.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='98.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='104.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='86.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='92.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='98.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='104.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='86.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='92.0' cy='47.5' r='3.0' fill='#00BCD4'/><text x='95.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>10 dots</text><rect x='140.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='146.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='152.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='158.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='164.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='146.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='152.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='158.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='164.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='146.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='152.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='158.0' cy='47.5' r='3.0' fill='#00BCD4'/><text x='155.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>11 dots</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='40.0' r='3.0' fill='#00BCD4'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='42.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='42.0' r='3.0' fill='#00BCD4'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='40.0' r='3.0' fill='#00BCD4'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='42.0' r='3.0' fill='#00BCD4'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='40.0' r='3.0' fill='#00BCD4'/></svg>",
+    "explanation": "The number of dots increases by 1 each step: 9 → 10 → 11 → 12.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "element count",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 107,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "How many dots should appear in the next figure?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><rect x='20.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='26.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='32.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='38.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='44.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='32.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='38.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='44.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='32.0' cy='47.5' r='3.0' fill='#00BCD4'/><text x='35.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>10 dots</text><rect x='80.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='86.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='92.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='98.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='104.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='86.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='92.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='98.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='104.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='86.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='92.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='98.0' cy='47.5' r='3.0' fill='#00BCD4'/><text x='95.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>11 dots</text><rect x='140.0' y='25.0' width='30.0' height='30.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='146.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='152.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='158.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='164.0' cy='32.5' r='3.0' fill='#00BCD4'/><circle cx='146.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='152.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='158.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='164.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='146.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='152.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='158.0' cy='47.5' r='3.0' fill='#00BCD4'/><circle cx='164.0' cy='47.5' r='3.0' fill='#00BCD4'/><text x='155.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>12 dots</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='20.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='30.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='40.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='40.0' r='3.0' fill='#00BCD4'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='42.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='42.0' r='3.0' fill='#00BCD4'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='42.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='42.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='42.0' r='3.0' fill='#00BCD4'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='42.0' r='3.0' fill='#00BCD4'/></svg>"
+    ],
+    "answer": "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='18.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='18.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='26.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='26.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='34.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='42.0' cy='34.0' r='3.0' fill='#00BCD4'/><circle cx='18.0' cy='42.0' r='3.0' fill='#00BCD4'/></svg>",
+    "explanation": "The number of dots increases by 1 each step: 10 → 11 → 12 → 13.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "element count",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 108,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='58.0' x2='30.0' y2='22.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,22.0 33.6,28.2 26.4,28.2' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='85.0' y1='22.0' x2='85.0' y2='58.0' stroke='#2196F3' stroke-width='2'/><polygon points='85.0,58.0 81.4,51.8 88.6,51.8' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='140.0' y1='58.0' x2='140.0' y2='22.0' stroke='#2196F3' stroke-width='2'/><polygon points='140.0,22.0 143.6,28.2 136.4,28.2' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 180° each step, alternating between up and down.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "180 degrees",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 109,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='40.0' x2='12.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='12.0,40.0 18.2,36.4 18.2,43.6' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='67.0' y1='40.0' x2='103.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='103.0,40.0 96.8,43.6 96.8,36.4' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='158.0' y1='40.0' x2='122.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='122.0,40.0 128.2,36.4 128.2,43.6' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 180° each step, alternating between left and right.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "180 degrees",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 110,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure continues the size progression?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><circle cx='35.0' cy='40.0' r='10.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='95.0' cy='40.0' r='16.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='155.0' cy='40.0' r='22.0' fill='none' stroke='#FF9800' stroke-width='2'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='10.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='16.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='28.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>"
+    ],
+    "answer": "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='28.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>",
+    "explanation": "The circle grows larger by a fixed amount each step. The next figure should be the largest in the sequence.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "size progression",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 111,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='14.0' y1='40.0' x2='46.0' y2='40.0' stroke='#9C27B0' stroke-width='2'/><polygon points='46.0,40.0 40.5,43.2 40.5,36.8' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='73.7' y1='28.7' x2='96.3' y2='51.3' stroke='#9C27B0' stroke-width='2'/><polygon points='96.3,51.3 90.1,49.7 94.7,45.1' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='140.0' y1='24.0' x2='140.0' y2='56.0' stroke='#9C27B0' stroke-width='2'/><polygon points='140.0,56.0 136.8,50.5 143.2,50.5' fill='none' stroke='#9C27B0' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='41.3' y1='18.7' x2='18.7' y2='41.3' stroke='#9C27B0' stroke-width='2'/><polygon points='18.7,41.3 20.3,35.1 24.9,39.7' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='18.7' y1='18.7' x2='41.3' y2='41.3' stroke='#9C27B0' stroke-width='2'/><polygon points='41.3,41.3 35.1,39.7 39.7,35.1' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='14.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,14.0 33.2,19.5 26.8,19.5' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='18.7' y1='41.3' x2='41.3' y2='18.7' stroke='#9C27B0' stroke-width='2'/><polygon points='41.3,18.7 39.7,24.9 35.1,20.3' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='41.3' y1='18.7' x2='18.7' y2='41.3' stroke='#9C27B0' stroke-width='2'/><polygon points='18.7,41.3 20.3,35.1 24.9,39.7' fill='none' stroke='#9C27B0' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 45° clockwise each step: right → down-right → down → down-left.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "45 degrees",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 112,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='41.3' y1='28.7' x2='18.7' y2='51.3' stroke='#00BCD4' stroke-width='2'/><polygon points='18.7,51.3 20.3,45.1 24.9,49.7' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='101.0' y1='40.0' x2='69.0' y2='40.0' stroke='#00BCD4' stroke-width='2'/><polygon points='69.0,40.0 74.5,36.8 74.5,43.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='151.3' y1='51.3' x2='128.7' y2='28.7' stroke='#00BCD4' stroke-width='2'/><polygon points='128.7,28.7 134.9,30.3 130.3,34.9' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='41.3' y1='18.7' x2='18.7' y2='41.3' stroke='#00BCD4' stroke-width='2'/><polygon points='18.7,41.3 20.3,35.1 24.9,39.7' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='14.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,14.0 33.2,19.5 26.8,19.5' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='18.7' y1='41.3' x2='41.3' y2='18.7' stroke='#00BCD4' stroke-width='2'/><polygon points='41.3,18.7 39.7,24.9 35.1,20.3' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='14.0' y1='30.0' x2='46.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='46.0,30.0 40.5,33.2 40.5,26.8' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='14.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,14.0 33.2,19.5 26.8,19.5' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 45° clockwise each step: down-left → left → up-left → up.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "45 degrees",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 113,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which figure completes the alternating pattern?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polyline points='23,25 23,55 47,55' fill='none' stroke='#00BCD4' stroke-width='3' stroke-linecap='round'/><circle cx='43.0' cy='51.0' r='3.0' fill='#00BCD4'/><text x='35.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>normal</text><polyline points='107,25 107,55 83,55' fill='none' stroke='#00BCD4' stroke-width='3' stroke-linecap='round'/><circle cx='87.0' cy='51.0' r='3.0' fill='#00BCD4'/><text x='95.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>reflected</text><polyline points='143,25 143,55 167,55' fill='none' stroke='#00BCD4' stroke-width='3' stroke-linecap='round'/><circle cx='163.0' cy='51.0' r='3.0' fill='#00BCD4'/><text x='155.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>normal</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polyline points='42,15 42,45 18,45' fill='none' stroke='#00BCD4' stroke-width='3' stroke-linecap='round'/><circle cx='22.0' cy='41.0' r='3.0' fill='#00BCD4'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polyline points='15,18 45,18 45,42' fill='none' stroke='#00BCD4' stroke-width='3' stroke-linecap='round'/><circle cx='41.0' cy='38.0' r='3.0' fill='#00BCD4'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polyline points='18,15 18,45 42,45' fill='none' stroke='#00BCD4' stroke-width='3' stroke-linecap='round'/><circle cx='38.0' cy='41.0' r='3.0' fill='#00BCD4'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polyline points='45,42 15,42 15,18' fill='none' stroke='#00BCD4' stroke-width='3' stroke-linecap='round'/><circle cx='19.0' cy='22.0' r='3.0' fill='#00BCD4'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polyline points='42,15 42,45 18,45' fill='none' stroke='#00BCD4' stroke-width='3' stroke-linecap='round'/><circle cx='22.0' cy='41.0' r='3.0' fill='#00BCD4'/></svg>",
+    "explanation": "The figure alternates between normal and vertically reflected. The next step should be reflected. The dot position confirms the reflection.",
+    "tags": [
+      "abstract reasoning",
+      "reflection",
+      "vertical",
+      "alternating",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 114,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which figure completes the pattern? (Two rules are operating.)\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><line x1='17.0' y1='40.0' x2='53.0' y2='40.0' stroke='#4CAF50' stroke-width='2'/><polygon points='53.0,40.0 46.8,43.6 46.8,36.4' fill='none' stroke='#4CAF50' stroke-width='1.5'/><text x='35.0' y='72.0' text-anchor='middle' font-size='7' fill='#888' font-family='sans-serif'>right,empty</text><line x1='95.0' y1='22.0' x2='95.0' y2='58.0' stroke='#4CAF50' stroke-width='2'/><polygon points='95.0,58.0 91.4,51.8 98.6,51.8' fill='#4CAF50' stroke='#4CAF50' stroke-width='1.5'/><text x='95.0' y='72.0' text-anchor='middle' font-size='7' fill='#888' font-family='sans-serif'>down,filled</text><line x1='173.0' y1='40.0' x2='137.0' y2='40.0' stroke='#4CAF50' stroke-width='2'/><polygon points='137.0,40.0 143.2,36.4 143.2,43.6' fill='none' stroke='#4CAF50' stroke-width='1.5'/><text x='155.0' y='72.0' text-anchor='middle' font-size='7' fill='#888' font-family='sans-serif'>left,empty</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#4CAF50' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#4CAF50' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='#4CAF50' stroke='#4CAF50' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='#4CAF50' stroke='#4CAF50' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#4CAF50' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='#4CAF50' stroke='#4CAF50' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='#4CAF50' stroke='#4CAF50' stroke-width='1.5'/></svg>",
+    "explanation": "Rule 1: Arrow rotates 90° clockwise (right→down→left→up). Rule 2: Arrowhead alternates empty/filled. Answer: up, filled.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "shading",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 115,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which shape comes next in the alternating pattern?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><circle cx='35.0' cy='40.0' r='18.0' fill='none' stroke='#9C27B0' stroke-width='2'/><text x='35.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>circle</text><rect x='77.0' y='22.0' width='36.0' height='36.0' fill='none' stroke='#9C27B0' stroke-width='2'/><text x='95.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>square</text><circle cx='155.0' cy='40.0' r='18.0' fill='none' stroke='#9C27B0' stroke-width='2'/><text x='155.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>circle</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 49.0,23.8 41.8,46.2 18.2,46.2 11.0,23.8' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='20.0' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+    "explanation": "The shapes alternate: circle → square → circle → square. The next figure is a square.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "alternation",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 116,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which shape comes next in the alternating pattern?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 50.6,49.0 19.4,49.0' fill='none' stroke='#FF9800' stroke-width='2'/><text x='35.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>triangle</text><circle cx='95.0' cy='40.0' r='18.0' fill='none' stroke='#FF9800' stroke-width='2'/><text x='95.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>circle</text><polygon points='155.0,22.0 170.6,49.0 139.4,49.0' fill='none' stroke='#FF9800' stroke-width='2'/><text x='155.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>triangle</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='20.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 49.0,23.8 41.8,46.2 18.2,46.2 11.0,23.8' fill='none' stroke='#FF9800' stroke-width='2'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='20.0' fill='none' stroke='#FF9800' stroke-width='2'/></svg>",
+    "explanation": "The shapes alternate: triangle → circle → triangle → circle. The next figure is a circle.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "alternation",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 117,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which shape comes next in the alternating pattern?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><rect x='17.0' y='22.0' width='36.0' height='36.0' fill='none' stroke='#00BCD4' stroke-width='2'/><text x='35.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>square</text><polygon points='95.0,22.0 110.6,49.0 79.4,49.0' fill='none' stroke='#00BCD4' stroke-width='2'/><text x='95.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>triangle</text><rect x='137.0' y='22.0' width='36.0' height='36.0' fill='none' stroke='#00BCD4' stroke-width='2'/><text x='155.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>square</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='10.0' width='40.0' height='40.0' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='20.0' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 49.0,23.8 41.8,46.2 18.2,46.2 11.0,23.8' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='none' stroke='#00BCD4' stroke-width='2'/></svg>",
+    "explanation": "The shapes alternate: square → triangle → square → triangle. The next figure is a triangle.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "alternation",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 118,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "The shape rotates by a fixed angle each step. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 53.0,40.0 35.0,58.0 17.0,40.0' fill='none' stroke='#E91E63' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='113.0,40.0 95.0,58.0 77.0,40.0 95.0,22.0' fill='none' stroke='#E91E63' stroke-width='2'/><circle cx='113.0' cy='40.0' r='3.0' fill='#F44336'/><polygon points='155.0,58.0 137.0,40.0 155.0,22.0 173.0,40.0' fill='none' stroke='#E91E63' stroke-width='2'/><circle cx='155.0' cy='58.0' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='14.4,45.6 14.4,14.4 45.6,14.4 45.6,45.6' fill='none' stroke='#E91E63' stroke-width='2'/><circle cx='14.4' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,8.0 52.0,30.0 30.0,52.0 8.0,30.0' fill='none' stroke='#E91E63' stroke-width='2'/><circle cx='30.0' cy='8.0' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='8.0,30.0 30.0,8.0 52.0,30.0 30.0,52.0' fill='none' stroke='#E91E63' stroke-width='2'/><circle cx='8.0' cy='30.0' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='14.4,14.4 45.6,14.4 45.6,45.6 14.4,45.6' fill='none' stroke='#E91E63' stroke-width='2'/><circle cx='14.4' cy='14.4' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='8.0,30.0 30.0,8.0 52.0,30.0 30.0,52.0' fill='none' stroke='#E91E63' stroke-width='2'/><circle cx='8.0' cy='30.0' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "The square rotates 90° clockwise each step. Track the red dot to confirm orientation. The next position is at 270° total rotation.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "polygon",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 119,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "The shape rotates by a fixed angle each step. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 49.1,28.8 52.5,44.0 42.8,56.2 27.2,56.2 17.5,44.0 20.9,28.8' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='107.7,27.3 112.9,42.0 104.6,55.2 89.1,57.0 78.0,45.9 79.8,30.4 93.0,22.1' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='107.7' cy='27.3' r='3.0' fill='#F44336'/><polygon points='173.0,40.0 166.2,54.1 151.0,57.5 138.8,47.8 138.8,32.2 151.0,22.5 166.2,25.9' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='173.0' cy='40.0' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='14.4,45.6 8.1,27.5 18.3,11.4 37.3,9.2 50.8,22.7 48.6,41.7 32.5,51.9' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='14.4' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,52.0 12.8,43.7 8.6,25.1 20.5,10.2 39.5,10.2 51.4,25.1 47.2,43.7' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='30.0' cy='52.0' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='52.0,30.0 43.7,47.2 25.1,51.4 10.2,39.5 10.2,20.5 25.1,8.6 43.7,12.8' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='52.0' cy='30.0' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 27.5,51.9 11.4,41.7 9.2,22.7 22.7,9.2 41.7,11.4 51.9,27.5' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 27.5,51.9 11.4,41.7 9.2,22.7 22.7,9.2 41.7,11.4 51.9,27.5' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "The polygon rotates 45° clockwise each step. Track the red dot to confirm orientation. The next position is at 135° total rotation.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "polygon",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 120,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "The shading increases each step. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><circle cx='35.0' cy='40.0' r='18.0' fill='none' stroke='#9C27B0' stroke-width='2'/><text x='35.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>empty</text><circle cx='95.0' cy='40.0' r='18.0' fill='none' stroke='#9C27B0' stroke-width='2'/><path d='M95,40 L95,22 A18,18 0 0,0 77,40 Z' fill='#9C27B0' opacity='0.7'/><text x='95.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>1/4</text><circle cx='155.0' cy='40.0' r='18.0' fill='none' stroke='#9C27B0' stroke-width='2'/><path d='M155,22 A18,18 0 0,0 155,58 L155,22 Z' fill='#9C27B0' opacity='0.7'/><text x='155.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>1/2</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#9C27B0' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#9C27B0' stroke-width='2'/><path d='M30,8 A22,22 0 0,0 30,52 L30,8 Z' fill='#9C27B0' opacity='0.7'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#9C27B0' stroke-width='2'/><path d='M30,30 L30,8 A22,22 0 1,1 52,30 Z' fill='#9C27B0' opacity='0.7'/><path d='M30,30 L52,30 A22,22 0 0,1 30,52 Z' fill='#9C27B0' opacity='0.7'/><path d='M30,30 L30,52 A22,22 0 0,1 8,30 Z' fill='#9C27B0' opacity='0.7'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#9C27B0' stroke-width='2'/><path d='M30,30 L30,8 A22,22 0 0,0 8,30 Z' fill='#9C27B0' opacity='0.7'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#9C27B0' stroke-width='2'/><path d='M30,30 L30,8 A22,22 0 1,1 52,30 Z' fill='#9C27B0' opacity='0.7'/><path d='M30,30 L52,30 A22,22 0 0,1 30,52 Z' fill='#9C27B0' opacity='0.7'/><path d='M30,30 L30,52 A22,22 0 0,1 8,30 Z' fill='#9C27B0' opacity='0.7'/></svg>",
+    "explanation": "The circle's shading increases by one quarter each step. The next figure should be three-quarters filled.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "shading",
+      "progression",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 121,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "The shading increases each step. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><circle cx='35.0' cy='40.0' r='18.0' fill='none' stroke='#4CAF50' stroke-width='2'/><path d='M35,40 L35,22 A18,18 0 0,0 17,40 Z' fill='#4CAF50' opacity='0.7'/><text x='35.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>1/4</text><circle cx='95.0' cy='40.0' r='18.0' fill='none' stroke='#4CAF50' stroke-width='2'/><path d='M95,22 A18,18 0 0,0 95,58 L95,22 Z' fill='#4CAF50' opacity='0.7'/><text x='95.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>1/2</text><circle cx='155.0' cy='40.0' r='18.0' fill='none' stroke='#4CAF50' stroke-width='2'/><path d='M155,40 L155,22 A18,18 0 1,1 173,40 Z' fill='#4CAF50' opacity='0.7'/><path d='M155,40 L173,40 A18,18 0 0,1 155,58 Z' fill='#4CAF50' opacity='0.7'/><path d='M155,40 L155,58 A18,18 0 0,1 137,40 Z' fill='#4CAF50' opacity='0.7'/><text x='155.0' y='72.0' text-anchor='middle' font-size='8' fill='#888' font-family='sans-serif'>3/4</text><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='22' fill='#4CAF50' stroke='#4CAF50' stroke-width='2'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#4CAF50' stroke-width='2'/><path d='M30,8 A22,22 0 0,0 30,52 L30,8 Z' fill='#4CAF50' opacity='0.7'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#4CAF50' stroke-width='2'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30.0' cy='30.0' r='22.0' fill='none' stroke='#4CAF50' stroke-width='2'/><path d='M30,30 L30,8 A22,22 0 0,0 8,30 Z' fill='#4CAF50' opacity='0.7'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='22' fill='#4CAF50' stroke='#4CAF50' stroke-width='2'/></svg>",
+    "explanation": "The circle's shading increases by one quarter each step. The next figure should be fully filled.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "shading",
+      "progression",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 122,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which figure is the odd one out?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><line x1='44.0' y1='40.0' x2='16.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='16.0,40.0 20.8,37.2 20.8,42.8' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>A</text><line x1='103.0' y1='40.0' x2='67.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='67.0,40.0 73.2,36.4 73.2,43.6' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>B</text><line x1='124.0' y1='40.0' x2='156.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='156.0,40.0 150.5,43.2 150.5,36.8' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>C</text><line x1='215.0' y1='40.0' x2='175.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='175.0,40.0 181.9,36.0 181.9,44.0' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='195.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>D</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='44.0' y1='30.0' x2='16.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='16.0,30.0 20.8,27.2 20.8,32.8' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='14.0' y1='30.0' x2='46.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='46.0,30.0 40.5,33.2 40.5,26.8' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='50.0' y1='30.0' x2='10.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='10.0,30.0 16.9,26.0 16.9,34.0' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='14.0' y1='30.0' x2='46.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='46.0,30.0 40.5,33.2 40.5,26.8' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "Three arrows point left. Choice C points right, making it the odd one out.",
+    "tags": [
+      "abstract reasoning",
+      "odd one out",
+      "direction",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 123,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Two rules operate simultaneously. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 50.6,49.0 19.4,49.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='110.6,31.0 104.0,55.6 79.4,49.0 86.0,24.4' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='110.6' cy='31.0' r='3.0' fill='#F44336'/><polygon points='170.6,49.0 151.3,57.6 137.1,41.9 147.7,23.6 168.4,28.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='170.6' cy='49.0' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,52.0 10.9,41.0 10.9,19.0 30.0,8.0 49.1,19.0 49.1,41.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='30.0' cy='52.0' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='52.0,30.0 43.7,47.2 25.1,51.4 10.2,39.5 10.2,20.5 25.1,8.6 43.7,12.8' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='52.0' cy='30.0' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='8.0,30.0 19.0,10.9 41.0,10.9 52.0,30.0 41.0,49.1 19.0,49.1' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='8.0' cy='30.0' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,52.0 9.1,36.8 17.1,12.2 42.9,12.2 50.9,36.8' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='30.0' cy='52.0' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,52.0 10.9,41.0 10.9,19.0 30.0,8.0 49.1,19.0 49.1,41.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='30.0' cy='52.0' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "Rule 1: Sides increase by 1 (3→4→5→6). Rule 2: Shape rotates 60° each step. Answer: hexagon rotated 180°.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "transformation",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 124,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Two rules operate simultaneously. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 53.0,40.0 35.0,58.0 17.0,40.0' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='107.7,27.3 111.0,48.2 92.2,57.8 77.2,42.8 86.8,24.0' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='107.7' cy='27.3' r='3.0' fill='#F44336'/><polygon points='173.0,40.0 164.0,55.6 146.0,55.6 137.0,40.0 146.0,24.4 164.0,24.4' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='173.0' cy='40.0' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 27.5,51.9 11.4,41.7 9.2,22.7 22.7,9.2 41.7,11.4 51.9,27.5' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='14.4,45.6 8.1,27.5 18.3,11.4 37.3,9.2 50.8,22.7 48.6,41.7 32.5,51.9' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='14.4' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,14.4 52.0,30.0 45.6,45.6 30.0,52.0 14.4,45.6 8.0,30.0 14.4,14.4 30.0,8.0' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='45.6' cy='14.4' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 24.3,51.3 8.7,35.7 14.4,14.4 35.7,8.7 51.3,24.3' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 27.5,51.9 11.4,41.7 9.2,22.7 22.7,9.2 41.7,11.4 51.9,27.5' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "Rule 1: Sides increase by 1 (4→5→6→7). Rule 2: Shape rotates 45° each step. Answer: heptagon rotated 135°.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "transformation",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 125,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Two rules operate simultaneously. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 46.6,26.2 52.7,36.9 50.6,49.0 41.2,56.9 28.8,56.9 19.4,49.0 17.3,36.9 23.4,26.2' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='106.6,26.2 112.5,35.6 111.7,46.7 104.5,55.3 93.7,58.0 83.4,53.8 77.5,44.4 78.3,33.3 85.5,24.7 96.3,22.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='106.6' cy='26.2' r='3.0' fill='#F44336'/><polygon points='172.7,36.9 171.6,47.0 165.2,54.8 155.6,58.0 145.8,55.4 138.9,48.0 137.1,38.0 141.0,28.7 149.4,22.9 159.5,22.6 168.2,27.8' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='172.7' cy='36.9' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='19.0,49.1 10.9,41.0 8.0,30.0 10.9,19.0 19.0,10.9 30.0,8.0 41.0,10.9 49.1,19.0 52.0,30.0 49.1,41.0 41.0,49.1 30.0,52.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='19.0' cy='49.1' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='49.1,41.0 40.1,49.6 27.9,51.9 16.4,47.3 9.2,37.2 8.6,24.8 14.8,14.1 25.8,8.4 38.2,9.6 47.9,17.2 52.0,29.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='49.1' cy='41.0' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='41.0,10.9 48.6,18.2 51.9,28.2 50.2,38.6 43.9,47.0 34.4,51.6 23.9,51.1 14.8,45.9 9.1,37.0 8.3,26.5 12.4,16.8 20.6,10.1 30.9,8.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='41.0' cy='10.9' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='49.1,41.0 41.0,49.1 30.0,52.0 19.0,49.1 10.9,41.0 8.0,30.0 10.9,19.0 19.0,10.9 30.0,8.0 41.0,10.9 49.1,19.0 52.0,30.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='49.1' cy='41.0' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='49.1,41.0 41.0,49.1 30.0,52.0 19.0,49.1 10.9,41.0 8.0,30.0 10.9,19.0 19.0,10.9 30.0,8.0 41.0,10.9 49.1,19.0 52.0,30.0' fill='none' stroke='#FF9800' stroke-width='2'/><circle cx='49.1' cy='41.0' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "Rule 1: Sides increase by 1 (9→10→11→12). Rule 2: Shape rotates 40° each step. Answer: 12-gon rotated 120°.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "transformation",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 126,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Two rules operate simultaneously. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 45.6,25.4 52.1,34.4 52.1,45.6 45.6,54.6 35.0,58.0 24.4,54.6 17.9,45.6 17.9,34.4 24.4,25.4' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='105.6,25.4 111.8,33.5 112.6,43.6 107.9,52.5 99.1,57.5 89.0,57.0 80.7,51.0 77.1,41.5 79.1,31.6 86.1,24.3 96.0,22.0' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='105.6' cy='25.4' r='3.0' fill='#F44336'/><polygon points='172.1,34.4 172.6,43.7 168.4,52.0 160.6,57.1 151.3,57.6 143.0,53.4 137.9,45.6 137.4,36.3 141.6,28.0 149.4,22.9 158.7,22.4 167.0,26.6' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='172.1' cy='34.4' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='23.2,50.9 14.3,45.4 8.9,36.3 8.4,25.8 12.8,16.2 21.2,9.8 31.6,8.1 41.6,11.3 49.0,18.8 52.0,28.9 50.0,39.3 43.4,47.5 33.7,51.7' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='23.2' cy='50.9' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='36.8,9.1 45.2,14.1 50.6,22.3 51.9,32.0 48.9,41.3 42.1,48.4 33.0,51.8 23.2,50.9 14.8,45.9 9.4,37.7 8.1,28.0 11.1,18.7 17.9,11.6 27.0,8.2' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='36.8' cy='9.1' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='50.9,36.8 44.7,46.3 34.6,51.5 23.2,50.9 13.7,44.7 8.5,34.6 9.1,23.2 15.3,13.7 25.4,8.5 36.8,9.1 46.3,15.3 51.5,25.4' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='50.9' cy='36.8' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='50.9,36.8 45.4,45.7 36.3,51.1 25.8,51.6 16.2,47.2 9.8,38.8 8.1,28.4 11.3,18.4 18.8,11.0 28.9,8.0 39.3,10.0 47.5,16.6 51.7,26.3' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='50.9' cy='36.8' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='50.9,36.8 45.4,45.7 36.3,51.1 25.8,51.6 16.2,47.2 9.8,38.8 8.1,28.4 11.3,18.4 18.8,11.0 28.9,8.0 39.3,10.0 47.5,16.6 51.7,26.3' fill='none' stroke='#00BCD4' stroke-width='2'/><circle cx='50.9' cy='36.8' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "Rule 1: Sides increase by 1 (10→11→12→13). Rule 2: Shape rotates 36° each step. Answer: 13-gon rotated 108°.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "transformation",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 127,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Which figure completes the 3×3 grid?\n\n<svg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'><rect x='8' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='30' cy='30' r='14' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='80' cy='30' r='14' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='130' cy='30' r='14' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='30.0,66.0 42.1,87.0 17.9,87.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='80.0,66.0 92.1,87.0 67.9,87.0' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='130.0,66.0 142.1,87.0 117.9,87.0' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='16' y='116' width='28' height='28' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='66' y='116' width='28' height='28' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><text x='130.0' y='134.0' text-anchor='middle' font-size='16' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "Row rule: each row uses the same shape (circle, triangle, square). Column rule: each column uses the same shading (full, none, half). The missing cell needs a half-shaded square.",
+    "tags": [
+      "abstract reasoning",
+      "grid reasoning",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 128,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Which figure completes the 3×3 grid?\n\n<svg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'><rect x='8' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='16' y='16' width='28' height='28' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='66' y='16' width='28' height='28' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='116' y='16' width='28' height='28' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='30.0,66.0 42.1,87.0 17.9,87.0' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='80.0,66.0 92.1,87.0 67.9,87.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='130.0,66.0 142.1,87.0 117.9,87.0' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='30' cy='130' r='14' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='80' cy='130' r='14' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><text x='130.0' y='134.0' text-anchor='middle' font-size='16' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "Row rule: each row uses the same shape (square, triangle, circle). Column rule: each column uses the same shading (half, full, none). The missing cell needs a none-shaded circle.",
+    "tags": [
+      "abstract reasoning",
+      "grid reasoning",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 129,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Which figure completes the 3×3 grid?\n\n<svg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'><rect x='8' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='30.0,16.0 42.1,37.0 17.9,37.0' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='80.0,16.0 92.1,37.0 67.9,37.0' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='130.0,16.0 142.1,37.0 117.9,37.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='30' cy='80' r='14' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='80' cy='80' r='14' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='130' cy='80' r='14' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='16' y='116' width='28' height='28' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='66' y='116' width='28' height='28' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><text x='130.0' y='134.0' text-anchor='middle' font-size='16' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "Row rule: each row uses the same shape (triangle, circle, square). Column rule: each column uses the same shading (none, half, full). The missing cell needs a full-shaded square.",
+    "tags": [
+      "abstract reasoning",
+      "grid reasoning",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 130,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "The dot moves to a new corner each step. Where does it go next?\n\n<svg width='250' height='75' viewBox='0 0 250 75' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='15.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='22.0' cy='63.0' r='5.0' fill='#E91E63'/><rect x='70.0' y='15.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='82.0' cy='27.0' r='5.0' fill='#E91E63'/><rect x='130.0' y='15.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='178.0' cy='27.0' r='5.0' fill='#E91E63'/><line x1='195.0' y1='5.0' x2='195.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='220.0' y='40.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='53.0' cy='17.0' r='5.0' fill='#E91E63'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='53.0' cy='53.0' r='5.0' fill='#E91E63'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='17.0' cy='53.0' r='5.0' fill='#E91E63'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='17.0' cy='17.0' r='5.0' fill='#E91E63'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='53.0' cy='53.0' r='5.0' fill='#E91E63'/></svg>",
+    "explanation": "The dot moves clockwise through the corners: bottom-left → top-left → top-right → bottom-right.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "movement",
+      "position",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 131,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Three rules operate simultaneously. Which figure comes next?\n\n<svg width='260' height='80' viewBox='0 0 260 80' xmlns='http://www.w3.org/2000/svg'><line x1='28.0' y1='35.0' x2='52.0' y2='35.0' stroke='#E91E63' stroke-width='2'/><polygon points='52.0,35.0 47.8,37.4 47.8,32.6' fill='none' stroke='#E91E63' stroke-width='1.5'/><circle cx='32.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='105.0' y1='20.0' x2='105.0' y2='50.0' stroke='#E91E63' stroke-width='2'/><polygon points='105.0,50.0 102.0,44.8 108.0,44.8' fill='none' stroke='#E91E63' stroke-width='1.5'/><circle cx='97.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='105.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='188.0' y1='35.0' x2='152.0' y2='35.0' stroke='#E91E63' stroke-width='2'/><polygon points='152.0,35.0 158.2,31.4 158.2,38.6' fill='none' stroke='#E91E63' stroke-width='1.5'/><circle cx='162.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='170.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='178.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='210.0' y1='5.0' x2='210.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='235.0' y='40.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='10.0' x2='30.0' y2='40.0' stroke='#E91E63' stroke-width='2'/><polygon points='30.0,40.0 27.0,34.8 33.0,34.8' fill='none' stroke='#E91E63' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='51.0' y1='25.0' x2='9.0' y2='25.0' stroke='#E91E63' stroke-width='2'/><polygon points='9.0,25.0 16.3,20.8 16.3,29.2' fill='none' stroke='#E91E63' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='4.0' stroke='#E91E63' stroke-width='2'/><polygon points='30.0,4.0 34.2,11.3 25.8,11.3' fill='none' stroke='#E91E63' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='9.0' y1='25.0' x2='51.0' y2='25.0' stroke='#E91E63' stroke-width='2'/><polygon points='51.0,25.0 43.7,29.2 43.7,20.8' fill='none' stroke='#E91E63' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='4.0' stroke='#E91E63' stroke-width='2'/><polygon points='30.0,4.0 34.2,11.3 25.8,11.3' fill='none' stroke='#E91E63' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+    "explanation": "Rule 1: Arrow rotates 90° CW (right→down→left→up). Rule 2: Dot count increases by 1 (1→2→3→4). Rule 3: Arrow size grows each step.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "transformation",
+      "multi-rule",
+      "advanced",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 132,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Three rules operate simultaneously. Which figure comes next?\n\n<svg width='260' height='80' viewBox='0 0 260 80' xmlns='http://www.w3.org/2000/svg'><line x1='52.0' y1='35.0' x2='28.0' y2='35.0' stroke='#00BCD4' stroke-width='2'/><polygon points='28.0,35.0 32.2,32.6 32.2,37.4' fill='none' stroke='#00BCD4' stroke-width='1.5'/><circle cx='32.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='105.0' y1='50.0' x2='105.0' y2='20.0' stroke='#00BCD4' stroke-width='2'/><polygon points='105.0,20.0 108.0,25.2 102.0,25.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/><circle cx='97.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='105.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='152.0' y1='35.0' x2='188.0' y2='35.0' stroke='#00BCD4' stroke-width='2'/><polygon points='188.0,35.0 181.8,38.6 181.8,31.4' fill='none' stroke='#00BCD4' stroke-width='1.5'/><circle cx='162.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='170.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='178.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='210.0' y1='5.0' x2='210.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='235.0' y='40.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='51.0' y1='25.0' x2='9.0' y2='25.0' stroke='#00BCD4' stroke-width='2'/><polygon points='9.0,25.0 16.3,20.8 16.3,29.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='4.0' x2='30.0' y2='46.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,46.0 25.8,38.7 34.2,38.7' fill='none' stroke='#00BCD4' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='4.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,4.0 34.2,11.3 25.8,11.3' fill='none' stroke='#00BCD4' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='15.0' y1='25.0' x2='45.0' y2='25.0' stroke='#00BCD4' stroke-width='2'/><polygon points='45.0,25.0 39.8,28.0 39.8,22.0' fill='none' stroke='#00BCD4' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='4.0' x2='30.0' y2='46.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,46.0 25.8,38.7 34.2,38.7' fill='none' stroke='#00BCD4' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+    "explanation": "Rule 1: Arrow rotates 90° CW (left→up→right→down). Rule 2: Dot count increases by 1 (1→2→3→4). Rule 3: Arrow size grows each step.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "transformation",
+      "multi-rule",
+      "advanced",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 133,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
     "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='40.0' x2='48.0' y2='40.0' stroke='#4CAF50' stroke-width='2'/><polygon points='48.0,40.0 41.8,43.6 41.8,36.4' fill='none' stroke='#4CAF50' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='85.0' y1='58.0' x2='85.0' y2='22.0' stroke='#4CAF50' stroke-width='2'/><polygon points='85.0,22.0 88.6,28.2 81.4,28.2' fill='none' stroke='#4CAF50' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='158.0' y1='40.0' x2='122.0' y2='40.0' stroke='#4CAF50' stroke-width='2'/><polygon points='122.0,40.0 128.2,36.4 128.2,43.6' fill='none' stroke='#4CAF50' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
     "choices": [
       "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#4CAF50' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#4CAF50' stroke-width='1.5'/></svg>",
@@ -2131,7 +2980,7 @@
     ]
   },
   {
-    "id": 96,
+    "id": 134,
     "subtest": "Analytical Ability",
     "module": "Abstract Reasoning",
     "subtopic": "Shape Patterns",
@@ -2153,7 +3002,7 @@
     ]
   },
   {
-    "id": 97,
+    "id": 135,
     "subtest": "Analytical Ability",
     "module": "Abstract Reasoning",
     "subtopic": "Shape Patterns",
@@ -2175,7 +3024,7 @@
     ]
   },
   {
-    "id": 98,
+    "id": 136,
     "subtest": "Analytical Ability",
     "module": "Abstract Reasoning",
     "subtopic": "Shape Patterns",
@@ -2197,7 +3046,7 @@
     ]
   },
   {
-    "id": 99,
+    "id": 137,
     "subtest": "Analytical Ability",
     "module": "Abstract Reasoning",
     "subtopic": "Shape Patterns",
@@ -2219,7 +3068,7 @@
     ]
   },
   {
-    "id": 100,
+    "id": 138,
     "subtest": "Analytical Ability",
     "module": "Abstract Reasoning",
     "subtopic": "Shape Patterns",
@@ -2237,6 +3086,275 @@
       "abstract reasoning",
       "rotation",
       "45 degrees",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 139,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "The shape rotates by a fixed angle each step. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 53.0,40.0 35.0,58.0 17.0,40.0' fill='none' stroke='#9C27B0' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='107.7,27.3 107.7,52.7 82.3,52.7 82.3,27.3' fill='none' stroke='#9C27B0' stroke-width='2'/><circle cx='107.7' cy='27.3' r='3.0' fill='#F44336'/><polygon points='173.0,40.0 155.0,58.0 137.0,40.0 155.0,22.0' fill='none' stroke='#9C27B0' stroke-width='2'/><circle cx='173.0' cy='40.0' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='52.0,30.0 30.0,52.0 8.0,30.0 30.0,8.0' fill='none' stroke='#9C27B0' stroke-width='2'/><circle cx='52.0' cy='30.0' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,52.0 8.0,30.0 30.0,8.0 52.0,30.0' fill='none' stroke='#9C27B0' stroke-width='2'/><circle cx='30.0' cy='52.0' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 14.4,45.6 14.4,14.4 45.6,14.4' fill='none' stroke='#9C27B0' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='14.4,45.6 14.4,14.4 45.6,14.4 45.6,45.6' fill='none' stroke='#9C27B0' stroke-width='2'/><circle cx='14.4' cy='45.6' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 14.4,45.6 14.4,14.4 45.6,14.4' fill='none' stroke='#9C27B0' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "The square rotates 45° clockwise each step. Track the red dot to confirm orientation. The next position is at 135° total rotation.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "polygon",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 140,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "The dot moves to a new corner each step. Where does it go next?\n\n<svg width='250' height='75' viewBox='0 0 250 75' xmlns='http://www.w3.org/2000/svg'><rect x='10.0' y='15.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='58.0' cy='63.0' r='5.0' fill='#9C27B0'/><rect x='70.0' y='15.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='82.0' cy='63.0' r='5.0' fill='#9C27B0'/><rect x='130.0' y='15.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='142.0' cy='27.0' r='5.0' fill='#9C27B0'/><line x1='195.0' y1='5.0' x2='195.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='220.0' y='40.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='17.0' cy='53.0' r='5.0' fill='#9C27B0'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='53.0' cy='17.0' r='5.0' fill='#9C27B0'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='17.0' cy='17.0' r='5.0' fill='#9C27B0'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='53.0' cy='53.0' r='5.0' fill='#9C27B0'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='5.0' y='5.0' width='40.0' height='40.0' fill='none' stroke='#666' stroke-width='2'/><circle cx='53.0' cy='17.0' r='5.0' fill='#9C27B0'/></svg>",
+    "explanation": "The dot moves clockwise through the corners: bottom-right → bottom-left → top-left → top-right.",
+    "tags": [
+      "abstract reasoning",
+      "transformation",
+      "movement",
+      "position",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 141,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Three rules operate simultaneously. Which figure comes next?\n\n<svg width='260' height='80' viewBox='0 0 260 80' xmlns='http://www.w3.org/2000/svg'><line x1='28.0' y1='35.0' x2='52.0' y2='35.0' stroke='#9C27B0' stroke-width='2'/><polygon points='52.0,35.0 47.8,37.4 47.8,32.6' fill='none' stroke='#9C27B0' stroke-width='1.5'/><circle cx='32.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='105.0' y1='20.0' x2='105.0' y2='50.0' stroke='#9C27B0' stroke-width='2'/><polygon points='105.0,50.0 102.0,44.8 108.0,44.8' fill='none' stroke='#9C27B0' stroke-width='1.5'/><circle cx='97.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='105.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='188.0' y1='35.0' x2='152.0' y2='35.0' stroke='#9C27B0' stroke-width='2'/><polygon points='152.0,35.0 158.2,31.4 158.2,38.6' fill='none' stroke='#9C27B0' stroke-width='1.5'/><circle cx='162.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='170.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='178.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='210.0' y1='5.0' x2='210.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='235.0' y='40.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='45.0' y1='25.0' x2='15.0' y2='25.0' stroke='#9C27B0' stroke-width='2'/><polygon points='15.0,25.0 20.2,22.0 20.2,28.0' fill='none' stroke='#9C27B0' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='4.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,4.0 34.2,11.3 25.8,11.3' fill='none' stroke='#9C27B0' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='4.0' x2='30.0' y2='46.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,46.0 25.8,38.7 34.2,38.7' fill='none' stroke='#9C27B0' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='9.0' y1='25.0' x2='51.0' y2='25.0' stroke='#9C27B0' stroke-width='2'/><polygon points='51.0,25.0 43.7,29.2 43.7,20.8' fill='none' stroke='#9C27B0' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='4.0' stroke='#9C27B0' stroke-width='2'/><polygon points='30.0,4.0 34.2,11.3 25.8,11.3' fill='none' stroke='#9C27B0' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+    "explanation": "Rule 1: Arrow rotates 90° CW (right→down→left→up). Rule 2: Dot count increases by 1 (1→2→3→4). Rule 3: Arrow size grows each step.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "transformation",
+      "multi-rule",
+      "advanced",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 142,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='22.0' x2='30.0' y2='58.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,58.0 26.4,51.8 33.6,51.8' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='103.0' y1='40.0' x2='67.0' y2='40.0' stroke='#00BCD4' stroke-width='2'/><polygon points='67.0,40.0 73.2,36.4 73.2,43.6' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='140.0' y1='58.0' x2='140.0' y2='22.0' stroke='#00BCD4' stroke-width='2'/><polygon points='140.0,22.0 143.6,28.2 136.4,28.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#00BCD4' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#00BCD4' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#00BCD4' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° clockwise each step: down → left → up → right.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "clockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 143,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Which figure completes the 3×3 grid?\n\n<svg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'><rect x='8' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='16' y='16' width='28' height='28' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='66' y='16' width='28' height='28' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='116' y='16' width='28' height='28' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='30' cy='80' r='14' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='80' cy='80' r='14' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='130' cy='80' r='14' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='30.0,116.0 42.1,137.0 17.9,137.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='80.0,116.0 92.1,137.0 67.9,137.0' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><text x='130.0' y='134.0' text-anchor='middle' font-size='16' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "Row rule: each row uses the same shape (square, circle, triangle). Column rule: each column uses the same shading (full, none, half). The missing cell needs a half-shaded triangle.",
+    "tags": [
+      "abstract reasoning",
+      "grid reasoning",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 144,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Three rules operate simultaneously. Which figure comes next?\n\n<svg width='260' height='80' viewBox='0 0 260 80' xmlns='http://www.w3.org/2000/svg'><line x1='28.0' y1='35.0' x2='52.0' y2='35.0' stroke='#4CAF50' stroke-width='2'/><polygon points='52.0,35.0 47.8,37.4 47.8,32.6' fill='none' stroke='#4CAF50' stroke-width='1.5'/><circle cx='32.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='105.0' y1='20.0' x2='105.0' y2='50.0' stroke='#4CAF50' stroke-width='2'/><polygon points='105.0,50.0 102.0,44.8 108.0,44.8' fill='none' stroke='#4CAF50' stroke-width='1.5'/><circle cx='97.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='105.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='188.0' y1='35.0' x2='152.0' y2='35.0' stroke='#4CAF50' stroke-width='2'/><polygon points='152.0,35.0 158.2,31.4 158.2,38.6' fill='none' stroke='#4CAF50' stroke-width='1.5'/><circle cx='162.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='170.0' cy='65.0' r='2.5' fill='#F44336'/><circle cx='178.0' cy='65.0' r='2.5' fill='#F44336'/><line x1='210.0' y1='5.0' x2='210.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='235.0' y='40.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='10.0' x2='30.0' y2='40.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,40.0 27.0,34.8 33.0,34.8' fill='none' stroke='#4CAF50' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='9.0' y1='25.0' x2='51.0' y2='25.0' stroke='#4CAF50' stroke-width='2'/><polygon points='51.0,25.0 43.7,29.2 43.7,20.8' fill='none' stroke='#4CAF50' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='4.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,4.0 34.2,11.3 25.8,11.3' fill='none' stroke='#4CAF50' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='51.0' y1='25.0' x2='9.0' y2='25.0' stroke='#4CAF50' stroke-width='2'/><polygon points='9.0,25.0 16.3,20.8 16.3,29.2' fill='none' stroke='#4CAF50' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='46.0' x2='30.0' y2='4.0' stroke='#4CAF50' stroke-width='2'/><polygon points='30.0,4.0 34.2,11.3 25.8,11.3' fill='none' stroke='#4CAF50' stroke-width='1.5'/><circle cx='22.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='28.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='34.0' cy='50.0' r='2.5' fill='#F44336'/><circle cx='40.0' cy='50.0' r='2.5' fill='#F44336'/></svg>",
+    "explanation": "Rule 1: Arrow rotates 90° CW (right→down→left→up). Rule 2: Dot count increases by 1 (1→2→3→4). Rule 3: Arrow size grows each step.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "transformation",
+      "multi-rule",
+      "advanced",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 145,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='40.0' x2='48.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='48.0,40.0 41.8,43.6 41.8,36.4' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='85.0' y1='58.0' x2='85.0' y2='22.0' stroke='#2196F3' stroke-width='2'/><polygon points='85.0,22.0 88.6,28.2 81.4,28.2' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='158.0' y1='40.0' x2='122.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='122.0,40.0 128.2,36.4 128.2,43.6' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° counterclockwise each step: right → up → left → down.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "counterclockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 146,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "The shape rotates by a fixed angle each step. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 52.1,34.4 45.6,54.6 24.4,54.6 17.9,34.4' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='107.7,27.3 111.0,48.2 92.2,57.8 77.2,42.8 86.8,24.0' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='107.7' cy='27.3' r='3.0' fill='#F44336'/><polygon points='173.0,40.0 160.6,57.1 140.4,50.6 140.4,29.4 160.6,22.9' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='173.0' cy='40.0' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 20.0,49.6 8.3,26.6 26.6,8.3 49.6,20.0' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='52.0,30.0 36.8,50.9 12.2,42.9 12.2,17.1 36.8,9.1' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='52.0' cy='30.0' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,52.0 9.1,36.8 17.1,12.2 42.9,12.2 50.9,36.8' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='30.0' cy='52.0' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='14.4,45.6 10.4,20.0 33.4,8.3 51.7,26.6 40.0,49.6' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='14.4' cy='45.6' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 20.0,49.6 8.3,26.6 26.6,8.3 49.6,20.0' fill='none' stroke='#2196F3' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "The pentagon rotates 45° clockwise each step. Track the red dot to confirm orientation. The next position is at 135° total rotation.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "polygon",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 147,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Hard",
+    "question": "Which figure completes the 3×3 grid?\n\n<svg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'><rect x='8' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='30.0,16.0 42.1,37.0 17.9,37.0' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='80.0,16.0 92.1,37.0 67.9,37.0' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='8' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><polygon points='130.0,16.0 142.1,37.0 117.9,37.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='16' y='66' width='28' height='28' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='66' y='66' width='28' height='28' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='58' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><rect x='116' y='66' width='28' height='28' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/><rect x='8' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='30' cy='130' r='14' fill='none' stroke='#2196F3' stroke-width='1.5'/><rect x='58' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><circle cx='80' cy='130' r='14' fill='#2196F3' opacity='0.4' stroke='#2196F3' stroke-width='1.5'/><rect x='108' y='108' width='44' height='44' fill='none' stroke='#555' stroke-width='0.5'/><text x='130.0' y='134.0' text-anchor='middle' font-size='16' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='40' height='40' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,10.0 47.3,40.0 12.7,40.0' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><circle cx='30' cy='30' r='20' fill='#2196F3' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "Row rule: each row uses the same shape (triangle, square, circle). Column rule: each column uses the same shading (none, half, full). The missing cell needs a full-shaded circle.",
+    "tags": [
+      "abstract reasoning",
+      "grid reasoning",
+      "multi-rule",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 148,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Easy",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='40.0' x2='48.0' y2='40.0' stroke='#FF9800' stroke-width='2'/><polygon points='48.0,40.0 41.8,43.6 41.8,36.4' fill='none' stroke='#FF9800' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='85.0' y1='58.0' x2='85.0' y2='22.0' stroke='#FF9800' stroke-width='2'/><polygon points='85.0,22.0 88.6,28.2 81.4,28.2' fill='none' stroke='#FF9800' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='158.0' y1='40.0' x2='122.0' y2='40.0' stroke='#FF9800' stroke-width='2'/><polygon points='122.0,40.0 128.2,36.4 128.2,43.6' fill='none' stroke='#FF9800' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='12.0' y1='30.0' x2='48.0' y2='30.0' stroke='#FF9800' stroke-width='2'/><polygon points='48.0,30.0 41.8,33.6 41.8,26.4' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='48.0' y1='30.0' x2='12.0' y2='30.0' stroke='#FF9800' stroke-width='2'/><polygon points='12.0,30.0 18.2,26.4 18.2,33.6' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#FF9800' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='48.0' x2='30.0' y2='12.0' stroke='#FF9800' stroke-width='2'/><polygon points='30.0,12.0 33.6,18.2 26.4,18.2' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='12.0' x2='30.0' y2='48.0' stroke='#FF9800' stroke-width='2'/><polygon points='30.0,48.0 26.4,41.8 33.6,41.8' fill='none' stroke='#FF9800' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 90° counterclockwise each step: right → up → left → down.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "counterclockwise",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 149,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "Which figure completes the sequence?\n\n<svg width='240' height='80' viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'><line x1='30.0' y1='24.0' x2='30.0' y2='56.0' stroke='#2196F3' stroke-width='2'/><polygon points='30.0,56.0 26.8,50.5 33.2,50.5' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='30.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 1</text><line x1='96.3' y1='28.7' x2='73.7' y2='51.3' stroke='#2196F3' stroke-width='2'/><polygon points='73.7,51.3 75.3,45.1 79.9,49.7' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='85.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 2</text><line x1='156.0' y1='40.0' x2='124.0' y2='40.0' stroke='#2196F3' stroke-width='2'/><polygon points='124.0,40.0 129.5,36.8 129.5,43.2' fill='none' stroke='#2196F3' stroke-width='1.5'/><text x='140.0' y='72.0' text-anchor='middle' font-size='10' fill='#888' font-family='sans-serif'>Step 3</text><line x1='185.0' y1='5.0' x2='185.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='210.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='41.3' y1='18.7' x2='18.7' y2='41.3' stroke='#2196F3' stroke-width='2'/><polygon points='18.7,41.3 20.3,35.1 24.9,39.7' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='46.0' y1='30.0' x2='14.0' y2='30.0' stroke='#2196F3' stroke-width='2'/><polygon points='14.0,30.0 19.5,26.8 19.5,33.2' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='41.3' y1='41.3' x2='18.7' y2='18.7' stroke='#2196F3' stroke-width='2'/><polygon points='18.7,18.7 24.9,20.3 20.3,24.9' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='18.7' y1='41.3' x2='41.3' y2='18.7' stroke='#2196F3' stroke-width='2'/><polygon points='41.3,18.7 39.7,24.9 35.1,20.3' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><line x1='41.3' y1='41.3' x2='18.7' y2='18.7' stroke='#2196F3' stroke-width='2'/><polygon points='18.7,18.7 24.9,20.3 20.3,24.9' fill='none' stroke='#2196F3' stroke-width='1.5'/></svg>",
+    "explanation": "The arrow rotates 45° clockwise each step: down → down-left → left → up-left.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "45 degrees",
+      "shape patterns"
+    ]
+  },
+  {
+    "id": 150,
+    "subtest": "Analytical Ability",
+    "module": "Abstract Reasoning",
+    "subtopic": "Shape Patterns",
+    "difficulty": "Medium",
+    "question": "The shape rotates by a fixed angle each step. Which figure comes next?\n\n<svg width='250' height='80' viewBox='0 0 250 80' xmlns='http://www.w3.org/2000/svg'><polygon points='35.0,22.0 50.6,49.0 19.4,49.0' fill='none' stroke='#4CAF50' stroke-width='2'/><circle cx='35.0' cy='22.0' r='3.0' fill='#F44336'/><polygon points='107.7,27.3 99.7,57.4 77.6,35.3' fill='none' stroke='#4CAF50' stroke-width='2'/><circle cx='107.7' cy='27.3' r='3.0' fill='#F44336'/><polygon points='173.0,40.0 146.0,55.6 146.0,24.4' fill='none' stroke='#4CAF50' stroke-width='2'/><circle cx='173.0' cy='40.0' r='3.0' fill='#F44336'/><line x1='200.0' y1='5.0' x2='200.0' y2='75.0' stroke='#666' stroke-width='1' stroke-dasharray='3,2'/><text x='225.0' y='45.0' text-anchor='middle' font-size='18' fill='#888' font-family='sans-serif'>?</text></svg>",
+    "choices": [
+      "A: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='52.0,30.0 19.0,49.1 19.0,10.9' fill='none' stroke='#4CAF50' stroke-width='2'/><circle cx='52.0' cy='30.0' r='3.0' fill='#F44336'/></svg>",
+      "B: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='14.4,45.6 24.3,8.7 51.3,35.7' fill='none' stroke='#4CAF50' stroke-width='2'/><circle cx='14.4' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+      "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 8.7,35.7 35.7,8.7' fill='none' stroke='#4CAF50' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+      "D: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='30.0,52.0 10.9,19.0 49.1,19.0' fill='none' stroke='#4CAF50' stroke-width='2'/><circle cx='30.0' cy='52.0' r='3.0' fill='#F44336'/></svg>"
+    ],
+    "answer": "C: <svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><polygon points='45.6,45.6 8.7,35.7 35.7,8.7' fill='none' stroke='#4CAF50' stroke-width='2'/><circle cx='45.6' cy='45.6' r='3.0' fill='#F44336'/></svg>",
+    "explanation": "The triangle rotates 45° clockwise each step. Track the red dot to confirm orientation. The next position is at 135° total rotation.",
+    "tags": [
+      "abstract reasoning",
+      "rotation",
+      "polygon",
       "shape patterns"
     ]
   }

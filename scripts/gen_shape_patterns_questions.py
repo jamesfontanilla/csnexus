@@ -1375,7 +1375,89 @@ def generate_all_questions() -> list[dict]:
     # Restore COLORS
     COLORS = COLORS_ORIG
 
-    # --- POST-PROCESSING: Deduplicate by svg_question ---
+    # ===================================================================
+    # BATCH 3 (50 more questions) — seed 777, reversed color palette
+    # ===================================================================
+    random.seed(777)
+    COLORS = COLORS_ORIG[::-1]  # reverse the palette
+
+    # --- EASY (17 questions) ---
+    for i in range(4):
+        questions.append(gen_arrow_rotation_90cw(id_counter, start_idx=i))
+        id_counter += 1
+
+    for i in range(4):
+        questions.append(gen_arrow_rotation_90ccw(id_counter, start_idx=i))
+        id_counter += 1
+
+    for start in [9, 10, 11]:
+        questions.append(gen_polygon_sides_increase(id_counter, start_sides=start))
+        id_counter += 1
+
+    for start in [8, 9, 10]:
+        questions.append(gen_dot_count_increase(id_counter, start=start))
+        id_counter += 1
+
+    for i in range(2):
+        questions.append(gen_arrow_rotation_180(id_counter, start_idx=i))
+        id_counter += 1
+
+    for shape in ["circle"]:
+        questions.append(gen_size_progression(id_counter, shape=shape))
+        id_counter += 1
+
+    # --- MEDIUM (17 questions) ---
+    for i in [2, 3, 5, 6]:
+        questions.append(gen_arrow_rotation_45(id_counter, start_idx=i))
+        id_counter += 1
+
+    for i in [4, 5]:
+        questions.append(gen_reflection_vertical(id_counter, variant=i))
+        id_counter += 1
+
+    for i in range(3):
+        questions.append(gen_rotation_plus_shading(id_counter, start_idx=i))
+        id_counter += 1
+
+    for i in [6, 7, 8]:
+        questions.append(gen_shape_alternation(id_counter, variant=i))
+        id_counter += 1
+
+    for sides, rot in [(4, 90), (7, 45)]:
+        questions.append(gen_polygon_rotation(id_counter, sides=sides, rot_per_step=rot))
+        id_counter += 1
+
+    for i in [4, 5]:
+        questions.append(gen_shading_progression(id_counter, variant=i))
+        id_counter += 1
+
+    questions.append(gen_odd_one_out(id_counter, variant=3))
+    id_counter += 1
+
+    # --- HARD (16 questions) ---
+    for start, rot in [(3, 60), (4, 45), (9, 40), (10, 36)]:
+        questions.append(gen_rotation_plus_sides(id_counter, start_sides=start, rot_per_step=rot))
+        id_counter += 1
+
+    for i in [8, 9, 10]:
+        questions.append(gen_nested_shapes(id_counter, variant=i))
+        id_counter += 1
+
+    for i in [8, 9, 10]:
+        questions.append(gen_grid_reasoning(id_counter, variant=i))
+        id_counter += 1
+
+    for i in [1, 2, 3]:
+        questions.append(gen_dot_movement(id_counter, variant=i))
+        id_counter += 1
+
+    for i in [1, 2, 3]:
+        questions.append(gen_triple_rule(id_counter, variant=i))
+        id_counter += 1
+
+    COLORS = COLORS_ORIG
+
+    # --- POST-PROCESSING: Deduplicate by question text ---
     # Some generators produce identical SVGs when variant wraps around.
     # Remove duplicates and regenerate replacements with higher variant numbers.
     seen_svgs: set[str] = set()
@@ -1400,7 +1482,7 @@ def generate_all_questions() -> list[dict]:
     ]
 
     fill_attempts = 0
-    while len(unique_questions) < 100 and fill_attempts < 200:
+    while len(unique_questions) < 150 and fill_attempts < 300:
         gen_fn = generators_for_fill[fill_attempts % len(generators_for_fill)]
         random.seed(200 + fill_attempts)
         COLORS = COLORS_ORIG[fill_attempts % len(COLORS_ORIG):] + COLORS_ORIG[:fill_attempts % len(COLORS_ORIG)]
@@ -1421,7 +1503,7 @@ def generate_all_questions() -> list[dict]:
     for i, q in enumerate(unique_questions):
         q["id"] = i + 1
 
-    return unique_questions[:100]
+    return unique_questions[:150]
 
 
 def main() -> None:
