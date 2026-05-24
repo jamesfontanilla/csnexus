@@ -101,7 +101,7 @@ export function DesktopLessonLayout({
     keyTakeaways.length > 0;
 
   return (
-    <div className="desktop-lesson-root" style={{ maxWidth: "1400px", margin: "0 auto", padding: "1.5rem 2rem 4rem" }}>
+    <div className="desktop-lesson-root page" style={{ maxWidth: "1400px", margin: "0 auto", padding: "1.5rem 2rem 4rem" }}>
       {/* Top bar */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
         <Link to="/modules" aria-label="Back to modules" className="btn-glass" style={{ padding: "0.3rem 0.6rem", fontSize: "0.75rem" }}>
