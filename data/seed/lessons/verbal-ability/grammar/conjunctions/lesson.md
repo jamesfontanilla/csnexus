@@ -935,3 +935,136 @@ After completing this lesson, you should be able to:
 ✅ Avoid the "double conjunction" error (Although...but)
 ✅ Solve CSE-style conjunction questions quickly and accurately
 ✅ Use the elimination technique to narrow down answer choices
+
+---
+
+## Worked Examples
+
+### Example 1: Choosing Between Coordinating Conjunctions
+
+**Problem:** Choose the correct conjunction.
+"The employee submitted the report on time, ___ it contained several errors."
+
+(a) so (b) for (c) **but** (d) and
+
+**Step-by-step solution:**
+1. Read both clauses: "submitted on time" (positive) vs. "contained errors" (negative)
+2. Determine the relationship: the second clause is UNEXPECTED given the first → contrast
+3. Contrast conjunctions: but, yet
+4. "So" = result ❌, "for" = reason ❌, "and" = addition ❌
+5. **Answer: (c) but**
+
+---
+
+### Example 2: Subordinating Conjunction — Cause vs. Contrast
+
+**Problem:** Choose the correct conjunction.
+"___ the training was mandatory, all employees attended without exception."
+
+(a) Although (b) Unless (c) **Because** (d) While
+
+**Step-by-step solution:**
+1. Read both clauses: "training was mandatory" → "all employees attended"
+2. Does the second clause FOLLOW logically from the first? YES — mandatory status caused attendance
+3. This is a cause-effect relationship → because, since
+4. "Although" = contrast ❌, "Unless" = condition ❌, "While" = time/contrast ❌
+5. **Answer: (c) Because**
+
+---
+
+### Example 3: Correlative Conjunctions and Parallelism
+
+**Problem:** Choose the correct completion.
+"The applicant is not only qualified for the position ___ experienced in project management."
+
+(a) and also (b) **but also** (c) and (d) but
+
+**Step-by-step solution:**
+1. Identify the correlative pair: "not only" requires "but also" as its partner
+2. Check parallelism: "qualified for the position" (adjective phrase) ↔ "experienced in project management" (adjective phrase) ✅
+3. "And also" is not the standard pair ❌, "and" alone ❌, "but" alone ❌
+4. **Answer: (b) but also**
+
+---
+
+### Example 4: Fixing the Double Conjunction Error
+
+**Problem:** Identify the error.
+"Although she studied hard, but she still failed the examination."
+
+**Step-by-step solution:**
+1. "Although" is a subordinating conjunction introducing a dependent clause
+2. "But" is a coordinating conjunction joining two independent clauses
+3. Using BOTH for the same clause pair is the "double conjunction" error
+4. Fix option 1: "Although she studied hard, she still failed the examination." (remove "but")
+5. Fix option 2: "She studied hard, but she still failed the examination." (remove "Although")
+6. **Error: double conjunction — "Although...but" is redundant**
+
+---
+
+### Example 5: Either...Or with Subject-Verb Agreement
+
+**Problem:** Choose the correct verb.
+"Either the department heads or the director ___ the final decision."
+
+(a) make (b) **makes** (c) are making (d) have made
+
+**Step-by-step solution:**
+1. Identify the correlative pair: "either...or"
+2. Apply the proximity rule: verb agrees with the NEARER subject
+3. Nearer subject: "the director" (singular)
+4. Singular subject → singular verb: "makes"
+5. **Answer: (b) makes**
+
+---
+
+### Example 6: Conjunction vs. Transitional Expression
+
+**Problem:** Choose the correct punctuation and connector.
+"The policy was unpopular; ___, it was implemented without changes."
+
+(a) but (b) although (c) **nevertheless** (d) and
+
+**Step-by-step solution:**
+1. A semicolon separates two independent clauses
+2. After a semicolon, you need a transitional expression (not a conjunction)
+3. "But" is a conjunction — needs comma before it, not semicolon ❌
+4. "Although" is a subordinator — creates a dependent clause ❌
+5. "And" is a conjunction ❌
+6. "Nevertheless" is a transitional expression showing contrast ✅
+7. **Answer: (c) nevertheless**
+
+---
+
+### Example 7: Unless vs. If
+
+**Problem:** Choose the correct conjunction.
+"___ you submit the requirements by Friday, your application will be disapproved."
+
+(a) If (b) **Unless** (c) Although (d) Because
+
+**Step-by-step solution:**
+1. The consequence is negative: "application will be disapproved"
+2. Test "unless" = "if not": "If you do NOT submit the requirements by Friday, your application will be disapproved" ✅ — makes sense
+3. Test "if": "If you submit the requirements by Friday, your application will be disapproved" ❌ — opposite meaning
+4. "Although" = contrast ❌, "Because" = cause ❌
+5. **Answer: (b) Unless**
+
+---
+
+## Key Takeaways
+
+- There are only SEVEN coordinating conjunctions (FANBOYS): for, and, nor, but, or, yet, so — memorize them
+- Subordinating conjunctions create dependent clauses and express relationships of cause, contrast, condition, time, and purpose
+- Correlative conjunctions work in fixed pairs (either...or, neither...nor, both...and, not only...but also) and require parallel structure after each part
+- The "double conjunction" error (Although...but, Because...so) is one of the most common CSE traps — use only ONE conjunction per clause pair
+- Comma placement depends on conjunction type: comma BEFORE coordinating conjunctions (between clauses), comma AFTER dependent clauses that start a sentence
+- Transitional expressions (however, therefore, nevertheless) are NOT conjunctions — they use semicolons, not commas alone
+- For either...or and neither...nor, the verb agrees with the NEARER subject (proximity rule)
+- Both...and ALWAYS takes a plural verb
+- To choose the right conjunction, first identify the logical relationship between clauses: addition, contrast, cause-effect, condition, or alternative
+- "Unless" always means "if not" — use this substitution test to verify
+
+## Summary
+
+Conjunctions are the connectors that join words, phrases, and clauses to create complex, meaningful sentences. The CSE tests three types: coordinating (FANBOYS), subordinating (because, although, if, when, unless, etc.), and correlative (either...or, neither...nor, both...and, not only...but also). The most frequently tested areas are logical relationship identification (contrast vs. cause-effect), the double conjunction error, correlative parallelism, and punctuation rules for compound and complex sentences. Master the FANBOYS mnemonic, learn to identify clause relationships before looking at answer choices, and always check for parallelism with correlative pairs. These three habits will handle the vast majority of conjunction questions on the exam.

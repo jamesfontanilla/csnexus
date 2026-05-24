@@ -10,6 +10,9 @@ Creates the full hierarchy:
       Subtopics: subject-verb-agreement, verb-tenses, pronouns, prepositions,
                  conjunctions, modifiers, parallelism, articles,
                  active-and-passive-voice, direct-and-indirect-speech
+    Topic: "Sentence Structure"
+      Subtopics: basic-components-of-a-sentence, clauses,
+                 types-of-sentences-by-purpose, types-of-sentences-by-structure
     Topic: "Vocabulary Development"
       Subtopics: synonyms, antonyms, analogies, context-clues, word-formation,
                  idioms-and-expressions, denotation-and-connotation,
@@ -32,10 +35,14 @@ Creates the full hierarchy:
     Topic: "Ratio, Proportion, and Average"
       Subtopics: introduction-to-ratios, types-of-ratios,
                  direct-and-inverse-proportions, ratio-word-problems,
-                 proportion-word-problems, scale-and-map-problems
+                 proportion-word-problems, scale-and-map-problems,
+                 introduction-to-average, finding-missing-values-in-averages,
+                 average-word-problems, weighted-average
   Module: "Analytical Ability" (per category)
     Topic: "Abstract Reasoning"
-      Subtopics: shape-patterns
+      Subtopics: shape-patterns, figure-series, matrix-reasoning,
+                 number-and-letter-patterns, odd-one-out, odd-one-out-problems,
+                 spatial-relationships
     Topic: "Symbolic Logic"
       Subtopics: logical-statements, logical-operators, truth-and-validity,
                  conditional-reasoning, syllogisms
@@ -108,6 +115,12 @@ VERBAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
         ("active-and-passive-voice", "Active and Passive Voice", 9),
         ("direct-and-indirect-speech", "Direct and Indirect Speech", 10),
     ]),
+    ("sentence-structure", "Sentence Structure", [
+        ("basic-components-of-a-sentence", "Basic Components of a Sentence", 1),
+        ("clauses", "Clauses", 2),
+        ("types-of-sentences-by-purpose", "Types of Sentences by Purpose", 3),
+        ("types-of-sentences-by-structure", "Types of Sentences by Structure", 4),
+    ]),
     ("vocabulary-development", "Vocabulary Development", [
         ("synonyms", "Synonyms", 1),
         ("antonyms", "Antonyms", 2),
@@ -157,12 +170,22 @@ NUMERICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
         ("ratio-word-problems", "Ratio Word Problems", 4),
         ("proportion-word-problems", "Proportion Word Problems", 5),
         ("scale-and-map-problems", "Scale and Map Problems", 6),
+        ("introduction-to-average", "Introduction to Average", 7),
+        ("finding-missing-values-in-averages", "Finding Missing Values in Averages", 8),
+        ("average-word-problems", "Average Word Problems", 9),
+        ("weighted-average", "Weighted Average", 10),
     ]),
 ]
 
 ANALYTICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
     ("abstract-reasoning", "Abstract Reasoning", [
         ("shape-patterns", "Shape Patterns", 1),
+        ("figure-series", "Figure Series", 2),
+        ("matrix-reasoning", "Matrix Reasoning", 3),
+        ("number-and-letter-patterns", "Number and Letter Patterns", 4),
+        ("odd-one-out", "Odd One Out", 5),
+        ("odd-one-out-problems", "Odd One Out Problems", 6),
+        ("spatial-relationships", "Spatial Relationships", 7),
     ]),
     ("symbolic-logic", "Symbolic Logic", [
         ("logical-statements", "Logical Statements", 1),
@@ -185,6 +208,7 @@ ANALYTICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
 # Map topic slugs to their lesson/question directories
 LESSON_DIRS = {
     "grammar-and-correct-usage": SEED_BASE / "lessons" / "verbal-ability" / "grammar",
+    "sentence-structure": SEED_BASE / "lessons" / "verbal-ability" / "sentence-structure",
     "vocabulary-development": SEED_BASE / "lessons" / "verbal-ability" / "vocabulary-development",
     "reading-comprehension": SEED_BASE / "lessons" / "verbal-ability" / "reading-comprehension",
     "basic-operations": SEED_BASE / "lessons" / "numerical-ability" / "basic-operations",
@@ -197,6 +221,7 @@ LESSON_DIRS = {
 
 QUESTION_DIRS = {
     "grammar-and-correct-usage": SEED_BASE / "questions" / "verbal-ability" / "grammar",
+    "sentence-structure": SEED_BASE / "questions" / "verbal-ability" / "sentence-structure",
     "vocabulary-development": SEED_BASE / "questions" / "verbal-ability" / "vocabulary-development",
     "reading-comprehension": SEED_BASE / "questions" / "verbal-ability" / "reading-comprehension",
     "basic-operations": SEED_BASE / "questions" / "numerical-ability" / "basic-operations",
