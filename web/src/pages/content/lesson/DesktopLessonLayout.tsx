@@ -4,7 +4,6 @@ import type { EnhancedLessonContent, LessonSection } from "./types";
 import { BlockRenderer } from "./BlockRenderer";
 import { SidebarTOC } from "./SidebarTOC";
 import { PracticePanel } from "./PracticePanel";
-import { LessonChatPanel } from "./LessonChatPanel";
 import { GlassProgressBar } from "../../../components/GlassProgressBar";
 import { MarkdownText } from "../../../components/MarkdownText";
 
@@ -95,12 +94,6 @@ export function DesktopLessonLayout({
   const examStrategies = Array.isArray(content.exam_strategies) ? content.exam_strategies : [];
   const keyTakeaways = Array.isArray(content.key_takeaways) ? content.key_takeaways : [];
 
-  const hasPracticeContent =
-    practiceProblems.length > 0 ||
-    memoryAids.length > 0 ||
-    examStrategies.length > 0 ||
-    keyTakeaways.length > 0;
-
   return (
     <div className="desktop-lesson-root page" style={{ maxWidth: "1400px", margin: "0 auto", padding: "1.5rem 2rem 4rem" }}>
       {/* Top bar */}
@@ -124,7 +117,7 @@ export function DesktopLessonLayout({
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: hasPracticeContent ? "220px 1fr 280px" : "220px 1fr",
+          gridTemplateColumns: "220px 1fr 280px",
           gap: "2rem",
           marginTop: "1.5rem",
           alignItems: "start",
@@ -229,23 +222,17 @@ export function DesktopLessonLayout({
           </div>
         </main>
 
-        {/* Right: Practice panel */}
-        {hasPracticeContent && (
-          <PracticePanel
-            problems={practiceProblems}
-            memoryAids={memoryAids}
-            examStrategies={examStrategies}
-            keyTakeaways={keyTakeaways}
-          />
-        )}
+        {/* Right: Practice panel + Chat */}
+        <PracticePanel
+          problems={practiceProblems}
+          memoryAids={memoryAids}
+          examStrategies={examStrategies}
+          keyTakeaways={keyTakeaways}
+          subtopicId={subtopicId}
+          activeSectionIndex={activeIndex}
+          lessonTitle={metadata.title}
+        />
       </div>
-
-      {/* Floating chat panel */}
-      <LessonChatPanel
-        subtopicId={subtopicId}
-        activeSectionIndex={activeIndex}
-        lessonTitle={metadata.title}
-      />
     </div>
   );
 }

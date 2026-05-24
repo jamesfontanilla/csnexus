@@ -1,26 +1,41 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import type { PracticeProblem } from "./types";
+import { apiClient } from "../../../api/client";
+import { MarkdownText } from "../../../components/MarkdownText";
 
 interface PracticePanelProps {
   problems: PracticeProblem[];
   memoryAids: string[];
   examStrategies: string[];
   keyTakeaways: string[];
+  subtopicId: string;
+  activeSectionIndex: number;
+  lessonTitle: string;
 }
 
 /**
  * Companion panel for desktop layout.
- * Shows interactive practice problems, memory aids, exam strategies, and key takeaways.
+ * Shows interactive practice problems, memory aids, exam strategies, key takeaways,
+ * and an inline AI study buddy chat.
  */
-export function PracticePanel({ problems, memoryAids, examStrategies, keyTakeaways }: PracticePanelProps) {
-  const [activeTab, setActiveTab] = useState<"practice" | "aids" | "takeaways">(
-    problems.length > 0 ? "practice" : "takeaways"
+export function PracticePanel({
+  problems,
+  memoryAids,
+  examStrategies,
+  keyTakeaways,
+  subtopicId,
+  activeSectionIndex,
+  lessonTitle,
+}: PracticePanelProps) {
+  const [activeTab, setActiveTab] = useState<"practice" | "aids" | "takeaways" | "chat">(
+    problems.length > 0 ? "practice" : "chat"
   );
 
   const tabs = [
     { id: "practice" as const, label: "Practice", count: problems.length, show: problems.length > 0 },
     { id: "aids" as const, label: "Aids & Tips", count: memoryAids.length + examStrategies.length, show: memoryAids.length > 0 || examStrategies.length > 0 },
     { id: "takeaways" as const, label: "Takeaways", count: keyTakeaways.length, show: keyTakeaways.length > 0 },
+    { id: "chat" as const, label: "🤖 Chat", count: 0, show: true },
   ].filter((t) => t.show);
 
   return (
@@ -30,15 +45,36 @@ export function PracticePanel({ problems, memoryAids, examStrategies, keyTakeawa
         position: "sticky",
         top: "5rem",
         maxHeight: "calc(100vh - 6rem)",
-        overflowY: "auto",
+        overflowY: activeTab === "chat" ? "hidden" : "auto",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       {/* Tab bar */}
-      <div style={{ display: "flex", gap: "0.25rem", marginBottom: "0.75rem", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "0.5rem" }}>
+      <div role="tablist" aria-label="Study panel tabs" style={{ display: "flex", gap: "0.25rem", marginBottom: "0.75rem", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "0.5rem", flexShrink: 0, flexWrap: "wrap" }}>
         {tabs.map((tab) => (
           <button
             key={tab.id}
+            role="tab"
+            id={`tab-${tab.id}`}
+            aria-selected={activeTab === tab.id}
+            aria-controls={`tabpanel-${tab.id}`}
+            tabIndex={activeTab === tab.id ? 0 : -1}
             onClick={() => setActiveTab(tab.id)}
+            onKeyDown={(e) => {
+              const visibleTabs = tabs;
+              const currentIdx = visibleTabs.findIndex((t) => t.id === tab.id);
+              let nextIdx = -1;
+              if (e.key === "ArrowRight") nextIdx = (currentIdx + 1) % visibleTabs.length;
+              else if (e.key === "ArrowLeft") nextIdx = (currentIdx - 1 + visibleTabs.length) % visibleTabs.length;
+              else if (e.key === "Home") nextIdx = 0;
+              else if (e.key === "End") nextIdx = visibleTabs.length - 1;
+              if (nextIdx >= 0) {
+                e.preventDefault();
+                setActiveTab(visibleTabs[nextIdx].id);
+                document.getElementById(`tab-${visibleTabs[nextIdx].id}`)?.focus();
+              }
+            }}
             style={{
               padding: "0.3rem 0.6rem",
               fontSize: "0.6875rem",
@@ -61,10 +97,342 @@ export function PracticePanel({ problems, memoryAids, examStrategies, keyTakeawa
       </div>
 
       {/* Tab content */}
-      {activeTab === "practice" && <PracticeProblems problems={problems} />}
-      {activeTab === "aids" && <AidsAndStrategies memoryAids={memoryAids} examStrategies={examStrategies} />}
-      {activeTab === "takeaways" && <TakeawaysList items={keyTakeaways} />}
+      <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`}>
+        {activeTab === "practice" && <PracticeProblems problems={problems} />}
+        {activeTab === "aids" && <AidsAndStrategies memoryAids={memoryAids} examStrategies={examStrategies} />}
+        {activeTab === "takeaways" && <TakeawaysList items={keyTakeaways} />}
+        {activeTab === "chat" && (
+          <InlineLessonChat
+            subtopicId={subtopicId}
+            activeSectionIndex={activeSectionIndex}
+            lessonTitle={lessonTitle}
+          />
+        )}
+      </div>
     </aside>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Inline Lesson Chat — embedded in the right panel
+// ---------------------------------------------------------------------------
+
+interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
+interface LessonChatResponse {
+  interaction_id: number;
+  response_text: string;
+  detected_intent: string;
+}
+
+function InlineLessonChat({
+  subtopicId,
+  activeSectionIndex,
+  lessonTitle,
+}: {
+  subtopicId: string;
+  activeSectionIndex: number;
+  lessonTitle: string;
+}) {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [lastInteractionId, setLastInteractionId] = useState<number | null>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  useEffect(() => {
+    setTimeout(() => inputRef.current?.focus(), 100);
+  }, []);
+
+  async function handleSend() {
+    const trimmed = input.trim();
+    if (!trimmed || loading) return;
+
+    const userMessage: ChatMessage = { role: "user", content: trimmed };
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+    setInput("");
+    setLoading(true);
+
+    try {
+      const history = updatedMessages.slice(-10).map((m) => ({
+        role: m.role,
+        content: m.content,
+      }));
+
+      const data = await apiClient.post<LessonChatResponse>("/v1/tutor/lesson-chat", {
+        subtopic_id: Number(subtopicId),
+        message: trimmed,
+        active_section_index: activeSectionIndex,
+        history: history.slice(0, -1),
+      });
+
+      setMessages((prev) => [...prev, { role: "assistant", content: data.response_text }]);
+      setLastInteractionId(data.interaction_id);
+    } catch {
+      setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, I couldn't process that. Try again!" }]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleSendWithMessage(msg: string) {
+    if (!msg.trim() || loading) return;
+
+    const userMessage: ChatMessage = { role: "user", content: msg };
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+    setInput("");
+    setLoading(true);
+
+    try {
+      const history = updatedMessages.slice(-10).map((m) => ({
+        role: m.role,
+        content: m.content,
+      }));
+
+      const data = await apiClient.post<LessonChatResponse>("/v1/tutor/lesson-chat", {
+        subtopic_id: Number(subtopicId),
+        message: msg,
+        active_section_index: activeSectionIndex,
+        history: history.slice(0, -1),
+      });
+
+      setMessages((prev) => [...prev, { role: "assistant", content: data.response_text }]);
+      setLastInteractionId(data.interaction_id);
+    } catch {
+      setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, I couldn't process that. Try again!" }]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleRate(helpful: boolean) {
+    if (!lastInteractionId) return;
+    try {
+      await apiClient.post(`/v1/tutor/interactions/${lastInteractionId}:rate`, { helpful });
+    } catch {
+      // Silent fail
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }} role="region" aria-label="Study buddy chat">
+      {/* Messages area */}
+      <div
+        role="log"
+        aria-live="polite"
+        aria-label="Chat messages"
+        style={{
+          flex: 1,
+          overflowY: "auto",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.4rem",
+          paddingBottom: "0.5rem",
+          minHeight: 0,
+        }}
+      >
+        {/* Welcome state */}
+        {messages.length === 0 && (
+          <div style={{ textAlign: "center", padding: "0.5rem 0" }}>
+            <div aria-hidden="true" style={{ fontSize: "1.25rem", marginBottom: "0.375rem" }}>📚</div>
+            <p style={{ fontSize: "0.6875rem", color: "var(--color-text)", marginBottom: "0.25rem", fontWeight: 500 }}>
+              Study Buddy
+            </p>
+            <p style={{ fontSize: "0.625rem", color: "var(--color-text-muted)", lineHeight: 1.4, marginBottom: "0.625rem" }}>
+              Ask about {lessonTitle || "this lesson"}
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem", justifyContent: "center" }} role="group" aria-label="Quick actions">
+              {[
+                { label: "📝 Summarize", msg: "Summarize this section", ariaLabel: "Summarize this section" },
+                { label: "🎯 Quiz me", msg: "Quiz me", ariaLabel: "Quiz me on this section" },
+                { label: "💡 Example", msg: "Give me an example", ariaLabel: "Give me an example" },
+                { label: "🧠 Remember", msg: "Help me remember this", ariaLabel: "Help me remember this" },
+                { label: "📋 Exam tips", msg: "How is this tested?", ariaLabel: "How is this tested in the exam" },
+              ].map((chip) => (
+                <button
+                  key={chip.label}
+                  onClick={() => handleSendWithMessage(chip.msg)}
+                  aria-label={chip.ariaLabel}
+                  style={{
+                    padding: "0.2rem 0.4rem",
+                    fontSize: "0.5625rem",
+                    borderRadius: "999px",
+                    border: "1px solid rgba(212, 165, 116, 0.25)",
+                    background: "rgba(212, 165, 116, 0.08)",
+                    color: "var(--color-accent, #d4a574)",
+                    cursor: "pointer",
+                    transition: "background 0.15s",
+                    whiteSpace: "nowrap",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(212, 165, 116, 0.15)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(212, 165, 116, 0.08)"; }}
+                >
+                  {chip.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Message bubbles */}
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            aria-label={msg.role === "user" ? "You said" : "Study buddy said"}
+            style={{
+              alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
+              maxWidth: "90%",
+              padding: "0.375rem 0.5rem",
+              borderRadius: msg.role === "user" ? "8px 8px 2px 8px" : "8px 8px 8px 2px",
+              background: msg.role === "user"
+                ? "rgba(212, 165, 116, 0.15)"
+                : "rgba(255, 255, 255, 0.05)",
+              border: `1px solid ${msg.role === "user" ? "rgba(212, 165, 116, 0.25)" : "rgba(255, 255, 255, 0.08)"}`,
+            }}
+          >
+            <MarkdownText
+              text={msg.content}
+              style={{ fontSize: "0.6875rem", lineHeight: 1.5, color: "var(--color-text)" }}
+            />
+          </div>
+        ))}
+
+        {/* Typing indicator */}
+        {loading && (
+          <div
+            aria-label="Study buddy is typing"
+            role="status"
+            style={{
+              alignSelf: "flex-start",
+              padding: "0.375rem 0.5rem",
+              borderRadius: "8px 8px 8px 2px",
+              background: "rgba(255, 255, 255, 0.05)",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
+              fontSize: "0.6875rem",
+              color: "var(--color-text-muted)",
+            }}
+          >
+            <TypingDots />
+            <span className="sr-only">Study buddy is thinking...</span>
+          </div>
+        )}
+
+        {/* Rating */}
+        {lastInteractionId && messages.length > 0 && messages[messages.length - 1].role === "assistant" && !loading && (
+          <div style={{ display: "flex", gap: "0.25rem", alignSelf: "flex-start" }} role="group" aria-label="Rate this response">
+            <button onClick={() => handleRate(true)} aria-label="Mark response as helpful" style={{ background: "none", border: "none", cursor: "pointer", fontSize: "0.625rem", opacity: 0.5, padding: "0.1rem" }} onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }} onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.5"; }}>👍</button>
+            <button onClick={() => handleRate(false)} aria-label="Mark response as not helpful" style={{ background: "none", border: "none", cursor: "pointer", fontSize: "0.625rem", opacity: 0.5, padding: "0.1rem" }} onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }} onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.5"; }}>👎</button>
+          </div>
+        )}
+
+        <div ref={messagesEndRef} />
+      </div>
+
+      {/* Input area */}
+      <form
+        onSubmit={(e) => { e.preventDefault(); handleSend(); }}
+        style={{
+          display: "flex",
+          gap: "0.375rem",
+          alignItems: "center",
+          paddingTop: "0.5rem",
+          borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+          flexShrink: 0,
+        }}
+        aria-label="Send a message to study buddy"
+      >
+        <label htmlFor="chat-input" className="sr-only">Type your question about this lesson</label>
+        <input
+          id="chat-input"
+          ref={inputRef}
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Ask anything..."
+          disabled={loading}
+          autoComplete="off"
+          style={{
+            flex: 1,
+            padding: "0.375rem 0.5rem",
+            borderRadius: "6px",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            background: "rgba(255, 255, 255, 0.04)",
+            color: "var(--color-text)",
+            fontSize: "0.6875rem",
+            outline: "none",
+            transition: "border-color 0.15s",
+            minWidth: 0,
+          }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(212, 165, 116, 0.4)"; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)"; }}
+        />
+        <button
+          type="submit"
+          disabled={!input.trim() || loading}
+          aria-label="Send message"
+          style={{
+            width: "1.5rem",
+            height: "1.5rem",
+            borderRadius: "6px",
+            border: "none",
+            background: input.trim() && !loading ? "rgba(212, 165, 116, 0.8)" : "rgba(255, 255, 255, 0.08)",
+            cursor: input.trim() && !loading ? "pointer" : "default",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "0.6875rem",
+            color: "var(--color-text)",
+            flexShrink: 0,
+          }}
+        >
+          <span aria-hidden="true">↑</span>
+        </button>
+      </form>
+    </div>
+  );
+}
+
+function TypingDots() {
+  return (
+    <span style={{ display: "inline-flex", gap: "0.15rem", alignItems: "center" }}>
+      {[0, 1, 2].map((i) => (
+        <span
+          key={i}
+          style={{
+            width: "0.3rem",
+            height: "0.3rem",
+            borderRadius: "50%",
+            background: "var(--color-text-muted)",
+            animation: `typingDot 1.2s infinite ${i * 0.2}s`,
+            opacity: 0.4,
+          }}
+        />
+      ))}
+      <style>{`
+        @keyframes typingDot {
+          0%, 60%, 100% { opacity: 0.4; transform: translateY(0); }
+          30% { opacity: 1; transform: translateY(-2px); }
+        }
+      `}</style>
+    </span>
   );
 }
 

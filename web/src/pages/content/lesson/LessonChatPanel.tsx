@@ -186,6 +186,8 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
     <div
       role="dialog"
       aria-label="Study buddy chat"
+      aria-modal="true"
+      onKeyDown={(e) => { if (e.key === "Escape") setIsOpen(false); }}
       style={{
         position: "fixed",
         bottom: "1.5rem",
@@ -247,6 +249,9 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
 
       {/* Messages area */}
       <div
+        role="log"
+        aria-live="polite"
+        aria-label="Chat messages"
         style={{
           flex: 1,
           overflowY: "auto",
@@ -259,7 +264,7 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
         {/* Welcome message if no messages yet */}
         {messages.length === 0 && (
           <div style={{ padding: "1rem 0.5rem", textAlign: "center" }}>
-            <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>📚</div>
+            <div aria-hidden="true" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>📚</div>
             <p style={{ fontSize: "0.8125rem", color: "var(--color-text)", marginBottom: "0.5rem", fontWeight: 500 }}>
               Hi! I'm your study buddy.
             </p>
@@ -267,17 +272,18 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
               Ask me anything about this lesson — I can explain concepts, give examples, quiz you, or share exam tips.
             </p>
             {/* Quick action chips */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem", justifyContent: "center" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem", justifyContent: "center" }} role="group" aria-label="Quick actions">
               {[
-                { label: "📝 Summarize", msg: "Summarize this section" },
-                { label: "🎯 Quiz me", msg: "Quiz me" },
-                { label: "💡 Example", msg: "Give me an example" },
-                { label: "🧠 Memory tips", msg: "Help me remember this" },
-                { label: "📋 Exam tips", msg: "How is this tested in the CSE?" },
+                { label: "📝 Summarize", msg: "Summarize this section", ariaLabel: "Summarize this section" },
+                { label: "🎯 Quiz me", msg: "Quiz me", ariaLabel: "Quiz me on this section" },
+                { label: "💡 Example", msg: "Give me an example", ariaLabel: "Give me an example" },
+                { label: "🧠 Memory tips", msg: "Help me remember this", ariaLabel: "Help me remember this" },
+                { label: "📋 Exam tips", msg: "How is this tested in the CSE?", ariaLabel: "How is this tested in the exam" },
               ].map((chip) => (
                 <button
                   key={chip.label}
                   onClick={() => handleSendWithMessage(chip.msg)}
+                  aria-label={chip.ariaLabel}
                   style={{
                     padding: "0.3rem 0.6rem",
                     fontSize: "0.6875rem",
@@ -311,6 +317,8 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
         {/* Typing indicator */}
         {loading && (
           <div
+            role="status"
+            aria-label="Study buddy is typing"
             style={{
               alignSelf: "flex-start",
               padding: "0.5rem 0.75rem",
@@ -322,15 +330,16 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
             }}
           >
             <TypingDots />
+            <span className="sr-only">Study buddy is thinking...</span>
           </div>
         )}
 
         {/* Rating buttons for last response */}
         {lastInteractionId && messages.length > 0 && messages[messages.length - 1].role === "assistant" && !loading && (
-          <div style={{ display: "flex", gap: "0.375rem", alignSelf: "flex-start", marginTop: "-0.25rem" }}>
+          <div style={{ display: "flex", gap: "0.375rem", alignSelf: "flex-start", marginTop: "-0.25rem" }} role="group" aria-label="Rate this response">
             <button
               onClick={() => handleRate(true)}
-              aria-label="Helpful"
+              aria-label="Mark response as helpful"
               style={{
                 background: "none",
                 border: "none",
@@ -347,7 +356,7 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
             </button>
             <button
               onClick={() => handleRate(false)}
-              aria-label="Not helpful"
+              aria-label="Mark response as not helpful"
               style={{
                 background: "none",
                 border: "none",
@@ -369,7 +378,8 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
       </div>
 
       {/* Input area */}
-      <div
+      <form
+        onSubmit={(e) => { e.preventDefault(); handleSend(); }}
         style={{
           padding: "0.625rem 0.75rem",
           borderTop: "1px solid rgba(255, 255, 255, 0.08)",
@@ -378,16 +388,19 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
           alignItems: "center",
           flexShrink: 0,
         }}
+        aria-label="Send a message to study buddy"
       >
+        <label htmlFor="floating-chat-input" className="sr-only">Type your question about this lesson</label>
         <input
+          id="floating-chat-input"
           ref={inputRef}
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Ask about this lesson..."
-          aria-label="Chat message"
           disabled={loading}
+          autoComplete="off"
           style={{
             flex: 1,
             padding: "0.5rem 0.75rem",
@@ -403,7 +416,7 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
           onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)"; }}
         />
         <button
-          onClick={handleSend}
+          type="submit"
           disabled={!input.trim() || loading}
           aria-label="Send message"
           style={{
@@ -423,9 +436,9 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
             flexShrink: 0,
           }}
         >
-          ↑
+          <span aria-hidden="true">↑</span>
         </button>
-      </div>
+      </form>
     </div>
   );
 }
