@@ -1,6 +1,8 @@
 # Shape Patterns
 
-## Introduction
+## Explanations
+
+### Introduction
 
 Abstract reasoning is the ability to identify patterns, logical rules, and relationships between visual elements without relying on language or prior knowledge. Unlike verbal or numerical reasoning, abstract reasoning tests your capacity to think logically using shapes, symbols, and spatial relationships alone.
 
@@ -25,7 +27,7 @@ Abstract reasoning questions are generated from infinite combinations of shapes 
 - Not checking all answer choices before selecting one
 - Rushing without establishing the rule first
 
-## Learning Objectives
+### Learning Objectives
 
 After this lesson, learners should be able to:
 
@@ -38,7 +40,7 @@ After this lesson, learners should be able to:
 - Distinguish between rotation and reflection when they appear similar
 - Solve CSE-style abstract reasoning questions within time constraints
 
-## 4.1 What Is Abstract Reasoning?
+### 4.1 What Is Abstract Reasoning?
 
 Abstract reasoning is the process of identifying logical relationships between visual elements. In a typical CSE question, you are shown a sequence of figures that follow a hidden rule. Your job is to determine that rule and select the answer choice that continues the pattern.
 
@@ -80,7 +82,7 @@ Abstract reasoning is the process of identifying logical relationships between v
 
 In this sequence, the number of sides increases by one each step: triangle (3) → square (4) → pentagon (5) → ? The answer is a hexagon (6 sides). The rule is simple: add one side per step.
 
-## 4.2 Rotation Patterns
+### 4.2 Rotation Patterns
 
 Rotation means turning a figure around a fixed center point by a specific angle. The shape itself does not change — only its orientation changes. Think of it like turning a steering wheel: the wheel stays the same shape, but its position rotates.
 
@@ -101,7 +103,7 @@ Rotation means turning a figure around a fixed center point by a specific angle.
 3. Determine the angle and direction of movement
 4. Verify the same rotation applies to ALL transitions in the sequence
 
-### Clockwise Rotation (90°)
+#### Clockwise Rotation (90°)
 
 <svg width="360" height="100" viewBox="0 0 360 100">
   <rect x="0" y="0" width="360" height="100" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -122,7 +124,7 @@ Rotation means turning a figure around a fixed center point by a specific angle.
 
 The arrow points Up → Right → Down → Left. Each step is a 90° clockwise rotation. After Left, the cycle repeats back to Up.
 
-### Counterclockwise Rotation (90°)
+#### Counterclockwise Rotation (90°)
 
 <svg width="360" height="100" viewBox="0 0 360 100">
   <rect x="0" y="0" width="360" height="100" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -143,7 +145,7 @@ The arrow points Up → Right → Down → Left. Each step is a 90° clockwise r
 
 Counterclockwise is the opposite direction: Up → Left → Down → Right. Notice this is the reverse of the clockwise sequence.
 
-### 180° Rotation
+#### 180° Rotation
 
 <svg width="280" height="100" viewBox="0 0 280 100">
   <rect x="0" y="0" width="280" height="100" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -158,7 +160,7 @@ Counterclockwise is the opposite direction: Up → Left → Down → Right. Noti
 
 The triangle alternates between pointing up and pointing down. A 180° rotation flips the figure completely — the apex switches from top to bottom.
 
-### Alternating Rotation Patterns
+#### Alternating Rotation Patterns
 
 Some sequences alternate between two rotation amounts. For example:
 
@@ -169,7 +171,7 @@ Some sequences alternate between two rotation amounts. For example:
 
 **CSE Tip:** When the rotation amount seems inconsistent, check if it alternates between two values. This is a common medium-difficulty pattern.
 
-### How to Distinguish Rotation from Other Changes
+#### How to Distinguish Rotation from Other Changes
 
 | If you see... | It is likely... |
 |---------------|-----------------|
@@ -180,7 +182,7 @@ Some sequences alternate between two rotation amounts. For example:
 
 **Critical rule:** In pure rotation, the shape is identical — same size, same internal details, same shading. Only the orientation changes. If anything else changes, you are dealing with a combined pattern.
 
-## 4.3 Reflection Patterns
+### 4.3 Reflection Patterns
 
 Reflection means creating a mirror image of a figure across an axis (a mirror line). Unlike rotation, reflection reverses the figure — left becomes right, or top becomes bottom.
 
@@ -194,7 +196,7 @@ Reflection means creating a mirror image of a figure across an axis (a mirror li
 | Vertical reflection | Vertical axis (up-down) | Left and right swap |
 | Diagonal reflection | 45° diagonal line | Corners swap diagonally |
 
-### Vertical Reflection (Left-Right Mirror)
+#### Vertical Reflection (Left-Right Mirror)
 
 <svg width="280" height="120" viewBox="0 0 280 120">
   <rect x="0" y="0" width="280" height="120" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -211,7 +213,7 @@ Reflection means creating a mirror image of a figure across an axis (a mirror li
 
 Notice how the shape is flipped left-to-right. The dot that was on the left side is now on the right side. The angled corner that pointed left now points right. Everything mirrors across the vertical center line.
 
-### Horizontal Reflection (Top-Bottom Mirror)
+#### Horizontal Reflection (Top-Bottom Mirror)
 
 <svg width="200" height="180" viewBox="0 0 200 180">
   <rect x="0" y="0" width="200" height="180" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -228,7 +230,7 @@ Notice how the shape is flipped left-to-right. The dot that was on the left side
 
 The pentagon is flipped top-to-bottom. The dot that was near the top is now near the bottom. The pointed vertex that faced down now faces up.
 
-### Rotation vs. Reflection — The Critical Difference
+#### Rotation vs. Reflection — The Critical Difference
 
 This is the single most common source of errors on the CSE. Here is how to tell them apart:
 
@@ -264,7 +266,7 @@ This is the single most common source of errors on the CSE. Here is how to tell 
 
 In the rotation example (left), the dot stays on the left side of the triangle relative to its apex. In the reflection example (right), the dot jumps from the left side to the right side. This is the definitive test.
 
-## 4.4 Transformation Patterns
+### 4.4 Transformation Patterns
 
 Transformation is a broader category that includes any systematic change to a figure beyond rotation and reflection. Transformations modify the figure itself — its size, shading, number of elements, or internal structure.
 
@@ -279,7 +281,7 @@ Transformation is a broader category that includes any systematic change to a fi
 | Shape replacement | One shape becomes another | Circle → square → triangle |
 | Position shift | Element moves within frame | Dot moves from corner to corner |
 
-### Shading Progression
+#### Shading Progression
 
 <svg width="320" height="80" viewBox="0 0 320 80">
   <rect x="0" y="0" width="320" height="80" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -300,7 +302,7 @@ Transformation is a broader category that includes any systematic change to a fi
 
 The next figure in this sequence would be a fully filled circle (100%). Shading progresses by a fixed increment each step.
 
-### Element Count Progression
+#### Element Count Progression
 
 <svg width="320" height="80" viewBox="0 0 320 80">
   <rect x="0" y="0" width="320" height="80" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -323,7 +325,7 @@ The next figure in this sequence would be a fully filled circle (100%). Shading 
 
 The pattern is straightforward: 1 dot → 2 dots → 3 dots → 4 dots. The next step would have 5 dots.
 
-### Size Progression
+#### Size Progression
 
 <svg width="320" height="90" viewBox="0 0 320 90">
   <rect x="0" y="0" width="320" height="90" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -336,7 +338,7 @@ The pattern is straightforward: 1 dot → 2 dots → 3 dots → 4 dots. The next
 
 Each square is larger than the previous one. The side length increases by a fixed amount. The next figure would be an even larger square.
 
-### Combined Transformations
+#### Combined Transformations
 
 In harder CSE questions, multiple transformations happen simultaneously. For example, a shape might rotate 90° clockwise AND gain one additional dot at each step. You must track both changes independently.
 
@@ -365,7 +367,7 @@ Two rules are operating simultaneously:
 
 The answer must show an arrow pointing left. The shading pattern would continue its cycle.
 
-## 4.5 Pattern Analysis Techniques
+### 4.5 Pattern Analysis Techniques
 
 When facing an abstract reasoning question, use this systematic approach:
 
@@ -393,7 +395,7 @@ Apply the rule one more time to predict the next figure. Match your prediction a
 
 If your predicted answer matches one choice exactly, select it. If not, eliminate choices that clearly violate the rule.
 
-## 4.6 Common Rotation Relationships
+### 4.6 Common Rotation Relationships
 
 Here are the most frequently tested rotation patterns on the CSE:
 
@@ -443,7 +445,7 @@ Here are the most frequently tested rotation patterns on the CSE:
 
 For 45° rotation questions, there are 8 possible positions before the cycle repeats. These appear in harder CSE questions.
 
-## 4.7 Common Reflection Relationships
+### 4.7 Common Reflection Relationships
 
 **Vertical axis reflection (left-right flip):**
 
@@ -486,7 +488,7 @@ The letter F alternates between its normal form and its mirror image. The patter
 
 **CSE Tip:** Symmetric shapes (circles, squares, equilateral triangles) look the same after reflection. The CSE uses asymmetric shapes or adds markers (dots, notches) to make reflection detectable. Always look for the asymmetric element.
 
-## 4.8 Common Transformation Relationships
+### 4.8 Common Transformation Relationships
 
 **Progressive shading patterns:**
 
@@ -516,7 +518,7 @@ The letter F alternates between its normal form and its mirror image. The patter
 | Alternating shapes | Circle → Square → Circle → Square |
 | Three-shape cycle | Circle → Triangle → Square → Circle |
 
-### Multi-Rule Transformation Example
+#### Multi-Rule Transformation Example
 
 <svg width="360" height="100" viewBox="0 0 360 100">
   <rect x="0" y="0" width="360" height="100" fill="none" stroke="#444" stroke-width="1" rx="4"/>
@@ -544,7 +546,7 @@ Two independent rules operate simultaneously:
 
 The correct answer must satisfy BOTH rules: a hexagon with 4 dots inside.
 
-## 4.9 Practical Applications of Abstract Reasoning
+### 4.9 Practical Applications of Abstract Reasoning
 
 Abstract reasoning is not just an exam skill — it directly maps to workplace competencies valued in the Philippine Civil Service:
 
@@ -560,9 +562,9 @@ Abstract reasoning is not just an exam skill — it directly maps to workplace c
 
 **Quality control:** Detecting anomalies (the "odd one out") in processes, documents, or data — directly tested by odd-one-out abstract reasoning questions.
 
-## 4.10 Step-by-Step Abstract Reasoning Strategies
+### 4.10 Step-by-Step Abstract Reasoning Strategies
 
-### The SCAN Method
+#### The SCAN Method
 
 Use this systematic approach for every abstract reasoning question:
 
@@ -574,7 +576,7 @@ Use this systematic approach for every abstract reasoning question:
 
 **N — Narrow the choices:** Which answer choice matches your prediction? Eliminate those that do not.
 
-### Solving Under Time Pressure
+#### Solving Under Time Pressure
 
 The CSE gives approximately 30-45 seconds per abstract reasoning question. Here is how to use that time:
 
@@ -588,7 +590,7 @@ The CSE gives approximately 30-45 seconds per abstract reasoning question. Here 
 
 If after 30 seconds you cannot identify the rule, eliminate any choices that are clearly wrong (wrong shape, wrong size, wrong orientation) and select from the remaining options. Never spend more than 60 seconds on a single question — the time is better spent on questions you can solve.
 
-### Elimination Strategies
+#### Elimination Strategies
 
 When you cannot determine the exact answer, eliminate choices that violate basic rules:
 
@@ -598,41 +600,41 @@ When you cannot determine the exact answer, eliminate choices that violate basic
 4. **Wrong shading:** If shading progresses from empty to full, eliminate choices that go backward
 5. **Too complex:** If the sequence is simple, eliminate choices that introduce new elements not present in the sequence
 
-## 4.11 Common Errors in Abstract Reasoning
+### 4.11 Common Errors in Abstract Reasoning
 
-### Error 1: Focusing on Only One Element
+#### Error 1: Focusing on Only One Element
 
 Many figures contain multiple elements (an outer shape, inner dots, shading, orientation). Examinees often identify one rule and ignore others.
 
 **Fix:** After identifying one rule, ask yourself: "Is anything else changing?" Check shape, orientation, size, shading, count, and position independently.
 
-### Error 2: Confusing Rotation with Reflection
+#### Error 2: Confusing Rotation with Reflection
 
 A triangle pointing right could be either a 90° clockwise rotation of an upward triangle OR a vertical reflection. The difference matters because it predicts different next steps.
 
 **Fix:** Use the asymmetric marker test. Track a distinctive feature — if it stays on the same relative side, it is rotation. If it swaps sides, it is reflection.
 
-### Error 3: Assuming Linear Progression
+#### Error 3: Assuming Linear Progression
 
 Not all patterns increase linearly. Some alternate (A-B-A-B), some cycle (A-B-C-A-B-C), and some follow non-linear rules (1-2-4-8).
 
 **Fix:** Always check at least three transitions before committing to a rule. Two data points can suggest a linear pattern that is actually cyclic.
 
-### Error 4: Choosing Visually Similar but Logically Wrong Answers
+#### Error 4: Choosing Visually Similar but Logically Wrong Answers
 
 The CSE deliberately includes distractor choices that look similar to the correct answer but violate the rule in a subtle way (e.g., correct rotation angle but wrong shading).
 
 **Fix:** After selecting an answer, verify it satisfies ALL identified rules, not just the most obvious one.
 
-### Error 5: Overthinking Simple Patterns
+#### Error 5: Overthinking Simple Patterns
 
 Some questions have straightforward rules (rotate 90° each step). Examinees sometimes invent complex explanations when the simple one works.
 
 **Fix:** Start with the simplest possible explanation. Only add complexity if the simple rule fails to explain all transitions.
 
-## 4.12 Estimation and Elimination Techniques
+### 4.12 Estimation and Elimination Techniques
 
-### Rapid Elimination Checklist
+#### Rapid Elimination Checklist
 
 When time is short, use this checklist to quickly eliminate wrong answers:
 
@@ -642,7 +644,7 @@ When time is short, use this checklist to quickly eliminate wrong answers:
 - **Element count mismatch:** Does the choice have the correct number of internal elements? If not, eliminate.
 - **Shading mismatch:** Does the choice have the expected fill level? If not, eliminate.
 
-### The "Odd One Out" Strategy
+#### The "Odd One Out" Strategy
 
 For odd-one-out questions (which figure does NOT belong?), flip the approach:
 
@@ -650,9 +652,9 @@ For odd-one-out questions (which figure does NOT belong?), flip the approach:
 2. The figure that violates that rule is the answer
 3. Common shared rules: same rotation direction, same shading pattern, same element count, same shape family
 
-## 4.13 Advanced Visual Pattern Analysis
+### 4.13 Advanced Visual Pattern Analysis
 
-### Multi-Layer Transformations
+#### Multi-Layer Transformations
 
 Advanced CSE questions combine three or more simultaneous rules:
 
@@ -667,7 +669,7 @@ To solve these, analyze each layer independently:
 - Finally, determine the shading rule
 - Combine all three to predict the answer
 
-### Grid-Based Reasoning
+#### Grid-Based Reasoning
 
 Some questions present a 3×3 grid where you must find the missing cell:
 
@@ -695,7 +697,7 @@ Some questions present a 3×3 grid where you must find the missing cell:
 
 The missing cell (bottom-right) must be a fully filled triangle — satisfying both the row rule (full shading) and the column rule (triangle shape).
 
-### Nested Patterns
+#### Nested Patterns
 
 Some figures contain shapes within shapes, where both the outer and inner elements follow independent rules:
 
@@ -714,7 +716,7 @@ Some figures contain shapes within shapes, where both the outer and inner elemen
 
 The outer square rotates 45° each step. The inner shape cycles through circle → square → triangle → circle. The answer must show the outer square rotated 135° with a circle inside.
 
-## Mini Practice Set
+### Mini Practice Set
 
 **1.** An arrow points UP in Step 1, RIGHT in Step 2, DOWN in Step 3. What direction does it point in Step 4?
 
@@ -836,7 +838,7 @@ The outer square rotates 45° each step. The inner shape cycles through circle �
 
 **Explanation:** Hexagon: 3 × 60° = 180° rotation. Star: alternates 5-6-5-6, so after 3 steps from 5-point start = 6-point. Dot: moves 3 vertices clockwise.
 
-## Quick Recap
+### Quick Recap
 
 **Rotation patterns:**
 - Shapes turn around a center point by a fixed angle
@@ -871,7 +873,7 @@ The outer square rotates 45° each step. The inner shape cycles through circle �
 - Overthinking simple patterns
 - Choosing visually similar but logically wrong distractors
 
-## Memory Aids
+### Memory Aids
 
 - **Clockwise memory:** Think of a clock — hands move Right from the top. "ClocK-Right" = Up → Right → Down → Left.
 - **Reflection test:** "Did the dot jump sides? Then it is a mirror." Dots that jump = reflection. Dots that stay = rotation.
@@ -882,7 +884,7 @@ The outer square rotates 45° each step. The inner shape cycles through circle �
 - **Alternation detector:** "Same-different-same-different = alternation." If the pattern flips back and forth, it is a two-state cycle.
 - **Progression detector:** "Getting bigger? Getting more? Getting darker? = progression." Steady increase or decrease in one direction.
 
-## Mastery Checklist
+### Mastery Checklist
 
 Learner can now:
 
@@ -898,3 +900,89 @@ Learner can now:
 ✅ Avoid common errors including rotation-reflection confusion and single-element focus
 ✅ Manage time effectively — solve in 30 seconds or eliminate and move on
 ✅ Solve CSE-style abstract reasoning questions with confidence
+
+---
+
+## Worked Examples
+
+### Example 1: Rotation Pattern
+
+**Problem:** An arrow points UP in Step 1, RIGHT in Step 2, DOWN in Step 3. What direction does it point in Step 4?
+
+**Step-by-step solution:**
+1. Identify the change between steps: UP → RIGHT = 90° clockwise
+2. Verify: RIGHT → DOWN = 90° clockwise ✅ (consistent)
+3. Apply the rule to Step 3: DOWN + 90° clockwise = LEFT
+4. **Answer: LEFT**
+
+---
+
+### Example 2: Reflection Pattern
+
+**Problem:** A triangle with a dot on its LEFT side appears in Step 1. In Step 2, the triangle is the same orientation but the dot is on the RIGHT side. What type of transformation is this?
+
+**Step-by-step solution:**
+1. The triangle orientation is unchanged — so it is not a rotation of the whole figure
+2. The dot moved from LEFT to RIGHT — it "jumped sides"
+3. Apply the asymmetric marker test: dot jumping sides = reflection
+4. The axis of reflection is vertical (left-right mirror)
+5. **Answer: Vertical reflection**
+
+---
+
+### Example 3: Combined Transformation
+
+**Problem:** Step 1 shows a small white circle. Step 2 shows a medium gray circle. Step 3 shows a large black circle. What are the rules?
+
+**Step-by-step solution:**
+1. Track size: small → medium → large = size increases each step
+2. Track shading: white → gray → black = shading darkens each step
+3. Track shape: circle → circle → circle = shape stays constant
+4. Two simultaneous rules: size progression + shading progression
+5. **Answer: Size increases AND shading darkens each step**
+
+---
+
+### Example 4: Grid-Based Reasoning
+
+**Problem:** A 3×3 grid shows: Row 1 has circle, square, triangle. Row 2 has square, triangle, circle. Row 3 has triangle, circle, ?. What fills the missing cell?
+
+**Step-by-step solution:**
+1. Check row rule: each row contains one circle, one square, one triangle
+2. Row 3 has triangle and circle — missing shape is SQUARE
+3. Verify with column rule: Column 3 has triangle, circle, ? — needs square ✅
+4. Both row and column rules confirm the same answer
+5. **Answer: Square**
+
+---
+
+### Example 5: Multi-Rule Elimination
+
+**Problem:** A sequence shows shapes rotating 90° clockwise each step AND gaining one dot inside. Step 3 shows a right-pointing arrow with 3 dots. The answer choices are: (a) down-arrow with 4 dots, (b) down-arrow with 3 dots, (c) left-arrow with 4 dots, (d) up-arrow with 4 dots.
+
+**Step-by-step solution:**
+1. Rotation rule: right + 90° clockwise = DOWN
+2. Eliminate choices that violate rotation: (c) left ❌, (d) up ❌
+3. Dot rule: 3 dots + 1 = 4 dots
+4. Eliminate choices that violate dot count: (b) 3 dots ❌
+5. Only (a) satisfies BOTH rules: down-arrow with 4 dots
+6. **Answer: (a)**
+
+---
+
+## Key Takeaways
+
+- Abstract reasoning tests your ability to identify visual rules without relying on language or prior knowledge
+- The three core pattern types are rotation (turning), reflection (mirroring), and transformation (changing properties)
+- Use the asymmetric marker test to distinguish rotation from reflection: if a distinctive feature stays on the same relative side, it is rotation; if it jumps sides, it is reflection
+- Always check for multiple simultaneous rules — harder questions combine rotation with shading changes, element count changes, or size changes
+- The SCAN method (Scan → Compare → Apply → Narrow) provides a systematic approach for every question
+- For grid-based questions, identify the row rule and column rule independently, then find the answer that satisfies both
+- Eliminate answer choices on the first mismatch: wrong shape, wrong shading, wrong orientation, or wrong count
+- Time management is critical: spend no more than 30–45 seconds per question; if stuck, eliminate and guess
+- Start with the simplest explanation — only add complexity if the simple rule fails to explain all transitions
+- Common traps include rotation-reflection confusion, focusing on only one element, and choosing visually similar but logically wrong distractors
+
+## Summary
+
+Shape patterns form the core of abstract reasoning on the Philippine Civil Service Examination. Questions present sequences of visual figures that follow hidden rules involving rotation, reflection, transformation, or combinations of these. The key to solving them efficiently is a systematic approach: scan the sequence for changes, compare consecutive steps to identify the rule, apply the rule to predict the next figure, and narrow the choices by elimination. The most common errors are confusing rotation with reflection (use the asymmetric marker test), focusing on only one element when multiple rules are active, and overthinking simple patterns. Master the SCAN method, practice rapid elimination, and manage your time — these three habits will handle the vast majority of abstract reasoning questions on exam day.

@@ -833,9 +833,58 @@ When modifiers are in a series:
 
 ---
 
-### Worked Examples
+### Memory Aids
 
-#### Example 1: Dangling Modifier
+#### "Who's Doing It?" Test for Danglers
+
+When a sentence starts with a phrase (especially -ing or -ed), immediately ask: "Who is doing this?" Then check if that person is the subject of the main clause. If not → dangling modifier.
+
+**Memory phrase:** "The opener's doer must be the main clause's subject."
+
+#### The Proximity Rule
+
+**"Closest neighbor gets the modifier."** A modifier attaches to whatever is nearest. If it's next to the wrong word, it modifies the wrong word.
+
+#### "Only" Placement Trick
+
+Move "only" through the sentence — each position changes the meaning:
+- **Only** I submitted the report. (no one else)
+- I **only** submitted the report. (didn't do anything else with it)
+- I submitted **only** the report. (nothing else)
+- I submitted the **only** report. (there was just one)
+
+#### Comparative vs. Superlative Quick Rule
+
+- **Two** things → -er / more (comparative)
+- **Three+** things → -est / most (superlative)
+- **Never double:** ❌ more better, most fastest
+
+#### "Absurdity Check"
+
+If the sentence creates a funny mental image (buildings flying, certificates completing training), there's a modifier error. Trust the absurdity — it's the fastest way to spot the problem.
+
+---
+
+### Mastery Checklist
+
+After completing this lesson, you should be able to:
+
+✅ Define modifiers and explain their role in adding detail to sentences
+✅ Identify adjectives, adverbs, phrases, and clauses functioning as modifiers
+✅ Detect and correct dangling modifiers by ensuring the opener's doer is the main clause subject
+✅ Detect and correct misplaced modifiers by moving them adjacent to the word they modify
+✅ Recognize squinting modifiers and reposition them to eliminate ambiguity
+✅ Place limiting modifiers (only, just, almost, nearly, even) directly before the word they restrict
+✅ Use comparatives for two items and superlatives for three or more without doubling
+✅ Ensure parallel structure when modifiers appear in a series
+✅ Apply the "absurdity check" to quickly identify modifier errors on the CSE
+✅ Solve CSE-style modifier questions using elimination and logical sense strategies
+
+---
+
+## Worked Examples
+
+### Example 1: Dangling Modifier
 
 **Problem:** Choose the correct sentence.
 - (a) Having completed the training program, a certificate was awarded to each participant.
@@ -848,7 +897,9 @@ When modifiers are in a series:
 4. Check (b): Subject is "each participant" — did participants complete training? YES → correct
 5. **Answer: (b)**
 
-#### Example 2: Misplaced Modifier
+---
+
+### Example 2: Misplaced Modifier
 
 **Problem:** Choose the sentence with correct modifier placement.
 - (a) The director approved the proposal for the new building in her office.
@@ -859,7 +910,9 @@ When modifiers are in a series:
 2. In (b): "In her office" clearly modifies where the director approved — unambiguous
 3. **Answer: (b)**
 
-#### Example 3: Limiting Modifier
+---
+
+### Example 3: Limiting Modifier
 
 **Problem:** Choose the sentence that means "She submitted one form and nothing else."
 - (a) She only submitted one form.
@@ -871,6 +924,37 @@ When modifiers are in a series:
 2. (b) "only one form" → the quantity was limited to one
 3. (c) "Only she" → no one else submitted
 4. The meaning "one form and nothing else" = **(b)**
+
+---
+
+### Example 4: Squinting Modifier
+
+**Problem:** Identify and fix the ambiguity.
+"The supervisor who was speaking quickly left the room."
+
+**Step-by-step:**
+1. "Quickly" sits between "speaking" and "left" — it could modify either
+2. Was the supervisor speaking quickly? Or did the supervisor leave quickly?
+3. Fix for "speaking quickly": "The supervisor who was speaking quickly then left the room."
+4. Fix for "left quickly": "The supervisor who was speaking left the room quickly."
+5. **Error: squinting modifier — "quickly" is ambiguous**
+
+---
+
+### Example 5: Comparative vs. Superlative
+
+**Problem:** Choose the correct form.
+"Of the three proposals submitted, the committee found the second one to be the ___."
+
+(a) more practical (b) **most practical** (c) practicaler (d) more practicaler
+
+**Step-by-step:**
+1. "Of the three proposals" — comparing three items
+2. Three or more → superlative (-est / most)
+3. "Practical" is a multi-syllable adjective → use "most" (not -est)
+4. "More practical" = comparative (two items) ❌
+5. "Practicaler" and "more practicaler" are nonstandard ❌
+6. **Answer: (b) most practical**
 
 ---
 

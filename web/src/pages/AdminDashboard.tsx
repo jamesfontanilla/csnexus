@@ -5,6 +5,7 @@ import { useToast } from "../context/ToastContext";
 import { GlassCard } from "../components/GlassCard";
 import { GlassButton } from "../components/GlassButton";
 import { GlassSkeleton } from "../components/GlassSkeleton";
+import { GlassModal } from "../components/GlassModal";
 import { PageTransition } from "../components/PageTransition";
 
 interface Analytics {
@@ -40,6 +41,8 @@ export function AdminDashboard() {
   const [users, setUsers] = useState<UserEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<{ id: number; email: string } | null>(null);
+  const [deleting, setDeleting] = useState(false);
 
   const fetchData = () => {
     setLoading(true);
@@ -58,19 +61,25 @@ export function AdminDashboard() {
   useEffect(() => { fetchData(); }, []);
 
   const handleDeleteUser = async (userId: number, email: string) => {
-    if (!confirm(`Are you sure you want to delete user "${email}"? This cannot be undone.`)) {
-      return;
-    }
+    setDeleteTarget({ id: userId, email });
+  };
+
+  const confirmDelete = async () => {
+    if (!deleteTarget) return;
+    setDeleting(true);
     try {
-      await apiClient.delete(`/v1/admin/users/${userId}`);
-      toast.success(`User "${email}" deleted.`);
-      setUsers((prev) => prev.filter((u) => u.id !== userId));
+      await apiClient.delete(`/v1/admin/users/${deleteTarget.id}`);
+      toast.success(`User "${deleteTarget.email}" deleted.`);
+      setUsers((prev) => prev.filter((u) => u.id !== deleteTarget.id));
       // Refresh analytics to reflect the updated counts
       const updatedAnalytics = await apiClient.get<Analytics>("/v1/admin/analytics");
       setAnalytics(updatedAnalytics);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Delete failed";
       toast.error(msg);
+    } finally {
+      setDeleting(false);
+      setDeleteTarget(null);
     }
   };
 
@@ -249,6 +258,35 @@ export function AdminDashboard() {
         >
           ← Back to Modules
         </Link>
+
+        <GlassModal
+          isOpen={deleteTarget !== null}
+          onClose={() => setDeleteTarget(null)}
+          title="Delete User"
+          size="sm"
+        >
+          <p style={{ color: "var(--color-text-secondary)", margin: "0 0 1.5rem", lineHeight: 1.5 }}>
+            Are you sure you want to delete <strong style={{ color: "var(--color-text)" }}>{deleteTarget?.email}</strong>? This action cannot be undone.
+          </p>
+          <div style={{ display: "flex", gap: "0.75rem", justifyContent: "flex-end" }}>
+            <GlassButton
+              variant="ghost"
+              size="sm"
+              onClick={() => setDeleteTarget(null)}
+              disabled={deleting}
+            >
+              Cancel
+            </GlassButton>
+            <GlassButton
+              variant="danger"
+              size="sm"
+              onClick={confirmDelete}
+              disabled={deleting}
+            >
+              {deleting ? "Deleting…" : "Delete"}
+            </GlassButton>
+          </div>
+        </GlassModal>
       </div>
     </PageTransition>
   );
