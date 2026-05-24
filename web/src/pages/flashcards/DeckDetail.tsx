@@ -243,7 +243,7 @@ export function DeckDetail() {
                 </div>
               </div>
               <div style={{ display: "flex", gap: "0.5rem" }}>
-                <GlassButton variant="primary" onClick={handleStudy}>
+                <GlassButton variant="primary" onClick={handleStudy} disabled={cards.length === 0}>
                   Study This Deck
                 </GlassButton>
                 <GlassButton

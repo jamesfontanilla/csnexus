@@ -10,7 +10,11 @@ from __future__ import annotations
 from fastapi import HTTPException, status
 
 from app.features.content.models import Question, Subtopic
-from app.features.content.repository import QuestionRepository, SubtopicRepository
+from app.features.content.repository import (
+    LessonRepository,
+    QuestionRepository,
+    SubtopicRepository,
+)
 from app.features.tutor.algorithms.explanation_engine import (
     explain_answer,
     generate_hint,
@@ -18,8 +22,10 @@ from app.features.tutor.algorithms.explanation_engine import (
     simplify_concept,
     step_by_step,
 )
+from app.features.tutor.algorithms.lesson_chat_engine import generate_chat_response
 from app.features.tutor.repository import TutorRepository
 from app.features.tutor.schemas import (
+    LessonChatResponse,
     SimilarQuestionResponse,
     StepByStepResponse,
     TutorResponse,
@@ -35,10 +41,12 @@ class TutorService:
         tutor_repo: TutorRepository,
         question_repo: QuestionRepository,
         subtopic_repo: SubtopicRepository,
+        lesson_repo: LessonRepository | None = None,
     ) -> None:
         self._tutor_repo = tutor_repo
         self._question_repo = question_repo
         self._subtopic_repo = subtopic_repo
+        self._lesson_repo = lesson_repo
 
     def _get_question(self, question_id: int) -> Question:
         """Load a question or raise 404."""
@@ -167,3 +175,58 @@ class TutorService:
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="Interaction not found",
             )
+
+    def lesson_chat(
+        self,
+        *,
+        user_id: int,
+        subtopic_id: int,
+        message: str,
+        active_section_index: int | None = None,
+        history: list[dict[str, str]] | None = None,
+    ) -> LessonChatResponse:
+        """Handle a lesson chatbot message.
+
+        Loads the lesson content for the given subtopic, classifies the user's
+        intent, and generates a contextual response using the lesson's own data.
+        """
+        if self._lesson_repo is None:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Lesson chat not configured",
+            )
+
+        lesson = self._lesson_repo.get_by_subtopic_id(subtopic_id)
+        if lesson is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Lesson not found for this subtopic",
+            )
+
+        content_json = lesson.content_json or {}
+
+        response_text, detected_intent = generate_chat_response(
+            content_json=content_json,
+            message=message,
+            active_section_index=active_section_index,
+            history=history,
+        )
+
+        interaction = self._tutor_repo.create_interaction(
+            user_id=user_id,
+            question_id=None,
+            subtopic_id=subtopic_id,
+            interaction_type="lesson_chat",
+            request_context={
+                "message": message,
+                "active_section_index": active_section_index,
+                "detected_intent": detected_intent,
+            },
+            response_text=response_text,
+        )
+
+        return LessonChatResponse(
+            interaction_id=interaction.id,
+            response_text=response_text,
+            detected_intent=detected_intent,
+        )

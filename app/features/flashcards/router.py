@@ -373,7 +373,7 @@ def generate_flashcards_endpoint(
 def get_recommendations(
     user: User = Depends(get_current_user),
     service: FlashcardService = Depends(get_flashcard_service),
-) -> dict:
+) -> list[dict]:
     """Get study recommendations."""
     from app.features.flashcards.algorithms.recommendation import generate_recommendations
 
@@ -388,13 +388,16 @@ def get_recommendations(
         current_streak=0,
         has_any_decks=len(decks) > 0,
     )
-    return {
-        "recommendations": [
-            {"type": r.type, "title": r.title, "description": r.description}
-            for r in result.recommendations
-        ],
-        "recommended_daily_cards": result.recommended_daily_cards,
-    }
+    return [
+        {
+            "id": idx,
+            "deck_id": r.deck_id or 0,
+            "deck_title": r.title,
+            "reason": r.description,
+            "priority": r.priority,
+        }
+        for idx, r in enumerate(result.recommendations, start=1)
+    ]
 
 
 @router.get("/analytics/dashboard")
@@ -425,15 +428,13 @@ def get_retention(
 def get_heatmap(
     user: User = Depends(get_current_user),
     service: FlashcardService = Depends(get_flashcard_service),
-) -> dict:
+) -> list[dict]:
     """Get review heatmap."""
     data = service._repo.get_review_heatmap(user.id)
-    return {
-        "heatmap": [
-            {"date": str(d), "review_count": c, "average_retention": r}
-            for d, c, r in data
-        ]
-    }
+    return [
+        {"date": str(d), "cards_reviewed": c, "retention_rate": r}
+        for d, c, r in data
+    ]
 
 
 @router.post("/exam-simulations", status_code=status.HTTP_201_CREATED)

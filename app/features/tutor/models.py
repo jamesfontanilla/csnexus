@@ -25,7 +25,7 @@ from app.infrastructure.database.base import Base
 
 
 _INTERACTION_TYPE_VALUES = (
-    "('explain_answer', 'simplify', 'similar_question', 'step_by_step', 'hint')"
+    "('explain_answer', 'simplify', 'similar_question', 'step_by_step', 'hint', 'lesson_chat')"
 )
 
 

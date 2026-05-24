@@ -6,8 +6,10 @@ import { GlassSkeleton } from "../../components/GlassSkeleton";
 import { PageTransition } from "../../components/PageTransition";
 import { GlassProgressBar } from "../../components/GlassProgressBar";
 import { MarkdownText } from "../../components/MarkdownText";
+import { XPGainAnimation } from "../../components/XPGainAnimation";
 import { useToast } from "../../context/ToastContext";
 import { DesktopLessonLayout, useIsDesktop } from "./lesson";
+import { LessonChatPanel } from "./lesson";
 import type { EnhancedLessonContent } from "./lesson";
 
 interface LessonExplanation {
@@ -35,6 +37,13 @@ interface LessonResponse {
   subtopic_id: number;
   content_json: LessonContent;
   status: string;
+}
+
+interface LessonCompleteApiResponse {
+  lesson_id: number;
+  user_id: number;
+  completed_at: string;
+  awarded_xp: number;
 }
 
 function isPreambleSection(title: string): boolean {
@@ -65,6 +74,7 @@ export function LessonReader() {
   const [error, setError] = useState<string | null>(null);
   const [completing, setCompleting] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [xpGained, setXpGained] = useState(0);
   const [activeNavIdx, setActiveNavIdx] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -97,9 +107,16 @@ export function LessonReader() {
   async function handleMarkComplete() {
     setCompleting(true);
     try {
-      await apiClient.post(`/v1/subtopics/${subtopicId}/lesson:complete`, {});
+      const res = await apiClient.post<LessonCompleteApiResponse>(
+        `/v1/subtopics/${subtopicId}/lesson:complete`,
+        {}
+      );
       setCompleted(true);
-      toast.success("✅ Lesson marked complete");
+      if (res.awarded_xp > 0) {
+        setXpGained(res.awarded_xp);
+      } else {
+        toast.success("✅ Lesson already completed");
+      }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Failed to mark complete";
       toast.error(msg);
@@ -137,6 +154,7 @@ export function LessonReader() {
   if (isDesktop) {
     return (
       <PageTransition>
+        <XPGainAnimation amount={xpGained} onComplete={() => { setXpGained(0); toast.success("✅ Lesson completed"); }} />
         <DesktopLessonLayout
           content={content as unknown as EnhancedLessonContent}
           subtopicId={subtopicId || ""}
@@ -161,6 +179,7 @@ export function LessonReader() {
 
   return (
     <PageTransition>
+      <XPGainAnimation amount={xpGained} onComplete={() => { setXpGained(0); toast.success("✅ Lesson completed"); }} />
       <div className="page container" style={{ maxWidth: 720, paddingBottom: "5rem" }}>
         {/* Top bar */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem" }}>
@@ -324,6 +343,13 @@ export function LessonReader() {
             </button>
           )}
         </div>
+
+        {/* Floating chat panel */}
+        <LessonChatPanel
+          subtopicId={subtopicId || ""}
+          activeSectionIndex={activeNavIdx}
+          lessonTitle={content.explanations[0]?.title || content.explanations[0]?.heading || ""}
+        />
       </div>
     </PageTransition>
   );

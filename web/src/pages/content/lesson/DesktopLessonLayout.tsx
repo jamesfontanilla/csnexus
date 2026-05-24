@@ -4,6 +4,7 @@ import type { EnhancedLessonContent, LessonSection } from "./types";
 import { BlockRenderer } from "./BlockRenderer";
 import { SidebarTOC } from "./SidebarTOC";
 import { PracticePanel } from "./PracticePanel";
+import { LessonChatPanel } from "./LessonChatPanel";
 import { GlassProgressBar } from "../../../components/GlassProgressBar";
 import { MarkdownText } from "../../../components/MarkdownText";
 
@@ -26,7 +27,7 @@ interface DesktopLessonLayoutProps {
  */
 export function DesktopLessonLayout({
   content,
-  subtopicId: _subtopicId,
+  subtopicId,
   onMarkComplete,
   completing,
   completed,
@@ -238,6 +239,13 @@ export function DesktopLessonLayout({
           />
         )}
       </div>
+
+      {/* Floating chat panel */}
+      <LessonChatPanel
+        subtopicId={subtopicId}
+        activeSectionIndex={activeIndex}
+        lessonTitle={metadata.title}
+      />
     </div>
   );
 }

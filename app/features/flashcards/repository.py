@@ -696,6 +696,16 @@ class FlashcardRepository(BaseRepository[Deck]):
     # Analytics
     # ------------------------------------------------------------------
 
+    def count_user_reviews(self, user_id: int) -> int:
+        """Count total review log entries for a user."""
+        stmt = select(func.count()).where(ReviewLog.user_id == user_id)
+        return self.db.execute(stmt).scalar_one()
+
+    def count_user_sessions(self, user_id: int) -> int:
+        """Count total study sessions for a user."""
+        stmt = select(func.count()).where(StudySession.user_id == user_id)
+        return self.db.execute(stmt).scalar_one()
+
     def get_retention_by_tag(
         self, user_id: int
     ) -> list[tuple[str, float, int]]:

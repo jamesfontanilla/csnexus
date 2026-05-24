@@ -10,9 +10,15 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.common.deps import get_current_user
-from app.features.content.repository import QuestionRepository, SubtopicRepository
+from app.features.content.repository import (
+    LessonRepository,
+    QuestionRepository,
+    SubtopicRepository,
+)
 from app.features.tutor.repository import TutorRepository
 from app.features.tutor.schemas import (
+    LessonChatRequest,
+    LessonChatResponse,
     RateRequest,
     SimilarQuestionResponse,
     StepByStepResponse,
@@ -32,6 +38,7 @@ def _get_tutor_service(db: Session = Depends(get_db)) -> TutorService:
         tutor_repo=TutorRepository(db=db),
         question_repo=QuestionRepository(db=db),
         subtopic_repo=SubtopicRepository(db=db),
+        lesson_repo=LessonRepository(db=db),
     )
 
 
@@ -111,3 +118,25 @@ def rate_interaction(
     """Rate a tutor interaction as helpful or not."""
     service.rate_interaction(interaction_id, payload.helpful)
     return {"status": "ok"}
+
+
+@router.post("/lesson-chat", response_model=LessonChatResponse)
+def lesson_chat(
+    payload: LessonChatRequest,
+    user: User = Depends(get_current_user),
+    service: TutorService = Depends(_get_tutor_service),
+) -> LessonChatResponse:
+    """Chat with the AI study buddy about the current lesson.
+
+    Accepts the user's message along with the subtopic ID and optional
+    active section index. Returns a contextual response generated from
+    the lesson's own content.
+    """
+    history = [{"role": m.role, "content": m.content} for m in payload.history]
+    return service.lesson_chat(
+        user_id=user.id,
+        subtopic_id=payload.subtopic_id,
+        message=payload.message,
+        active_section_index=payload.active_section_index,
+        history=history,
+    )

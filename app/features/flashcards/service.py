@@ -886,10 +886,20 @@ class FlashcardService:
         else:
             total_retention = 0.0
 
-        # Strongest/weakest subjects
+        # Total cards studied & sessions from review logs
+        total_cards_studied = self._repo.count_user_reviews(user.id)
+        total_sessions = self._repo.count_user_sessions(user.id)
+
+        # Strongest/weakest subjects (match frontend SubjectStat shape)
         sorted_tags = sorted(tag_data, key=lambda x: x[1], reverse=True)
-        strongest = [{"tag": t, "mastery": round(r * 100, 1)} for t, r, _ in sorted_tags[:3]]
-        weakest = [{"tag": t, "mastery": round(r * 100, 1)} for t, r, _ in sorted_tags[-3:]]
+        strongest = [
+            {"category": t, "retention_rate": round(r * 100, 1), "cards_studied": c}
+            for t, r, c in sorted_tags[:3]
+        ]
+        weakest = [
+            {"category": t, "retention_rate": round(r * 100, 1), "cards_studied": c}
+            for t, r, c in sorted_tags[-3:]
+        ]
 
         # Predicted exam readiness (weighted average of retention scores)
         # CSE distribution: verbal 40%, numerical 30%, analytical 30%
@@ -897,6 +907,8 @@ class FlashcardService:
 
         return {
             "overall_retention": round(total_retention * 100, 1),
+            "total_cards_studied": total_cards_studied,
+            "total_sessions": total_sessions,
             "strongest_subjects": strongest,
             "weakest_subjects": weakest,
             "predicted_readiness": readiness,
