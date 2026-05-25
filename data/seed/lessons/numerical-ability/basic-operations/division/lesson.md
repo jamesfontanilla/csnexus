@@ -94,6 +94,45 @@ If  7 × 8 = 56,  then  56 ÷ 8 = 7  and  56 ÷ 7 = 8
 
 This relationship is your primary verification tool: **to check a division answer, multiply the quotient by the divisor — you should get the dividend.**
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="400" height="280" role="img" aria-label="Diagram showing multiplication and division as inverse operations">
+  <rect width="400" height="280" fill="#f8f9fa" rx="8"/>
+  <text x="200" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a2e">Multiplication ↔ Division: Inverse Relationship</text>
+  <!-- Factor boxes -->
+  <rect x="30" y="60" width="100" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" rx="6"/>
+  <text x="80" y="82" text-anchor="middle" font-size="12" fill="#1565c0">Factor A</text>
+  <text x="80" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a2e">7</text>
+  <rect x="150" y="60" width="100" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" rx="6"/>
+  <text x="200" y="82" text-anchor="middle" font-size="12" fill="#1565c0">Factor B</text>
+  <text x="200" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a2e">8</text>
+  <rect x="270" y="60" width="100" height="50" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" rx="6"/>
+  <text x="320" y="82" text-anchor="middle" font-size="12" fill="#2e7d32">Product</text>
+  <text x="320" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a2e">56</text>
+  <!-- Multiplication arrow (top) -->
+  <path d="M130 70 L150 70" stroke="#1565c0" stroke-width="2" fill="none"/>
+  <text x="140" y="65" text-anchor="middle" font-size="14" fill="#1565c0">×</text>
+  <path d="M250 70 L270 70" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="260" y="65" text-anchor="middle" font-size="14" fill="#2e7d32">=</text>
+  <!-- Multiplication label -->
+  <text x="200" y="50" text-anchor="middle" font-size="11" fill="#1565c0">MULTIPLICATION: 7 × 8 = 56</text>
+  <!-- Division arrows (bottom) -->
+  <path d="M320 120 Q320 160 200 170" stroke="#c62828" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  <path d="M200 170 L80 170" stroke="#c62828" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+  <text x="200" y="145" text-anchor="middle" font-size="11" fill="#c62828">DIVISION: 56 ÷ 8 = 7</text>
+  <path d="M320 120 Q320 210 200 220" stroke="#e65100" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  <path d="M200 220 L200 220" stroke="#e65100" stroke-width="2" fill="none"/>
+  <text x="200" y="205" text-anchor="middle" font-size="11" fill="#e65100">DIVISION: 56 ÷ 7 = 8</text>
+  <!-- Summary box -->
+  <rect x="40" y="235" width="320" height="35" fill="#fff3e0" stroke="#e65100" stroke-width="1" rx="4"/>
+  <text x="200" y="257" text-anchor="middle" font-size="11" fill="#1a1a2e">If you know any two of the three values, you can find the third.</text>
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#2e7d32"/></marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#c62828"/></marker>
+  </defs>
+</svg>
+
+> 🤔 **Why does this work?** Multiplication and division are inverse operations because division "undoes" multiplication. If you have 7 groups of 8 items (56 total), asking "how many groups of 8 fit in 56?" reverses the grouping process. Algebraically, if a × b = c, then c ÷ b must equal a — otherwise the equation would be inconsistent. This is why multiplying quotient × divisor always recovers the dividend: you're reversing the operation.
+
 #### Important Division Rules
 
 **1. Division by 1** — Any number divided by 1 equals itself: a ÷ 1 = a
@@ -349,6 +388,8 @@ When dividing integers, you must determine both the **magnitude** (absolute valu
 > - **Same signs → Positive result**
 > - **Different signs → Negative result**
 
+> 🤔 **Why does this work?** The sign rules for division follow directly from the sign rules for multiplication because division is defined as the inverse of multiplication. If (−3) × (−4) = +12, then +12 ÷ (−4) must equal −3 and +12 ÷ (−3) must equal −4. The signs must be consistent across both operations — otherwise the inverse relationship would break. Same signs yield positive because two "reversals" cancel out.
+
 #### Examples by Sign Combination
 
 **Positive ÷ Positive = Positive**
@@ -401,6 +442,12 @@ When dividing integers, you must determine both the **magnitude** (absolute valu
 -7 ÷ 0 = undefined (division by zero is always undefined)
 ```
 
+> ⚠️ **Misconception:** "A negative divided by a negative gives a negative result."
+>
+> **Why it fails:** (−48) ÷ (−6) = +8, not −8. If this were negative, then (−6) × (−8) would need to equal −48 — but we know (−6) × (−8) = +48. The signs don't match unless the quotient is positive.
+>
+> **Correct model:** Same signs (both positive or both negative) always produce a positive quotient. Different signs (one positive, one negative) always produce a negative quotient. Think of two negatives as "cancelling each other out."
+
 ---
 
 ### 4.5 Integer Division Strategies
@@ -452,6 +499,13 @@ When dividing a chain of integers:
 ```
 192 ÷ 8 = 192 ÷ 2 ÷ 2 ÷ 2 = 96 ÷ 2 ÷ 2 = 48 ÷ 2 = 24
 ```
+
+### Check Your Understanding
+
+**1.** What sign does −84 ÷ 7 produce? → **Negative** (different signs → negative result)
+**2.** What is (−36) ÷ (−9)? → **+4** (same signs → positive; 36 ÷ 9 = 4)
+**3.** Is 0 ÷ (−12) defined? → **Yes, it equals 0** (zero divided by any non-zero number = 0)
+**4.** How many negative signs make a positive result? → **An even number** (2, 4, 6... negatives → positive)
 
 ---
 
@@ -507,6 +561,8 @@ When the divisor is a decimal, **move the decimal point in both the divisor and 
 
 > 💡 **The Rule:** Moving the decimal point the same number of places in both numbers is equivalent to multiplying both by the same power of 10 — this doesn't change the quotient.
 
+> 🤔 **Why does this work?** When you move the decimal point the same number of places in both the dividend and divisor, you are multiplying both by the same power of 10. Since (a × k) ÷ (b × k) = a ÷ b for any non-zero k, the quotient is unchanged. You're exploiting the identity property of division — multiplying numerator and denominator of a fraction by the same value doesn't change the fraction's value.
+
 **Example:** 7.2 ÷ 0.6
 
 1. Move decimal 1 place right in both: 72 ÷ 6
@@ -561,6 +617,12 @@ Sometimes you need to add zeros to the dividend to continue dividing.
 
 For the CSE, most problems use terminating decimals. If you encounter a repeating decimal, round to the number of decimal places specified in the problem.
 
+> ⚠️ **Misconception:** "Dividing always makes numbers smaller."
+>
+> **Why it fails:** 6 ÷ 0.5 = 12. The result (12) is LARGER than the original number (6). Similarly, 3 ÷ 0.25 = 12. When you divide by a number less than 1, you're asking "how many pieces of size less-than-one fit in this number?" — and the answer is always more than the number itself.
+>
+> **Correct model:** Division makes numbers smaller only when the divisor is greater than 1. When the divisor is between 0 and 1, division makes numbers larger. Think of it this way: dividing by 0.5 is the same as multiplying by 2.
+
 ---
 
 ### 4.7 Decimal Division in Real Life
@@ -609,6 +671,8 @@ The **reciprocal** of a fraction is obtained by flipping the numerator and denom
 - Reciprocal of 7 (= 7/1) is 1/7
 
 > 💡 **Key Fact:** A number multiplied by its reciprocal always equals 1: (3/4) × (4/3) = 12/12 = 1
+
+> 🤔 **Why does this work?** Dividing by a fraction is the same as multiplying by its reciprocal because of how division is defined. The expression a ÷ b means "what number times b gives a?" For fractions: (3/4) ÷ (2/5) asks "what times 2/5 gives 3/4?" The answer is (3/4) × (5/2) because (3/4 × 5/2) × (2/5) = 3/4 × 1 = 3/4. Multiplying by the reciprocal "cancels" the divisor, leaving the dividend.
 
 #### The Keep-Change-Flip Method
 
@@ -691,6 +755,12 @@ Write the whole number as a fraction over 1, then apply KCF.
 3/5 ÷ 6/1 = 3/5 × 1/6 = 3/30 = 1/10
 ```
 
+> ⚠️ **Misconception:** "When dividing fractions, multiply both numerators and both denominators."
+>
+> **Why it fails:** 3/4 ÷ 2/3 done incorrectly as (3×2)/(4×3) = 6/12 = 1/2. But the correct answer is 3/4 × 3/2 = 9/8 = 1 1/8. The wrong method gives 1/2, which is less than 3/4 — but dividing 3/4 by a number less than 1 (2/3 < 1) should give a result LARGER than 3/4.
+>
+> **Correct model:** To divide fractions, Keep the first fraction, Change ÷ to ×, and Flip the second fraction (take its reciprocal). Then multiply across. Never multiply straight across when dividing.
+
 ---
 
 ### 4.9 Fraction Division Strategies
@@ -745,6 +815,13 @@ Before computing, estimate whether the answer should be greater than or less tha
 5 3/8 ÷ 1 3/4 = 43/8 ÷ 7/4 = 43/8 × 4/7 = 172/56 = 43/14 = 3 1/14
 → 3 complete pieces
 ```
+
+### Check Your Understanding
+
+**1.** What is the reciprocal of 5/8? → **8/5** (flip numerator and denominator)
+**2.** In KCF, what do you do to the second fraction? → **Flip it** (take its reciprocal, then multiply)
+**3.** Is 7/8 ÷ 1/4 greater or less than 1? → **Greater than 1** (7/8 > 1/4, so quotient > 1)
+**4.** What is 6 ÷ 1/3? → **18** (6/1 × 3/1 = 18; "how many thirds fit in 6?")
 
 ---
 
@@ -899,6 +976,111 @@ For complex division, multiply each choice by the divisor. The one that produces
 
 ---
 
+### Memory Aids
+
+- **Sign Rules Mnemonic:** "Same Sign Smile (positive), Different Sign Frown (negative)" — same signs give a positive (happy) result; different signs give a negative (sad) result
+- **KCF for Fractions:** "Keep the first, Change to multiply, Flip the second" — say it every time until it's automatic
+- **Decimal Division:** "Move the dot in BOTH" — never move the decimal in just the divisor; always move it the same number of places in the dividend too
+- **Zero Placeholder:** "Does it go in? No? Write ZERO and bring down the next digit" — never skip a position in the quotient
+- **Verification:** "Quotient × Divisor + Remainder = Dividend" — your universal check formula
+- **Dividing by 5:** "Double it, drop a zero" (multiply by 2, divide by 10)
+- **Remainder Check:** "Remainder must be LESS than divisor" — if it's not, your quotient digit is too small
+
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Compute 864 ÷ 12
+
+- Step 1: How many times does 12 go into 86? → 7 times (12 × 7 = 84)
+- Step 2: Subtract: 86 − 84 = 2. Bring down 4 → 24
+- Step 3: How many times does 12 go into 24? → _____ times
+- Step 4: Final answer: _____
+
+**Answer:** 12 goes into 24 exactly 2 times. Final answer: **72**
+
+**2.** Compute (−225) ÷ 15
+
+- Step 1: Determine sign: _____ signs → _____ result
+- Step 2: Divide absolute values: _____ ÷ _____ = _____
+- Step 3: Apply sign: _____
+
+**Answer:** Different signs → negative. 225 ÷ 15 = 15. Result: **−15**
+
+**3.** Compute 5.6 ÷ 0.08
+
+- Step 1: Move decimal _____ places right in both → _____ ÷ _____
+- Step 2: Divide: _____ ÷ _____ = _____
+
+**Answer:** Move 2 places right → 560 ÷ 8 = **70**
+
+**4.** Compute 3/4 ÷ 5/8
+
+- Step 1: Keep _____, Change to _____, Flip to _____
+- Step 2: Multiply: _____ × _____ = _____
+- Step 3: Simplify: _____ = _____
+
+**Answer:** Keep 3/4, Change ÷ to ×, Flip 5/8 to 8/5 → 3/4 × 8/5 = 24/20 = **6/5 = 1 1/5**
+
+**5.** A barangay health center received 1,350 vitamin packs to distribute equally among 9 sitios. How many packs per sitio?
+
+- Step 1: Identify operation: _____ (keyword: "_____")
+- Step 2: Set up: _____ ÷ _____ = _____
+- Step 3: Compute: _____
+
+**Answer:** Operation: division (keyword: "equally among"). 1,350 ÷ 9 = **150 packs per sitio**
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** −72 ÷ 8
+- **Type:** Integer division (different signs)
+- **Answer:** −9
+- **Why:** Negative ÷ positive → negative. 72 ÷ 8 = 9.
+
+**2.** 4.5 ÷ 0.09
+- **Type:** Decimal division (divisor is decimal)
+- **Answer:** 50
+- **Why:** Move decimal 2 places: 450 ÷ 9 = 50.
+
+**3.** 7/12 ÷ 2/3
+- **Type:** Fraction division (KCF method)
+- **Answer:** 7/8
+- **Why:** 7/12 × 3/2 = 21/24 = 7/8.
+
+**4.** 3,024 ÷ 6
+- **Type:** Whole number long division (watch for zero placeholder)
+- **Answer:** 504
+- **Why:** 6 goes into 30 five times, 02 zero times (placeholder!), 24 four times.
+
+**5.** A barangay distributes 450 relief packs equally among 9 sitios.
+- **Type:** Word problem (equal sharing → division)
+- **Answer:** 50 packs per sitio
+- **Why:** "Equally among" signals division. 450 ÷ 9 = 50.
+
+**6.** 2 1/2 ÷ 1 1/4
+- **Type:** Mixed number division (convert to improper, then KCF)
+- **Answer:** 2
+- **Why:** 5/2 ÷ 5/4 = 5/2 × 4/5 = 20/10 = 2.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Divide multi-digit whole numbers using long division (including zero placeholders)
+- [ ] Apply sign rules for integer division correctly
+- [ ] Move decimal points correctly when dividing by a decimal
+- [ ] Use Keep-Change-Flip for fraction and mixed number division
+- [ ] Solve division word problems in Philippine government context
+- [ ] Estimate division results to verify answers quickly
+
 ### Mini Practice Set
 
 **1.** What is 1,296 ÷ 16?
@@ -983,17 +1165,15 @@ For complex division, multiply each choice by the divisor. The one that produces
 
 ---
 
-### Memory Aids
+### Connections
 
-- **Sign Rules Mnemonic:** "Same Sign Smile (positive), Different Sign Frown (negative)" — same signs give a positive (happy) result; different signs give a negative (sad) result
-- **KCF for Fractions:** "Keep the first, Change to multiply, Flip the second" — say it every time until it's automatic
-- **Decimal Division:** "Move the dot in BOTH" — never move the decimal in just the divisor; always move it the same number of places in the dividend too
-- **Zero Placeholder:** "Does it go in? No? Write ZERO and bring down the next digit" — never skip a position in the quotient
-- **Verification:** "Quotient × Divisor + Remainder = Dividend" — your universal check formula
-- **Dividing by 5:** "Double it, drop a zero" (multiply by 2, divide by 10)
-- **Remainder Check:** "Remainder must be LESS than divisor" — if it's not, your quotient digit is too small
+How this topic connects to other areas of the CSE:
 
----
+- **Multiplication:** Division is the inverse of multiplication — every division answer can be verified by multiplying quotient × divisor to recover the dividend, and multiplication fluency directly speeds up long division
+- **Percentages:** Finding "what percent is X of Y" requires dividing X by Y (e.g., 45 out of 180 = 45 ÷ 180 = 0.25 = 25%), making decimal division the core operation in percentage problems
+- **Ratios and Proportions:** Simplifying ratios like 24:36 requires dividing both terms by their GCF (÷12 → 2:3), and solving proportions via cross-multiplication always ends with a division step
+- **Averages:** Computing the mean (sum ÷ count) is a division problem in every case — average salary, average score, average cost all require dividing a total by the number of items
+- **Fractions (Basic Operations):** Converting fractions to decimals requires dividing numerator by denominator (3/8 = 3 ÷ 8 = 0.375), connecting fraction division to decimal division
 
 ### Mastery Checklist
 

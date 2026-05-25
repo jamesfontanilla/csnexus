@@ -1,0 +1,683 @@
+﻿==================================================
+  Enhanced Lesson Validation Report
+==================================================
+
+Total lessons: 74
+Passing: 5
+Failing: 69
+
+FAILURES:
+  data\seed\lessons\analytical-ability\abstract-reasoning\figure-series\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\abstract-reasoning\matrix-reasoning\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\abstract-reasoning\number-and-letter-patterns\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\abstract-reasoning\odd-one-out\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\abstract-reasoning\odd-one-out-problems\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\abstract-reasoning\shape-patterns\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\analytical-ability\abstract-reasoning\spatial-relationships\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\symbolic-logic\conditional-reasoning\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\symbolic-logic\logical-operators\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\symbolic-logic\logical-statements\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\symbolic-logic\syllogisms\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\symbolic-logic\truth-and-validity\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\word-analogy\cause-effect-and-progression-relationships\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\word-analogy\function-and-purpose-relationships\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\word-analogy\language-meaning-and-context-relationships\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\word-analogy\numerical-letter-and-abstract-analogies\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\word-analogy\part-whole-and-classification-relationships\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\word-analogy\symbolic-characteristic-and-location-relationships\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\analytical-ability\word-analogy\synonym-and-antonym-analogies\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\basic-operations\estimation-and-mental-math\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\numerical-ability\basic-operations\exponents-and-roots\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\basic-operations\operations-with-signed-numbers\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\numerical-ability\basic-operations\order-of-operations\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\numerical-ability\basic-operations\word-problems\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\numerical-ability\percentages\basic-percentage-problems\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\percentages\discounts-markups-and-sales\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\percentages\fundamentals-of-percentages\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\percentages\percentage-applications\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\percentages\percentage-increase-and-decrease\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\percentages\percentage-mental-math-and-shortcuts\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\percentages\percentage-word-problems\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\percentages\profit-loss-and-tax\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\average-word-problems\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\direct-and-inverse-proportions\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\finding-missing-values-in-averages\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\introduction-to-average\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\introduction-to-ratios\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\proportion-word-problems\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\ratio-word-problems\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\scale-and-map-problems\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\types-of-ratios\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\numerical-ability\ratio-proportion-and-average\weighted-average\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\grammar\active-and-passive-voice\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 1, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\grammar\articles\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\grammar\conjunctions\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\grammar\direct-and-indirect-speech\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\grammar\modifiers\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\grammar\parallelism\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\grammar\prepositions\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\grammar\pronouns\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\grammar\subject-verb-agreement\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\grammar\verb-tenses\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\reading-comprehension\analytical-comprehension\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\reading-comprehension\authors-purpose-and-tone\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\reading-comprehension\fundamentals-of-reading-comprehension\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\reading-comprehension\organization-of-ideas\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\reading-comprehension\vocabulary-in-context\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\sentence-structure\basic-components-of-a-sentence\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\sentence-structure\clauses\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\sentence-structure\types-of-sentences-by-purpose\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\sentence-structure\types-of-sentences-by-structure\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\vocabulary-development\analogies\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\vocabulary-development\antonyms\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\vocabulary-development\context-clues\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\vocabulary-development\denotation-and-connotation\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\vocabulary-development\formal-and-informal-language\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+  data\seed\lessons\verbal-ability\vocabulary-development\idioms-and-expressions\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\vocabulary-development\synonyms\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+    Γ£ù Missing: Mastery Checklist
+
+  data\seed\lessons\verbal-ability\vocabulary-development\word-formation\lesson.md
+    Γ£ù Missing: Check Your Understanding (found 0, need ΓëÑ1)
+    Γ£ù Missing: Elaborative Interrogation (found 0, need ΓëÑ1)
+    Γ£ù Missing: Misconception Confrontation (found 0, need ΓëÑ2)
+    Γ£ù Missing: Guided Practice
+    Γ£ù Missing: Which Method? / Discrimination Practice
+    Γ£ù Missing: Before You Practice
+    Γ£ù Missing: Connections
+
+SECTION COVERAGE:
+  Check Your Understanding     5/74 (7%)
+  Elaborative Interrogation    5/74 (7%)
+  Misconception Confrontation  7/74 (9%)
+  Guided Practice              5/74 (7%)
+  Which Method?                5/74 (7%)
+  Before You Practice          5/74 (7%)
+  Connections                  5/74 (7%)
+  Mastery Checklist            29/74 (39%)
+

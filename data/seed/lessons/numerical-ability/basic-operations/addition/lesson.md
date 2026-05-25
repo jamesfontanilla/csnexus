@@ -89,6 +89,8 @@ Zero is the **additive identity** — adding it to any number returns that same 
 **4. Closure Property (Sum stays in the same set)**
 Adding two whole numbers always produces a whole number. Adding two integers always produces an integer. The set is "closed" under addition.
 
+> 🤔 **Why does this work?** The commutative and associative properties hold because addition is defined as combining quantities — the total count of objects in two groups doesn't depend on which group you count first (commutative) or how you partition them into sub-groups (associative). These aren't arbitrary rules; they follow directly from what "combining" means physically.
+
 #### Real-Life Applications of Addition
 
 | Context | Example |
@@ -163,6 +165,8 @@ Step-by-step:
 #### Why Regrouping Works
 
 Regrouping is based on the place value system. When you have 13 ones, that equals 1 ten and 3 ones. You "regroup" 10 of the ones into 1 ten and move it to the tens column. This is not a trick — it is a direct consequence of our base-10 number system.
+
+> 🤔 **Why does this work?** Our number system is positional — each column represents a power of 10. When a column accumulates 10 or more units, those 10 units equal exactly 1 unit in the next column (10 ones = 1 ten, 10 tens = 1 hundred). Carrying is simply converting between equivalent representations within the base-10 system.
 
 #### Adding Large Numbers
 
@@ -283,6 +287,20 @@ Word problems test whether you can extract mathematical operations from real-wor
 
 ---
 
+> ⚠️ **Misconception:** "When I carry, I carry the ones digit and write the tens digit."
+>
+> **Why it fails:** In 7 + 8 = 15, if you carry 5 and write 1, the next column gets inflated by 50 instead of 10. Try 47 + 38: ones column gives 15, if you carry 5 you get 4 + 3 + 5 = 12 in the tens, producing 125 instead of the correct 85.
+>
+> **Correct model:** Always carry the tens digit (the left digit of the two-digit sum) and write the ones digit (the right digit). In 7 + 8 = 15, write 5 and carry 1.
+
+### Check Your Understanding
+
+**1.** What is the sum of 678 + 245? → **923** (8+5=13, carry 1; 7+4+1=12, carry 1; 6+2+1=9)
+**2.** In the problem 56 + 87, what do you carry to the tens column? → **1** (6+7=13, write 3, carry 1)
+**3.** What keyword in "The total number of employees in all departments" signals addition? → **"total"** and **"in all"** (both indicate combining quantities)
+
+---
+
 ### 4.4 Addition of Integers
 
 Integers include all positive numbers, negative numbers, and zero: {..., -3, -2, -1, 0, 1, 2, 3, ...}. Integer addition introduces the concept of **sign** — a dimension that whole number addition does not have.
@@ -350,6 +368,14 @@ When one addend is positive and the other is negative:
 (+4) + (-9) = -(9 - 4) = -5     (|-9| > |4|, so result is negative)
 (-15) + (+15) = 0                (equal absolute values cancel out)
 ```
+
+> 🤔 **Why does this work?** When you add numbers with different signs, you're combining a rightward move and a leftward move on the number line. The net displacement is the difference between the two distances, and the direction is determined by whichever move is longer. That's why you subtract the smaller absolute value from the larger and keep the sign of the larger.
+
+> ⚠️ **Misconception:** "Adding two numbers always gives a bigger result."
+>
+> **Why it fails:** (-8) + (+3) = -5. The result (-5) is smaller in magnitude than -8, and it's certainly not "bigger" than 8. Adding a positive to a negative can produce a result smaller than either addend's absolute value.
+>
+> **Correct model:** Addition gives a "bigger" result only when both addends are positive. When signs differ, addition actually reduces the magnitude — you're partially canceling one quantity against another.
 
 #### Number Line Visualization
 
@@ -542,6 +568,19 @@ Adding trailing zeros after the last decimal digit does NOT change the value:
 
 Use this to align columns when addends have different numbers of decimal places.
 
+> ⚠️ **Misconception:** "3.5 + 0.25 = 3.75 is wrong because 5 + 25 = 30, so the answer should be 3.30."
+>
+> **Why it fails:** The digit 5 in 3.5 is in the tenths place (worth 0.5), while 25 in 0.25 represents 2 tenths and 5 hundredths. You cannot treat digits after the decimal as a single number — each has a specific place value. 3.5 + 0.25 means 3.50 + 0.25 = 3.75.
+>
+> **Correct model:** Always align decimal points vertically before adding. Pad with trailing zeros so all numbers have the same number of decimal places. Then add column by column just like whole numbers.
+
+### Check Your Understanding
+
+**1.** What is (-12) + (+7)? → **-5** (different signs: 12-7=5, negative is larger → -5)
+**2.** When adding 4.6 + 0.38, what must you do first? → **Align decimal points** (write as 4.60 + 0.38)
+**3.** What is (-9) + (-6)? → **-15** (same signs: add 9+6=15, keep negative → -15)
+**4.** Is 2.50 the same value as 2.5? → **Yes** (trailing zeros don't change value)
+
 ---
 
 ### 4.7 Decimal Addition in Real Life
@@ -662,6 +701,8 @@ a/d + b/d = (a + b)/d
 #### Adding Fractions with Unlike Denominators
 
 When denominators are different, you must find a **common denominator** before adding. The most efficient choice is the **Least Common Denominator (LCD)** — the smallest number that both denominators divide into evenly.
+
+> 🤔 **Why does this work?** Fractions with different denominators represent pieces of different sizes — you can't directly count them together. Finding the LCD converts both fractions into pieces of the same size, like converting meters and kilometers into the same unit before adding. Once the "units" (denominators) match, you simply count the total pieces (add numerators).
 
 **Step-by-step method:**
 1. Find the LCD of the denominators
@@ -1039,7 +1080,127 @@ a) 4,703  b) 4,803  c) 4,903  d) 5,003
 
 Estimate: 1,800 + 3,000 = 4,800. Check last digit: 7 + 6 = 13, last digit = 3. Only b) 4,803 matches both criteria.
 
+### Quick Recap
+
+| Topic | Key Rule |
+|-------|----------|
+| Whole number addition | Align place values, carry when column sum ≥ 10 |
+| Integer addition (same sign) | Add absolute values, keep the shared sign |
+| Integer addition (different signs) | Subtract smaller from larger absolute value, use sign of larger |
+| Decimal addition | Align decimal points, pad with trailing zeros |
+| Fraction addition (like denominators) | Add numerators, keep denominator |
+| Fraction addition (unlike denominators) | Find LCD, convert, add numerators |
+| Mixed numbers | Add whole parts and fraction parts separately (or convert to improper) |
+| Estimation | Round, then add — use to verify or eliminate choices |
+
+### Memory Aids
+
+- **"Same sign, add and keep"** — when both numbers have the same sign, add their absolute values and keep that sign
+- **"Different sign, subtract and take the sign of the larger"** — when signs differ, subtract and use the sign of the number with the bigger absolute value
+- **"Line up the dots"** — for decimals, always align the decimal points before adding
+- **"Never add the bottom"** — never add denominators; find the LCD instead
+- **"Carry the tens, write the ones"** — in regrouping, the tens digit goes up, the ones digit stays
+- **"Last digit check"** — the last digit of a sum depends only on the last digits of the addends
+
 ---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Compute (-45) + (+72)
+
+- Step 1: Identify signs: different signs → subtract absolute values
+- Step 2: Subtract: 72 - 45 = _____
+- Step 3: Determine sign: |+72| > |-45| → result is _____
+
+**Answer:** 72 - 45 = 27. |+72| is larger → positive. Result: +27
+
+**2.** Compute 14.75 + 8.6
+
+- Step 1: Align decimals: 14.75 + 8.___
+- Step 2: Add hundredths: 5 + 0 = _____
+- Step 3: Add tenths: 7 + 6 = _____ → write _____, carry _____
+- Step 4: Add ones: 4 + 8 + _____ = _____
+- Step 5: Add tens: 1 + 0 = _____
+
+**Answer:** 14.75 + 8.60 = 23.35
+
+**3.** Compute 2/5 + 1/3
+
+- Step 1: Find LCD of 5 and 3 = _____
+- Step 2: Convert: 2/5 = _____/15 and 1/3 = _____/15
+- Step 3: Add numerators: _____ + _____ = _____
+- Step 4: Result: _____/15
+
+**Answer:** LCD = 15. 2/5 = 6/15, 1/3 = 5/15. Sum = 11/15
+
+**4.** A barangay hall received ₱12,450.50 in January and ₱8,975.75 in February donations. Find the total.
+
+- Step 1: Align decimal points: _____
+- Step 2: Add from right to left: _____
+- Step 3: Total: ₱_____
+
+**Answer:** ₱12,450.50 + ₱8,975.75 = ₱21,426.25
+
+**5.** Compute 3¼ + 2⅔
+
+- Step 1: Add whole numbers: _____ + _____ = _____
+- Step 2: Add fractions: LCD of 4 and 3 = _____
+- Step 3: Convert: 1/4 = _____/12, 2/3 = _____/12
+- Step 4: _____ + _____ = _____/12
+- Step 5: Combine: _____
+
+**Answer:** Whole: 3+2=5. Fractions: 1/4=3/12, 2/3=8/12, sum=11/12. Total: 5 11/12
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** (-23) + (-41)
+- **Type:** Integer addition (same signs — both negative)
+- **Answer:** -64
+- **Why:** Same signs → add absolute values: 23+41=64, keep negative → -64.
+
+**2.** 7/9 + 2/3
+- **Type:** Fraction addition (unlike denominators)
+- **Answer:** 13/9 = 1 4/9
+- **Why:** LCD=9. 7/9 + 6/9 = 13/9 = 1 4/9.
+
+**3.** 45.8 + 3.25
+- **Type:** Decimal addition (align decimal points)
+- **Answer:** 49.05
+- **Why:** 45.80 + 3.25 = 49.05. Align, pad with zero, add column by column.
+
+**4.** (+56) + (-89)
+- **Type:** Integer addition (different signs)
+- **Answer:** -33
+- **Why:** Different signs → subtract: 89-56=33. |-89| > |+56| → negative. Result: -33.
+
+**5.** 4,567 + 2,895
+- **Type:** Whole number addition (with regrouping)
+- **Answer:** 7,462
+- **Why:** 7+5=12 carry 1; 6+9+1=16 carry 1; 5+8+1=14 carry 1; 4+2+1=7.
+
+**6.** 1⅝ + 2¾
+- **Type:** Mixed number addition (unlike denominators)
+- **Answer:** 4 3/8
+- **Why:** Whole: 1+2=3. Fractions: LCD=8. 5/8 + 6/8 = 11/8 = 1 3/8. Total: 3+1 3/8 = 4 3/8.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Add multi-digit whole numbers with multiple regroupings
+- [ ] Apply the same-sign rule for integer addition
+- [ ] Apply the different-sign rule for integer addition
+- [ ] Add decimals with proper decimal-point alignment
+- [ ] Find the LCD and add fractions with unlike denominators
+- [ ] Add mixed numbers and simplify the result
 
 ### Mini Practice Set
 
@@ -1150,27 +1311,15 @@ Test your understanding with these 20 problems. Answers and explanations follow.
 
 ---
 
-### Quick Recap
+### Connections
 
-| Topic | Key Rule |
-|-------|----------|
-| Whole number addition | Align place values, carry when column sum ≥ 10 |
-| Integer addition (same sign) | Add absolute values, keep the shared sign |
-| Integer addition (different signs) | Subtract smaller from larger absolute value, use sign of larger |
-| Decimal addition | Align decimal points, pad with trailing zeros |
-| Fraction addition (like denominators) | Add numerators, keep denominator |
-| Fraction addition (unlike denominators) | Find LCD, convert, add numerators |
-| Mixed numbers | Add whole parts and fraction parts separately (or convert to improper) |
-| Estimation | Round, then add — use to verify or eliminate choices |
+How this topic connects to other areas of the CSE:
 
-### Memory Aids
-
-- **"Same sign, add and keep"** — when both numbers have the same sign, add their absolute values and keep that sign
-- **"Different sign, subtract and take the sign of the larger"** — when signs differ, subtract and use the sign of the number with the bigger absolute value
-- **"Line up the dots"** — for decimals, always align the decimal points before adding
-- **"Never add the bottom"** — never add denominators; find the LCD instead
-- **"Carry the tens, write the ones"** — in regrouping, the tens digit goes up, the ones digit stays
-- **"Last digit check"** — the last digit of a sum depends only on the last digits of the addends
+- **Subtraction:** Subtraction is the inverse of addition — every subtraction problem can be rewritten as adding the opposite (a - b = a + (-b)), so integer addition rules directly apply to subtraction
+- **Multiplication:** Multiplication is repeated addition (4 × 3 = 3 + 3 + 3 + 3), so addition fluency is the foundation for multiplication speed
+- **Percentages:** Computing percentage increase requires adding the increase to the original value — decimal addition accuracy is critical for percentage problems
+- **Averages:** Finding the mean requires summing all values first (addition of multiple numbers), then dividing — addition errors propagate into wrong averages
+- **Order of Operations:** Complex expressions require adding terms after handling multiplication/division — regrouping and sign rules apply within larger expressions
 
 ### Mastery Checklist
 

@@ -76,6 +76,8 @@ Use this systematic approach for every word problem:
 
 **Step 5: CHECK** — Does the answer make sense? Is it reasonable given the context?
 
+> 🤔 **Why does this work?** The READ-IDENTIFY-PLAN-COMPUTE-CHECK framework works because word problems fail at predictable stages. Research shows that 60-70% of word problem errors occur at the translation stage (layers 1-2), not computation. By forcing yourself to separate reading from computing, you prevent the most common failure mode: grabbing numbers and guessing an operation before understanding the scenario.
+
 #### Real-Life Applications
 
 | Context | Example Problem |
@@ -108,7 +110,11 @@ The most critical skill in word problems is **translation** — converting Engli
 | more than | "8 more than 5" | 5 + 8 |
 | altogether | "how many altogether?" | add all quantities |
 
-> ⚠️ **Trap:** "8 more than 5" means 5 + 8 = 13, NOT 8 - 5 = 3. The phrase "more than" in this context signals addition, not subtraction.
+> ⚠️ **Misconception:** "The keyword 'more than' always means addition."
+>
+> **Why it fails:** "Maria has 3 times MORE than Juan. If Maria has 45, how many does Juan have?" Here, "more than" describes a multiplicative relationship, not an additive one. The answer is 45 ÷ 3 = 15, not 45 + 3 = 48. Keywords signal possibilities, not certainties.
+>
+> **Correct model:** Keywords narrow down the likely operation, but the relationship between quantities — not the keyword alone — determines the correct operation. Always ask: "What is the mathematical relationship between the known and unknown values?"
 
 #### Subtraction Keywords
 
@@ -125,7 +131,11 @@ The most critical skill in word problems is **translation** — converting Engli
 | change (money) | "change from ₱500" | 500 - cost |
 | how much more | "how much more does A have?" | A - B |
 
-> ⚠️ **Trap:** "5 less than 12" means 12 - 5 = 7, NOT 5 - 12. The number after "less than" comes first in the equation.
+> ⚠️ **Misconception:** "In subtraction word problems, the bigger number always comes first."
+>
+> **Why it fails:** "The temperature dropped from 5°C to -3°C. What is the change?" The computation is -3 - 5 = -8, or equivalently the change is -8°C. In integer contexts, the "first" number in the subtraction can be smaller than the "second." Also, "5 less than 12" means 12 - 5, but "5 less than 3" means 3 - 5 = -2.
+>
+> **Correct model:** In subtraction, the order depends on what the problem asks. "How much more does A have than B?" always means A - B, regardless of which is larger. The result can be negative, which indicates the opposite relationship (B actually has more).
 
 #### Multiplication Keywords
 
@@ -154,6 +164,8 @@ The most critical skill in word problems is **translation** — converting Engli
 | average | "average of 5 scores" | sum ÷ 5 |
 | how many groups | "how many teams of 6?" | total ÷ 6 |
 | ratio | "in the ratio 3:2" | divide proportionally |
+
+> 🤔 **Why does this work?** The keyword "each" can signal EITHER multiplication or division because it describes a per-unit relationship. When you know the unit value and want the total, you multiply (₱35 each × 24 items = total). When you know the total and want the unit value, you divide (₱840 total ÷ 24 items = each). The same English word maps to inverse operations depending on which quantity is unknown. This is why context analysis — not keyword matching — is the reliable strategy.
 
 > 💡 **Key Insight:** The word "each" can signal EITHER multiplication or division depending on context:
 > - "₱35 **each** for 24 items" → multiplication (finding total)
@@ -232,6 +244,8 @@ Ask yourself these questions:
 - Finding per-unit values
 - Determining how many groups fit
 
+> 🤔 **Why does this work?** The four operations correspond to four fundamental relationships between quantities: combining (addition), separating (subtraction), repeating equal groups (multiplication), and partitioning into equal groups (division). Every real-world scenario involving quantities maps to one of these four relationships. By asking "what is the structural relationship?" rather than "what keyword do I see?", you bypass the ambiguity of language and connect directly to the mathematical structure.
+
 #### Why Keywords Alone Fail
 
 Consider: "Maria has 3 times as many books as Juan. If Maria has 45 books, how many does Juan have?"
@@ -255,6 +269,14 @@ The word "times" appears, but the operation needed is division because we're wor
 > - Know groups and size → multiply to find total
 > - Know total and groups → divide to find size
 > - Know total and size → divide to find groups
+
+---
+
+### Check Your Understanding
+
+**1.** "5 less than 12" translates to which expression? → **12 - 5 = 7** (the number after "less than" comes first)
+**2.** The word "each" in "₱840 shared among 6 employees, how much each?" signals which operation? → **Division** (finding per-person share from a total)
+**3.** "A is 3 times B. A = 45. Find B." requires which operation? → **Division** (45 ÷ 3 = 15, working backwards from the product)
 
 ---
 
@@ -390,6 +412,8 @@ Step 2: Monthly allocation = 675,000 ÷ 9 = ₱75,000
 Operations: Subtraction → Division
 ```
 
+> 🤔 **Why does this work?** Multi-step problems chain operations because real-world quantities are connected through intermediate values. You cannot divide the remaining budget until you first compute what remains. Each step produces a value that becomes the input for the next step. This mirrors how government employees actually process financial data: first determine what's available, then allocate it.
+
 #### Three-Step Problems
 
 **Problem 12:** A company has 3 departments. Department A has 25 employees earning ₱18,000 each, Department B has 18 employees earning ₱22,000 each, and Department C has 12 employees earning ₱28,000 each. What is the total monthly payroll?
@@ -488,6 +512,14 @@ When combining gains and losses:
 
 ---
 
+### Check Your Understanding
+
+**1.** A company gained ₱80,000 in Q1 and lost ₱95,000 in Q2. What is the net result? → **-₱15,000 (net loss)** (opposite directions: 95,000 - 80,000 = 15,000, larger is negative)
+**2.** In a two-step problem "earn then deduct," which operation comes first? → **Multiplication** (compute gross pay = rate × days first, then subtract deductions)
+**3.** "A budget of ₱500,000 split among 4 offices, each office splits among 5 units" — how many division steps? → **Two** (500,000 ÷ 4 = 125,000, then 125,000 ÷ 5 = 25,000)
+
+---
+
 ### 4.7 Word Problems with Decimals
 
 Decimal word problems appear in financial contexts (money), measurements, and scientific data. Precision matters — especially with Philippine peso amounts.
@@ -580,6 +612,8 @@ LCD = 24: 21/24 - 14/24 = 7/24 of the full tank
 - "How many portions of size X fit into Y?" → Division (Y ÷ X)
 - "What is the total of fractional parts?" → Addition
 - "What remains after using a fraction?" → Subtraction (1 - fraction used, or whole - part)
+
+> 🤔 **Why does this work?** The word "of" signals multiplication with fractions because "3/4 of 80" means "3/4 groups of 80" — you're scaling 80 down to three-quarters of its value. Mathematically, "of" represents the multiplication operator when connecting a fraction to a whole number. This is consistent: "2 groups of 80" = 2 × 80 = 160, and "3/4 groups of 80" = 3/4 × 80 = 60. The fraction simply makes the "group" smaller than 1 whole.
 
 ---
 
@@ -753,7 +787,7 @@ Setting up the problem correctly but making computation errors. Always verify:
 **Problem:** "A pipe is 2.5 meters long. How many 25-centimeter pieces can be cut?"
 
 **Wrong:** 2.5 ÷ 25 = 0.1 (mixed meters and centimeters)
-**Correct:** 250 cm ÷ 25 cm = 10 pieces (or 2.5 ÷ 0.25 = 10)
+**Correct:** 250 cm ÷ 25 cm = 10 pieces (convert to same unit first)
 
 #### Error 6: Misinterpreting "Remaining" in Multi-Step Problems
 
@@ -808,6 +842,113 @@ Test makers include "trap" choices that result from common errors:
 - The result of a common arithmetic mistake (e.g., forgetting to carry)
 
 If you see your intermediate result as a choice, double-check that you've completed all steps.
+
+---
+
+### Memory Aids
+
+- **RUPC** — Read, Understand, Plan, Compute (the 4-step problem-solving process)
+- **"Total = multiply; Per unit = divide"** — when you know the unit price and quantity, multiply for total; when you know the total and quantity, divide for per-unit
+- **"More than = add; Less than = subtract"** — but watch the ORDER: "5 less than 12" = 12 - 5, not 5 - 12
+- **"Of means multiply"** — especially with fractions: "3/4 of 80" = 3/4 × 80
+- **"Remaining = subtract first, then continue"** — always compute what's left before distributing or dividing
+- **The Reasonableness Test** — if your answer for "daily salary" is more than the monthly salary, you divided wrong
+- **Intermediate ≠ Final** — if your intermediate result appears in the choices, you probably haven't finished all steps
+
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** A government office purchased 48 chairs at ₱1,250 each. What is the total cost?
+
+- Step 1: Identify operation: "48 chairs at ₱1,250 each" → _____ (keyword: "_____")
+- Step 2: Set up equation: _____ × _____ = _____
+- Step 3: Compute: _____
+
+**Answer:** Operation: Multiplication (keyword: "each" with known quantity and unit price). 48 × 1,250 = ₱60,000.
+
+**2.** An employee earns ₱750 per day for 22 working days. After deductions of ₱3,500, what is the net pay?
+
+- Step 1: Identify operations needed: _____ then _____
+- Step 2: Gross pay = _____ × _____ = _____
+- Step 3: Net pay = _____ - _____ = _____
+
+**Answer:** Operations: Multiplication then Subtraction. Gross = 750 × 22 = ₱16,500. Net = 16,500 - 3,500 = ₱13,000.
+
+**3.** A warehouse has 3,600 relief packs distributed equally to 24 barangays. How many packs per barangay?
+
+- Step 1: Identify operation: "distributed equally" → _____
+- Step 2: _____ ÷ _____ = _____
+
+**Answer:** Operation: Division (keyword: "distributed equally"). 3,600 ÷ 24 = 150 packs per barangay.
+
+**4.** A provincial office bought 15 printers at ₱8,500 each and 20 monitors at ₱12,000 each. What is the total expense?
+
+- Step 1: Identify pattern: _____
+- Step 2: Printers cost = _____ × _____ = _____
+- Step 3: Monitors cost = _____ × _____ = _____
+- Step 4: Total = _____ + _____ = _____
+
+**Answer:** Pattern: Buy multiple items (multiply each, then add). Printers = 15 × 8,500 = ₱127,500. Monitors = 20 × 12,000 = ₱240,000. Total = 127,500 + 240,000 = ₱367,500.
+
+**5.** A city collected ₱2,400,000 in taxes. After spending ₱1,650,000 on infrastructure, the remainder is split equally among 5 social programs. How much does each program receive?
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** Remainder = 2,400,000 - 1,650,000 = ₱750,000. Per program = 750,000 ÷ 5 = ₱150,000. Pattern: Distribute remainder (subtract first, then divide).
+
+---
+
+### Which Method?
+
+For each problem, identify the correct operation BEFORE solving.
+
+**1.** A government agency's annual budget is ₱18,600,000. What is the quarterly allocation?
+- **Type:** Division (splitting a total into equal time periods)
+- **Answer:** ₱4,650,000
+- **Why:** "Quarterly" means 4 equal parts. 18,600,000 ÷ 4 = 4,650,000.
+
+**2.** Three regional offices have 145, 198, and 237 employees respectively. What is the total workforce?
+- **Type:** Addition (combining separate quantities into a total)
+- **Answer:** 580 employees
+- **Why:** "Total" of separate groups signals addition. 145 + 198 + 237 = 580.
+
+**3.** A clerk processes 38 applications per hour. How many can she process in a 7.5-hour shift?
+- **Type:** Multiplication (rate × time = total output)
+- **Answer:** 285 applications
+- **Why:** Known rate and known time → multiply to find total. 38 × 7.5 = 285.
+
+**4.** A donation of ₱1,260,000 is split equally among 84 families. How much per family?
+- **Type:** Division (distributing a total equally)
+- **Answer:** ₱15,000
+- **Why:** "Split equally among" signals division. 1,260,000 ÷ 84 = 15,000.
+
+**5.** An employee's gross pay is ₱32,500. Total deductions are ₱5,100. What is the net pay?
+- **Type:** Subtraction (removing deductions from gross)
+- **Answer:** ₱27,400
+- **Why:** "Deductions" means taking away from the total. 32,500 - 5,100 = 27,400.
+
+**6.** A fleet of 8 trucks each carries 125 sacks per trip, making 3 trips daily. How many sacks are delivered daily?
+- **Type:** Multiplication (repeated groups: trucks × sacks × trips)
+- **Answer:** 3,000 sacks
+- **Why:** Three factors multiplied: 8 × 125 × 3 = 3,000. Each factor represents a "group of groups."
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Translate verbal phrases into the correct mathematical operation
+- [ ] Identify whether a problem requires addition, subtraction, multiplication, or division based on context
+- [ ] Solve single-step word problems accurately across all four operations
+- [ ] Break multi-step problems into sequential sub-problems and solve in order
+- [ ] Handle word problems involving decimals (money, measurements) with correct decimal placement
+- [ ] Handle word problems involving fractions (portions, recipes) with correct operation choice
 
 ---
 
@@ -895,30 +1036,15 @@ If you see your intermediate result as a choice, double-check that you've comple
 
 ---
 
-### Quick Recap
+### Connections
 
-- **Word problems** require three skills: comprehension, translation, and computation
-- **Translation** is the hardest part — learn keyword tables but always verify with context
-- **Single-step problems** use one operation; identify it by asking "Am I combining, removing, repeating, or splitting?"
-- **Multi-step problems** require breaking the problem into smaller sub-problems solved sequentially
-- **Estimation** before computing helps eliminate wrong choices and catch errors
-- **Common traps** include using the wrong operation, missing details, and confusing intermediate results with final answers
-- **Context determines the operation** — the same keyword ("each") can signal multiplication or division depending on what's known and unknown
-- **Always check reasonableness** — if the answer doesn't make sense in the real world, re-read the problem
+How this topic connects to other areas of the CSE:
 
----
-
-### Memory Aids
-
-- **RUPC** — Read, Understand, Plan, Compute (the 4-step problem-solving process)
-- **"Total = multiply; Per unit = divide"** — when you know the unit price and quantity, multiply for total; when you know the total and quantity, divide for per-unit
-- **"More than = add; Less than = subtract"** — but watch the ORDER: "5 less than 12" = 12 - 5, not 5 - 12
-- **"Of means multiply"** — especially with fractions: "3/4 of 80" = 3/4 × 80
-- **"Remaining = subtract first, then continue"** — always compute what's left before distributing or dividing
-- **The Reasonableness Test** — if your answer for "daily salary" is more than the monthly salary, you divided wrong
-- **Intermediate ≠ Final** — if your intermediate result appears in the choices, you probably haven't finished all steps
-
----
+- **Percentages:** Percentage word problems are word problems that require converting "X% of Y" into multiplication (0.X × Y) — the translation skill from this lesson is the foundation
+- **Ratio and Proportion:** Ratio word problems require identifying whether to multiply or divide based on direct vs. inverse relationships — the same operation-identification skill taught here
+- **Averages:** Computing averages in word problems requires identifying the sum (addition) and count (division) — a specific multi-step pattern from section 4.5
+- **Estimation and Mental Math:** The estimation strategies from section 4.11 apply to all numerical word problems across the CSE — they are the verification layer for every computation
+- **Operations with Signed Numbers:** Integer word problems (section 4.6) extend directly to signed-number operations — gains/losses, credits/debits use the same translation framework
 
 ### Mastery Checklist
 
@@ -932,3 +1058,61 @@ If you see your intermediate result as a choice, double-check that you've comple
 ✅ Apply estimation to verify answers and eliminate wrong choices
 ✅ Recognize and avoid common word problem traps
 ✅ Solve CSE-style problems under time pressure with confidence
+
+---
+
+## Worked Examples
+
+**Example 1:** A government office has an annual budget of ₱3,600,000 for supplies. In the first quarter, ₱980,000 was spent. The remaining budget is allocated equally across the remaining 9 months. How much can be spent per month?
+
+**Solution:**
+- Step 1: Remaining budget = 3,600,000 - 980,000 = ₱2,620,000
+- Step 2: Monthly allocation = 2,620,000 ÷ 9 = ₱291,111.11
+
+**Answer:** Approximately ₱291,111 per month.
+
+---
+
+**Example 2:** A barangay health center received 1,200 doses of vaccine. On Monday, 245 doses were administered. On Tuesday, 1.5 times Monday's count were administered. How many doses remain?
+
+**Solution:**
+- Step 1: Tuesday's doses = 1.5 × 245 = 367.5 → 367 doses (round down for whole doses)
+- Step 2: Total administered = 245 + 367 = 612 doses
+- Step 3: Remaining = 1,200 - 612 = 588 doses
+
+**Answer:** 588 doses remain.
+
+---
+
+**Example 3:** An employee earns ₱18,500 per month. She spends 1/3 on rent, 1/4 on food, and saves the rest. How much does she save?
+
+**Solution:**
+- Step 1: Rent = 1/3 × 18,500 = ₱6,166.67
+- Step 2: Food = 1/4 × 18,500 = ₱4,625.00
+- Step 3: Total expenses = 6,166.67 + 4,625.00 = ₱10,791.67
+- Step 4: Savings = 18,500 - 10,791.67 = ₱7,708.33
+
+**Alternative method:** Fraction saved = 1 - 1/3 - 1/4 = 12/12 - 4/12 - 3/12 = 5/12
+Savings = 5/12 × 18,500 = ₱7,708.33
+
+**Answer:** ₱7,708.33 in savings.
+
+## Key Takeaways
+
+- Word problems test three skills simultaneously: comprehension, translation, and computation — most errors occur at the translation stage
+- Keywords (sum, difference, product, quotient, each, per, remaining) narrow down the operation but context determines the final choice
+- The same keyword can signal different operations: "each" can mean multiply (finding total) or divide (finding per-unit share)
+- Multi-step problems must be broken into sequential sub-problems — never skip intermediate computations
+- Estimation before solving helps eliminate impossible answer choices and catch place-value errors
+- Always check reasonableness: if the answer doesn't make sense in the real-world context, re-read the problem
+- The READ-IDENTIFY-PLAN-COMPUTE-CHECK framework prevents the most common failure mode: computing before understanding
+
+## Summary
+
+Word problems are the most heavily tested format in the CSE Numerical Ability section because they mirror real government work: reading a document, extracting quantitative information, choosing the correct mathematical operation, and computing accurately under time pressure. The four operations — addition (combining), subtraction (separating/comparing), multiplication (repeated equal groups), and division (partitioning equally) — each correspond to specific real-world relationships between quantities.
+
+Success in word problems depends more on translation skill than computation skill. The systematic approach (Read → Identify → Plan → Compute → Check) prevents the most common error: grabbing numbers and guessing an operation. Keywords provide clues but not certainties — the structural relationship between known and unknown quantities is what determines the correct operation. Multi-step problems chain these relationships, requiring you to compute intermediate values before reaching the final answer.
+
+For the CSE specifically, practice with Philippine government contexts (budgets, payroll, procurement, resource allocation) builds both speed and accuracy. Estimation serves as both a time-saver (eliminating wrong choices) and an error-catcher (verifying your computed answer is reasonable). The combination of careful reading, systematic translation, accurate computation, and reasonableness checking is what produces consistent high scores on word problem items.
+
+---

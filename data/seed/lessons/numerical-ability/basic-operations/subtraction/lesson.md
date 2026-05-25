@@ -106,6 +106,8 @@ a − a = 0
 | Time | Duration = end time − start time |
 | Temperature | Change = final temperature − initial temperature |
 
+> 🤔 **Why does this work?** Subtraction is the inverse of addition because the two operations undo each other — if combining 5 and 3 gives 8, then removing 3 from 8 must return 5. This inverse relationship isn't just a rule to memorize; it's the definition of subtraction itself. That's why "add back to check" always works as a verification strategy.
+
 ---
 
 ### 4.2 Subtraction of Whole Numbers
@@ -178,6 +180,8 @@ Borrowing is based on the place value system. When you borrow 1 from the tens co
     = 600 + 130 + 12   (borrow 1 hundred → tens)
 ```
 
+> 🤔 **Why does this work?** Borrowing exploits the fact that our number system is base-10: each place value is exactly 10 times the one to its right. When you "borrow 1" from the tens column, you're really exchanging 1 group of ten for 10 individual ones. The total value stays identical — you've just rewritten the number in a form that makes subtraction possible without negative digits.
+
 #### Borrowing Across Zeros
 
 This is the most error-prone subtraction scenario. When you need to borrow but the next column is 0, you must borrow from the next non-zero column, cascading through the zeros.
@@ -215,6 +219,12 @@ For 1,000 − 567: subtract each digit from 9, except the last digit which you s
 - **Answer: 433**
 
 This shortcut works for 10 − n, 100 − n, 1000 − n, etc.
+
+> ⚠️ **Misconception:** "When the top digit is smaller, just subtract the smaller from the larger."
+>
+> **Why it fails:** In 43 − 27, this approach gives 7 − 3 = 4 in the ones place and 4 − 2 = 2 in the tens place, yielding 24. But the correct answer is 16. The "smaller from larger" shortcut ignores place value and produces a completely wrong answer.
+>
+> **Correct model:** When the top digit is smaller than the bottom digit in any column, you must borrow (regroup) from the next column to the left. Never reverse the subtraction direction within a column.
 
 #### Subtracting Large Numbers
 
@@ -312,6 +322,12 @@ Step 2: Remaining = 15,000,000 − 12,124,000 = 2,876,000
 
 **Remaining budget: ₱2,876,000**
 
+### Check Your Understanding
+
+**1.** What is 1,000 − 456 using the power-of-10 shortcut? → **544** (9−4=5, 9−5=4, 10−6=4)
+**2.** In the expression 85 − 37, what is the minuend? → **85** (the number you start with — the first number)
+**3.** Is subtraction commutative? → **No** (8 − 3 = 5, but 3 − 8 = −5; order matters)
+
 ---
 
 ### 4.4 Subtraction of Integers
@@ -325,6 +341,8 @@ a − b = a + (−b)
 ```
 
 **To subtract an integer, add its opposite.** This single rule converts every subtraction problem into an addition problem, which you already know how to solve.
+
+> 🤔 **Why does this work?** Subtraction asks "what do I add to b to get a?" By definition, adding the opposite of b (that is, −b) to b gives zero: b + (−b) = 0. So a − b = a + (−b) because you're effectively removing b by adding its cancellation partner. This is why "Keep-Change-Change" works — it's not a trick, it's the definition of subtraction in the integer system.
 
 **Examples:**
 ```
@@ -412,6 +430,12 @@ Convert: −2 + 6. Start at −2, move 6 units right.
 ```
 **Result: 4**
 
+> ⚠️ **Misconception:** "Subtracting a negative makes the answer more negative."
+>
+> **Why it fails:** Consider 5 − (−3). If subtracting a negative made things "more negative," the answer would be less than 5. But 5 − (−3) = 5 + 3 = 8, which is *larger* than 5. Removing a debt (negative) is the same as gaining — it moves you to the right on the number line, not left.
+>
+> **Correct model:** Subtracting a negative is equivalent to adding a positive. The two negative signs cancel: a − (−b) = a + b. The result is always *larger* than the starting number (when b > 0).
+
 ---
 
 ### 4.5 Integer Subtraction Strategies
@@ -498,6 +522,12 @@ On the CSE, quickly determine the sign of the answer to eliminate choices:
 | Financial loss vs gain | This year: −₱20,000 loss. Last year: +₱15,000 profit. Change = −20,000 − 15,000 = −₱35,000 |
 | Time zones | Manila (+8) vs New York (−5): difference = 8 − (−5) = 13 hours |
 
+### Check Your Understanding
+
+**1.** What is (−9) − (−4) using KCC? → **−5** (Keep −9, Change to +, Change −4 to +4: −9 + 4 = −5)
+**2.** Is the result of (+6) − (−10) positive or negative? → **Positive** (subtracting a negative adds: 6 + 10 = 16)
+**3.** What is the sign of (−3) − (+5)? → **Negative** (negative minus positive is always more negative: −3 + (−5) = −8)
+
 ---
 
 ### 4.6 Subtraction of Decimals
@@ -529,6 +559,8 @@ WRONG:          CORRECT:
 ```
 
 The alignment matters most when decimal places differ significantly.
+
+> 🤔 **Why does this work?** Decimal points mark the boundary between whole units and fractional parts. Aligning them ensures you subtract tenths from tenths, hundredths from hundredths, and so on — matching place values. Without alignment, you'd be subtracting quantities of different sizes (like subtracting centimeters from meters), which produces nonsense.
 
 #### Step-by-Step Method
 
@@ -702,6 +734,12 @@ a/d − b/d = (a − b)/d
 
 **Critical reminder:** NEVER subtract the denominators. The denominator tells you the size of the parts — it stays the same.
 
+> ⚠️ **Misconception:** "When subtracting fractions, subtract both the numerators and the denominators."
+>
+> **Why it fails:** If you compute 5/8 − 3/8 as (5−3)/(8−8) = 2/0, you get division by zero — undefined. Even in cases that don't produce zero, like 7/9 − 2/3 done as (7−2)/(9−3) = 5/6, the answer is wrong (correct: 7/9 − 6/9 = 1/9). The denominator represents the size of each piece, not a quantity being removed.
+>
+> **Correct model:** The denominator stays fixed — it tells you what kind of parts you're working with (eighths, ninths, etc.). Only the numerator changes because it counts how many of those equal-sized parts you have. Subtract numerators only, after ensuring denominators match.
+
 #### Subtracting Fractions with Unlike Denominators
 
 When denominators are different, find the **Least Common Denominator (LCD)** first.
@@ -824,6 +862,12 @@ Always reduce your answer to lowest terms:
 4/6 → GCD(4,6) = 2 → 2/3
 9/12 → GCD(9,12) = 3 → 3/4
 ```
+
+### Check Your Understanding
+
+**1.** What is 10.00 − 3.75? → **6.25** (align decimals, borrow as needed: 10−0=0, 9−7=2... use power-of-10 style)
+**2.** What is the LCD of 4 and 6? → **12** (not 24; multiples of 6: 6, 12; multiples of 4: 4, 8, 12 — first common is 12)
+**3.** In 5/8 − 3/8, do you subtract the denominators? → **No** (subtract numerators only: (5−3)/8 = 2/8 = 1/4)
 
 ---
 
@@ -1285,6 +1329,114 @@ Test your understanding with these 20 problems. Answers and explanations follow.
 **Verification Trick:** "Difference + subtrahend = minuend" — always check by adding back.
 
 ---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Compute 5,000 − 2,347
+
+- Step 1: Borrow across zeros — 5,000 becomes 4 thousands + 9 hundreds + 9 tens + 10 ones
+- Step 2: Ones: 10 − 7 = _____, Tens: 9 − 4 = _____, Hundreds: 9 − 3 = _____, Thousands: 4 − 2 = _____
+- Step 3: Combine: _____
+
+**Answer:** Ones: 10−7=3, Tens: 9−4=5, Hundreds: 9−3=6, Thousands: 4−2=2. **Result: 2,653**
+
+**2.** Compute (−14) − (+9)
+
+- Step 1: Apply KCC — Keep _____, Change _____ to _____, Change _____ to _____
+- Step 2: Now solve the addition: _____ + _____ = _____
+- Step 3: Same signs (both negative), so add absolute values: _____ + _____ = _____, keep _____ sign
+
+**Answer:** Keep −14, Change − to +, Change +9 to −9 → (−14) + (−9). Same signs: 14 + 9 = 23, keep negative. **Result: −23**
+
+**3.** Compute 15.00 − 8.67
+
+- Step 1: Align decimal points: 15.00 − 8.67
+- Step 2: Hundredths: 0 < 7, borrow from tenths. Tenths becomes _____. Hundredths becomes _____. Compute: _____ − 7 = _____
+- Step 3: Tenths: _____ − 6 = _____
+- Step 4: Ones: _____ − 8 = _____
+
+**Answer:** Hundredths: 10−7=3. Tenths: 9−6=3. Ones: 14−8=6. **Result: 6.33**
+
+**4.** Compute 7⅓ − 2¾
+
+- Step 1: Find LCD of 3 and 4: _____
+- Step 2: Convert fractions: 1/3 = _____/12, 3/4 = _____/12
+- Step 3: Compare: 4/12 _____ 9/12, so borrow 1 from whole number
+- Step 4: 7 4/12 becomes _____ _____/12
+- Step 5: Subtract: whole numbers _____ − _____ = _____, fractions _____/12 − _____/12 = _____/12
+
+**Answer:** LCD=12. 1/3=4/12, 3/4=9/12. Since 4/12 < 9/12, borrow: 6 16/12 − 2 9/12 = 4 7/12. **Result: 4 7/12**
+
+**5.** A barangay treasurer has ₱125,000.00 in the general fund. After disbursing ₱47,856.50 for infrastructure, what remains?
+
+- Step 1: Identify operation: _____ (keyword: "_____")
+- Step 2: Set up: _____ − _____ = _____
+- Step 3: Compute: _____
+
+**Answer:** Operation: subtraction (keyword: "remains"). 125,000.00 − 47,856.50 = 77,143.50. **Remaining: ₱77,143.50**
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** 8,003 − 4,567
+- **Type:** Whole number subtraction (borrowing across zeros)
+- **Answer:** 3,436
+- **Why:** Cascade borrow through the two zeros. Verify: 3,436 + 4,567 = 8,003 ✓
+
+**2.** (−25) − (−40)
+- **Type:** Integer subtraction (KCC: subtract negative → add positive)
+- **Answer:** 15
+- **Why:** KCC → (−25) + (+40). Different signs: 40 − 25 = 15, positive wins.
+
+**3.** 50.00 − 23.85
+- **Type:** Decimal subtraction (align points, borrow)
+- **Answer:** 26.15
+- **Why:** Align decimals. 50.00 − 23.85 with borrowing = 26.15.
+
+**4.** 5/6 − 3/10
+- **Type:** Fraction subtraction (unlike denominators — find LCD)
+- **Answer:** 16/30 = 8/15
+- **Why:** LCD of 6 and 10 = 30. 25/30 − 9/30 = 16/30 = 8/15.
+
+**5.** 9¼ − 5⅝
+- **Type:** Mixed number subtraction (borrowing from whole number)
+- **Answer:** 3 5/8
+- **Why:** LCD=8. 9 2/8 − 5 5/8. Borrow: 8 10/8 − 5 5/8 = 3 5/8.
+
+**6.** A government office had ₱200,000 allocated. They spent ₱134,567.89. What remains?
+- **Type:** Decimal subtraction (money/word problem)
+- **Answer:** ₱65,432.11
+- **Why:** "What remains" signals subtraction. 200,000.00 − 134,567.89 = 65,432.11.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Subtract multi-digit whole numbers with borrowing across zeros
+- [ ] Apply Keep-Change-Change for integer subtraction correctly
+- [ ] Determine the sign of integer subtraction results quickly
+- [ ] Subtract decimals with proper decimal point alignment
+- [ ] Subtract fractions with unlike denominators using the LCD
+- [ ] Handle mixed number subtraction including borrowing from the whole number
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Addition:** Subtraction is the inverse of addition — every subtraction can be checked by adding the difference to the subtrahend, and integer subtraction (KCC) converts directly to addition
+- **Multiplication:** Multi-step subtraction problems often require multiplication first (e.g., computing total deductions = rate × months before subtracting from gross pay)
+- **Division:** Finding remainders in division involves subtraction at each step of long division — borrowing skills transfer directly
+- **Percentages:** Computing percentage decrease requires subtracting the decrease from the original value — decimal subtraction accuracy is critical
+- **Averages:** Finding how far a value deviates from the mean requires subtraction (deviation = value − mean), which connects to data interpretation problems
 
 ### Mastery Checklist
 

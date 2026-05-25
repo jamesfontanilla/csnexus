@@ -77,6 +77,13 @@ Real Numbers
 
 This hierarchy means: every natural number is also a whole number, an integer, a rational number, and a real number. But not every real number is rational, and not every integer is a natural number.
 
+> 🤔 **Why does this work?** The number system is hierarchical because each
+> larger set is defined by *relaxing one restriction* of the smaller set.
+> Natural numbers allow only counting; add zero and you get whole numbers;
+> allow negatives and you get integers; allow ratios and you get rationals.
+> Each expansion preserves all previous properties while enabling new operations
+> (e.g., subtraction becomes closed once negatives are included).
+
 ---
 
 ### 4.2 Types of Numbers
@@ -247,6 +254,17 @@ This hierarchy means: every natural number is also a whole number, an integer, a
 
 **Relationship:** Every natural number greater than 1 is either prime or composite. There is no third category.
 
+> ⚠️ **Misconception:** "1 is a prime number because it is only divisible by 1 and itself."
+>
+> **Why it fails:** The definition of prime requires *exactly two distinct factors*.
+> The number 1 has only ONE factor (itself). If 1 were prime, the Fundamental
+> Theorem of Arithmetic would break — prime factorizations would no longer be unique
+> (e.g., 12 = 2×2×3 = 1×2×2×3 = 1×1×2×2×3...).
+>
+> **Correct model:** A prime number must have exactly two distinct positive divisors:
+> 1 and itself. Since 1 has only one divisor, it is neither prime nor composite —
+> it is a special unit.
+
 ---
 
 ### 4.3 Relationships Between Number Sets
@@ -296,6 +314,13 @@ Understanding how number sets nest inside each other prevents classification err
 └─────────────────────────────────────────────────────┘
 ```
 
+### Check Your Understanding
+
+**1.** Is every integer a rational number? → **Yes** (any integer n can be written as n/1)
+**2.** Is 0 a natural number? → **No** (natural numbers start at 1; 0 is a whole number only)
+**3.** Is √25 rational or irrational? → **Rational** (√25 = 5, a perfect square root)
+**4.** What is the only even prime number? → **2** (all other even numbers are divisible by 2 and another number)
+
 ---
 
 ### 4.4 Place Value
@@ -311,6 +336,12 @@ In the number **5,382**:
 - The digit 2 is in the **ones** place → its value is 2
 
 The SAME digit has DIFFERENT values depending on where it sits. The digit 5 in 500 is worth 500, but the digit 5 in 50 is worth only 50.
+
+> 🤔 **Why does this work?** Our number system is base-10 (decimal), meaning
+> each position represents a power of 10. Moving one place left multiplies the
+> value by 10; moving one place right divides by 10. This is why the digit 3
+> in position 4 (thousands) equals 3 × 10³ = 3,000. The positional system lets
+> us represent infinitely many numbers using only 10 symbols (0–9).
 
 #### Place Value Chart (Whole Numbers)
 
@@ -457,6 +488,16 @@ Comparing numbers means determining which is greater, which is lesser, or whethe
 
 **Common mistake:** Students think -10 > -3 because 10 > 3. This is WRONG.
 
+> ⚠️ **Misconception:** "-10 is greater than -3 because 10 is bigger than 3."
+>
+> **Why it fails:** On the number line, -10 is farther LEFT than -3. Consider
+> temperature: -10°C is colder than -3°C. Or debt: owing ₱10,000 is worse than
+> owing ₱3,000. In both cases, -10 < -3.
+>
+> **Correct model:** For negative numbers, the one with the SMALLER absolute value
+> is greater. -3 is closer to zero than -10, so -3 > -10. Think: "closer to zero
+> means greater" for all negative numbers.
+
 **Visual:** On a number line:
 ```
 ←——-10——-5——-3——-1——0——1——3——5——10——→
@@ -472,6 +513,12 @@ Comparing numbers means determining which is greater, which is lesser, or whethe
 - Tenths: 9 > 1 → **0.9 > 0.15**
 
 **Common mistake:** Thinking 0.15 > 0.9 because "15 is bigger than 9." This ignores place value.
+
+> 🤔 **Why does this work?** Adding trailing zeros (0.9 → 0.90) does not change
+> a decimal's value because 0.90 = 90/100 = 9/10 = 0.9. Once both decimals have
+> the same number of digits after the decimal point, you are comparing like units
+> (both in hundredths), making the comparison straightforward — just as you would
+> compare 90 hundredths vs. 15 hundredths.
 
 **Example:** Compare 3.456 and 3.46
 - Align: 3.456 vs 3.460
@@ -741,6 +788,102 @@ For "which of the following is..." questions:
 
 ---
 
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Classify the number -7 into all number sets it belongs to.
+
+- Step 1: Is it a natural number? → No (negatives are not natural)
+- Step 2: Is it a whole number? → No (negatives are not whole)
+- Step 3: Is it an integer? → _____
+- Step 4: Is it rational? → _____ (because _____)
+- Step 5: Is it real? → _____
+
+**Answer:** Yes, it is an integer. Yes, it is rational (because -7 = -7/1). Yes, it is real. Classification: integer, rational, real, odd.
+
+**2.** Find the place value and face value of 8 in 482,915.
+
+- Step 1: Identify position of 8 → _____ place (count from right: 5th position)
+- Step 2: Face value = _____
+- Step 3: Place value = face value × position value = _____ × _____ = _____
+
+**Answer:** 8 is in the ten-thousands place. Face value = 8. Place value = 8 × 10,000 = 80,000.
+
+**3.** Compare -0.4 and -0.25. Which is greater?
+
+- Step 1: Both are negative, so the one closer to _____ is greater
+- Step 2: |-0.4| = _____ and |-0.25| = _____
+- Step 3: Since _____ < _____, the number _____ is closer to zero
+- Step 4: Therefore _____ > _____
+
+**Answer:** Closer to zero is greater. |-0.4| = 0.4 and |-0.25| = 0.25. Since 0.25 < 0.4, -0.25 is closer to zero. Therefore -0.25 > -0.4.
+
+**4.** Determine if 87 is prime or composite.
+
+- Step 1: √87 ≈ _____ → check primes up to _____
+- Step 2: Divisible by 2? _____ (last digit is odd)
+- Step 3: Divisible by 3? Sum of digits = _____ → _____
+- Step 4: Divisible by 5? _____ Divisible by 7? _____
+- Step 5: Conclusion: _____
+
+**Answer:** √87 ≈ 9.3 → check primes up to 9 (2, 3, 5, 7). Not divisible by 2 (odd). Sum of digits = 8+7 = 15, divisible by 3 → 87 ÷ 3 = 29. Conclusion: 87 is composite (87 = 3 × 29).
+
+**5.** Arrange in ascending order: ⅔, 0.7, ⅗, 0.65
+
+- Step 1: Convert all to decimals: ⅔ = _____, 0.7 = 0.7, ⅗ = _____, 0.65 = 0.65
+- Step 2: Order from least to greatest: _____, _____, _____, _____
+- Step 3: Write in original form: _____, _____, _____, _____
+
+**Answer:** ⅔ = 0.667, ⅗ = 0.6. Order: 0.6, 0.65, 0.667, 0.7. Original form: ⅗, 0.65, ⅔, 0.7.
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** What is the place value of 5 in 3,502?
+- **Type:** Place value identification
+- **Answer:** 500
+- **Why:** 5 is in the hundreds position → 5 × 100 = 500.
+
+**2.** Is -12 a whole number?
+- **Type:** Number classification (set membership)
+- **Answer:** No
+- **Why:** Whole numbers are 0, 1, 2, 3, ... — no negatives allowed.
+
+**3.** Arrange -1, 0.5, -3, 2, -0.5 in descending order.
+- **Type:** Ordering mixed numbers (negatives, decimals, positives)
+- **Answer:** 2, 0.5, -0.5, -1, -3
+- **Why:** Positives first (largest to smallest), then negatives (closest to zero first).
+
+**4.** Is 57 prime or composite?
+- **Type:** Primality test
+- **Answer:** Composite (57 = 3 × 19)
+- **Why:** Sum of digits = 5 + 7 = 12, divisible by 3. So 57 ÷ 3 = 19.
+
+**5.** Compare 3/7 and 5/12 — which is greater?
+- **Type:** Fraction comparison (cross-multiplication)
+- **Answer:** 3/7 > 5/12
+- **Why:** Cross-multiply: 3 × 12 = 36 and 7 × 5 = 35. Since 36 > 35, 3/7 > 5/12.
+
+**6.** What is the difference between the place value and face value of 4 in 4,089?
+- **Type:** Place value vs. face value computation
+- **Answer:** 4,000 - 4 = 3,996
+- **Why:** Place value = 4,000 (thousands position). Face value = 4. Difference = 3,996.
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Classify numbers into correct sets (natural, whole, integer, rational, irrational, real)
+- [ ] Identify prime and composite numbers using divisibility shortcuts
+- [ ] Determine place value and face value of any digit in a number
+- [ ] Compare negative numbers correctly (closer to zero = greater)
+- [ ] Compare decimals by aligning decimal points, not by digit count
+- [ ] Arrange mixed numbers (fractions, decimals, negatives) in ascending or descending order
+
+---
+
 ### 4.14 Mini Practice Set
 
 1. Which of the following is a prime number? (a) 51 (b) 67 (c) 91 (d) 87
@@ -774,6 +917,16 @@ For "which of the following is..." questions:
     - **Answer: -8** — It is farthest from zero on the negative side.
 
 ---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Addition:** Understanding place value is essential for carrying — you carry when a column sum exceeds 9 because each position holds only one digit (0–9) in base-10
+- **Division:** Determining whether a quotient is rational or irrational depends on recognizing number types (e.g., √2 ÷ 1 remains irrational)
+- **Exponents and Roots:** Prime factorization (identifying primes and composites) is the foundation for simplifying roots like √72 = √(36×2) = 6√2
+- **Fundamentals of Percentages:** Converting between fractions, decimals, and percents relies directly on the fraction-decimal-percent relationships taught here
+- **Introduction to Ratios:** Simplifying ratios requires finding the GCF, which depends on prime factorization and understanding composite numbers
 
 ### Mastery Checklist
 

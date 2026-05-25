@@ -91,6 +91,12 @@ To round a number to a given place:
 3. If that digit is **less than 5**, round the target digit **down** (keep it the same)
 4. Replace all digits to the right of the target place with zeros
 
+> 🤔 **Why does this work?** The digit to the right tells you whether the original
+> number is closer to the rounded-down value or the rounded-up value. If the
+> decision digit is 5 or more, the number has crossed the halfway point between
+> the two rounding candidates, so rounding up gives the closer approximation.
+> This minimizes the maximum possible rounding error to half a unit of the target place.
+
 #### Rounding to the Nearest Ten
 
 Look at the ones digit:
@@ -115,6 +121,12 @@ Look at the tens digit:
 ```
 
 **Note:** When rounding up causes a digit to exceed 9, carry to the next place. 9,950 rounded to the nearest hundred: tens digit is 5, so round up the hundreds from 9 to 10, which means 10,000.
+
+> ⚠️ **Misconception:** "When rounding, I look at the digit I'm rounding TO and decide based on that digit."
+>
+> **Why it fails:** To round 4,783 to the nearest hundred, some examinees look at the hundreds digit (7) and say "7 ≥ 5, so round up to 5,000." But 4,783 is clearly closer to 4,800 than to 5,000.
+>
+> **Correct model:** The TARGET digit is what changes. The DECISION digit is one place to the right of the target. For rounding 4,783 to the nearest hundred: target = 7 (hundreds), decision = 8 (tens). Since 8 ≥ 5, the hundreds digit rounds up from 7 to 8, giving 4,800.
 
 #### Rounding to the Nearest Thousand
 
@@ -243,6 +255,12 @@ Replace the actual numbers with **nearby numbers that are easy to compute with**
 
 **Best for:** Division and multiplication where exact computation is complex.
 
+> 🤔 **Why does this work?** Compatible numbers exploit the fact that small
+> changes to operands produce small changes to results. If you replace 748 with
+> 750 (a difference of 2), the quotient changes by only 2 ÷ 25 = 0.08. The
+> trade-off — trivial loss of accuracy for massive gain in computational ease —
+> is worthwhile whenever you need speed over precision.
+
 #### Clustering
 
 When several numbers are **close to the same value**, multiply that value by the count of numbers.
@@ -305,6 +323,20 @@ Common benchmarks:
 | Fraction/percentage problems | Benchmark estimation |
 | Multiple-choice elimination | Any strategy that narrows to 1–2 choices |
 
+> ⚠️ **Misconception:** "Estimation is just guessing — any approximate answer is fine."
+>
+> **Why it fails:** A student estimates 47 × 21 by thinking "about 40 × 20 = 800." But the actual answer is 987 — off by nearly 200. The error came from rounding BOTH numbers DOWN, which compounds the underestimate.
+>
+> **Correct model:** Estimation is systematic approximation with controlled error. When possible, round one number up and the other down to partially cancel errors. For 47 × 21: use 50 × 20 = 1,000 (one up, one down) — this gives an error of only 13, not 187.
+
+---
+
+### Check Your Understanding
+
+**1.** What digit do you look at to round 6,749 to the nearest hundred? → **The tens digit (4)** (one place to the right of the target hundreds place)
+**2.** Which estimation technique uses the leading digits of each number? → **Front-end estimation** (add leftmost digits, then adjust with remaining)
+**3.** When is clustering most useful? → **When adding several numbers that are close to the same value** (multiply the common value by the count)
+
 ---
 
 ### 4.4 Mental Addition
@@ -359,6 +391,12 @@ Round one number to a convenient value, add, then **compensate** (adjust) for th
 = 245 - 3
 = 242
 ```
+
+> 🤔 **Why does this work?** Compensation exploits the associative and commutative
+> properties of addition. When you compute (99 + 1) + 47 − 1, you are adding zero
+> in disguise: +1 and −1 cancel out. The net effect on the sum is zero, but the
+> intermediate step (100 + 47) is far easier to compute mentally because multiples
+> of 10 require no carrying.
 
 #### Grouping Compatible Numbers
 
@@ -478,6 +516,12 @@ Now: 536 - 280 = 256
 
 The goal is to make the subtrahend (number being subtracted) end in zero.
 
+> 🤔 **Why does this work?** Adding the same constant to both the minuend and
+> subtrahend preserves the difference because (a + c) − (b + c) = a − b. The
+> constant c cancels out algebraically. By choosing c to make the subtrahend a
+> multiple of 10, you eliminate the need for borrowing — the hardest part of
+> mental subtraction.
+
 ---
 
 ### 4.6 Mental Multiplication
@@ -518,6 +562,12 @@ Divide by 4 and multiply by 100:
 36 × 25 = 36 ÷ 4 × 100 = 9 × 100 = 900
 84 × 25 = 84 ÷ 4 × 100 = 21 × 100 = 2,100
 ```
+
+> 🤔 **Why does this work?** The shortcut ×25 = ÷4 × 100 works because
+> 25 = 100 ÷ 4, so n × 25 = n × (100/4) = (n/4) × 100. You are factoring
+> 25 into components that are easier to compute with: dividing by 4 (halving
+> twice) and appending two zeros. This converts a hard multiplication into
+> two trivial operations.
 
 #### Doubling and Halving
 
@@ -624,6 +674,15 @@ For any number ending in 5: multiply the tens digit by (tens digit + 1), then ap
 | 11 | ×10 + original |
 | 99 | ×100 - original |
 | 101 | ×100 + original |
+
+---
+
+### Check Your Understanding
+
+**1.** What is 99 + 56 using compensation? → **155** (100 + 56 − 1 = 155)
+**2.** What shortcut computes n × 5? → **Multiply by 10, then divide by 2** (or divide by 2, then multiply by 10)
+**3.** How do you mentally subtract 83 − 47 using the adjust-both method? → **Add 3 to both: 86 − 50 = 36** (making the subtrahend a multiple of 10)
+**4.** What is 35² using the squaring-numbers-ending-in-5 trick? → **1,225** (3 × 4 = 12, append 25)
 
 ---
 
@@ -828,7 +887,7 @@ Before computing, ask: "What is the answer definitely NOT?"
 - **Reasonable range: 850 to 1,700**
 - Exact: 1,020 ✓
 
-#### Estimating Before Solving
+#### Estimating Before Solving Exactly
 
 Always do a 5-second estimate before detailed computation:
 
@@ -868,6 +927,12 @@ Answer must end in 5 and be near 920 → 915 ✓
 - Odd × Odd = Odd
 
 **Order of magnitude:** If you're multiplying a 3-digit number by a 2-digit number, the answer should have 4 or 5 digits.
+
+> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be correct."
+>
+> **Why it fails:** A student computes 347 + 568 and gets 905 (forgetting to carry in the tens column). Choice (a) is 905, so they select it confidently. But the correct answer is 915 — also a choice. "Close to a choice" does not mean correct; it means you need to verify.
+>
+> **Correct model:** Use multiple checks together: last-digit verification (answer must end in 5 ✓), magnitude check (should be near 900 ✓), AND careful recomputation of the step where errors are most likely (carrying). A single check can confirm; it takes two checks to be confident.
 
 #### Quick Validation Methods
 
@@ -1137,6 +1202,118 @@ Scan all four choices before computing. If three choices are in the thousands an
 
 ---
 
+### Memory Aids
+
+- **"5 or more, raise the score; 4 or less, let it rest"** — the rounding rule in one line
+- **"Right neighbor decides"** — always look at the digit to the RIGHT of your target place
+- **"×5 = ×10 ÷ 2"** and **"÷5 = ×2 ÷ 10"** — the 5-shortcut pair
+- **"×25 = ÷4 × 100"** — the 25-shortcut
+- **"Compensation: round, compute, adjust"** — the three-step mental math framework
+- **"Last digit tells all"** — for multiple choice, compute only the ones digit to eliminate options
+- **"Estimate first, compute second, check third"** — the three-phase exam approach
+- **"Double-halve until easy"** — keep halving one factor and doubling the other until multiplication is trivial
+- **"Count up, don't borrow"** — for subtraction, count from the smaller to the larger number
+
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Round 8,463 to the nearest hundred.
+
+- Step 1: Identify target place: hundreds digit is _____
+- Step 2: Identify decision digit (one place to the right): tens digit is _____
+- Step 3: Apply rule: _____ < 5, so round _____
+- Step 4: Answer: _____
+
+**Answer:** Hundreds digit is 4. Tens digit is 6. 6 ≥ 5, so round UP. Answer: 8,500.
+
+**2.** Mentally compute 298 + 145 using compensation.
+
+- Step 1: Round 298 up to _____. The adjustment is _____
+- Step 2: Add: _____ + 145 = _____
+- Step 3: Compensate: _____ − _____ = _____
+
+**Answer:** Round 298 up to 300 (adjustment = 2). 300 + 145 = 445. Compensate: 445 − 2 = 443.
+
+**3.** Mentally compute 64 × 25.
+
+- Step 1: Identify shortcut: ×25 = ÷_____ × _____
+- Step 2: Divide: 64 ÷ _____ = _____
+- Step 3: Multiply: _____ × 100 = _____
+
+**Answer:** ×25 = ÷4 × 100. 64 ÷ 4 = 16. 16 × 100 = 1,600.
+
+**4.** Estimate 4,892 + 3,156 + 2,978 using front-end estimation.
+
+- Step 1: Front-end digits: _____ + _____ + _____ = _____
+- Step 2: Remaining digits: _____ + _____ + _____ ≈ _____
+- Step 3: Combine: _____ + _____ = _____
+
+**Answer:** Front-end: 4,000 + 3,000 + 2,000 = 9,000. Remaining: 892 + 156 + 978 ≈ 2,000. Combine: 9,000 + 2,000 = 11,000. (Exact: 11,026)
+
+**5.** A government office needs to verify whether ₱85,200 ÷ 12 is approximately ₱7,000 per month. Check using compatible numbers.
+
+- Step 1: Find a compatible dividend near 85,200 that divides evenly by 12: _____
+- Step 2: Divide: _____ ÷ 12 = _____
+- Step 3: Is the estimate close to ₱7,000? _____
+
+**Answer:** 84,000 is close to 85,200 and divides evenly by 12. 84,000 ÷ 12 = 7,000. Yes, the estimate confirms approximately ₱7,000/month. (Exact: ₱7,100)
+
+---
+
+### Which Method?
+
+For each problem, identify the best strategy and solve.
+
+**1.** Round 14,750 to the nearest thousand.
+- **Type:** Rounding (look at hundreds digit)
+- **Answer:** 15,000
+- **Why:** Hundreds digit is 7 (≥ 5), so round up the thousands from 4 to 5.
+
+**2.** Mentally compute 997 + 86.
+- **Type:** Mental addition (compensation)
+- **Answer:** 1,083
+- **Why:** 1,000 + 86 − 3 = 1,083. Rounded 997 up by 3.
+
+**3.** Estimate 612 ÷ 8.
+- **Type:** Compatible numbers (division)
+- **Answer:** ≈ 75
+- **Why:** 612 ≈ 600. 600 ÷ 8 = 75. (Exact: 76.5)
+
+**4.** Mentally compute 16 × 45.
+- **Type:** Mental multiplication (doubling and halving)
+- **Answer:** 720
+- **Why:** 16 × 45 = 8 × 90 = 4 × 180 = 2 × 360 = 720.
+
+**5.** Estimate 195 + 203 + 198 + 201 + 197.
+- **Type:** Clustering
+- **Answer:** 1,000
+- **Why:** All five numbers cluster around 200. 5 × 200 = 1,000. (Exact: 994)
+
+**6.** Mentally compute 1,000 − 637.
+- **Type:** Mental subtraction (counting up)
+- **Answer:** 363
+- **Why:** 637 → 700 (+63), 700 → 1,000 (+300). Total: 63 + 300 = 363.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Round whole numbers and decimals to any specified place value
+- [ ] Choose the best estimation technique for a given problem (front-end, compatible numbers, clustering, benchmarks)
+- [ ] Perform mental addition using compensation and decomposition
+- [ ] Perform mental subtraction using counting-up and adjust-both-numbers methods
+- [ ] Multiply mentally using powers-of-10 shortcuts, doubling/halving, and distributive property
+- [ ] Divide mentally using reciprocal shortcuts (÷5 = ×2 ÷10) and simplification
+- [ ] Check answer reasonableness using magnitude, last-digit, and parity methods
+- [ ] Eliminate wrong multiple-choice answers using estimation under time pressure
+
+---
+
 ### Mini Practice Set
 
 **1.** Round 6,847 to the nearest hundred.
@@ -1241,33 +1418,15 @@ Scan all four choices before computing. If three choices are in the thousands an
 
 ---
 
-### Quick Recap
+### Connections
 
-- **Rounding:** Look at the digit ONE PLACE to the RIGHT of your target. If it's 5 or more, round up; otherwise, round down.
-- **Front-end estimation:** Add leading digits, then adjust with remaining digits.
-- **Compatible numbers:** Replace awkward numbers with nearby "friendly" numbers.
-- **Clustering:** When numbers are similar, multiply the average by the count.
-- **Mental addition:** Use decomposition, compensation, or compatible pairs.
-- **Mental subtraction:** Count up, compensate, or adjust both numbers.
-- **Mental multiplication:** Use powers-of-10 shortcuts, doubling/halving, or the distributive property.
-- **Mental division:** Use reciprocal multiplication shortcuts (÷5 = ×2÷10) or simplify first.
-- **Reasonableness:** Always check magnitude, sign, and last digit before selecting your answer.
+How this topic connects to other areas of the CSE:
 
----
-
-### Memory Aids
-
-- **"5 or more, raise the score; 4 or less, let it rest"** — the rounding rule in one line
-- **"Right neighbor decides"** — always look at the digit to the RIGHT of your target place
-- **"×5 = ×10 ÷ 2"** and **"÷5 = ×2 ÷ 10"** — the 5-shortcut pair
-- **"×25 = ÷4 × 100"** — the 25-shortcut
-- **"Compensation: round, compute, adjust"** — the three-step mental math framework
-- **"Last digit tells all"** — for multiple choice, compute only the ones digit to eliminate options
-- **"Estimate first, compute second, check third"** — the three-phase exam approach
-- **"Double-halve until easy"** — keep halving one factor and doubling the other until multiplication is trivial
-- **"Count up, don't borrow"** — for subtraction, count from the smaller to the larger number
-
----
+- **Percentages:** Estimating percentages (e.g., "48% ≈ 50%") uses benchmark estimation directly — mental math shortcuts like "10% then double" are the fastest way to compute percentage problems under time pressure
+- **Division:** Compatible numbers and simplification techniques from this lesson are the primary tools for mental division — every division shortcut here (÷5 = ×2 ÷10, ÷25 = ×4 ÷100) applies directly
+- **Multiplication:** The doubling/halving, distributive property, and powers-of-10 shortcuts taught here are the same strategies used in the multiplication lesson for exact computation
+- **Word Problems:** Every CSE word problem benefits from a 5-second estimate before solving — estimation identifies the operation, validates the magnitude, and eliminates impossible choices
+- **Order of Operations:** Mental math decomposition (breaking expressions into chunks) mirrors PEMDAS evaluation — both require processing sub-expressions in a strategic sequence
 
 ### Mastery Checklist
 
@@ -1284,3 +1443,92 @@ Scan all four choices before computing. If three choices are in the thousands an
 ✅ Check answer reasonableness using magnitude, sign, and last-digit methods
 ✅ Eliminate wrong multiple-choice answers using estimation
 ✅ Balance speed and accuracy under CSE time pressure
+
+### Quick Recap
+
+- **Rounding:** Look at the digit ONE PLACE to the RIGHT of your target. If it's 5 or more, round up; otherwise, round down.
+- **Front-end estimation:** Add leading digits, then adjust with remaining digits.
+- **Compatible numbers:** Replace awkward numbers with nearby "friendly" numbers.
+- **Clustering:** When numbers are similar, multiply the average by the count.
+- **Mental addition:** Use decomposition, compensation, or compatible pairs.
+- **Mental subtraction:** Count up, compensate, or adjust both numbers.
+- **Mental multiplication:** Use powers-of-10 shortcuts, doubling/halving, or the distributive property.
+- **Mental division:** Use reciprocal multiplication shortcuts (÷5 = ×2÷10) or simplify first.
+- **Reasonableness:** Always check magnitude, sign, and last digit before selecting your answer.
+
+## Worked Examples
+
+### Example 1: Multi-Strategy Estimation for Budget Verification
+
+**Problem:** A barangay captain needs to verify whether the following quarterly expenses total approximately ₱200,000: Personnel ₱87,450, MOOE ₱56,780, Capital Outlay ₱48,900, and Contingency ₱12,350.
+
+**Solution:**
+
+Step 1: Use front-end estimation for a quick check.
+- Front-end: 80,000 + 50,000 + 40,000 + 10,000 = 180,000
+
+Step 2: Adjust with remaining digits.
+- Remaining: 7,450 + 6,780 + 8,900 + 2,350 ≈ 25,000
+
+Step 3: Combine.
+- 180,000 + 25,000 = 205,000
+
+Step 4: Conclusion — the total is approximately ₱205,000, which exceeds the ₱200,000 target by about ₱5,000.
+
+**Answer:** The expenses total approximately ₱205,000 (exact: ₱205,480), slightly over the ₱200,000 target.
+
+---
+
+### Example 2: Mental Math Chain for Payroll Computation
+
+**Problem:** A government office has 24 employees. Each receives a ₱2,500 transportation allowance. What is the total monthly transportation cost?
+
+**Solution:**
+
+Step 1: Identify a shortcut. 24 × 2,500 = 24 × 25 × 100.
+Step 2: Apply the ×25 shortcut: 24 ÷ 4 = 6.
+Step 3: Multiply by 100: 6 × 100 = 600.
+Step 4: Restore the factor of 100: 600 × 100 = 60,000.
+
+Alternative approach using doubling/halving:
+- 24 × 2,500 = 12 × 5,000 = 6 × 10,000 = 60,000
+
+**Answer:** The total monthly transportation cost is ₱60,000.
+
+---
+
+### Example 3: Elimination Using Estimation
+
+**Problem:** What is 847 × 23? Choices: a) 17,481  b) 19,481  c) 21,481  d) 23,481
+
+**Solution:**
+
+Step 1: Estimate using compatible numbers.
+- 847 ≈ 850, 23 ≈ 20
+- 850 × 20 = 17,000
+
+Step 2: Refine — since we rounded 23 down to 20, the actual answer is higher.
+- 850 × 3 = 2,550 (the part we dropped)
+- Better estimate: 17,000 + 2,550 = 19,550
+
+Step 3: Check last digit.
+- 7 × 3 = 21, so the answer ends in 1.
+- All choices end in 1 ✓ (no elimination by last digit alone)
+
+Step 4: Use magnitude — answer should be near 19,550.
+- Choice b) 19,481 is closest.
+
+**Answer:** b) 19,481
+
+## Key Takeaways
+
+- Estimation is systematic approximation, not guessing — it uses rounding, benchmarks, and number sense to produce controlled approximations
+- The rounding rule always looks at the digit ONE PLACE to the RIGHT of the target place
+- Choose the estimation strategy that fits the problem: front-end for addition, compatible numbers for division, clustering for similar values, benchmarks for fractions/percentages
+- Mental math shortcuts (compensation, doubling/halving, distributive property) convert hard problems into easy ones by exploiting algebraic properties
+- Always check reasonableness using magnitude, last digit, and parity before selecting your CSE answer
+- On the CSE, estimation is your time-management tool: solve easy items in seconds, eliminate wrong choices on hard items, and catch arithmetic errors before they cost you points
+
+## Summary
+
+Estimation and mental math are complementary skills that form the backbone of numerical fluency on the Philippine Civil Service Examination. Estimation provides systematic approximation through techniques like rounding, front-end estimation, compatible numbers, clustering, and benchmark comparison — each suited to different problem types. Mental math delivers exact answers through shortcuts that exploit algebraic properties: compensation (adding zero in disguise), doubling/halving (preserving products), the distributive property (breaking apart factors), and reciprocal relationships (converting division to multiplication). Together, these skills enable examinees to solve straightforward items in seconds, eliminate impossible answer choices on difficult items, and verify computed answers before selecting them — the three pillars of effective time management under CSE conditions.

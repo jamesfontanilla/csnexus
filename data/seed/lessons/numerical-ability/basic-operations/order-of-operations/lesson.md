@@ -1,4 +1,4 @@
-# Order of Operations
+2# Order of Operations
 
 ## Explanations
 
@@ -97,6 +97,14 @@ A common misconception is that multiplication comes before division (because M a
 
 The left-to-right rule applies only to operations of equal priority. Higher-priority operations are always performed first regardless of position.
 
+> 🤔 **Why does this work?** Multiplication and division are the same operation expressed differently — dividing by 2 is identical to multiplying by 1/2. Similarly, subtraction is addition of a negative. Because each pair is fundamentally one operation, they share the same priority. The left-to-right convention then resolves ambiguity the same way we read text: sequentially.
+
+> ⚠️ **Misconception:** "In PEMDAS, multiplication always comes before division because M is listed before D."
+>
+> **Why it fails:** Evaluate 24 ÷ 6 × 2. If you multiply first: 24 ÷ 12 = 2 (wrong). Left to right: 24 ÷ 6 = 4, then 4 × 2 = 8 (correct). The mnemonic's letter order does NOT indicate priority between M and D.
+>
+> **Correct model:** M and D share the same priority level. When both appear, evaluate whichever comes first reading left to right. The same applies to A and S.
+
 #### Simple Examples
 
 **Example 1:** 5 + 3 × 2
@@ -191,6 +199,8 @@ Order of nesting (innermost to outermost): Parentheses → Brackets → Braces
 
 A fraction bar acts as both a division sign AND a grouping symbol. The entire numerator is one group and the entire denominator is another group.
 
+> 🤔 **Why does this work?** A fraction bar is shorthand for division, and division requires knowing the complete dividend and divisor before computing. The bar visually separates the expression into "everything above" (dividend) and "everything below" (divisor), forcing you to simplify each part fully before dividing. This is why (3 + 5)/(2 + 2) = 8/4 = 2, not 3 + 5/2 + 2.
+
 **Example 8:** (10 + 6) / (4 + 4)
 - Numerator: 10 + 6 = 16
 - Denominator: 4 + 4 = 8
@@ -257,6 +267,8 @@ An **exponent** (also called a power) tells you how many times to multiply a num
 ```
 Why? Because the pattern demands it: 5³ = 125, 5² = 25, 5¹ = 5, 5⁰ = 1 (each step divides by 5).
 
+> 🤔 **Why does this work?** Each time you decrease the exponent by 1, you divide the result by the base. So 5³ = 125, 5² = 125 ÷ 5 = 25, 5¹ = 25 ÷ 5 = 5, and 5⁰ = 5 ÷ 5 = 1. This pattern holds for any non-zero base. Algebraically, x^n ÷ x^n = x^(n−n) = x⁰, and any non-zero number divided by itself equals 1.
+
 **Exponent of 1:** Any number raised to the power of 1 equals itself.
 ```
 7¹ = 7
@@ -286,6 +298,12 @@ This is one of the most common errors on exams:
 (-3)² = (-3) × (-3) = +9    ← base is -3
  -3²  = -(3 × 3) = -9       ← base is 3, then negate
 ```
+
+> ⚠️ **Misconception:** "−5² equals 25 because you square the negative number."
+>
+> **Why it fails:** Without parentheses, the exponent binds only to 5. So −5² = −(5²) = −25, not +25. If you compute −5² as 25, you'd be saying that −5² = (−5)², which makes the parentheses meaningless. Test: your calculator gives −5² = −25.
+>
+> **Correct model:** The negative sign is a separate operation (multiplication by −1) applied AFTER the exponent. Only when the negative is inside parentheses — (−5)² — is the entire −5 used as the base, giving +25.
 
 #### Step-by-Step Examples with Exponents
 
@@ -344,6 +362,8 @@ If multiplication went first: 12 ÷ 6 = 2
 If left to right: 4 × 2 = 8
 
 The mathematical convention is left to right, giving **8**. This is because division is the inverse of multiplication — they are the same operation expressed differently (dividing by 2 is multiplying by ½). Equal operations resolve by reading order.
+
+> 🤔 **Why does this work?** When two operations have equal precedence, we need a tiebreaker. Left-to-right was chosen because it mirrors how we read expressions sequentially and because it produces results consistent with fraction notation. Writing 12 ÷ 3 × 2 is equivalent to (12/3) × 2 = 8, which matches the left-to-right reading. Any other convention would create inconsistency between inline and fraction notation.
 
 #### Multiplication with Different Number Types
 
@@ -493,6 +513,15 @@ For expressions with only addition and subtraction, rewrite subtraction as addin
 - Positives: 42 + 21 + 3 = 66
 - Negatives: 15 + 38 + 7 + 16 = 76
 - Result: 66 - 76 = **-10**
+
+---
+
+### Check Your Understanding
+
+**1.** In PEMDAS, which operations share the same priority level? → **Multiplication & Division (tied); Addition & Subtraction (tied)** (M/D are equal; A/S are equal — resolve left to right)
+**2.** What is (-4)² versus -4²? → **(-4)² = 16; -4² = -16** (parentheses make -4 the base; without them, only 4 is squared)
+**3.** In 30 ÷ 5 × 3, which operation do you perform first? → **30 ÷ 5 = 6** (same priority, so left to right)
+**4.** Does a fraction bar act as a grouping symbol? → **Yes** (simplify numerator and denominator separately before dividing)
 
 ---
 
@@ -749,6 +778,12 @@ CORRECT: 10 - (-3) = 10 + 3 = 13
 WRONG: -2 × -3 × -4 = 24 (assumed all negatives cancel)
 CORRECT: (-2) × (-3) × (-4) = 6 × (-4) = -24 (odd negatives = negative)
 ```
+
+### Check Your Understanding
+
+**1.** What is the value of (2/3 + 1/6) × 12? → **10** (parentheses first: 4/6 + 1/6 = 5/6, then 5/6 × 12 = 10)
+**2.** In -2 × (3 - 7) + (-4)², what do you evaluate first? → **Parentheses: 3 - 7 = -4** (P comes before E, M, D, A, S)
+**3.** How many negative factors make the product negative? → **An odd number** (even negatives cancel to positive; odd negatives give negative)
 
 ---
 
@@ -1113,19 +1148,203 @@ Test your understanding with these 20 problems. Answers and explanations follow.
 - **"Exponent means repeated multiplication, NOT base × power"** — 2³ = 2×2×2, not 2×3
 - **"No parens around the negative? Only the positive is powered"** — -5² = -(5²) = -25, but (-5)² = 25
 
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Evaluate: 5 + 3 × 4²
+
+- Step 1: Exponent first: 4² = 16
+- Step 2: Multiplication: 3 × 16 = _____
+- Step 3: Addition: 5 + _____ = _____
+
+**Answer:** 3 × 16 = 48. Then 5 + 48 = **53**
+
+**2.** Evaluate: (8 + 4) ÷ 3 + 2 × 5
+
+- Step 1: Parentheses: 8 + 4 = _____
+- Step 2: Division: _____ ÷ 3 = _____
+- Step 3: Multiplication: 2 × 5 = _____
+- Step 4: Addition: _____ + _____ = _____
+
+**Answer:** 12 ÷ 3 = 4. 2 × 5 = 10. Then 4 + 10 = **14**
+
+**3.** Evaluate: 3 × (2 + 5)² - 100
+
+- Step 1: Parentheses: 2 + 5 = _____
+- Step 2: Exponent: _____² = _____
+- Step 3: Multiplication: 3 × _____ = _____
+- Step 4: Subtraction: _____ - 100 = _____
+
+**Answer:** 7² = 49. 3 × 49 = 147. Then 147 - 100 = **47**
+
+**4.** Evaluate: 48 ÷ (2³ × 3) + 5 - 1
+
+- Step 1: Exponent inside parentheses: 2³ = _____
+- Step 2: Parentheses multiplication: _____ × 3 = _____
+- Step 3: Division: 48 ÷ _____ = _____
+- Step 4: Left to right: _____ + 5 - 1 = _____
+
+**Answer:** 2³ = 8. 8 × 3 = 24. 48 ÷ 24 = 2. Then 2 + 5 - 1 = **6**
+
+**5.** A government office computes a bonus using: Base × (1 + Rate)² - Deduction. If Base = 50,000, Rate = 0.1, Deduction = 5,000, find the bonus.
+
+- Step 1: Parentheses: 1 + _____ = _____
+- Step 2: Exponent: _____² = _____
+- Step 3: Multiplication: _____ × _____ = _____
+- Step 4: Subtraction: _____ - _____ = _____
+
+**Answer:** 1 + 0.1 = 1.1. 1.1² = 1.21. 50,000 × 1.21 = 60,500. Then 60,500 - 5,000 = **₱55,500**
+
+---
+
+### Which Method?
+
+For each problem, identify the first operation to perform and solve.
+
+**1.** 7 + 2 × (3 + 1)
+- **Type:** Parentheses first, then multiplication, then addition
+- **Answer:** 15
+- **Why:** (3 + 1) = 4, then 2 × 4 = 8, then 7 + 8 = 15.
+
+**2.** 36 ÷ 9 × 4 - 2
+- **Type:** Multiplication/Division left to right (no parentheses, no exponents)
+- **Answer:** 14
+- **Why:** 36 ÷ 9 = 4, then 4 × 4 = 16, then 16 - 2 = 14.
+
+**3.** -4² + 3³
+- **Type:** Exponents first (watch negative sign without parentheses)
+- **Answer:** 11
+- **Why:** -4² = -(16) = -16. 3³ = 27. Then -16 + 27 = 11.
+
+**4.** (15 + 5) / (4 + 1) + 2²
+- **Type:** Fraction bar as grouping symbol, then exponent, then addition
+- **Answer:** 8
+- **Why:** Numerator: 20. Denominator: 5. 20 ÷ 5 = 4. 2² = 4. Then 4 + 4 = 8.
+
+**5.** 2 × 5 - 8 ÷ 4 + 1
+- **Type:** Multiplication and division first (left to right), then addition/subtraction
+- **Answer:** 9
+- **Why:** 2 × 5 = 10. 8 ÷ 4 = 2. Then 10 - 2 + 1 = 9.
+
+**6.** {[4 × (1 + 2)] - 7} × 2
+- **Type:** Nested grouping symbols (innermost first)
+- **Answer:** 10
+- **Why:** (1 + 2) = 3. [4 × 3] = 12. {12 - 7} = 5. Then 5 × 2 = 10.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Apply PEMDAS priority correctly (parentheses → exponents → multiplication/division → addition/subtraction)
+- [ ] Evaluate nested grouping symbols from innermost to outermost
+- [ ] Distinguish between -x² and (-x)² and compute each correctly
+- [ ] Process multiplication and division left to right at equal priority
+- [ ] Process addition and subtraction left to right at equal priority
+- [ ] Solve multi-step expressions combining all operation types
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Exponents and Roots:** Order of operations dictates that exponents are evaluated before multiplication and addition — understanding PEMDAS priority is essential for correctly simplifying expressions with powers
+- **Percentages:** Percentage formulas like discount = original × (1 − rate) require correct operation sequencing — computing the parentheses first, then multiplying, prevents errors in price calculations
+- **Averages:** The mean formula (sum of values ÷ count) requires you to complete all additions in the numerator before dividing — a direct application of the fraction-bar-as-grouping-symbol rule
+- **Word Problems:** Translating word problems into mathematical expressions demands correct placement of parentheses and operation priority — "5 more than 3 times a number" is 3x + 5, not (3)(x + 5)
+- **Operations with Signed Numbers:** Combining sign rules with PEMDAS creates multi-layered problems where you must track both operation priority and sign changes simultaneously
+
 ### Mastery Checklist
 
-After completing this lesson and practice set, confirm you can:
+After completing this lesson, you should be able to:
+- ✅ State the PEMDAS/BODMAS priority order from memory
+- ✅ Evaluate expressions with parentheses, exponents, multiplication, division, addition, and subtraction in the correct sequence
+- ✅ Resolve tied operations (M/D and A/S) using the left-to-right rule
+- ✅ Simplify nested grouping symbols from innermost to outermost
+- ✅ Correctly distinguish between -x² and (-x)² in any expression
+- ✅ Treat fraction bars as grouping symbols and simplify numerator/denominator separately
+- ✅ Apply order of operations to expressions involving fractions, decimals, and integers
+- ✅ Use estimation and last-digit checking to verify answers under time pressure
+- ✅ Identify common PEMDAS errors in distractors and avoid them
+- ✅ Solve CSE-style multi-step expressions efficiently within 1-2 minutes
 
-✅ Apply PEMDAS/BODMAS correctly to any numerical expression
-✅ Solve expressions with nested parentheses (innermost first)
-✅ Evaluate exponents correctly, including negative bases
-✅ Distinguish between -x² and (-x)²
-✅ Process multiplication and division left to right at equal priority
-✅ Process addition and subtraction left to right at equal priority
-✅ Handle fraction bars as grouping symbols
-✅ Solve expressions involving integers, decimals, and fractions
-✅ Estimate answers to verify or eliminate choices
-✅ Identify common order-of-operations errors in answer choices
-✅ Solve multi-step CSE-style expressions under time pressure
-✅ Use last-digit checking and estimation strategies for speed
+---
+
+## Worked Examples
+
+### Example A: Multi-Operation Expression
+
+**Problem:** Evaluate 4 × (3 + 2)² - 18 ÷ 3
+
+**Solution:**
+1. Parentheses: 3 + 2 = 5
+2. Exponent: 5² = 25
+3. Multiplication: 4 × 25 = 100
+4. Division: 18 ÷ 3 = 6
+5. Subtraction: 100 - 6 = **94**
+
+### Example B: Nested Grouping Symbols
+
+**Problem:** Evaluate {[2 × (5 + 1)] - 4} ÷ 2 + 3²
+
+**Solution:**
+1. Innermost parentheses: 5 + 1 = 6
+2. Brackets: 2 × 6 = 12
+3. Braces: 12 - 4 = 8
+4. Division: 8 ÷ 2 = 4
+5. Exponent: 3² = 9
+6. Addition: 4 + 9 = **13**
+
+### Example C: Fraction Bar as Grouping Symbol
+
+**Problem:** Evaluate (5² - 1) / (4 + 2) + 2³
+
+**Solution:**
+1. Numerator exponent: 5² = 25
+2. Numerator subtraction: 25 - 1 = 24
+3. Denominator addition: 4 + 2 = 6
+4. Division: 24 ÷ 6 = 4
+5. Exponent: 2³ = 8
+6. Addition: 4 + 8 = **12**
+
+### Example D: Integer Signs with PEMDAS
+
+**Problem:** Evaluate (-3)² + 4 × (-2) - (-6)
+
+**Solution:**
+1. Exponent: (-3)² = 9
+2. Multiplication: 4 × (-2) = -8
+3. Left to right: 9 + (-8) - (-6) = 9 - 8 + 6 = **7**
+
+### Example E: CSE-Style Word Problem
+
+**Problem:** A government office allocates ₱120,000 for supplies. They purchase 8 printers at ₱12,500 each and spend the remainder equally on 5 departments for office materials. How much does each department receive?
+
+**Solution:**
+1. Expression: (120,000 - 8 × 12,500) ÷ 5
+2. Multiplication: 8 × 12,500 = 100,000
+3. Parentheses subtraction: 120,000 - 100,000 = 20,000
+4. Division: 20,000 ÷ 5 = **₱4,000 per department**
+
+## Key Takeaways
+
+- PEMDAS/BODMAS provides a universal, unambiguous order for evaluating mathematical expressions: Parentheses → Exponents → Multiplication/Division (left to right) → Addition/Subtraction (left to right)
+- Multiplication and Division share equal priority — the mnemonic letter order does NOT mean M comes before D. The same applies to Addition and Subtraction.
+- Grouping symbols (parentheses, brackets, braces, fraction bars) always override normal priority — solve innermost groups first
+- The negative sign without parentheses is NOT part of the base: -3² = -9, but (-3)² = 9
+- Writing every intermediate step prevents cascading errors in multi-operation expressions
+- Estimation and last-digit checking are powerful verification tools under CSE time pressure
+- Every other math topic on the CSE (percentages, ratios, averages, algebra) depends on correct operation sequencing
+
+## Summary
+
+Order of operations is the foundational rule system that ensures every mathematical expression has exactly one correct interpretation. The PEMDAS mnemonic — Parentheses, Exponents, Multiplication/Division (left to right), Addition/Subtraction (left to right) — provides the priority hierarchy that governs all computation. The most critical insight is that M and D share equal priority (resolved left to right), as do A and S — the mnemonic's letter sequence does not imply priority between tied operations.
+
+For the Philippine Civil Service Examination, order of operations questions test whether you can systematically evaluate expressions combining multiple operation types without skipping steps or misapplying priority rules. Common distractors are designed around predictable errors: performing addition before multiplication, treating M as higher than D, or mishandling negative signs with exponents. The antidote is disciplined step-by-step evaluation, estimation for verification, and recognition of these error patterns in answer choices.
+
+Mastery of this topic directly supports every other numerical ability subtopic on the CSE — from percentage calculations and ratio simplification to average computation and algebraic word problems. An examinee who consistently applies PEMDAS correctly eliminates an entire category of careless errors across the exam.

@@ -148,6 +148,8 @@ Therefore: 0 > −8
 
 **CSE Tip:** When comparing two negative numbers, think of debt. A debt of ₱2 is better (greater) than a debt of ₱5. So −2 > −5.
 
+> 🤔 **Why does this work?** Among negative numbers, the one with the smaller absolute value is greater because it is closer to zero on the number line. Think of it as "less negative = more." A temperature of −2°C is warmer (greater) than −5°C because −2 is only 2 units below zero while −5 is 5 units below. The number line enforces a single ordering: right is always greater.
+
 #### Ordering Signed Numbers
 
 **Example (Least to Greatest):** Arrange −7, 3, −1, 0, 5, −4
@@ -179,6 +181,8 @@ If x < 0, then |x| = −x (the opposite of x, which makes it positive)
 ```
 
 **Important:** The expression −x does NOT always mean "a negative number." If x = −5, then −x = −(−5) = +5. The symbol −x means "the opposite of x."
+
+> 🤔 **Why does this work?** The formal definition uses −x for negative inputs because applying the negative operator to an already-negative number flips it positive. If x = −5, then −x = −(−5) = 5. The definition guarantees a nonnegative output by "undoing" the negative sign when one exists. Absolute value strips direction and keeps only magnitude — which is why it models distance (always nonnegative).
 
 #### Why Absolute Value Matters for Signed Arithmetic
 
@@ -214,6 +218,12 @@ Absolute value is the key to all signed number operations:
 **Example 6:** Evaluate |5 − 12|
 - First compute inside: 5 − 12 = −7
 - Then take absolute value: |−7| = 7
+
+> ⚠️ **Misconception:** "Absolute value just means removing the negative sign."
+>
+> **Why it fails:** |3 − 8| ≠ |3| − |8| = 3 − 8 = −5. The correct answer is |3 − 8| = |−5| = 5. If you "remove negatives" from individual terms before evaluating the expression inside, you get a wrong (and even negative!) result.
+>
+> **Correct model:** Absolute value means "evaluate the entire expression inside the bars first, then take the distance from zero." You cannot distribute absolute value over addition or subtraction. Always simplify inside first, then apply the bars to the single result.
 
 **Common Mistake:** Students sometimes think |−x| = −x. This is wrong. |−x| = x (positive) when x is positive. The absolute value bars always produce a nonnegative result.
 
@@ -260,6 +270,12 @@ Being able to quickly compare and order signed numbers is a prerequisite for all
 
 **Explanation:** Greatest to least means starting with the largest. Among negative numbers, −1 is closest to zero (greatest), then −3, −5, −7 (smallest). Option A correctly orders from greatest to least.
 
+### Check Your Understanding
+
+**1.** What is |−12|? → **12** (distance from zero is always nonnegative)
+**2.** Which is greater: −9 or −2? → **−2** (smaller magnitude among negatives = greater)
+**3.** Evaluate |4 − 10| → **6** (compute inside first: 4 − 10 = −6, then |−6| = 6)
+
 ---
 
 ### 4.5 Addition of Integers
@@ -294,6 +310,8 @@ Adding integers is the most fundamental signed number operation. The rules depen
 
 **Think of it as:** A deposit and a withdrawal — the bigger one wins, and the result takes its sign.
 
+> 🤔 **Why does this work?** When signs differ, the two numbers pull in opposite directions on the number line. The net effect is the difference in their magnitudes, and the direction (sign) is determined by whichever pull is stronger. This is identical to finding the net force when two forces act in opposite directions — the resultant equals the difference in magnitudes and points in the direction of the larger force.
+
 #### Step-by-Step Examples
 
 **Example 1 (Easy):** (−6) + (−9)
@@ -322,6 +340,12 @@ Adding integers is the most fundamental signed number operation. The rules depen
 - Group by sign: Positives = 50 + 30 = 80; Negatives = 75 + 15 = 90
 - Combine: 80 + (−90) = −(90 − 80) = −10
 - Answer: **−10**
+
+> ⚠️ **Misconception:** "When adding numbers with different signs, always subtract and the answer is negative."
+>
+> **Why it fails:** (+12) + (−5) = +7, not −7. The sign of the result depends on which addend has the larger absolute value, not on the presence of a negative number. The negative number does not automatically "win."
+>
+> **Correct model:** When adding integers with different signs, subtract the smaller absolute value from the larger, then take the sign of the number whose absolute value is larger. The "bigger pull" determines the direction.
 
 #### Number Line Interpretation
 
@@ -357,6 +381,8 @@ a − (−b) = a + (+b) = a + b
 #### Why This Works
 
 Subtracting a number is the same as adding its opposite. If you owe someone ₱5 and that debt is removed (subtracted), your net worth increases by ₱5 — equivalent to adding +5.
+
+> 🤔 **Why does this work?** Subtraction is defined as the inverse of addition: a − b is the number you add to b to get a. Since adding the opposite of b to b always gives zero (b + (−b) = 0), adding the opposite of b to a gives a − b. This is why a − b = a + (−b) is not a "trick" but the actual definition of subtraction extended to negative numbers.
 
 #### Step-by-Step Examples
 
@@ -404,6 +430,12 @@ Subtracting a number is the same as adding its opposite. If you owe someone ₱5
 
 **CSE Tip:** The most common exam trap is "subtract a negative." Always remember: subtracting a negative = adding a positive. Two negatives make a positive in subtraction.
 
+### Check Your Understanding
+
+**1.** What is (−9) + (−6)? → **−15** (same signs: add magnitudes, keep negative)
+**2.** What is 5 − (−3)? → **8** (KCC: 5 + 3 = 8)
+**3.** What is (−20) + (+12)? → **−8** (different signs: 20 − 12 = 8, negative wins)
+
 ---
 
 ### 4.7 Multiplication of Integers
@@ -431,6 +463,8 @@ Think of it as reversing a reversal:
 - (+3)(−4) = −12 (3 groups of −4 = lose 12)
 - (−3)(+4) = −12 (remove 3 groups of +4 = lose 12)
 - (−3)(−4) = +12 (remove 3 groups of −4 = removing a loss = gain 12)
+
+> 🤔 **Why does this work?** Multiplication by a negative number reverses direction. If multiplying by +3 means "3 groups of," then multiplying by −3 means "remove 3 groups of." Removing a loss (−4) is a gain (+4). Algebraically, the pattern must hold: (−3)(−4) must equal the opposite of (−3)(+4) = −12, so (−3)(−4) = +12. The sign rules preserve the distributive property across all integers.
 
 #### Step-by-Step Examples
 
@@ -462,6 +496,12 @@ When multiplying more than two integers:
 - **Odd number of negative factors → Negative product**
 
 Then multiply all the absolute values to get the magnitude.
+
+> ⚠️ **Misconception:** "A negative times a negative is negative because two negatives make things more negative."
+>
+> **Why it fails:** (−4)(−6) = +24, not −24. If the rule were "negatives make things more negative," then (−2)(−3)(−4) would be "super negative," but actually (−2)(−3) = +6 first, then (+6)(−4) = −24. The sign alternates with each negative factor, it doesn't accumulate.
+>
+> **Correct model:** Each negative factor flips the sign of the running product. Start positive (the default for magnitude). One negative flips to negative. A second negative flips back to positive. A third flips to negative again. Count the negatives: even count = positive, odd count = negative.
 
 #### Special Cases
 
@@ -532,6 +572,12 @@ This is identical to multiplication because division is the inverse of multiplic
 
 **CSE Tip:** Division sign rules are identical to multiplication sign rules. If you remember one, you know both. Same signs = positive result. Different signs = negative result.
 
+### Check Your Understanding
+
+**1.** What sign does (−7)(+3) produce? → **Negative** (different signs → negative product)
+**2.** What is (−48) ÷ (−8)? → **+6** (same signs → positive; 48 ÷ 8 = 6)
+**3.** How many negative factors make a positive product? → **An even number** (even negatives = positive)
+
 ---
 
 ### 4.9 Order of Operations with Signed Numbers
@@ -567,6 +613,12 @@ NOT: 5 − 3 × 2 = 2 × 2 = 4  (wrong — subtracted before multiplying)
 −2 × (−3) + (−4) = 6 + (−4) = 2
 NOT: −2 × (−3 + (−4)) = −2 × (−7) = 14  (wrong — added before multiplying)
 ```
+
+> ⚠️ **Misconception:** "−3² equals 9 because you square the negative number."
+>
+> **Why it fails:** Without parentheses, the expression −3² means −(3²) = −(9) = −9. The exponent binds tighter than the negation operator. Only (−3)² = 9 because the parentheses make −3 the base. On the CSE, writing −5² and getting 25 instead of −25 costs you the point.
+>
+> **Correct model:** The negative sign in front of a base without parentheses is a separate unary operation applied AFTER exponentiation. Think of −3² as "negate the result of 3²." To square the negative number itself, you must enclose it: (−3)².
 
 #### Step-by-Step Examples
 
@@ -811,6 +863,12 @@ Understanding where errors occur helps you avoid them. Here are the most frequen
 
 **Prevention:** Always evaluate the expression INSIDE the absolute value bars first, then take the absolute value of the result.
 
+### Check Your Understanding
+
+**1.** What is −5²? → **−25** (exponent applies to 5 only; −(5²) = −25)
+**2.** What is (−5)²? → **25** (parentheses make −5 the base; (−5)(−5) = 25)
+**3.** Is 0 ÷ (−4) defined? → **Yes, it equals 0** (zero divided by any nonzero number = 0)
+
 ---
 
 ### Exam Strategies
@@ -825,6 +883,120 @@ Understanding where errors occur helps you avoid them. Here are the most frequen
 - **On PEMDAS problems, write one step per line.** Sign errors multiply when you try to do multiple operations in your head simultaneously.
 - **Use estimation to verify.** Round to easy numbers, compute mentally, and confirm your exact answer is in the right ballpark.
 - **Flag and skip if stuck.** If a signed number problem is taking more than 90 seconds, mark it and return later. Easier questions elsewhere are worth the same points.
+
+---
+
+### Memory Aids
+
+- **"Same Sign Sum, Keep the Sign"** — when adding two numbers with the same sign, add and keep that sign
+- **"Different Signs, Subtract and Sign of the Bigger"** — when adding numbers with different signs, subtract and use the sign of the number with the larger absolute value
+- **KCC = Keep-Change-Change** — for subtraction: keep the first number, change minus to plus, change the second number's sign
+- **"Same signs smile (positive), different signs frown (negative)"** — for multiplication and division
+- **"Even negatives = positive, odd negatives = negative"** — for products with multiple negative factors
+- **"Absolute value = always happy (nonnegative)"** — the result of absolute value is never negative
+- **"Minus a minus is a plus"** — subtracting a negative number is the same as adding a positive
+- **"Parentheses protect the negative"** — (−3)² includes the negative in the squaring; −3² does not
+
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Compute (−15) + (+8)
+
+- Step 1: Identify signs: different signs (negative and positive)
+- Step 2: Subtract absolute values: 15 − 8 = _____
+- Step 3: Determine sign (larger absolute value is 15, which is _____): _____
+- Step 4: Final answer: _____
+
+**Answer:** 15 − 8 = 7. Larger absolute value is 15 (negative). Answer: −7.
+
+**2.** Compute 12 − (−7)
+
+- Step 1: Apply KCC — Keep: _____, Change: − to _____, Change: −7 to _____
+- Step 2: Rewrite as addition: _____ + _____
+- Step 3: Same or different signs? _____ → Rule: _____
+- Step 4: Compute: _____
+
+**Answer:** Keep 12, Change − to +, Change −7 to +7. Rewrite: 12 + 7. Same signs (both positive). Compute: 12 + 7 = 19.
+
+**3.** Compute (−4)(+5)(−3)
+
+- Step 1: Count negative factors: _____
+- Step 2: Even or odd? _____ → Product sign: _____
+- Step 3: Multiply absolute values: _____ × _____ × _____ = _____
+- Step 4: Apply sign: _____
+
+**Answer:** 2 negative factors. Even → positive. 4 × 5 × 3 = 60. Answer: +60.
+
+**4.** Compute [(−30) ÷ (+6)] − (−4)
+
+- Step 1: Evaluate bracket — signs are _____, so quotient is _____: (−30) ÷ (+6) = _____
+- Step 2: Apply KCC to subtraction: _____ − (−4) = _____ + _____
+- Step 3: Compute: _____
+
+**Answer:** Different signs → negative. (−30) ÷ (+6) = −5. Then −5 − (−4) = −5 + 4 = −1.
+
+**5.** A barangay treasurer recorded these transactions: received ₱12,000 grant, paid ₱8,500 for supplies, received ₱3,000 donation, paid ₱7,200 for wages. What is the net balance?
+
+- Step 1: Assign signs — received = _____, paid = _____
+- Step 2: Write expression: _____ + _____ + _____ + _____
+- Step 3: Group positives: _____; Group negatives: _____
+- Step 4: Combine: _____
+
+**Answer:** Received = positive, paid = negative. Expression: (+12,000) + (−8,500) + (+3,000) + (−7,200). Positives: 12,000 + 3,000 = 15,000. Negatives: 8,500 + 7,200 = 15,700. Net: 15,000 + (−15,700) = −700. The barangay has a deficit of ₱700.
+
+---
+
+### Which Method?
+
+For each problem, identify the operation type and solve.
+
+**1.** (−18) + (+7)
+- **Type:** Addition with different signs
+- **Answer:** −11
+- **Why:** |−18| > |+7|, subtract: 18 − 7 = 11, sign of larger is negative.
+
+**2.** (−6)(−9)
+- **Type:** Multiplication (same signs)
+- **Answer:** +54
+- **Why:** Same signs → positive. 6 × 9 = 54.
+
+**3.** 14 − (−6)
+- **Type:** Subtraction (KCC: subtract a negative)
+- **Answer:** 20
+- **Why:** KCC → 14 + 6 = 20.
+
+**4.** (−56) ÷ (+8)
+- **Type:** Division (different signs)
+- **Answer:** −7
+- **Why:** Different signs → negative. 56 ÷ 8 = 7.
+
+**5.** −4² + (−3)²
+- **Type:** PEMDAS with exponents and signs
+- **Answer:** −7
+- **Why:** −4² = −16; (−3)² = 9; −16 + 9 = −7.
+
+**6.** A government office had ₱45,000 in funds. It spent ₱52,000 on emergency repairs. What is the balance?
+- **Type:** Word problem (addition with signed numbers)
+- **Answer:** −₱7,000 (deficit)
+- **Why:** 45,000 + (−52,000) = −7,000.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Determine absolute values correctly, including expressions inside bars
+- [ ] Add integers using same-sign and different-sign rules
+- [ ] Subtract integers using Keep-Change-Change without sign errors
+- [ ] Apply sign rules for multiplication (same = positive, different = negative)
+- [ ] Apply sign rules for division (same = positive, different = negative)
+- [ ] Evaluate multi-step expressions with PEMDAS and correct sign handling
+- [ ] Distinguish between −x² and (−x)² in expressions
+- [ ] Solve signed-number word problems in Philippine government context
 
 ---
 
@@ -918,16 +1090,15 @@ Signed numbers are numbers with a positive or negative sign indicating direction
 
 ---
 
-### Memory Aids
+### Connections
 
-- **"Same Sign Sum, Keep the Sign"** — when adding two numbers with the same sign, add and keep that sign
-- **"Different Signs, Subtract and Sign of the Bigger"** — when adding numbers with different signs, subtract and use the sign of the number with the larger absolute value
-- **KCC = Keep-Change-Change** — for subtraction: keep the first number, change minus to plus, change the second number's sign
-- **"Same signs smile (positive), different signs frown (negative)"** — for multiplication and division
-- **"Even negatives = positive, odd negatives = negative"** — for products with multiple negative factors
-- **"Absolute value = always happy (nonnegative)"** — the result of absolute value is never negative
-- **"Minus a minus is a plus"** — subtracting a negative number is the same as adding a positive
-- **"Parentheses protect the negative"** — (−3)² includes the negative in the squaring; −3² does not
+How this topic connects to other areas of the CSE:
+
+- **Order of Operations:** Signed numbers are the primary source of errors in PEMDAS problems — mastering sign rules here directly improves multi-step expression evaluation
+- **Exponents and Roots:** Negative bases with even vs. odd exponents produce different signs — understanding signed multiplication is prerequisite knowledge
+- **Addition and Subtraction:** Integer addition/subtraction extends whole-number operations to include direction — the same-sign and different-sign rules generalize basic arithmetic
+- **Percentages:** Percentage decrease and loss calculations produce negative values that must be combined with positive gains using signed addition
+- **Word Problems:** Real-world CSE items involving budgets, temperature, elevation, and accounting all require translating verbal descriptions into signed number expressions
 
 ---
 
@@ -945,3 +1116,100 @@ Signed numbers are numbers with a positive or negative sign indicating direction
 ✅ Solve real-world CSE problems involving signed numbers
 ✅ Use estimation to verify answers and eliminate impossible choices
 ✅ Avoid common sign errors under exam time pressure
+
+## Worked Examples
+
+### Example 1: Multi-Step Addition with Grouping
+
+**Problem:** A municipal treasurer recorded the following monthly budget changes: January +₱120,000, February −₱85,000, March −₱45,000, April +₱60,000, May −₱30,000. What is the net budget change over the five months?
+
+**Solution:**
+
+Step 1: Group positives and negatives separately.
+- Positives: 120,000 + 60,000 = 180,000
+- Negatives: 85,000 + 45,000 + 30,000 = 160,000
+
+Step 2: Combine the two groups.
+- 180,000 + (−160,000) = +(180,000 − 160,000) = +20,000
+
+**Answer:** The net budget change is +₱20,000 (a surplus of ₱20,000 over five months).
+
+---
+
+### Example 2: Subtraction with Double Negatives
+
+**Problem:** The temperature in Baguio was −2°C at dawn. By afternoon, the temperature was 15°C higher than the morning low of −8°C recorded the previous day. What was the afternoon temperature, and what was the change from dawn?
+
+**Solution:**
+
+Step 1: Find afternoon temperature.
+- Morning low previous day: −8°C
+- Afternoon = −8 + 15 = +7°C
+
+Step 2: Find change from dawn to afternoon.
+- Change = 7 − (−2) = 7 + 2 = 9°C
+
+**Answer:** The afternoon temperature was 7°C. The change from dawn was +9°C (a rise of 9 degrees).
+
+---
+
+### Example 3: Mixed Operations with PEMDAS
+
+**Problem:** Evaluate: (−3)² × 2 − (−4)(+5) + |−7 − 3|
+
+**Solution:**
+
+Step 1: Exponent — (−3)² = 9
+Step 2: Multiply — 9 × 2 = 18
+Step 3: Multiply — (−4)(+5) = −20
+Step 4: Inside absolute value — −7 − 3 = −10
+Step 5: Absolute value — |−10| = 10
+Step 6: Combine — 18 − (−20) + 10 = 18 + 20 + 10 = 48
+
+**Answer:** 48
+
+---
+
+### Example 4: Product with Multiple Negative Factors
+
+**Problem:** Evaluate: (−1)(+2)(−3)(+4)(−5)
+
+**Solution:**
+
+Step 1: Count negative factors — 3 negatives (−1, −3, −5)
+Step 2: Odd count → product is negative
+Step 3: Multiply absolute values — 1 × 2 × 3 × 4 × 5 = 120
+Step 4: Apply sign — −120
+
+**Answer:** −120
+
+---
+
+### Example 5: Division Chain
+
+**Problem:** Evaluate: [(−72) ÷ (+9)] ÷ [(−4) ÷ (−2)]
+
+**Solution:**
+
+Step 1: First bracket — (−72) ÷ (+9) = −8 (different signs → negative)
+Step 2: Second bracket — (−4) ÷ (−2) = +2 (same signs → positive)
+Step 3: Divide results — (−8) ÷ (+2) = −4 (different signs → negative)
+
+**Answer:** −4
+
+## Key Takeaways
+
+- Signed numbers have both a sign (direction) and a magnitude (size); absolute value extracts the magnitude
+- For addition: same signs → add magnitudes and keep the sign; different signs → subtract magnitudes and take the sign of the larger
+- For subtraction: use Keep-Change-Change to convert to addition, then apply addition rules
+- For multiplication and division: same signs → positive result; different signs → negative result
+- For multiple factors: count the negatives — even count = positive, odd count = negative
+- PEMDAS applies to signed numbers with extra care: −x² ≠ (−x)² and absolute value bars act as grouping symbols
+- In word problems, assign positive to gains/increases and negative to losses/decreases, then combine using signed arithmetic
+- Always determine the expected sign before computing to catch errors and eliminate wrong answer choices
+
+## Summary
+
+Operations with signed numbers extend basic arithmetic to include direction. The number line provides the conceptual foundation: positive numbers lie to the right of zero, negative numbers to the left, and absolute value measures distance from zero regardless of direction. Addition rules depend on whether signs match (add magnitudes) or differ (subtract magnitudes). Subtraction converts to addition via Keep-Change-Change. Multiplication and division share identical sign rules: same signs yield positive results, different signs yield negative results. When multiple operations appear in one expression, PEMDAS governs the order, with special attention to how negative signs interact with exponents and grouping symbols.
+
+For the CSE, signed number fluency is non-negotiable. Budget calculations, temperature problems, elevation differences, and accounting entries all require accurate handling of positive and negative quantities. The most effective exam strategy is to determine the sign of your answer first (eliminating wrong choices), then compute the magnitude carefully using one step per line. Common traps — confusing −3² with (−3)², distributing absolute value incorrectly, and forgetting KCC — are predictable and avoidable with deliberate practice.
