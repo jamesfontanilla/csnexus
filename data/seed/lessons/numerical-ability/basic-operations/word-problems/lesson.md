@@ -1061,6 +1061,23 @@ How this topic connects to other areas of the CSE:
 
 ---
 
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+- **Percentage Applications**: Reinforces this topic through a closely related reasoning pattern.
+- **Percentage Mental Math And Shortcuts**: Reinforces this topic through a closely related reasoning pattern.
 ## Worked Examples
 
 **Example 1:** A government office has an annual budget of ₱3,600,000 for supplies. In the first quarter, ₱980,000 was spent. The remaining budget is allocated equally across the remaining 9 months. How much can be spent per month?

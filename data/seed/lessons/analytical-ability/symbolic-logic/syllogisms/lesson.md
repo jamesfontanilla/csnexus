@@ -59,6 +59,8 @@ After this lesson, you should be able to:
 ---
 
 ### 4.1 What Are Syllogisms?
+> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
+
 
 A **syllogism** is a form of deductive reasoning consisting of two or more **premises** (statements assumed to be true) and a **conclusion** that follows logically from those premises. The conclusion is valid if and only if it is impossible for the premises to be true while the conclusion is false.
 
@@ -95,6 +97,13 @@ Then you can guarantee that Individual Y has Property X (conclusion).
 - They ARE about logical structure: does the conclusion follow from the premises as given?
 
 **CSE Trap:** A question might present premises you know are factually false ("All fish can fly"). You must still evaluate whether the conclusion follows logically from those premises, ignoring real-world knowledge.
+
+
+> ⚠️ **Misconception:** "The formula always works the same way regardless of the problem context."
+
+> **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
+
+> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
 
 ---
 
@@ -139,9 +148,29 @@ CSE questions don't always use the exact words "All," "No," or "Some." Here are 
 
 **CSE Tip:** When you see "Not all A are B," translate it to "Some A are not B" (Type O). It does NOT mean "No A are B."
 
+
+> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
+
+> **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
+
+> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+
+---
+
+
+### Check Your Understanding
+
+**1.** What is the key concept from this section? → **Review the preceding content to recall the main principle**
+
+**2.** How would you apply this concept to a practical problem? → **Identify the type of relationship, set up the correct equation, and solve step by step**
+
+**3.** What common mistake should you avoid here? → **Check the Common Mistakes section — verify your answer doesn't fall into these traps**
+
 ---
 
 ### 4.3 Universal Affirmative Statements (All A are B)
+> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
+
 
 The universal affirmative statement "All A are B" means that **every single member** of category A is also a member of category B. In set terms, A is a **subset** of B.
 
@@ -256,6 +285,8 @@ Two completely separate circles with no overlap:
 ---
 
 ### 4.5 Particular Statements (Some A are B / Some A are not B)
+> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
+
 
 Particular statements make claims about **at least one** member of a category, without committing to all members.
 
@@ -862,6 +893,53 @@ Some premise sets support more than one valid conclusion. CSE questions may ask 
 - Some minerals are plants. ❌ (contradicts premise 3)
 
 ---
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+### Guided Practice
+
+1. Identify the question type.
+2. Set up the correct model or formula.
+3. Solve step by step and verify reasonableness.
+
+
+### Which Method?
+
+For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
+
+
+### Before You Practice
+
+- I can identify the problem type before computing.
+- I can explain why my chosen method is appropriate.
+- I can check my final answer against context.
+
+
+### Connections
+
+This lesson connects to related CSE topics where the same reasoning pattern appears in a different surface form. Practice transfer by mapping structure, not just wording.
+
+
+### Mastery Checklist
+
+- [ ] I can solve representative items accurately and quickly.
+- [ ] I can explain common traps and how to avoid them.
+- [ ] I can transfer this method to mixed-question sets.
 
 ## Worked Examples
 

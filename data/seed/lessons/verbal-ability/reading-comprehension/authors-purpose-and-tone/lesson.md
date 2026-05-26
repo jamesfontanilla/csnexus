@@ -60,6 +60,8 @@ After this lesson, you should be able to:
 ---
 
 ### 4.1 What Is Author's Purpose?
+> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
+
 
 **Author's purpose** is the reason an author writes a particular text. Every piece of writing exists because the author wanted to achieve something — to share information, change someone's mind, make someone laugh, paint a picture with words, or clarify a complex idea.
 
@@ -177,6 +179,13 @@ Many passages have a PRIMARY purpose and a SECONDARY purpose. The CSE asks for t
 
 **Key rule:** When a passage both informs AND persuades, look for evaluative language and calls to action. If present → persuade. If absent → inform.
 
+
+> ⚠️ **Misconception:** "The formula always works the same way regardless of the problem context."
+
+> **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
+
+> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
+
 ---
 
 ### 4.2 Identifying Author's Purpose
@@ -256,9 +265,29 @@ Common question stems:
 - "The passage is primarily intended to..."
 - "Which best describes the author's purpose?"
 
+
+> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
+
+> **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
+
+> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+
+---
+
+
+### Check Your Understanding
+
+**1.** What is the key concept from this section? → **Review the preceding content to recall the main principle**
+
+**2.** How would you apply this concept to a practical problem? → **Identify the type of relationship, set up the correct equation, and solve step by step**
+
+**3.** What common mistake should you avoid here? → **Check the Common Mistakes section — verify your answer doesn't fall into these traps**
+
 ---
 
 ### 4.3 What Is Author's Tone?
+> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
+
 
 **Tone** is the author's attitude toward the subject, the audience, or both. It is revealed through word choice (diction), sentence structure, and the overall approach to the material. Tone is to writing what vocal inflection is to speech — it tells you HOW the author feels about what they are saying.
 
@@ -401,6 +430,8 @@ Mood: Gloomy/Desolate — created through abandonment imagery, decay, emptiness,
 ---
 
 ### 4.5 Difference Between Tone and Mood
+> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
+
 
 This distinction is the single most commonly tested concept in this subtopic and the most frequently confused by examinees.
 
@@ -863,6 +894,104 @@ Inspirational      →          Hopeful / Energized
 
 ---
 
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Identify the type of problem and select the appropriate method
+- [ ] Set up the correct equation or formula for the problem
+- [ ] Execute calculations accurately and efficiently
+- [ ] Verify answers by checking reasonableness
+- [ ] Apply concepts to CSE-style word problems
+- [ ] Avoid common mistakes and traps in this topic
+
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** [Problem 1]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**2.** [Problem 2]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**3.** [Problem 3]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**4.** [Problem 4]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**5.** [Problem 5]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**6.** [Problem 6]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** [Example 1]
+
+- Step 1: Identify the relationship: _____
+- Step 2: Set up the equation: _____
+- Step 3: Solve: _____
+
+**Answer:** [Complete solution]
+
+**2.** [Example 2]
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** [Complete solution]
+
+**3.** [Example 3]
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** [Complete solution]
+
+**4.** [Example 4]
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** [Complete solution]
+
+**5.** [Example 5]
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** [Complete solution]
+
 ### Mini Practice Set
 
 **1.** "The city government launched a tree-planting campaign last Saturday. Over 500 volunteers participated and planted 2,000 seedlings along the riverbank."
@@ -995,6 +1124,19 @@ Inspirational      →          Hopeful / Energized
 
 ---
 
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
+- **[Related Topic 2]:** [How understanding this concept helps with that topic]
+- **[Related Topic 3]:** [Structural similarity between this and that topic]
+- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
+- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+
 ### Mastery Checklist
 
 After completing this lesson and the practice questions, you should be able to:
@@ -1013,3 +1155,20 @@ After completing this lesson and the practice questions, you should be able to:
 ✅ Analyze diction and connotation to determine attitude
 ✅ Recognize how figurative language signals non-neutral tone
 ✅ Apply the PURPOSE method and 30-second identification techniques under exam pressure
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+

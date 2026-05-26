@@ -83,7 +83,7 @@ This plan enhances all ~74 existing lesson files with research-backed pedagogica
 
 
 - [ ] 3. Enhance Numerical Ability — Percentages (8 lessons)
-  - [-] 3.1 Enhance fundamentals-of-percentages lesson
+  - [x] 3.1 Enhance fundamentals-of-percentages lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
@@ -93,12 +93,12 @@ This plan enhances all ~74 existing lesson files with research-backed pedagogica
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 3.3 Enhance percentage-increase-and-decrease lesson
+  - [x] 3.3 Enhance percentage-increase-and-decrease lesson
     - Add all required enhanced sections plus 1 Dual_Coding_Visual (original vs new value diagram)
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 9.1, 10.1, 11.1_
 
-  - [ ] 3.4 Enhance discounts-markups-and-sales lesson
+  - [x] 3.4 Enhance discounts-markups-and-sales lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_

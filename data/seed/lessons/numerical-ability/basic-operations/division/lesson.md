@@ -1188,3 +1188,26 @@ After completing this lesson, you should be able to:
 - ✅ Estimate division results using compatible numbers and rounding
 - ✅ Solve CSE-style word problems involving division of all number types
 - ✅ Verify answers using multiplication and catch common errors
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+- **Exponents And Roots**: Reinforces this topic through a closely related reasoning pattern.
+- **Basic Percentage Problems**: Reinforces this topic through a closely related reasoning pattern.
+- **Discounts Markups And Sales**: Reinforces this topic through a closely related reasoning pattern.
+- **Fundamentals Of Percentages**: Reinforces this topic through a closely related reasoning pattern.
+- **Introduction To Ratios**: Reinforces this topic through a closely related reasoning pattern.
+- **Scale And Map Problems**: Reinforces this topic through a closely related reasoning pattern.
+- **Types Of Ratios**: Reinforces this topic through a closely related reasoning pattern.

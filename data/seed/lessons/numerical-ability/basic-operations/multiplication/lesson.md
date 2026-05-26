@@ -920,3 +920,22 @@ After completing this lesson and practice set, confirm you can:
 ✅ Use estimation and mental math shortcuts (doubling-halving, distributive property)
 ✅ Avoid all common multiplication errors listed in Section 4.8
 ✅ Solve multi-step CSE-style multiplication problems under time pressure
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+- **Direct And Inverse Proportions**: Reinforces this topic through a closely related reasoning pattern.
+- **Proportion Word Problems**: Reinforces this topic through a closely related reasoning pattern.
+- **Ratio Word Problems**: Reinforces this topic through a closely related reasoning pattern.

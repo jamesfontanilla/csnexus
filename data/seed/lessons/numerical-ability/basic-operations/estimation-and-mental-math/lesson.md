@@ -1456,6 +1456,22 @@ How this topic connects to other areas of the CSE:
 - **Mental division:** Use reciprocal multiplication shortcuts (÷5 = ×2÷10) or simplify first.
 - **Reasonableness:** Always check magnitude, sign, and last digit before selecting your answer.
 
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+- **Profit Loss And Tax**: Reinforces this topic through a closely related reasoning pattern.
 ## Worked Examples
 
 ### Example 1: Multi-Strategy Estimation for Budget Verification

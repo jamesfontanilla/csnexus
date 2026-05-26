@@ -54,6 +54,8 @@ After this lesson, you should be able to:
 ---
 
 ### 4.1 Overview of Ratio Types
+> 🤔 **Why does this work?** A part-to-part ratio compares two disjoint subsets — neither includes the other. The two parts together may or may not equal the whole (there could be a third category). This is why adding the terms of a part-to-part ratio only gives you the total when exactly two categories cover everything. Understanding this distinction is what separates correct from incorrect answers on the CSE.
+
 
 A **ratio** compares two quantities using division. The way we classify a ratio depends on *what* is being compared:
 
@@ -100,6 +102,13 @@ To classify a ratio correctly, ask two questions:
 - "each"
 - "for every one"
 - "rate"
+
+
+> ⚠️ **Misconception:** "If the ratio of boys to girls is 2:3, then 2/3 of the students are boys."
+
+> **Why it fails:** This confuses part-to-part with part-to-whole. The ratio 2:3 compares boys to girls — neither is the total. Since 2+3=5 parts total, boys represent 2/5 (40%) of the students, not 2/3 (67%). This error would overstate the boy population by 27 percentage points.
+
+> **Correct model:** When you see a ratio written as A:B, always check whether the second term is another part or the total. Part-to-part ratios require you to ADD the parts to find the whole before computing any fraction or percentage.
 
 ---
 
@@ -176,9 +185,29 @@ The ratio 3:5 tells you the relationship between red and blue — it says nothin
 | 45 passed, 15 failed | passed:failed = 3:1 | For every 3 who passed, 1 failed |
 | ₱8,000 food, ₱2,000 transport | food:transport = 4:1 | For every ₱4 on food, ₱1 goes to transport |
 
+
+> ⚠️ **Misconception:** "6:10 and 3:5 are different ratios because the numbers are different."
+
+> **Why it fails:** A ratio is about the *relationship*, not the specific numbers. Both 6:10 and 3:5 represent the same proportional relationship — the first term is 0.6 times the second term in both cases. In a classroom, "6 boys for every 10 girls" and "3 boys for every 5 girls" describe the exact same situation at different scales.
+
+> **Correct model:** Two ratios are equivalent if they can be reduced to the same simplified form OR if cross-multiplication produces equal products. The numbers themselves can be completely different while describing identical proportions.
+
+---
+
+
+### Check Your Understanding
+
+**1.** What is the key difference between part-to-part and part-to-whole ratios? → **Part-to-part compares two subgroups; part-to-whole compares one subgroup to the total (the second term IS the whole in part-to-whole)**
+
+**2.** If the ratio of passed to failed examinees is 5:3, what is the total number of parts? → **8 parts (add 5 + 3; the whole equals the sum of both parts)**
+
+**3.** You have 8 red balls and 12 blue balls. What is the part-to-part ratio? What is red:total? → **red:blue = 8:12 = 2:3 (part-to-part); red:total = 8:20 = 2:5 (part-to-whole)**
+
 ---
 
 ### 4.3 Part-to-Whole Ratios
+> 🤔 **Why does this work?** Equivalent ratios preserve the proportional relationship because multiplying or dividing both terms by the same number (k) is equivalent to multiplying by k/k = 1 — you're not changing the value of the ratio, just expressing it differently. Cross-multiplication works because a:b = c:d means a/b = c/d, and multiplying both sides by b×d gives a×d = b×c.
+
 
 A **part-to-whole ratio** compares one subset to the entire group (the total of all subsets combined).
 
@@ -364,6 +393,8 @@ This connection is critical — if you can find equivalent fractions, you can fi
 ---
 
 ### 4.5 Unit Ratios
+> 🤔 **Why does this work?** A unit ratio normalizes the second quantity to 1 so you can compare "apples to apples." Dividing both terms by the second term's value is the same operation you use to convert any ratio to a unit ratio: a:b becomes (a÷b):1. This works because division by the same number preserves proportionality — exactly the same principle behind equivalent ratios.
+
 
 A **unit ratio** is a ratio where the second term equals 1. It expresses "how much of the first quantity corresponds to exactly one of the second quantity."
 
@@ -433,6 +464,17 @@ A unit ratio is simply any ratio simplified so the second term becomes 1:
 - Part-to-whole: 3:8 → as unit ratio: 0.375:1
 
 However, unit ratios are most commonly used for rates (different units), not for part-to-part or part-to-whole comparisons.
+
+---
+
+
+### Check Your Understanding
+
+**1.** How do you test if 6:9 and 10:15 are equivalent? → **Cross-multiply: 6×15=90 and 9×10=90; equal products → equivalent (both simplify to 2:3)**
+
+**2.** A car travels 450 km on 30 liters. What is the unit ratio? → **15:1, or 15 km per liter (divide both terms by 30: 450÷30=15, 30÷30=1)**
+
+**3.** What separates a unit ratio from a regular simplified ratio? → **The second term must be exactly 1 (a simplified ratio like 2:3 is not a unit ratio because the second term is not 1)**
 
 ---
 
@@ -736,7 +778,7 @@ Practice simplifying these in under 5 seconds each:
 
 ---
 
-## Step-by-Step Rules
+### Step-by-Step Rules
 
 ### Ratio Classification Procedure
 
@@ -787,7 +829,7 @@ After solving, check:
 
 ---
 
-## Exam Strategies
+### Exam Strategies
 
 ### Identifying Ratio Types Instantly
 
@@ -829,7 +871,7 @@ The CSE loves to include the correct ratio in reversed order as a distractor. AL
 
 ---
 
-## Real CSE-Like Examples
+### Real CSE-Like Examples
 
 ### Easy Examples
 
@@ -919,7 +961,105 @@ The ratio of passed to failed examinees is 7:3. If 420 examinees passed, what is
 
 ---
 
-## Mini Practice Set
+
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** A factory has 150 male workers and 100 female workers. Find the part-to-whole ratio of male workers to total.
+
+- Step 1: Compute total: 150 + 100 = _____
+- Step 2: Write male:total = _____:_____
+- Step 3: Simplify by dividing by GCF: _____:_____
+
+**Answer:** Total = 250. male:total = 150:250. GCF of 150 and 250 = 50. 150÷50=3, 250÷50=5. Result: 3:5
+
+**2.** Determine if 14:21 and 8:12 are equivalent ratios.
+
+- Step 1: Simplify 14:21 — GCF = 7 → _____:_____
+- Step 2: Simplify 8:12 — GCF = 4 → _____:_____
+- Step 3: Are the simplified forms equal? _____
+
+**Answer:** 14:21 = 2:3. 8:12 = 2:3. Both simplify to 2:3 → equivalent.
+
+**3.** Store X sells 6 cans for ₱210. Find the unit price.
+
+- Step 1: Write the ratio: _____:_____
+- Step 2: Divide both terms by 6: _____:_____
+- Step 3: Interpret: ₱_____ per can
+
+**Answer:** Ratio: 210:6. Divide both by 6: 35:1. Unit price: ₱35 per can.
+
+**4.** The ratio of passed to failed is 7:3. If 420 passed, find the number who failed.
+
+- Step 1: 7 parts = _____ examinees, so 1 part = _____
+- Step 2: Failed = 3 × _____ = _____
+- Step 3: Total = 420 + _____ = _____
+
+**Answer:** 7 parts = 420, so 1 part = 60. Failed = 3×60 = 180. Total = 420+180 = 600.
+
+**5.** A barangay budget allocates funds in the ratio education:health:infrastructure = 5:3:2. If the total is ₱800,000, how much goes to health?
+
+- Step 1: Total parts = 5 + 3 + 2 = _____
+- Step 2: 1 part = ₱800,000 ÷ _____ = ₱_____
+- Step 3: Health = 3 × _____ = ₱_____
+
+**Answer:** Total parts = 10. 1 part = ₱800,000 ÷ 10 = ₱80,000. Health = 3 × ₱80,000 = ₱240,000.
+
+
+---
+
+### Which Method?
+
+For each problem, identify the ratio type and solve.
+
+**1.** A survey shows 120 agree and 80 disagree. What is agree:total?
+- **Type:** Part-to-whole (agree compared to total respondents)
+- **Answer:** 120:200 = 3:5
+- **Why:** Total = 120+80 = 200. agree:total = 120:200, simplify by GCF 40 → 3:5.
+
+**2.** Which of these is equivalent to 5:8? (a) 10:16 (b) 15:20 (c) 25:32
+- **Type:** Equivalent ratio identification (test each option)
+- **Answer:** (a) 10:16
+- **Why:** 5×2=10, 8×2=16 ✓. (b) 15:20 → ×3 and ×2.5 — not same multiplier. (c) 25:32 → ×5 and ×4 — not same multiplier.
+
+**3.** A printer produces 1,440 pages in 12 minutes. What is the printing rate per minute?
+- **Type:** Unit ratio (rate per one minute)
+- **Answer:** 120 pages per minute
+- **Why:** 1,440:12 → divide both by 12 → 120:1. Unit ratio = 120 pages per minute.
+
+**4.** In a barangay of 500 residents, the ratio of registered to unregistered voters is 3:2. How many are registered?
+- **Type:** Part-to-part with scaling (find actual values from ratio)
+- **Answer:** 300 registered voters
+- **Why:** Total parts = 5. 1 part = 500÷5 = 100. Registered = 3×100 = 300.
+
+**5.** A recipe uses 3 cups of flour for every 2 cups of sugar. If you use 12 cups of flour, how much sugar?
+- **Type:** Equivalent ratio (scaling up from given ratio)
+- **Answer:** 8 cups
+- **Why:** 3:2 = 12:? → multiplier = 12÷3 = 4 → sugar = 2×4 = 8.
+
+**6.** The ratio of boys to total students is 2:5. If there are 30 boys, how many are NOT boys?
+- **Type:** Part-to-whole with reverse calculation
+- **Answer:** 45 non-boys (girls + others)
+- **Why:** 2 parts = 30, so 1 part = 15. Total = 5×15 = 75. Non-boys = 75-30 = 45.
+
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Distinguish part-to-part from part-to-whole ratios based on wording
+- [ ] Simplify ratios and verify equivalence using cross-multiplication
+- [ ] Calculate unit ratios and interpret them as rates
+- [ ] Convert between part-to-part and part-to-whole ratios
+- [ ] Scale ratios up and down using equivalent ratios
+- [ ] Identify the correct ratio type in CSE word problems
+
+### Mini Practice Set
 
 **1.** A bag has 9 mangoes and 6 apples. What is the ratio of mangoes to apples?
 **Answer:** 9:6 = 3:2 (part-to-part)
@@ -983,7 +1123,7 @@ The ratio of passed to failed examinees is 7:3. If 420 examinees passed, what is
 
 ---
 
-## Quick Recap
+### Quick Recap
 
 | Ratio Type | Definition | Key Signal Words | Example |
 |-----------|-----------|-----------------|---------|
@@ -1000,7 +1140,7 @@ The ratio of passed to failed examinees is 7:3. If 420 examinees passed, what is
 
 ---
 
-## Memory Aids
+### Memory Aids
 
 ### Ratio Identification Tricks
 
@@ -1043,7 +1183,20 @@ The ratio of passed to failed examinees is 7:3. If 420 examinees passed, what is
 
 ---
 
-## Mastery Checklist
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Introduction to Ratios:** The fundamental ratio concepts from that lesson — writing ratios, identifying quantities — are the foundation for distinguishing between ratio types here
+- **Ratio Word Problems:** Every ratio word problem requires you to first classify the ratio type before solving — misidentifying part-to-part as part-to-whole changes the entire calculation
+- **Direct and Inverse Proportions:** Unit ratios are directly applied in proportion problems — the constant of proportionality is essentially a unit ratio
+- **Percentages:** A percentage is a part-to-whole ratio with the whole normalized to 100 — converting 3:5 to 60% requires the concept of equivalent ratios
+- **Fractions (Basic Operations):** A part-to-whole ratio like 3:8 is identical to the fraction 3/8 — ratio types bridge directly to fraction concepts
+
+### Mastery Checklist
 
 After completing this lesson, you should be able to:
 
@@ -1058,3 +1211,20 @@ After completing this lesson, you should be able to:
 - ✅ Use estimation and mental math to simplify ratios quickly
 - ✅ Avoid common errors (reversed order, wrong total, single-term division)
 - ✅ Solve CSE-style ratio-type questions efficiently under time pressure
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+

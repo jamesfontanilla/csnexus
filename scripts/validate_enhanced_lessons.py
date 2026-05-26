@@ -1,4 +1,4 @@
-"""Validate enhanced lesson files for structural compliance.
+﻿"""Validate enhanced lesson files for structural compliance.
 
 Checks all lesson.md files under data/seed/lessons/ for the presence of
 required pedagogical sections and verifies parser compatibility.
@@ -33,21 +33,21 @@ def check_required_sections(content: str) -> list[str]:
     """
     failures: list[str] = []
 
-    # Check Your Understanding (≥1)
+    # Check Your Understanding (â‰¥1)
     cyu_count = len(re.findall(r"^###\s+Check Your Understanding", content, re.MULTILINE))
     if cyu_count < 1:
-        failures.append("Missing: Check Your Understanding (found 0, need ≥1)")
+        failures.append("Missing: Check Your Understanding (found 0, need â‰¥1)")
 
-    # Elaborative Interrogation (≥1) — detected by "> 🤔" blockquote
-    ei_count = len(re.findall(r"^>\s*🤔", content, re.MULTILINE))
+    # Elaborative Interrogation (â‰¥1) â€” detected by "> ðŸ¤”" blockquote
+    ei_count = len(re.findall(r"^>\s*.*Why does this work\?", content, re.MULTILINE))
     if ei_count < 1:
-        failures.append("Missing: Elaborative Interrogation (found 0, need ≥1)")
+        failures.append("Missing: Elaborative Interrogation (found 0, need â‰¥1)")
 
-    # Misconception Confrontation (≥2) — detected by "> ⚠️" blockquote
-    mc_count = len(re.findall(r"^>\s*⚠️", content, re.MULTILINE))
+    # Misconception Confrontation (â‰¥2) â€” detected by "> âš ï¸" blockquote
+    mc_count = len(re.findall(r"^>\s*.*Misconception", content, re.MULTILINE))
     if mc_count < 2:
         failures.append(
-            f"Missing: Misconception Confrontation (found {mc_count}, need ≥2)"
+            f"Missing: Misconception Confrontation (found {mc_count}, need â‰¥2)"
         )
 
     # Guided Practice heading
@@ -167,7 +167,7 @@ def run_validation() -> int:
                 relative_path = file_path.relative_to(PROJECT_ROOT)
                 print(f"  {relative_path}")
                 for failure in failures:
-                    print(f"    ✗ {failure}")
+                    print(f"    âœ— {failure}")
                 print()
 
     print("SECTION COVERAGE:")
@@ -183,3 +183,5 @@ def run_validation() -> int:
 
 if __name__ == "__main__":
     sys.exit(run_validation())
+
+

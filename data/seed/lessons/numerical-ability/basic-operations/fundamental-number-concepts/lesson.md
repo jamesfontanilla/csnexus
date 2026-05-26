@@ -951,3 +951,20 @@ After completing this lesson, you should be able to:
 ✅ Solve CSE-style fundamental number concept questions within time limits
 
 ✅ Avoid the most common traps (1 is not prime, -10 < -3, 0.9 > 0.15)
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+

@@ -1,6 +1,8 @@
 # Basic Percentage Problems
 
-## Introduction
+## Explanations
+
+### Introduction
 
 **Basic percentage problems** are the bread and butter of the Numerical Ability section in the Philippine Civil Service Examination. These problems ask you to find one of three values — the **percentage (rate)**, the **part**, or the **whole (base)** — when the other two are given. Unlike the previous subtopic (Fundamentals of Percentages) which focused on conversions between fractions, decimals, and percentages, this subtopic focuses on *applying* percentages to solve real-world problems.
 
@@ -18,7 +20,19 @@ Percentage problems appear in virtually every aspect of government work:
 
 The CSE tests basic percentage problems because they require both conceptual understanding and computational accuracy. You must identify *what* is being asked, select the correct formula, and execute the arithmetic — all under time pressure.
 
-**Common mistakes examinees make:**
+### Why Basic Percentage Problems Are Tested in the CSE
+
+- Government employees compute budget allocations expressed as percentages of total departmental funds
+- Public servants verify payroll deductions (withholding tax, PhilHealth, Pag-IBIG, SSS/GSIS) calculated as percentages of gross salary
+- Procurement officers determine discount amounts and VAT-inclusive prices on government purchases
+- Performance evaluation systems require computing percentage scores from raw data
+- Budget officers allocate percentage shares across programs and verify they sum to 100%
+- Audit teams identify discrepancies by computing what percentage one figure is of another
+- Statistical reports on literacy rates, employment figures, and survey results all use percentage calculations
+- Election officers compute voter turnout percentages and candidate vote shares
+
+### Common Mistakes Examinees Make
+
 1. Confusing the part with the whole (e.g., treating the discount amount as the original price)
 2. Forgetting to convert the percentage to a decimal before multiplying
 3. Dividing when they should multiply (or vice versa)
@@ -28,7 +42,7 @@ The CSE tests basic percentage problems because they require both conceptual und
 7. Not checking whether the answer is reasonable (e.g., getting a part larger than the whole)
 8. Confusing "what percent OF" with "what percent MORE THAN"
 
-## Learning Objectives
+### Learning Objectives
 
 After this lesson, you should be able to:
 - Identify the three components of any percentage problem (rate, part, whole)
@@ -43,11 +57,11 @@ After this lesson, you should be able to:
 
 ---
 
-## 4.1 Understanding the Three Components
+### 4.1 Understanding the Three Components
 
 Every basic percentage problem involves exactly three quantities. If you can identify which two are given and which one is missing, you can solve any percentage problem.
 
-### The Three Components
+#### The Three Components
 
 | Component | Also Called | What It Represents | Example |
 |-----------|------------|-------------------|---------|
@@ -55,7 +69,7 @@ Every basic percentage problem involves exactly three quantities. If you can ide
 | **Part (P)** | Portion, amount, percentage amount | The piece of the whole | 20 |
 | **Whole (W)** | Base, total, original amount | The complete quantity | 80 |
 
-### The Relationship
+#### The Relationship
 
 The three components are connected by one fundamental relationship:
 
@@ -72,7 +86,9 @@ W = P ÷ R       (Finding the Whole)
 
 **⚠️ Critical Rule:** When using these formulas, the Rate must be in decimal form (not percent form). Convert 25% to 0.25 before multiplying or dividing.
 
-### The Percentage Triangle
+> 🤔 **Why does this work?** The equation P = R × W is simply the definition of "percentage" restated algebraically. "25% of 80" means "25 per hundred of 80," which is (25/100) × 80. Since division and multiplication are inverse operations, you can isolate any one variable by rearranging: divide both sides by W to get R, or divide both sides by R to get W. One equation, three formulas — because algebra lets you solve for whichever quantity is unknown.
+
+#### The Percentage Triangle
 
 A helpful memory device is the **percentage triangle**:
 
@@ -87,7 +103,7 @@ A helpful memory device is the **percentage triangle**:
 - If R is covered: divide P ÷ W
 - If W is covered: divide P ÷ R
 
-### Identifying Components in Word Problems
+#### Identifying Components in Word Problems
 
 The hardest part of percentage problems is often not the math — it is identifying which number is the rate, which is the part, and which is the whole.
 
@@ -115,9 +131,15 @@ The hardest part of percentage problems is often not the math — it is identify
 
 **💡 CSE Tip:** In the exam, quickly scan the question for the % symbol. Then identify which of the remaining two numbers is the "of" number (whole) and which is the "is" number (part). This takes 5 seconds and prevents formula errors.
 
+> ⚠️ **Misconception:** "The larger number is always the whole and the smaller number is always the part."
+>
+> **Why it fails:** Consider "200 is 400% of what number?" Here Part = 200 and Rate = 400% = 4.0, so Whole = 200 ÷ 4 = 50. The whole (50) is *smaller* than the part (200) because the rate exceeds 100%.
+>
+> **Correct model:** The whole is identified by context ("of" what number), not by size. When the rate is greater than 100%, the part will exceed the whole. Always use clue words — not number magnitude — to identify components.
+
 ---
 
-## 4.2 Finding the Percentage (Rate)
+### 4.2 Finding the Percentage (Rate)
 
 **Formula:**
 ```
@@ -127,7 +149,7 @@ Rate (%) = (Part ÷ Whole) × 100
 
 You use this formula when the question asks: "What percent...?" or "What is the rate...?"
 
-### Step-by-Step Procedure
+#### Step-by-Step Procedure
 
 ```
 Step 1: Identify the Part (the portion or amount)
@@ -136,7 +158,9 @@ Step 3: Divide the Part by the Whole
 Step 4: Multiply by 100 to convert to percentage
 ```
 
-### Easy Examples
+> 🤔 **Why does this work?** Dividing the part by the whole gives you the fraction of the whole that the part represents (e.g., 20/80 = 0.25 = "one quarter"). Multiplying by 100 converts this fraction into "per hundred" notation — which is exactly what "percent" means. You are answering: "For every 100 units of the whole, how many units does the part account for?"
+
+#### Easy Examples
 
 **Example 1:** What percentage of 80 is 20?
 ```
@@ -162,7 +186,7 @@ Rate = 0.80 × 100 = 80%
 Answer: 80%
 ```
 
-### Medium Examples
+#### Medium Examples
 
 **Example 4:** A government office has 250 employees. If 175 are female, what percentage of employees are female?
 ```
@@ -188,7 +212,7 @@ Rate = 0.12 × 100 = 12%
 Answer: 12%
 ```
 
-### Hard Examples
+#### Hard Examples
 
 **Example 7:** A survey of 2,400 residents found that 1,560 support a new policy. What percentage support the policy?
 ```
@@ -214,7 +238,7 @@ Rate = 0.77 × 100 = 77%
 Answer: 77%
 ```
 
-### CSE-Style Example
+#### CSE-Style Example
 
 **A government agency received 3,600 applications. After screening, 2,880 were found eligible. What percentage of applications were eligible?**
 
@@ -231,7 +255,7 @@ Step 4: Rate = 0.80 × 100 = 80%
 
 ---
 
-## 4.3 Finding the Part
+### 4.3 Finding the Part
 
 **Formula:**
 ```
@@ -241,7 +265,7 @@ Part = (Percentage ÷ 100) × Whole
 
 You use this formula when the question asks: "What is X% of Y?" or "How much/many...?"
 
-### Step-by-Step Procedure
+#### Step-by-Step Procedure
 
 ```
 Step 1: Identify the Rate (the percentage given)
@@ -250,7 +274,9 @@ Step 3: Identify the Whole (the total or base amount)
 Step 4: Multiply the decimal rate by the Whole
 ```
 
-### Easy Examples
+> 🤔 **Why does this work?** Multiplying by the decimal rate scales the whole down to the appropriate fraction. When you compute 0.25 × 80, you are literally taking "25 hundredths of 80" — carving out exactly one quarter. The decimal conversion (÷ 100) is essential because the percent symbol already encodes "per hundred"; without converting, you'd be computing "25 hundreds of 80" instead of "25 hundredths of 80," producing an answer 10,000 times too large.
+
+#### Easy Examples
 
 **Example 1:** What is 25% of 200?
 ```
@@ -273,7 +299,7 @@ Part = 0.20 × 500 = 100
 Answer: ₱100
 ```
 
-### Medium Examples
+#### Medium Examples
 
 **Example 4:** A company allocates 35% of its ₱2,000,000 budget to salaries. How much is allocated to salaries?
 ```
@@ -296,7 +322,7 @@ Part = 0.72 × 850,000 = 612,000
 Answer: 612,000 voters
 ```
 
-### Hard Examples
+#### Hard Examples
 
 **Example 7:** A government project is 87.5% complete. If the total project involves 1,600 tasks, how many tasks are done?
 ```
@@ -319,7 +345,7 @@ Part = (1/3) × 4,500 = 1,500
 Answer: 1,500 respondents
 ```
 
-### CSE-Style Example
+#### CSE-Style Example
 
 **A barangay has a total population of 12,500. If 8% of the population are senior citizens, how many senior citizens are in the barangay?**
 
@@ -335,7 +361,15 @@ Step 3: Part = 0.08 × 12,500 = 1,000
 
 ---
 
-## 4.4 Finding the Whole (Base)
+### Check Your Understanding
+
+**1.** In the problem "What is 40% of 250?", which value is the Whole? → **250** (it follows "of" — the base being taken a percentage of)
+**2.** To find the Rate, which operation do you perform? → **Divide Part by Whole** (R = P ÷ W, then multiply by 100 for percent form)
+**3.** If Part = 60 and Whole = 300, what is the Rate? → **20%** (60 ÷ 300 = 0.20 = 20%)
+
+---
+
+### 4.4 Finding the Whole (Base)
 
 **Formula:**
 ```
@@ -345,7 +379,7 @@ Whole = Part ÷ (Percentage ÷ 100)
 
 You use this formula when the question asks: "X is Y% of what number?" or "What is the total/original amount?"
 
-### Step-by-Step Procedure
+#### Step-by-Step Procedure
 
 ```
 Step 1: Identify the Part (the known portion)
@@ -354,7 +388,9 @@ Step 3: Convert the Rate to decimal form (divide by 100)
 Step 4: Divide the Part by the decimal rate
 ```
 
-### Easy Examples
+> 🤔 **Why does this work?** If Part = Rate × Whole, then dividing both sides by Rate isolates the Whole. Conceptually, you know a slice and what fraction of the pie that slice represents — dividing "undoes" the scaling to recover the full pie. For example, if ₱3,750 is 15% of a salary, then 0.15 × Salary = 3,750, so Salary = 3,750 ÷ 0.15 = ₱25,000. You are reversing the multiplication that originally produced the part.
+
+#### Easy Examples
 
 **Example 1:** 15 is 25% of what number?
 ```
@@ -377,7 +413,7 @@ Whole = 42 ÷ 0.70 = 60
 Answer: 60 items
 ```
 
-### Medium Examples
+#### Medium Examples
 
 **Example 4:** A salesperson earned ₱4,500 in commission, which represents 6% of total sales. What were the total sales?
 ```
@@ -400,7 +436,7 @@ Whole = 13,500 ÷ 0.45 = 30,000
 Answer: 30,000 votes
 ```
 
-### Hard Examples
+#### Hard Examples
 
 **Example 7:** A company's tax payment of ₱2,625,000 represents 12.5% of its gross revenue. What is the gross revenue?
 ```
@@ -423,7 +459,7 @@ Whole = 840,000 ÷ (1/3) = 840,000 × 3 = 2,520,000
 Answer: ₱2,520,000
 ```
 
-### CSE-Style Example
+#### CSE-Style Example
 
 **A government employee's monthly tax deduction is ₱3,750. If this represents 15% of the gross monthly salary, what is the gross monthly salary?**
 
@@ -439,11 +475,11 @@ Step 3: Whole = 3,750 ÷ 0.15 = 25,000
 
 ---
 
-## 4.5 Identifying the Components of a Percentage Problem
+### 4.5 Identifying the Components of a Percentage Problem
 
 The most critical skill in percentage problems is correctly identifying which value is the rate, which is the part, and which is the whole. Misidentification leads to using the wrong formula.
 
-### Decision Framework
+#### Decision Framework
 
 Ask yourself these three questions in order:
 
@@ -453,7 +489,7 @@ Ask yourself these three questions in order:
 3. Which number is near "is" or represents the result? → That's the PART
 ```
 
-### Side-by-Side Comparison
+#### Side-by-Side Comparison
 
 | Problem | Rate | Part | Whole | Formula Needed |
 |---------|------|------|-------|---------------|
@@ -464,7 +500,7 @@ Ask yourself these three questions in order:
 | What % of 80 is 60? | ? | 60 | 80 | R = P ÷ W |
 | 72 is 90% of what? | 90% | 72 | ? | W = P ÷ R |
 
-### Tricky Wording Patterns
+#### Tricky Wording Patterns
 
 Some CSE questions use non-standard phrasing. Here's how to decode them:
 
@@ -476,7 +512,7 @@ Some CSE questions use non-standard phrasing. Here's how to decode them:
 | "What part of 600 is 150?" | Rate = 150 ÷ 600 | Rate |
 | "60% of what gives 420?" | Whole = 420 ÷ 0.60 | Whole |
 
-### Practice: Identify Before You Solve
+#### Practice: Identify Before You Solve
 
 For each problem below, identify the Rate, Part, and Whole before solving:
 
@@ -489,11 +525,17 @@ For each problem below, identify the Rate, Part, and Whole before solving:
 3. **"₱6,000 is 12% of the total budget. What is the total budget?"**
    - Part = 6,000, Rate = 12%, Whole = ? → W = 6,000 ÷ 0.12 = 50,000
 
+> ⚠️ **Misconception:** "Dividing when you should multiply (and vice versa) — just memorize which formula uses which operation."
+>
+> **Why it fails:** Rote memorization without understanding leads to confusion under pressure. A student who memorizes "Part = multiply" might compute 250 × 0.40 = 100 correctly for "What is 40% of 250?" but then also multiply for "100 is 40% of what?" getting 100 × 0.40 = 40 (wrong — the answer is 250).
+>
+> **Correct model:** Think about what makes sense. If you know a *piece* and want the *whole*, the whole must be bigger — so you divide the piece by a number less than 1 (the decimal rate), which makes it larger. If you know the *whole* and want a *piece*, the piece must be smaller — so you multiply by a number less than 1. Let logic guide the operation, not memorization alone.
+
 ---
 
-## 4.6 Percentage Problems in Real-Life Contexts
+### 4.6 Percentage Problems in Real-Life Contexts
 
-### Discounts and Sales
+#### Discounts and Sales
 
 **Pattern:** Discount Amount = Rate × Original Price
 
@@ -503,7 +545,7 @@ Discount = 0.15 × 45,000 = ₱6,750
 Sale Price = 45,000 - 6,750 = ₱38,250
 ```
 
-### VAT and Taxes
+#### VAT and Taxes
 
 **Pattern:** Tax Amount = Tax Rate × Taxable Amount
 
@@ -513,7 +555,7 @@ VAT = 0.12 × 8,500 = ₱1,020
 Total = 8,500 + 1,020 = ₱9,520
 ```
 
-### Grades and Passing Rates
+#### Grades and Passing Rates
 
 **Pattern:** Score Percentage = Items Correct ÷ Total Items × 100
 
@@ -522,7 +564,7 @@ Total = 8,500 + 1,020 = ₱9,520
 Minimum = 0.80 × 100 = 80 correct answers
 ```
 
-### Payroll Deductions
+#### Payroll Deductions
 
 **Pattern:** Deduction = Rate × Gross Salary
 
@@ -533,7 +575,7 @@ PhilHealth = 0.04 × 32,000 = ₱1,280
 Total Deductions = 960 + 1,280 = ₱2,240
 ```
 
-### Salary Increases
+#### Salary Increases
 
 **Pattern:** Increase Amount = Rate × Current Salary
 
@@ -543,7 +585,7 @@ Increase = 0.10 × 25,000 = ₱2,500
 New Salary = 25,000 + 2,500 = ₱27,500
 ```
 
-### Business Profits
+#### Business Profits
 
 **Pattern:** Profit = Profit Rate × Cost
 
@@ -553,7 +595,7 @@ Profit = 0.40 × 15,000 = ₱6,000
 Selling Price = 15,000 + 6,000 = ₱21,000
 ```
 
-### Commission
+#### Commission
 
 **Pattern:** Commission = Commission Rate × Total Sales
 
@@ -562,7 +604,7 @@ Selling Price = 15,000 + 6,000 = ₱21,000
 Commission = 0.05 × 3,200,000 = ₱160,000
 ```
 
-### Survey and Statistics
+#### Survey and Statistics
 
 **Pattern:** Number in Category = Percentage × Total Surveyed
 
@@ -571,7 +613,7 @@ Commission = 0.05 × 3,200,000 = ₱160,000
 Satisfied = 0.68 × 1,500 = 1,020 employees
 ```
 
-### Inventory Management
+#### Inventory Management
 
 **Pattern:** Damaged Items = Damage Rate × Total Inventory
 
@@ -580,7 +622,7 @@ Satisfied = 0.68 × 1,500 = 1,020 employees
 Damaged = 0.025 × 8,000 = 200 units
 ```
 
-### Transportation Statistics
+#### Transportation Statistics
 
 **Example:** A bus company operates 120 routes. If 85% of routes are on schedule, how many routes are on schedule?
 ```
@@ -589,11 +631,19 @@ On schedule = 0.85 × 120 = 102 routes
 
 ---
 
-## 4.7 Multi-Step Percentage Problems
+### Check Your Understanding
+
+**1.** A store offers 20% off a ₱500 item. What is the discount amount? → **₱100** (Part = 0.20 × 500 = 100)
+**2.** If an employee's ₱4,500 commission is 6% of total sales, what formula finds total sales? → **Whole = Part ÷ Rate** (W = 4,500 ÷ 0.06)
+**3.** VAT is 12%. On a ₱10,000 purchase, how much VAT is added? → **₱1,200** (0.12 × 10,000 = 1,200)
+
+---
+
+### 4.7 Multi-Step Percentage Problems
 
 Multi-step problems require two or more percentage operations to reach the final answer. These are common in the CSE because they test both procedural fluency and logical organization.
 
-### Type 1: Successive Percentages
+#### Type 1: Successive Percentages
 
 **Example:** A shirt costs ₱1,200. It is discounted by 20%, and then an additional 10% is taken off the discounted price. What is the final price?
 
@@ -605,9 +655,15 @@ Step 2: Second discount = 0.10 × 960 = ₱96
         Final price = 960 - 96 = ₱864
 ```
 
-**⚠️ Common Mistake:** Adding the percentages (20% + 10% = 30%) and applying once. This gives 0.30 × 1,200 = ₱360 discount → ₱840 final price. This is WRONG because the second discount applies to the already-reduced price, not the original.
+> ⚠️ **Misconception:** "Successive percentage discounts can be added together — a 20% discount followed by a 10% discount equals a 30% discount."
+>
+> **Why it fails:** Applying 30% to ₱1,200 gives 0.30 × 1,200 = ₱360 discount → ₱840 final price. But the correct answer is ₱864. The difference (₱24) arises because the second discount applies to the *already-reduced* price (₱960), not the original (₱1,200). The second 10% is "10% of a smaller number."
+>
+> **Correct model:** Successive percentages multiply as factors: 0.80 × 0.90 = 0.72, which is a 28% total discount — not 30%. Each percentage operates on the result of the previous step, not on the original. Always apply percentages sequentially to their respective bases.
 
-### Type 2: Finding Remaining After Multiple Deductions
+> 🤔 **Why does this work?** Successive percentage changes compound multiplicatively because each change creates a new base. Mathematically, if you reduce by 20% you keep 80% (factor 0.80), then reducing by 10% keeps 90% of *that* (factor 0.90). The combined effect is 0.80 × 0.90 = 0.72, meaning you keep 72% of the original — a 28% total reduction. This is the same principle behind compound interest: each period's change builds on the previous period's result.
+
+#### Type 2: Finding Remaining After Multiple Deductions
 
 **Example:** An employee's gross salary is ₱40,000. Deductions are: 12% income tax, 4% PhilHealth, and 2% Pag-IBIG. What is the net take-home pay?
 
@@ -626,7 +682,7 @@ Net pay = (1 - 0.18) × 40,000 = 0.82 × 40,000 = ₱32,800
 
 Note: Adding rates works here because all deductions are based on the SAME whole (gross salary). This is different from successive discounts where each applies to a different base.
 
-### Type 3: Finding the Original from a Changed Value
+#### Type 3: Finding the Original from a Changed Value
 
 **Example:** After a 20% increase, an employee's salary is ₱36,000. What was the original salary?
 
@@ -638,7 +694,7 @@ Original = 36,000 ÷ 1.20 = ₱30,000
 
 **⚠️ Common Mistake:** Computing 20% of 36,000 (= 7,200) and subtracting. This gives 28,800, which is WRONG because 36,000 is not the base — the unknown original salary is the base.
 
-### Type 4: Combining Percentage and Arithmetic
+#### Type 4: Combining Percentage and Arithmetic
 
 **Example:** A store sells 3 items at ₱450 each with a 10% bulk discount on the total. How much does the customer pay?
 
@@ -648,7 +704,7 @@ Step 2: Discount = 0.10 × 1,350 = ₱135
 Step 3: Amount paid = 1,350 - 135 = ₱1,215
 ```
 
-### CSE-Style Multi-Step Example
+#### CSE-Style Multi-Step Example
 
 **A government office has a budget of ₱5,000,000. It allocates 40% to personnel, 25% to operations, and the rest to capital outlay. How much is allocated to capital outlay?**
 
@@ -662,9 +718,9 @@ Step 3: Capital outlay = 0.35 × 5,000,000 = ₱1,750,000
 
 ---
 
-## 4.8 Percentage Comparison and Interpretation
+### 4.8 Percentage Comparison and Interpretation
 
-### Comparing Rates
+#### Comparing Rates
 
 When comparing percentages, ensure they refer to the same base. A common CSE trap is presenting two percentages with different bases.
 
@@ -678,7 +734,7 @@ Department A has more employees present (108 > 76)
 
 Even though Department B has a higher percentage, Department A has more people present because it has a larger base.
 
-### Interpreting Survey Results
+#### Interpreting Survey Results
 
 **Example:** In a survey, 60% of 500 respondents in City A support a policy, while 45% of 800 respondents in City B support it. Which city has more supporters?
 
@@ -688,7 +744,7 @@ City B: 0.45 × 800 = 360 supporters
 City B has more supporters (360 > 300)
 ```
 
-### Percentage vs. Actual Quantity
+#### Percentage vs. Actual Quantity
 
 **Key Insight:** A higher percentage does not always mean a larger quantity. Always check the base before drawing conclusions.
 
@@ -699,11 +755,13 @@ City B has more supporters (360 > 300)
 
 Store B earns more profit despite having a lower profit rate.
 
+> 🤔 **Why does this work?** Percentages are *relative* measures — they describe proportions, not absolute amounts. Two percentages are only directly comparable when they share the same base. When bases differ, you must convert to absolute quantities (Part = Rate × Whole) before comparing. This is why government reports always specify both the percentage AND the base: "65% of 2,400 respondents" gives you enough information to compute the actual count (1,560).
+
 ---
 
-## 4.9 Problem-Solving Strategies
+### 4.9 Problem-Solving Strategies
 
-### The 5-Step System
+#### The 5-Step System
 
 For any percentage problem on the CSE:
 
@@ -715,7 +773,7 @@ Step 4: COMPUTE — Convert percentage to decimal. Execute the arithmetic.
 Step 5: CHECK — Verify the answer is reasonable. Use estimation.
 ```
 
-### Mental Math Shortcuts
+#### Mental Math Shortcuts
 
 **10% shortcut:** Move the decimal one place left.
 ```
@@ -755,7 +813,7 @@ Step 5: CHECK — Verify the answer is reasonable. Use estimation.
 12% of 500 = 10% + 2×(1%) = 50 + 10 = 60
 ```
 
-### Estimation Before Computing
+#### Estimation Before Computing
 
 Before doing exact calculations, estimate the answer to eliminate obviously wrong choices.
 
@@ -769,9 +827,9 @@ If the choices are (A) 18.68, (B) 186.76, (C) 1,867.6, (D) 86.76 — you can imm
 
 ---
 
-## 4.10 Estimation and Answer Checking
+### 4.10 Estimation and Answer Checking
 
-### Reasonableness Checks
+#### Reasonableness Checks
 
 After solving, verify your answer makes sense:
 
@@ -782,7 +840,7 @@ After solving, verify your answer makes sense:
 | Rate | Between 0% and 100% (usually) |
 | Whole | Greater than the Part (when rate < 100%) |
 
-### Benchmark Percentages for Quick Checking
+#### Benchmark Percentages for Quick Checking
 
 Memorize these for instant verification:
 
@@ -798,7 +856,7 @@ Memorize these for instant verification:
 | 100% | × 1 | The whole thing |
 | 200% | × 2 | Double |
 
-### Elimination Strategy
+#### Elimination Strategy
 
 On the CSE, if you can estimate the answer within 10-20%, you can often eliminate 2-3 wrong choices immediately. This is especially useful when time is short.
 
@@ -808,37 +866,37 @@ On the CSE, if you can estimate the answer within 10-20%, you can often eliminat
 
 ---
 
-## 4.11 Common Errors in Basic Percentage Problems
+### 4.11 Common Errors in Basic Percentage Problems
 
-### Error 1: Confusing Part and Whole
+#### Error 1: Confusing Part and Whole
 
 **Wrong:** "20 is what percent of 5?" → Student computes 5 ÷ 20 = 0.25 = 25%
 **Right:** Rate = Part ÷ Whole = 20 ÷ 5 = 4 = 400%
 
 The number after "of" is the whole. 20 is 400% of 5 (it's four times as large).
 
-### Error 2: Forgetting Decimal Conversion
+#### Error 2: Forgetting Decimal Conversion
 
 **Wrong:** 25% of 80 = 25 × 80 = 2,000
 **Right:** 25% of 80 = 0.25 × 80 = 20
 
 Always convert the percentage to a decimal (divide by 100) before multiplying.
 
-### Error 3: Dividing Instead of Multiplying
+#### Error 3: Dividing Instead of Multiplying
 
 **Wrong:** "What is 40% of 250?" → 250 ÷ 0.40 = 625
 **Right:** Part = Rate × Whole = 0.40 × 250 = 100
 
 "What is X% of Y?" always means multiply.
 
-### Error 4: Multiplying Instead of Dividing
+#### Error 4: Multiplying Instead of Dividing
 
 **Wrong:** "60 is 20% of what?" → 60 × 0.20 = 12
 **Right:** Whole = Part ÷ Rate = 60 ÷ 0.20 = 300
 
 "X is Y% of what?" always means divide.
 
-### Error 5: Using the Changed Value as the Base
+#### Error 5: Using the Changed Value as the Base
 
 **Wrong:** "After a 25% increase, the price is ₱500. What was the original?"
 → Student computes: 25% of 500 = 125, then 500 - 125 = 375
@@ -847,13 +905,13 @@ Always convert the percentage to a decimal (divide by 100) before multiplying.
 
 The 25% increase was applied to the ORIGINAL price, not to ₱500.
 
-### Error 6: Adding Successive Percentages
+#### Error 6: Adding Successive Percentages
 
 **Wrong:** "A 20% discount followed by a 10% discount" = 30% total discount
 **Right:** After 20% off: price × 0.80. Then 10% off that: × 0.90.
 Net effect: 0.80 × 0.90 = 0.72, which is a 28% total discount, not 30%.
 
-### Error 7: Misreading "Percent OF" vs. "Percent MORE THAN"
+#### Error 7: Misreading "Percent OF" vs. "Percent MORE THAN"
 
 - "A is 25% of B" means A = 0.25 × B
 - "A is 25% more than B" means A = 1.25 × B
@@ -862,7 +920,15 @@ These are completely different statements. The first says A is a quarter of B. T
 
 ---
 
-## Exam Strategies
+### Check Your Understanding
+
+**1.** After a 20% increase, a salary is ₱36,000. Is the original salary ₱28,800 or ₱30,000? → **₱30,000** (36,000 ÷ 1.20 = 30,000; the 20% applies to the original, not to 36,000)
+**2.** Can you add a 15% discount and a 10% discount to get 25% off? → **No** (successive discounts multiply: 0.85 × 0.90 = 0.765, which is 23.5% off)
+**3.** "A is 50% more than B" — if B = 200, what is A? → **300** (A = 1.50 × 200 = 300, not 0.50 × 200 = 100)
+
+---
+
+### Exam Strategies
 
 1. **Scan for the % symbol first** — it immediately tells you the rate and narrows down what's being asked.
 
@@ -878,9 +944,147 @@ These are completely different statements. The first says A is a quarter of B. T
 
 7. **Time management** — basic percentage problems should take 30-45 seconds each. If you're spending more than a minute, estimate and move on.
 
+### Memory Aids
+
+#### The "IS-OF-PERCENT" Triangle
+```
+        [ IS ]
+       /      \
+   [ OF ]  ×  [ % ]
+```
+- IS = the Part
+- OF = the Whole
+- % = the Rate (as decimal)
+
+#### Mnemonic: "PER-CENT = PER HUNDRED"
+- To convert TO percent: × 100 (make it per hundred)
+- To convert FROM percent: ÷ 100 (undo the per hundred)
+
+#### Formula Memory Trick
+- **P**art = **R**ate × **W**hole → "**P**eople **R**ead **W**ords"
+- **R**ate = **P**art ÷ **W**hole → "**R**eading **P**aper **W**orks"
+- **W**hole = **P**art ÷ **R**ate → "**W**rite **P**ractice **R**eports"
+
+#### Decimal Conversion Reminder
+- Percent → Decimal: "**P**oint moves **L**eft **2**" (PL2)
+- Decimal → Percent: "**P**oint moves **R**ight **2**" (PR2)
+
+#### Quick Recap
+
+| To Find | Formula | Key Word Clue |
+|---------|---------|---------------|
+| **Rate** | R = P ÷ W × 100 | "what percent," "what rate" |
+| **Part** | P = R × W | "what is X% of," "how much/many" |
+| **Whole** | W = P ÷ R | "X is Y% of what," "find the total" |
+
+**Essential reminders:**
+- Always convert percentage to decimal before computing (÷ 100)
+- "Of" signals multiplication; the number after "of" is the whole
+- "Is" signals the part (the result)
+- Successive percentages cannot be simply added — each applies to a different base
+- Estimate first, compute second, verify third
+- If the part > whole and rate < 100%, something is wrong
+- Use benchmark percentages (10%, 25%, 50%) for mental math
+
 ---
 
-## Mini Practice Set
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** A government office has 450 employees. If 12% are on leave today, how many are on leave?
+
+- Step 1: Identify the Rate: 12% = _____
+- Step 2: Identify the Whole: _____
+- Step 3: Compute Part = _____ × _____ = _____
+
+**Answer:** Rate = 0.12, Whole = 450, Part = 0.12 × 450 = 54 employees on leave
+
+**2.** Out of 800 applicants, 520 passed the civil service exam. What percentage passed?
+
+- Step 1: Identify the Part: _____
+- Step 2: Identify the Whole: _____
+- Step 3: Compute Rate = _____ ÷ _____ = _____
+- Step 4: Convert to percentage: _____ × 100 = _____%
+
+**Answer:** Part = 520, Whole = 800, Rate = 520 ÷ 800 = 0.65 = 65%
+
+**3.** A department's utility expense of ₱27,000 represents 9% of its monthly budget. What is the monthly budget?
+
+- Step 1: Identify the Part: ₱_____
+- Step 2: Identify the Rate: _____% = _____
+- Step 3: Compute Whole = _____ ÷ _____ = ₱_____
+
+**Answer:** Part = ₱27,000, Rate = 9% = 0.09, Whole = 27,000 ÷ 0.09 = ₱300,000
+
+**4.** A laptop costs ₱48,000. It is discounted by 15%, then an additional 5% loyalty discount is applied to the reduced price. What is the final price?
+
+- Step 1: First discount = _____ × _____ = ₱_____
+- Step 2: Price after first discount = _____ - _____ = ₱_____
+- Step 3: Second discount = _____ × _____ = ₱_____
+- Step 4: Final price = _____ - _____ = ₱_____
+
+**Answer:** First discount = 0.15 × 48,000 = ₱7,200. Price = 48,000 - 7,200 = ₱40,800. Second discount = 0.05 × 40,800 = ₱2,040. Final price = 40,800 - 2,040 = ₱38,760
+
+**5.** After a 10% salary increase, an employee now earns ₱33,000. What was the original salary?
+
+- Step 1: The new salary represents _____% of the original = _____ × Original
+- Step 2: _____ = _____ × Original
+- Step 3: Original = _____ ÷ _____ = ₱_____
+
+**Answer:** New salary = 110% of original = 1.10 × Original. 33,000 = 1.10 × Original. Original = 33,000 ÷ 1.10 = ₱30,000
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** A barangay has 6,000 residents. If 3% are senior citizens receiving pension, how many receive pension?
+- **Type:** Finding the Part (P = R × W)
+- **Answer:** 0.03 × 6,000 = 180 senior citizens
+- **Why:** You know the rate (3%) and the whole (6,000), so multiply to find the part.
+
+**2.** An employee's ₱2,400 Pag-IBIG deduction is 3% of gross salary. What is the gross salary?
+- **Type:** Finding the Whole (W = P ÷ R)
+- **Answer:** 2,400 ÷ 0.03 = ₱80,000
+- **Why:** You know the part (₱2,400) and the rate (3%), so divide to find the whole.
+
+**3.** A government project completed 1,350 out of 1,800 tasks. What percentage is complete?
+- **Type:** Finding the Rate (R = P ÷ W)
+- **Answer:** 1,350 ÷ 1,800 = 0.75 = 75%
+- **Why:** You know the part (1,350) and the whole (1,800), so divide to find the rate.
+
+**4.** After a 25% budget cut, a department's budget is ₱1,500,000. What was the original budget?
+- **Type:** Finding the Original from a Changed Value (multi-step)
+- **Answer:** 1,500,000 ÷ 0.75 = ₱2,000,000
+- **Why:** After a 25% cut, 75% remains. The current budget is 75% of the original.
+
+**5.** A store marks up goods by 40% and then offers a 10% sale. If the cost is ₱500, what is the sale price?
+- **Type:** Successive percentages (multi-step)
+- **Answer:** Marked-up price = 1.40 × 500 = ₱700. Sale price = 0.90 × 700 = ₱630
+- **Why:** Each percentage applies to a different base — markup on cost, discount on marked-up price.
+
+**6.** In a survey, 72% of 1,250 respondents support a policy. In another survey, 58% of 2,000 support it. Which group has more supporters?
+- **Type:** Percentage comparison (convert to actual quantities)
+- **Answer:** Group 1: 0.72 × 1,250 = 900. Group 2: 0.58 × 2,000 = 1,160. Group 2 has more.
+- **Why:** Different bases mean you cannot compare percentages directly — compute actual counts.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Identify the Rate, Part, and Whole in any percentage word problem
+- [ ] Find the Rate when given Part and Whole (R = P ÷ W)
+- [ ] Find the Part when given Rate and Whole (P = R × W)
+- [ ] Find the Whole when given Part and Rate (W = P ÷ R)
+- [ ] Solve multi-step percentage problems (successive discounts, finding originals)
+- [ ] Compare percentages with different bases by converting to actual quantities
+- [ ] Use estimation and mental math shortcuts to verify answers quickly
+
+### Mini Practice Set
 
 **1.** What is 35% of 600?
 ```
@@ -994,53 +1198,17 @@ Answer: 0.04 × 450,000 = 18,000
 
 ---
 
-## Quick Recap
+### Connections
 
-| To Find | Formula | Key Word Clue |
-|---------|---------|---------------|
-| **Rate** | R = P ÷ W × 100 | "what percent," "what rate" |
-| **Part** | P = R × W | "what is X% of," "how much/many" |
-| **Whole** | W = P ÷ R | "X is Y% of what," "find the total" |
+How this topic connects to other areas of the CSE:
 
-**Essential reminders:**
-- Always convert percentage to decimal before computing (÷ 100)
-- "Of" signals multiplication; the number after "of" is the whole
-- "Is" signals the part (the result)
-- Successive percentages cannot be simply added — each applies to a different base
-- Estimate first, compute second, verify third
-- If the part > whole and rate < 100%, something is wrong
-- Use benchmark percentages (10%, 25%, 50%) for mental math
+- **Fundamentals of Percentages:** Basic percentage problems build directly on fraction-decimal-percent conversions — you must convert rates to decimals before computing, which is the core skill from the fundamentals lesson
+- **Percentage Increase and Decrease:** Finding the part or whole is the foundation for computing increases and decreases — "increase by 20%" means finding 20% of the original (a "find the part" problem) and adding it
+- **Discounts, Markups, and Sales:** Every discount and markup problem is a basic percentage problem in disguise — discount amount = rate × original price uses the exact P = R × W formula
+- **Profit, Loss, and Tax:** Computing profit margins, tax amounts, and net income all require identifying which value is the rate, part, or whole — the same three-component framework applies
+- **Ratio and Proportion:** Percentages are ratios with a fixed denominator of 100 — converting between ratios and percentages requires the same division and multiplication skills practiced here
 
----
-
-## Memory Aids
-
-### The "IS-OF-PERCENT" Triangle
-```
-        [ IS ]
-       /      \
-   [ OF ]  ×  [ % ]
-```
-- IS = the Part
-- OF = the Whole
-- % = the Rate (as decimal)
-
-### Mnemonic: "PER-CENT = PER HUNDRED"
-- To convert TO percent: × 100 (make it per hundred)
-- To convert FROM percent: ÷ 100 (undo the per hundred)
-
-### Formula Memory Trick
-- **P**art = **R**ate × **W**hole → "**P**eople **R**ead **W**ords"
-- **R**ate = **P**art ÷ **W**hole → "**R**eading **P**aper **W**orks"
-- **W**hole = **P**art ÷ **R**ate → "**W**rite **P**ractice **R**eports"
-
-### Decimal Conversion Reminder
-- Percent → Decimal: "**P**oint moves **L**eft **2**" (PL2)
-- Decimal → Percent: "**P**oint moves **R**ight **2**" (PR2)
-
----
-
-## Mastery Checklist
+### Mastery Checklist
 
 After completing this lesson, you should be able to:
 
@@ -1054,3 +1222,119 @@ After completing this lesson, you should be able to:
 ✅ Use estimation to verify answers and eliminate wrong choices
 ✅ Avoid the 7 most common percentage errors
 ✅ Solve CSE-style percentage questions in under 45 seconds
+
+---
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+## Worked Examples
+
+### Example 1: Finding the Rate (Easy)
+
+**Problem:** A government office has 200 employees. If 150 are permanent, what percentage are permanent?
+
+**Solution:**
+```
+Step 1: Identify components
+        Part = 150 (permanent employees)
+        Whole = 200 (total employees)
+        Rate = ? (what we need to find)
+
+Step 2: Apply formula
+        Rate = Part ÷ Whole
+        Rate = 150 ÷ 200 = 0.75
+
+Step 3: Convert to percentage
+        Rate = 0.75 × 100 = 75%
+
+Answer: 75% of employees are permanent.
+```
+
+**Verification:** 75% of 200 = 0.75 × 200 = 150 ✓
+
+### Example 2: Finding the Part (Medium)
+
+**Problem:** A municipality allocates 22% of its ₱15,000,000 annual budget to infrastructure. How much is allocated to infrastructure?
+
+**Solution:**
+```
+Step 1: Identify components
+        Rate = 22% = 0.22
+        Whole = ₱15,000,000
+        Part = ? (infrastructure allocation)
+
+Step 2: Apply formula
+        Part = Rate × Whole
+        Part = 0.22 × 15,000,000 = ₱3,300,000
+
+Answer: ₱3,300,000 is allocated to infrastructure.
+```
+
+**Verification:** 3,300,000 ÷ 15,000,000 = 0.22 = 22% ✓
+
+### Example 3: Finding the Whole (Hard)
+
+**Problem:** A civil servant's monthly PhilHealth deduction is ₱1,750, which represents 3.5% of gross salary. What is the gross monthly salary?
+
+**Solution:**
+```
+Step 1: Identify components
+        Part = ₱1,750 (PhilHealth deduction)
+        Rate = 3.5% = 0.035
+        Whole = ? (gross salary)
+
+Step 2: Apply formula
+        Whole = Part ÷ Rate
+        Whole = 1,750 ÷ 0.035 = ₱50,000
+
+Answer: The gross monthly salary is ₱50,000.
+```
+
+**Verification:** 3.5% of 50,000 = 0.035 × 50,000 = 1,750 ✓
+
+### Example 4: Multi-Step Problem (Hard)
+
+**Problem:** A government agency's budget was ₱8,000,000 last year. This year it received a 12% increase. If 35% of the new budget goes to personnel, how much is the personnel allocation?
+
+**Solution:**
+```
+Step 1: Find the new budget
+        Increase = 0.12 × 8,000,000 = ₱960,000
+        New budget = 8,000,000 + 960,000 = ₱8,960,000
+
+Step 2: Find personnel allocation
+        Personnel = 0.35 × 8,960,000 = ₱3,136,000
+
+Answer: The personnel allocation is ₱3,136,000.
+```
+
+**Verification:** 3,136,000 ÷ 8,960,000 = 0.35 = 35% ✓
+
+## Key Takeaways
+
+- Every basic percentage problem has exactly three components: Rate (the percentage), Part (the portion), and Whole (the base) — identify which is missing to select the correct formula
+- The three formulas are algebraic rearrangements of one relationship: P = R × W, R = P ÷ W, W = P ÷ R
+- Always convert percentages to decimals (÷ 100) before computing — this is the single most common source of errors
+- Use clue words to identify components: "of" → Whole, "is" → Part, "%" → Rate
+- Successive percentages multiply as factors (0.80 × 0.90 = 0.72) — they cannot be simply added
+- When finding the original value after a percentage change, divide by (1 ± rate), not by the rate alone
+- A higher percentage does not always mean a larger quantity — always check the base before comparing
+- Estimation using benchmark percentages (10%, 25%, 50%) eliminates obviously wrong answers in seconds
+
+## Summary
+
+Basic percentage problems form the computational backbone of the CSE's Numerical Ability section. Every problem reduces to finding one of three values — Rate, Part, or Whole — using the fundamental relationship P = R × W. Success requires two distinct skills: first, correctly identifying which component is missing by reading clue words ("of" for the whole, "is" for the part, "%" for the rate); second, executing the arithmetic accurately after converting the percentage to decimal form. Multi-step problems add complexity by chaining operations (successive discounts, finding originals from changed values, comparing across different bases), but each individual step still uses the same three-component framework. The most dangerous errors — confusing part with whole, adding successive percentages, and using the changed value as the base — can all be prevented by pausing to identify components before computing and verifying answers with estimation.

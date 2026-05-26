@@ -734,8 +734,118 @@ When stuck, check properties in this order:
 - The simplest valid rule is usually correct
 - Never leave a question blank — eliminate and guess if needed
 
-## Mastery Checklist
 
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Identify the type of problem and select the appropriate method
+- [ ] Set up the correct equation or formula for the problem
+- [ ] Execute calculations accurately and efficiently
+- [ ] Verify answers by checking reasonableness
+- [ ] Apply concepts to CSE-style word problems
+- [ ] Avoid common mistakes and traps in this topic
+
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** [Problem 1]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**2.** [Problem 2]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**3.** [Problem 3]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**4.** [Problem 4]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**5.** [Problem 5]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+**6.** [Problem 6]
+- **Type:** [Type]
+- **Answer:** [Answer]
+- **Why:** [Brief rationale]
+
+
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** [Example 1]
+
+- Step 1: Identify the relationship: _____
+- Step 2: Set up the equation: _____
+- Step 3: Solve: _____
+
+**Answer:** [Complete solution]
+
+**2.** [Example 2]
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** [Complete solution]
+
+**3.** [Example 3]
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** [Complete solution]
+
+**4.** [Example 4]
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** [Complete solution]
+
+**5.** [Example 5]
+
+- Step 1: _____
+- Step 2: _____
+- Step 3: _____
+
+**Answer:** [Complete solution]
+
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
+- **[Related Topic 2]:** [How understanding this concept helps with that topic]
+- **[Related Topic 3]:** [Structural similarity between this and that topic]
+- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
+- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+
+### Mastery Checklist
 After completing this lesson and practice set, you should be able to:
 
 ✅ Identify classification relationships correctly in figures, numbers, and letters
@@ -746,3 +856,34 @@ After completing this lesson and practice set, you should be able to:
 ✅ Solve CSE odd-one-out questions confidently within 25–30 seconds each
 ✅ Avoid common traps (visual distinctiveness ≠ logical inconsistency)
 ✅ Apply the 4-step method: Scan → Identify Rule → Isolate Exception → Confirm
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+### Check Your Understanding
+
+1. What core idea from this section should you recall first?
+2. Which method fits this type of question, and why?
+3. What common error should you avoid?
+
+
+### Mastery Checklist
+
+- [ ] I can solve representative items accurately and quickly.
+- [ ] I can explain common traps and how to avoid them.
+- [ ] I can transfer this method to mixed-question sets.
+

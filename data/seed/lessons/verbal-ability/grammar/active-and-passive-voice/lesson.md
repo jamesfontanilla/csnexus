@@ -734,3 +734,111 @@ After studying this lesson, confirm you can:
 - ✅ Identify awkward or incorrect passive constructions
 - ✅ Choose between active and passive based on context and clarity
 - ✅ Solve CSE-style voice questions within 30–45 seconds each
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+### Check Your Understanding
+
+1. What core idea from this section should you recall first?
+2. Which method fits this type of question, and why?
+3. What common error should you avoid?
+
+
+### Guided Practice
+
+1. Identify the question type.
+2. Set up the correct model or formula.
+3. Solve step by step and verify reasonableness.
+
+
+### Which Method?
+
+For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
+
+
+### Before You Practice
+
+- I can identify the problem type before computing.
+- I can explain why my chosen method is appropriate.
+- I can check my final answer against context.
+
+
+### Connections
+
+This lesson connects to related CSE topics where the same reasoning pattern appears in a different surface form. Practice transfer by mapping structure, not just wording.
+
+
+### Mastery Checklist
+
+- [ ] I can solve representative items accurately and quickly.
+- [ ] I can explain common traps and how to avoid them.
+- [ ] I can transfer this method to mixed-question sets.
+
+### Extended Practice Bank
+
+The drills below strengthen transfer for **active and passive voice** under timed CSE conditions.
+
+**Drill 1.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 2.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 3.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 4.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 5.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 6.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 7.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+

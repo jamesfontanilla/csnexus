@@ -1,6 +1,8 @@
 # Percentage Mental Math and Shortcuts
 
-## Introduction
+## Explanations
+
+### Introduction
 
 **Percentage mental math** is the ability to compute percentage values quickly in your head — without a calculator, without writing long solutions, and without wasting precious exam seconds. In the Philippine Civil Service Examination, where time pressure is intense and every second counts, mental math shortcuts separate high scorers from average ones.
 
@@ -33,7 +35,7 @@ The CSE tests mental math because government employees must:
 7. Applying shortcuts to the wrong base number
 8. Not verifying that the mental math answer is reasonable before selecting it
 
-## Learning Objectives
+### Learning Objectives
 
 After this lesson, you should be able to:
 - Identify common fraction-percent equivalents quickly from memory
@@ -49,7 +51,7 @@ After this lesson, you should be able to:
 
 ---
 
-## 4.1 Understanding Percentage Mental Math
+### 4.1 Understanding Percentage Mental Math
 
 ### What Is Mental Math?
 
@@ -76,9 +78,11 @@ Mental math is not about guessing. It is about:
 
 **CSE Tip:** In multiple-choice exams, you don't need to compute the exact answer if your estimate eliminates three of the four choices.
 
+> 🤔 **Why does this work?** In multiple-choice formats, the options are pre-selected and often widely separated. Rapid estimation lets you identify the single numerically plausible answer choice in seconds. Rather than doing the full calculation to find that `18.8% of 395` is `74.26`, estimating `20% of 400 = 80` instantly points you to the correct choice (like 74.3) if the other options are far away (like 12, 148, or 320).
+
 ---
 
-## 4.2 Common Fraction-Percent Equivalents
+### 4.2 Common Fraction-Percent Equivalents
 
 ### Why Memorize These?
 
@@ -152,7 +156,15 @@ The goal is zero hesitation. These should be as automatic as knowing 7 × 8 = 56
 
 ---
 
-## 4.3 Benchmark Percentages
+### Check Your Understanding
+
+**1.** What is the fraction equivalent of 37.5%? → **3/8**
+**2.** Compute 12.5% of 800 using the fraction equivalent. → **100** (12.5% = 1/8; 800 ÷ 8 = 100)
+**3.** If you know 20% of a number is 45, how do you find 60% of that number mentally? → **Multiply by 3** (20% × 3 = 60%, so 45 × 3 = 135)
+
+---
+
+### 4.3 Benchmark Percentages
 
 ### What Are Benchmark Percentages?
 
@@ -188,6 +200,12 @@ The decomposition strategy: break any percentage into a sum of benchmarks.
 | 95% | 100% − 5% | Subtract 5% from the whole |
 | 99% | 100% − 1% | Subtract 1% from the whole |
 
+> ⚠️ **Misconception:** "Since 50% is half of the number, 5% must also be easily computed by moving the decimal point one place to the left from 50%."
+>
+> **Why it fails:** This is correct in theory, but in practice, examinees often make a decimal placement error under pressure, confusing 5% (0.05) with 50% (0.5). For example, 50% of 800 is 400. Moving the decimal one place left gives 40, which is indeed 5%. But many examinees mistakenly divide by 5 or write 5% as 0.5, leading to a massive error.
+>
+> **Correct model:** Always derive 5% by first finding 10% (move decimal one place left), and then halving that result. For 800: `10% = 80`, so `5% = 80 ÷ 2 = 40`. This two-step process is virtually foolproof.
+
 ### Worked Examples
 
 **Easy:** Find 15% of 600.
@@ -217,7 +235,7 @@ For most people, decomposition is faster because each step uses division by smal
 
 ---
 
-## 4.4 Estimating Techniques
+### 4.4 Estimating Techniques
 
 ### When to Estimate vs. When to Compute Exactly
 
@@ -299,7 +317,7 @@ Compare to known benchmarks:
 
 ---
 
-## 4.5 Percentage Shortcuts
+### 4.5 Percentage Shortcuts
 
 ### The 10% Shortcut
 
@@ -313,6 +331,8 @@ Compare to known benchmarks:
 ```
 
 This is the foundation of all other shortcuts. Master this first.
+
+> 🤔 **Why does this work?** Moving the decimal point one place to the left divides a number by 10. Because percent means "per hundred", 10% is equal to 10/100, which simplifies exactly to 1/10. In our base-10 number system, dividing by 10 shifts all digits one place value to the right relative to the decimal point, which is why the shortcut works instantly.
 
 ### The 5% Shortcut
 
@@ -387,7 +407,15 @@ For quick mental multiplication, convert the percentage to a simple decimal:
 
 ---
 
-## 4.6 Mental Math for Percentage Increase and Decrease
+### Check Your Understanding
+
+**1.** What is the 10% anchor for ₱45,000? → **₱4,500** (move decimal 1 left)
+**2.** Compute 15% of ₱800 using decomposition. → **₱120** (10% = 80, 5% = 40; 80 + 40 = 120)
+**3.** Compute 8% of ₱2,500 using benchmark subtraction. → **₱200** (10% = 250, 1% = 25; 8% = 250 − 25 × 2 = 250 − 50 = 200)
+
+---
+
+### 4.6 Mental Math for Percentage Increase and Decrease
 
 ### The Multiplier Shortcut
 
@@ -410,6 +438,12 @@ Instead of computing the percentage and then adding/subtracting, use a single mu
 −50% → × 0.5
 −5%  → × 0.95
 ```
+
+> ⚠️ **Misconception:** "Applying successive percentage changes is the same as adding the percentages together."
+>
+> **Why it fails:** If a price increases by 25% and then decreases by 20%, many examinees think the net change is `25% − 20% = 5% increase`. But if we start with 100: a 25% increase gives 125. A 20% decrease on 125 is 25, which brings the final price back to 100 — a net change of 0%.
+>
+> **Correct model:** Successive percentage changes must be multiplied as factors, not added: `1.25 × 0.80 = 1.00` (no change). Always apply each successive percentage to the result of the previous step.
 
 ### Mental Multiplier Techniques
 
@@ -443,6 +477,8 @@ Train yourself to instantly recognize these multipliers:
 | −33.33% | 0.667 | Take 2/3 of the number |
 | −50% | 0.5 | Halve the number |
 
+> 🤔 **Why does this work?** Multipliers simplify percentage change because they incorporate the base (100% or 1) and the change (rate) into a single decimal factor. Instead of two operations (finding the part, then adding/subtracting it), the multiplier does both in one step. For instance, a 15% increase is `100% + 15% = 115%`, which as a decimal is `1.15`. Multiplying a value by `1.15` scales it directly to its final increased amount.
+
 ### Estimation for Percentage Change
 
 When the percentage isn't a clean benchmark:
@@ -456,7 +492,7 @@ When the percentage isn't a clean benchmark:
 
 ---
 
-## 4.7 Real-Life Applications of Percentage Mental Math
+### 4.7 Real-Life Applications of Percentage Mental Math
 
 ### Shopping Discounts
 
@@ -519,7 +555,7 @@ When the percentage isn't a clean benchmark:
 
 ---
 
-## 4.8 Problem-Solving Strategies
+### 4.8 Problem-Solving Strategies
 
 ### Strategy 1: Identify the Fastest Method
 
@@ -556,7 +592,7 @@ If your answer doesn't come out to a clean number and the choices are all clean 
 
 ---
 
-## 4.9 Estimation and Answer Checking
+### 4.9 Estimation and Answer Checking
 
 ### Verifying Answers Mentally
 
@@ -597,7 +633,7 @@ Compare your answer to a known benchmark:
 
 ---
 
-## 4.10 Common Errors in Percentage Mental Math
+### 4.10 Common Errors in Percentage Mental Math
 
 ### Error 1: Incorrect Rounding
 
@@ -633,7 +669,7 @@ The error: computing 10% of 80 instead of 10% of 800.
 
 ---
 
-## Exam Strategies
+### Exam Strategies
 
 - **Memorize the fraction-percent table.** This alone saves 2-3 minutes across the entire exam.
 - **Always find 10% first.** It's the gateway to every other percentage.
@@ -648,7 +684,7 @@ The error: computing 10% of 80 instead of 10% of 800.
 
 ---
 
-## Mini Practice Set
+### Mini Practice Set
 
 **1.** What is 25% of 1,600?
 **Answer:** 400
@@ -732,7 +768,7 @@ The error: computing 10% of 80 instead of 10% of 800.
 
 ---
 
-## Quick Recap
+### Quick Recap
 
 | Concept | Key Rule | Quick Example |
 |---------|----------|--------------|
@@ -757,7 +793,7 @@ The error: computing 10% of 80 instead of 10% of 800.
 
 ---
 
-## Memory Aids
+### Memory Aids
 
 ### The "10-5-1" Foundation
 ```
@@ -811,9 +847,76 @@ Think: "**A**dd for **A**scend, **S**ubtract for **S**hrink" (A-A, S-S)
 
 ---
 
-## Mastery Checklist
+### Guided Practice
 
-After completing this lesson, you should be able to:
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Compute 15% of ₱840 using benchmark decomposition.
+- Step 1: Find 10% of ₱840 by shifting decimal 1 place left → 10% = ₱_____
+- Step 2: Find 5% of ₱840 by halving the 10% value → 5% = ₱_____
+- Step 3: Add the two benchmarks → ₱_____ + ₱_____ = ₱_____
+
+**Answer:** 10% = ₱84, 5% = ₱42, 15% = ₱126
+
+**2.** A jacket originally costing ₱3,200 is on a 25% discount. Compute the discount using fraction equivalents.
+- Step 1: Recognize fraction equivalent of 25% → 25% = _____
+- Step 2: Divide the total price by the denominator → ₱3,200 ÷ _____ = ₱_____
+
+**Answer:** Fraction = 1/4, Discount = ₱800
+
+**3.** Compute the final price of a ₱1,500 item after a 20% markup using the multiplier shortcut.
+- Step 1: Identify the increase multiplier for 20% → 1 + 0.20 = _____
+- Step 2: Multiply the original price by the multiplier → ₱1,500 × _____ = ₱_____
+
+**Answer:** Multiplier = 1.20, Final Price = ₱1,800
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** Compute 37.5% of ₱480.
+- **Type:** Fraction-percent equivalent (37.5% = 3/8)
+- **Answer:** ₱480 ÷ 8 = 60; 60 × 3 = **₱180**
+- **Why:** 37.5% is a standard eighths family benchmark, which divides cleanly.
+
+**2.** Compute 19% of ₱505 where choices are: A) ₱42, B) ₱96, C) ₱212, D) ₱405.
+- **Type:** Estimation by rounding (19% of 505 ≈ 20% of 500)
+- **Answer:** 20% of 500 = **₱100** → Select B
+- **Why:** The choices are widely separated, making exact calculation a waste of time.
+
+**3.** Compute 8% of ₱1,200.
+- **Type:** Benchmark subtraction (10% − 2%) or 1% shortcut (1% × 8)
+- **Answer:** 1% = 12; 12 × 8 = **₱96** (or 120 − 24 = ₱96)
+- **Why:** Single-digit percentage is easiest to scale from the 1% anchor.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Recall fraction-percent equivalents instantly from memory
+- [ ] Shift decimal points left to find 10% and 1% anchors without hesitation
+- [ ] Decompose arbitrary percentages into friendly benchmark sums
+- [ ] Use multiplier shortcuts mentally for percentage increase and decrease
+- [ ] Estimate percentage answers quickly to eliminate multiple-choice options
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Fundamentals of Percentages:** Mental math benchmarks are built directly upon decimal-fraction-percentage conversion rules.
+- **Discounts, Markups, and Sales:** Fast 10% and 5% shortcuts speed up consecutive discount and markup computations during the exam.
+- **Basic Word Problems:** Rapid estimation allows you to double-check the sanity of algebraic word problem solutions in under 5 seconds.
+- **Data Interpretation:** Chart and graph questions require comparing ratios which can be estimated as benchmark percentages instantly.
+
+---
+
+### Mastery Checklist
 
 ✅ Recall all common fraction-percent equivalents (1/2 through 1/8) instantly
 ✅ Compute 10%, 5%, and 1% of any number in under 3 seconds
@@ -825,3 +928,20 @@ After completing this lesson, you should be able to:
 ✅ Eliminate impossible answer choices using rapid estimation
 ✅ Recognize when to estimate vs. when to compute exactly
 ✅ Complete CSE-style mental math percentage questions in under 15 seconds each
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+

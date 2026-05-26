@@ -46,6 +46,8 @@ After this lesson, you should be able to:
 ## Core Concepts
 
 ### 4.1 What Is a Direct Proportion?
+> 🤔 **Why does this work?** In a direct proportion, the ratio of corresponding values stays constant because both quantities scale together by the same factor. If one value doubles, the other must also double to maintain the proportion. This is why a₁/b₁ = a₂/b₂ — you're asserting that the two ratios represent the same relationship.
+
 
 A **direct proportion** (also called **direct variation**) exists between two quantities when they increase or decrease together at a constant rate. The ratio between the two quantities always remains the same.
 
@@ -80,6 +82,13 @@ If 3 notebooks cost ₱75, then:
 - 6 notebooks cost ₱150 (ratio: 75/3 = 150/6 = 25)
 - 9 notebooks cost ₱225 (ratio: 225/9 = 25)
 - The constant *k* = ₱25 per notebook
+
+
+> ⚠️ **Misconception:** "If more workers are added, the work will always finish in less time."
+
+> **Why it fails:** This only holds for inverse proportion. In direct proportion problems (like "more workers produce more items"), adding workers INCREASES output rather than decreasing time. You must first determine which type of proportion applies before deciding the direction of change.
+
+> **Correct model:** Check the relationship: if both quantities move in the same direction (more → more), it's direct proportion. If they move in opposite directions (more → less), it's inverse proportion. The problem's context — not intuition — determines which rule applies.
 
 ### 4.2 Identifying Direct Proportions
 
@@ -132,7 +141,27 @@ Solution: k = 120/4 = 30 items per worker
 - 12 workers → 12 × 30 = 360 items
 - 1 worker → 1 × 30 = 30 items
 
+
+### Check Your Understanding
+
+**1.** If 5 pens cost ₱75, what type of proportion relates the number of pens to their cost? → **Direct proportion (more pens → more cost; the ratio pens:cost stays constant)**
+
+**2.** What is the formula for solving a direct proportion a₁/b₁ = a₂/b₂? → **Cross-multiply: a₁×b₂ = b₁×a₂, then solve for the unknown**
+
+**3.** A car travels 210 km on 15 liters. How can you verify this is a direct proportion situation? → **Check if km per liter (210÷15=14) stays constant — if the rate per unit is fixed, it's a direct proportion**
+
+---
+
+
+> ⚠️ **Misconception:** "All proportion problems can be solved by setting up a:b = c:d and cross-multiplying."
+
+> **Why it fails:** This setup only works for direct proportion. For inverse proportion, the correct setup is a×b = c×d (product constant). Using the wrong formula gives a wrong answer. For example: "4 workers finish in 6 days. How long for 8 workers?" Direct setup 4/6 = 8/x gives x=12 days (wrong). Inverse setup 4×6 = 8×x gives x=3 days (correct).
+
+> **Correct model:** Direct proportion uses ratio equality (a₁/b₁ = a₂/b₂). Inverse proportion uses product equality (a₁×b₁ = a₂×b₂). Always identify the type before choosing the formula.
+
 ### 4.3 Solving Direct Proportion Problems
+> 🤔 **Why does this work?** Inverse proportion follows from the work-done principle: the total amount of work (or distance, or volume) is fixed. If you increase the rate (more workers, higher speed), the time must decrease proportionally so that rate × time = constant. This constant represents the total work being done.
+
 
 **The Standard Method — Cross Multiplication:**
 
@@ -269,6 +298,8 @@ If 4 workers can finish a job in 12 days:
 Notice: More workers → fewer days. The product is always 48.
 
 ### 4.5 Identifying Inverse Proportions
+> 🤔 **Why does this work?** Cross-multiplication works because a proportion is an equation of two equal fractions. When a/b = c/d, multiplying both sides by b×d yields a×d = b×c. This eliminates the fractions and gives you a simple equation to solve, which is why it's the universal tool for any proportion problem.
+
 
 To determine whether a relationship is an inverse proportion, apply these tests:
 
@@ -318,6 +349,17 @@ Solution: k = 6 × 10 = 60 machine-hours
 - 10 machines → 60 ÷ 10 = 6 hours
 - 3 machines → 60 ÷ 3 = 20 hours
 - 15 machines → 60 ÷ 15 = 4 hours
+
+
+### Check Your Understanding
+
+**1.** If 6 workers finish a job in 10 days, what type of proportion relates workers to days? → **Inverse proportion (more workers → fewer days; the product workers×days stays constant)**
+
+**2.** What is the fundamental difference between direct and inverse proportion formulas? → **Direct: a₁/b₁ = a₂/b₂ (ratio constant); Inverse: a₁×b₁ = a₂×b₂ (product constant)**
+
+**3.** A tank fills in 6 hours with 4 taps. If you open 8 taps, will the time double, halve, or stay the same? → **Halve to 3 hours (inverse: 4×6 = 8×x → x=3) — twice the taps mean half the time**
+
+---
 
 ### 4.6 Solving Inverse Proportion Problems
 
@@ -764,7 +806,107 @@ Answer: **40 employees**
 
 ---
 
-## Mini Practice Set
+
+---
+
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** If 4 kg of rice costs ₱220, how much does 7 kg cost?
+
+- Step 1: Identify proportion type: more kg → more cost → _____ proportion
+- Step 2: Set up: 4/220 = 7/_____
+- Step 3: Cross-multiply: 4 × _____ = 220 × 7
+- Step 4: Solve: _____ = 1,540 ÷ 4 = _____
+
+**Answer:** Direct proportion. 4/220 = 7/x. 4x = 1,540. x = 385. Cost: ₱385
+
+**2.** A car at 60 km/h takes 5 hours. How long at 75 km/h?
+
+- Step 1: Identify proportion type: more speed → less time → _____ proportion
+- Step 2: Set up: 60 × 5 = 75 × _____
+- Step 3: Solve: 300 = 75 × _____ → _____ = _____
+
+**Answer:** Inverse proportion. 60×5 = 75×x. 300 = 75x. x = 4 hours.
+
+**3.** A builder estimates 8 workers finish a wall in 15 days. After 5 days, 2 workers leave. How many more days needed?
+
+- Step 1: Work done in 5 days: 8 × 5 = _____ worker-days
+- Step 2: Total work: 8 × 15 = _____ worker-days
+- Step 3: Remaining work: _____ - _____ = _____
+- Step 4: Remaining workers: _____
+- Step 5: Days needed: _____ ÷ _____ = _____
+
+**Answer:** 40 worker-days done. Total: 120. Remaining: 80 worker-days. 6 workers left. 80÷6 ≈ 13.33 → 14 more days.
+
+**4.** A pump fills a pool in 12 hours. How long with 3 identical pumps?
+
+- Step 1: Identify proportion type: more pumps → less time → _____ proportion
+- Step 2: Set up: 1 × 12 = 3 × _____
+- Step 3: Solve: _____ = _____
+
+**Answer:** Inverse proportion. 1×12 = 3×x. x = 4 hours.
+
+**5.** A factory's 10 machines produce 500 units in 6 hours. How many units with 15 machines in 4 hours?
+
+- Step 1: Rate per machine-hour: 500 ÷ (10 × 6) = _____ units per machine-hour
+- Step 2: New production: 15 × 4 × _____ = _____ units
+
+**Answer:** Rate = 500÷60 = 8.33 units/machine-hour. New: 15×4×8.33 = 500 units.
+
+
+---
+
+### Which Method?
+
+For each problem, identify the proportion type and solve.
+
+**1.** If 8 pens cost ₱120, how much do 14 pens cost?
+- **Type:** Direct proportion (more pens → more cost)
+- **Answer:** ₱210
+- **Why:** 8/120 = 14/x → 8x = 1,680 → x = 210. Rate per pen is constant (₱15/pen).
+
+**2.** A vehicle at 80 km/h takes 3 hours. How long at 60 km/h?
+- **Type:** Inverse proportion (more speed → less time)
+- **Answer:** 4 hours
+- **Why:** 80×3 = 60×x → 240 = 60x → x = 4. Distance is constant (240 km).
+
+**3.** 12 workers build a road in 20 days. How many workers needed to finish in 8 days?
+- **Type:** Inverse proportion (more workers → fewer days)
+- **Answer:** 30 workers
+- **Why:** 12×20 = x×8 → 240 = 8x → x = 30. Total work constant (240 worker-days).
+
+**4.** A car uses 15 liters for 180 km. How far can it go on 25 liters?
+- **Type:** Direct proportion (more fuel → more distance)
+- **Answer:** 300 km
+- **Why:** 15/180 = 25/x → 15x = 4,500 → x = 300. Fuel efficiency constant (12 km/L).
+
+**5.** A machine fills 200 bottles in 5 hours. How many bottles in 8 hours?
+- **Type:** Direct proportion (more time → more bottles)
+- **Answer:** 320 bottles
+- **Why:** 5/200 = 8/x → 5x = 1,600 → x = 320. Rate constant (40 bottles/hour).
+
+**6.** 4 taps fill a tank in 15 hours. How long for 6 taps?
+- **Type:** Inverse proportion (more taps → less time)
+- **Answer:** 10 hours
+- **Why:** 4×15 = 6×x → 60 = 6x → x = 10. Tank volume constant.
+
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Identify direct and inverse proportion from problem wording
+- [ ] Set up proportion equations correctly (direct: a₁/b₁ = a₂/b₂; inverse: a₁×b₁ = a₂×b₂)
+- [ ] Cross-multiply and solve proportion equations accurately
+- [ ] Solve multi-step proportion problems (work rate, combined proportions)
+- [ ] Verify answers by checking if the result makes logical sense
+- [ ] Distinguish direct vs. inverse proportion under exam time pressure
+
+### Mini Practice Set
 
 **1.** If 7 meters of cloth cost ₱560, how much do 12 meters cost?
 Answer: ₱960 (Direct: 560×12÷7 = 960)
@@ -828,7 +970,7 @@ Answer: 4.5 kg (Direct: 2.4×15÷8 = 4.5)
 
 ---
 
-## Quick Recap
+### Quick Recap
 
 | Concept | Key Point |
 |---------|-----------|
@@ -843,7 +985,7 @@ Answer: 4.5 kg (Direct: 2.4×15÷8 = 4.5)
 
 ---
 
-## Memory Aids
+### Memory Aids
 
 **"SAME = DIVIDE, OPPOSITE = MULTIPLY"**
 - Same direction (direct) → set up as a ratio (division)
@@ -876,7 +1018,20 @@ If your calculation gives the opposite direction, you set up the wrong type.
 
 ---
 
-## Mastery Checklist
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Ratio Word Problems:** Proportion problems are ratio problems with an unknown — the setup and cross-multiplication skills transfer directly
+- **Types of Ratios:** Understanding part-to-part, part-to-whole, and unit ratios is prerequisite for identifying which proportion type applies
+- **Percentage Applications:** Percentage increase/decrease problems are direct proportion problems where the "per hundred" rate is the constant
+- **Average Word Problems:** Finding a weighted average requires proportional reasoning — each group's contribution is proportional to its size
+- **Fractions (Basic Operations):** Cross-multiplication in proportions is identical to finding equivalent fractions — the same mathematical operation
+
+### Mastery Checklist
 
 After completing this lesson, you should be able to:
 
@@ -891,3 +1046,20 @@ After completing this lesson, you should be able to:
 - ✅ Use estimation to eliminate wrong choices quickly
 - ✅ Handle multi-step proportion problems (e.g., workers leaving mid-project)
 - ✅ Solve CSE proportion questions in under 45 seconds each
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+

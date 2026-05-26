@@ -1337,3 +1337,24 @@ After completing this lesson and practice set, confirm you can:
 ✅ Identify addition keywords in word problems
 ✅ Solve multi-step CSE-style addition problems under time pressure
 ✅ Avoid all common addition errors listed in Section 4.12
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+- **Numerical Letter And Abstract Analogies**: Reinforces this topic through a closely related reasoning pattern.
+- **Fundamental Number Concepts**: Reinforces this topic through a closely related reasoning pattern.
+- **Operations With Signed Numbers**: Reinforces this topic through a closely related reasoning pattern.
+- **Average Word Problems**: Reinforces this topic through a closely related reasoning pattern.
+- **Articles**: Reinforces this topic through a closely related reasoning pattern.

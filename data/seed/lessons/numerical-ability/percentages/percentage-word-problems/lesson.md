@@ -1,6 +1,8 @@
 # Percentage Word Problems
 
-## Introduction
+## Explanations
+
+### Introduction
 
 **Percentage word problems** represent the most challenging and most frequently tested category within the Numerical Ability section of the Philippine Civil Service Examination. Unlike straightforward percentage computations (where numbers and operations are explicitly stated), word problems require you to **translate everyday language into mathematical equations**, identify hidden operations, and execute multi-step solutions under time pressure.
 
@@ -28,7 +30,7 @@ The CSE specifically tests percentage word problems because they assess two skil
 7. Failing to read what the question actually asks (finding the discount amount when asked for the final price)
 8. Not converting between "what remains" and "what was removed" (e.g., 30% off means 70% remains)
 
-## Learning Objectives
+### Learning Objectives
 
 After this lesson, you should be able to:
 - Translate percentage word problems into mathematical equations accurately
@@ -42,7 +44,7 @@ After this lesson, you should be able to:
 
 ---
 
-## 4.1 Translating Word Problems into Equations
+### 4.1 Translating Word Problems into Equations
 
 ### The Translation Process
 
@@ -81,6 +83,8 @@ Highlight or underline all numbers and their roles. Which is the base? Which is 
 **Step 3: Build the equation.**
 Map the verbal relationship to Part = Rate × Whole (or its rearrangements).
 
+> 🤔 **Why does this work?** Translating word problems into algebraic equations works because the English structure mirrors mathematical operations exactly. The word "of" indicates multiplication, "is" represents the equals sign, and the percentage acts as a rate. By breaking the verbal description down, you create a direct map to one of the three variations of `Part = Rate × Whole`.
+
 ### Worked Translation Examples
 
 **Example 1 (Easy):**
@@ -111,7 +115,7 @@ Translation:
 
 ---
 
-## 4.2 Identifying the Correct Operation
+### 4.2 Identifying the Correct Operation
 
 ### Why Keywords Alone Are Not Enough
 
@@ -137,6 +141,12 @@ The operation depends on **which component is unknown**:
 
 **Increase indicators:** raised, grew, added, bonus, markup, surcharge, appreciation, gained, expanded, rose
 **Decrease indicators:** discount, reduction, deduction, loss, depreciation, cut, declined, shrunk, dropped
+
+> ⚠️ **Misconception:** "In a markup or tax problem, you should subtract the percentage from 100% since it's an extra cost."
+>
+> **Why it fails:** Markup and tax increase the total amount. Subtracting the percentage from 100% (e.g., `100% − 12% = 88%`) results in a price decrease, which violates the logic of tax. For example, if a ₱500 item has 12% VAT, the multiplier should be `1.12` (increasing the price to ₱560), not `0.88` (which decreases it to ₱440).
+>
+> **Correct model:** For increases (markup, tax, raises), the multiplier is `1 + Rate`. For decreases (discounts, deductions, loss), the multiplier is `1 − Rate`.
 
 **Example (Medium):**
 "A store marks up its products by 40% over cost. If a product costs ₱500, what is the selling price?"
@@ -170,7 +180,15 @@ START: Read the problem
 
 ---
 
-## 4.3 Multi-Step Percentage Problems
+### Check Your Understanding
+
+**1.** A government clerk processed 180 out of 240 files today. What percentage of files did he process? → **75%** (180 ÷ 240 × 100 = 75%)
+**2.** An LGU budget is increased by 15% to ₱2,300,000. What was the original budget? → **₱2,000,000** (₱2,300,000 ÷ 1.15 = ₱2,000,000)
+**3.** If a printer's cost is marked up by 25% over its cost price of ₱8,000, what is the selling price? → **₱10,000** (₱8,000 × 1.25 = ₱10,000)
+
+---
+
+### 4.3 Multi-Step Percentage Problems
 
 ### What Makes a Problem Multi-Step?
 
@@ -230,6 +248,8 @@ For successive percentage changes, convert each change to a **multiplier** and m
 | −30% | 0.70 |
 | −50% | 0.50 |
 
+> 🤔 **Why does this work?** The multiplier method works because multiplication is associative: `(Base × Multiplier₁) × Multiplier₂ = Base × (Multiplier₁ × Multiplier₂)`. This means we can chain any number of sequential changes together as a single product. It also reveals the net percentage change immediately: in the example below, `1.15 × 0.90 = 1.035`, which tells us the net budget grew by exactly `3.5%` over two years, completely bypassing intermediate calculations.
+
 **Example (Hard):**
 A government project budget of ₱2,000,000 is increased by 15% in Year 2, then decreased by 10% in Year 3. What is the Year 3 budget?
 
@@ -241,7 +261,7 @@ Net effect: 3.5% increase from the original.
 
 ---
 
-## 4.4 Real-Life Percentage Word Problem Contexts
+### 4.4 Real-Life Percentage Word Problem Contexts
 
 ### Shopping and Discounts
 
@@ -311,7 +331,15 @@ Solution:
 
 ---
 
-## 4.5 Percentage Comparison and Interpretation
+### Check Your Understanding
+
+**1.** A LGU has 20,000 residents. If 60% are adults, and 30% of adults are registered senior citizens, how many registered senior citizens are there? → **3,600** (20,000 × 0.60 × 0.30 = 3,600)
+**2.** A store offers a 20% discount on a ₱1,500 bag. Members get an additional 10% off the reduced price. What does a member pay? → **₱1,080** (₱1,500 × 0.80 × 0.90 = ₱1,080)
+**3.** A laptop worth ₱40,000 before VAT is sold with 12% VAT applied. Find the final price. → **₱44,800** (₱40,000 × 1.12 = ₱44,800)
+
+---
+
+### 4.5 Percentage Comparison and Interpretation
 
 ### Comparing Percentage Values
 
@@ -323,6 +351,12 @@ Store A: ₱2,000 × 0.70 = ₱1,400
 Store B: ₱2,200 × 0.75 = ₱1,650
 
 **Store A** gives the lower price (₱1,400 vs ₱1,650).
+
+> ⚠️ **Misconception:** "You can compare percentages directly without knowing their bases."
+>
+> **Why it fails:** A percentage is a relative ratio, not an absolute quantity. It only holds physical meaning when applied to its base. As shown in the example below, a 5% raise is larger than a 10% raise because the base of the first (₱50,000) is much larger than the second (₱20,000). Direct percentage comparisons are only valid when the bases are identical.
+>
+> **Correct model:** Always compute the absolute amounts (`Part = Whole × Rate`) before making size comparisons, unless the bases are explicitly stated to be the same.
 
 ### Percentage vs. Actual Amount
 
@@ -352,7 +386,7 @@ These are vastly different answers from similar-sounding phrases.
 
 ---
 
-## 4.6 Problem-Solving Strategies
+### 4.6 Problem-Solving Strategies
 
 ### The READ-PLAN-SOLVE-CHECK System
 
@@ -389,6 +423,8 @@ Instead of computing the discount/deduction and subtracting, compute what REMAIN
 
 This saves one arithmetic step and reduces error opportunities.
 
+> 🤔 **Why does this work?** The complement approach works due to the distributive property: `Base − (Base × Rate) = Base × (1 − Rate)`. By subtracting the rate from 1 (or 100%) first, you combine subtraction and multiplication into a single step. This is a massive time-saver on the CSE where doing `3,500 × 0.70` mentally is much faster and less error-prone than finding `3,500 × 0.30 = 1,050` and then computing `3,500 − 1,050 = 2,450`.
+
 ### Strategy 3: Estimation Before Computation
 
 Before computing, estimate the answer to eliminate obviously wrong choices.
@@ -418,7 +454,7 @@ Before computing, estimate the answer to eliminate obviously wrong choices.
 
 ---
 
-## 4.7 Estimation and Answer Checking
+### 4.7 Estimation and Answer Checking
 
 ### Why Estimation Matters on the CSE
 
@@ -459,7 +495,7 @@ Quick elimination rules:
 
 ---
 
-## 4.8 Common Errors in Percentage Word Problems
+### 4.8 Common Errors in Percentage Word Problems
 
 ### Error 1: Wrong Base (Most Common)
 
@@ -499,6 +535,22 @@ The problem says "how much is the discount?" but you compute the final price. Al
 **CSE Tip:** If your answer seems unreasonably large or small, check your decimal conversion first.
 
 ---
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
 
 ## Worked Examples
 
@@ -585,7 +637,7 @@ Or: 80,000 × 1.05 × 1.08 = 80,000 × 1.134 = **90,720**
 
 ---
 
-## Mini Practice Set
+### Mini Practice Set
 
 **1.** What is 15% of ₱6,000?
 **Answer:** ₱900
@@ -669,7 +721,7 @@ Or: 80,000 × 1.05 × 1.08 = 80,000 × 1.134 = **90,720**
 
 ---
 
-## Quick Recap
+### Quick Recap
 
 - Every percentage word problem reduces to Part = Rate × Whole — the challenge is identifying which value plays which role
 - Translation is the critical skill: convert English phrases into mathematical operations before computing
@@ -682,7 +734,7 @@ Or: 80,000 × 1.05 × 1.08 = 80,000 × 1.134 = **90,720**
 
 ---
 
-## Exam Strategies
+### Exam Strategies
 
 - Read the last sentence first to identify what is being asked before processing the scenario
 - Convert percentages to friendly fractions for mental math (25% = ÷4, 20% = ÷5, 10% = ÷10)
@@ -695,19 +747,75 @@ Or: 80,000 × 1.05 × 1.08 = 80,000 × 1.134 = **90,720**
 
 ---
 
-## Memory Aids
+### Guided Practice
 
-- **P-R-W Triangle:** Part on top, Rate and Whole on bottom. Cover what you need; the remaining operation is visible (P = R × W, R = P ÷ W, W = P ÷ R)
-- **"OF means MULTIPLY":** Whenever you see "percent OF something," multiply
-- **"IS means EQUALS":** "What IS 25% of 80?" translates to x = 0.25 × 80
-- **Complement shortcut:** "X% off" = multiply by (100 − X)/100
-- **Successive change trap:** 1.10 × 0.90 = 0.99, NOT 1.00 — a 10% increase then 10% decrease always results in a net loss
-- **Base rule:** The word after "of" is usually the base (whole)
-- **Reverse division:** If the result is given after a change, divide by the multiplier to find the original
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** A sari-sari store owner bought goods for ₱8,000 and sold them for ₱10,400. Find the profit percentage.
+- Step 1: Compute absolute profit amount → SP − CP = ₱10,400 − ₱8,000 = ₱_____
+- Step 2: Set up profit percentage relative to cost price → (₱_____ ÷ ₱8,000) × 100 = _____%
+
+**Answer:** Profit = ₱2,400, Profit % = 30%
+
+**2.** After a 20% discount, a television costs ₱16,000. Find the original price.
+- Step 1: Identify the remaining complement rate → 100% − 20% = _____%
+- Step 2: Divide the sale price by the decimal complement rate → ₱16,000 ÷ _____ = ₱_____
+
+**Answer:** Complement = 80% (0.80), Original Price = ₱20,000
+
+**3.** A government budget of ₱2,000,000 is increased by 15% in Year 2, then decreased by 10% in Year 3. Compute the Year 3 budget.
+- Step 1: Multiply Year 1 budget by the increase multiplier → ₱2,000,000 × _____ = ₱_____
+- Step 2: Multiply the Year 2 budget by the decrease multiplier → ₱_____ × _____ = ₱_____
+
+**Answer:** Year 2 = ₱2,300,000 (multiplier 1.15), Year 3 = ₱2,070,000 (multiplier 0.90)
 
 ---
 
-## Mastery Checklist
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** A property's price increases from ₱4,000,000 to ₱4,600,000. Find the percent increase.
+- **Type:** Percentage change / Rate computation (R = P ÷ W)
+- **Answer:** Increase = ₱600,000. Rate = 600,000 ÷ 4,000,000 × 100 = **15%**
+- **Why:** Finding the rate of increase relative to the original base price.
+
+**2.** An LGU budget allocates 45% to operations and 30% to personnel. If ₱300,000 remains for other expenses, find the total budget.
+- **Type:** Reverse whole computation (W = P ÷ R)
+- **Answer:** Remaining % = 100% − 45% − 30% = 25%. Total = 300,000 ÷ 0.25 = **₱1,200,000**
+- **Why:** The remaining amount represents the remaining percentage complement of the total budget.
+
+**3.** A bag costs ₱3,000 with successive discounts of 20% then 15%. What is the final price?
+- **Type:** Successive decreases (multiplier method)
+- **Answer:** ₱3,000 × 0.80 × 0.85 = **₱2,040**
+- **Why:** The second discount applies to the already reduced price, requiring sequential multiplication of complements.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Translate English sentence keywords into equations (is → =, of → ×)
+- [ ] Determine whether a problem asks for the part, rate, or whole
+- [ ] Apply the complement approach to solve discount and deduction problems in one step
+- [ ] Solve successive percentage problems using the multiplier chain method
+- [ ] Estimate answers using benchmark fractions to verify calculated results
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Fundamentals of Percentages:** Word problems apply conversion techniques to translate word descriptions into raw equations.
+- **Basic Algebra:** Translating word problems into percentage equations mirrors the translation of algebraic age or coin problems.
+- **Discounts, Markups, and Sales:** Commercial word problems are direct applications of successive percentage changes.
+- **Data Interpretation:** Government budget tables and statistical survey questions are presented as word problems requiring quick extraction of parts and rates.
+
+---
+
+### Mastery Checklist
 
 ✅ Translate percentage word problems into equations using the P = R × W framework
 ✅ Identify correct percentage operations from context (multiply vs. divide)

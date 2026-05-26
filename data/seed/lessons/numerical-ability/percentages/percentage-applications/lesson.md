@@ -1,6 +1,8 @@
 # Percentage Applications
 
-## Introduction
+## Explanations
+
+### Introduction
 
 **Percentage applications** represent the practical, real-world use of percentage concepts in contexts that Civil Service Examination takers encounter daily — population analysis, grade computation, survey interpretation, budget allocation, and financial management. Unlike basic percentage problems that ask you to find a part, rate, or whole in isolation, application problems embed percentages inside realistic scenarios that require you to identify what is being asked, select the correct formula, and interpret the result meaningfully.
 
@@ -31,7 +33,7 @@ Percentage applications appear in virtually every professional context:
 
 ---
 
-## Learning Objectives
+### Learning Objectives
 
 After this lesson, you should be able to:
 - Solve percentage problems involving population data (growth, decline, migration)
@@ -45,7 +47,7 @@ After this lesson, you should be able to:
 
 ---
 
-## 4.1 Understanding Percentage Applications
+### 4.1 Understanding Percentage Applications
 
 ### What Makes a Problem an "Application" Problem?
 
@@ -109,7 +111,7 @@ Use when you know the amount and the percentage, and need to find the total.
 
 ---
 
-## 4.2 Population Problems
+### 4.2 Population Problems
 
 ### Why Population Problems Appear on the CSE
 
@@ -145,9 +147,18 @@ New Population = Current Population × (1 − Decline Rate ÷ 100)
 Percentage = Subgroup ÷ Total Population × 100
 ```
 
+> 🤔 **Why does this work?** Expressing a subgroup as a percentage of the total population normalizes the scale to "per 100", allowing direct comparisons between LGUs of different sizes. For example, a barangay with 500 seniors out of 2,000 (25%) has a higher elderly concentration than a city with 10,000 seniors out of 100,000 (10%).
+
+> ⚠️ **Misconception:** "To find the growth rate, you can divide the change by the new population."
+>
+> **Why it fails:** Growth is measured relative to where you started, not where you ended. Dividing by the new population (54,000) instead of the original (50,000) gives 4,000 ÷ 54,000 ≈ 7.4%, which underestimates the actual growth rate of 8%.
+>
+> **Correct model:** Always use the original (starting) value as the denominator: `Growth Rate = Change ÷ Original × 100`.
+
 ### Easy Examples
 
 **Example 1: Finding Population Growth Rate**
+
 
 A municipality's population grew from 50,000 to 54,000 over one year. What is the growth rate?
 
@@ -217,7 +228,7 @@ Original = 112,000 ÷ 1.12 = 100,000
 
 ---
 
-## 4.3 Grade Computation
+### 4.3 Grade Computation
 
 ### Why Grade Problems Appear on the CSE
 
@@ -244,12 +255,21 @@ Weighted Grade = (Score₁ × Weight₁) + (Score₂ × Weight₂) + ... + (Scor
 ```
 Where all weights sum to 1.00 (or 100%).
 
+> ⚠️ **Misconception:** "You can find a weighted average by simply adding the grades together and dividing by the number of components."
+>
+> **Why it fails:** Simple averages assume all components are equally important. If an exam is weighted 70% and a quiz is weighted 30%, scoring 100 on the quiz and 60 on the exam does not give a final grade of (100 + 60) ÷ 2 = 80%.
+>
+> **Correct model:** Multiply each score by its respective decimal weight before adding them: `(100 × 0.30) + (60 × 0.70) = 30 + 42 = 72%`.
+
 **Passing Rate:**
 ```
 Passing Rate = (Number Who Passed ÷ Total Number of Students) × 100
 ```
 
+> 🤔 **Why does this work?** The weighted average formula works because it scales each score proportionally based on its significance (weight). When the weights sum to 100% (or 1.00), adding the weighted scores yields the final grade without needing further division.
+
 ### Easy Examples
+
 
 **Example 1: Simple Percentage Score**
 
@@ -341,7 +361,15 @@ Percentage = 23 ÷ 50 × 100 = 46%
 
 ---
 
-## 4.4 Statistics and Surveys
+### Check Your Understanding
+
+**1.** A student scores 36 out of 45 on a test. What is the percentage score? → **80%** (36 ÷ 45 = 0.80, then × 100)
+**2.** A final grade is calculated as: Midterm Exam (40%) and Final Exam (60%). If a student gets 80% on the Midterm and 90% on the Final, what is their weighted grade? → **86%** (80 × 0.40 + 90 × 0.60 = 32 + 54 = 86)
+**3.** In a class of 40 students, 34 passed. What is the passing rate? → **85%** (34 ÷ 40 × 100 = 85%)
+
+---
+
+### 4.4 Statistics and Surveys
 
 ### Why Survey Problems Appear on the CSE
 
@@ -458,7 +486,7 @@ Estimated unemployed = 150,000 × 0.12 = 18,000
 
 ---
 
-## 4.5 Financial Applications
+### 4.5 Financial Applications
 
 ### Why Financial Problems Appear on the CSE
 
@@ -579,7 +607,7 @@ Step 4: Maintenance amount = 200,000 × 0.10 = ₱20,000
 
 ---
 
-## 4.6 Multi-Step Percentage Application Problems
+### 4.6 Multi-Step Percentage Application Problems
 
 ### Why Multi-Step Problems Are Important
 
@@ -592,6 +620,8 @@ The CSE frequently presents problems that require two or more percentage operati
 3. **Label intermediate values** — write down what each number represents
 4. **Use the result of one step as input to the next**
 5. **Check reasonableness** — does the final answer make sense?
+
+> 🤔 **Why does this work?** Chaining percentage operations sequentially is mathematically equivalent to multiplying the original total by a series of decimal factors. For example, in Example 1 below: `200,000 × 0.60 × 0.25 = 30,000`. By understanding percentages as decimal multipliers, you can solve multi-step problems in a single chain calculation rather than calculating separate intermediate parts.
 
 ### Easy Examples
 
@@ -674,7 +704,15 @@ Step 3: Total cost = 312 × ₱500 = ₱156,000
 
 ---
 
-## 4.7 Percentage Interpretation and Analysis
+### Check Your Understanding
+
+**1.** A warehouse has 5,000 items. 15% are sold, and then 5% of the remaining items are found to be damaged. How many items are damaged? → **213** (Remaining = 5,000 × 0.85 = 4,250. Damaged = 4,250 × 0.05 = 212.5 ≈ 213)
+**2.** From 200 respondents, 60% answered "Yes" to a proposal. Of those who answered "Yes", 25% subsequently changed their mind. How many still support the proposal? → **90** (Yes = 200 × 0.60 = 120. Still support = 120 × 0.75 = 90)
+**3.** A salary of ₱50,000 receives a 10% raise, then a 12% withholding tax is applied to the new salary. What is the take-home pay? → **₱48,400** (After raise = 50,000 × 1.10 = 55,000. Take-home = 55,000 × 0.88 = ₱48,400)
+
+---
+
+### 4.7 Percentage Interpretation and Analysis
 
 ### Comparing Percentage Values
 
@@ -732,7 +770,7 @@ In surveys where respondents can choose multiple options, percentages may exceed
 
 ---
 
-## 4.8 Practical Applications in Government and Business
+### 4.8 Practical Applications in Government and Business
 
 ### Population Census Reports
 
@@ -812,7 +850,7 @@ Remaining = 4,000 − 480 − 120 = 3,400
 
 ---
 
-## 4.9 Problem-Solving Strategies
+### 4.9 Problem-Solving Strategies
 
 ### Strategy 1: Identify Known and Unknown Values
 
@@ -866,7 +904,7 @@ After finding your answer, plug it back into the problem:
 
 ---
 
-## 4.10 Estimation and Mental Math Techniques
+### 4.10 Estimation and Mental Math Techniques
 
 ### Benchmark Percentage Shortcuts
 
@@ -916,7 +954,7 @@ For weighted scores, compute the dominant weight first:
 
 ---
 
-## 4.11 Common Errors in Percentage Applications
+### 4.11 Common Errors in Percentage Applications
 
 ### Error 1: Using the Wrong Base Value
 
@@ -969,7 +1007,7 @@ These are completely different relationships.
 
 ---
 
-## Exam Strategies
+### Exam Strategies
 
 - **Read the question twice before computing.** Identify exactly what is being asked — the part, the rate, or the whole.
 - **Underline key numbers and percentages.** This prevents mixing up values in multi-step problems.
@@ -984,7 +1022,7 @@ These are completely different relationships.
 
 ---
 
-## Mini Practice Set
+### Mini Practice Set
 
 **1.** A student answered 45 out of 60 questions correctly. What is the percentage score?
 **Answer:** 75%
@@ -1068,7 +1106,7 @@ These are completely different relationships.
 
 ---
 
-## Quick Recap
+### Quick Recap
 
 | Application Area | Key Formula | Watch Out For |
 |-----------------|-------------|---------------|
@@ -1089,7 +1127,7 @@ These are completely different relationships.
 
 ---
 
-## Memory Aids
+### Memory Aids
 
 ### The "OF = MULTIPLY" Rule
 ```
@@ -1141,9 +1179,82 @@ Never go back to the original total after Step 1
 
 ---
 
-## Mastery Checklist
+### Guided Practice
 
-After completing this lesson, you should be able to:
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Compute the remaining items after 12% sold and 3% damaged from 4,000.
+- Step 1: Compute sold items → 4,000 × 0.12 = _____
+- Step 2: Compute damaged items → 4,000 × 0.03 = _____
+- Step 3: Compute remaining items → 4,000 − _____ − _____ = _____
+
+**Answer:** Sold = 480, Damaged = 120, Remaining = 3,400
+
+**2.** In a survey of 400 employees, 70% prefer the new schedule. Find the number of employees preferring the new schedule.
+- Step 1: Convert percentage to decimal → 70% = _____
+- Step 2: Multiply by total → 400 × _____ = _____
+
+**Answer:** Decimal = 0.70, Preference = 280
+
+**3.** Convert a student's score of 80 out of 100 to a percentage.
+- Step 1: Divide score by total → 80 ÷ 100 = _____
+- Step 2: Multiply by 100 to get percentage → _____ × 100 = _____%
+
+**Answer:** Ratio = 0.80, Percentage = 80%
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** A warehouse has 5,000 items. 15% are sold, then 5% of the remaining are damaged. How many remain?
+- **Type:** Successive percentages (sell then damage)
+- **Answer:** 5,000 × 0.85 × 0.95 = **4,037.5** → approx 4,038
+- **Why:** The base changes after the first sale; we must multiply by successive complements.
+
+**2.** From 200 respondents, 60% answered "Yes". Of those, 25% changed their mind. How many still say "Yes"?
+- **Type:** Subgroup percentage
+- **Answer:** 200 × 0.60 × (1‑0.25) = **90**
+- **Why:** The second percentage applies only to the subset who answered "Yes", not the total group.
+
+**3.** A salary of ₱50,000 receives a 10% raise then a 12% tax. What is the net salary?
+- **Type:** Raise then tax
+- **Answer:** 50,000 × 1.10 × (1‑0.12) = **48,400**
+- **Why:** We chain the operations sequentially by applying the raise multiplier (1.10) followed by the tax multiplier (0.88).
+
+**4.** An exam score of 75% out of 80 questions. How many correct answers?
+- **Type:** Percentage to count
+- **Answer:** 80 × 0.75 = **60**
+- **Why:** Finding the part given the whole and rate: `Part = Whole × Rate`.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Identify the base for each percentage operation
+- [ ] Compute successive percentages accurately
+- [ ] Translate word problems into "part = whole × rate" formulas
+- [ ] Estimate answers before exact calculation
+- [ ] Verify results with reverse calculations
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Population:** Percent changes use the same multiplier method as profit/loss calculations.
+- **Grades:** Weighted averages rely on percentage conversions similar to tax calculations.
+- **Surveys:** Interpreting response rates mirrors extracting base prices from VAT‑inclusive amounts.
+- **Financial:** Budget allocations involve percent‑of‑total reasoning akin to inventory percentages.
+- **Estimation:** Quick mental shortcuts for percentages aid all CSE problem types.
+
+---
+
+### Mastery Checklist
 
 ✅ Solve population percentage problems (growth, decline, subgroup analysis)
 ✅ Compute grades accurately using weighted and unweighted systems
@@ -1157,3 +1268,20 @@ After completing this lesson, you should be able to:
 ✅ Translate word problems into percentage formulas efficiently
 ✅ Use elimination strategies to narrow down multiple-choice answers
 ✅ Solve difficult CSE application problems in under 90 seconds
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+

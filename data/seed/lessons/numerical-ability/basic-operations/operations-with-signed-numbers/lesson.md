@@ -1117,6 +1117,22 @@ How this topic connects to other areas of the CSE:
 ✅ Use estimation to verify answers and eliminate impossible choices
 ✅ Avoid common sign errors under exam time pressure
 
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
 ## Worked Examples
 
 ### Example 1: Multi-Step Addition with Grouping

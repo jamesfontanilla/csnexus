@@ -1,6 +1,8 @@
 # Profit, Loss, and Tax
 
-## Introduction
+## Explanations
+
+### Introduction
 
 **Profit, loss, and tax** problems form a critical subset of percentage-based questions in the Numerical Ability section of the Philippine Civil Service Examination. These problems require you to compute financial outcomes — how much a seller gains or loses on a transaction, and how taxes affect the final price a buyer pays.
 
@@ -42,7 +44,7 @@ Government employees routinely handle financial documents — purchase orders, r
 7. Not reading whether the given price is tax-inclusive or tax-exclusive
 8. Confusing markup (based on cost) with margin (based on selling price)
 
-## Learning Objectives
+### Learning Objectives
 
 After this lesson, you should be able to:
 - Compute profit and loss amounts accurately given cost price and selling price
@@ -57,7 +59,7 @@ After this lesson, you should be able to:
 
 ---
 
-## 4.1 Understanding Profit, Loss, and Tax
+### 4.1 Understanding Profit, Loss, and Tax
 
 ### What Are Profit, Loss, and Tax?
 
@@ -107,7 +109,7 @@ The seller's profit or loss depends only on CP vs. SP. The tax is a separate lay
 
 ---
 
-## 4.2 Profit
+### 4.2 Profit
 
 ### Computing Profit Amount
 
@@ -152,6 +154,8 @@ Profit % = (P ÷ CP) × 100%
 
 **CSE Tip:** The base (denominator) for profit percentage is ALWAYS the cost price, not the selling price. This is the most common error on the exam.
 
+> 🤔 **Why does this work?** Profit percentage uses cost price as the base because it measures the return on your investment — the amount you originally spent. Using selling price would conflate the gain with the total received, making percentages incomparable across transactions of different sizes.
+
 **Easy Example:**
 CP = ₱500, SP = ₱600
 - Profit = ₱600 − ₱500 = ₱100
@@ -187,9 +191,15 @@ CP = SP ÷ (1 + Profit%/100)
 **Example:** SP = ₱3,600, Profit % = 20%
 - CP = ₱3,600 ÷ 1.20 = **₱3,000**
 
+> ⚠️ **Misconception:** "Profit percentage is calculated using the selling price as the base."
+>
+> **Why it fails:** If CP = ₱500 and SP = ₱600, using SP gives (100 ÷ 600) × 100 = 16.7%. But the actual profit percentage is (100 ÷ 500) × 100 = 20%. Using selling price understates your return because the base is inflated by the profit itself.
+>
+> **Correct model:** Profit % = (Profit ÷ Cost Price) × 100. Always divide by what you *paid*, not what you *received*.
+
 ---
 
-## 4.3 Loss
+### 4.3 Loss
 
 ### Computing Loss Amount
 
@@ -263,9 +273,15 @@ CP = SP ÷ (1 − Loss%/100)
 **Example:** SP = ₱6,800, Loss % = 15%
 - CP = ₱6,800 ÷ 0.85 = **₱8,000**
 
+### Check Your Understanding
+
+**1.** A vendor bought mangoes for ₱800 and sold them for ₱1,000. What is the profit percentage? → **25%** (Profit = 200; 200 ÷ 800 × 100 = 25%)
+**2.** An office sold surplus chairs costing ₱4,500 each for ₱2,700 each. What is the loss percentage? → **40%** (Loss = 1,800; 1,800 ÷ 4,500 × 100 = 40%)
+**3.** If a seller has a 20% profit on a cost of ₱2,000, what is the selling price? → **₱2,400** (SP = 2,000 × 1.20)
+
 ---
 
-## 4.4 Sales Tax and VAT
+### 4.4 Sales Tax and VAT
 
 ### What Is Sales Tax?
 
@@ -349,9 +365,17 @@ VAT Amount = VAT-Inclusive Price − Base Price
 **Wrong approach:** ₱1,120 × 0.12 = ₱134.40 ← INCORRECT
 **Correct approach:** ₱1,120 ÷ 1.12 = ₱1,000, then VAT = ₱120 ← CORRECT
 
+> ⚠️ **Misconception:** "To find the VAT amount from a VAT-inclusive price, just multiply by 0.12."
+>
+> **Why it fails:** If the inclusive price is ₱1,120, then 1,120 × 0.12 = ₱134.40. But the actual VAT is ₱120. The 12% applies to the *base* price (₱1,000), not to the inclusive total. Computing 12% of the inclusive price overshoots because you're taxing the tax.
+>
+> **Correct model:** Base = Total ÷ 1.12, then VAT = Total − Base. Alternatively, VAT = Total × (12/112).
+
+> 🤔 **Why does this work?** Dividing by 1.12 reverses the multiplication that created the inclusive price. Since Total = Base × 1.12, then Base = Total ÷ 1.12. This is the algebraic inverse — you're undoing the tax addition to recover the original amount.
+
 ---
 
-## 4.5 Identifying Profit, Loss, and Tax Problems
+### 4.5 Identifying Profit, Loss, and Tax Problems
 
 ### Recognizing Problem Types by Clue Words
 
@@ -386,7 +410,7 @@ Step-by-step approach for any profit/loss/tax problem:
 
 ---
 
-## 4.6 Multi-Step Financial Problems
+### 4.6 Multi-Step Financial Problems
 
 ### Problems Involving Profit and Tax Together
 
@@ -442,9 +466,15 @@ Step 1: SP = ₱120,000 × 1.15 = ₱138,000
 Step 2: After discount = ₱138,000 × 0.95 = ₱131,100
 Step 3: After VAT = ₱131,100 × 1.12 = **₱146,832**
 
+### Check Your Understanding
+
+**1.** A base price of ₱5,000 has 12% VAT. What does the buyer pay? → **₱5,600** (5,000 × 1.12)
+**2.** A receipt shows ₱11,200 (VAT-inclusive). What is the base price? → **₱10,000** (11,200 ÷ 1.12)
+**3.** A retailer marks up an item costing ₱8,000 by 25%, then adds 12% VAT. Final price? → **₱11,200** (8,000 × 1.25 × 1.12)
+
 ---
 
-## 4.7 Practical Applications of Profit, Loss, and Tax
+### 4.7 Practical Applications of Profit, Loss, and Tax
 
 ### Retail Pricing
 
@@ -488,7 +518,7 @@ A meal subtotal is ₱850. Service charge is 10%, then 12% VAT on the total.
 
 ---
 
-## 4.8 Successive Percentage Effects in Business
+### 4.8 Successive Percentage Effects in Business
 
 ### Why Percentages Cannot Simply Be Added
 
@@ -526,6 +556,8 @@ Final = Original × (1 + r₁/100) × (1 − r₂/100)
 - Combined multiplier = 1.30 × 0.90 × 1.12 = 1.3104
 - Final price = ₱10,000 × 1.3104 = **₱13,104**
 
+> 🤔 **Why does this work?** Each successive percentage operates on the result of the previous one, not the original amount. Multiplying the factors together (1.30 × 0.90 × 1.12) produces a single combined multiplier that captures the net effect of all three changes in one step. This works because multiplication is associative: (a × b) × c = a × (b × c).
+
 ### Profit After Discount
 
 If a seller marks up by 40% then gives a 10% discount:
@@ -548,7 +580,7 @@ To find the VAT portion of a tax-inclusive price:
 
 ---
 
-## 4.9 Problem-Solving Strategies
+### 4.9 Problem-Solving Strategies
 
 ### Step-by-Step System for Any Profit/Loss/Tax Problem
 
@@ -587,7 +619,7 @@ If a choice is wildly different from your estimate, eliminate it immediately.
 
 ---
 
-## 4.10 Estimation and Mental Math Techniques
+### 4.10 Estimation and Mental Math Techniques
 
 ### Benchmark Percentages for Quick Computation
 
@@ -634,7 +666,7 @@ On multiple choice, if CP = ₱10,000 and profit % = 20%:
 
 ---
 
-## 4.11 Common Errors in Profit, Loss, and Tax Problems
+### 4.11 Common Errors in Profit, Loss, and Tax Problems
 
 ### Error 1: Using the Wrong Base
 
@@ -674,7 +706,7 @@ When multiplying by 1.12:
 
 ---
 
-## Exam Strategies
+### Exam Strategies
 
 ### Recognizing Question Types Quickly
 
@@ -707,7 +739,7 @@ If CP = ₱20,000 and the question asks for SP after 15% profit:
 
 ---
 
-## Mini Practice Set
+### Mini Practice Set
 
 **1.** A store bought a calculator for ₱450 and sold it for ₱540. What is the profit?
 **Answer:** ₱90
@@ -791,7 +823,7 @@ If CP = ₱20,000 and the question asks for SP after 15% profit:
 
 ---
 
-## Quick Recap
+### Quick Recap
 
 | Concept | Formula | Key Point |
 |---------|---------|-----------|
@@ -806,7 +838,7 @@ If CP = ₱20,000 and the question asks for SP after 15% profit:
 
 ---
 
-## Memory Aids
+### Memory Aids
 
 - **"Profit Percentage = Profit over Purchase"** — both start with P, and "purchase" reminds you the base is cost price
 - **"1.12 for VAT"** — memorize this multiplier; multiply to add VAT, divide to remove VAT
@@ -817,7 +849,110 @@ If CP = ₱20,000 and the question asks for SP after 15% profit:
 
 ---
 
-## Mastery Checklist
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** A sari-sari store owner bought goods for ₱3,000 and sold them for ₱3,750. Find the profit percentage.
+
+- Step 1: Compute profit → SP − CP = ₱3,750 − ₱3,000 = _____
+- Step 2: Apply formula → (_____ ÷ ₱3,000) × 100 = _____%
+
+**Answer:** Profit = ₱750. Profit % = (750 ÷ 3,000) × 100 = 25%
+
+**2.** An office bought a printer for ₱15,000 and sold it as surplus for ₱10,500. Find the loss percentage.
+
+- Step 1: Compute loss → CP − SP = ₱15,000 − ₱10,500 = _____
+- Step 2: Apply formula → (_____ ÷ _____) × 100 = _____%
+
+**Answer:** Loss = ₱4,500. Loss % = (4,500 ÷ 15,000) × 100 = 30%
+
+**3.** Office supplies cost ₱8,500 (VAT-exclusive). Compute the total price with 12% VAT.
+
+- Step 1: Identify multiplier → 1 + 0.12 = _____
+- Step 2: Multiply → ₱8,500 × _____ = ₱_____
+
+**Answer:** Multiplier = 1.12. Total = ₱8,500 × 1.12 = ₱9,520
+
+**4.** A receipt shows ₱22,400 (VAT-inclusive at 12%). Find the base price and VAT amount.
+
+- Step 1: Divide by 1.12 → ₱22,400 ÷ 1.12 = ₱_____
+- Step 2: Subtract → ₱22,400 − ₱_____ = ₱_____
+
+**Answer:** Base = ₱22,400 ÷ 1.12 = ₱20,000. VAT = ₱22,400 − ₱20,000 = ₱2,400
+
+**5.** A contractor buys materials for ₱120,000, adds 18% profit, then the client pays 12% VAT. Find the total.
+
+- Step 1: _____
+- Step 2: _____
+
+**Answer:** After profit = ₱120,000 × 1.18 = ₱141,600. After VAT = ₱141,600 × 1.12 = ₱158,592
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** A gadget costs ₱6,000 and sells for ₱7,800.
+- **Type:** Profit computation (SP > CP)
+- **Answer:** Profit = ₱1,800; Profit % = (1,800 ÷ 6,000) × 100 = 30%
+- **Why:** SP exceeds CP → profit. Base is always CP.
+
+**2.** A VAT-inclusive receipt shows ₱33,600. Find the base price. (VAT = 12%)
+- **Type:** Tax extraction (divide by 1.12)
+- **Answer:** Base = ₱33,600 ÷ 1.12 = ₱30,000
+- **Why:** "VAT-inclusive" means divide, not subtract.
+
+**3.** A laptop costing ₱32,000 is sold at a 15% loss. What is the selling price?
+- **Type:** Loss → find SP (multiply CP by (1 − loss rate))
+- **Answer:** SP = ₱32,000 × 0.85 = ₱27,200
+- **Why:** Loss means SP < CP; multiplier is less than 1.
+
+**4.** An item is marked up 40% then discounted 10%, and 12% VAT applies. CP = ₱5,000.
+- **Type:** Successive percentages (markup → discount → tax)
+- **Answer:** ₱5,000 × 1.40 × 0.90 × 1.12 = ₱7,056
+- **Why:** Each percentage uses the previous result as its base. Multiply all factors.
+
+**5.** A seller sold an item for ₱7,200 and made a 20% profit. Find the cost price.
+- **Type:** Reverse profit (divide SP by (1 + rate))
+- **Answer:** CP = ₱7,200 ÷ 1.20 = ₱6,000
+- **Why:** SP = CP × 1.20, so CP = SP ÷ 1.20.
+
+**6.** An employee's gross salary is ₱45,000 with 12% withholding tax. Find net pay.
+- **Type:** Tax deduction (subtract tax from gross)
+- **Answer:** Tax = ₱45,000 × 0.12 = ₱5,400. Net = ₱45,000 − ₱5,400 = ₱39,600
+- **Why:** Withholding tax reduces take-home pay; it's subtracted, not added.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Compute profit amount from CP and SP
+- [ ] Compute profit percentage using cost price as base
+- [ ] Compute loss amount and loss percentage
+- [ ] Find SP given CP and profit/loss percentage
+- [ ] Find CP given SP and profit/loss percentage (reverse formula)
+- [ ] Compute VAT amount on a base price
+- [ ] Extract base price from a VAT-inclusive amount (divide by 1.12)
+- [ ] Solve multi-step problems combining profit/loss with tax
+- [ ] Apply the multiplier method for successive percentages
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Percentages (Fundamentals):** Profit/loss/tax problems are direct applications of the three percentage cases — finding the part, rate, or base
+- **Percentage Increase and Decrease:** Profit is a percentage increase on cost price; loss is a percentage decrease — the same formulas apply
+- **Discounts, Markups, and Sales:** Markup is profit expressed differently; discount-then-tax problems are multi-step profit/loss scenarios
+- **Estimation and Mental Math:** Quick 12% VAT checks (10% + 2%) and fraction-based profit estimation are essential under time pressure
+- **Word Problems:** Every profit/loss/tax CSE item is a word problem requiring careful reading to identify CP, SP, rate, and what is being asked
+
+### Mastery Checklist
 
 ✅ Compute profit amount correctly (SP − CP)
 ✅ Compute loss amount correctly (CP − SP)
@@ -831,3 +966,20 @@ If CP = ₱20,000 and the question asks for SP after 15% profit:
 ✅ Estimate answers mentally for quick verification
 ✅ Avoid common traps (wrong base, adding percentages, VAT on inclusive price)
 ✅ Solve CSE-style business mathematics problems efficiently
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+

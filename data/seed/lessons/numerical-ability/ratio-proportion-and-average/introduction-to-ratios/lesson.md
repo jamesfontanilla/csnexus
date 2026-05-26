@@ -53,990 +53,794 @@ After this lesson, you should be able to:
 
 ### 4.1 What Is a Ratio?
 
-A **ratio** is a comparison between two or more quantities that shows the relative size of one quantity to another. Unlike a single number that tells you "how much," a ratio tells you "how much compared to something else."
-
-**Key idea:** A ratio expresses a *relationship*, not an absolute amount.
-
 #### Ratio as Division-Based Comparison
 
-When we say the ratio of A to B is 3:2, we mean:
-- For every 3 units of A, there are 2 units of B
-- A is 1.5 times as large as B
-- B is two-thirds of A
+A **ratio** is a mathematical comparison of two (or more) quantities. It tells you how many times one number contains another. For example, if a department has 8 supervisors and 32 staff members, the ratio of supervisors to staff is 8:32 — meaning there is one supervisor for every four staff members.
 
-The comparison is made through division: 3 ÷ 2 = 1.5, meaning A is 1.5 times B.
+> 🤔 **Why does this work?** A ratio is fundamentally a division relationship expressed differently. Writing 8:32 is equivalent to saying 8 ÷ 32 = 1/4, but the colon notation preserves the identity of both numbers. Unlike a fraction, which states how much one quantity is relative to the whole, a ratio keeps both quantities visible, which is why ratios are preferred when you need to compare two distinct groups.
 
 #### Order Matters
 
-A ratio of 3:2 is NOT the same as 2:3.
+The order of the numbers in a ratio directly corresponds to the order of the quantities named in the problem.
 
-- 3:2 means "3 of the first quantity for every 2 of the second"
-- 2:3 means "2 of the first quantity for every 3 of the second"
+- **Supervisors to staff** = 8:32 (simplified 1:4)
+- **Staff to supervisors** = 32:8 (simplified 4:1)
 
-**Example:** In a class of 20 boys and 15 girls:
-- The ratio of boys to girls is 20:15 (simplified: 4:3)
-- The ratio of girls to boys is 15:20 (simplified: 3:4)
-
-Always read the question carefully to determine which quantity comes first.
+These are NOT the same. Swapping the order changes the meaning completely. If the CSE asks for "the ratio of staff to supervisors," writing 1:4 instead of 4:1 is wrong.
 
 #### Part-to-Part vs. Part-to-Whole
 
-There are two fundamental types of ratio comparison:
+A **part-to-part** ratio compares two distinct parts of a whole (e.g., boys to girls in a classroom). A **part-to-whole** ratio compares one part to the entire group (e.g., boys to total students).
 
-**Part-to-Part:** Compares one group to another group.
-- "The ratio of boys to girls is 4:3"
-- Both terms refer to subgroups within a larger whole
+- Part-to-part: Boys:Girls = 3:2 (compares two groups)
+- Part-to-whole: Boys:Total = 3:5 (compares one group to the sum)
 
-**Part-to-Whole:** Compares one group to the entire collection.
-- "The ratio of boys to all students is 4:7" (because 4 + 3 = 7 total parts)
-- One term is a subgroup; the other is the total
+**Critical CSE distinction:** The question "What is the ratio of boys to girls?" expects 3:2. The question "What is the ratio of boys to total students?" expects 3:5. Watch for the word "total," "all," or "entire" — these signal a part-to-whole ratio.
 
-**CSE Trap:** Many exam questions ask for part-to-whole ratios, but examinees instinctively write part-to-part. Always check what the question is asking.
+> ⚠️ **Misconception:** "3:5 is the same as 3/5, so the ratio of boys to girls in a class of 8 students with 3 boys is 3:5."
+>
+> **Why it fails:** 3:5 as a ratio of boys to girls means 3 boys and 5 girls — a part-to-part comparison. But 3/5 as a fraction means "3 out of 5," which would be a part-to-whole statement. If the class has 3 boys out of 8 total, the ratio of boys to girls is 3:5 (part-to-part, total = 8), while the fraction of boys is 3/8 (part-to-whole).
+>
+> **Correct model:** A ratio of 3:5 means there are 3 of the first quantity for every 5 of the second. The total number of parts is 3+5=8. A fraction of 3/5 means 3 parts out of 5 total parts. They are not the same — count the total parts carefully.
 
 #### Real-Life Examples
 
-| Situation | Ratio | Type |
-|-----------|-------|------|
-| 2 teachers for every 50 students | 2:50 or 1:25 | Part-to-Part |
-| 5 red balls out of 12 total balls | 5:12 | Part-to-Whole |
-| Recipe: 3 cups flour to 1 cup sugar | 3:1 | Part-to-Part |
-| Budget: ₱60,000 salary out of ₱100,000 income | 60,000:100,000 or 3:5 | Part-to-Whole |
-| Map scale: 1 cm represents 5 km | 1:500,000 | Part-to-Part |
+- **Budget allocation:** A barangay allocates funds in a 3:2 ratio for health vs. education. For every ₱3 spent on health, ₱2 is spent on education.
+- **Classroom:** The teacher-to-student ratio is 1:40. One teacher for every 40 students.
+- **Recipes:** A recipe calls for a 2:1 ratio of rice to water. Two cups of rice for every one cup of water.
+- **Maps:** A map scale of 1:50,000 means 1 cm on the map represents 50,000 cm (500 m) on the ground.
+- **Transportation:** A bus company maintains a 3:1 ratio of seated to standing passengers.
 
 ---
 
 ### 4.2 Comparing Quantities Using Ratios
 
-Ratios allow us to make meaningful comparisons between quantities, even when the actual numbers are large or complex.
-
 #### How Ratios Compare Sizes or Amounts
 
-When you say "the ratio of apples to oranges is 5:3," you communicate:
-- Apples outnumber oranges
-- For every 5 apples, there are exactly 3 oranges
-- The apple count is 5/3 times the orange count (about 1.67 times)
+Ratios are the mathematical tool for answering: "How much more (or less) is one quantity compared to another?"
 
-This is more informative than saying "there are more apples than oranges" because it tells you *how much more*.
+**Example:** If a government office has 24 permanent employees and 8 contractual employees, the ratio of permanent to contractual is 24:8 = 3:1. This means there are 3 permanent employees for every 1 contractual employee. The permanent workforce is three times the size of the contractual workforce.
 
 #### Interpreting "For Every"
 
-The phrase "for every" is the verbal signal for a ratio:
-- "For every 4 employees, there is 1 supervisor" → 4:1
-- "For every ₱3 spent on supplies, ₱7 goes to salaries" → 3:7
-- "For every 2 buses, there are 80 passengers" → 2:80 or 1:40
+The phrase "for every" is a direct signal that a ratio is being described.
+
+- "For every 3 senior citizens, there are 2 youth card holders." → Senior:Youth = 3:2
+- "For every 5 applications approved, 1 is denied." → Approved:Denied = 5:1
 
 #### Identifying Greater and Smaller Quantities
 
-Given a ratio A:B:
-- If A > B, the first quantity is larger
-- If A < B, the second quantity is larger
-- If A = B, the quantities are equal (ratio is 1:1)
-
-**Example:** A government office has a staff-to-computer ratio of 5:3.
-- This means there are MORE staff than computers
-- For every 5 staff members, only 3 computers are available
-- The office is under-equipped in terms of computers
+A ratio greater than 1:1 (e.g., 3:1) means the first quantity is larger. A ratio less than 1:1 (e.g., 1:4) means the first quantity is smaller. A ratio of 1:1 means they are equal.
 
 #### Practical Comparison Examples
 
-**Classroom Context:**
-A school reports 480 students and 16 teachers.
-- Student-to-teacher ratio: 480:16 = 30:1
-- Interpretation: Each teacher handles 30 students on average
+- Office A has 12 desks and 6 chairs. Desk:Chair = 2:1 (twice as many desks)
+- Office B has 8 desks and 16 chairs. Desk:Chair = 1:2 (half as many desks)
+- Comparing: Office A has proportionally more desks than Office B.
 
-**Workplace Context:**
-A department has 24 rank-and-file employees and 4 supervisors.
-- Employee-to-supervisor ratio: 24:4 = 6:1
-- Interpretation: Each supervisor oversees 6 employees
-
-**Transportation Context:**
-A bus route has 12 buses serving 960 daily passengers.
-- Bus-to-passenger ratio: 12:960 = 1:80
-- Interpretation: Each bus serves 80 passengers per day
-
-**Government Budget Context:**
-A municipality allocates ₱15 million to education and ₱5 million to health.
-- Education-to-health ratio: 15:5 = 3:1
-- Interpretation: For every ₱3 spent on education, ₱1 goes to health
+> 🤔 **Why does this work?** Ratios standardize comparison by expressing the relationship as a pair of integers. By simplifying to the smallest whole numbers (e.g., 12:6 → 2:1), you eliminate absolute size and expose the underlying proportionality. This allows you to compare two ratios directly: 2:1 > 1:2 because the first quantity is larger relative to the second.
 
 #### When Quantities Must Be in the Same Unit
 
-You can only form a meaningful ratio between quantities expressed in the same unit.
+Ratios require the same unit for both quantities. If units differ, convert first.
 
-**Incorrect:** The ratio of 2 meters to 50 centimeters is 2:50 ✗
-**Correct:** Convert first → 200 cm to 50 cm → ratio is 200:50 = 4:1 ✓
+- **WRONG:** 500 grams : 2 kilograms = 500:2
+- **RIGHT:** 500 grams : 2000 grams = 500:2000 = 1:4
 
-Always convert to the same unit before writing the ratio.
+Similarly:
+- 45 minutes : 2 hours → 45 minutes : 120 minutes = 45:120 = 3:8
+- 30 cm : 1 meter → 30 cm : 100 cm = 30:100 = 3:10
+
+> ⚠️ **Misconception:** "A ratio of 1:4 is the same as a fraction of 1/4, so a ratio can never exceed 1."
+>
+> **Why it fails:** A 4:1 ratio means the first quantity is four times the second. This is valid and common — e.g., a department where there are 4 project staff for every 1 supervisor. The fraction notation for a ratio (4/1) can be any positive number.
+>
+> **Correct model:** Unlike a part-to-whole fraction (which is always between 0 and 1), a ratio can be any positive number. The fraction 4/1 as a ratio means "four times as many." A ratio greater than 1:1 means the first quantity exceeds the second.
 
 ---
 
 ### 4.3 Ratio Notation
 
-There are three standard ways to write a ratio. All three represent the same relationship.
-
 #### 1. Colon Notation (Most Common in CSE)
 
-```
-3:4
-```
+The ratio of A to B is written as **A:B**. This is the most common format on the exam.
 
-Read as "three is to four" or "three to four."
-
-This is the most common notation in Civil Service Exam questions. The colon separates the two quantities being compared.
-
-**Examples:**
-- 2:5 → "two is to five"
-- 7:3 → "seven to three"
-- 1:1 → "one to one" (equal quantities)
+- 3:4 (read as "three to four")
+- 7:2 (read as "seven to two")
 
 #### 2. Fraction Notation
 
-```
-3/4 or ¾
-```
+A ratio can also be written as a fraction: **A/B**. When written as a fraction, a ratio compares A to B, not A to the total.
 
-Read as "three-fourths" or "three over four."
+- The ratio 3:4 can be written as 3/4
+- The ratio 7:2 can be written as 7/2
 
-This notation emphasizes the division relationship. The first quantity is the numerator; the second is the denominator.
-
-**Important distinction:** The fraction 3/4 as a ratio means "3 compared to 4." As a fraction of a whole, 3/4 means "3 out of 4 equal parts." Context determines the meaning.
-
-**Examples:**
-- 2/5 → ratio of 2 to 5
-- 7/3 → ratio of 7 to 3
-- 9/12 → ratio of 9 to 12 (simplifies to 3/4)
+**Important:** 3/4 as a ratio means "3 to 4" (part-to-part). 3/4 as a fraction means "3 out of 4" (part-to-whole). These are different concepts even though they use the same notation. Context determines which meaning applies.
 
 #### 3. Word Notation
 
-```
-"3 to 4"
-```
+Ratios are also expressed in words using the word "to":
 
-Read exactly as written. This appears in word problems and verbal descriptions.
-
-**Examples:**
-- "The ratio of men to women is 6 to 11"
-- "For every 2 winners, there are 8 losers" → 2 to 8
-- "The mixture uses 1 part cement to 3 parts sand" → 1 to 3
+- "3 to 4"
+- "The ratio of boys to girls is 3 to 4."
 
 #### Converting Between Notations
 
-All three notations are interchangeable:
-
 | Colon | Fraction | Word |
 |-------|----------|------|
-| 2:5 | 2/5 | 2 to 5 |
-| 7:9 | 7/9 | 7 to 9 |
-| 12:8 | 12/8 | 12 to 8 |
-| 1:4 | 1/4 | 1 to 4 |
+| 5:8 | 5/8 | "five to eight" |
+| 12:5 | 12/5 | "twelve to five" |
+| 1:100 | 1/100 | "one to one hundred" |
 
 #### Ratios with More Than Two Terms
 
-Ratios can compare three or more quantities:
-- "The ratio of red, blue, and green marbles is 2:5:3"
-- This means for every 2 red, there are 5 blue and 3 green
-- Total parts: 2 + 5 + 3 = 10
-
-Multi-term ratios use colon notation exclusively (not fraction notation).
-
-#### CSE Notation Patterns
-
-In the Civil Service Exam:
-- Questions typically present ratios in colon notation (3:4)
-- Word problems use word notation ("the ratio of X to Y")
-- Answer choices may use any notation — be ready to recognize all three
-- Simplified form is almost always expected in the answer
+A ratio can involve three or more quantities, such as a budget split among three departments in the ratio 2:3:5. This means:
+- Department A gets 2 parts
+- Department B gets 3 parts
+- Department C gets 5 parts
+- Total = 2 + 3 + 5 = 10 parts
 
 ---
 
 ### 4.4 Types of Ratios
 
-Understanding the two main types of ratios prevents one of the most common CSE errors.
-
 #### Part-to-Part Ratios
 
-A **part-to-part ratio** compares one subgroup to another subgroup within the same whole.
+Compare one part of a group to another part of the same group.
 
-**Example:** A bag contains 6 red balls and 9 blue balls.
-- Ratio of red to blue: 6:9 = 2:3
-- Both "red" and "blue" are parts of the whole bag
-
-**More examples:**
-- Boys to girls in a class: 18:12 = 3:2
-- Passed to failed in an exam: 45:15 = 3:1
-- Managers to rank-and-file: 5:35 = 1:7
+**Example:** In a class of 40 students, there are 15 girls and 25 boys.
+- Girls to boys: 15:25 = 3:5
+- Boys to girls: 25:15 = 5:3
 
 #### Part-to-Whole Ratios
 
-A **part-to-whole ratio** compares one subgroup to the entire group (all subgroups combined).
+Compare one part of a group to the entire group.
 
-**Example:** A bag contains 6 red balls and 9 blue balls (15 total).
-- Ratio of red to total: 6:15 = 2:5
-- Ratio of blue to total: 9:15 = 3:5
-
-**More examples:**
-- Boys to all students: 18:30 = 3:5 (where 18 + 12 = 30)
-- Passed to all examinees: 45:60 = 3:4 (where 45 + 15 = 60)
-- Managers to all staff: 5:40 = 1:8 (where 5 + 35 = 40)
+**Example:** In the same class of 40 students:
+- Girls to total: 15:40 = 3:8
+- Boys to total: 25:40 = 5:8
 
 #### How to Identify Which Type the Question Asks
 
-**Keywords for part-to-part:**
-- "ratio of A to B"
-- "compare A and B"
-- "for every A, there are B"
-
-**Keywords for part-to-whole:**
-- "ratio of A to the total"
-- "what fraction of the whole is A"
-- "out of all items, how many are A"
-- "what part of the group is A"
-
-#### Critical CSE Distinction
-
-**Question:** A class has 12 boys and 18 girls. What is the ratio of boys to the class?
-
-**Wrong answer (part-to-part):** 12:18 = 2:3 ✗
-**Correct answer (part-to-whole):** 12:30 = 2:5 ✓
-
-The phrase "to the class" signals part-to-whole. The total class size is 12 + 18 = 30.
-
-#### Visual Representation
-
-Imagine 10 shapes: ●●●●○○○○○○ (4 filled, 6 empty)
-
-- Part-to-part (filled to empty): 4:6 = 2:3
-- Part-to-whole (filled to total): 4:10 = 2:5
-- Part-to-whole (empty to total): 6:10 = 3:5
+| Phrase in Question | Type of Ratio | Example |
+|----|----|---------|
+| "ratio of X to Y" | Part-to-part | "ratio of boys to girls" |
+| "ratio of X to total" | Part-to-whole | "ratio of boys to total students" |
+| "ratio of X to all" | Part-to-whole | "ratio of girls to all students" |
+| "X for every Y" | Part-to-part | "3 supervisors for every 20 employees" |
 
 ---
 
 ### 4.5 Reducing Ratios to Lowest Terms
 
-A ratio is in its **simplest form** (or lowest terms) when the two terms share no common factor other than 1. Simplifying ratios makes them easier to interpret and compare.
-
 #### The Process
 
-1. Find the Greatest Common Factor (GCF) of both terms
-2. Divide both terms by the GCF
-3. The result is the ratio in lowest terms
+To reduce a ratio to lowest terms, divide both terms by their Greatest Common Factor (GCF).
+
+**General rule:** A ratio is in lowest terms when the two numbers share no common factor greater than 1.
 
 #### Easy Examples
 
-**Simplify 8:12**
-- Factors of 8: 1, 2, 4, 8
-- Factors of 12: 1, 2, 3, 4, 6, 12
-- GCF = 4
-- 8 ÷ 4 = 2, 12 ÷ 4 = 3
-- **Answer: 2:3**
+| Original Ratio | GCF | Simplified |
+|----------------|-----|------------|
+| 4:6 | 2 | 2:3 |
+| 10:15 | 5 | 2:3 |
+| 8:12 | 4 | 2:3 |
+| 6:9 | 3 | 2:3 |
+| 20:30 | 10 | 2:3 |
 
-**Simplify 10:25**
-- Factors of 10: 1, 2, 5, 10
-- Factors of 25: 1, 5, 25
-- GCF = 5
-- 10 ÷ 5 = 2, 25 ÷ 5 = 5
-- **Answer: 2:5**
-
-**Simplify 6:6**
-- GCF = 6
-- 6 ÷ 6 = 1, 6 ÷ 6 = 1
-- **Answer: 1:1**
+Notice that 4:6, 10:15, 8:12, 6:9, and 20:30 all simplify to the same ratio 2:3. These are all **equivalent ratios**.
 
 #### Medium Examples
 
-**Simplify 15:25**
-- GCF = 5
-- 15 ÷ 5 = 3, 25 ÷ 5 = 5
-- **Answer: 3:5**
-
-**Simplify 24:36**
-- GCF = 12
-- 24 ÷ 12 = 2, 36 ÷ 12 = 3
-- **Answer: 2:3**
-
-**Simplify 18:27**
-- GCF = 9
-- 18 ÷ 9 = 2, 27 ÷ 9 = 3
-- **Answer: 2:3**
+| Original Ratio | GCF | Simplified |
+|----------------|-----|------------|
+| 24:36 | 12 | 2:3 |
+| 45:60 | 15 | 3:4 |
+| 28:42 | 14 | 2:3 |
+| 56:72 | 8 | 7:9 |
+| 36:48 | 12 | 3:4 |
 
 #### Hard Examples
 
-**Simplify 42:56**
-- Factors of 42: 1, 2, 3, 6, 7, 14, 21, 42
-- Factors of 56: 1, 2, 4, 7, 8, 14, 28, 56
-- GCF = 14
-- 42 ÷ 14 = 3, 56 ÷ 14 = 4
-- **Answer: 3:4**
-
-**Simplify 72:108**
-- GCF = 36
-- 72 ÷ 36 = 2, 108 ÷ 36 = 3
-- **Answer: 2:3**
-
-**Simplify 84:126**
-- GCF = 42
-- 84 ÷ 42 = 2, 126 ÷ 42 = 3
-- **Answer: 2:3**
+| Original Ratio | GCF | Simplified |
+|----------------|-----|------------|
+| 84:126 | 42 | 2:3 |
+| 144:216 | 72 | 2:3 |
+| 105:140 | 35 | 3:4 |
+| 72:108 | 36 | 2:3 |
+| 96:128 | 32 | 3:4 |
 
 #### Why Simplification Matters
 
-- **Clarity:** 2:3 is immediately understandable; 84:126 requires mental effort
-- **Comparison:** You can only compare ratios easily when they're in simplest form
-- **CSE requirement:** Most exam answer choices are in simplified form — if your answer isn't simplified, you won't find it among the choices
-- **Error detection:** If your simplified ratio doesn't match any choice, you likely made a calculation error
-
-#### Common Simplification Errors
-
-| Error | Example | Correction |
-|-------|---------|-----------|
-| Dividing only one term | 8:12 → 4:12 | Must divide BOTH: 8:12 → 2:3 |
-| Using a factor that's not the GCF | 12:18 → 6:9 | Use GCF (6): 12:18 → 2:3 |
-| Stopping too early | 12:18 → 6:9 (stopped) | Continue: 6:9 → 2:3 |
-| Subtracting instead of dividing | 8:12 → 4:8 | Divide, don't subtract |
+1. **Clarity:** 2:3 is easier to understand than 84:126
+2. **Comparison:** Simplified ratios are directly comparable — is 3:4 the same as 6:8? Yes, because both simplify to 3:4
+3. **Speed:** Working with smaller numbers reduces arithmetic errors
+4. **CSE expectation:** The exam expects answers in lowest terms unless stated otherwise
 
 ---
 
 ### 4.6 Common Factors and Greatest Common Factor (GCF)
 
-The GCF is the essential tool for simplifying ratios. Mastering GCF identification makes ratio simplification fast and reliable.
-
 #### What Is a Factor?
 
-A **factor** of a number is any whole number that divides it evenly (with no remainder).
+A **factor** of a number is a whole number that divides it evenly (with no remainder).
 
 - Factors of 12: 1, 2, 3, 4, 6, 12
 - Factors of 18: 1, 2, 3, 6, 9, 18
-- Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24
 
 #### What Are Common Factors?
 
-**Common factors** are factors shared by two or more numbers.
+Common factors are numbers that appear in both lists.
 
-**Example:** Common factors of 12 and 18:
-- Factors of 12: {1, 2, 3, 4, 6, 12}
-- Factors of 18: {1, 2, 3, 6, 9, 18}
-- Common factors: {1, 2, 3, 6}
+- Common factors of 12 and 18: 1, 2, 3, 6
 
 #### What Is the Greatest Common Factor (GCF)?
 
-The **GCF** is the largest number that divides both terms evenly.
+The GCF is the largest number in the list of common factors.
 
-From the example above: GCF of 12 and 18 = **6**
+- GCF of 12 and 18: **6**
 
-#### Methods for Finding the GCF
+### Check Your Understanding
 
-**Method 1: Listing Factors**
-1. List all factors of each number
-2. Identify the common factors
-3. Select the largest one
-
-**Example:** GCF of 24 and 36
-- Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24
-- Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36
-- Common: 1, 2, 3, 4, 6, 12
-- GCF = **12**
-
-**Method 2: Prime Factorization**
-1. Break each number into prime factors
-2. Multiply the common prime factors
-
-**Example:** GCF of 24 and 36
-- 24 = 2 × 2 × 2 × 3 = 2³ × 3¹
-- 36 = 2 × 2 × 3 × 3 = 2² × 3²
-- Common: 2² × 3¹ = 4 × 3 = **12**
-
-**Method 3: Successive Division (Euclidean Algorithm)**
-1. Divide the larger number by the smaller
-2. If remainder is 0, the divisor is the GCF
-3. If not, divide the previous divisor by the remainder
-4. Repeat until remainder is 0
-
-**Example:** GCF of 48 and 36
-- 48 ÷ 36 = 1 remainder 12
-- 36 ÷ 12 = 3 remainder 0
-- GCF = **12**
-
-#### Quick GCF Recognition (Mental Math)
-
-For the CSE, memorize these common GCF patterns:
-
-| Numbers | GCF | Quick Recognition |
-|---------|-----|-------------------|
-| Both even | At least 2 | Divide both by 2 first |
-| Both end in 0 or 5 | At least 5 | Divide both by 5 first |
-| Both divisible by 3 | At least 3 | Sum of digits divisible by 3 |
-| One is a multiple of the other | The smaller number | 8 and 24 → GCF is 8 |
-
-#### GCF Applied to Ratio Simplification
-
-**Simplify 48:72**
-- GCF of 48 and 72:
-  - 48 = 2⁴ × 3 = 16 × 3
-  - 72 = 2³ × 3² = 8 × 9
-  - Common: 2³ × 3¹ = 8 × 3 = 24
-- 48 ÷ 24 = 2, 72 ÷ 24 = 3
-- **Simplified ratio: 2:3**
-
-**Simplify 35:49**
-- GCF of 35 and 49:
-  - 35 = 5 × 7
-  - 49 = 7 × 7
-  - Common: 7
-- 35 ÷ 7 = 5, 49 ÷ 7 = 7
-- **Simplified ratio: 5:7**
+**1.** What is the ratio of 15 to 25 in simplest form? → **3:5** (GCF = 5, divide both: 15÷5=3, 25÷5=5)
+**2.** If a class has 18 boys and 12 girls, what is the ratio of girls to total students? → **2:5** (Girls:Total = 12:30, GCF=6 → 2:5)
+**3.** A ratio is written as 7:3. What does this mean about the two quantities? → **The first quantity is 7/3 times the second — for every 7 units of the first, there are 3 of the second**
 
 ---
 
 ### 4.7 Equivalent Ratios
 
-**Equivalent ratios** are different ratios that express the same relationship. Just as 1/2 = 2/4 = 3/6 are equivalent fractions, 1:2 = 2:4 = 3:6 are equivalent ratios.
-
 #### How to Generate Equivalent Ratios
 
-**Multiply both terms by the same number:**
-- 2:3 → multiply by 2 → 4:6
-- 2:3 → multiply by 3 → 6:9
-- 2:3 → multiply by 5 → 10:15
+To create an equivalent ratio, multiply (or divide) BOTH terms by the same number.
 
-**Divide both terms by the same number:**
-- 10:15 → divide by 5 → 2:3
-- 8:12 → divide by 4 → 2:3
-- 6:9 → divide by 3 → 2:3
+**Example:** Starting with 2:3
+- Multiply both by 2: 2×2 : 3×2 = 4:6
+- Multiply both by 3: 2×3 : 3×3 = 6:9
+- Multiply both by 5: 2×5 : 3×5 = 10:15
 
-**Key rule:** Whatever you do to one term, you must do to the other. This preserves the relationship.
+All of these (2:3, 4:6, 6:9, 10:15) are equivalent ratios.
 
 #### Recognizing Equivalent Ratios
 
-Two ratios a:b and c:d are equivalent if:
-- a × d = b × c (cross-multiplication)
+Two ratios a:b and c:d are equivalent if a × d = b × c (cross-multiplication).
 
-**Example:** Are 3:4 and 9:12 equivalent?
-- 3 × 12 = 36
+**Example:** Are 4:6 and 6:9 equivalent?
 - 4 × 9 = 36
-- 36 = 36 ✓ → Yes, they are equivalent
+- 6 × 6 = 36
+- 36 = 36 → YES, they are equivalent
 
-**Example:** Are 2:5 and 4:9 equivalent?
-- 2 × 9 = 18
-- 5 × 4 = 20
-- 18 ≠ 20 ✗ → No, they are NOT equivalent
+**Example:** Are 3:5 and 8:13 equivalent?
+- 3 × 13 = 39
+- 5 × 8 = 40
+- 39 ≠ 40 → NO, not equivalent
 
-#### Ratio Tables
+> 🤔 **Why does this work?** Cross-multiplication verifies equivalence because ratios are fractions in disguise. a:b = c:d means a/b = c/d, which cross-multiplies to a×d = b×c. This is the same mathematical test used to check whether two fractions are equal.
 
-A ratio table shows multiple equivalent forms of the same ratio:
+### Check Your Understanding
 
-**Base ratio: 3:5**
-
-| × | First Term | Second Term |
-|---|-----------|-------------|
-| ×1 | 3 | 5 |
-| ×2 | 6 | 10 |
-| ×3 | 9 | 15 |
-| ×4 | 12 | 20 |
-| ×5 | 15 | 25 |
-| ×10 | 30 | 50 |
-
-All rows represent the same ratio — they are all equivalent to 3:5.
-
-#### Scaling Ratios to Find Missing Values
-
-**Problem:** If the ratio of boys to girls is 3:5, and there are 12 boys, how many girls are there?
-
-**Solution:**
-- Original ratio: 3:5
-- Boys went from 3 to 12 → multiplied by 4
-- Girls: 5 × 4 = 20
-- **Answer: 20 girls**
-
-**Problem:** A recipe uses flour and sugar in the ratio 4:1. If you use 2 cups of sugar, how much flour do you need?
-
-**Solution:**
-- Original ratio: 4:1
-- Sugar went from 1 to 2 → multiplied by 2
-- Flour: 4 × 2 = 8
-- **Answer: 8 cups of flour**
-
-#### Practical Applications of Equivalent Ratios
-
-**Map Scales:** A map scale of 1:50,000 means 1 cm on the map = 50,000 cm (500 m) in reality.
-- 2 cm on map = 1,000 m = 1 km
-- 5 cm on map = 2,500 m = 2.5 km
-
-**Recipe Scaling:** A recipe for 4 servings uses ingredients in ratio 2:3:1 (flour:milk:egg).
-- For 8 servings: 4:6:2
-- For 12 servings: 6:9:3
-
-**Budget Allocation:** A department splits its budget between supplies and training in ratio 7:3.
-- If total budget is ₱100,000: supplies = ₱70,000, training = ₱30,000
-- If total budget is ₱250,000: supplies = ₱175,000, training = ₱75,000
-
-#### Common Equivalent Ratio Families
-
-Memorizing these helps with quick CSE recognition:
-
-| Simplest Form | Common Equivalents |
-|---------------|-------------------|
-| 1:2 | 2:4, 3:6, 4:8, 5:10, 50:100 |
-| 1:3 | 2:6, 3:9, 4:12, 5:15, 10:30 |
-| 2:3 | 4:6, 6:9, 8:12, 10:15, 20:30 |
-| 3:4 | 6:8, 9:12, 12:16, 15:20, 30:40 |
-| 1:4 | 2:8, 3:12, 4:16, 5:20, 25:100 |
-| 3:5 | 6:10, 9:15, 12:20, 15:25, 30:50 |
+**1.** Are 12:18 and 8:12 equivalent? → **Yes** (12×12=144, 18×8=144 — cross-multiplication confirms)
+**2.** Find the missing term: 3:7 = 12:? → **28** (3×4=12, so 7×4=28)
+**3.** If a map uses a 1:50,000 scale, how many kilometers does 7 cm on the map represent? → **3.5 km** (7 × 50,000 = 350,000 cm = 3.5 km)
 
 ---
 
-### 4.8 Real-Life Applications of Ratios
-
-Ratios appear in virtually every professional context a civil servant encounters. Understanding these applications helps you recognize ratio problems quickly on the exam.
-
-#### Recipes and Food Preparation
-
-Government cafeterias and feeding programs use ratios for scaling recipes:
-- A recipe calls for rice and water in ratio 1:2. For 5 cups of rice, use 10 cups of water.
-- A juice concentrate mixes with water at 1:4. For 3 liters of concentrate, add 12 liters of water.
-
-#### Map Scales and Engineering
-
-Infrastructure projects use scale ratios:
-- A map scale of 1:25,000 means 1 cm = 250 meters
-- An architectural blueprint at 1:100 means 1 cm = 1 meter
-- A road plan at 1:500 means 2 cm = 10 meters
-
-#### Classroom and Education Statistics
-
-DepEd reports use ratios extensively:
-- Student-to-teacher ratio: 35:1 (target) vs. 50:1 (overcrowded)
-- Textbook-to-student ratio: 1:1 (ideal) vs. 1:3 (shortage)
-- Classroom-to-section ratio: 1:1 (sufficient) vs. 1:2 (double shifting)
-
-#### Fuel Consumption and Transportation
-
-Fleet management in government agencies:
-- A vehicle travels 12 km per liter → distance-to-fuel ratio of 12:1
-- A bus fleet of 20 buses serves 5 routes → bus-to-route ratio of 4:1
-- Fuel budget allocation: diesel to gasoline at 7:3
-
-#### Salary Distribution and HR
-
-Government payroll analysis:
-- The ratio of basic pay to allowances is 7:3
-- Salary Grade 1 to Salary Grade 24 ratio shows income disparity
-- Male-to-female employee ratio in an agency: 2:3
-
-#### Government Budgets
-
-National and local budget analysis:
-- Education receives 4 parts for every 1 part to defense → 4:1
-- Personnel services to MOOE (maintenance) ratio: 6:4 = 3:2
-- Capital outlay to total budget: 2:10 = 1:5
-
-#### Survey Data and Population Studies
-
-Census and statistical reports:
-- Urban-to-rural population ratio: 3:2
-- Employed-to-unemployed ratio: 9:1
-- Registered voters to total population: 3:5
-
-#### Sports Statistics
-
-Physical fitness and sports programs:
-- Win-to-loss ratio: 7:3
-- Games played to games won: 10:7
-- Athletes to coaches: 20:1
-
----
-
-### 4.9 Common Ratio Patterns
-
-Recognizing patterns helps you solve CSE questions faster by identifying simplified forms at a glance.
-
-#### Doubling and Halving Patterns
-
-If you see 14:21, recognize that both are divisible by 7 → 2:3
-If you see 16:24, recognize that both are divisible by 8 → 2:3
-If you see 18:27, recognize that both are divisible by 9 → 2:3
-
-The ratio 2:3 appears frequently in different disguises.
-
-#### Common Simplified Ratios in CSE
-
-These ratios appear most often in exam questions:
-- **1:2** — half relationships (50%)
-- **1:3** — one-third relationships
-- **1:4** — quarter relationships (25%)
-- **2:3** — the most common non-unit ratio in exams
-- **3:4** — three-quarter relationships (75%)
-- **3:5** — common in budget and allocation problems
-- **2:5** — common in percentage-related ratios (40%)
-
-#### Recognizing Multiples Quickly
-
-| If both terms are divisible by... | Quick check |
-|-----------------------------------|-------------|
-| 2 | Both are even numbers |
-| 3 | Sum of digits divisible by 3 |
-| 5 | Both end in 0 or 5 |
-| 7 | Memorize: 14, 21, 28, 35, 42, 49, 56, 63 |
-| 10 | Both end in 0 |
-
-#### Ratio-to-Percentage Quick Conversions
-
-| Ratio | Percentage Equivalent |
-|-------|----------------------|
-| 1:4 (part-to-whole: 1:5) | 20% |
-| 1:3 (part-to-whole: 1:4) | 25% |
-| 1:2 (part-to-whole: 1:3) | 33.3% |
-| 1:1 (part-to-whole: 1:2) | 50% |
-| 3:1 (part-to-whole: 3:4) | 75% |
-
----
-
-### 4.10 Problem-Solving Strategies
-
-A systematic approach prevents careless errors under exam time pressure.
-
-#### Step-by-Step Ratio Problem System
-
-**Step 1: Identify what is being compared.**
-Read the question carefully. Underline or note the two (or more) quantities.
-
-**Step 2: Determine the correct order.**
-"Ratio of A to B" means A:B, not B:A. The order in the question is the order in the ratio.
-
-**Step 3: Check if units match.**
-If comparing meters to centimeters, convert first. Ratios require same units.
-
-**Step 4: Write the ratio.**
-Express in the notation the question requires (usually colon notation for CSE).
-
-**Step 5: Simplify.**
-Find the GCF and divide both terms. Always present your answer in lowest terms.
-
-**Step 6: Verify.**
-Check that your simplified ratio, when multiplied back up, gives the original numbers.
-
-#### Verification Method
-
-After simplifying 24:36 to 2:3:
-- 2 × 12 = 24 ✓
-- 3 × 12 = 36 ✓
-- The multiplier (12) is the same for both → correct simplification
-
-#### Avoiding Reversed Ratios
-
-**Trap question:** "In a group of 15 men and 25 women, what is the ratio of women to men?"
-
-Many examinees write 15:25 = 3:5 because they see 15 first. But the question asks for **women to men**, so the answer is 25:15 = **5:3**.
-
-**Strategy:** Circle or underline which quantity the question puts FIRST.
-
-#### Preventing Arithmetic Mistakes
-
-- When dividing, verify: does the GCF divide BOTH terms evenly?
-- After simplifying, check: are the two resulting terms coprime (GCF = 1)?
-- Quick check: if your answer has both terms even, you haven't fully simplified
-
----
-
-### 4.11 Estimation and Mental Math Techniques
-
-Speed matters on the CSE. These techniques help you solve ratio problems in seconds rather than minutes.
-
-#### Quick Simplification by Inspection
-
-**Both terms are even?** Divide by 2 immediately.
-- 14:22 → 7:11 (done — 7 and 11 are coprime)
-
-**Both terms end in 0?** Drop the zeros.
-- 30:50 → 3:5
-
-**Both terms end in 5 or 0?** Divide by 5.
-- 15:35 → 3:7
-
-**Both terms are in the 3× table?** Divide by 3.
-- 21:33 → 7:11
-
-#### Successive Halving
-
-For large even numbers, keep halving until one term becomes odd:
-- 48:64 → 24:32 → 12:16 → 6:8 → 3:4
-
-#### Recognizing Common Multiples Instantly
-
-Train yourself to see:
-- 12 and 18 → both divisible by 6 → 2:3
-- 15 and 20 → both divisible by 5 → 3:4
-- 14 and 21 → both divisible by 7 → 2:3
-- 16 and 24 → both divisible by 8 → 2:3
-- 25 and 35 → both divisible by 5 → 5:7
-
-#### Estimation for Answer Elimination
-
-If the ratio is 47:73, you know:
-- Both are odd → not divisible by 2
-- 4+7=11, 7+3=10 → neither divisible by 3
-- Neither ends in 0 or 5 → not divisible by 5
-- 47 is prime, 73 is prime → ratio is already in simplest form: 47:73
-
-If no answer choice shows 47:73, recheck the problem — you may have misread a number.
-
----
-
-### 4.12 Common Errors in Ratios
-
-Understanding typical mistakes helps you avoid them and recognize trap answer choices.
-
-#### Error 1: Reversing Ratio Order
-
-**Question:** "What is the ratio of teachers to students if there are 5 teachers and 150 students?"
-- **Wrong:** 150:5 = 30:1 (students to teachers)
-- **Right:** 5:150 = 1:30 (teachers to students)
-
-#### Error 2: Simplifying Only One Term
-
-**Question:** Simplify 12:18
-- **Wrong:** 6:18 (divided only the first term by 2)
-- **Right:** 2:3 (divided both terms by 6)
-
-#### Error 3: Incomplete Simplification
-
-**Question:** Simplify 24:36
-- **Wrong:** 12:18 (divided by 2, but not fully simplified)
-- **Wrong:** 4:6 (divided by 6, still not fully simplified)
-- **Right:** 2:3 (divided by 12, the GCF)
-
-#### Error 4: Part-to-Whole Confusion
-
-**Question:** "A bag has 8 red and 12 blue marbles. What is the ratio of red marbles to all marbles?"
-- **Wrong:** 8:12 = 2:3 (this is red to blue, part-to-part)
-- **Right:** 8:20 = 2:5 (red to total, part-to-whole)
-
-#### Error 5: Inconsistent Units
-
-**Question:** "What is the ratio of 2 hours to 30 minutes?"
-- **Wrong:** 2:30 = 1:15
-- **Right:** 120 minutes : 30 minutes = 120:30 = 4:1
-
-#### Error 6: Adding/Subtracting Instead of Dividing
-
-**Question:** Simplify 10:6
-- **Wrong:** 10-6 = 4, so 4:6? (nonsensical)
-- **Right:** GCF = 2, so 10:6 = 5:3
-
-#### Error 7: Misidentifying the GCF
-
-**Question:** Simplify 18:24
-- **Wrong:** Using 3 as GCF → 6:8 (not fully simplified)
-- **Right:** GCF is 6 → 3:4
-
----
-
-## Step-by-Step Rules
-
-### Ratio-Writing Procedure
-
-1. Read the problem and identify the two quantities being compared
-2. Note the ORDER specified in the question (first quantity : second quantity)
-3. Ensure both quantities use the same unit — convert if necessary
-4. Write the ratio using the appropriate notation
-5. Simplify to lowest terms
-
-### Ratio Simplification Procedure
-
-1. Write the ratio as A:B
-2. Check if both terms are even → divide by 2
-3. Check if both terms are divisible by 3 → divide by 3
-4. Check if both terms end in 0 or 5 → divide by 5
-5. Continue checking for common factors (7, 11, 13...)
-6. Alternatively, find the GCF directly and divide once
-7. Verify: the two resulting terms should share no common factor except 1
-
-### Equivalent Ratio Procedure
-
-1. Start with the given ratio A:B
-2. To find an equivalent ratio, multiply (or divide) BOTH terms by the same number
-3. To check if two ratios are equivalent, cross-multiply: a×d should equal b×c
-4. To find a missing term: set up the scaling factor from the known pair
-
-### GCF Identification System
-
-1. **Quick check:** Is one number a multiple of the other? If yes, the smaller number is the GCF
-2. **Both even?** Factor out 2 repeatedly until at least one is odd
-3. **Sum of digits divisible by 3?** Factor out 3
-4. **Both end in 0 or 5?** Factor out 5
-5. **For larger numbers:** Use prime factorization or the Euclidean algorithm
-6. **Verify:** GCF × quotient₁ = first term, GCF × quotient₂ = second term
-
-### Answer Verification Method
-
-After solving any ratio problem:
-1. Multiply your simplified ratio back up — does it match the original?
-2. Check that your answer is in the format the question requires
-3. Confirm you haven't reversed the order
-4. Ensure the ratio is fully simplified (terms are coprime)
-
----
-
-## Common Mistakes Summary
-
-| Mistake | Why It Happens | How to Avoid |
-|---------|---------------|--------------|
-| Reversed order | Reading numbers in the order they appear, not the order asked | Underline "X to Y" in the question |
-| One-sided division | Rushing through simplification | Always divide BOTH terms |
-| Incomplete simplification | Using a common factor instead of the GCF | Check if result terms share any factor > 1 |
-| Part-to-whole confusion | Defaulting to comparing the two given numbers | Check if question says "to the total" or "of all" |
-| Unit mismatch | Not noticing different units | Convert before writing the ratio |
-| Arithmetic errors | Time pressure | Verify by multiplying back |
-
----
-
-## Exam Strategies
-
-### Before the Exam
-
-- Memorize GCFs of common number pairs (12&18→6, 15&20→5, 24&36→12)
-- Practice recognizing simplified forms instantly (see ratio families in 4.9)
-- Drill part-to-part vs. part-to-whole identification
-
-### During the Exam
-
-1. **Read twice, solve once.** Misreading the order costs you the entire question.
-2. **Simplify immediately.** Don't carry large numbers through calculations.
-3. **Eliminate impossible answers.** If the ratio should be less than 1:1 but a choice shows 3:1, eliminate it.
-4. **Use cross-multiplication to verify.** If unsure between two choices, cross-multiply to check equivalence.
-5. **Watch for trap choices.** Examiners often include the reversed ratio and the unsimplified ratio as distractors.
-
-### Time Management
-
-- Simple ratio identification: 15-20 seconds
-- Ratio simplification: 20-30 seconds
-- Equivalent ratio problems: 30-45 seconds
-- Word problems requiring ratio setup: 45-60 seconds
-
-If a ratio problem takes more than 90 seconds, mark it and return later.
-
----
-
-## Mini Practice Set
-
-**Question 1:** What is the ratio of 15 to 25 in simplest form?
-**Answer:** 3:5
-**Explanation:** GCF of 15 and 25 is 5. Divide both: 15÷5=3, 25÷5=5.
-
-**Question 2:** A class has 18 boys and 12 girls. What is the ratio of girls to boys?
-**Answer:** 2:3
-**Explanation:** Girls to boys = 12:18. GCF = 6. 12÷6=2, 18÷6=3.
-
-**Question 3:** Express the ratio 4:7 in fraction notation.
-**Answer:** 4/7
-**Explanation:** Colon notation a:b converts directly to fraction a/b.
-
-**Question 4:** Are 6:9 and 10:15 equivalent ratios?
-**Answer:** Yes
-**Explanation:** 6:9 simplifies to 2:3. 10:15 simplifies to 2:3. Same simplified form = equivalent.
-
-**Question 5:** Simplify 42:56.
-**Answer:** 3:4
-**Explanation:** GCF of 42 and 56 is 14. 42÷14=3, 56÷14=4.
-
-**Question 6:** A recipe uses sugar and flour in the ratio 2:5. If you use 10 cups of flour, how many cups of sugar do you need?
-**Answer:** 4 cups
-**Explanation:** Flour went from 5 to 10 (×2). Sugar: 2×2=4.
-
-**Question 7:** What is the ratio of 45 minutes to 2 hours?
-**Answer:** 3:8
-**Explanation:** Convert: 2 hours = 120 minutes. Ratio: 45:120. GCF=15. 45÷15=3, 120÷15=8.
-
-**Question 8:** In a group of 50 people, 20 are male. What is the ratio of males to the total group?
-**Answer:** 2:5
-**Explanation:** Males to total = 20:50. GCF=10. 20÷10=2, 50÷10=5.
-
-**Question 9:** Which of the following is equivalent to 3:7? (a) 6:14 (b) 9:20 (c) 12:21
-**Answer:** (a) 6:14
-**Explanation:** 3×2=6, 7×2=14. So 6:14 = 3:7. Check others: 9:20 → 9/3≠20/7. 12:21 → 12/3=4, 21/3=7 → 4:7≠3:7.
-
-**Question 10:** Simplify 72:96.
-**Answer:** 3:4
-**Explanation:** GCF of 72 and 96 is 24. 72÷24=3, 96÷24=4.
-
-**Question 11:** A school has 480 students and 16 teachers. What is the student-to-teacher ratio?
-**Answer:** 30:1
-**Explanation:** 480:16. GCF=16. 480÷16=30, 16÷16=1.
-
-**Question 12:** What is the GCF of 36 and 48?
-**Answer:** 12
-**Explanation:** Factors of 36: 1,2,3,4,6,9,12,18,36. Factors of 48: 1,2,3,4,6,8,12,16,24,48. Largest common: 12.
-
-**Question 13:** Express "5 to 8" in colon notation.
-**Answer:** 5:8
-**Explanation:** Word notation "a to b" converts directly to colon notation a:b.
-
-**Question 14:** A bag has 7 red and 3 blue marbles. What is the ratio of blue to all marbles?
-**Answer:** 3:10
-**Explanation:** Total marbles = 7+3=10. Blue to total = 3:10. Already in simplest form.
-
-**Question 15:** If the ratio of cats to dogs is 4:5 and there are 20 dogs, how many cats are there?
-**Answer:** 16
-**Explanation:** Dogs went from 5 to 20 (×4). Cats: 4×4=16.
-
-**Question 16:** Simplify 28:42.
-**Answer:** 2:3
-**Explanation:** GCF of 28 and 42 is 14. 28÷14=2, 42÷14=3.
-
-**Question 17:** Are 5:8 and 15:25 equivalent?
-**Answer:** No
-**Explanation:** 5:8 simplified is 5:8. 15:25 simplified is 3:5. Different simplified forms = not equivalent.
-
-**Question 18:** What is the ratio of 500 grams to 2 kilograms?
-**Answer:** 1:4
-**Explanation:** Convert: 2 kg = 2000 g. Ratio: 500:2000. GCF=500. 500÷500=1, 2000÷500=4.
-
-**Question 19:** A department has 6 supervisors and 54 staff. What is the supervisor-to-staff ratio?
-**Answer:** 1:9
-**Explanation:** 6:54. GCF=6. 6÷6=1, 54÷6=9.
-
-**Question 20:** Find the missing term: 3:7 = 12:?
-**Answer:** 28
-**Explanation:** 3 was multiplied by 4 to get 12. So 7×4=28.
-
----
-
-## Quick Recap
-
-| Concept | Key Takeaway |
-|---------|-------------|
-| Meaning of Ratio | A comparison of two quantities showing their relative sizes |
-| Comparing Quantities | Ratios tell you "how much more" or "how much less" precisely |
-| Ratio Notation | Three forms: colon (3:4), fraction (3/4), word ("3 to 4") |
-| Simplifying Ratios | Divide both terms by their GCF to get lowest terms |
-| Common Factors | Numbers that divide evenly into both terms; GCF is the largest |
-| Equivalent Ratios | Different ratios representing the same relationship (multiply/divide both terms equally) |
-| Practical Applications | Budgets, recipes, maps, classrooms, transportation, HR, statistics |
-
----
-
-## Memory Aids
+### Exam Strategies
+
+- **Read twice, solve once.** Misreading the order costs you the entire question.
+- **Simplify immediately.** Don't carry large numbers through calculations.
+- **Eliminate impossible answers.** If the ratio should be less than 1:1 but a choice shows 3:1, eliminate it.
+- **Use cross-multiplication to verify.** If unsure between two choices, cross-multiply to check equivalence.
+- **Watch for trap choices.** Examiners often include the reversed ratio and the unsimplified ratio as distractors.
+
+### Memory Aids
 
 - **"Order Matters"** — Always check which quantity the question names FIRST
 - **"Both or Neither"** — Whatever you do to one term, do to the other (multiply, divide)
 - **"Even? Halve. Fives? Fifth. Threes? Third."** — Quick GCF mental checklist
 - **"Cross-multiply to verify"** — a:b = c:d if and only if a×d = b×c
 - **"Part-to-Part adds up to Whole"** — If ratio is 3:5, total parts = 8
-- **"Simplify FIRST, solve SECOND"** — Never work with large numbers when small ones will do
-- **"GCF = Greatest, not just any Common Factor"** — Don't stop at the first common factor you find
 
 ---
 
-## Mastery Checklist
+### Guided Practice
+
+Complete the missing steps. Answers are provided below each problem.
+
+**1.** Simplify 24:36 to lowest terms.
+- Step 1: Find GCF of 24 and 36. Factors of 24: 1,2,3,4,6,8,12,24. Factors of 36: 1,2,3,4,6,9,12,18,36. GCF = _____
+- Step 2: Divide both terms by GCF: 24 ÷ _____ = _____, 36 ÷ _____ = _____
+- Step 3: Simplified ratio = _____:_____
+
+**Answer:** GCF = 12. 24÷12=2, 36÷12=3. Simplified ratio = 2:3
+
+**2.** Convert the ratio 45 minutes : 3 hours to simplest form.
+- Step 1: Convert to same unit: 3 hours = _____ minutes
+- Step 2: Write ratio: _____:_____
+- Step 3: Find GCF of _____ and _____. GCF = _____
+- Step 4: Divide both by GCF: _____:_____ = _____
+
+**Answer:** 3 hours = 180 minutes. Ratio = 45:180. GCF = 45. 45÷45=1, 180÷45=4. Final: 1:4
+
+**3.** Are 5:8 and 10:18 equivalent?
+- Step 1: Cross-multiply: 5 × 18 = _____, 8 × 10 = _____
+- Step 2: Compare: _____ _____ _____ (are they equal?)
+- Step 3: Conclusion: _____
+
+**Answer:** 5×18=90, 8×10=80. 90≠80. **Not equivalent.**
+
+---
+
+### Which Method?
+
+For each problem, identify the type and solve.
+
+**1.** Simplify 56:72.
+- **Type:** Ratio simplification (find GCF)
+- **Answer:** 7:9
+- **Why:** GCF of 56 and 72 is 8. 56÷8=7, 72÷8=9.
+
+**2.** A map scale is 1:25,000. What ground distance (in km) does 8 cm on the map represent?
+- **Type:** Scale problem (equivalent ratio)
+- **Answer:** 2 km
+- **Why:** 8 × 25,000 = 200,000 cm = 2,000 m = 2 km.
+
+**3.** A budget allocates ₱500,000 in a 3:2:5 ratio for three departments. How much does the largest department get?
+- **Type:** Part-to-whole ratio (total parts)
+- **Answer:** ₱250,000
+- **Why:** Total parts = 3+2+5=10. Largest share = 5/10 × 500,000 = ₱250,000.
+
+**4.** A class has 24 students. The ratio of boys to girls is 5:3. How many girls are there?
+- **Type:** Ratio with total given (find the part)
+- **Answer:** 9 girls
+- **Why:** Total parts = 5+3=8. Girls = 3/8 × 24 = 9.
+
+**5.** If 3 apples cost ₱60, how much do 8 apples cost?
+- **Type:** Equivalent ratio (scaling)
+- **Answer:** ₱160
+- **Why:** 3:60 = 8:x → 3x = 480 → x=160.
+
+---
+
+### Before You Practice
+
+Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
+
+- [ ] Write ratios in colon, fraction, and word notation
+- [ ] Simplify ratios to lowest terms using GCF
+- [ ] Distinguish part-to-part from part-to-whole ratios
+- [ ] Recognize and generate equivalent ratios
+- [ ] Convert units before setting up a ratio
+- [ ] Apply ratios to CSE-style word problems
+
+### Mini Practice Set
+
+**1.** What is the ratio of 15 to 25 in simplest form?
+**Answer:** 3:5
+**Explanation:** GCF = 5. 15÷5=3, 25÷5=5.
+
+**2.** A class has 18 boys and 12 girls. What is the ratio of girls to boys?
+**Answer:** 2:3
+**Explanation:** Girls to boys = 12:18. GCF=6. 12÷6=2, 18÷6=3.
+
+**3.** Express 4:7 in fraction notation.
+**Answer:** 4/7
+
+**4.** Are 6:9 and 10:15 equivalent?
+**Answer:** Yes
+**Explanation:** Both simplify to 2:3.
+
+**5.** Simplify 42:56.
+**Answer:** 3:4
+**Explanation:** GCF=14. 42÷14=3, 56÷14=4.
+
+**6.** A recipe uses sugar and flour in ratio 2:5. If you use 10 cups of flour, how much sugar?
+**Answer:** 4 cups
+**Explanation:** 5×2=10, so 2×2=4.
+
+**7.** Ratio of 45 minutes to 2 hours?
+**Answer:** 3:8
+**Explanation:** 2 hours=120 min. 45:120. GCF=15. 45÷15=3, 120÷15=8.
+
+**8.** 50 people, 20 male. Ratio of males to total?
+**Answer:** 2:5
+**Explanation:** 20:50. GCF=10. 20÷10=2, 50÷10=5.
+
+**9.** Is 3:7 equivalent to 6:14?
+**Answer:** Yes
+**Explanation:** 3×2=6, 7×2=14. 3:7 = 6:14.
+
+**10.** Simplify 72:96.
+**Answer:** 3:4
+**Explanation:** GCF=24. 72÷24=3, 96÷24=4.
+
+**11.** 480 students, 16 teachers. Student-to-teacher ratio?
+**Answer:** 30:1
+**Explanation:** 480:16. GCF=16. 480÷16=30, 16÷16=1.
+
+**12.** GCF of 36 and 48?
+**Answer:** 12
+
+**13.** Express "5 to 8" in colon notation.
+**Answer:** 5:8
+
+**14.** 7 red, 3 blue marbles. Ratio of blue to all?
+**Answer:** 3:10
+**Explanation:** Total=10. Blue:Total=3:10.
+
+**15.** Ratio of cats to dogs is 4:5, 20 dogs. How many cats?
+**Answer:** 16
+**Explanation:** 5→20 (×4). 4×4=16.
+
+**16.** Simplify 28:42.
+**Answer:** 2:3
+**Explanation:** GCF=14. 28÷14=2, 42÷14=3.
+
+**17.** Are 5:8 and 15:25 equivalent?
+**Answer:** No
+**Explanation:** 15:25=3:5≠5:8.
+
+**18.** 500 grams to 2 kilograms?
+**Answer:** 1:4
+**Explanation:** 2kg=2000g. 500:2000. GCF=500. 1:4.
+
+**19.** 6 supervisors, 54 staff. Supervisor-to-staff ratio?
+**Answer:** 1:9
+**Explanation:** 6:54. GCF=6. 1:9.
+
+**20.** Find missing term: 3:7 = 12:?
+**Answer:** 28
+**Explanation:** 3×4=12, so 7×4=28.
+
+---
+
+### 4.8 Real-World Applications of Ratios
+
+Ratios are not just abstract math — they appear in nearly every aspect of government work and daily life. Understanding these applications prepares you for the contextual questions on the CSE.
+
+#### Government Budget Allocation
+
+Department budgets are often allocated in fixed ratios. For example, a local government unit may allocate funds in the ratio education:health:infrastructure = 6:3:2.
+
+**Example:** If the total budget is ₱220,000,000, how much goes to health?
+- Total parts = 6 + 3 + 2 = 11
+- 1 part = ₱220,000,000 ÷ 11 = ₱20,000,000
+- Health = 3 × ₱20,000,000 = **₱60,000,000**
+
+#### Recipe Scaling
+
+Recipes use ratios of ingredients. A typical cake recipe might use flour:sugar:butter = 3:2:1.
+
+**Example:** If you have 600g of flour, how much sugar and butter do you need?
+- 3 parts flour = 600g, so 1 part = 200g
+- Sugar = 2 × 200g = 400g
+- Butter = 1 × 200g = 200g
+
+#### Personnel Planning
+
+Offices maintain staffing ratios for efficiency. A call center might require 1 supervisor for every 8 agents.
+
+**Example:** With 120 agents, how many supervisors are needed?
+- Ratio = 1:8 = ?:120
+- 8 × 15 = 120, so 1 × 15 = **15 supervisors**
+
+#### Map Reading and Scale
+
+Map scales are ratios. A scale of 1:100,000 means 1 unit on the map equals 100,000 of the same units in reality.
+
+**Example:** Two towns are 12 cm apart on a 1:75,000 map. What is the actual distance?
+- 12 × 75,000 = 900,000 cm = 9,000 m = **9 km**
+
+#### Speed and Rate Calculations
+
+Speed is a ratio of distance to time (km per hour). Rate is a ratio of output to input (pages per minute).
+
+**Example:** A printer produces 360 pages in 6 minutes. What is the printing rate?
+- Pages per minute = 360 ÷ 6 = 60
+- Ratio = **60:1** (60 pages per 1 minute)
+
+#### Mixture and Solution Ratios
+
+Chemical mixtures, paint mixing, and concrete preparation all use ratios.
+
+**Example:** Concrete uses cement:sand:gravel = 1:2:4. For 35 bags of cement, how much sand?
+- 1 part cement = 35, so 2 parts sand = 2 × 35 = **70 bags of sand**
+
+---
+
+### 4.9 Ratio Word Problem Patterns
+
+The CSE uses several standard patterns for ratio word problems. Recognizing these patterns saves time.
+
+#### Pattern 1: Find the Missing Term
+
+Given a:b = c:?, find the missing value using cross-multiplication or scaling.
+
+**Example:** 4:9 = 20:?
+- Scale factor = 20 ÷ 4 = 5
+- ? = 9 × 5 = **45**
+
+#### Pattern 2: Find Quantities from Total
+
+Given a ratio a:b and total T, find individual quantities.
+
+**Example:** Ratio 7:5, total 240. Find each quantity.
+- Total parts = 12, 1 part = 20
+- First = 7 × 20 = 140, Second = 5 × 20 = 100
+
+#### Pattern 3: Find the Ratio from Given Numbers
+
+Extract the ratio from two given numbers and simplify.
+
+**Example:** 18 mangoes, 24 apples. Ratio of mangoes to apples?
+- 18:24, GCF = 6 → **3:4**
+
+#### Pattern 4: Unit Conversion Then Ratio
+
+Convert mixed units, then write the ratio.
+
+**Example:** 3 hours to 45 minutes.
+- 3 hours = 180 minutes
+- Ratio = 180:45 = **4:1**
+
+#### Pattern 5: Ratio from Difference
+
+Given a:b and the difference, find quantities.
+
+**Example:** Ratio 5:3, first exceeds second by 28. Find both.
+- Difference in parts = 2, equals 28, so 1 part = 14
+- First = 5 × 14 = 70, Second = 3 × 14 = 42
+
+---
+
+### 4.10 Ratio Estimation and Quick Checks
+
+Under CSE time pressure, quick estimation can eliminate wrong answers in seconds.
+
+#### Estimation Technique 1: Rough Ratio Check
+
+If the problem asks for "ratio of boys to total" and there are 45 boys out of 120 students, the ratio should be less than 1:1 (since boys are less than half). Any choice like 3:2 is immediately wrong.
+
+#### Estimation Technique 2: Proportionality Test
+
+If 3 items cost ₱120, then 9 items should cost 3 × ₱120 = ₱360. If a choice shows ₱180, it's clearly wrong because it doesn't account for the proportional increase.
+
+#### Estimation Technique 3: Simplification Check
+
+If the answer choice is 12:18 and another is 2:3, the latter is likely correct if the simplest form is expected (same ratio, lowest terms).
+
+#### Estimation Technique 4: Units Check
+
+If the problem involves "2 hours" and "30 minutes," any answer that treats 2:30 as a valid ratio (2:30 = 1:15) is wrong. Always check that units are consistent.
+
+#### Common Ratio Families to Memorize
+
+These appear so often that recognizing them instantly saves valuable time:
+
+| Ratio | Decimal | Percentage |
+|-------|---------|------------|
+| 1:2 | 0.5 | 50% |
+| 1:3 | 0.333... | 33.3% |
+| 1:4 | 0.25 | 25% |
+| 1:5 | 0.2 | 20% |
+| 2:3 | 0.667... | 66.7% |
+| 3:4 | 0.75 | 75% |
+| 3:5 | 0.6 | 60% |
+| 4:5 | 0.8 | 80% |
+
+---
+
+### Connections
+
+How this topic connects to other areas of the CSE:
+
+- **Proportions:** Every ratio is a building block for proportion problems — a proportion is simply two equivalent ratios set equal to each other
+- **Percentages:** Percentages are ratios with a fixed denominator of 100 — converting between ratios and percentages requires the same division and multiplication skills
+- **Averages:** Weighted averages use ratios to determine how much each component contributes to the final average
+- **Map Scales:** Map scale problems are direct applications of ratio interpretation and conversion
+- **Unit Conversion:** Converting units before writing ratios teaches the unit analysis skill needed across all Numerical Ability topics
+
+### Mastery Checklist
 
 After completing this lesson, you should be able to:
 
-- ✅ Define ratios correctly as comparisons between quantities
-- ✅ Compare quantities accurately using ratio language
-- ✅ Write ratios in colon, fraction, and word notation interchangeably
-- ✅ Simplify any ratio to its lowest terms using the GCF
-- ✅ Identify common factors and compute the GCF quickly
-- ✅ Recognize equivalent ratios and generate new ones
-- ✅ Distinguish part-to-part from part-to-whole ratios
-- ✅ Apply ratios to real-world contexts (budgets, recipes, maps, HR)
-- ✅ Solve CSE-style ratio questions efficiently under time pressure
-- ✅ Avoid common ratio errors (reversed order, incomplete simplification, unit mismatch)
+✅ Define ratios correctly as comparisons between quantities
+✅ Compare quantities accurately using ratio language
+✅ Write ratios in colon, fraction, and word notation interchangeably
+✅ Simplify any ratio to its lowest terms using the GCF
+✅ Identify common factors and compute the GCF quickly
+✅ Recognize equivalent ratios and generate new ones
+✅ Distinguish part-to-part from part-to-whole ratios
+✅ Apply ratios to real-world contexts (budgets, recipes, maps, HR)
+✅ Solve CSE-style ratio questions efficiently under time pressure
+✅ Avoid common ratio errors (reversed order, incomplete simplification, unit mismatch)
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+### Extended Practice Bank
+
+The drills below strengthen transfer for **introduction to ratios** under timed CSE conditions.
+
+**Drill 1.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 2.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 3.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 4.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 5.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 6.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 7.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 8.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 9.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 10.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 11.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 12.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 13.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 14.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 15.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 16.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 17.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 18.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 19.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 20.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 21.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 22.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 23.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+
+**Drill 24.** Identify the core pattern/rule before solving.
+- Step 1: Classify the item type in one phrase.
+- Step 2: State the rule you will test.
+- Step 3: Solve, then verify against all given terms/clauses.
+- Quick check: Could a different rule also fit all evidence?
+- Reflection: Name one trap option and why it is wrong.
+

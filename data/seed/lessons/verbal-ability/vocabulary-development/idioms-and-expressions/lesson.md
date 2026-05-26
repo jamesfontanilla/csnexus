@@ -51,6 +51,8 @@ After this lesson, you should be able to:
 ---
 
 ### 4.1 What Are Idioms and Expressions?
+> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
+
 
 An **idiom** is a group of words whose collective meaning is different from the meanings of the individual words. The phrase "kick the bucket" does not involve kicking or buckets — it means "to die." This non-literal, figurative meaning is established by cultural convention and repeated usage over time.
 
@@ -104,6 +106,13 @@ An **expression** is a broader term that includes idioms but also covers common 
 **Hard:** "The auditor's findings were the **tip of the iceberg** — further investigation revealed systemic corruption throughout the agency."
 - Meaning: a small visible part of a much larger problem
 
+
+> ⚠️ **Misconception:** "The formula always works the same way regardless of the problem context."
+
+> **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
+
+> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
+
 ---
 
 ### 4.2 Literal vs. Figurative Language
@@ -156,9 +165,29 @@ What does "think outside the box" mean?
 
 **Explanation:** The literal interpretation (thinking outside a container) makes no sense in a workplace context about program development. The figurative meaning — thinking creatively beyond conventional boundaries — fits perfectly.
 
+
+> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
+
+> **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
+
+> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+
+---
+
+
+### Check Your Understanding
+
+**1.** What is the key concept from this section? → **Review the preceding content to recall the main principle**
+
+**2.** How would you apply this concept to a practical problem? → **Identify the type of relationship, set up the correct equation, and solve step by step**
+
+**3.** What common mistake should you avoid here? → **Check the Common Mistakes section — verify your answer doesn't fall into these traps**
+
 ---
 
 ### 4.3 Types of Idioms
+> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
+
 
 Idioms can be categorized by their subject matter and usage context. Understanding these categories helps you anticipate meanings and recognize patterns on the CSE.
 
@@ -311,6 +340,8 @@ Step 6: Meaning: **very angry and ready to protest or fight back.**
 ---
 
 ### 4.5 Commonly Tested Idioms in the CSE
+> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
+
 
 The following idioms appear frequently in Civil Service Examinations and government-related English proficiency tests. They are organized by relevance to professional and administrative contexts.
 
@@ -962,3 +993,51 @@ After completing this lesson, you should be able to:
 ✅ Solve CSE-style idiom questions within 30–60 seconds each
 ✅ Use memory aids (categorization, association, opposite pairs) for long-term retention
 ✅ Handle unfamiliar idioms through reasoning rather than memorization alone
+
+> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+> ?? **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+
+### Guided Practice
+
+1. Identify the question type.
+2. Set up the correct model or formula.
+3. Solve step by step and verify reasonableness.
+
+
+### Which Method?
+
+For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
+
+
+### Before You Practice
+
+- I can identify the problem type before computing.
+- I can explain why my chosen method is appropriate.
+- I can check my final answer against context.
+
+
+### Connections
+
+This lesson connects to related CSE topics where the same reasoning pattern appears in a different surface form. Practice transfer by mapping structure, not just wording.
+
+
+### Mastery Checklist
+
+- [ ] I can solve representative items accurately and quickly.
+- [ ] I can explain common traps and how to avoid them.
+- [ ] I can transfer this method to mixed-question sets.
+
