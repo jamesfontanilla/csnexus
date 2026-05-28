@@ -1066,32 +1066,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1147,11 +1147,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Context Clues:** Language-meaning analogies test the same contextual reasoning used in vocabulary questions
+- **Denotation and Connotation:** Many language analogies involve connotative differences between near-synonyms
+- **Synonyms:** Degree-of-intensity analogies (warm:hot) are a specialized form of synonym relationship
+- **Formal and Informal Language:** Register relationships (chat:converse) test awareness of formality levels
 
 ### Mastery Checklist
 After completing this lesson and practice set, you should be able to:
@@ -1167,17 +1166,17 @@ After completing this lesson and practice set, you should be able to:
 ✅ Maintain domain consistency when selecting answers for professional vocabulary analogies
 ✅ Solve CSE-style language and context analogy questions within 15-18 seconds per item
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Language-meaning analogies test metalinguistic awareness — understanding how words relate to each other within the language system itself. Relationships like degree (warm:hot), specificity (vehicle:car), or register (chat:converse) are structural properties of the vocabulary system. Identifying these relationships requires stepping outside word meaning to analyze how words are organized relative to each other in semantic networks.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -1189,4 +1188,3 @@ After completing this lesson and practice set, you should be able to:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

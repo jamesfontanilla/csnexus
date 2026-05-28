@@ -536,17 +536,17 @@ The problem says "how much is the discount?" but you compute the final price. Al
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Percentage word problems always contain exactly three quantities (rate, part, whole) with one unknown. The challenge is linguistic, not mathematical — you must decode which English phrase maps to which variable. "Of" identifies the whole, "is" identifies the part, and the number with % is the rate. Once you correctly assign variables, the algebra is always the same single equation.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

@@ -715,32 +715,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -891,11 +891,10 @@ Think of how different sections of a newspaper use different patterns:
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Conjunctions:** Transition words and conjunctions signal organizational patterns (cause-effect, comparison, sequence)
+- **Sentence Structure:** Paragraph structure mirrors sentence structure — both have main ideas and supporting details
+- **Analytical Comprehension:** Recognizing organization helps identify main arguments and supporting evidence
+- **Fundamentals of Reading Comprehension:** Understanding text organization improves reading speed and comprehension accuracy
 
 ### Mastery Checklist
 
@@ -913,19 +912,18 @@ After completing this lesson, you should be able to:
 ✅ Solve CSE-style organization-of-ideas questions in under 30 seconds
 ✅ Avoid all common traps: content-focus, partial matches, and pattern confusion
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Text organization patterns (chronological, cause-effect, comparison, problem-solution, classification) are recognizable because each uses distinctive signal words. "First, then, finally" signals chronological; "because, therefore, as a result" signals cause-effect; "however, in contrast, similarly" signals comparison. Identifying the pattern tells you how ideas relate to each other, which helps you predict where specific information will appear and how to answer structure questions.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

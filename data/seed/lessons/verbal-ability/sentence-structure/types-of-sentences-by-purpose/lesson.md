@@ -713,32 +713,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -901,11 +901,10 @@ If the primary purpose is to express how the speaker FEELS (not to inform, ask, 
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Direct and Indirect Speech:** Sentence purpose changes when converting between direct and indirect speech
+- **Types of Sentences by Structure:** Purpose (declarative, interrogative) is independent of structure (simple, compound)
+- **Reading Comprehension:** Recognizing sentence purpose helps identify the author's intent in passages
+- **Basic Components of a Sentence:** All sentence types contain the same basic components arranged differently
 
 ### Mastery Checklist
 
@@ -922,19 +921,18 @@ After completing this lesson, you can now:
 ✅ Use elimination strategies to solve CSE questions efficiently under time pressure
 ✅ Avoid common traps: rhetorical questions, indirect questions, polite requests, emotional imperatives
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Sentence purpose (declarative, interrogative, imperative, exclamatory) is determined by the speaker's communicative intent, which is signaled by word order and punctuation. Declarative uses subject-verb order and a period; interrogative inverts the auxiliary and subject (or uses a question word) and ends with a question mark. These structural signals let readers identify purpose instantly without analyzing meaning.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

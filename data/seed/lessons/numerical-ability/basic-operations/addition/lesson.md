@@ -1338,17 +1338,17 @@ After completing this lesson and practice set, confirm you can:
 ✅ Solve multi-step CSE-style addition problems under time pressure
 ✅ Avoid all common addition errors listed in Section 4.12
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Addition is commutative (a + b = b + a) and associative ((a + b) + c = a + (b + c)) because combining quantities is order-independent — three apples plus two apples is the same collection regardless of which group you count first. These properties let you regroup addends strategically (e.g., pairing numbers that sum to 10) to simplify mental arithmetic without changing the result.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

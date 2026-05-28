@@ -932,32 +932,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1013,11 +1013,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Conditional Reasoning:** Conditional statements (if-then) are the most important statement type in logic
+- **Logical Operators:** Operators (AND, OR, NOT) combine simple statements into compound statements
+- **Syllogisms:** Syllogisms chain logical statements together to derive conclusions
+- **Reading Comprehension:** Identifying claims and their logical structure in passages uses statement analysis
 
 ### Mastery Checklist
 After completing this lesson, you can now:
@@ -1033,17 +1032,17 @@ After completing this lesson, you can now:
 ✅ Distinguish "must be true" from "could be true"
 ✅ Solve CSE-style logic questions using elimination strategies
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Formal logic works by reducing natural language to its truth-functional structure — stripping away content and preserving only the logical skeleton. A proposition is the smallest unit that can be true or false. By assigning truth values to propositions and combining them with operators, you can evaluate complex arguments mechanically without being misled by emotional content, rhetorical tricks, or irrelevant details.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -1055,4 +1054,3 @@ After completing this lesson, you can now:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

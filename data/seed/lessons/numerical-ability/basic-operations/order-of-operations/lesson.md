@@ -1275,17 +1275,17 @@ After completing this lesson, you should be able to:
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Order of operations exists because mathematical expressions must have exactly one interpretation. Without a fixed convention, "2 + 3 × 4" could mean 20 or 14. The convention prioritizes operations by their mathematical "strength" — exponents (repeated multiplication) before multiplication (repeated addition) before addition — creating a universal parsing rule that eliminates ambiguity.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

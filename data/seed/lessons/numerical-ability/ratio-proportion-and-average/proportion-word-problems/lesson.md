@@ -899,32 +899,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1064,11 +1064,10 @@ Rate your confidence (1-5) on each skill before attempting the problems below. F
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Direct and Inverse Proportions:** Word problems apply proportion concepts — you must identify whether the relationship is direct or inverse
+- **Ratio Word Problems:** Proportions extend ratios — a proportion is two equal ratios, and word problems test both
+- **Scale and Map Problems:** Scale problems are proportion word problems where one ratio represents a map/model relationship
+- **Basic Percentage Problems:** Percentages are proportions with denominator 100 — the cross-multiplication method works for both
 
 ### Mastery Checklist
 
@@ -1085,19 +1084,18 @@ After completing this lesson, you should be able to:
 - ✅ Verify answers logically after solving
 - ✅ Solve CSE proportion word problems confidently within 30-45 seconds each
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Cross-multiplication works because if a/b = c/d, then multiplying both sides by bd gives ad = bc. This transforms a proportion (equality of two ratios) into a simple equation with one unknown. The method is reliable because it preserves the equality relationship while eliminating fractions — you trade a ratio comparison for a straightforward multiplication equation.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

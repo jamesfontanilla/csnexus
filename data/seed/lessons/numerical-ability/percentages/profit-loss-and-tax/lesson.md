@@ -967,19 +967,18 @@ How this topic connects to other areas of the CSE:
 ✅ Avoid common traps (wrong base, adding percentages, VAT on inclusive price)
 ✅ Solve CSE-style business mathematics problems efficiently
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Profit, loss, and tax calculations all follow the same structure: a percentage is applied to a base to produce an amount that is then added to or subtracted from that base. Profit = Cost × Rate, Tax = Price × Rate, Loss = Cost × Rate. The base differs by context (cost price for profit/loss, selling price for tax), but the mathematical operation is identical — identifying the correct base is the critical step.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

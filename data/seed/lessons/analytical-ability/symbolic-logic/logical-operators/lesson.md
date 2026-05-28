@@ -112,6 +112,8 @@ The **conjunction** operator combines two propositions and produces a compound s
 
 **Key insight:** Conjunction is the strictest binary operator — it requires ALL conditions to hold. One false component kills the entire statement.
 
+> 🤔 **Why does this work?** Each logical operator is defined entirely by its truth table — a fixed mapping from input truth values to output truth value. This means you never need to interpret meaning or context; you only need to know the inputs' truth values and look up the result. Conjunction requires both inputs true because it models the concept of "simultaneous satisfaction" — like a checklist where every box must be ticked. This mechanical, context-free evaluation is what makes formal logic reliable: the same inputs always produce the same output regardless of what the propositions are about.
+
 ### Easy Examples
 
 - P = "Maria is punctual." Q = "Maria is hardworking."
@@ -988,32 +990,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1069,11 +1071,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Logical Statements:** Operators combine the simple statements studied in the previous lesson
+- **Conditional Reasoning:** The conditional operator (→) is the most frequently tested operator on the CSE
+- **Truth and Validity:** Truth tables (operator outputs) are the foundation for evaluating argument validity
+- **Syllogisms:** Syllogistic reasoning uses conjunction (AND) and conditional (IF-THEN) operators
 
 ### Mastery Checklist
 After completing this lesson, you can now:
@@ -1089,22 +1090,23 @@ After completing this lesson, you can now:
 ✅ Solve CSE-style logical operator questions efficiently under time pressure
 ✅ Eliminate incorrect answer choices by testing truth conditions strategically
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Logical operators are defined entirely by their truth tables — fixed input-output mappings that never change regardless of content. This means you can evaluate any compound statement mechanically: determine each component's truth value, then look up the result in the truth table. The mechanical nature of truth-functional evaluation is what makes formal logic objective — two people applying the same rules to the same inputs will always reach the same conclusion.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -1118,4 +1120,3 @@ After completing this lesson, you can now:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

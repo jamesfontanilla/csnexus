@@ -574,17 +574,17 @@ After completing this lesson, you should be able to:
 ✅ Apply ratio reasoning to work rate and mixture problems
 ✅ Solve CSE-style ratio word problems under time pressure
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Ratio word problems are solvable because a ratio defines a fixed multiplicative relationship between quantities. If the ratio is 3:5, then for some multiplier k, the quantities are 3k and 5k. Finding k (using the total, difference, or another constraint) converts the ratio into actual values. This "ratio × multiplier" approach works universally because ratios describe proportional relationships that scale linearly.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -838,4 +838,3 @@ The drills below strengthen transfer for **ratio word problems** under timed CSE
 - Step 3: Solve, then verify against all given terms/clauses.
 - Quick check: Could a different rule also fit all evidence?
 - Reflection: Name one trap option and why it is wrong.
-

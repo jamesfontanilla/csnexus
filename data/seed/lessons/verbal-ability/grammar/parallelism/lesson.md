@@ -55,7 +55,7 @@ After this lesson, you should be able to:
 
 
 ### 4.1 What Is Parallelism?
-> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
+> 🤔 **Why does this work?** Parallelism is required after correlative conjunctions (both...and, either...or, not only...but also) because these pairs create a grammatical frame that demands symmetry. "Not only" sets up the first element; "but also" introduces the second. If the elements don't match in form (e.g., "not only intelligent but also has experience"), the frame collapses — the reader cannot parse what is being compared or coordinated.
 
 
 #### Definition
@@ -104,7 +104,7 @@ Parallel structure works because the human brain processes patterns efficiently.
 
 > **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
 
-> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
+> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, sentence-role, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
 
 ---
 
@@ -156,11 +156,11 @@ The CSE often tests whether you can spot a single word that breaks the pattern:
 | speaks clearly, writes well, and **good listener** | speaks clearly, writes well, and **listens attentively** | noun among verb phrases |
 
 
-> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
+> ⚠️ **Misconception:** "If my chosen answer is close to one of the choices, it must be right."
 
 > **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
 
-> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, identify the controlling sentence structure properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
 
 ---
 
@@ -176,7 +176,7 @@ The CSE often tests whether you can spot a single word that breaks the pattern:
 ---
 
 ### 4.3 Parallelism with Phrases
-> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
+> 🤔 **Why does this work?** Lists require parallel structure because the reader processes list items as members of the same category. If items switch grammatical form mid-list ("The job requires typing, filing, and to answer phones"), the reader must re-parse each item independently instead of applying one structural template to all. Consistent form (all gerunds: "typing, filing, and answering") lets the brain batch-process the list efficiently.
 
 
 When phrases are joined, each phrase must follow the same structural pattern.
@@ -267,7 +267,7 @@ In formal writing, when multiple "that" clauses follow a verb, maintain the patt
 ---
 
 ### 4.5 Parallelism in Lists and Series
-> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
+> 🤔 **Why does this work?** Comparisons require parallelism because you can only meaningfully compare like with like. "Her presentation was better than her colleague" compares a presentation to a person — grammatically broken. "Her presentation was better than her colleague's" compares presentation to presentation. The parallel structure ensures the comparison is logically valid, not just grammatically complete.
 
 
 Lists and series are the most common context for parallelism errors — and the most heavily tested on the CSE.
@@ -862,32 +862,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -899,7 +899,7 @@ Complete the missing steps. Answers are provided below each problem.
 **1.** [Example 1]
 
 - Step 1: Identify the relationship: _____
-- Step 2: Set up the equation: _____
+- Step 2: Identify the controlling sentence structure: _____
 - Step 3: Solve: _____
 
 **Answer:** [Complete solution]
@@ -943,11 +943,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Conjunctions:** Parallel structure is required whenever coordinating or correlative conjunctions join elements
+- **Sentence Structure:** Parallelism operates at all structural levels — words, phrases, clauses, and sentences
+- **Modifiers:** Parallel modifiers must match in form (all adjectives, all adverbs, all prepositional phrases)
+- **Active and Passive Voice:** Mixing active and passive voice in parallel structures creates inconsistency
 
 ### Mastery Checklist
 
@@ -971,19 +970,18 @@ Parallelism is the grammatical principle that elements performing the same funct
 
 The most effective exam strategy is to identify the conjunction or joining structure first, determine the grammatical form of the first element, and then verify that all other elements match. For correlative conjunctions, check what immediately follows each part of the pair. For comparisons, ensure both sides of "than" or "as...as" use the same form. Master these patterns and you will handle parallelism questions with confidence on exam day.
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Parallel structure works because the brain processes coordinated elements as a set — when items in a list or comparison share the same grammatical form, readers can parse them as equivalent units without re-analyzing each one's structure. Breaking parallelism forces the reader to re-parse, creating cognitive friction. The rule is: items joined by conjunctions must match in form (all nouns, all gerunds, all clauses, etc.).
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

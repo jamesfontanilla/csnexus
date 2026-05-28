@@ -123,7 +123,7 @@ Next figure prediction is the most common figure series question type. You are s
 | Cyclic | A-B-C-A-B-C | Repeating sequence |
 | Positional | Dot moves clockwise through corners | Location |
 
-**Example — Size progression:**
+> 🤔 **Why does this work?** Figure series exploit the fact that visual transformations are constrained — a shape can only change in a finite number of ways (rotate, resize, recolor, move, add/remove elements). By systematically checking each transformation dimension between consecutive frames, you reduce an open-ended "what comes next?" question to a closed set of hypotheses. Once you find the dimension that changes consistently, the prediction becomes deterministic rather than creative.
 
 <svg width="280" height="80" viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg">
   <circle cx="40" cy="40" r="8" fill="none" stroke="#4CAF50" stroke-width="2"/>
@@ -774,32 +774,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -855,11 +855,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Shape Patterns:** Figure series apply the same transformations (rotation, reflection, scaling) studied in shape patterns
+- **Matrix Reasoning:** Figure series rules extend to two dimensions in matrix problems
+- **Number and Letter Patterns:** Sequential prediction logic is identical — only the medium (visual vs. numerical) differs
+- **Spatial Relationships:** Tracking position changes in figure series requires spatial reasoning skills
 
 ### Mastery Checklist
 After completing this lesson and the practice questions, you should be able to:
@@ -882,22 +881,23 @@ After completing this lesson and the practice questions, you should be able to:
 
 ✅ Avoid common traps: symmetry illusions, direction confusion, single-rule fixation
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Figure series prediction works because visual transformations are deterministic and repeatable. Once you identify that an arrow rotates 90° clockwise each step, the next position is uniquely determined — there is exactly one correct answer. The systematic approach (compare consecutive pairs, confirm consistency, apply rule) works because it exploits this determinism rather than relying on visual intuition, which can be fooled by superficial similarities.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -911,4 +911,3 @@ After completing this lesson and the practice questions, you should be able to:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

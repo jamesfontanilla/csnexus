@@ -1311,17 +1311,17 @@ How this topic connects to other areas of the CSE:
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Discount and markup calculations work because they are applications of the multiplier method: a 20% discount means you keep 80% (multiplier = 0.80), and a 30% markup means the new price is 130% of cost (multiplier = 1.30). Successive changes multiply: 0.80 × 0.90 = 0.72 (not 0.70). This multiplicative structure is why successive discounts cannot be simply added — each operates on a different (already-changed) base.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

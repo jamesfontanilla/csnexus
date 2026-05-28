@@ -104,6 +104,8 @@ Form a precise sentence connecting the first pair:
 
 Then test each answer choice with the same bridge sentence.
 
+> 🤔 **Why does this work?** Cause-effect analogies have a built-in directionality that other relationship types lack: causes precede effects in time, and the relationship is asymmetric (rain causes floods, but floods don't cause rain). This temporal and logical asymmetry is what makes direction-checking so powerful as a filter. If you reverse the pair and the bridge sentence still works ("B causes A"), you've misidentified the relationship type. Distractors often present the correct words but in reversed order, or present correlations (things that co-occur) rather than true causal links.
+
 ---
 
 ## 4.2 Cause-and-Result Relationships
@@ -1021,32 +1023,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1102,11 +1104,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Function and Purpose Relationships:** Cause-effect (fire:smoke) differs from function (match:ignite) — direction and agency differ
+- **Conditional Reasoning:** Cause-effect relationships parallel conditional logic (if cause, then effect)
+- **Synonym and Antonym Analogies:** All analogy types require the same structural reasoning — identify relationship, then match
+- **Number and Letter Patterns:** Progression analogies (seed:tree) parallel sequential patterns (1:2:4:8)
 
 ### Mastery Checklist
 After completing this lesson and practice set, you should be able to:
@@ -1122,22 +1123,23 @@ After completing this lesson and practice set, you should be able to:
 ✅ Eliminate incorrect choices using relationship type, direction, and specificity filters
 ✅ Solve CSE-style cause-effect and progression analogy questions within 18 seconds per item
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** The bridge sentence method works for cause-effect analogies because causal relationships have a specific logical structure: the cause is necessary or sufficient for the effect, and the relationship is asymmetric and temporal. By articulating "A causes B" precisely, you create a filter that eliminates answers where the relationship is merely correlational, reversed in direction, or a different type entirely (like tool-function or part-whole).
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -1151,4 +1153,3 @@ After completing this lesson and practice set, you should be able to:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

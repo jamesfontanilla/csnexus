@@ -656,17 +656,17 @@ After completing this lesson, you should be able to:
 ✅ Solve CSE-style ratio questions efficiently under time pressure
 ✅ Avoid common ratio errors (reversed order, incomplete simplification, unit mismatch)
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** A ratio compares two quantities by division, expressing how many times one contains the other. Simplifying ratios works because multiplying or dividing both terms by the same non-zero number preserves the multiplicative relationship — 6:9 and 2:3 describe the same proportion because 6/9 = 2/3. This is the same principle that makes equivalent fractions work.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -843,4 +843,3 @@ The drills below strengthen transfer for **introduction to ratios** under timed 
 - Step 3: Solve, then verify against all given terms/clauses.
 - Quick check: Could a different rule also fit all evidence?
 - Reflection: Name one trap option and why it is wrong.
-

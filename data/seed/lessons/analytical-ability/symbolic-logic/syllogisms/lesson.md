@@ -894,17 +894,17 @@ Some premise sets support more than one valid conclusion. CSE questions may ask 
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Syllogisms work by chaining categorical relationships: if all A are B, and all B are C, then all A are C. The middle term (B) connects the two premises and disappears in the conclusion. Validity depends entirely on the arrangement of quantifiers (all, some, no) and the position of terms — not on what the terms represent. This is why you can test validity using Venn diagrams: if the diagram of the premises forces the conclusion to be true, the syllogism is valid.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -913,12 +913,28 @@ Some premise sets support more than one valid conclusion. CSE questions may ask 
 
 ### Guided Practice
 
+
+- Step 1: Identify the pattern type or logical relation: _____
+- Step 2: State the rule to test: _____
+- Step 3: Verify the rule across all given items: _____
+- Step 4: Apply the rule to the missing item: _____
+
+
 1. Identify the question type.
 2. Set up the correct model or formula.
 3. Solve step by step and verify reasonableness.
 
 
 ### Which Method?
+
+
+1. Decide whether the item tests sequence, transformation, classification, matrix relation, conditional logic, validity, or analogy relation.
+2. Name the rule before selecting an answer.
+3. Verify that the same rule fits all given evidence.
+4. Reject choices that fit only part of the pattern.
+5. Explain the relationship in one sentence.
+6. Choose the answer that preserves the relationship exactly.
+
 
 For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
 

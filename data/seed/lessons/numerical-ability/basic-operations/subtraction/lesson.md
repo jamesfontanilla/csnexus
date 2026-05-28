@@ -1468,19 +1468,18 @@ After completing this lesson, you should be able to:
 
 ✅ Solve CSE-style word problems involving subtraction across all number types
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Subtraction is the inverse of addition: a - b = c means a = b + c. This inverse relationship is why you can check subtraction by adding the difference to the subtrahend. Unlike addition, subtraction is neither commutative nor associative — order matters because removing 5 from 8 is fundamentally different from removing 8 from 5.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

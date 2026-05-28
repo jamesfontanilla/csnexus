@@ -940,17 +940,17 @@ After completing this lesson, you should be able to:
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Exponent rules follow from the definition of exponentiation as repeated multiplication. a^m × a^n = a^(m+n) because multiplying m factors of a by n factors of a gives (m+n) factors of a. Similarly, (a^m)^n = a^(mn) because repeating "m factors of a" n times gives m×n factors total. Every exponent rule is a consequence of this counting-of-factors principle — not an arbitrary convention.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

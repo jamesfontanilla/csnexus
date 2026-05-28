@@ -46,7 +46,7 @@ After this lesson, you should be able to:
 ---
 
 ### 4.1 What Are Pronouns?
-> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
+> 🤔 **Why does this work?** Subject pronouns (I, he, she, we, they) and object pronouns (me, him, her, us, them) exist because English retains a case system for pronouns even though nouns lost theirs centuries ago. Case marks grammatical function: subjects perform actions, objects receive them. The test "remove the other person" works because compound structures don't change case — "She and I went" is correct because "I went" is correct alone.
 
 
 #### Definition
@@ -93,7 +93,7 @@ The **antecedent** is the noun that a pronoun refers back to. Clear pronoun-ante
 
 > **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
 
-> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
+> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, sentence-role, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
 
 ---
 
@@ -192,11 +192,11 @@ Use object pronouns when the pronoun is:
 - *Explanation:* After the linking verb "was," a predicate nominative requires the subject pronoun "he" in formal grammar.
 
 
-> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
+> ⚠️ **Misconception:** "If my chosen answer is close to one of the choices, it must be right."
 
 > **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
 
-> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, identify the controlling sentence structure properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
 
 ---
 
@@ -212,7 +212,7 @@ Use object pronouns when the pronoun is:
 ---
 
 ### 4.3 Possessive Pronouns
-> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
+> 🤔 **Why does this work?** Pronoun-antecedent agreement exists because pronouns are referential — they point back to a specific noun. If the pronoun doesn't match its antecedent in number and gender, the reference becomes ambiguous. "Each student must submit their form" works in modern usage because "their" has evolved as a singular gender-neutral pronoun, but on formal exams, "his or her" may still be expected.
 
 
 Possessive pronouns show ownership WITHOUT needing a noun after them. They stand alone.
@@ -353,7 +353,7 @@ Reflexive pronouns end in **-self** (singular) or **-selves** (plural). They "re
 ---
 
 ### 4.5 Demonstrative Pronouns
-> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
+> 🤔 **Why does this work?** Reflexive pronouns (myself, himself, themselves) are required when the subject and object refer to the same entity — "He hurt himself" — because using the regular object pronoun ("He hurt him") would imply a different person. The reflexive form signals co-reference. Using reflexives without a matching subject ("Please contact myself") is hypercorrection — there's no antecedent for the reflexive to refer back to.
 
 
 Demonstrative pronouns **point to** specific things. They indicate proximity (near or far) and number (singular or plural).
@@ -1045,32 +1045,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1082,7 +1082,7 @@ Complete the missing steps. Answers are provided below each problem.
 **1.** [Example 1]
 
 - Step 1: Identify the relationship: _____
-- Step 2: Set up the equation: _____
+- Step 2: Identify the controlling sentence structure: _____
 - Step 3: Solve: _____
 
 **Answer:** [Complete solution]
@@ -1126,11 +1126,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Subject-Verb Agreement:** Pronoun number (singular/plural) determines verb agreement just as noun subjects do
+- **Sentence Structure:** Pronoun case (subject/object) depends on the pronoun's grammatical role in the clause
+- **Reading Comprehension:** Tracking pronoun references across sentences is essential for understanding passage coherence
+- **Active and Passive Voice:** Voice changes shift pronouns between subject and object positions, requiring case changes
 
 ### Mastery Checklist
 
@@ -1149,17 +1148,17 @@ After completing this lesson, you can now:
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Pronouns replace nouns to avoid repetition, but they must match their antecedent in number, gender, and person — and take the correct case (subject/object/possessive) based on their grammatical role in the clause. Case errors occur because speakers confuse the pronoun's role in its own clause with its antecedent's role. The rule is: determine what the pronoun DOES in its clause, then select the form that matches that function.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -1255,5 +1254,3 @@ After completing this lesson, you can now:
 ## Summary
 
 Pronouns replace nouns to create fluid, efficient communication. The CSE tests eight major pronoun types (personal, possessive, reflexive, intensive, demonstrative, interrogative, relative, indefinite) plus two critical skill areas: pronoun-antecedent agreement and ambiguous reference detection. The most common exam traps involve compound structures ("between you and I" errors), indefinite pronoun agreement ("everyone...their"), who/whom confusion, and reflexive pronoun misuse ("submit to myself"). Master the substitution tests (he/him for who/whom, removal test for compounds) and you can solve virtually any CSE pronoun question through systematic elimination rather than guessing.
-
-

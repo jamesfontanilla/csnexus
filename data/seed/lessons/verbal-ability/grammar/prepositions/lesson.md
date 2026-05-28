@@ -52,7 +52,7 @@ After this lesson, you should be able to:
 ---
 
 ### 4.1 What Are Prepositions?
-> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
+> 🤔 **Why does this work?** Prepositions of place follow a containment hierarchy: "in" signals enclosure (3D space or bounded area), "on" signals surface contact (2D), and "at" signals a point (0D). "In the room" (enclosed), "on the table" (surface), "at the door" (point). This spatial logic extends metaphorically: "in January" (enclosed in a time period), "on Monday" (a specific surface/day), "at 3 PM" (a precise point in time).
 
 
 #### Definition
@@ -92,7 +92,7 @@ Prepositions never stand alone. They always take an **object** — a noun, prono
 
 > **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
 
-> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
+> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, sentence-role, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
 
 ---
 
@@ -175,11 +175,11 @@ Present or past participles that function as prepositions:
 | pending | The case is *pending* review. |
 
 
-> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
+> ⚠️ **Misconception:** "If my chosen answer is close to one of the choices, it must be right."
 
 > **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
 
-> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, identify the controlling sentence structure properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
 
 ---
 
@@ -195,7 +195,7 @@ Present or past participles that function as prepositions:
 ---
 
 ### 4.3 Prepositions of Time
-> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
+> 🤔 **Why does this work?** Prepositional phrases function as either adjectives (modifying nouns) or adverbs (modifying verbs). "The book on the shelf" uses "on the shelf" as an adjective telling WHICH book. "She works at the office" uses "at the office" as an adverb telling WHERE she works. Recognizing this dual function helps you identify what the preposition connects and whether it's correctly placed near the word it modifies.
 
 
 This is one of the most heavily tested areas on the CSE. Master these rules:
@@ -358,7 +358,7 @@ This is one of the most heavily tested areas on the CSE. Master these rules:
 ---
 
 ### 4.5 Prepositions of Direction and Movement
-> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
+> 🤔 **Why does this work?** Many preposition choices are idiomatic rather than logical — "depend ON," "interested IN," "good AT" — because these combinations fossilized through historical usage, not systematic grammar rules. No logical principle explains why we say "arrive AT" a building but "arrive IN" a city. These must be memorized as fixed collocations, which is why preposition errors are among the most persistent for non-native speakers.
 
 
 These prepositions show WHERE something is going:
@@ -1016,17 +1016,17 @@ After completing this lesson, you should be able to:
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Prepositions establish spatial, temporal, and logical relationships between sentence elements. Many preposition choices are idiomatic (fixed by convention rather than logic), which is why "interested IN" cannot be predicted from grammar rules alone. However, spatial and temporal prepositions follow systematic patterns: "in" for enclosed spaces/longer periods, "on" for surfaces/specific days, "at" for points/precise times.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -1035,12 +1035,28 @@ After completing this lesson, you should be able to:
 
 ### Guided Practice
 
+
+- Step 1: Identify the target word or sentence part: _____
+- Step 2: Name the applicable grammar rule: _____
+- Step 3: Choose the form that matches the rule: _____
+- Step 4: Explain why the tempting distractor is wrong: _____
+
+
 1. Identify the question type.
 2. Set up the correct model or formula.
 3. Solve step by step and verify reasonableness.
 
 
 ### Which Method?
+
+
+1. Name the rule first: agreement, tense, pronoun reference, preposition use, conjunction logic, modifier placement, parallelism, voice, article use, or reported speech.
+2. Identify the sentence part that controls the answer before choosing an option.
+3. Decide whether the item tests form, meaning, position, or relationship between clauses.
+4. Remove interrupting phrases and check the core sentence.
+5. Compare the two most tempting choices and state why one fails.
+6. Choose the answer only after naming the rule that justifies it.
+
 
 For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
 

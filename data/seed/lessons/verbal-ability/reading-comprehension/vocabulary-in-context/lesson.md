@@ -1257,32 +1257,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1338,11 +1338,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Context Clues:** The same strategies for determining word meaning apply in both vocabulary and reading contexts
+- **Synonyms and Antonyms:** Recognizing synonyms and antonyms in surrounding text reveals word meaning
+- **Word Formation:** Knowledge of prefixes, roots, and suffixes helps decode unfamiliar words in passages
+- **Analytical Comprehension:** Precise vocabulary understanding is prerequisite for analyzing author arguments
 
 ### Mastery Checklist
 After completing this lesson, you should be able to:
@@ -1362,17 +1361,17 @@ After completing this lesson, you should be able to:
 ✅ Handle passage-level figurative language with extended metaphors
 ✅ Recognize sarcasm and irony in professional/government contexts
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Vocabulary-in-context questions are answerable because writers embed meaning clues near unfamiliar words — definitions, examples, synonyms, contrasts, or logical implications. The surrounding sentences constrain what the word CAN mean in that specific usage. Even words with multiple dictionary definitions have only one meaning that fits the context, which is why you must read the surrounding sentences rather than relying on the most common definition.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -1384,4 +1383,3 @@ After completing this lesson, you should be able to:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

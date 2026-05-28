@@ -1354,17 +1354,17 @@ How this topic connects to other areas of the CSE:
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Percentage increase/decrease problems use the multiplier approach: a 25% increase means the new value is 125% of the original (multiplier = 1.25), and a 25% decrease means 75% remains (multiplier = 0.75). To reverse a change, you divide by the multiplier — not subtract the percentage. This is because the percentage was applied to the ORIGINAL value, not to the new value, so reversing requires undoing that specific multiplication.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

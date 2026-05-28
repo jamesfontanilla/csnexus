@@ -2,6 +2,8 @@
 
 ## Explanations
 
+> 🤔 **Why does this work?** Every English sentence is built from the same two required components: a subject (what/who the sentence is about) and a predicate (what the subject does/is). This binary structure is universal — no matter how long or complex a sentence becomes, it always reduces to "something does/is something." Identifying these core components lets you parse any sentence by finding its structural skeleton first, then analyzing the modifiers and complements attached to it.
+
 ### Introduction
 
 **Sentence structure** is the arrangement of words, phrases, and clauses that form a grammatically complete thought. Understanding how sentences are built — what parts they require, how those parts relate, and what makes a sentence complete — is foundational to every grammar skill tested on the Philippine Civil Service Examination.
@@ -211,6 +213,8 @@ A **verb phrase** = helping verb(s) + main verb. The entire phrase functions as 
 | will have completed | will, have | completed |
 | should be reviewed | should, be | reviewed |
 | might have been delayed | might, have, been | delayed |
+
+> 🤔 **Why does this work?** English verb phrases stack helpers in a fixed order — modal → perfect (have) → progressive (be) → passive (be) → main verb — because each helper governs the form of the word that follows it. Modals require a base form ("can go"), "have" requires a past participle ("has gone"), and "be" requires either a present participle for progressive ("is going") or a past participle for passive ("is taken"). This chain of form-governance is why you can predict the correct verb phrase structure by working left to right through the helpers.
 
 ---
 
@@ -902,32 +906,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -983,11 +987,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Subject-Verb Agreement:** Identifying the subject is the first step in checking agreement — this lesson teaches how
+- **Active and Passive Voice:** Voice changes rearrange sentence components — understanding components makes voice clear
+- **Clauses:** Clauses are built from the same components (subject + predicate) studied here
+- **Modifiers:** Modifiers expand basic sentence components without changing the core subject-predicate structure
 
 ### Mastery Checklist
 After completing this lesson, you should be able to:
@@ -1007,17 +1010,17 @@ After completing this lesson, you should be able to:
 ✅ Apply elimination strategies to CSE-style questions
 ✅ Solve sentence structure questions accurately under time pressure
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Sentence analysis works by decomposition — breaking complex structures into their constituent parts. Just as any building, no matter how ornate, rests on a foundation of walls and roof, any sentence rests on a subject and predicate. Modifiers, phrases, and clauses add detail but don't change the core structure. Finding the subject-predicate pair first gives you the sentence's meaning skeleton, which you can then flesh out by analyzing what each modifier contributes.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -1036,4 +1039,3 @@ After completing this lesson, you should be able to:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

@@ -100,6 +100,8 @@ CSE analogy questions are designed to punish imprecise thinking. Consider:
 
 Only choice C maintains the symbolic relationship established by the first pair.
 
+> 🤔 **Why does this work?** Symbolic, characteristic, and location relationships each connect words through a different logical predicate: "represents," "is characterized by," or "is found in." These predicates are mutually exclusive — a dove *represents* peace (symbolic), but it doesn't *characterize* peace or *locate* peace. By identifying which predicate the first pair uses, you immediately eliminate answer choices that satisfy a different predicate. The CSE exploits the fact that any two words can be connected by multiple predicates; precision in naming the correct one is what separates correct answers from traps.
+
 ---
 
 ## 4.2 Symbol-and-Meaning Relationships
@@ -1221,32 +1223,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1302,11 +1304,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Synonym and Antonym Analogies:** Symbolic relationships (dove:peace) must be distinguished from synonym relationships
+- **Function and Purpose Relationships:** Characteristic (ice:cold) differs from function (refrigerator:cool) — inherent vs. designed
+- **Denotation and Connotation:** Symbolic meanings are connotative associations, not literal denotations
+- **Part-Whole and Classification Relationships:** Location (book:library) differs from part-whole (page:book) — containment vs. composition
 
 ### Mastery Checklist
 ✅ Identify symbol-and-meaning relationships correctly (dove : peace, heart : love)
@@ -1322,22 +1323,23 @@ How this topic connects to other areas of the CSE:
 ✅ Eliminate choices by relationship type mismatch
 ✅ Solve under time pressure using the RILEV method
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** These three relationship types (symbolic, characteristic, location) connect words through fundamentally different predicates: "represents" (symbolic), "is characterized by" (characteristic), and "is found in" (location). The bridge sentence method works because only one predicate will fit both pairs in the analogy. If the first pair uses "represents" (dove:peace), only an answer that also uses "represents" (heart:love) maintains the structural parallel.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -1351,4 +1353,3 @@ How this topic connects to other areas of the CSE:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

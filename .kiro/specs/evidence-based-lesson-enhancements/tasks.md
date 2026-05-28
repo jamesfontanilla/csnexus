@@ -82,13 +82,13 @@ This plan enhances all ~74 existing lesson files with research-backed pedagogica
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 6.3, 7.1, 8.1, 10.1, 11.1_
 
 
-- [ ] 3. Enhance Numerical Ability — Percentages (8 lessons)
+- [x] 3. Enhance Numerical Ability — Percentages (8 lessons)
   - [x] 3.1 Enhance fundamentals-of-percentages lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 3.2 Enhance basic-percentage-problems lesson
+  - [x] 3.2 Enhance basic-percentage-problems lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
@@ -103,292 +103,292 @@ This plan enhances all ~74 existing lesson files with research-backed pedagogica
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 3.5 Enhance profit-loss-and-tax lesson
+  - [x] 3.5 Enhance profit-loss-and-tax lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 3.6 Enhance percentage-applications lesson
+  - [x] 3.6 Enhance percentage-applications lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 3.7 Enhance percentage-word-problems lesson
+  - [x] 3.7 Enhance percentage-word-problems lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 3.8 Enhance percentage-mental-math-and-shortcuts lesson
+  - [x] 3.8 Enhance percentage-mental-math-and-shortcuts lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
 
-- [ ] 4. Enhance Numerical Ability — Ratio, Proportion, and Average (10 lessons)
-  - [ ] 4.1 Enhance introduction-to-ratios lesson
+- [x] 4. Enhance Numerical Ability — Ratio, Proportion, and Average (10 lessons)
+  - [x] 4.1 Enhance introduction-to-ratios lesson
     - Add all required enhanced sections
     - Verify parser compatibility
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 4.2 Enhance types-of-ratios lesson
+  - [x] 4.2 Enhance types-of-ratios lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 4.3 Enhance ratio-word-problems lesson
+  - [x] 4.3 Enhance ratio-word-problems lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 4.4 Enhance direct-and-inverse-proportions lesson
+  - [x] 4.4 Enhance direct-and-inverse-proportions lesson
     - Add all required enhanced sections plus 1 Dual_Coding_Visual (direct vs inverse graph)
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 9.1, 10.1, 11.1_
 
-  - [ ] 4.5 Enhance proportion-word-problems lesson
+  - [x] 4.5 Enhance proportion-word-problems lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 4.6 Enhance scale-and-map-problems lesson
+  - [x] 4.6 Enhance scale-and-map-problems lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 4.7 Enhance introduction-to-average lesson
+  - [x] 4.7 Enhance introduction-to-average lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 4.8 Enhance weighted-average lesson
+  - [x] 4.8 Enhance weighted-average lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 4.9 Enhance finding-missing-values-in-averages lesson
+  - [x] 4.9 Enhance finding-missing-values-in-averages lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 4.10 Enhance average-word-problems lesson
+  - [x] 4.10 Enhance average-word-problems lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 6.1, 7.1, 8.1, 10.1, 11.1_
 
 
-- [ ] 5. Enhance Verbal Ability — Grammar (10 lessons)
-  - [ ] 5.1 Enhance subject-verb-agreement lesson
+- [x] 5. Enhance Verbal Ability — Grammar (10 lessons)
+  - [x] 5.1 Enhance subject-verb-agreement lesson
     - Add all required enhanced sections
     - Add 1 Dual_Coding_Visual (decision flowchart for SVA rules)
     - Adapt Which Method? to "which SVA rule applies?"
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 6.6, 7.1, 8.1, 9.2, 10.1, 11.1_
 
-  - [ ] 5.2 Enhance verb-tenses lesson
+  - [x] 5.2 Enhance verb-tenses lesson
     - Add all required enhanced sections
     - Add 1 Dual_Coding_Visual (timeline diagram for tenses)
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 9.2, 10.1, 11.1_
 
-  - [ ] 5.3 Enhance pronouns lesson
+  - [x] 5.3 Enhance pronouns lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 5.4 Enhance prepositions lesson
+  - [x] 5.4 Enhance prepositions lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 5.5 Enhance conjunctions lesson
+  - [x] 5.5 Enhance conjunctions lesson
     - Add all required enhanced sections
     - Add 1 Dual_Coding_Visual (conjunction type decision flowchart)
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 9.2, 10.1, 11.1_
 
-  - [ ] 5.6 Enhance articles lesson
+  - [x] 5.6 Enhance articles lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 5.7 Enhance modifiers lesson
+  - [x] 5.7 Enhance modifiers lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 5.8 Enhance parallelism lesson
+  - [x] 5.8 Enhance parallelism lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 5.9 Enhance active-and-passive-voice lesson
+  - [x] 5.9 Enhance active-and-passive-voice lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 5.10 Enhance direct-and-indirect-speech lesson
+  - [x] 5.10 Enhance direct-and-indirect-speech lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
 
-- [ ] 6. Enhance Verbal Ability — Reading Comprehension (5 lessons)
-  - [ ] 6.1 Enhance fundamentals-of-reading-comprehension lesson
+- [x] 6. Enhance Verbal Ability — Reading Comprehension (5 lessons)
+  - [x] 6.1 Enhance fundamentals-of-reading-comprehension lesson
     - Add all required enhanced sections
     - Adapt Guided Practice to passage-based exercises with faded analysis steps
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 6.2 Enhance vocabulary-in-context lesson
+  - [x] 6.2 Enhance vocabulary-in-context lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 6.3 Enhance analytical-comprehension lesson
+  - [x] 6.3 Enhance analytical-comprehension lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 6.4 Enhance authors-purpose-and-tone lesson
+  - [x] 6.4 Enhance authors-purpose-and-tone lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 6.5 Enhance organization-of-ideas lesson
+  - [x] 6.5 Enhance organization-of-ideas lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-- [ ] 7. Enhance Verbal Ability — Sentence Structure (4 lessons)
-  - [ ] 7.1 Enhance basic-components-of-a-sentence lesson
+- [x] 7. Enhance Verbal Ability — Sentence Structure (4 lessons)
+  - [x] 7.1 Enhance basic-components-of-a-sentence lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 7.2 Enhance clauses lesson
+  - [x] 7.2 Enhance clauses lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 7.3 Enhance types-of-sentences-by-purpose lesson
+  - [x] 7.3 Enhance types-of-sentences-by-purpose lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 7.4 Enhance types-of-sentences-by-structure lesson
+  - [x] 7.4 Enhance types-of-sentences-by-structure lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
 
-- [ ] 8. Enhance Verbal Ability — Vocabulary Development (8 lessons)
-  - [ ] 8.1 Enhance synonyms lesson
+- [x] 8. Enhance Verbal Ability — Vocabulary Development (8 lessons)
+  - [x] 8.1 Enhance synonyms lesson
     - Add all required enhanced sections
     - Adapt Which Method? to "which synonym fits this specific context?"
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 6.6, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 8.2 Enhance antonyms lesson
+  - [x] 8.2 Enhance antonyms lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 8.3 Enhance context-clues lesson
+  - [x] 8.3 Enhance context-clues lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 8.4 Enhance word-formation lesson
+  - [x] 8.4 Enhance word-formation lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 8.5 Enhance idioms-and-expressions lesson
+  - [x] 8.5 Enhance idioms-and-expressions lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 8.6 Enhance analogies lesson
+  - [x] 8.6 Enhance analogies lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 8.7 Enhance denotation-and-connotation lesson
+  - [x] 8.7 Enhance denotation-and-connotation lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 8.8 Enhance formal-and-informal-language lesson
+  - [x] 8.8 Enhance formal-and-informal-language lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 4.1, 5.1, 5.7, 6.1, 7.1, 8.1, 10.1, 11.1_
 
 
-- [ ] 9. Enhance Analytical Ability — Abstract Reasoning (7 lessons)
-  - [ ] 9.1 Enhance shape-patterns lesson
+- [x] 9. Enhance Analytical Ability — Abstract Reasoning (7 lessons)
+  - [x] 9.1 Enhance shape-patterns lesson
     - Add all required enhanced sections (leverage existing SVGs for Req 9)
     - Add Check Your Understanding blocks between pattern type sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 9.8, 10.1, 11.1_
 
-  - [ ] 9.2 Enhance figure-series lesson
+  - [x] 9.2 Enhance figure-series lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 9.3 Enhance number-and-letter-patterns lesson
+  - [x] 9.3 Enhance number-and-letter-patterns lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 9.4 Enhance odd-one-out lesson
+  - [x] 9.4 Enhance odd-one-out lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 9.5 Enhance odd-one-out-problems lesson
+  - [x] 9.5 Enhance odd-one-out-problems lesson
     - Add all required enhanced sections (or merge with odd-one-out if duplicate content)
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 9.6 Enhance matrix-reasoning lesson
+  - [x] 9.6 Enhance matrix-reasoning lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 9.7 Enhance spatial-relationships lesson
+  - [x] 9.7 Enhance spatial-relationships lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-- [ ] 10. Enhance Analytical Ability — Symbolic Logic (5 lessons)
-  - [ ] 10.1 Enhance logical-statements lesson
+- [x] 10. Enhance Analytical Ability — Symbolic Logic (5 lessons)
+  - [x] 10.1 Enhance logical-statements lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 10.2 Enhance logical-operators lesson
+  - [x] 10.2 Enhance logical-operators lesson
     - Add all required enhanced sections
     - Add 1 Dual_Coding_Visual (truth table or Venn diagram SVG)
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 9.1, 10.1, 11.1_
 
-  - [ ] 10.3 Enhance conditional-reasoning lesson
+  - [x] 10.3 Enhance conditional-reasoning lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 10.4 Enhance syllogisms lesson
+  - [x] 10.4 Enhance syllogisms lesson
     - Add all required enhanced sections
     - Add 1 Dual_Coding_Visual (Venn diagram for syllogism validity)
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 9.1, 10.1, 11.1_
 
-  - [ ] 10.5 Enhance truth-and-validity lesson
+  - [x] 10.5 Enhance truth-and-validity lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
 
-- [ ] 11. Enhance Analytical Ability — Word Analogy (7 lessons)
-  - [ ] 11.1 Enhance synonym-and-antonym-analogies lesson
+- [x] 11. Enhance Analytical Ability — Word Analogy (7 lessons)
+  - [x] 11.1 Enhance synonym-and-antonym-analogies lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 11.2 Enhance part-whole-and-classification-relationships lesson
+  - [x] 11.2 Enhance part-whole-and-classification-relationships lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 11.3 Enhance function-and-purpose-relationships lesson
+  - [x] 11.3 Enhance function-and-purpose-relationships lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 11.4 Enhance cause-effect-and-progression-relationships lesson
+  - [x] 11.4 Enhance cause-effect-and-progression-relationships lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 11.5 Enhance symbolic-characteristic-and-location-relationships lesson
+  - [x] 11.5 Enhance symbolic-characteristic-and-location-relationships lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 11.6 Enhance language-meaning-and-context-relationships lesson
+  - [x] 11.6 Enhance language-meaning-and-context-relationships lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-  - [ ] 11.7 Enhance numerical-letter-and-abstract-analogies lesson
+  - [x] 11.7 Enhance numerical-letter-and-abstract-analogies lesson
     - Add all required enhanced sections
     - _Requirements: 1.4, 2.1, 3.1, 3.8, 4.1, 5.1, 5.8, 6.1, 7.1, 8.1, 10.1, 11.1_
 
-- [ ] 12. Cross-validate and finalize
-  - [ ] 12.1 Run full validation
+- [x] 12. Cross-validate and finalize
+  - [x] 12.1 Run full validation
     - Execute `scripts/validate_enhanced_lessons.py` against all enhanced lessons
     - Confirm 100% pass rate on required sections
     - _Requirements: 12.1, 12.2, 12.5_
 
-  - [ ] 12.2 Verify Connections bidirectionality
+  - [x] 12.2 Verify Connections bidirectionality
     - Spot-check 10 randomly selected connection pairs for reverse links
     - Verify all referenced subtopic directories exist
     - _Requirements: 8.3, 8.4, 8.5_
 
-  - [ ] 12.3 Seed pipeline verification
+  - [x] 12.3 Seed pipeline verification
     - Run `scripts/seed_all_content.py` or `scripts/update_lessons.py`
     - Confirm all enhanced lessons seed without errors
     - Verify parsed JSON output for 5 sample lessons contains new sections
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.6_
 
-  - [ ] 12.4 Line count audit
+  - [x] 12.4 Line count audit
     - Verify no enhanced lesson exceeds 2000 lines
     - Verify no enhanced lesson falls below 800 lines
     - _Requirements: 10.6_

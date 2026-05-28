@@ -154,7 +154,7 @@ This is the most critical section for exam success. Memorize this formula:
 Subject + BE verb (conjugated to match tense) + PAST PARTICIPLE + (by + agent)
 ```
 
-#### The "Be" Verb Forms
+> 🤔 **Why does this work?** The passive construction works by promoting the object to subject position and demoting the original subject to an optional "by" phrase. The "be" verb carries the tense information that the main verb can no longer express (since it's locked into past participle form). This division of labor — "be" handles tense and agreement, the participle identifies the action — is why passive sentences always have at least one more word than their active equivalents.
 
 | Tense | Be Form |
 |-------|---------|
@@ -735,22 +735,23 @@ After studying this lesson, confirm you can:
 - ✅ Choose between active and passive based on context and clarity
 - ✅ Solve CSE-style voice questions within 30–45 seconds each
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Active-to-passive conversion is systematic because it follows a fixed algorithm: (1) move the object to subject position, (2) add the appropriate form of "be" matching the original tense, (3) change the main verb to past participle, (4) optionally add "by + original subject." This algorithm works because passive voice is structurally defined — it's not about meaning or style but about which noun occupies the subject position and how the verb phrase is constructed.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> 🤔 **Why does this work?** Identifying voice requires checking two structural features: (1) is the subject performing or receiving the action? (2) does the verb phrase contain "be + past participle"? These mechanical checks work because voice is defined structurally, not semantically. "The report was written by Maria" is passive regardless of context — the structure (subject receives action, be + V3) is the defining criterion, not meaning or style preference.
 
 ### Check Your Understanding
 
@@ -761,12 +762,28 @@ After studying this lesson, confirm you can:
 
 ### Guided Practice
 
+
+- Step 1: Identify the target word or sentence part: _____
+- Step 2: Name the applicable grammar rule: _____
+- Step 3: Choose the form that matches the rule: _____
+- Step 4: Explain why the tempting distractor is wrong: _____
+
+
 1. Identify the question type.
 2. Set up the correct model or formula.
 3. Solve step by step and verify reasonableness.
 
 
 ### Which Method?
+
+
+1. Name the rule first: agreement, tense, pronoun reference, preposition use, conjunction logic, modifier placement, parallelism, voice, article use, or reported speech.
+2. Identify the sentence part that controls the answer before choosing an option.
+3. Decide whether the item tests form, meaning, position, or relationship between clauses.
+4. Remove interrupting phrases and check the core sentence.
+5. Compare the two most tempting choices and state why one fails.
+6. Choose the answer only after naming the rule that justifies it.
+
 
 For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
 
@@ -841,4 +858,3 @@ The drills below strengthen transfer for **active and passive voice** under time
 - Step 3: Solve, then verify against all given terms/clauses.
 - Quick check: Could a different rule also fit all evidence?
 - Reflection: Name one trap option and why it is wrong.
-

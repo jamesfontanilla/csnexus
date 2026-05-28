@@ -1002,17 +1002,17 @@ How this topic connects to other areas of the CSE:
 ✅ Identify and avoid all six common percentage conversion errors
 ✅ Solve CSE-style percentage questions efficiently within 15-30 seconds each
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Converting between fractions, decimals, and percentages works because they are three notations for the same value. A fraction a/b, the decimal a÷b, and the percentage (a÷b)×100% all represent the same proportion. Moving the decimal point two places when converting to/from percent works because "percent" means "per hundred" — multiplying by 100 shifts from "per one" to "per hundred" notation.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

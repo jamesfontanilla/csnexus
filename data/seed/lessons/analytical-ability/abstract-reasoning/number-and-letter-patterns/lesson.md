@@ -402,17 +402,17 @@ Separate the letter component from the number component. Analyze each independen
 4. **Practice the "split and analyze" technique.** For any mixed pattern, immediately separate components.
 5. **When stuck, try the answer choices.** Work backward — if the answer is X, what rule would produce it from the last given term?
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Number and letter patterns encode a mathematical rule that maps position to value. Common rules include arithmetic sequences (constant difference), geometric sequences (constant ratio), and polynomial sequences (differences of differences are constant). Letters map to numbers (A=1, B=2...), so letter patterns are number patterns in disguise. Identifying the rule type from the first few terms lets you predict any subsequent term with certainty.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -421,12 +421,28 @@ Separate the letter component from the number component. Analyze each independen
 
 ### Guided Practice
 
+
+- Step 1: Identify the pattern type or logical relation: _____
+- Step 2: State the rule to test: _____
+- Step 3: Verify the rule across all given items: _____
+- Step 4: Apply the rule to the missing item: _____
+
+
 1. Identify the question type.
 2. Set up the correct model or formula.
 3. Solve step by step and verify reasonableness.
 
 
 ### Which Method?
+
+
+1. Decide whether the item tests sequence, transformation, classification, matrix relation, conditional logic, validity, or analogy relation.
+2. Name the rule before selecting an answer.
+3. Verify that the same rule fits all given evidence.
+4. Reject choices that fit only part of the pattern.
+5. Explain the relationship in one sentence.
+6. Choose the answer that preserves the relationship exactly.
+
 
 For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
 
@@ -837,4 +853,3 @@ The drills below strengthen transfer for **number and letter patterns** under ti
 - Step 3: Solve, then verify against all given terms/clauses.
 - Quick check: Could a different rule also fit all evidence?
 - Reflection: Name one trap option and why it is wrong.
-

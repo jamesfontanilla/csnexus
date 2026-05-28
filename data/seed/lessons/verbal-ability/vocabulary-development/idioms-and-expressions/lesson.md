@@ -994,17 +994,17 @@ After completing this lesson, you should be able to:
 ✅ Use memory aids (categorization, association, opposite pairs) for long-term retention
 ✅ Handle unfamiliar idioms through reasoning rather than memorization alone
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Idioms are fixed expressions whose meaning cannot be derived from their individual words — "kick the bucket" means "die," not literally kicking a bucket. They function as single semantic units stored in memory. Context is the only reliable way to determine idiom meaning because their figurative sense overrides compositional analysis. Recognizing an expression AS an idiom (rather than literal language) is the critical first step.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -1013,12 +1013,28 @@ After completing this lesson, you should be able to:
 
 ### Guided Practice
 
+
+- Step 1: Identify the clue or relationship: _____
+- Step 2: State what the context requires: _____
+- Step 3: Eliminate choices that do not fit: _____
+- Step 4: Choose and justify the best answer: _____
+
+
 1. Identify the question type.
 2. Set up the correct model or formula.
 3. Solve step by step and verify reasonableness.
 
 
 ### Which Method?
+
+
+1. Decide whether the item tests meaning, tone, context clue, relationship, structure, purpose, or inference.
+2. Point to the evidence before choosing.
+3. Eliminate choices that match only part of the context.
+4. Compare the strongest two choices for precision.
+5. State why the correct choice fits better.
+6. Check that the answer matches the full sentence or passage.
+
 
 For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
 
@@ -1040,4 +1056,3 @@ This lesson connects to related CSE topics where the same reasoning pattern appe
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

@@ -84,6 +84,7 @@ The first pair establishes a **relationship template**. The second pair must fol
 - Wheel : Car :: Engine : Airplane ✓
 - A wheel is a component of a car. An engine is a component of an airplane. Same relationship type and direction.
 
+> 🤔 **Why does this work?** Analogies test structural reasoning — the ability to abstract a relationship from one pair and apply it to another. The relationship "part-of" is a specific logical predicate: it means A is physically or conceptually contained within B, and B cannot function completely without A. When you name the relationship precisely (part-of vs. works-at vs. is-a-type-of), you create a filter that eliminates distractors. Distractors exploit surface similarity (both involve cars/hospitals) while violating the structural predicate. Naming the predicate first makes the correct answer obvious.
 
 ---
 
@@ -1053,32 +1054,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1134,11 +1135,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Synonym and Antonym Analogies:** Distinguishing part-whole from synonym relationships prevents common errors
+- **Function and Purpose Relationships:** Part-whole (wheel:car) differs from function (wheel:roll) — precision matters
+- **Shape Patterns:** Part-whole reasoning (element within a larger structure) appears in visual pattern analysis
+- **Reading Comprehension:** Identifying part-whole relationships helps understand text organization and hierarchy
 
 ### Mastery Checklist
 ✅ Identify part-to-whole relationships correctly (component inside a system)
@@ -1152,22 +1152,23 @@ How this topic connects to other areas of the CSE:
 ✅ Use elimination strategies to narrow choices efficiently
 ✅ Solve CSE-style relationship analogy questions confidently within 15-20 seconds
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Part-whole and classification relationships are distinguishable because they answer different questions: "Is A contained within B?" (part-whole) vs. "Is A a type of B?" (classification). A page is PART of a book (contained within it), but a novel is a TYPE of book (member of the category). This distinction matters because the relationships are not interchangeable — confusing them leads to selecting answers with the wrong structural relationship.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -1181,4 +1182,3 @@ How this topic connects to other areas of the CSE:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

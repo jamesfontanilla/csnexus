@@ -921,17 +921,17 @@ After completing this lesson and practice set, confirm you can:
 ✅ Avoid all common multiplication errors listed in Section 4.8
 ✅ Solve multi-step CSE-style multiplication problems under time pressure
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Multiplication distributes over addition because multiplying a sum is equivalent to multiplying each addend separately: a × (b + c) = a×b + a×c. This distributive property is why partial products work — you break a multi-digit number into place-value components, multiply each separately, then add the results. It converts one hard multiplication into several easier ones.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

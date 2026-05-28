@@ -929,19 +929,18 @@ How this topic connects to other areas of the CSE:
 ✅ Recognize when to estimate vs. when to compute exactly
 ✅ Complete CSE-style mental math percentage questions in under 15 seconds each
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Mental math shortcuts exploit the distributive and commutative properties of multiplication. Finding 15% by computing 10% + 5% works because 0.15 = 0.10 + 0.05, and multiplication distributes: 0.15×N = 0.10×N + 0.05×N. The commutative property means 8% of 50 equals 50% of 8 (both = 4) — you can swap the percentage and the base to find whichever computation is easier.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

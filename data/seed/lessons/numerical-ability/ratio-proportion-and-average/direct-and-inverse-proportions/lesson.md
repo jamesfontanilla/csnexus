@@ -1047,19 +1047,18 @@ After completing this lesson, you should be able to:
 - ✅ Handle multi-step proportion problems (e.g., workers leaving mid-project)
 - ✅ Solve CSE proportion questions in under 45 seconds each
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Direct proportion means y = kx (constant ratio), while inverse proportion means xy = k (constant product). The distinction matters because doubling one quantity doubles the other in direct proportion but halves it in inverse proportion. Identifying which type applies determines whether you multiply or divide — using the wrong operation gives an answer that is the square of the correct one away from right.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

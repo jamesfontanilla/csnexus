@@ -43,8 +43,6 @@ After this lesson, you should be able to:
 
 
 ### 4.1 Overview of Verb Tenses
-> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
-
 
 English verb tenses are organized around THREE time frames and FOUR aspects:
 
@@ -53,6 +51,8 @@ English verb tenses are organized around THREE time frames and FOUR aspects:
 | **Present** | write/writes | am/is/are writing | has/have written | has/have been writing |
 | **Past** | wrote | was/were writing | had written | had been writing |
 | **Future** | will write | will be writing | will have written | will have been writing |
+
+> 🤔 **Why does this work?** English tenses encode three time frames (past, present, future) crossed with four aspects (simple, progressive, perfect, perfect progressive), creating 12 combinations. Each combination answers a different question about when an action occurs and whether it is complete, ongoing, or connected to another time. Selecting the correct tense means matching the time-aspect combination to the temporal relationship described in the sentence.
 
 **Time relationship** tells us WHEN the action occurs:
 - **Present** — now, habitually, or as a general truth
@@ -67,12 +67,7 @@ English verb tenses are organized around THREE time frames and FOUR aspects:
 - **Continuous** — action in progress at a specific time
 - **Perfect Continuous** — action ongoing for a duration up to a reference point
 
-
-> ⚠️ **Misconception:** "The formula always works the same way regardless of the problem context."
-
-> **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
-
-> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
+> 🤔 **Why does this work?** The simple present tense describes habitual actions and general truths because these situations have no bounded time frame — they are ongoing or permanently true. "Water boils at 100°C" uses simple present because the fact holds at all times. This is why simple present is wrong for actions happening right now (use present progressive) or completed actions (use past simple).
 
 ---
 
@@ -139,29 +134,23 @@ always, usually, often, sometimes, rarely, never, every day/week/month/year, on 
 - (a) report (b) **reports** (c) reporting (d) reported
 - *Explanation:* Subject is "committee" (singular collective noun); intervening clause doesn't change agreement; habitual action → simple present.
 
-
-> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
-
-> **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
-
-> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+> ⚠️ **Misconception:** "I already submitted the report" is correct because the action is done."
+>
+> **Why it fails:** While "I already submitted" is grammatically possible (simple past), in contexts where the result matters NOW — such as confirming that a report is available — present perfect is required: "I have already submitted the report." The word "already" naturally pairs with present perfect because it emphasizes the current relevance of a completed action.
+>
+> **Correct model:** Use simple past when the TIME of the action matters ("I submitted it yesterday"). Use present perfect when the RESULT or current relevance matters ("I have already submitted it" = it's done and available now). The choice depends on whether you're reporting a past event or its present consequence.
 
 ---
 
-
 ### Check Your Understanding
 
-**1.** What is the key concept from this section? → **Review the preceding content to recall the main principle**
-
-**2.** How would you apply this concept to a practical problem? → **Identify the type of relationship, set up the correct equation, and solve step by step**
-
-**3.** What common mistake should you avoid here? → **Check the Common Mistakes section — verify your answer doesn't fall into these traps**
+**1.** Which tense describes a habitual action? → **Simple present** ("She works every day" — no bounded time frame, ongoing routine)
+**2.** "Since 2020" signals which tense? → **Present perfect** ("since" connects a past starting point to the present moment)
+**3.** Can you say "I am knowing the answer"? → **No — "know" is a stative verb** that cannot take continuous form (correct: "I know the answer")
 
 ---
 
 ### 4.3 Present Continuous Tense
-> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
-
 
 #### Structure
 
@@ -262,6 +251,8 @@ now, right now, at the moment, currently, at present, today, this week/month, lo
 - She **has been** a civil servant **since** 2018.
 - She **has been** a civil servant **for** six years.
 
+> 🤔 **Why does this work?** The present perfect ("has/have + past participle") connects past events to the present moment — it signals that a past action has current relevance. "She has submitted the report" implies the report is now available. Simple past ("She submitted the report") merely states a completed fact with no present connection. This present-relevance distinction is why time markers like "yesterday" force simple past (the connection to now is broken).
+
 #### Already, Yet, Just, Ever, Never
 
 | Word | Position | Usage |
@@ -293,8 +284,8 @@ already, yet, just, ever, never, so far, up to now, until now, recently, lately,
 ---
 
 ### 4.5 Present Perfect Continuous Tense
-> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
 
+> 🤔 **Why does this work?** Progressive (continuous) tenses use "be + -ing" because the -ing form encodes the concept of an action in progress — not yet complete. The auxiliary "be" carries tense (is/was/will be), while -ing carries aspect (ongoing). This two-part structure lets English express both WHEN something happens and WHETHER it is still happening at that moment, which single-word verb forms cannot do.
 
 #### Structure
 
@@ -459,6 +450,12 @@ yesterday, last week/month/year, ago, in 2020, when I was young, at that time, t
 **Hard:** When the auditors arrived, they ___ that several documents were missing.
 - (a) find (b) **found** (c) have found (d) are finding
 - *Explanation:* "When the auditors arrived" establishes a past time frame; the discovery happened at that past moment → simple past.
+
+> ⚠️ **Misconception:** "Simple past and present perfect are interchangeable — both describe past actions, so either works."
+>
+> **Why it fails:** "She submitted the report yesterday" (simple past) is correct, but "She has submitted the report yesterday" is WRONG. Present perfect cannot be used with specific past time markers (yesterday, last week, in 2020) because it describes actions connected to NOW, not anchored to a specific past moment. The two tenses answer different questions: simple past answers "When did it happen?" while present perfect answers "Is it relevant now?"
+>
+> **Correct model:** If a specific past time is mentioned (yesterday, last Monday, in 2019, two hours ago), use simple past. If no specific time is given and the focus is on the current result or relevance ("Have you finished?" "She has already left"), use present perfect. The presence or absence of a time marker is your strongest signal.
 
 ---
 
@@ -943,49 +940,49 @@ Memorize these pairings:
 
 Rate your confidence (1-5) on each skill before attempting the problems below. Focus extra practice on areas where you rated 3 or below.
 
-- [ ] Identify the type of problem and select the appropriate method
-- [ ] Set up the correct equation or formula for the problem
-- [ ] Execute calculations accurately and efficiently
-- [ ] Verify answers by checking reasonableness
-- [ ] Apply concepts to CSE-style word problems
-- [ ] Avoid common mistakes and traps in this topic
+- [ ] Identify the correct tense from signal words (yesterday, since, right now, by next week)
+- [ ] Distinguish simple past from present perfect based on time specificity vs. current relevance
+- [ ] Form correct verb phrases for all 12 tenses (auxiliary + main verb form)
+- [ ] Recognize stative verbs that cannot take continuous/progressive form
+- [ ] Apply past perfect correctly when sequencing two past events
+- [ ] Maintain tense consistency within a sentence or paragraph
 
 
 ---
 
 ### Which Method?
 
-For each problem, identify the type and solve.
+For each problem, identify the tense and select the correct verb form.
 
-**1.** [Problem 1]
-- **Type:** [Type]
-- **Answer:** [Answer]
-- **Why:** [Brief rationale]
+**1.** The department ___ three new programs since the start of the fiscal year.
+- **Type:** Present perfect ("since" + period still ongoing)
+- **Answer:** has launched
+- **Why:** "Since the start of the fiscal year" connects a past point to now; the period is not yet over.
 
-**2.** [Problem 2]
-- **Type:** [Type]
-- **Answer:** [Answer]
-- **Why:** [Brief rationale]
+**2.** While the director ___ the staff, the fire alarm went off.
+- **Type:** Past continuous (interrupted ongoing action)
+- **Answer:** was briefing
+- **Why:** "While" + sudden interruption ("went off") = past continuous for the ongoing action, simple past for the interruption.
 
-**3.** [Problem 3]
-- **Type:** [Type]
-- **Answer:** [Answer]
-- **Why:** [Brief rationale]
+**3.** By the time the auditors arrive tomorrow, we ___ all the records.
+- **Type:** Future perfect (completed before a future reference point)
+- **Answer:** will have organized
+- **Why:** "By the time [future event]" signals an action completed before that future moment → future perfect.
 
-**4.** [Problem 4]
-- **Type:** [Type]
-- **Answer:** [Answer]
-- **Why:** [Brief rationale]
+**4.** The government employee ___ to work at 7:30 AM every day.
+- **Type:** Simple present (habitual/routine action)
+- **Answer:** reports
+- **Why:** "Every day" signals a habitual action with no bounded time frame → simple present.
 
-**5.** [Problem 5]
-- **Type:** [Type]
-- **Answer:** [Answer]
-- **Why:** [Brief rationale]
+**5.** She ___ in the civil service for twenty years before she retired.
+- **Type:** Past perfect continuous (duration before a past reference point)
+- **Answer:** had been working
+- **Why:** "For twenty years" (duration) + "before she retired" (past reference point) → past perfect continuous emphasizes the duration leading up to retirement.
 
-**6.** [Problem 6]
-- **Type:** [Type]
-- **Answer:** [Answer]
-- **Why:** [Brief rationale]
+**6.** Look! The newly appointed director ___ toward the podium.
+- **Type:** Present continuous (action happening right now)
+- **Answer:** is walking
+- **Why:** "Look!" signals an action visible at this moment → present continuous.
 
 
 ---
@@ -994,45 +991,47 @@ For each problem, identify the type and solve.
 
 Complete the missing steps. Answers are provided below each problem.
 
-**1.** [Example 1]
+**1.** "The agency ___ several reforms since the new director took office."
 
-- Step 1: Identify the relationship: _____
-- Step 2: Set up the equation: _____
-- Step 3: Solve: _____
+- Step 1: Identify time signal: "since the new director took office"
+- Step 2: "Since" connects past point to present → tense is: _____
+- Step 3: Subject "The agency" is singular → auxiliary is: _____
+- Step 4: Complete verb phrase: _____
 
-**Answer:** [Complete solution]
+**Answer:** Present perfect. Singular subject → "has." Verb phrase: "has implemented."
 
-**2.** [Example 2]
+**2.** "While the employees ___ the quarterly report, the power went out."
 
-- Step 1: _____
-- Step 2: _____
-- Step 3: _____
+- Step 1: Identify the sentence pattern: _____ (interrupted action / habitual / completed)
+- Step 2: "While" + interruption → tense for ongoing action: _____
+- Step 3: Subject "the employees" is plural → auxiliary: _____
+- Step 4: Complete verb phrase: _____
 
-**Answer:** [Complete solution]
+**Answer:** Interrupted action pattern. Past continuous for the ongoing action. Plural → "were." Verb phrase: "were preparing."
 
-**3.** [Example 3]
+**3.** "By next Friday, the committee ___ all applications."
 
-- Step 1: _____
-- Step 2: _____
-- Step 3: _____
+- Step 1: Identify time signal: "By next Friday"
+- Step 2: "By + future time" → action completed before that point → tense: _____
+- Step 3: Verb phrase structure: _____ + _____ + _____
 
-**Answer:** [Complete solution]
+**Answer:** Future perfect. Structure: will + have + past participle. Verb phrase: "will have reviewed."
 
-**4.** [Example 4]
+**4.** "The supervisor ___ the memo before the staff arrived yesterday."
 
-- Step 1: _____
-- Step 2: _____
-- Step 3: _____
+- Step 1: How many past events? _____ Which happened first? _____
+- Step 2: Earlier past action → tense: _____
+- Step 3: Verb phrase: _____
 
-**Answer:** [Complete solution]
+**Answer:** Two past events; signing happened first. Earlier action → past perfect. Verb phrase: "had signed."
 
-**5.** [Example 5]
+**5.** "She ___ in government service for 15 years now."
 
-- Step 1: _____
-- Step 2: _____
-- Step 3: _____
+- Step 1: Duration ("for 15 years") + "now" (still true) → tense: _____
+- Step 2: Subject + auxiliary: _____
+- Step 3: Complete: _____
 
-**Answer:** [Complete solution]
+**Answer:** Present perfect (or present perfect continuous for emphasis on duration). "She has worked" or "She has been working."
 
 ### Mini Practice Set (20 Questions)
 
@@ -1144,11 +1143,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Active and Passive Voice:** Passive constructions require matching the correct tense form of the 'be' auxiliary
+- **Direct and Indirect Speech:** Converting between direct and indirect speech requires systematic tense shifting
+- **Subject-Verb Agreement:** Tense selection and number agreement work together — both must be correct simultaneously
+- **Reading Comprehension:** Recognizing tense shifts in passages signals changes in time frame or perspective
 
 ### Mastery Checklist
 
@@ -1166,24 +1164,6 @@ After completing this lesson, you can now:
 ✅ Solve conditional sentence questions (zero, first, second, third)
 
 ---
-
----
-
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
 
 ## Worked Examples
 

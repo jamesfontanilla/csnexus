@@ -764,17 +764,17 @@ The CSE tends to follow predictable patterns:
 | Medium | Less common words, multiple plausible answers, requires context analysis |
 | Hard | Rare/academic words, subtle distinctions, misleading distractors, words with multiple meanings |
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** True synonyms are rare — most "synonyms" share denotation but differ in connotation, register, or collocational range. "Big" and "large" overlap in meaning but diverge in usage: "big sister" works but "large sister" doesn't. This is why context determines which synonym fits: the correct choice must match not just the meaning but also the formality level, emotional tone, and typical word partnerships of the surrounding text.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -783,12 +783,28 @@ The CSE tends to follow predictable patterns:
 
 ### Guided Practice
 
+
+- Step 1: Identify the clue or relationship: _____
+- Step 2: State what the context requires: _____
+- Step 3: Eliminate choices that do not fit: _____
+- Step 4: Choose and justify the best answer: _____
+
+
 1. Identify the question type.
 2. Set up the correct model or formula.
 3. Solve step by step and verify reasonableness.
 
 
 ### Which Method?
+
+
+1. Decide whether the item tests meaning, tone, context clue, relationship, structure, purpose, or inference.
+2. Point to the evidence before choosing.
+3. Eliminate choices that match only part of the context.
+4. Compare the strongest two choices for precision.
+5. State why the correct choice fits better.
+6. Check that the answer matches the full sentence or passage.
+
 
 For each problem, decide first: ratio/proportion, arithmetic pattern, grammar rule, or context-clue strategy. Then solve using that method.
 

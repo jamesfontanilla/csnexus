@@ -79,6 +79,8 @@ This structure guarantees the conclusion regardless of what A, B, and X represen
 
 **CSE Trap:** Many exam questions present arguments with obviously false premises to test whether you can separate truth from validity. If you reject a valid argument because its premises are absurd, you've fallen into the trap.
 
+> 🤔 **Why does this work?** Validity is structure-dependent because logical form is what preserves truth across all possible interpretations. When you test validity, you're asking: "Is there ANY interpretation where the premises are true but the conclusion is false?" If no such interpretation exists, the form itself guarantees truth-preservation — regardless of what the variables represent. This is why you can evaluate validity using abstract letters (All A are B; X is A; therefore X is B) without knowing what A, B, or X stand for. The form does the logical work; the content is irrelevant to the structural guarantee.
+
 ---
 
 ## 4.2 True Statements vs Valid Arguments
@@ -1050,32 +1052,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1131,11 +1133,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Logical Operators:** Truth tables define operator behavior, which determines argument validity
+- **Conditional Reasoning:** Valid conditional argument forms (modus ponens, modus tollens) are key validity patterns
+- **Syllogisms:** Syllogism validity is the most common validity-testing format on the CSE
+- **Analytical Comprehension:** Evaluating argument validity in reading passages uses the same structural analysis
 
 ### Mastery Checklist
 ✅ Distinguish truth from validity correctly — they are independent properties
@@ -1149,22 +1150,23 @@ How this topic connects to other areas of the CSE:
 ✅ Solve CSE validity questions within 45-60 seconds using shortcuts
 ✅ Eliminate incorrect answer choices using structural analysis rather than intuition
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Separating truth from validity works because they are logically independent properties. Truth is about correspondence with reality (a property of individual statements); validity is about logical structure (a property of arguments). An argument can have false premises and still be valid, because validity only asks: "IF the premises WERE true, would the conclusion be guaranteed?" This conditional framing is what lets you evaluate structure without knowing facts.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -1178,4 +1180,3 @@ How this topic connects to other areas of the CSE:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

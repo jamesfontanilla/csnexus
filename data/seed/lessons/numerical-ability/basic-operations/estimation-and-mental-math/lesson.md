@@ -1456,17 +1456,17 @@ How this topic connects to other areas of the CSE:
 - **Mental division:** Use reciprocal multiplication shortcuts (÷5 = ×2÷10) or simplify first.
 - **Reasonableness:** Always check magnitude, sign, and last digit before selecting your answer.
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Estimation works because rounding to convenient numbers (multiples of 10, 25, or 100) preserves the order of magnitude while eliminating computational difficulty. If you round both operands in the same direction, you get a bound; if you round one up and one down, errors partially cancel. On multiple-choice exams, even rough estimates eliminate 2-3 wrong answers because distractors are typically off by a factor of 10 or more.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

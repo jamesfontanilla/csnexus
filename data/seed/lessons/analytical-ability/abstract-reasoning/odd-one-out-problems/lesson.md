@@ -80,7 +80,7 @@ Odd-one-out problems present you with a set of items — typically four or five 
 - **Operation-based:** All numbers follow a rule (e.g., all even) except one
 - **Structural-based:** All have the same internal arrangement except one
 
-<svg width="320" height="100" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+> 🤔 **Why does this work?** Classification problems have a unique logical constraint: the correct rule must produce an exact n-1 vs. 1 partition. If you test a candidate rule and it splits the set 3-vs-2 or 2-vs-3, that rule is wrong — it doesn't isolate a single outlier. This constraint dramatically narrows your search: you only need to find the property that exactly one item lacks (or exactly one item has). Checking each candidate rule against this partition requirement is faster than trying to "see" the answer intuitively.
   <text x="160" y="15" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">Example: Which does NOT belong?</text>
   <rect x="10" y="25" width="65" height="65" fill="none" stroke="#ddd" stroke-width="1" rx="4"/>
   <polygon points="42,35 62,75 22,75" fill="none" stroke="#2196F3" stroke-width="2"/>
@@ -758,32 +758,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -839,11 +839,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Odd-One-Out:** This lesson extends the theory from the odd-one-out lesson with additional practice problems
+- **Shape Patterns:** Many odd-one-out problems require identifying which shape breaks a pattern rule
+- **Figure Series:** Classification skills help verify whether a predicted next figure fits the series rule
+- **Matrix Reasoning:** Both problem types require systematic testing of multiple possible rules
 
 ### Mastery Checklist
 After completing this lesson and practice set, you should be able to:
@@ -857,22 +856,23 @@ After completing this lesson and practice set, you should be able to:
 ✅ Avoid common traps (visual distinctiveness ≠ logical inconsistency)
 ✅ Apply the 4-step method: Scan → Identify Rule → Isolate Exception → Confirm
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** The 4-step method (scan, identify rule, isolate exception, confirm) works because it forces you to verify your hypothesis against ALL items before committing to an answer. Many examinees identify a difference between two items and immediately select one as the outlier — but that difference might not be the classification rule. Confirmation against the full set prevents this premature commitment error.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -886,4 +886,3 @@ After completing this lesson and practice set, you should be able to:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

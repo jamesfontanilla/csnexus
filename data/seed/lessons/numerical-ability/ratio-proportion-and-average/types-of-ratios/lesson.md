@@ -1212,19 +1212,18 @@ After completing this lesson, you should be able to:
 - ✅ Avoid common errors (reversed order, wrong total, single-term division)
 - ✅ Solve CSE-style ratio-type questions efficiently under time pressure
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Different ratio types (part-to-part, part-to-whole, rate) all express the same underlying concept — a multiplicative comparison — but frame it differently. A part-to-whole ratio is equivalent to a fraction, which is equivalent to a percentage. Converting between these forms works because they are all representations of the same proportional relationship, just expressed with different denominators.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

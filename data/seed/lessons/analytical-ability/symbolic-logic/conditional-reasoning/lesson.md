@@ -111,6 +111,8 @@ Reversing a conditional changes its meaning entirely:
 
 The original and its reverse are NOT logically equivalent. This is one of the most common errors on the CSE.
 
+> 🤔 **Why does this work?** A conditional P → Q is asymmetric because it only constrains what happens when P is true — it makes no claim about situations where P is false. Reversing to Q → P creates a completely different constraint (what happens when Q is true). The asymmetry exists because "if" establishes a one-way guarantee: knowing the antecedent is true lets you conclude the consequent is true, but knowing the consequent is true tells you nothing about the antecedent (the consequent might have other causes). This one-directional flow is why contrapositive (¬Q → ¬P) is valid but converse (Q → P) is not.
+
 ---
 
 ## 4.3 Necessary and Sufficient Conditions
@@ -939,32 +941,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1020,11 +1022,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Logical Operators:** The conditional (→) is a logical operator with a specific truth table
+- **Syllogisms:** Many syllogisms are chains of conditional statements (if A then B, if B then C)
+- **Truth and Validity:** Valid argument forms (modus ponens, modus tollens) are conditional reasoning patterns
+- **Reading Comprehension:** Identifying conditional relationships in passages helps evaluate arguments
 
 ### Mastery Checklist
 ✅ Define conditional reasoning and identify if-then relationships correctly
@@ -1040,22 +1041,23 @@ How this topic connects to other areas of the CSE:
 ✅ Solve CSE-style conditional reasoning questions efficiently under time pressure
 ✅ Eliminate incorrect answer choices using logical structure analysis
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Conditional reasoning is reliable because valid inference forms (modus ponens, modus tollens) are truth-preserving by definition — if the premises are true, the conclusion MUST be true. Invalid forms (affirming the consequent, denying the antecedent) fail because they assume a bidirectional relationship where only a unidirectional one exists. Memorizing which forms are valid lets you evaluate arguments mechanically without being misled by plausible-sounding but logically flawed reasoning.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -1069,4 +1071,3 @@ How this topic connects to other areas of the CSE:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

@@ -50,7 +50,7 @@ After this lesson, you should be able to:
 ---
 
 ### 4.1 What Are Modifiers?
-> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
+> 🤔 **Why does this work?** Adjectives modify nouns and adverbs modify verbs/adjectives/other adverbs because each targets a different word class. "She drove careful" is wrong because "careful" (adjective) tries to modify "drove" (verb) — you need "carefully" (adverb). The -ly suffix is a morphological signal that converts an adjective into an adverb, telling the reader "this word modifies the verb, not the noun."
 
 
 #### Definition
@@ -112,7 +112,7 @@ This single rule prevents most modifier errors. When a modifier is separated fro
 
 > **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
 
-> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
+> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, sentence-role, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
 
 ---
 
@@ -199,11 +199,11 @@ When multiple adjectives modify the same noun, they follow a specific order:
 | Double adjective | The *most prettiest* design | The *prettiest* design |
 
 
-> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
+> ⚠️ **Misconception:** "If my chosen answer is close to one of the choices, it must be right."
 
 > **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
 
-> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, identify the controlling sentence structure properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
 
 ---
 
@@ -219,7 +219,7 @@ When multiple adjectives modify the same noun, they follow a specific order:
 ---
 
 ### 4.3 Adverb Modifiers
-> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
+> 🤔 **Why does this work?** Dangling modifiers occur when a modifying phrase has no logical subject in the sentence. "Walking to the office, the rain started" implies the rain was walking. The rule is: the subject of the main clause must be the doer of the action in the modifying phrase. This constraint exists because English uses proximity and position (not inflection) to signal what modifies what — if the modifier is next to the wrong noun, it attaches to that noun.
 
 
 #### What Are Adverb Modifiers?
@@ -357,7 +357,7 @@ An appositive renames or identifies a noun and is set off by commas:
 ---
 
 ### 4.5 Clauses as Modifiers
-> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
+> 🤔 **Why does this work?** Comparative and superlative forms follow a syllable-count rule: one-syllable adjectives add -er/-est (tall, taller, tallest), while three+ syllable adjectives use more/most (beautiful, more beautiful, most beautiful). Two-syllable adjectives vary. This pattern exists because longer words become phonologically awkward with suffixes ("beautifuller" is hard to pronounce), so English uses a separate word (more) instead of a bound morpheme (-er).
 
 
 #### Adjective Clauses (Relative Clauses)
@@ -920,32 +920,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -957,7 +957,7 @@ Complete the missing steps. Answers are provided below each problem.
 **1.** [Example 1]
 
 - Step 1: Identify the relationship: _____
-- Step 2: Set up the equation: _____
+- Step 2: Identify the controlling sentence structure: _____
 - Step 3: Solve: _____
 
 **Answer:** [Complete solution]
@@ -1001,11 +1001,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Sentence Structure:** Modifiers (adjectives, adverbs, phrases) expand basic sentence patterns without changing core structure
+- **Parallelism:** Parallel structure requires modifiers of the same type to maintain grammatical consistency
+- **Reading Comprehension:** Identifying modifiers helps distinguish main ideas from supporting details in passages
+- **Word Formation:** Many modifiers are formed through suffixes (-ly, -ful, -less) studied in word formation
 
 ### Mastery Checklist
 
@@ -1024,17 +1023,17 @@ After completing this lesson, you should be able to:
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Modifiers must be placed adjacent to the word they modify because English relies on word order (not inflection) to signal grammatical relationships. A misplaced modifier attaches to the wrong word, creating unintended meaning: "She almost drove her kids to school every day" (she nearly drove but didn't) vs. "She drove her kids to school almost every day" (she drove most days). Position determines meaning.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

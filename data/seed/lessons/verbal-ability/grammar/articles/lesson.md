@@ -51,7 +51,7 @@ After this lesson, you should be able to:
 ---
 
 ### 4.1 What Are Articles?
-> 🤔 **Why does this work?** The principle behind this operation follows from the fundamental properties of arithmetic. Understanding the "why" — not just the "how" — lets you recognize when to apply this method in unfamiliar problem contexts on the CSE.
+> 🤔 **Why does this work?** The choice between "a/an" depends on the SOUND that follows, not the letter — "an hour" (silent h, vowel sound) but "a university" (consonant sound /juː/). This phonological rule exists because articles are unstressed function words that flow into the next word. Placing a vowel sound directly before another vowel sound ("a apple") creates an awkward glottal stop; "an" provides a consonant buffer (/ən ˈæpəl/) for smoother articulation.
 
 
 #### Definition
@@ -107,7 +107,7 @@ In some cases, no article is used at all. This is called the **zero article**:
 
 > **Why it fails:** CSE problems often present variations where the standard formula must be adapted. Blindly applying a memorized formula without checking the context leads to systematic errors.
 
-> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, part-whole, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
+> **Correct model:** Always read the problem to identify what type of relationship exists (direct, inverse, sentence-role, etc.), then apply the appropriate formula. Verify your answer makes sense in the problem's context before selecting it.
 
 ---
 
@@ -238,11 +238,11 @@ Indefinite articles are used when:
 - *Explanation:* "Unanimous" = "yoo-nanimous" (consonant /j/). "Hour" = silent h (vowel /aʊ/).
 
 
-> ⚠️ **Misconception:** "If my computed answer is close to one of the choices, it must be right."
+> ⚠️ **Misconception:** "If my chosen answer is close to one of the choices, it must be right."
 
 > **Why it fails:** The CSE deliberately includes distractors that result from common errors — using the wrong operation, misidentifying the proportion type, or reversing the ratio. A "close" answer could be the result of a systematic mistake that the test writers anticipated.
 
-> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, set up the equation properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
+> **Correct model:** Verify your setup before computing. Check that you've identified the correct proportion type, identify the controlling sentence structure properly, and solved accurately. A wrong setup with correct arithmetic still produces a wrong answer — and the CSE will include that wrong answer among the choices.
 
 ---
 
@@ -258,7 +258,7 @@ Indefinite articles are used when:
 ---
 
 ### 4.3 Definite Article: The
-> 🤔 **Why does this work?** When you follow this procedure, you're exploiting a mathematical invariant — something that stays constant regardless of how you manipulate the numbers. Identifying that invariant is the key to solving problems efficiently rather than memorizing steps.
+> 🤔 **Why does this work?** "The" (definite article) presupposes that both speaker and listener can uniquely identify the referent. "The report" assumes you know WHICH report. This shared-knowledge requirement is why first mentions use "a" ("I read a report") and subsequent mentions use "the" ("The report was excellent") — the first mention introduces the referent into shared knowledge, making "the" appropriate afterward.
 
 
 #### The Core Rule
@@ -483,7 +483,7 @@ When referring to ALL members of a category:
 ---
 
 ### 4.5 Articles with Singular and Plural Nouns
-> 🤔 **Why does this work?** This shortcut works because it's a special case of the more general rule. By understanding the underlying principle, you can verify your answer logically even if you forget the exact formula under exam pressure.
+> 🤔 **Why does this work?** Zero article (no article) is used with uncountable nouns in general statements ("Water is essential") and plural countable nouns used generically ("Dogs are loyal"). Articles are omitted because the noun refers to the entire category, not a specific instance. Adding "the" would restrict the reference: "The water is essential" implies specific water, not water in general. The presence or absence of an article changes the scope of reference.
 
 
 #### Countable Nouns
@@ -1122,32 +1122,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1159,7 +1159,7 @@ Complete the missing steps. Answers are provided below each problem.
 **1.** [Example 1]
 
 - Step 1: Identify the relationship: _____
-- Step 2: Set up the equation: _____
+- Step 2: Identify the controlling sentence structure: _____
 - Step 3: Solve: _____
 
 **Answer:** [Complete solution]
@@ -1203,11 +1203,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Vocabulary in Context:** Article choice (a/an/the) depends on whether the noun is specific or general in context
+- **Reading Comprehension:** Article usage signals whether information is new (a/an) or previously mentioned (the)
+- **Sentence Structure:** Articles are determiners that mark the beginning of noun phrases
+- **Pronouns:** Articles and pronouns both function as determiners — understanding one helps with the other
 
 ### Mastery Checklist
 
@@ -1230,19 +1229,18 @@ After completing this lesson, you should be able to:
 
 Articles are among the smallest words in English but carry enormous grammatical weight. The three articles — **a**, **an**, and **the** — plus the zero article (no article) form a system that signals whether a noun is specific or general, countable or uncountable, singular or plural. The most critical rules for the CSE are: (1) "a" vs. "an" is determined by SOUND, not spelling; (2) "the" marks specific, identifiable nouns; (3) general statements about abstract, plural, or uncountable nouns use no article; and (4) geographical names follow specific patterns that must be memorized. Master these rules and you will handle article questions with confidence on exam day.
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Articles signal whether a noun is specific (the) or general (a/an) to the listener. "The" presupposes shared knowledge — both speaker and listener can identify the referent. "A/an" introduces new or non-specific information. This definiteness distinction helps readers track which entities are being discussed across sentences, making articles essential for coherent discourse even though many languages lack them entirely.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

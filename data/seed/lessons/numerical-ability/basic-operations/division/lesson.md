@@ -1189,17 +1189,17 @@ After completing this lesson, you should be able to:
 - ✅ Solve CSE-style word problems involving division of all number types
 - ✅ Verify answers using multiplication and catch common errors
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Division is the inverse of multiplication: a ÷ b = c means a = b × c. This inverse relationship is why you can check division by multiplying quotient × divisor. For fractions, "Keep-Change-Flip" works because dividing by a fraction is equivalent to multiplying by its reciprocal: (a/b) ÷ (c/d) = (a/b) × (d/c), since multiplying by d/c undoes the division by c/d.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

@@ -730,32 +730,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -875,11 +875,10 @@ Rate your confidence (1-5) on each skill before attempting the problems below. F
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Proportion Word Problems:** Scale problems are a specific application of proportion — map distance : actual distance = scale ratio
+- **Direct and Inverse Proportions:** Scale relationships are direct proportions — doubling map distance doubles actual distance
+- **Ratio Word Problems:** Scale is expressed as a ratio (1:1000) and solved using the same ratio techniques
+- **Basic Percentage Problems:** Scale can be expressed as a percentage (e.g., 1% scale means 1 cm represents 100 cm)
 
 ### Mastery Checklist
 
@@ -896,19 +895,18 @@ After completing this lesson, you should be able to:
 - ✅ Eliminate unreasonable answer choices quickly
 - ✅ Solve CSE scale and map questions confidently under time pressure
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Scale problems are direct proportions where the scale factor is constant across all measurements. If 1 cm represents 50 km, then every centimeter on the map represents exactly 50 km in reality — the relationship is linear. This means you can set up a proportion (map₁/actual₁ = map₂/actual₂) and cross-multiply to find any unknown distance, because the scale ratio is invariant.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

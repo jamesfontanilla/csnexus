@@ -1061,17 +1061,17 @@ How this topic connects to other areas of the CSE:
 
 ---
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Word problems map natural language to mathematical operations through structural keywords. "Total," "combined," and "altogether" signal addition; "remaining," "difference," and "left" signal subtraction; "each," "per," and "every" signal multiplication or division. Identifying these keywords converts an English paragraph into a mathematical equation — the translation step is where most errors occur, not the computation.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

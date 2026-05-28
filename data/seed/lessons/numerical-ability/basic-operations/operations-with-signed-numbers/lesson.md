@@ -1117,17 +1117,17 @@ How this topic connects to other areas of the CSE:
 ✅ Use estimation to verify answers and eliminate impossible choices
 ✅ Avoid common sign errors under exam time pressure
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** The sign rules for multiplication (negative × negative = positive) follow from the requirement that multiplication must distribute over addition consistently. If -1 × (3 + (-3)) must equal 0 (since 3 + (-3) = 0), then -1×3 + -1×(-3) = 0, so -3 + -1×(-3) = 0, meaning -1×(-3) = +3. The rule isn't arbitrary — it's the only assignment that preserves the distributive property for negative numbers.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

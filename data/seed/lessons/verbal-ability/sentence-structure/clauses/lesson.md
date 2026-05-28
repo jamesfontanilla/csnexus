@@ -708,32 +708,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -902,11 +902,10 @@ If you can put a period at the end and it makes complete sense, it's independent
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Conjunctions:** Subordinating conjunctions create dependent clauses; coordinating conjunctions join independent clauses
+- **Types of Sentences by Structure:** Sentence types are defined by the number and type of clauses they contain
+- **Pronouns:** Relative pronouns (who, which, that) introduce adjective clauses
+- **Subject-Verb Agreement:** Each clause has its own subject-verb pair that must agree independently
 
 ### Mastery Checklist
 
@@ -925,17 +924,17 @@ After completing this lesson, you can now:
 ✅ Analyze complex sentences with multiple embedded clauses
 ✅ Solve CSE-style clause questions using elimination strategies
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** A clause is the minimal unit that can express a complete proposition (subject + predicate). Independent clauses can stand alone because they contain a complete thought; dependent clauses cannot because subordinating words (although, because, which) mark them as incomplete — they modify or complement another clause. Recognizing clause boundaries lets you identify the main idea (independent clause) versus supporting information (dependent clauses).
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 

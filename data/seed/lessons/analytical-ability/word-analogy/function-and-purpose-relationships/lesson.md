@@ -79,6 +79,8 @@ The most reliable technique is to form a sentence that captures the exact functi
 
 **Critical Rule:** The function must be the PRIMARY, SPECIFIC action — not a vague or secondary use.
 
+> 🤔 **Why does this work?** The bridge sentence method works because it forces you to articulate the exact predicate connecting the two words. Vague predicates ("is related to," "is associated with") match too many answer choices; specific predicates ("is used to cut") match only one. By testing your bridge sentence against each answer choice, you're checking whether the same predicate holds — and since function relationships are defined by a single primary action, only the correct answer will satisfy the specific predicate while distractors will require a different (vaguer or shifted) predicate.
+
 ### Why Relationship Consistency Matters
 
 The first pair establishes a **functional template**. The second pair must follow that template exactly:
@@ -946,32 +948,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1027,11 +1029,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Part-Whole and Classification Relationships:** Function (knife:cut) differs from part-whole (blade:knife) — the relationship type matters
+- **Cause-Effect and Progression Relationships:** Function (tool does action) differs from cause-effect (event produces result)
+- **Synonym and Antonym Analogies:** All analogy types use the same bridge sentence method for verification
+- **Vocabulary Development:** Knowing precise word meanings helps identify the primary function of tools and objects
 
 ### Mastery Checklist
 ✅ Identify tool-and-function relationships correctly (knife : cut, hammer : pound)
@@ -1045,22 +1046,23 @@ How this topic connects to other areas of the CSE:
 ✅ Recognize and avoid common traps (secondary functions, vague actions, reversed direction)
 ✅ Analyze advanced functional relationships using root words and context clues
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Function analogies are solvable because every tool or role has one PRIMARY function that defines it — a knife's defining function is cutting, not spreading or prying. The bridge sentence "A is used to B" works as a filter because it demands specificity: "broom is used to sweep" passes, but "broom is used to clean" is too vague (mops also clean). Specificity of the predicate is what distinguishes correct answers from close distractors.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
+
+> **Why does this work?** A valid reasoning rule must explain every given item consistently; testing the same rule across the full set prevents early-pattern traps.
 
 ### Check Your Understanding
 
@@ -1074,4 +1076,3 @@ How this topic connects to other areas of the CSE:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

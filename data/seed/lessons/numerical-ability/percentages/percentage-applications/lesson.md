@@ -1269,19 +1269,18 @@ How this topic connects to other areas of the CSE:
 ✅ Use elimination strategies to narrow down multiple-choice answers
 ✅ Solve difficult CSE application problems in under 90 seconds
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Percentage applications all reduce to the same P = R × W equation applied in context. Whether computing tax, commission, or interest, you identify which quantity is the rate, which is the base, and which is the result. The formula works universally because "percent" literally means "per hundred" — it standardizes comparison across different magnitudes by expressing everything relative to a common denominator of 100.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.

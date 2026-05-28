@@ -2,6 +2,8 @@
 
 ## Explanations
 
+> 🤔 **Why does this work?** Sentence structure classification is based on clause count and type — not on length, complexity of vocabulary, or topic. A 50-word sentence with one subject-verb pair and many prepositional phrases is still simple. A 10-word sentence with two independent clauses joined by "and" is compound. This structural analysis works because clause boundaries are marked by explicit signals (conjunctions, relative pronouns, punctuation) that you can identify mechanically.
+
 ### Introduction
 
 **Sentence structure** refers to how clauses are arranged and connected within a sentence. English sentences are classified into four structural types — simple, compound, complex, and compound-complex — based on the number and kind of clauses they contain.
@@ -196,6 +198,8 @@ A **compound sentence** contains TWO OR MORE independent clauses and NO dependen
 | **O**r | Alternative | "Submit the form today, or you will miss the deadline." |
 | **Y**et | Contrast (stronger) | "The evidence was clear, yet the committee hesitated." |
 | **S**o | Result/effect | "The deadline passed, so the application was denied." |
+
+> 🤔 **Why does this work?** Compound sentences require a conjunction or semicolon between independent clauses because English grammar has no way to signal where one complete thought ends and another begins without an explicit boundary marker. Without it, you get a comma splice or run-on — the reader cannot tell whether words after the comma modify the first clause or start a new one. The coordinating conjunction simultaneously marks the boundary AND specifies the logical relationship (addition, contrast, cause, etc.) between the two thoughts.
 
 ### Punctuation Rule
 
@@ -927,32 +931,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -1008,11 +1012,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Clauses:** Sentence structure classification is based entirely on clause types and combinations
+- **Conjunctions:** Conjunction choice determines whether a sentence is compound, complex, or compound-complex
+- **Parallelism:** Compound and compound-complex sentences require parallel structure in coordinated elements
+- **Reading Comprehension:** Recognizing sentence structure helps parse complex passages efficiently
 
 ### Mastery Checklist
 After completing this lesson, you can now:
@@ -1028,17 +1031,17 @@ After completing this lesson, you can now:
 ✅ Use the 4-step classification method under exam time pressure
 ✅ Solve CSE-style sentence structure questions with confidence
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Sentence structure classification works mechanically because it depends on countable, identifiable features: how many independent clauses? How many dependent clauses? Are they joined by coordinating or subordinating conjunctions? These questions have definite answers that you can determine by finding subject-verb pairs and checking for subordinating words. Length, vocabulary difficulty, and topic complexity are irrelevant — only clause count and type matter.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -1057,4 +1060,3 @@ After completing this lesson, you can now:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

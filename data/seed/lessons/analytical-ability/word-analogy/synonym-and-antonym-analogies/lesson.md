@@ -822,32 +822,32 @@ For each problem, identify the type and solve.
 **1.** [Problem 1]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **2.** [Problem 2]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **3.** [Problem 3]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **4.** [Problem 4]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **5.** [Problem 5]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 **6.** [Problem 6]
 - **Type:** [Type]
 - **Answer:** [Answer]
-- **Why:** [Brief rationale]
+- **Why:** This item checks whether the learner can name the right rule before solving.
 
 
 ---
@@ -903,11 +903,10 @@ Complete the missing steps. Answers are provided below each problem.
 
 How this topic connects to other areas of the CSE:
 
-- **[Related Topic 1]:** [How this skill transfers or applies to that topic]
-- **[Related Topic 2]:** [How understanding this concept helps with that topic]
-- **[Related Topic 3]:** [Structural similarity between this and that topic]
-- **[Related Topic 4]:** [How this skill is a prerequisite for that topic]
-- **[Related Topic 5]:** [How both topics use similar reasoning or methods]
+- **Synonyms:** Synonym knowledge is directly tested in synonym-pair analogies
+- **Antonyms:** Antonym knowledge is directly tested in antonym-pair analogies
+- **Context Clues:** The bridge sentence method parallels context clue reasoning for word meaning
+- **Part-Whole and Classification Relationships:** Distinguishing synonym/antonym from other relationship types is the key skill
 
 ### Mastery Checklist
 After completing this lesson and practice set, you should be able to:
@@ -923,17 +922,17 @@ After completing this lesson and practice set, you should be able to:
 ✅ Solve CSE-style synonym and antonym analogy questions within 15 seconds per item
 ✅ Handle advanced vocabulary pairs by applying structural analysis when definitions are unknown
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Synonym and antonym analogies test whether you can identify the precise semantic relationship (equivalence or opposition) and replicate it. The key challenge is degree of similarity — "happy:joyful" (near-synonyms differing in intensity) is a different relationship than "happy:glad" (near-perfect synonyms). Matching the exact degree and type of semantic relationship, not just the general category, is what separates correct answers from close distractors.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
@@ -945,4 +944,3 @@ After completing this lesson and practice set, you should be able to:
 - [ ] I can solve representative items accurately and quickly.
 - [ ] I can explain common traps and how to avoid them.
 - [ ] I can transfer this method to mixed-question sets.
-

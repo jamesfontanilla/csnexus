@@ -952,19 +952,18 @@ After completing this lesson, you should be able to:
 
 ✅ Avoid the most common traps (1 is not prime, -10 < -3, 0.9 > 0.15)
 
-> ?? **Why does this work?** Understanding the principle helps you choose the right method under exam pressure, even when the question format changes.
+> 🤔 **Why does this work?** Place value works because our number system is positional — each digit's value depends on its position, with each place representing a power of 10. The digit 3 in 300 represents 3×10², while in 30 it represents 3×10¹. This exponential structure means you can represent any number using only ten symbols (0-9) by leveraging position to encode magnitude.
 
 
-> ?? **Misconception:** "A memorized shortcut always works."
-
-> **Why it fails:** Different question structures require different setups.
-
-> **Correct model:** Identify the relationship first, then choose the method.
-
-
-> ?? **Misconception:** "A memorized shortcut always works."
+> **Misconception:** "A memorized shortcut always works."
 
 > **Why it fails:** Different question structures require different setups.
 
 > **Correct model:** Identify the relationship first, then choose the method.
 
+
+> **Misconception:** "A memorized shortcut always works."
+
+> **Why it fails:** Different question structures require different setups.
+
+> **Correct model:** Identify the relationship first, then choose the method.
