@@ -1,11 +1,14 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { apiClient } from "../../api/client";
 import { PageTransition } from "../../components/PageTransition";
 import { GlassCard } from "../../components/GlassCard";
 import { GlassInput } from "../../components/GlassInput";
 import { GlassButton } from "../../components/GlassButton";
+import { GradientText } from "../../components/GradientText";
 import { GoogleSignInWithCategoryPicker } from "../../components/GoogleSignInButton";
+import { scaleIn } from "../../design-system";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -50,214 +53,102 @@ export function Signup() {
           alignItems: "center",
           justifyContent: "center",
           minHeight: "calc(100vh - 4rem)",
-          padding: "2rem 1rem",
+          padding: "var(--space-8) var(--space-4)",
         }}
       >
-        <GlassCard
-          blur="lg"
-          style={{
-            width: "100%",
-            maxWidth: "420px",
-            padding: "2.5rem",
-          }}
+        <motion.div
+          initial={scaleIn.initial}
+          animate={scaleIn.animate}
+          transition={scaleIn.transition}
+          style={{ width: "100%", maxWidth: "420px" }}
         >
-          <h1
-            style={{
-              fontFamily: "var(--font-family)",
-              fontSize: "var(--font-size-3xl)",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              textAlign: "center",
-              marginBottom: "2rem",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Create Account
-          </h1>
-
-          {/* Google OAuth */}
-          <GoogleSignInWithCategoryPicker />
-
-          {/* Divider */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              margin: "1.5rem 0",
-              gap: "0.75rem",
-            }}
-          >
-            <div style={{ flex: 1, height: "1px", background: "var(--glass-border-light)" }} />
-            <span
-              style={{
-                fontSize: "var(--font-size-sm)",
-                color: "var(--color-text-secondary)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              or
-            </span>
-            <div style={{ flex: 1, height: "1px", background: "var(--glass-border-light)" }} />
-          </div>
-
-          {/* Continue with Email toggle */}
-          {!showEmailForm ? (
-            <GlassButton
-              variant="secondary"
-              type="button"
-              onClick={() => setShowEmailForm(true)}
-              aria-label="Continue with email"
-              style={{ width: "100%" }}
-            >
-              Continue with Email
-            </GlassButton>
-          ) : (
-            <form onSubmit={handleSubmit} aria-label="Signup form">
-              <GlassInput
-                id="signup-email"
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-              />
-
-              <GlassInput
-                id="signup-display-name"
-                label="Display Name"
-                type="text"
-                value={displayName}
-                onChange={(e) => setDisplayName(e.target.value)}
-                required
-                maxLength={255}
-                placeholder="Your name"
-                autoComplete="name"
-              />
-
-              <GlassInput
-                id="signup-username"
-                label="Username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                minLength={3}
-                maxLength={30}
-                placeholder="Choose a username"
-                autoComplete="username"
-              />
-
-              <GlassInput
-                id="signup-password"
-                label="Password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                autoComplete="new-password"
-              />
-              <p
+          <GlassCard blur="lg" style={{ padding: "var(--space-10)" }}>
+            {/* Logo mark */}
+            <div style={{ textAlign: "center", marginBottom: "var(--space-6)" }}>
+              <div style={{ fontSize: "2.5rem", marginBottom: "var(--space-2)" }}>🎓</div>
+              <h1
                 style={{
-                  color: "var(--color-text-secondary)",
-                  fontSize: "var(--font-size-sm)",
-                  marginTop: "-0.5rem",
-                  marginBottom: "0.75rem",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "var(--font-size-3xl)",
+                  fontWeight: 800,
+                  textAlign: "center",
+                  marginBottom: "var(--space-1)",
+                  letterSpacing: "-0.03em",
                 }}
               >
-                Min 8 chars, 1 uppercase, 1 lowercase, 1 digit, 1 special character
+                <GradientText variant="accent">Create Account</GradientText>
+              </h1>
+              <p style={{ color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)", margin: 0 }}>
+                Start your CSE prep journey
               </p>
+            </div>
 
-              <GlassInput
-                id="signup-age"
-                label="Age"
-                type="number"
-                min={15}
-                max={100}
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                required
-              />
+            {/* Google OAuth */}
+            <GoogleSignInWithCategoryPicker />
 
-              <div style={{ marginBottom: "1rem" }}>
-                <label
-                  htmlFor="signup-category"
-                  className="glass-input-label"
-                  style={{
-                    display: "block",
-                    marginBottom: "0.375rem",
-                    fontSize: "var(--font-size-sm)",
-                    fontWeight: 500,
-                    color: "var(--color-text-secondary)",
-                  }}
-                >
-                  Category
-                </label>
-                <select
-                  id="signup-category"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  aria-label="Exam category"
-                  className="glass-input"
-                  style={{
-                    width: "100%",
-                    padding: "0.625rem 0.875rem",
-                    fontSize: "var(--font-size-base)",
-                    borderRadius: "var(--radius-md)",
-                    background: "rgba(255, 255, 255, 0.05)",
-                    border: "1px solid var(--glass-border-light)",
-                    color: "var(--color-text)",
-                  }}
-                >
-                  <option value="PROFESSIONAL">Professional</option>
-                  <option value="SUB_PROFESSIONAL">Sub-Professional</option>
-                </select>
-              </div>
+            {/* Divider */}
+            <div style={{ display: "flex", alignItems: "center", margin: "var(--space-5) 0", gap: "var(--space-3)" }}>
+              <div style={{ flex: 1, height: "1px", background: "var(--glass-border-light)" }} />
+              <span style={{ fontSize: "var(--font-size-sm)", color: "var(--color-text-muted)", whiteSpace: "nowrap" }}>or</span>
+              <div style={{ flex: 1, height: "1px", background: "var(--glass-border-light)" }} />
+            </div>
 
-              {error && (
-                <p
-                  role="alert"
-                  style={{
-                    color: "var(--color-danger)",
-                    fontSize: "var(--font-size-sm)",
-                    marginBottom: "1rem",
-                    padding: "0.5rem 0.75rem",
-                    borderRadius: "var(--radius-sm)",
-                    background: "rgba(229, 115, 115, 0.1)",
-                    border: "1px solid rgba(229, 115, 115, 0.2)",
-                  }}
-                >
-                  {error}
-                </p>
-              )}
-
+            {/* Continue with Email toggle */}
+            {!showEmailForm ? (
               <GlassButton
-                variant="primary"
-                type="submit"
-                disabled={loading}
-                loading={loading}
-                aria-label="Sign up"
-                style={{ width: "100%", marginTop: "0.5rem" }}
+                variant="secondary"
+                type="button"
+                onClick={() => setShowEmailForm(true)}
+                aria-label="Continue with email"
+                style={{ width: "100%" }}
               >
-                Sign Up
+                Continue with Email
               </GlassButton>
-            </form>
-          )}
+            ) : (
+              <form onSubmit={handleSubmit} aria-label="Signup form">
+                <GlassInput id="signup-email" label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
+                <GlassInput id="signup-display-name" label="Display Name" type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} required maxLength={255} placeholder="Your name" autoComplete="name" />
+                <GlassInput id="signup-username" label="Username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} required minLength={3} maxLength={30} placeholder="Choose a username" autoComplete="username" />
+                <GlassInput id="signup-password" label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete="new-password" />
+                <p style={{ color: "var(--color-text-muted)", fontSize: "var(--font-size-sm)", marginTop: "calc(-1 * var(--space-2))", marginBottom: "var(--space-3)" }}>
+                  Min 8 chars, 1 uppercase, 1 lowercase, 1 digit, 1 special character
+                </p>
+                <GlassInput id="signup-age" label="Age" type="number" min={15} max={100} value={age} onChange={(e) => setAge(e.target.value)} required />
 
-          <p
-            style={{
-              marginTop: "1.5rem",
-              fontSize: "var(--font-size-sm)",
-              textAlign: "center",
-              color: "var(--color-text-secondary)",
-            }}
-          >
-            Already have an account?{" "}
-            <Link to="/login" style={{ color: "var(--color-accent)" }}>
-              Log in
-            </Link>
-          </p>
-        </GlassCard>
+                <div style={{ marginBottom: "var(--space-4)" }}>
+                  <label htmlFor="signup-category" style={{ display: "block", marginBottom: "var(--space-1)", fontSize: "var(--font-size-sm)", fontWeight: 500, color: "var(--color-text-secondary)" }}>
+                    Category
+                  </label>
+                  <select
+                    id="signup-category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    aria-label="Exam category"
+                    style={{ width: "100%", padding: "var(--space-2) var(--space-3)", fontSize: "var(--font-size-base)", borderRadius: "var(--radius-md)", background: "rgba(255, 255, 255, 0.05)", border: "1px solid var(--glass-border-light)", color: "var(--color-text)" }}
+                  >
+                    <option value="PROFESSIONAL">Professional</option>
+                    <option value="SUB_PROFESSIONAL">Sub-Professional</option>
+                  </select>
+                </div>
+
+                {error && (
+                  <p role="alert" style={{ color: "var(--color-danger)", fontSize: "var(--font-size-sm)", marginBottom: "var(--space-4)", padding: "var(--space-2) var(--space-3)", borderRadius: "var(--radius-sm)", background: "rgba(212, 100, 92, 0.1)", border: "1px solid rgba(212, 100, 92, 0.25)" }}>
+                    {error}
+                  </p>
+                )}
+
+                <GlassButton variant="primary" type="submit" disabled={loading} loading={loading} aria-label="Sign up" style={{ width: "100%", marginTop: "var(--space-2)" }}>
+                  Sign Up
+                </GlassButton>
+              </form>
+            )}
+
+            <p style={{ marginTop: "var(--space-6)", fontSize: "var(--font-size-sm)", textAlign: "center", color: "var(--color-text-secondary)" }}>
+              Already have an account?{" "}
+              <Link to="/login" style={{ color: "var(--color-accent)", fontWeight: 500 }}>Log in</Link>
+            </p>
+          </GlassCard>
+        </motion.div>
       </div>
     </PageTransition>
   );

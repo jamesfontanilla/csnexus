@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { apiClient } from "../api/client";
 import { GlassCard } from "../components/GlassCard";
 import { GlassProgressBar } from "../components/GlassProgressBar";
 import { GlassBadge } from "../components/GlassBadge";
 import { GlassButton } from "../components/GlassButton";
 import { GlassSkeleton } from "../components/GlassSkeleton";
+import { GradientText } from "../components/GradientText";
+import { EmptyState } from "../components/EmptyState";
 import { PageTransition } from "../components/PageTransition";
+import { staggerContainer, staggerItem, springDefault } from "../design-system";
 
 interface SubtopicMastery {
   subtopic_id: number;
@@ -85,20 +89,13 @@ export function Mastery() {
     return (
       <PageTransition>
         <div className="page container" style={{ maxWidth: 800 }}>
-          <h1 style={{ color: "var(--color-text)", fontFamily: "var(--font-family)", marginBottom: "1.5rem" }}>
-            Mastery Dashboard
+          <h1 style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em", marginBottom: "var(--space-6)" }}>
+            <GradientText variant="accent">Mastery Dashboard</GradientText>
           </h1>
-          <GlassCard style={{ marginBottom: "1.5rem" }}>
-            <GlassSkeleton height="1.5rem" width="40%" />
-            <div style={{ display: "flex", gap: "1rem", marginTop: "1rem", flexWrap: "wrap" }}>
-              {[1, 2, 3, 4, 5].map((i) => (
-                <GlassSkeleton key={i} height="2.5rem" width="6rem" borderRadius="var(--radius-md)" />
-              ))}
-            </div>
-          </GlassCard>
-          <GlassCard>
-            <GlassSkeleton height="10rem" />
-          </GlassCard>
+          <div style={{ display: "grid", gap: "var(--space-4)" }}>
+            <GlassSkeleton variant="card" />
+            <GlassSkeleton variant="card" />
+          </div>
         </div>
       </PageTransition>
     );
@@ -123,42 +120,49 @@ export function Mastery() {
   return (
     <PageTransition>
       <div className="page container" style={{ maxWidth: 800 }}>
-        <h1 style={{ color: "var(--color-text)", fontFamily: "var(--font-family)", marginBottom: "1.5rem" }}>
-          Mastery Dashboard
+        <h1 style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em", marginBottom: "var(--space-6)" }}>
+          <GradientText variant="accent">Mastery Dashboard</GradientText>
         </h1>
 
         {/* Overall progress summary */}
-        <GlassCard as="section" style={{ marginBottom: "1.5rem" }}>
-          <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", marginBottom: "1rem" }}>
+        <GlassCard as="section" style={{ marginBottom: "var(--space-6)" }}>
+          <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", marginBottom: "var(--space-4)" }}>
             Overall Progress
           </h2>
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+            style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap" }}
+          >
             {["BEGINNER", "FAMILIAR", "PROFICIENT", "ADVANCED", "MASTERED"].map((level) => (
-              <div
+              <motion.div
                 key={level}
+                variants={staggerItem}
+                transition={springDefault}
                 style={{
-                  padding: "0.5rem 1rem",
+                  padding: "var(--space-2) var(--space-4)",
                   borderRadius: "var(--radius-md)",
                   background: "var(--glass-bg-subtle)",
-                  border: "1px solid var(--glass-border-light)",
+                  border: `1px solid ${LEVEL_COLORS[level]}33`,
                 }}
               >
-                <span style={{ fontWeight: 700, color: LEVEL_COLORS[level], fontSize: "var(--font-size-lg)" }}>
+                <span style={{ fontWeight: 700, color: LEVEL_COLORS[level], fontSize: "var(--font-size-lg)", fontFamily: "var(--font-display)" }}>
                   {levelCounts[level] || 0}
                 </span>{" "}
                 <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)" }}>
-                  {level.toLowerCase()}
+                  {level.charAt(0) + level.slice(1).toLowerCase()}
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </GlassCard>
 
         {/* Due for Review */}
         {dueReviews.length > 0 && (
-          <GlassCard as="section" style={{ marginBottom: "1.5rem" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-              <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)" }}>
+          <GlassCard as="section" style={{ marginBottom: "var(--space-6)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)", marginBottom: "var(--space-4)" }}>
+              <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", margin: 0 }}>
                 Due for Review
               </h2>
               <GlassBadge label={String(dueReviews.length)} color="danger" />
@@ -168,13 +172,17 @@ export function Mastery() {
                 <li
                   key={r.subtopic_id}
                   style={{
-                    padding: "0.75rem 0",
+                    padding: "var(--space-3) 0",
                     borderBottom: "1px solid var(--glass-border-light)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "var(--space-2)",
                   }}
                 >
                   <span style={{ fontWeight: 500, color: "var(--color-text)" }}>{r.subtopic_title}</span>
-                  <span style={{ marginLeft: "0.5rem", fontSize: "var(--font-size-sm)", color: "var(--color-text-secondary)" }}>
-                    — {r.days_overdue.toFixed(1)} days overdue
+                  <span style={{ fontSize: "var(--font-size-sm)", color: "var(--color-danger)", whiteSpace: "nowrap" }}>
+                    {r.days_overdue != null ? `${r.days_overdue.toFixed(1)}d overdue` : "Overdue"}
                   </span>
                 </li>
               ))}
@@ -184,65 +192,75 @@ export function Mastery() {
 
         {/* Recommendations */}
         {recommendations.length > 0 && (
-          <GlassCard as="section" style={{ marginBottom: "1.5rem" }}>
-            <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", marginBottom: "1rem" }}>
+          <GlassCard as="section" style={{ marginBottom: "var(--space-6)" }}>
+            <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", marginBottom: "var(--space-4)" }}>
               Recommended Next
             </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+              style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}
+            >
               {recommendations.map((rec) => (
-                <div
+                <motion.div
                   key={rec.subtopic_id}
+                  variants={staggerItem}
+                  transition={springDefault}
                   style={{
-                    padding: "0.75rem 1rem",
+                    padding: "var(--space-3) var(--space-4)",
                     background: "var(--glass-bg-subtle)",
                     border: "1px solid var(--glass-border-light)",
                     borderRadius: "var(--radius-md)",
                     display: "flex",
                     alignItems: "center",
-                    gap: "0.75rem",
+                    gap: "var(--space-3)",
                     flexWrap: "wrap",
                   }}
                 >
-                  <span style={{ fontWeight: 500, color: "var(--color-text)" }}>{rec.subtopic_title}</span>
+                  <span style={{ fontWeight: 500, color: "var(--color-text)", flex: 1 }}>{rec.subtopic_title}</span>
                   <GlassBadge label={REASON_LABELS[rec.reason] || rec.reason} color="accent" />
-                  <span style={{ fontSize: "var(--font-size-xs)", color: "var(--color-text-muted)" }}>
+                  <span style={{ fontSize: "var(--font-size-xs)", color: "var(--color-text-muted)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
                     {rec.recommended_difficulty}
                   </span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </GlassCard>
         )}
 
         {/* Mastery per subtopic */}
         <GlassCard as="section">
-          <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", marginBottom: "1rem" }}>
+          <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", marginBottom: "var(--space-4)" }}>
             Subtopic Mastery
           </h2>
-          {mastery.length === 0 && (
-            <p style={{ color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)" }}>
-              No mastery data yet. Start practicing!
-            </p>
-          )}
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-            {mastery.map((m) => (
-              <div key={m.subtopic_id}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.25rem" }}>
-                  <span style={{ color: "var(--color-text)", fontSize: "var(--font-size-sm)" }}>{m.subtopic_title}</span>
-                  <GlassBadge label={m.mastery_level} color={LEVEL_BADGE_COLORS[m.mastery_level] || "primary"} />
+          {mastery.length === 0 ? (
+            <EmptyState
+              icon="🎯"
+              title="No Mastery Data Yet"
+              description="Start practicing subtopics to track your mastery progress here."
+            />
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+              {mastery.map((m) => (
+                <div key={m.subtopic_id}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-1)" }}>
+                    <span style={{ color: "var(--color-text)", fontSize: "var(--font-size-sm)" }}>{m.subtopic_title}</span>
+                    <GlassBadge label={m.mastery_level} color={LEVEL_BADGE_COLORS[m.mastery_level] || "primary"} />
+                  </div>
+                  <GlassProgressBar
+                    value={m.mastery_score * 100}
+                    label={`${m.subtopic_title} mastery: ${Math.round(m.mastery_score * 100)}%`}
+                    color={LEVEL_COLORS[m.mastery_level]}
+                    height={6}
+                  />
                 </div>
-                <GlassProgressBar
-                  value={m.mastery_score * 100}
-                  label={`${m.subtopic_title} mastery: ${Math.round(m.mastery_score * 100)}%`}
-                  color={LEVEL_COLORS[m.mastery_level]}
-                  height={6}
-                />
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </GlassCard>
 
-        <div style={{ marginTop: "1.5rem" }}>
+        <div style={{ marginTop: "var(--space-6)" }}>
           <Link to="/modules" style={{ textDecoration: "none" }} aria-label="Back to modules">
             <GlassButton variant="ghost">← Back to Modules</GlassButton>
           </Link>

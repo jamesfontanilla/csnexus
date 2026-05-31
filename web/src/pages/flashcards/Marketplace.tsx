@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   flashcardsApi,
@@ -8,6 +8,8 @@ import {
 import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
 import { GlassSkeleton } from "../../components/GlassSkeleton";
+import { EmptyState } from "../../components/EmptyState";
+import { CrossfadeContent } from "../../components/CrossfadeContent";
 import { PageTransition } from "../../components/PageTransition";
 
 type SortOption = "popular" | "rating" | "newest";
@@ -26,6 +28,7 @@ export function Marketplace() {
   const [error, setError] = useState<string | null>(null);
 
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [category, setCategory] = useState<DeckCategory | "all">("all");
   const [sort, setSort] = useState<SortOption>("popular");
   const [cloningId, setCloningId] = useState<number | null>(null);
@@ -35,13 +38,22 @@ export function Marketplace() {
   const [comments, setComments] = useState<Array<{ id: number; user_name: string; comment: string; created_at: string }>>([]);
   const [newComment, setNewComment] = useState("");
   const [loadingComments, setLoadingComments] = useState(false);
+  const commentsAbortControllerRef = useRef<AbortController | null>(null);
+
+  // Debounce search input
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search]);
 
   const fetchDecks = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const params: { search?: string; category?: string; sort?: string } = {};
-      if (search.trim()) params.search = search.trim();
+      if (debouncedSearch.trim()) params.search = debouncedSearch.trim();
       if (category !== "all") params.category = category;
       params.sort = sort;
       const result = await flashcardsApi.getMarketplace(params);
@@ -51,11 +63,20 @@ export function Marketplace() {
     } finally {
       setLoading(false);
     }
-  }, [search, category, sort]);
+  }, [debouncedSearch, category, sort]);
 
   useEffect(() => {
     fetchDecks();
   }, [fetchDecks]);
+
+  // Cleanup abort controller on unmount
+  useEffect(() => {
+    return () => {
+      if (commentsAbortControllerRef.current) {
+        commentsAbortControllerRef.current.abort();
+      }
+    };
+  }, []);
 
   async function handleClone(deckId: number) {
     setCloningId(deckId);
@@ -102,7 +123,8 @@ export function Marketplace() {
             style={{
               fontSize: "var(--font-size-2xl)",
               color: "var(--color-text)",
-              marginBottom: "1.5rem",
+              marginBottom: "var(--space-6)",
+              fontFamily: "var(--font-display)",
             }}
           >
             Marketplace
@@ -112,12 +134,12 @@ export function Marketplace() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: "1.5rem",
-              marginTop: "1.5rem",
+              gap: "var(--space-6)",
+              marginTop: "var(--space-6)",
             }}
           >
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <GlassSkeleton key={i} height="12rem" />
+              <GlassSkeleton key={i} variant="card" />
             ))}
           </div>
         </main>
@@ -143,6 +165,8 @@ export function Marketplace() {
               fontSize: "var(--font-size-2xl)",
               color: "var(--color-text)",
               margin: 0,
+              fontFamily: "var(--font-display)",
+              letterSpacing: "-0.02em",
             }}
           >
             Marketplace
@@ -228,18 +252,15 @@ export function Marketplace() {
         )}
 
         {/* Results */}
+        <CrossfadeContent contentKey={loading ? "loading" : "loaded"}>
         {decks.length === 0 && !loading ? (
-          <GlassCard>
-            <p
-              style={{
-                color: "var(--color-text-secondary)",
-                textAlign: "center",
-                margin: 0,
-              }}
-            >
-              No decks found. Try adjusting your search or filters.
-            </p>
-          </GlassCard>
+          <EmptyState
+            icon="🔍"
+            title="No Decks Found"
+            description="Try adjusting your search or filters to find what you're looking for."
+            actionLabel="Clear Filters"
+            onAction={() => { setSearch(""); setCategory("all"); setSort("popular"); }}
+          />
         ) : (
           <div
             style={{
@@ -418,16 +439,41 @@ export function Marketplace() {
                       size="sm"
                       onClick={async () => {
                         if (commentDeckId === deck.id) {
+                          // Cancel any pending request
+                          if (commentsAbortControllerRef.current) {
+                            commentsAbortControllerRef.current.abort();
+                          }
                           setCommentDeckId(null);
                           return;
                         }
+                        
+                        // Cancel previous request if any
+                        if (commentsAbortControllerRef.current) {
+                          commentsAbortControllerRef.current.abort();
+                        }
+                        
                         setCommentDeckId(deck.id);
                         setLoadingComments(true);
+                        
+                        // Create new abort controller for this request
+                        const abortController = new AbortController();
+                        commentsAbortControllerRef.current = abortController;
+                        
                         try {
                           const res = await flashcardsApi.getComments(deck.id);
-                          setComments(res);
-                        } catch { setComments([]); }
-                        finally { setLoadingComments(false); }
+                          // Only update if this request wasn't aborted
+                          if (!abortController.signal.aborted) {
+                            setComments(res);
+                          }
+                        } catch (err) {
+                          if (!abortController.signal.aborted) {
+                            setComments([]);
+                          }
+                        } finally {
+                          if (!abortController.signal.aborted) {
+                            setLoadingComments(false);
+                          }
+                        }
                       }}
                     >
                       💬
@@ -490,6 +536,7 @@ export function Marketplace() {
             ))}
           </div>
         )}
+        </CrossfadeContent>
       </main>
     </PageTransition>
   );

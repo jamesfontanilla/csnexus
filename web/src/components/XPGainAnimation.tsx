@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { soundChime, hapticSuccess } from "../utils/feedback";
 
 interface XPGainAnimationProps {
   /** Amount of XP gained. Animation triggers when this is > 0. */
@@ -19,18 +20,15 @@ interface XPGainAnimationProps {
 export function XPGainAnimation({ amount, onComplete }: XPGainAnimationProps) {
   const [visible, setVisible] = useState(false);
 
+  // Consolidated effect: trigger animation + sound + auto-dismiss, reset on new amount
   useEffect(() => {
-    if (amount > 0) {
-      setVisible(true);
-    }
-  }, [amount]);
-
-  // Auto-dismiss after the badge has been visible long enough
-  useEffect(() => {
-    if (!visible) return;
+    if (amount <= 0) return;
+    setVisible(true);
+    soundChime();
+    hapticSuccess();
     const timer = setTimeout(() => setVisible(false), 1800);
     return () => clearTimeout(timer);
-  }, [visible]);
+  }, [amount]);
 
   const handleExitComplete = useCallback(() => {
     onComplete?.();

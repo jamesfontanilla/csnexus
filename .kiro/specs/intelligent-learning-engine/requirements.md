@@ -21,6 +21,7 @@ This feature implements research-backed learning intelligence across the CSNexus
 - **Coverage_Gap**: A subtopic where the user has attempted fewer than 10% of available questions or has no mastery record
 - **Time_Budget**: The user's preferred daily study session length (15, 30, or 60 minutes)
 - **Point_Impact**: The estimated score improvement achievable by raising a specific subtopic's mastery from its current level to the target threshold
+- **Calibration_Warning**: A notification surfaced when the user's self-assessed readiness exceeds their computed readiness by more than 15 points, designed to combat overconfidence
 
 ## Requirements
 
@@ -99,6 +100,7 @@ This feature implements research-backed learning intelligence across the CSNexus
 3. WHEN generating a "quiz_practice" item, THE Queue_Engine SHALL include the subtopic_id, question count (5–10 questions), estimated duration (computed as question count × 45 seconds), and a difficulty distribution determined by the user's mastery_score for that subtopic: mastery_score < 0.4 yields 60% easy / 30% medium / 10% hard, mastery_score 0.4–0.7 yields 30% easy / 50% medium / 20% hard, mastery_score > 0.7 yields 10% easy / 40% medium / 50% hard
 4. WHEN generating a "new_content" item, THE Queue_Engine SHALL include the subtopic_id, lesson_id, section index, and estimated reading time (5 minutes per section as defined in the Time_Budget estimates)
 5. THE Queue_Engine SHALL not place more than 2 consecutive items of the same type in the queue; IF fewer than 2 item types are available for the session, THEN THE Queue_Engine SHALL place all available items sequentially without applying the variety constraint
+6. WHEN multiple quiz_practice items are generated for a single queue, THE Queue_Engine SHALL select subtopics from different modules (Verbal Ability, Numerical Ability, Analytical Ability) where possible to maximize cross-topic interleaving; IF all weak subtopics belong to the same module, THEN THE Queue_Engine SHALL proceed without the cross-module constraint
 
 ### Requirement 6: Session Length Preferences
 
@@ -273,3 +275,21 @@ This feature implements research-backed learning intelligence across the CSNexus
 3. IF the new exam date is earlier than the original, THEN THE Onboarding_Engine SHALL compress the remaining plan and increase daily study intensity (more items per day) while respecting the Time_Budget cap
 4. IF the new exam date is later than the original, THEN THE Onboarding_Engine SHALL add additional review cycles and mock exam sessions to fill the extended timeline
 5. WHEN the exam date is updated, THE Readiness_Engine SHALL recompute the retention component using the new projection date
+
+---
+
+## Phase 7: Readiness Self-Assessment Calibration
+
+### Requirement 19: Overconfidence Confrontation
+
+**User Story:** As a CSE examinee, I want the platform to compare my self-assessed readiness against my actual computed readiness, so that I can identify blind spots where I think I know material better than I actually do.
+
+#### Acceptance Criteria
+
+1. THE Readiness_Engine SHALL prompt the user to self-assess their readiness on a 0–100 scale once every 7 days, triggered on the first dashboard load after the 7-day interval has elapsed since the last self-assessment
+2. WHEN a user submits a self-assessment, THE Readiness_Engine SHALL store the record containing: user_id, self_assessed_score (0–100), computed_score (the current readiness score at time of submission), delta (self_assessed_score minus computed_score), and assessed_at timestamp
+3. WHEN the self-assessment delta exceeds +15 (user overestimates by more than 15 points), THE Readiness_Engine SHALL return a calibration_warning field containing: the delta value, the weakest component contributing to the gap (e.g., "Your retention is lower than you think — you'll forget 30% of Numerical Ability by exam day at current pace"), and a suggested action (e.g., "Try a mock exam to get a realistic benchmark")
+4. WHEN the self-assessment delta is between -10 and +15 (well-calibrated), THE Readiness_Engine SHALL return a calibration_status of "well_calibrated" with an encouraging message acknowledging accurate self-awareness
+5. WHEN the self-assessment delta is below -10 (user underestimates), THE Readiness_Engine SHALL return a calibration_status of "underconfident" with a message highlighting areas of strength the user may be overlooking
+6. THE Readiness_Engine SHALL expose a calibration history endpoint returning all self-assessment records for the user, enabling visualization of calibration accuracy over time
+7. IF a user dismisses or skips the self-assessment prompt, THE Readiness_Engine SHALL not prompt again until the next 7-day interval; the prompt SHALL NOT block access to the dashboard

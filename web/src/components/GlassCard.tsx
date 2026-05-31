@@ -1,13 +1,15 @@
+import type { ReactNode, CSSProperties, KeyboardEvent } from "react";
 import { motion } from "framer-motion";
 import { useReducedMotion } from "../design-system";
 
 interface GlassCardProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   blur?: "sm" | "md" | "lg";
   hoverable?: boolean;
+  lifted?: boolean;
   onClick?: () => void;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   as?: "div" | "section" | "article";
 }
 
@@ -16,6 +18,7 @@ export function GlassCard({
   className = "",
   blur = "md",
   hoverable = false,
+  lifted = false,
   onClick,
   style,
   as = "div",
@@ -25,7 +28,7 @@ export function GlassCard({
 
   const hoverAnimation =
     hoverable && !reducedMotion
-      ? { scale: 1.01, boxShadow: "var(--shadow-glow)" }
+      ? { scale: 1.01, y: -2, boxShadow: "var(--shadow-lifted)" }
       : {};
 
   const tapAnimation =
@@ -34,7 +37,14 @@ export function GlassCard({
   return (
     <Component
       className={`glass-${blur} glass-card ${className}`}
-      style={{ position: "relative", padding: "1.5rem", willChange: hoverable ? "transform" : undefined, ...style }}
+      style={{
+        position: "relative",
+        padding: "var(--space-6)",
+        willChange: hoverable ? "transform" : undefined,
+        transform: lifted ? "translateY(-2px)" : undefined,
+        boxShadow: lifted ? "var(--shadow-lifted)" : undefined,
+        ...style,
+      }}
       whileHover={hoverAnimation}
       whileTap={onClick ? tapAnimation : undefined}
       onClick={onClick}
@@ -42,7 +52,7 @@ export function GlassCard({
       tabIndex={onClick ? 0 : undefined}
       onKeyDown={
         onClick
-          ? (e: React.KeyboardEvent) => {
+          ? (e: KeyboardEvent) => {
               if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
                 onClick();

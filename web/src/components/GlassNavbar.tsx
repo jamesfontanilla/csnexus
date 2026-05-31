@@ -44,10 +44,16 @@ export function GlassNavbar() {
     setMenuOpen(false);
   }, [location.pathname]);
 
-  // Fetch XP data when authenticated
+  // Fetch XP data once on mount and when the user navigates back to a page
+  // after potentially earning XP. Use a cancellation flag to avoid setting
+  // state on an unmounted component.
   useEffect(() => {
     if (!isAuthenticated()) return;
-    apiClient.get<XPData>("/v1/xp/me").then(setXp).catch(() => {});
+    let cancelled = false;
+    apiClient.get<XPData>("/v1/xp/me")
+      .then((data) => { if (!cancelled) setXp(data); })
+      .catch(() => {});
+    return () => { cancelled = true; };
   }, [location.pathname]);
 
   const authenticated = isAuthenticated();
@@ -62,6 +68,9 @@ export function GlassNavbar() {
         borderBottom: scrolled
           ? "1px solid var(--glass-border-light)"
           : "1px solid transparent",
+        boxShadow: scrolled
+          ? "0 4px 24px rgba(26, 15, 10, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2)"
+          : "none",
       }}
     >
       {/* Logo */}

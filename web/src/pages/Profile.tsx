@@ -5,6 +5,9 @@ import { logout } from "../stores/auth";
 import { GlassCard } from "../components/GlassCard";
 import { GlassButton } from "../components/GlassButton";
 import { GlassSkeleton } from "../components/GlassSkeleton";
+import { AnimatedNumber } from "../components/AnimatedNumber";
+import { GradientText } from "../components/GradientText";
+import { FeedbackToggle } from "../components/FeedbackToggle";
 import { PageTransition } from "../components/PageTransition";
 import { GlassProgressBar } from "../components/GlassProgressBar";
 import { GlassBadge } from "../components/GlassBadge";
@@ -29,15 +32,9 @@ interface Achievement {
   granted_at: string;
 }
 
-function xpForLevel(level: number): number {
-  return level * 100;
-}
-
 const gradientTextStyle: React.CSSProperties = {
-  background: "linear-gradient(135deg, var(--color-accent), var(--color-metallic))",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
+  fontFamily: "var(--font-display)",
+  letterSpacing: "-0.02em",
 };
 
 export function Profile() {
@@ -75,15 +72,8 @@ export function Profile() {
     return (
       <PageTransition>
         <div className="page container" style={{ maxWidth: 600 }}>
-          <h1 style={{ fontFamily: "var(--font-family)", ...gradientTextStyle }}>Profile</h1>
-          <GlassCard>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <GlassSkeleton height="2rem" width="60%" />
-              <GlassSkeleton height="1.5rem" />
-              <GlassSkeleton height="1.5rem" />
-              <GlassSkeleton height="1.5rem" width="80%" />
-            </div>
-          </GlassCard>
+          <h1 style={{ ...gradientTextStyle }}><GradientText variant="accent">Profile</GradientText></h1>
+          <GlassSkeleton variant="card" />
         </div>
       </PageTransition>
     );
@@ -99,19 +89,19 @@ export function Profile() {
     );
   }
 
-  const xpToNext = xp ? xpForLevel(xp.level + 1) : 100;
-  const xpInLevel = xp ? xp.cumulative_xp % xpForLevel(xp.level || 1) : 0;
+  const xpPerLevel = 100;
+  const xpInLevel = xp ? xp.cumulative_xp % xpPerLevel : 0;
 
   return (
     <PageTransition>
       <div className="page container" style={{ maxWidth: 600 }}>
-        <h1 style={{ fontFamily: "var(--font-family)", marginBottom: "0.5rem", ...gradientTextStyle }}>
-          Profile
+        <h1 style={{ marginBottom: "var(--space-2)", ...gradientTextStyle }}>
+          <GradientText variant="accent">Profile</GradientText>
         </h1>
 
         {profile && (
-          <div style={{ marginBottom: "1.5rem" }}>
-            <p style={{ fontSize: "1.25rem", fontWeight: 600, margin: "0 0 0.25rem 0", color: "var(--color-text)" }}>
+          <div style={{ marginBottom: "var(--space-6)" }}>
+            <p style={{ fontSize: "1.25rem", fontWeight: 600, margin: "0 0 var(--space-1) 0", color: "var(--color-text)" }}>
               {profile.display_name}
             </p>
             <p style={{ fontSize: "var(--font-size-sm)", margin: 0, color: "var(--color-text-secondary)" }}>
@@ -122,26 +112,32 @@ export function Profile() {
 
         {xp && (
           <GlassCard>
-            <h2 style={{ fontSize: "var(--font-size-sm)", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 0, marginBottom: "1.25rem", ...gradientTextStyle }}>
-              Progress
+            <h2 style={{ fontSize: "var(--font-size-sm)", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 0, marginBottom: "var(--space-5)" }}>
+              <GradientText variant="accent">Progress</GradientText>
             </h2>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", textAlign: "center", marginBottom: "1.25rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "var(--space-4)", textAlign: "center", marginBottom: "var(--space-5)" }}>
               <div>
-                <p style={{ fontSize: "1.75rem", fontWeight: 700, margin: 0, color: "var(--color-accent)" }}>{xp.level}</p>
+                <p style={{ fontSize: "1.75rem", fontWeight: 700, margin: 0, fontFamily: "var(--font-display)" }}>
+                  <GradientText variant="accent"><AnimatedNumber value={xp.level} /></GradientText>
+                </p>
                 <p style={{ color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)", margin: 0 }}>Level</p>
               </div>
               <div>
-                <p style={{ fontSize: "1.75rem", fontWeight: 700, margin: 0, color: "var(--color-text)" }}>{xp.cumulative_xp.toLocaleString()}</p>
+                <p style={{ fontSize: "1.75rem", fontWeight: 700, margin: 0, fontFamily: "var(--font-display)", color: "var(--color-text)" }}>
+                  <AnimatedNumber value={xp.cumulative_xp} duration={1200} />
+                </p>
                 <p style={{ color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)", margin: 0 }}>Total XP</p>
               </div>
               <div>
-                <p style={{ fontSize: "1.75rem", fontWeight: 700, margin: 0, color: "var(--color-warning)" }}>🔥 {xp.streak}</p>
+                <p style={{ fontSize: "1.75rem", fontWeight: 700, margin: 0, fontFamily: "var(--font-display)", color: "var(--color-warning)" }}>
+                  🔥 <AnimatedNumber value={xp.streak} />
+                </p>
                 <p style={{ color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)", margin: 0 }}>Day Streak</p>
               </div>
             </div>
             <GlassProgressBar
               value={xpInLevel}
-              max={xpToNext}
+              max={xpPerLevel}
               label={`XP to Level ${xp.level + 1}`}
               color="var(--color-primary)"
               animated
@@ -149,20 +145,20 @@ export function Profile() {
           </GlassCard>
         )}
 
-        <section aria-label="Achievements" style={{ marginTop: "1.5rem" }}>
-          <h2 style={{ fontFamily: "var(--font-family)", marginBottom: "1rem", ...gradientTextStyle }}>
-            Achievements
+        <section aria-label="Achievements" style={{ marginTop: "var(--space-6)" }}>
+          <h2 style={{ marginBottom: "var(--space-4)", ...gradientTextStyle }}>
+            <GradientText variant="accent">Achievements</GradientText>
           </h2>
           {achievements.length === 0 ? (
             <GlassCard>
               <p style={{ color: "var(--color-text-secondary)", margin: 0 }}>No achievements yet. Keep learning!</p>
             </GlassCard>
           ) : (
-            <div style={{ display: "grid", gap: "0.75rem" }}>
+            <div style={{ display: "grid", gap: "var(--space-3)" }}>
               {achievements.map((a) => (
                 <GlassCard key={a.achievement_id}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
                       <span style={{ fontSize: "1.25rem" }}>🏅</span>
                       <strong style={{ color: "var(--color-text)" }}>{a.title}</strong>
                     </div>
@@ -177,7 +173,23 @@ export function Profile() {
           )}
         </section>
 
-        <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
+        {/* Settings */}
+        <section style={{ marginTop: "var(--space-6)" }}>
+          <h2 style={{ fontSize: "var(--font-size-sm)", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "var(--space-3)" }}>
+            Preferences
+          </h2>
+          <GlassCard>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div>
+                <p style={{ margin: 0, color: "var(--color-text)", fontSize: "var(--font-size-base)", fontWeight: 500 }}>Sound & Haptics</p>
+                <p style={{ margin: 0, color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)" }}>Audio feedback on actions</p>
+              </div>
+              <FeedbackToggle />
+            </div>
+          </GlassCard>
+        </section>
+
+        <div style={{ marginTop: "var(--space-8)", display: "flex", gap: "var(--space-4)" }}>
           <Link to="/modules" style={{ textDecoration: "none" }} aria-label="Back to modules">
             <GlassButton variant="secondary">← Modules</GlassButton>
           </Link>

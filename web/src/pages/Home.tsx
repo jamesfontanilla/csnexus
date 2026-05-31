@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { isAuthenticated } from "../stores/auth";
 import { GlassCard } from "../components/GlassCard";
 import { GlassButton } from "../components/GlassButton";
+import { GradientText } from "../components/GradientText";
 import { PageTransition } from "../components/PageTransition";
 import { staggerContainer, staggerItem } from "../design-system";
 import { useInView } from "../hooks/useInView";
@@ -14,30 +15,29 @@ export function Home() {
         {/* Hero with gradient */}
         <section
           style={{
-            padding: "4rem 1.5rem 3rem",
+            padding: "var(--space-16) var(--space-6) var(--space-12)",
             textAlign: "center",
           }}
         >
           <div style={{ maxWidth: 700, margin: "0 auto" }}>
             <h1
               style={{
-                fontSize: "var(--font-size-4xl)",
+                fontSize: "var(--font-size-5xl)",
                 fontWeight: 800,
-                marginBottom: "0.75rem",
-                background: "linear-gradient(135deg, var(--color-accent), var(--color-metallic))",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                marginBottom: "var(--space-3)",
+                fontFamily: "var(--font-display)",
+                letterSpacing: "-0.03em",
               }}
             >
-              🎓 CSNexus
+              <GradientText variant="accent">CSNexus</GradientText>
             </h1>
             <p
               style={{
                 fontSize: "var(--font-size-lg)",
                 color: "var(--color-text-secondary)",
-                marginBottom: "2rem",
                 lineHeight: 1.7,
+                maxWidth: 560,
+                margin: "0 auto var(--space-8)",
               }}
             >
               Your free study companion for the Philippine Civil Service Examination.
@@ -46,7 +46,7 @@ export function Home() {
             </p>
 
             {/* CTA Buttons */}
-            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "var(--space-4)", justifyContent: "center", flexWrap: "wrap" }}>
               {isAuthenticated() ? (
                 <Link to="/modules" style={{ textDecoration: "none" }} aria-label="Continue studying">
                   <GlassButton variant="primary" size="lg">
@@ -78,7 +78,7 @@ export function Home() {
         <section
           style={{
             textAlign: "center",
-            padding: "2.5rem 1.5rem",
+            padding: "var(--space-10) var(--space-6)",
             borderTop: "1px solid var(--glass-border-light)",
           }}
         >
@@ -91,7 +91,7 @@ export function Home() {
         <footer
           style={{
             textAlign: "center",
-            padding: "1.5rem",
+            padding: "var(--space-6)",
             color: "var(--color-text-muted)",
             fontSize: "var(--font-size-sm)",
           }}
@@ -107,13 +107,15 @@ function FeaturesSection() {
   const [sectionRef, isInView] = useInView();
 
   return (
-    <section style={{ maxWidth: 960, margin: "0 auto", padding: "3rem 1.5rem" }}>
+    <section style={{ maxWidth: 960, margin: "0 auto", padding: "var(--space-12) var(--space-6)" }}>
       <h2
         style={{
           textAlign: "center",
-          marginBottom: "2rem",
+          marginBottom: "var(--space-8)",
           fontSize: "var(--font-size-2xl)",
           fontWeight: 700,
+          fontFamily: "var(--font-display)",
+          letterSpacing: "-0.02em",
           color: "var(--color-text)",
         }}
       >
@@ -128,7 +130,7 @@ function FeaturesSection() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-              gap: "1.25rem",
+              gap: "var(--space-5)",
             }}
           >
             <FeatureCard emoji="📚" title="Structured Lessons" desc="Modules → Topics → Subtopics with explanations, worked examples, and key takeaways." />
@@ -150,10 +152,10 @@ function FeatureCard({ emoji, title, desc }: { emoji: string; title: string; des
   return (
     <motion.div variants={staggerItem}>
       <GlassCard hoverable>
-        <div style={{ fontSize: "1.75rem", marginBottom: "0.75rem" }}>{emoji}</div>
+        <div style={{ fontSize: "1.75rem", marginBottom: "var(--space-3)" }}>{emoji}</div>
         <h3
           style={{
-            margin: "0 0 0.5rem",
+            margin: "0 0 var(--space-2)",
             fontSize: "var(--font-size-base)",
             fontWeight: 600,
             color: "var(--color-text)",

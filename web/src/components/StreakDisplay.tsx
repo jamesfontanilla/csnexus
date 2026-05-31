@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { soundChime, hapticSuccess } from "../utils/feedback";
 
 interface StreakDisplayProps {
   streak: number;
@@ -13,6 +14,8 @@ export function StreakDisplay({ streak, freezes }: StreakDisplayProps) {
   useEffect(() => {
     if (MILESTONES.includes(streak)) {
       setCelebrating(true);
+      soundChime();
+      hapticSuccess();
       const timer = setTimeout(() => setCelebrating(false), 2000);
       return () => clearTimeout(timer);
     }
@@ -60,16 +63,6 @@ export function StreakDisplay({ streak, freezes }: StreakDisplayProps) {
           🎉
         </span>
       )}
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.15); }
-        }
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
-        }
-      `}</style>
     </div>
   );
 }

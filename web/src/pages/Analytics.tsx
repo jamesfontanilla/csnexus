@@ -4,6 +4,9 @@ import { GlassCard } from "../components/GlassCard";
 import { GlassStatCard } from "../components/GlassStatCard";
 import { GlassProgressBar } from "../components/GlassProgressBar";
 import { GlassSkeleton } from "../components/GlassSkeleton";
+import { AnimatedNumber } from "../components/AnimatedNumber";
+import { GradientText } from "../components/GradientText";
+import { EmptyState } from "../components/EmptyState";
 import { PageTransition } from "../components/PageTransition";
 import { DonutChart, LineChart } from "../components/Chart";
 import { HeatMap } from "../components/HeatMap";
@@ -75,20 +78,15 @@ export function Analytics() {
     return (
       <PageTransition>
         <div className="page container" style={{ maxWidth: 960 }}>
-          <h1 style={{ color: "var(--color-text)", fontFamily: "var(--font-family)", marginBottom: "1.5rem" }}>
+          <h1 style={{ color: "var(--color-text)", fontFamily: "var(--font-display)", letterSpacing: "-0.02em", marginBottom: "var(--space-6)" }}>
             Analytics
           </h1>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "var(--space-4)" }}>
             {[1, 2, 3, 4].map((i) => (
-              <GlassCard key={i}>
-                <GlassSkeleton height="1rem" width="60%" />
-                <div style={{ marginTop: "0.5rem" }}>
-                  <GlassSkeleton height="2rem" width="40%" />
-                </div>
-              </GlassCard>
+              <GlassSkeleton key={i} variant="card" />
             ))}
           </div>
-          <div style={{ marginTop: "1.5rem" }}>
+          <div style={{ marginTop: "var(--space-6)" }}>
             <GlassCard>
               <GlassSkeleton height="12rem" />
             </GlassCard>
@@ -167,14 +165,14 @@ export function Analytics() {
   return (
     <PageTransition>
       <div className="page container" style={{ maxWidth: 960 }}>
-        <h1 style={{ color: "var(--color-text)", fontFamily: "var(--font-family)", marginBottom: "1.5rem" }}>
+        <h1 style={{ color: "var(--color-text)", fontFamily: "var(--font-display)", letterSpacing: "-0.02em", marginBottom: "var(--space-6)" }}>
           Analytics
         </h1>
 
         {/* Key Stats */}
         <section
           aria-label="Key statistics"
-          style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1rem", marginBottom: "2rem" }}
+          style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "var(--space-4)", marginBottom: "var(--space-8)" }}
         >
           <GlassStatCard icon="📖" title="Study Sessions" value={totalSessions} />
           <GlassStatCard
@@ -266,21 +264,25 @@ export function Analytics() {
 
         {/* Time Analysis */}
         <GlassCard as="section">
-          <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", marginBottom: "1rem" }}>
-            Time Analysis
+          <h2 style={{ fontSize: "var(--font-size-lg)", fontWeight: 600, color: "var(--color-text)", marginBottom: "var(--space-4)" }}>
+            Time Analysis (Estimated)
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-4)" }}>
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "var(--font-size-2xl)", fontWeight: 700, color: "var(--color-text)", background: "linear-gradient(135deg, var(--color-accent), var(--color-metallic))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                {totalSessions > 0 ? `~${Math.max(1, Math.round(totalSessions * 0.8))}` : "0"}
+              <div style={{ fontSize: "var(--font-size-2xl)", fontWeight: 700 }}>
+                <GradientText variant="accent">
+                  ~<AnimatedNumber value={totalSessions > 0 ? Math.max(1, Math.round(totalSessions * 0.8)) : 0} />
+                </GradientText>
               </div>
               <div style={{ fontSize: "var(--font-size-xs)", color: "var(--color-text-secondary)" }}>
-                Avg seconds/question
+                Avg seconds/question (est.)
               </div>
             </div>
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "var(--font-size-2xl)", fontWeight: 700, color: "var(--color-text)", background: "linear-gradient(135deg, var(--color-accent), var(--color-metallic))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                {Math.round(totalSessions * 0.5)}m
+              <div style={{ fontSize: "var(--font-size-2xl)", fontWeight: 700 }}>
+                <GradientText variant="accent">
+                  <AnimatedNumber value={Math.round(totalSessions * 0.5)} suffix="m" />
+                </GradientText>
               </div>
               <div style={{ fontSize: "var(--font-size-xs)", color: "var(--color-text-secondary)" }}>
                 Total study time (est.)

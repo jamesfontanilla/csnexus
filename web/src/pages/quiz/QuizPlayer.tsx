@@ -1,11 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { apiClient, ApiError } from "../../api/client";
 import { PageTransition } from "../../components/PageTransition";
 import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
+import { AnimatedNumber } from "../../components/AnimatedNumber";
+import { GradientText } from "../../components/GradientText";
 import { scaleIn, staggerContainer, staggerItem, springDefault } from "../../design-system";
+import { soundCorrect, soundIncorrect, soundTap, hapticTap } from "../../utils/feedback";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -92,7 +95,12 @@ function parseOption(opt: string): { label: string; hasSvg: boolean; svgContent:
 /** Render an option value (selected_answer or correct_answer) with SVG support. */
 function OptionDisplay({ value, isCorrect }: { value: string; isCorrect?: boolean }) {
   const { label, hasSvg, svgContent } = parseOption(value);
-  const color = isCorrect ? "var(--color-success)" : "var(--color-danger)";
+  const color =
+    isCorrect === true
+      ? "var(--color-success)"
+      : isCorrect === false
+        ? "var(--color-danger)"
+        : "var(--color-text-muted)";
 
   if (!hasSvg) {
     return <code style={{ color }}>{value}</code>;
@@ -178,6 +186,10 @@ function useCountdown(totalSeconds: number | null, onExpire: () => void) {
     totalSeconds !== null ? totalSeconds : null
   );
   const expiredRef = useRef(false);
+  // Keep onExpire in a ref so the interval always calls the latest version
+  // without needing to restart the timer when the callback identity changes.
+  const onExpireRef = useRef(onExpire);
+  useEffect(() => { onExpireRef.current = onExpire; });
 
   useEffect(() => {
     if (totalSeconds === null) return;
@@ -191,7 +203,7 @@ function useCountdown(totalSeconds: number | null, onExpire: () => void) {
         if (next <= 0 && !expiredRef.current) {
           expiredRef.current = true;
           clearInterval(id);
-          onExpire();
+          onExpireRef.current();
           return 0;
         }
         return next;
@@ -199,7 +211,7 @@ function useCountdown(totalSeconds: number | null, onExpire: () => void) {
     }, 1000);
 
     return () => clearInterval(id);
-  }, [totalSeconds]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [totalSeconds]);
 
   return remaining;
 }
@@ -235,17 +247,17 @@ export function QuizPlayer() {
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  // Timer — only active during in-progress phase.
-  // Account for elapsed time since the quiz started so a page refresh
-  // doesn't reset the countdown.
-  const computedTimeLimit = (() => {
+  // Memoized so it only recomputes when phase or attempt changes,
+  // preventing the timer from restarting on unrelated renders.
+  const computedTimeLimit = useMemo(() => {
     if (phase !== "in-progress" || !attempt?.time_limit_seconds) return null;
     const elapsed = Math.floor(
       (Date.now() - new Date(attempt.started_at).getTime()) / 1000
     );
     const left = attempt.time_limit_seconds - elapsed;
     return left > 0 ? left : 0;
-  })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, attempt?.attempt_id]);
 
   const remaining = useCountdown(
     computedTimeLimit,
@@ -296,6 +308,8 @@ export function QuizPlayer() {
 
   async function handleSelectAnswer(questionId: number, selected: string) {
     if (!attempt) return;
+    hapticTap();
+    soundTap();
     try {
       await apiClient.patch(
         `/v1/quiz-attempts/${attempt.attempt_id}/answers/${questionId}`,
@@ -324,6 +338,14 @@ export function QuizPlayer() {
       );
       setAttempt(res);
       setPhase("submitted");
+      // Sound feedback based on result
+      const score = res.score ?? 0;
+      const maxScore = res.max_score ?? 1;
+      if (score / maxScore >= 0.8) {
+        soundCorrect();
+      } else {
+        soundIncorrect();
+      }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Failed to submit quiz");
     } finally {
@@ -525,22 +547,23 @@ export function QuizPlayer() {
             transition={scaleIn.transition}
           >
             <GlassCard blur="lg" style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-              <h1 style={{ color: "var(--color-text)", marginBottom: "0.5rem" }}>Quiz Results</h1>
+              <h1 style={{ color: "var(--color-text)", marginBottom: "var(--space-2)", fontFamily: "var(--font-display)" }}>Quiz Results</h1>
               {selectedMode && (
-                <p style={{ color: "var(--color-text-secondary)", fontSize: "0.8125rem", marginBottom: "0.75rem" }}>
+                <p style={{ color: "var(--color-text-secondary)", fontSize: "0.8125rem", marginBottom: "var(--space-3)" }}>
                   {MODES[selectedMode].icon} {MODES[selectedMode].label}
                 </p>
               )}
               <p style={{
-                fontSize: "2.5rem",
-                fontWeight: 700,
-                color: isPassing ? "var(--color-success)" : "var(--color-danger)",
-                margin: "0.25rem 0",
+                fontSize: "2.75rem",
+                fontWeight: 800,
+                margin: "var(--space-1) 0",
               }}>
-                {attempt.score} / {attempt.max_score}
+                <GradientText variant={isPassing ? "success" : "danger"}>
+                  <AnimatedNumber value={attempt.score ?? 0} duration={1200} /> / {attempt.max_score}
+                </GradientText>
               </p>
               <p style={{ color: "var(--color-text-secondary)", fontSize: "0.875rem" }}>
-                {pct}% — {isPassing ? "✓ Passing" : "✗ Below passing (80%)"}
+                <AnimatedNumber value={pct} suffix="%" duration={1000} /> — {isPassing ? "✓ Passing" : "✗ Below passing (80%)"}
               </p>
             </GlassCard>
           </motion.div>

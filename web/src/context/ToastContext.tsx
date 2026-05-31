@@ -18,21 +18,24 @@ const ToastContext = createContext<ToastContextValue | null>(null);
 
 let nextId = 0;
 
-const TOAST_COLORS: Record<ToastType, { bg: string; border: string; text: string }> = {
+const TOAST_COLORS: Record<ToastType, { bg: string; border: string; text: string; icon: string }> = {
   success: {
-    bg: "rgba(129, 199, 132, 0.15)",
-    border: "rgba(129, 199, 132, 0.3)",
+    bg: "rgba(143, 188, 143, 0.15)",
+    border: "rgba(143, 188, 143, 0.3)",
     text: "var(--color-success)",
+    icon: "✓",
   },
   error: {
-    bg: "rgba(229, 115, 115, 0.15)",
-    border: "rgba(229, 115, 115, 0.3)",
+    bg: "rgba(212, 100, 92, 0.15)",
+    border: "rgba(212, 100, 92, 0.3)",
     text: "var(--color-danger)",
+    icon: "✕",
   },
   info: {
     bg: "rgba(212, 165, 116, 0.15)",
     border: "rgba(212, 165, 116, 0.3)",
     text: "var(--color-accent)",
+    icon: "ℹ",
   },
 };
 
@@ -59,13 +62,15 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
         aria-atomic="true"
         style={{
           position: "fixed",
-          top: "1rem",
-          right: "1rem",
+          top: "var(--space-4)",
+          right: "var(--space-4)",
           display: "flex",
           flexDirection: "column",
-          gap: "0.5rem",
-          zIndex: 9999,
+          gap: "var(--space-2)",
+          zIndex: "var(--z-toast)",
           pointerEvents: "none",
+          maxWidth: "360px",
+          width: "calc(100vw - 2rem)",
         }}
       >
         {toasts.map((toast) => {
@@ -74,8 +79,9 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
             <div
               key={toast.id}
               role="alert"
+              className="toast"
               style={{
-                padding: "0.75rem 1.25rem",
+                padding: "var(--space-3) var(--space-5)",
                 background: colors.bg,
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
@@ -83,11 +89,17 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
                 borderRadius: "var(--radius-md)",
                 boxShadow: "var(--shadow-depth)",
                 color: colors.text,
-                fontSize: "0.875rem",
+                fontSize: "var(--font-size-sm)",
                 fontWeight: 500,
                 pointerEvents: "auto",
+                display: "flex",
+                alignItems: "center",
+                gap: "var(--space-2)",
               }}
             >
+              <span aria-hidden="true" style={{ fontSize: "0.875rem", fontWeight: 700, flexShrink: 0 }}>
+                {colors.icon}
+              </span>
               {toast.message}
             </div>
           );
