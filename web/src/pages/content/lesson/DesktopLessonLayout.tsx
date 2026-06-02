@@ -234,8 +234,18 @@ export function DesktopLessonLayout({
           </div>
         </main>
 
-        {/* Right: Practice panel + Study Buddy chat stacked */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+        {/* Right: Practice panel + Study Buddy chat stacked, sticky */}
+        <div
+          style={{
+            position: "sticky",
+            top: "5rem",
+            maxHeight: "calc(100vh - 6rem)",
+            overflowY: "auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1.5rem",
+          }}
+        >
           <PracticePanel
             problems={practiceProblems}
             memoryAids={memoryAids}
@@ -254,6 +264,7 @@ export function DesktopLessonLayout({
               background: "rgba(255, 255, 255, 0.02)",
               border: "1px solid rgba(255, 255, 255, 0.08)",
               borderRadius: "8px",
+              flexShrink: 0,
             }}
           >
             <h3

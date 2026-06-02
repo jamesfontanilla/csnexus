@@ -45,10 +45,6 @@ export function PracticePanel({
     <aside
       aria-label="Practice and study aids"
       style={{
-        position: "sticky",
-        top: "5rem",
-        maxHeight: "calc(100vh - 6rem)",
-        overflowY: "auto",
         display: "flex",
         flexDirection: "column",
       }}

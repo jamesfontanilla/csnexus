@@ -1,0 +1,30 @@
+{
+  "subtopic_id": "business-and-office-filing",
+  "subtopic_title": "Business and Office Filing",
+  "sections": [
+    {
+      "section_title": "Introduction",
+      "responses": {
+        "explain_section": {
+          "SIMPLIFIED": [
+            "Business filing means arranging company and agency names in alphabetical order using special rules.",
+            "Unlike personal names, business names are filed exactly as written — first word first.",
+            "This lesson covers how to file companies, acronyms, numbers, and government offices correctly.",
+            "Key difference from personal names: don't rearrange business names. File them word by word as written.",
+            "Government clerks file hundreds of business and agency documents daily. This teaches the rules."
+          ],
+          "STANDARD": [
+            "Business and office filing covers the rules for alphabetizing company names, organization names, government offices, and institutional entries. Unlike personal names filed surname-first, business names follow an 'as written' rule — the first word of the name is the primary filing unit.",
+            "This lesson addresses four entry types you'll encounter: regular company names (filed as written), numeric names (spell out the number), acronyms (file letter by letter), and government offices (distinctive word first). Each has its own rule.",
+            "Government clerks handle correspondence from private businesses and agencies daily. Knowing whether to file 'Department of Education' under D or E, or whether '7-Eleven' goes under 7 or S, requires specific rules this lesson teaches.",
+            "The CSE Sub-Professional tests business filing because clerks maintain vendor lists, supplier directories, and interagency correspondence. Applying personal-name rules to business names produces wrong answers — the rules are fundamentally different.",
+            "Business filing differs from personal-name filing in one critical way: you never rearrange a company name. 'Santos Trucking' stays as 'Santos Trucking' — it files under S because that's the first word, not because Santos resembles a surname."
+          ],
+          "DETAILED": [
+            "Business and office filing encompasses the rules for arranging company names, organization names, government offices, and institutional entries alphabetically. The fundamental distinction from personal-name filing is that business names are filed exactly as written — the first word becomes the primary filing unit. Government clerks at agencies like COA, DBM, and DILG regularly file documents from both private companies and other agencies, making these specialized rules part of everyday operations.",
+            "The lesson covers four distinct entry types, each with its own filing rule: (1) company names filed as written with 'The' moved to the end, (2) numeric names where digits are spelled out before alphabetizing, (3) acronyms filed letter by letter without expansion, and (4) government offices filed by their distinctive word rather than 'Department of' or 'Bureau of.' Examinees who confuse these rules or apply personal-name conventions will make systematic errors.",
+            "In the CSE Sub-Professional exam, business filing questions test whether an examinee can correctly handle mixed lists containing numeric names like '7-Eleven,' acronyms like 'CSC' or 'NBI,' and government offices like 'Department of Education.' These entries follow specialized rules that create common trap questions — particularly the government office rule where dozens of agencies would cluster under 'D' for 'Department' if filed as written.",
+            "The core challenge of business filing is that different entry types require different treatment within the same alphabetized list. A company name files as written, but a government office requires rearrangement to its distinctive word. An acronym stays as letters, but a numeric name converts to its spelled-out equivalent. Mastering these distinctions — and quickly identifying which rule applies to which entry — is the skill the CSE tests.",
+            "This lesson builds on basic alphabetizing (letter-by-letter comparison) by adding classification and transformation rules. Before you can alphabetize a mixed list, you must first categorize each entry (company, acronym, number, government office), then transform it to its filing form, and only then apply alphabetical comparison. This multi-step process is what makes business filing more complex than simple word alphabetizing."
+          ]
+        },
