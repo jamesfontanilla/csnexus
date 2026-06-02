@@ -6,6 +6,7 @@ import { SidebarTOC } from "./SidebarTOC";
 import { PracticePanel } from "./PracticePanel";
 import { GlassProgressBar } from "../../../components/GlassProgressBar";
 import { MarkdownText } from "../../../components/MarkdownText";
+import { useReducedMotion } from "../../../design-system/motion";
 
 interface DesktopLessonLayoutProps {
   content: EnhancedLessonContent;
@@ -33,6 +34,7 @@ export function DesktopLessonLayout({
 }: DesktopLessonLayoutProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const reducedMotion = useReducedMotion();
 
   // Use enhanced sections if available, fall back to legacy explanations
   const hasEnhancedSections = Array.isArray(content.sections) && content.sections.length > 0;
@@ -86,7 +88,7 @@ export function DesktopLessonLayout({
   }, [sections.length]);
 
   function scrollToSection(idx: number) {
-    sectionRefs.current[idx]?.scrollIntoView({ behavior: "smooth", block: "start" });
+    sectionRefs.current[idx]?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
   }
 
   const practiceProblems = Array.isArray(content.practice_problems) ? content.practice_problems : [];
@@ -132,7 +134,17 @@ export function DesktopLessonLayout({
         />
 
         {/* Center: Main content */}
-        <main aria-label="Lesson content" style={{ minWidth: 0, overflow: "hidden" }}>
+        <main
+          aria-label="Lesson content"
+          style={{
+            minWidth: 0,
+            overflow: "hidden",
+            maxWidth: 680,
+            margin: "0 auto",
+            lineHeight: 1.75,
+            fontSize: "var(--font-size-base)",
+          }}
+        >
           {/* Title */}
           {metadata.title && (
             <h1 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 1.5rem 0" }}>

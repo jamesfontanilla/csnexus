@@ -7,7 +7,7 @@ import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
 import { AnimatedNumber } from "../../components/AnimatedNumber";
 import { GradientText } from "../../components/GradientText";
-import { scaleIn, staggerContainer, staggerItem, springDefault } from "../../design-system";
+import { scaleIn, staggerContainer, staggerItem, springDefault, useReducedMotion } from "../../design-system";
 import { soundCorrect, soundIncorrect, soundTap, hapticTap } from "../../utils/feedback";
 
 // ---------------------------------------------------------------------------
@@ -222,11 +222,9 @@ function formatTime(seconds: number): string {
   return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 
-function timerColor(remaining: number, total: number): string {
-  const pct = remaining / total;
-  if (pct > 0.5) return "var(--color-success)";
-  if (pct > 0.25) return "var(--color-accent)";
-  return "var(--color-danger)";
+function timerColor(remaining: number): string {
+  if (remaining < 30) return "var(--color-danger)";
+  return "var(--color-text)";
 }
 
 // ---------------------------------------------------------------------------
@@ -235,6 +233,7 @@ function timerColor(remaining: number, total: number): string {
 
 export function QuizPlayer() {
   const { scope, scopeId } = useParams<{ scope: string; scopeId: string }>();
+  const reducedMotion = useReducedMotion();
 
   // Phase: "select-mode" → "in-progress" → "submitted"
   // "lesson-blocked" is a special phase shown when the lesson isn't done yet
@@ -683,90 +682,113 @@ export function QuizPlayer() {
   const totalQuestions = attempt.questions.length;
   const answeredCount = attempt.questions.filter((q) => q.selected_answer != null).length;
   const modeConfig = selectedMode ? MODES[selectedMode] : null;
+  const timerExpired = remaining === 0;
 
   return (
     <PageTransition>
       <div className="page container" style={{ maxWidth: 720 }}>
 
-        {/* Header bar: progress + timer */}
+        {/* Sticky header: progress + timer */}
         <div style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: "1rem",
-        }}>
-          <div>
-            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.875rem", margin: 0 }}>
-              Question {currentIdx + 1} of {totalQuestions}
-            </p>
-            <p style={{ color: "var(--color-text-muted)", fontSize: "0.75rem", margin: 0 }}>
-              {answeredCount} of {totalQuestions} answered
-            </p>
-          </div>
-
-          {/* Timer */}
-          {remaining !== null && attempt.time_limit_seconds !== null && (
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.375rem",
-              padding: "0.375rem 0.875rem",
-              borderRadius: "var(--radius-full, 9999px)",
-              background: "var(--glass-bg-subtle)",
-              border: `1.5px solid ${timerColor(remaining, attempt.time_limit_seconds)}44`,
-            }}>
-              <span style={{ fontSize: "0.875rem" }}>⏱</span>
-              <span style={{
-                fontWeight: 700,
-                fontSize: "1rem",
-                color: timerColor(remaining, attempt.time_limit_seconds),
-                fontVariantNumeric: "tabular-nums",
-                letterSpacing: "0.05em",
-              }}>
-                {formatTime(remaining)}
-              </span>
-              {modeConfig && (
-                <span style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
-                  {modeConfig.icon}
-                </span>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Progress bar */}
-        <div style={{
-          height: 4,
-          borderRadius: 2,
-          background: "var(--glass-bg-medium)",
-          marginBottom: "1.25rem",
-          overflow: "hidden",
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
+          background: "var(--color-background)",
+          paddingTop: "var(--space-3)",
+          paddingBottom: "var(--space-3)",
         }}>
           <div style={{
-            height: "100%",
-            width: `${((currentIdx + 1) / totalQuestions) * 100}%`,
-            background: modeConfig ? modeConfig.color : "var(--color-accent)",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "0.75rem",
+          }}>
+            <div>
+              <p style={{ color: "var(--color-text-secondary)", fontSize: "0.875rem", margin: 0 }}>
+                Question {currentIdx + 1} of {totalQuestions}
+              </p>
+              <p style={{ color: "var(--color-text-muted)", fontSize: "0.75rem", margin: 0 }}>
+                {answeredCount} of {totalQuestions} answered
+              </p>
+            </div>
+
+            {/* Timer */}
+            {remaining !== null && attempt.time_limit_seconds !== null && (
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.375rem",
+                padding: "0.375rem 0.875rem",
+                borderRadius: "var(--radius-full, 9999px)",
+                background: timerExpired
+                  ? "rgba(212, 100, 92, 0.15)"
+                  : "var(--glass-bg-subtle)",
+                border: timerExpired
+                  ? "1.5px solid var(--color-danger)"
+                  : `1.5px solid ${timerColor(remaining)}44`,
+              }}>
+                <span style={{ fontSize: "0.875rem" }}>⏱</span>
+                <span
+                  className={remaining < 30 && remaining > 0 && !reducedMotion ? "timer-pulse" : undefined}
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "1rem",
+                    color: timerExpired ? "var(--color-danger)" : timerColor(remaining),
+                    fontVariantNumeric: "tabular-nums",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  {timerExpired ? "Time Expired" : formatTime(remaining)}
+                </span>
+                {modeConfig && !timerExpired && (
+                  <span style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
+                    {modeConfig.icon}
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Progress bar */}
+          <div style={{
+            height: 4,
             borderRadius: 2,
-            transition: "width 200ms ease",
-          }} />
+            background: "var(--glass-bg-medium)",
+            overflow: "hidden",
+          }}>
+            <div style={{
+              height: "100%",
+              width: `${((currentIdx + 1) / totalQuestions) * 100}%`,
+              background: modeConfig ? modeConfig.color : "var(--color-accent)",
+              borderRadius: 2,
+              transition: `width var(--duration-normal, 250ms) ease`,
+            }} />
+          </div>
         </div>
 
         {/* Question card */}
-        <GlassCard blur="md" style={{ marginBottom: "1.25rem" }}>
+        <GlassCard blur="md" style={{ marginBottom: "1.25rem", padding: "var(--space-6)" }}>
           {/* Difficulty badge */}
           {question.difficulty && (
-            <div style={{ marginBottom: "0.625rem" }}>
+            <div style={{ marginBottom: "0.75rem" }}>
               <DifficultyBadge difficulty={question.difficulty} />
             </div>
           )}
-          <h2 style={{ color: "var(--color-text)", margin: 0, fontSize: "1.0625rem", lineHeight: 1.5 }}>
+          <h2 style={{
+            color: "var(--color-text)",
+            margin: 0,
+            fontSize: "1.125rem",
+            fontWeight: 600,
+            lineHeight: 1.5,
+            fontFamily: "var(--font-display)",
+          }}>
             <StemRenderer text={question.stem} />
           </h2>
         </GlassCard>
 
         {/* Multiple choice options */}
         {question.qtype === "MULTIPLE_CHOICE" && question.options && (
-          <div style={{ display: "grid", gap: "0.5rem" }}>
+          <div style={{ display: "grid", gap: "0.625rem" }}>
             {question.options.map((opt) => {
               const isSelected = question.selected_answer === opt;
               const { label, hasSvg, svgContent } = parseOption(opt);
@@ -774,9 +796,9 @@ export function QuizPlayer() {
                 <motion.button
                   key={opt}
                   onClick={() => handleSelectAnswer(question.id, opt)}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={springDefault}
+                  whileHover={reducedMotion ? undefined : { scale: 1.01 }}
+                  whileTap={reducedMotion ? undefined : { scale: 1.02 }}
+                  transition={{ duration: 0.08, ease: [0.4, 0, 0.2, 1] }}
                   aria-label={`Select option: ${label}`}
                   aria-pressed={isSelected}
                   style={{
@@ -786,19 +808,21 @@ export function QuizPlayer() {
                     width: "100%",
                     textAlign: "left",
                     cursor: "pointer",
-                    padding: "0.875rem 1.25rem",
+                    minHeight: "56px",
+                    padding: "var(--space-4) var(--space-5)",
                     borderRadius: "var(--radius-md)",
                     background: isSelected ? "var(--glass-bg-medium)" : "var(--glass-bg-subtle)",
                     border: isSelected
-                      ? `1.5px solid ${modeConfig ? modeConfig.color : "var(--color-accent)"}`
+                      ? "1.5px solid var(--color-accent)"
                       : "1px solid var(--glass-border-medium)",
                     color: "var(--color-text)",
                     fontSize: "var(--font-size-base)",
                     fontFamily: "var(--font-family)",
                     boxShadow: isSelected
-                      ? `0 0 16px ${modeConfig ? modeConfig.color : "var(--color-accent)"}33`
+                      ? "0 0 0 3px rgba(212,165,116,0.2)"
                       : "none",
-                    transition: "box-shadow 150ms ease, border-color 150ms ease, background 150ms ease",
+                    transition: "box-shadow var(--duration-instant, 80ms) ease, border-color var(--duration-instant, 80ms) ease, background var(--duration-instant, 80ms) ease",
+                    minWidth: "44px",
                   }}
                 >
                   {hasSvg ? (

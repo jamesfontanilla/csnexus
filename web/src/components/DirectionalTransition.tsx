@@ -5,7 +5,7 @@ import { useReducedMotion } from "../design-system";
 type Direction = "forward" | "back" | "fade";
 
 interface DirectionalTransitionProps {
-  children: React.ReactNode;
+  children: ReactNode;
   direction?: Direction;
 }
 

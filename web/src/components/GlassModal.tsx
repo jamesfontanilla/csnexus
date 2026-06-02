@@ -1,17 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useId } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { scaleIn, springGentle } from "../design-system";
+import { scaleIn, springGentle, useReducedMotion } from "../design-system";
+import { useFocusTrap } from "../hooks/useFocusTrap";
 
 interface GlassModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
+  title: string;
+  titleId?: string;
   children: React.ReactNode;
   size?: "sm" | "md" | "lg";
 }
 
-export function GlassModal({ isOpen, onClose, title, children, size = "md" }: GlassModalProps) {
-  const modalRef = useRef<HTMLDivElement>(null);
+export function GlassModal({ isOpen, onClose, title, titleId: titleIdProp, children, size = "md" }: GlassModalProps) {
+  const generatedId = useId();
+  const titleId = titleIdProp ?? `glass-modal-title-${generatedId}`;
+
+  const containerRef = useFocusTrap(isOpen);
+  const reducedMotion = useReducedMotion();
 
   const sizeStyles: Record<string, React.CSSProperties> = {
     sm: { maxWidth: "400px" },
@@ -19,41 +25,34 @@ export function GlassModal({ isOpen, onClose, title, children, size = "md" }: Gl
     lg: { maxWidth: "720px" },
   };
 
+  // Handle Escape key to close
   useEffect(() => {
     if (!isOpen) return;
 
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
-
-      // Focus trap
-      if (e.key === "Tab" && modalRef.current) {
-        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (focusable.length === 0) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
     }
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Focus the modal when it opens
-  useEffect(() => {
-    if (isOpen && modalRef.current) {
-      modalRef.current.focus();
-    }
-  }, [isOpen]);
+  // Animation variants
+  const panelInitial = reducedMotion
+    ? { opacity: 0 }
+    : scaleIn.initial;
+
+  const panelAnimate = reducedMotion
+    ? { opacity: 1 }
+    : scaleIn.animate;
+
+  const panelExit = reducedMotion
+    ? { opacity: 0 }
+    : scaleIn.exit;
+
+  const panelTransition = reducedMotion
+    ? { duration: 0.15 }
+    : springGentle;
 
   return (
     <AnimatePresence>
@@ -78,24 +77,24 @@ export function GlassModal({ isOpen, onClose, title, children, size = "md" }: Gl
             style={{
               position: "absolute",
               inset: 0,
-              background: "rgba(26, 15, 10, 0.6)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
+              background: "rgba(10, 10, 10, 0.7)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
             }}
           />
 
-          {/* Modal Content */}
+          {/* Modal Panel */}
           <motion.div
-            ref={modalRef}
+            ref={containerRef as React.RefObject<HTMLDivElement>}
             className="glass-lg"
             role="dialog"
             aria-modal="true"
-            aria-label={title}
+            aria-labelledby={titleId}
             tabIndex={-1}
-            initial={scaleIn.initial}
-            animate={scaleIn.animate}
-            exit={scaleIn.exit}
-            transition={springGentle}
+            initial={panelInitial}
+            animate={panelAnimate}
+            exit={panelExit}
+            transition={panelTransition}
             style={{
               position: "relative",
               width: "100%",
@@ -103,11 +102,17 @@ export function GlassModal({ isOpen, onClose, title, children, size = "md" }: Gl
               ...sizeStyles[size],
             }}
           >
-            {title && (
-              <h2 style={{ margin: "0 0 1rem", fontSize: "var(--font-size-xl)", fontWeight: 600, color: "var(--color-text)" }}>
-                {title}
-              </h2>
-            )}
+            <h2
+              id={titleId}
+              style={{
+                margin: "0 0 1rem",
+                fontSize: "var(--font-size-xl)",
+                fontWeight: 600,
+                color: "var(--color-text)",
+              }}
+            >
+              {title}
+            </h2>
             {children}
           </motion.div>
         </div>

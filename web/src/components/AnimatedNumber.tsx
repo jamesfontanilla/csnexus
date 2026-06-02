@@ -29,6 +29,9 @@ export function AnimatedNumber({
   const prevValue = useRef(value);
   const rafRef = useRef<number | null>(null);
 
+  // Clamp duration to the 800–1500ms range per motion system spec (Requirement 16.5)
+  const effectiveDuration = Math.max(800, Math.min(1500, duration));
+
   useEffect(() => {
     const from = prevValue.current;
     const to = value;
@@ -44,7 +47,7 @@ export function AnimatedNumber({
 
     function tick(now: number) {
       const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+      const progress = Math.min(elapsed / effectiveDuration, 1);
       // Ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(from + diff * eased);
@@ -62,7 +65,7 @@ export function AnimatedNumber({
         cancelAnimationFrame(rafRef.current);
       }
     };
-  }, [value, duration, reducedMotion]);
+  }, [value, effectiveDuration, reducedMotion]);
 
   return (
     <span
@@ -70,6 +73,7 @@ export function AnimatedNumber({
       style={{ fontVariantNumeric: "tabular-nums", ...style }}
       aria-live="polite"
       aria-atomic="true"
+      data-duration={effectiveDuration}
     >
       {prefix}{display}{suffix}
     </span>

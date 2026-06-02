@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { apiClient } from "../../api/client";
 import { GlassCard } from "../../components/GlassCard";
@@ -8,6 +8,7 @@ import { GlassProgressBar } from "../../components/GlassProgressBar";
 import { MarkdownText } from "../../components/MarkdownText";
 import { XPGainAnimation } from "../../components/XPGainAnimation";
 import { useToast } from "../../context/ToastContext";
+import { useReducedMotion } from "../../design-system/motion";
 import { DesktopLessonLayout, useIsDesktop } from "./lesson";
 import { LessonChatPanel } from "./lesson";
 import type { EnhancedLessonContent } from "./lesson";
@@ -59,16 +60,159 @@ function isLearningObjectives(title: string): boolean {
   return title.toLowerCase().includes("learning objective");
 }
 
-/** Extract short label from section title: "4.1 The Basic Rule" → "4.1" */
-function shortLabel(title: string): string {
-  const match = title.match(/^(\d+\.\d+)/);
-  return match ? match[1] : title.slice(0, 8);
+// ---------------------------------------------------------------------------
+// Reading Progress Bar — fixed at top of viewport
+// ---------------------------------------------------------------------------
+
+function ReadingProgressBar({ progress }: { progress: number }) {
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: "3px",
+        zIndex: 9999,
+        background: "transparent",
+        pointerEvents: "none",
+      }}
+    >
+      <div
+        style={{
+          width: `${progress}%`,
+          height: "100%",
+          background: "linear-gradient(90deg, var(--color-accent), var(--color-metallic))",
+          transition: "width 100ms linear",
+        }}
+      />
+    </div>
+  );
 }
+
+// ---------------------------------------------------------------------------
+// Mobile Section Navigation — collapsible bottom panel
+// ---------------------------------------------------------------------------
+
+interface MobileSectionNavProps {
+  sections: { title: string }[];
+  activeIndex: number;
+  onNavigate: (index: number) => void;
+}
+
+function MobileSectionNav({ sections, activeIndex, onNavigate }: MobileSectionNavProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  if (sections.length <= 1) return null;
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        background: "var(--color-surface, #1C1C1C)",
+        borderTop: "1px solid var(--glass-border-medium, rgba(255,255,255,0.10))",
+        backdropFilter: "blur(12px)",
+        maxHeight: isOpen ? "60vh" : "44px",
+        transition: "max-height 0.25s var(--ease-standard, cubic-bezier(0.4, 0, 0.2, 1))",
+        overflow: "hidden",
+      }}
+    >
+      {/* Toggle header */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-label="Section navigation"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%",
+          padding: "0.625rem 1rem",
+          background: "transparent",
+          border: "none",
+          color: "var(--color-text)",
+          cursor: "pointer",
+          fontSize: "0.8125rem",
+          fontWeight: 600,
+          minHeight: "44px",
+        }}
+      >
+        <span>
+          §{activeIndex + 1} / {sections.length} — {sections[activeIndex]?.title || "Sections"}
+        </span>
+        <span
+          style={{
+            transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+            transition: "transform 0.2s ease",
+            fontSize: "0.75rem",
+          }}
+        >
+          ▲
+        </span>
+      </button>
+
+      {/* Section list */}
+      {isOpen && (
+        <nav
+          aria-label="Lesson sections"
+          style={{
+            padding: "0 1rem 1rem",
+            overflowY: "auto",
+            maxHeight: "calc(60vh - 44px)",
+          }}
+        >
+          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+            {sections.map((section, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <li key={idx}>
+                  <button
+                    onClick={() => {
+                      onNavigate(idx);
+                      setIsOpen(false);
+                    }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      padding: "0.5rem 0.75rem",
+                      background: isActive ? "rgba(201, 168, 76, 0.1)" : "transparent",
+                      border: "none",
+                      borderLeft: isActive ? "2px solid var(--color-accent)" : "2px solid transparent",
+                      borderRadius: "0 4px 4px 0",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      color: isActive ? "var(--color-accent)" : "var(--color-text-secondary)",
+                      fontSize: "0.8125rem",
+                      fontWeight: isActive ? 600 : 400,
+                      marginBottom: "0.125rem",
+                    }}
+                  >
+                    {idx + 1}. {section.title}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Main LessonReader Component
+// ---------------------------------------------------------------------------
 
 export function LessonReader() {
   const { subtopicId } = useParams<{ subtopicId: string }>();
   const toast = useToast();
   const isDesktop = useIsDesktop();
+  const reducedMotion = useReducedMotion();
   const [lesson, setLesson] = useState<LessonResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -76,7 +220,26 @@ export function LessonReader() {
   const [completed, setCompleted] = useState(false);
   const [xpGained, setXpGained] = useState(0);
   const [activeNavIdx, setActiveNavIdx] = useState(0);
+  const [readingProgress, setReadingProgress] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Reading progress via scroll event
+  useEffect(() => {
+    function handleScroll() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (docHeight <= 0) {
+        setReadingProgress(0);
+        return;
+      }
+      const progress = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+      setReadingProgress(progress);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // initial
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     apiClient
@@ -104,6 +267,13 @@ export function LessonReader() {
     return () => observer.disconnect();
   }, [lesson]);
 
+  const scrollToSection = useCallback((idx: number) => {
+    sectionRefs.current[idx]?.scrollIntoView({
+      behavior: reducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  }, [reducedMotion]);
+
   async function handleMarkComplete() {
     setCompleting(true);
     try {
@@ -126,14 +296,11 @@ export function LessonReader() {
     }
   }
 
-  function scrollToSection(idx: number) {
-    sectionRefs.current[idx]?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
   if (loading) {
     return (
       <PageTransition>
-        <div className="page container" style={{ maxWidth: 720 }}>
+        <ReadingProgressBar progress={0} />
+        <div className="page container" style={{ maxWidth: 680, margin: "0 auto" }}>
           <GlassSkeleton width="100%" height="4px" borderRadius="var(--radius-full)" />
           <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
             <GlassSkeleton width="60%" height="1.25rem" />
@@ -154,6 +321,7 @@ export function LessonReader() {
   if (isDesktop) {
     return (
       <PageTransition>
+        <ReadingProgressBar progress={readingProgress} />
         <XPGainAnimation amount={xpGained} onComplete={() => { setXpGained(0); toast.success("✅ Lesson completed"); }} />
         <DesktopLessonLayout
           content={content as unknown as EnhancedLessonContent}
@@ -166,7 +334,7 @@ export function LessonReader() {
     );
   }
 
-  // Mobile layout: original single-column
+  // Mobile layout: single-column with reading-optimized typography
   const allExplanations = content.explanations.map((e) => ({
     title: (typeof e === "string" ? "" : (e.title || e.heading || "")),
     body: typeof e === "string" ? e : e.body,
@@ -179,8 +347,18 @@ export function LessonReader() {
 
   return (
     <PageTransition>
+      <ReadingProgressBar progress={readingProgress} />
       <XPGainAnimation amount={xpGained} onComplete={() => { setXpGained(0); toast.success("✅ Lesson completed"); }} />
-      <div className="page container" style={{ maxWidth: 720, paddingBottom: "5rem" }}>
+      <div
+        className="page container"
+        style={{
+          maxWidth: 680,
+          margin: "0 auto",
+          paddingBottom: "5rem",
+          lineHeight: 1.75,
+          fontSize: "var(--font-size-base)",
+        }}
+      >
         {/* Top bar */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem" }}>
           <Link to="/modules" aria-label="Back to modules" className="btn-glass" style={{ padding: "0.3rem 0.6rem", fontSize: "0.75rem" }}>
@@ -193,50 +371,6 @@ export function LessonReader() {
 
         <GlassProgressBar value={activeNavIdx + 1} max={totalSteps} height={3} />
 
-        {/* Sticky section nav pills */}
-        {lessonSections.length > 1 && (
-          <nav
-            aria-label="Section navigation"
-            style={{
-              position: "sticky",
-              top: 0,
-              zIndex: 10,
-              background: "var(--color-bg, #1a1a1a)",
-              padding: "0.5rem 0",
-              marginBottom: "1rem",
-              borderBottom: "1px solid rgba(255,255,255,0.06)",
-              overflowX: "auto",
-              display: "flex",
-              gap: "0.25rem",
-              scrollbarWidth: "none",
-            }}
-          >
-            {lessonSections.map((s, idx) => (
-              <button
-                key={idx}
-                onClick={() => scrollToSection(idx)}
-                title={s.title}
-                style={{
-                  flexShrink: 0,
-                  padding: "0.25rem 0.5rem",
-                  fontSize: "0.6875rem",
-                  fontWeight: idx === activeNavIdx ? 700 : 500,
-                  borderRadius: "var(--radius-full, 999px)",
-                  border: "1px solid",
-                  borderColor: idx === activeNavIdx ? "var(--color-accent, #d4a574)" : "rgba(255,255,255,0.1)",
-                  background: idx === activeNavIdx ? "rgba(212, 165, 116, 0.15)" : "transparent",
-                  color: idx === activeNavIdx ? "var(--color-accent, #d4a574)" : "var(--color-text-muted)",
-                  cursor: "pointer",
-                  transition: "all 0.15s ease",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {shortLabel(s.title)}
-              </button>
-            ))}
-          </nav>
-        )}
-
         <article>
           {/* Preamble (always visible, compact) */}
           {preambleSections.length > 0 && (
@@ -246,7 +380,7 @@ export function LessonReader() {
                   <LearningObjectivesCard key={i} body={section.body} />
                 ) : (
                   <div key={i} style={{ marginBottom: "0.75rem" }}>
-                    <MarkdownText text={section.raw} style={{ lineHeight: 1.5, color: "var(--color-text)", fontSize: "0.875rem" }} />
+                    <MarkdownText text={section.raw} style={{ lineHeight: 1.75, color: "var(--color-text)", fontSize: "var(--font-size-base)" }} />
                   </div>
                 )
               ))}
@@ -263,7 +397,7 @@ export function LessonReader() {
               <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "0.375rem" }}>
                 {section.title}
               </h3>
-              <MarkdownText text={section.body} style={{ lineHeight: 1.6, color: "var(--color-text)", fontSize: "0.875rem" }} />
+              <MarkdownText text={section.body} style={{ lineHeight: 1.75, color: "var(--color-text)", fontSize: "var(--font-size-base)" }} />
             </div>
           ))}
 
@@ -278,7 +412,7 @@ export function LessonReader() {
                   const text = typeof e === "string" ? e : `**${e.title}**\n\n${e.problem || ""}${e.solution ? "\n\n" + e.solution : ""}${e.body ? "\n\n" + e.body : ""}`;
                   return (
                     <GlassCard key={i} blur="sm">
-                      <MarkdownText text={text} style={{ lineHeight: 1.5, color: "var(--color-text)", fontSize: "0.8125rem" }} />
+                      <MarkdownText text={text} style={{ lineHeight: 1.75, color: "var(--color-text)", fontSize: "var(--font-size-base)" }} />
                     </GlassCard>
                   );
                 })}
@@ -295,7 +429,7 @@ export function LessonReader() {
               <GlassCard blur="sm" style={{ background: "rgba(212, 165, 116, 0.05)", border: "1px solid rgba(212, 165, 116, 0.15)" }}>
                 <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
                   {content.key_takeaways.map((text, i) => (
-                    <li key={i} style={{ marginBottom: "0.25rem", lineHeight: 1.5, color: "var(--color-text)", fontSize: "0.8125rem" }}>
+                    <li key={i} style={{ marginBottom: "0.25rem", lineHeight: 1.75, color: "var(--color-text)", fontSize: "var(--font-size-base)" }}>
                       <MarkdownText text={text} />
                     </li>
                   ))}
@@ -310,7 +444,7 @@ export function LessonReader() {
               <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-text)", margin: "0 0 0.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "0.375rem" }}>
                 📝 Summary
               </h3>
-              <MarkdownText text={content.summary} style={{ lineHeight: 1.5, color: "var(--color-text)", fontSize: "0.875rem" }} />
+              <MarkdownText text={content.summary} style={{ lineHeight: 1.75, color: "var(--color-text)", fontSize: "var(--font-size-base)" }} />
             </div>
           )}
         </article>
@@ -319,7 +453,7 @@ export function LessonReader() {
         <div
           style={{
             position: "fixed",
-            bottom: 0,
+            bottom: lessonSections.length > 1 ? "44px" : 0,
             left: 0,
             right: 0,
             padding: "0.75rem 1rem",
@@ -351,6 +485,13 @@ export function LessonReader() {
           lessonTitle={content.explanations[0]?.title || content.explanations[0]?.heading || ""}
         />
       </div>
+
+      {/* Mobile section navigation — collapsible bottom panel */}
+      <MobileSectionNav
+        sections={lessonSections}
+        activeIndex={activeNavIdx}
+        onNavigate={scrollToSection}
+      />
     </PageTransition>
   );
 }

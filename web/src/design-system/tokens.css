@@ -1,19 +1,19 @@
 :root {
-  /* Brown Palette */
-  --color-primary: #3E2723;          /* Espresso Brown */
-  --color-secondary: #5D4037;        /* Mocha */
-  --color-accent: #D4A574;           /* Caramel */
-  --color-surface: #4E342E;          /* Walnut */
-  --color-muted: #A1887F;            /* Sandstone */
-  --color-highlight: #F5E6D3;        /* Champagne Beige */
-  --color-metallic: #CD7F32;         /* Bronze */
-  --color-background: #2C1810;       /* Soft Coffee (deep) */
-  --color-background-warm: #1A0F0A;  /* Deepest background */
+  /* Obsidian + Gold Palette */
+  --color-primary: #0A0A0A;          /* True obsidian black */
+  --color-secondary: #141414;        /* Slightly lifted black */
+  --color-accent: #C9A84C;           /* Refined gold */
+  --color-surface: #1C1C1C;          /* Card surface */
+  --color-muted: #6B6B6B;            /* Neutral grey */
+  --color-highlight: #F5F0E8;        /* Warm white */
+  --color-metallic: #E8C96A;         /* Bright gold highlight */
+  --color-background: #080808;       /* Near-black background */
+  --color-background-warm: #050505;  /* Deepest background */
 
   /* Text Colors */
-  --color-text: #F5E6D3;             /* Champagne Beige — primary text */
-  --color-text-secondary: #A1887F;   /* Sandstone — secondary text */
-  --color-text-muted: #795548;       /* Muted brown */
+  --color-text: #F0EBE0;             /* Warm white — primary text */
+  --color-text-secondary: #9A9A9A;   /* Mid grey — secondary text */
+  --color-text-muted: #666666;       /* Dark grey — muted text (WCAG AA ≥ 3:1 large text) */
 
   /* Semantic Colors */
   --color-success: #8fbc8f;          /* Sage green (warmer) */
@@ -26,22 +26,22 @@
   --glass-blur-md: blur(30px);
   --glass-blur-lg: blur(40px);
 
-  --glass-bg-subtle: rgba(78, 52, 46, 0.08);
-  --glass-bg-medium: rgba(78, 52, 46, 0.15);
-  --glass-bg-strong: rgba(78, 52, 46, 0.25);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.03);
+  --glass-bg-medium: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(255, 255, 255, 0.10);
 
-  --glass-border-light: rgba(255, 255, 255, 0.05);
-  --glass-border-medium: rgba(255, 255, 255, 0.08);
-  --glass-border-strong: rgba(255, 255, 255, 0.15);
+  --glass-border-light: rgba(255, 255, 255, 0.06);
+  --glass-border-medium: rgba(255, 255, 255, 0.10);
+  --glass-border-strong: rgba(255, 255, 255, 0.18);
 
-  /* Shadows (warm-tinted, layered for depth) */
-  --shadow-ambient: 0 0 40px rgba(62, 39, 35, 0.3);
-  --shadow-depth: 0 8px 32px rgba(26, 15, 10, 0.4), 0 2px 8px rgba(26, 15, 10, 0.2);
-  --shadow-glow: 0 0 20px rgba(212, 165, 116, 0.15), 0 0 40px rgba(212, 165, 116, 0.05);
-  --shadow-diffused: 0 4px 16px rgba(62, 39, 35, 0.2), 0 1px 4px rgba(62, 39, 35, 0.1);
+  /* Shadows (cool-tinted for obsidian) */
+  --shadow-ambient: 0 0 40px rgba(0, 0, 0, 0.6);
+  --shadow-depth: 0 8px 32px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(201, 168, 76, 0.20), 0 0 40px rgba(201, 168, 76, 0.08);
+  --shadow-diffused: 0 4px 16px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.2);
   --shadow-inner: inset 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-lifted: 0 12px 40px rgba(26, 15, 10, 0.5), 0 4px 16px rgba(26, 15, 10, 0.3), 0 0 24px rgba(212, 165, 116, 0.08);
-  --shadow-subtle: 0 2px 8px rgba(26, 15, 10, 0.15), 0 1px 3px rgba(26, 15, 10, 0.1);
+  --shadow-lifted: 0 12px 40px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 24px rgba(201, 168, 76, 0.10);
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
 
   /* Border Radius */
   --radius-sm: 8px;
@@ -68,10 +68,10 @@
   --space-20: 5rem;     /* 80px */
   --space-24: 6rem;     /* 96px */
 
-  /* Typography */
-  --font-display: "General Sans", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  
+  /* Typography — Clash Display + Satoshi */
+  --font-display: "Clash Display", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family: "Satoshi", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
   /* Fluid Typography (scales between viewport widths) */
   --font-size-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
   --font-size-sm: clamp(0.78rem, 0.73rem + 0.25vw, 0.8125rem);
@@ -83,21 +83,19 @@
   --font-size-4xl: clamp(2.25rem, 2rem + 1.5vw, 2.5rem);
   --font-size-5xl: clamp(2.75rem, 2.25rem + 2.5vw, 3.5rem);
   --font-size-6xl: clamp(3.5rem, 3rem + 3vw, 4.5rem);
-  
+
   /* Line Heights */
   --line-height-tight: 1.2;
   --line-height-snug: 1.375;
   --line-height-normal: 1.6;
   --line-height-relaxed: 1.75;
   --line-height-loose: 2;
-  
+
   /* Letter Spacing */
   --letter-spacing-tight: -0.03em;
   --letter-spacing-normal: 0;
   --letter-spacing-wide: 0.025em;
   --letter-spacing-wider: 0.05em;
-  --font-size-4xl: 2.75rem;
-  --font-size-5xl: 3.5rem;
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -105,8 +103,8 @@
   --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Focus */
-  --focus-ring: 0 0 0 3px rgba(212, 165, 116, 0.4);
+  /* Focus — gold */
+  --focus-ring: 0 0 0 3px rgba(201, 168, 76, 0.4);
 
   /* Z-Index Scale */
   --z-background: 0;
@@ -115,4 +113,69 @@
   --z-navbar: 100;
   --z-modal: 200;
   --z-toast: 9999;
+
+  /* --- Heading Style Tokens --- */
+  --heading-1-size: var(--font-size-5xl);
+  --heading-1-weight: 700;
+  --heading-1-line-height: 1.05;
+  --heading-1-letter-spacing: -0.04em;
+  --heading-1-font: var(--font-display);
+
+  --heading-2-size: var(--font-size-3xl);
+  --heading-2-weight: 600;
+  --heading-2-line-height: 1.15;
+  --heading-2-letter-spacing: -0.03em;
+  --heading-2-font: var(--font-display);
+
+  --heading-3-size: var(--font-size-2xl);
+  --heading-3-weight: 600;
+  --heading-3-line-height: 1.25;
+  --heading-3-letter-spacing: -0.02em;
+  --heading-3-font: var(--font-display);
+
+  --heading-4-size: var(--font-size-xl);
+  --heading-4-weight: 500;
+  --heading-4-line-height: 1.35;
+  --heading-4-letter-spacing: -0.01em;
+  --heading-4-font: var(--font-display);
+
+  /* --- Surface Elevation Tokens --- */
+  --surface-0: rgba(255, 255, 255, 0.00);
+  --surface-1: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --surface-3: rgba(255, 255, 255, 0.10);
+  --surface-4: rgba(255, 255, 255, 0.15);
+
+  --shadow-elevation-0: none;
+  --shadow-elevation-1: var(--shadow-subtle);
+  --shadow-elevation-2: var(--shadow-diffused);
+  --shadow-elevation-3: var(--shadow-depth);
+  --shadow-elevation-4: var(--shadow-lifted);
+
+  /* --- Motion Duration Tokens --- */
+  --duration-instant: 80ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-page: 500ms;
+
+  /* --- Motion Easing Tokens --- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* --- Spatial Scale Tokens --- */
+  --density-compact-padding: var(--space-3);
+  --density-compact-gap: var(--space-2);
+  --density-comfortable-padding: var(--space-6);
+  --density-comfortable-gap: var(--space-4);
+  --density-spacious-padding: var(--space-12);
+  --density-spacious-gap: var(--space-8);
+
+  /* --- Interactive State Tokens --- */
+  --state-hover-bg: rgba(212, 165, 116, 0.08);
+  --state-active-bg: rgba(212, 165, 116, 0.15);
+  --state-focus-ring: 0 0 0 3px rgba(212, 165, 116, 0.4);
+  --state-disabled-opacity: 0.45;
 }

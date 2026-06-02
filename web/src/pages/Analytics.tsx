@@ -6,7 +6,6 @@ import { GlassProgressBar } from "../components/GlassProgressBar";
 import { GlassSkeleton } from "../components/GlassSkeleton";
 import { AnimatedNumber } from "../components/AnimatedNumber";
 import { GradientText } from "../components/GradientText";
-import { EmptyState } from "../components/EmptyState";
 import { PageTransition } from "../components/PageTransition";
 import { DonutChart, LineChart } from "../components/Chart";
 import { HeatMap } from "../components/HeatMap";

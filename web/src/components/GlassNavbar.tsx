@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { isAuthenticated } from "../stores/auth";
 import { apiClient } from "../api/client";
 import { slideDown, springDefault } from "../design-system";
+import { BottomNav } from "./BottomNav";
+import { useMediaQuery } from "../pages/content/lesson/useMediaQuery";
 import "./GlassNavbar.css";
 
 interface XPData {
@@ -30,6 +32,9 @@ export function GlassNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [xp, setXp] = useState<XPData | null>(null);
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const authenticated = isAuthenticated();
+  const showBottomNav = isMobile && authenticated;
 
   useEffect(() => {
     function handleScroll() {
@@ -44,6 +49,18 @@ export function GlassNavbar() {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  // Add padding-bottom to body when bottom nav is visible to prevent content occlusion
+  useEffect(() => {
+    if (showBottomNav) {
+      document.body.style.paddingBottom = "80px";
+    } else {
+      document.body.style.paddingBottom = "";
+    }
+    return () => {
+      document.body.style.paddingBottom = "";
+    };
+  }, [showBottomNav]);
+
   // Fetch XP data once on mount and when the user navigates back to a page
   // after potentially earning XP. Use a cancellation flag to avoid setting
   // state on an unmounted component.
@@ -56,9 +73,8 @@ export function GlassNavbar() {
     return () => { cancelled = true; };
   }, [location.pathname]);
 
-  const authenticated = isAuthenticated();
-
   return (
+    <>
     <header
       className="glass-navbar"
       style={{
@@ -130,8 +146,8 @@ export function GlassNavbar() {
             👤
           </Link>
         )}
-        {/* Mobile hamburger */}
-        {authenticated && (
+        {/* Mobile hamburger — hidden when bottom nav is active */}
+        {authenticated && !showBottomNav && (
           <button
             className="glass-navbar-hamburger"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -143,9 +159,9 @@ export function GlassNavbar() {
         )}
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — hidden when bottom nav is active */}
       <AnimatePresence>
-        {menuOpen && authenticated && (
+        {menuOpen && authenticated && !showBottomNav && (
           <motion.nav
             className="glass-md glass-mobile-drawer"
             aria-label="Mobile navigation"
@@ -173,5 +189,9 @@ export function GlassNavbar() {
         )}
       </AnimatePresence>
     </header>
+
+    {/* Bottom navigation for mobile */}
+    {showBottomNav && <BottomNav />}
+    </>
   );
 }

@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { AdminDashboard } from "../../pages/AdminDashboard";
+import { ToastProvider } from "../../context/ToastContext";
 
 const mockGet = vi.fn();
 
@@ -53,7 +54,9 @@ describe("AdminDashboard page", () => {
 
     render(
       <MemoryRouter>
-        <AdminDashboard />
+        <ToastProvider>
+          <AdminDashboard />
+        </ToastProvider>
       </MemoryRouter>
     );
 

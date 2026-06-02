@@ -2,6 +2,7 @@ interface GlassSkeletonProps {
   width?: string;
   height?: string;
   borderRadius?: string;
+  lines?: number;
   variant?: "text" | "card" | "avatar" | "button";
 }
 
@@ -9,6 +10,7 @@ export function GlassSkeleton({
   width = "100%",
   height = "1rem",
   borderRadius = "var(--radius-md)",
+  lines,
   variant,
 }: GlassSkeletonProps) {
   if (variant === "card") {
@@ -41,16 +43,39 @@ export function GlassSkeleton({
     return (
       <div
         aria-hidden="true"
+        className="skeleton"
         style={{
           width: height,
           height,
           borderRadius: "var(--radius-full)",
-          background:
-            "linear-gradient(90deg, var(--glass-bg-subtle) 25%, var(--glass-bg-medium) 50%, var(--glass-bg-subtle) 75%)",
-          backgroundSize: "200% 100%",
-          animation: "glass-shimmer 1.5s ease-in-out infinite",
         }}
       />
+    );
+  }
+
+  if (lines && lines > 1) {
+    return (
+      <div
+        aria-hidden="true"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--space-2)",
+          width,
+        }}
+      >
+        {Array.from({ length: lines }, (_, i) => {
+          const lineWidth = `${Math.max(100 - i * 15, 10)}%`;
+          return (
+            <SkeletonBar
+              key={i}
+              width={lineWidth}
+              height={height}
+              borderRadius={borderRadius}
+            />
+          );
+        })}
+      </div>
     );
   }
 
@@ -69,14 +94,11 @@ function SkeletonBar({
   return (
     <div
       aria-hidden="true"
+      className="skeleton"
       style={{
         width,
         height,
         borderRadius,
-        background:
-          "linear-gradient(90deg, var(--glass-bg-subtle) 25%, var(--glass-bg-medium) 50%, var(--glass-bg-subtle) 75%)",
-        backgroundSize: "200% 100%",
-        animation: "glass-shimmer 1.5s ease-in-out infinite",
       }}
     />
   );

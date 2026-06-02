@@ -1,110 +1,204 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { isAuthenticated } from "../stores/auth";
 import { GlassCard } from "../components/GlassCard";
 import { GlassButton } from "../components/GlassButton";
 import { GradientText } from "../components/GradientText";
+import { AnimatedNumber } from "../components/AnimatedNumber";
 import { PageTransition } from "../components/PageTransition";
-import { staggerContainer, staggerItem } from "../design-system";
+import { cardStaggerContainer, cardStaggerItem, useReducedMotion } from "../design-system/motion";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useInView } from "../hooks/useInView";
 
 export function Home() {
+  const reducedMotion = useReducedMotion();
+  const [heroRef, heroMotionProps] = useScrollReveal();
+  const [featuresRef, featuresMotionProps] = useScrollReveal();
+  const [socialRef, socialMotionProps] = useScrollReveal();
+  const [footerRef, footerMotionProps] = useScrollReveal();
+
   return (
     <PageTransition>
       <main style={{ position: "relative", zIndex: 1 }}>
         {/* Hero with gradient */}
-        <section
-          style={{
-            padding: "var(--space-16) var(--space-6) var(--space-12)",
-            textAlign: "center",
-          }}
-        >
-          <div style={{ maxWidth: 700, margin: "0 auto" }}>
-            <h1
-              style={{
-                fontSize: "var(--font-size-5xl)",
-                fontWeight: 800,
-                marginBottom: "var(--space-3)",
-                fontFamily: "var(--font-display)",
-                letterSpacing: "-0.03em",
-              }}
-            >
-              <GradientText variant="accent">CSNexus</GradientText>
-            </h1>
-            <p
-              style={{
-                fontSize: "var(--font-size-lg)",
-                color: "var(--color-text-secondary)",
-                lineHeight: 1.7,
-                maxWidth: 560,
-                margin: "0 auto var(--space-8)",
-              }}
-            >
-              Your free study companion for the Philippine Civil Service Examination.
-              Practice lessons, quizzes, and timed mock exams — track your progress
-              with XP, streaks, and leaderboards.
-            </p>
+        <motion.div ref={heroRef} {...heroMotionProps}>
+          <section
+            style={{
+              padding: "var(--space-16) var(--space-6) var(--space-12)",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ maxWidth: 700, margin: "0 auto" }}>
+              <h1
+                style={{
+                  fontSize: "var(--font-size-5xl)",
+                  fontWeight: 800,
+                  marginBottom: "var(--space-3)",
+                  fontFamily: "var(--font-display)",
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                <GradientText variant="accent">CSNexus</GradientText>
+              </h1>
+              <p
+                style={{
+                  fontSize: "var(--font-size-lg)",
+                  color: "var(--color-text-secondary)",
+                  lineHeight: 1.7,
+                  maxWidth: 560,
+                  margin: "0 auto var(--space-8)",
+                }}
+              >
+                Your free study companion for the Philippine Civil Service Examination.
+                Practice lessons, quizzes, and timed mock exams — track your progress
+                with XP, streaks, and leaderboards.
+              </p>
 
-            {/* CTA Buttons */}
-            <div style={{ display: "flex", gap: "var(--space-4)", justifyContent: "center", flexWrap: "wrap" }}>
-              {isAuthenticated() ? (
-                <Link to="/modules" style={{ textDecoration: "none" }} aria-label="Continue studying">
-                  <GlassButton variant="primary" size="lg">
-                    Continue Studying →
-                  </GlassButton>
-                </Link>
-              ) : (
-                <>
-                  <Link to="/signup" style={{ textDecoration: "none" }} aria-label="Get started for free">
+              {/* CTA Buttons */}
+              <div style={{ display: "flex", gap: "var(--space-4)", justifyContent: "center", flexWrap: "wrap" }}>
+                {isAuthenticated() ? (
+                  <Link to="/modules" style={{ textDecoration: "none" }} aria-label="Continue studying">
                     <GlassButton variant="primary" size="lg">
-                      Get Started — It's Free
+                      Continue Studying →
                     </GlassButton>
                   </Link>
-                  <Link to="/login" style={{ textDecoration: "none" }} aria-label="Log in">
-                    <GlassButton variant="secondary" size="lg">
-                      Log In
-                    </GlassButton>
-                  </Link>
-                </>
-              )}
+                ) : (
+                  <>
+                    <Link to="/signup" style={{ textDecoration: "none" }} aria-label="Get started for free">
+                      <GlassButton variant="primary" size="lg">
+                        Get Started — It's Free
+                      </GlassButton>
+                    </Link>
+                    <Link to="/login" style={{ textDecoration: "none" }} aria-label="Log in">
+                      <GlassButton variant="secondary" size="lg">
+                        Log In
+                      </GlassButton>
+                    </Link>
+                  </>
+                )}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </motion.div>
 
         {/* Features */}
-        <FeaturesSection />
+        <motion.div ref={featuresRef} {...featuresMotionProps}>
+          <FeaturesSection reducedMotion={reducedMotion} />
+        </motion.div>
 
         {/* Social proof */}
-        <section
-          style={{
-            textAlign: "center",
-            padding: "var(--space-10) var(--space-6)",
-            borderTop: "1px solid var(--glass-border-light)",
-          }}
-        >
-          <p style={{ fontSize: "var(--font-size-lg)", color: "var(--color-text-secondary)", margin: 0 }}>
-            Join learners preparing for the Civil Service Exam
-          </p>
-        </section>
+        <motion.div ref={socialRef} {...socialMotionProps}>
+          <SocialProofSection />
+        </motion.div>
 
         {/* Footer */}
-        <footer
-          style={{
-            textAlign: "center",
-            padding: "var(--space-6)",
-            color: "var(--color-text-muted)",
-            fontSize: "var(--font-size-sm)",
-          }}
-        >
-          CSNexus — Your path to passing the Civil Service Exam. Free and open.
-        </footer>
+        <motion.div ref={footerRef} {...footerMotionProps}>
+          <footer
+            style={{
+              textAlign: "center",
+              padding: "var(--space-6)",
+              color: "var(--color-text-muted)",
+              fontSize: "var(--font-size-sm)",
+            }}
+          >
+            CSNexus — Your path to passing the Civil Service Exam. Free and open.
+          </footer>
+        </motion.div>
       </main>
     </PageTransition>
   );
 }
 
-function FeaturesSection() {
-  const [sectionRef, isInView] = useInView();
+function SocialProofSection() {
+  const [ref, isInView] = useInView({ rootMargin: "100px" });
+
+  return (
+    <section
+      ref={ref}
+      style={{
+        textAlign: "center",
+        padding: "var(--space-12) var(--space-6)",
+        borderTop: "1px solid var(--glass-border-light)",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "var(--font-size-lg)",
+          color: "var(--color-text-secondary)",
+          margin: "0 0 var(--space-8)",
+        }}
+      >
+        Join learners preparing for the Civil Service Exam
+      </p>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "var(--space-10)",
+          flexWrap: "wrap",
+        }}
+      >
+        <AnimatedCounter
+          value={isInView ? 2500 : 0}
+          label="Active Learners"
+          suffix="+"
+        />
+        <AnimatedCounter
+          value={isInView ? 15000 : 0}
+          label="Questions Answered"
+          suffix="+"
+        />
+        <AnimatedCounter
+          value={isInView ? 98 : 0}
+          label="Pass Rate"
+          suffix="%"
+        />
+      </div>
+    </section>
+  );
+}
+
+interface AnimatedCounterProps {
+  value: number;
+  label: string;
+  suffix?: string;
+  prefix?: string;
+}
+
+function AnimatedCounter({ value, label, suffix = "", prefix = "" }: AnimatedCounterProps) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
+      <AnimatedNumber
+        value={value}
+        duration={1200}
+        prefix={prefix}
+        suffix={suffix}
+        style={{
+          fontSize: "var(--font-size-3xl)",
+          fontWeight: 700,
+          fontFamily: "var(--font-display)",
+          color: "var(--color-accent)",
+        }}
+      />
+      <span
+        style={{
+          fontSize: "var(--font-size-sm)",
+          color: "var(--color-text-secondary)",
+        }}
+      >
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function FeaturesSection({ reducedMotion }: { reducedMotion: boolean }) {
+  // Stagger configuration is applied regardless of reduced-motion state.
+  // Only transforms/opacity are stripped by makeReducedVariants when reducedMotion is true.
+  const containerVariants = cardStaggerContainer;
+  const itemVariants = reducedMotion
+    ? { initial: { opacity: 1 }, animate: { opacity: 1 }, transition: { duration: 0 } }
+    : cardStaggerItem;
 
   return (
     <section style={{ maxWidth: 960, margin: "0 auto", padding: "var(--space-12) var(--space-6)" }}>
@@ -121,37 +215,38 @@ function FeaturesSection() {
       >
         What You Get
       </h2>
-      <div ref={sectionRef}>
-        {isInView ? (
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-              gap: "var(--space-5)",
-            }}
-          >
-            <FeatureCard emoji="📚" title="Structured Lessons" desc="Modules → Topics → Subtopics with explanations, worked examples, and key takeaways." />
-            <FeatureCard emoji="✅" title="Practice Quizzes" desc="20-question subtopic quizzes, 50-question topic quizzes, and 100-question module quizzes." />
-            <FeatureCard emoji="⏱️" title="Timed Mock Exams" desc="50-question mock exams with a 3-hour timer matching the real CSE format." />
-            <FeatureCard emoji="⚡" title="XP & Levels" desc="Earn XP for every activity. Level up and maintain your daily streak." />
-            <FeatureCard emoji="🏆" title="Leaderboards" desc="Compete with other learners on global, weekly, and monthly rankings." />
-            <FeatureCard emoji="🏅" title="Achievements" desc="Unlock badges for milestones like first lesson, 7-day streak, and level 10." />
-          </motion.div>
-        ) : (
-          <div style={{ minHeight: "300px" }} />
-        )}
-      </div>
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+          gap: "var(--space-5)",
+        }}
+      >
+        <FeatureCard variants={itemVariants} emoji="📚" title="Structured Lessons" desc="Modules → Topics → Subtopics with explanations, worked examples, and key takeaways." />
+        <FeatureCard variants={itemVariants} emoji="✅" title="Practice Quizzes" desc="20-question subtopic quizzes, 50-question topic quizzes, and 100-question module quizzes." />
+        <FeatureCard variants={itemVariants} emoji="⏱️" title="Timed Mock Exams" desc="50-question mock exams with a 3-hour timer matching the real CSE format." />
+        <FeatureCard variants={itemVariants} emoji="⚡" title="XP & Levels" desc="Earn XP for every activity. Level up and maintain your daily streak." />
+        <FeatureCard variants={itemVariants} emoji="🏆" title="Leaderboards" desc="Compete with other learners on global, weekly, and monthly rankings." />
+        <FeatureCard variants={itemVariants} emoji="🏅" title="Achievements" desc="Unlock badges for milestones like first lesson, 7-day streak, and level 10." />
+      </motion.div>
     </section>
   );
 }
 
-function FeatureCard({ emoji, title, desc }: { emoji: string; title: string; desc: string }) {
+interface FeatureCardProps {
+  emoji: string;
+  title: string;
+  desc: string;
+  variants: Variants;
+}
+
+function FeatureCard({ emoji, title, desc, variants }: FeatureCardProps) {
   return (
-    <motion.div variants={staggerItem}>
-      <GlassCard hoverable>
+    <motion.div variants={variants}>
+      <GlassCard elevation="raised" hoverable>
         <div style={{ fontSize: "1.75rem", marginBottom: "var(--space-3)" }}>{emoji}</div>
         <h3
           style={{

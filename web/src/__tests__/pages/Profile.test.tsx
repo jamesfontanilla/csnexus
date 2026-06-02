@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { Profile } from "../../pages/Profile";
+import { ToastProvider } from "../../context/ToastContext";
 
 const mockGet = vi.fn();
 
@@ -40,7 +41,9 @@ describe("Profile page", () => {
 
     render(
       <MemoryRouter>
-        <Profile />
+        <ToastProvider>
+          <Profile />
+        </ToastProvider>
       </MemoryRouter>
     );
 

@@ -5,7 +5,7 @@ import { useReducedMotion } from "../design-system";
 interface CrossfadeContentProps {
   /** Unique key that changes when content swaps (e.g., "loading" vs "loaded") */
   contentKey: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**

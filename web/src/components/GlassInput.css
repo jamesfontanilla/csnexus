@@ -72,3 +72,11 @@
 .glass-input-wrapper:has(.glass-input-icon) .glass-input {
   padding-left: 2.5rem;
 }
+
+.glass-input-char-count {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-align: right;
+}
