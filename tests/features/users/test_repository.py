@@ -63,7 +63,7 @@ def test_create_persists_with_default_state_and_role(db_session: Session) -> Non
     assert user.account_state == AccountState.UNVERIFIED.value
     assert user.role == Role.LEARNER.value
     assert user.is_banned is False
-    assert user.tz_name == "UTC"
+    assert user.tz_name == "Asia/Manila"
     assert user.password_hash == "bcrypt$fake$hash"
 
 

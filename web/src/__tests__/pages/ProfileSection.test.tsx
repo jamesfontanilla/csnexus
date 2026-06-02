@@ -114,11 +114,11 @@ describe("ProfileSection", () => {
 
     const displayNameInput = screen.getByLabelText("Display name") as HTMLInputElement;
     const usernameInput = screen.getByLabelText("Username") as HTMLInputElement;
-    const timezoneSelect = screen.getByLabelText("Timezone") as HTMLSelectElement;
+    const timezoneInput = screen.getByLabelText("Timezone") as HTMLInputElement;
 
     expect(displayNameInput.value).toBe("Test User");
     expect(usernameInput.value).toBe("testuser");
-    expect(timezoneSelect.value).toBe("Asia/Manila");
+    expect(timezoneInput.value).toBe("Asia/Manila");
   });
 
   it("shows error when profile fails to load", async () => {

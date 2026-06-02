@@ -88,12 +88,14 @@ const indicatorStyle: React.CSSProperties = {
 
 // --- Timezone list ---
 
+const DEFAULT_TIMEZONE = "Asia/Manila";
+
 function getTimezones(): string[] {
   try {
     return (Intl as unknown as { supportedValuesOf(key: string): string[] }).supportedValuesOf("timeZone");
   } catch {
     // Fallback for environments that don't support this API
-    return ["UTC", "America/New_York", "America/Chicago", "America/Denver", "America/Los_Angeles", "Europe/London", "Asia/Manila", "Asia/Tokyo"];
+    return ["Asia/Manila", "UTC", "America/New_York", "America/Chicago", "America/Denver", "America/Los_Angeles", "Europe/London", "Asia/Tokyo"];
   }
 }
 
@@ -111,7 +113,12 @@ export function ProfileSection() {
   // Editable fields
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
-  const [tzName, setTzName] = useState("");
+  const [tzName, setTzName] = useState(DEFAULT_TIMEZONE);
+
+  // Timezone combobox state
+  const [tzSearch, setTzSearch] = useState("");
+  const [tzOpen, setTzOpen] = useState(false);
+  const tzContainerRef = useRef<HTMLDivElement>(null);
 
   // Username availability state
   const [usernameChecking, setUsernameChecking] = useState(false);
@@ -136,13 +143,29 @@ export function ProfileSection() {
         setOriginal(user);
         setDisplayName(user.display_name);
         setUsername(user.username ?? "");
-        setTzName(user.tz_name);
+        setTzName(user.tz_name || DEFAULT_TIMEZONE);
       })
       .catch(() => {
         // Error loading user — handled gracefully
       })
       .finally(() => setLoading(false));
   }, []);
+
+  // Close timezone dropdown on click outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (tzContainerRef.current && !tzContainerRef.current.contains(e.target as Node)) {
+        setTzOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Filtered timezones for combobox
+  const filteredTimezones = tzSearch
+    ? timezones.filter((tz) => tz.toLowerCase().includes(tzSearch.toLowerCase()))
+    : timezones;
 
   // Debounced username availability check
   const checkUsername = useCallback((value: string) => {
@@ -368,23 +391,96 @@ export function ProfileSection() {
       </div>
 
       {/* Timezone */}
-      <div style={fieldGroupStyle}>
+      <div style={fieldGroupStyle} ref={tzContainerRef}>
         <label htmlFor="profile-timezone" style={labelStyle}>
           Timezone
         </label>
-        <select
-          id="profile-timezone"
-          value={tzName}
-          onChange={(e) => setTzName(e.target.value)}
-          style={inputStyle}
-          aria-label="Timezone"
-        >
-          {timezones.map((tz) => (
-            <option key={tz} value={tz}>
-              {tz}
-            </option>
-          ))}
-        </select>
+        <div style={{ position: "relative" }}>
+          <input
+            id="profile-timezone"
+            type="text"
+            value={tzOpen ? tzSearch : tzName}
+            onChange={(e) => {
+              setTzSearch(e.target.value);
+              if (!tzOpen) setTzOpen(true);
+            }}
+            onFocus={() => {
+              setTzOpen(true);
+              setTzSearch("");
+            }}
+            placeholder="Search timezone..."
+            style={inputStyle}
+            aria-label="Timezone"
+            aria-expanded={tzOpen}
+            aria-autocomplete="list"
+            aria-controls="tz-listbox"
+            role="combobox"
+            autoComplete="off"
+          />
+          {tzOpen && (
+            <ul
+              id="tz-listbox"
+              role="listbox"
+              style={{
+                position: "absolute",
+                top: "100%",
+                left: 0,
+                right: 0,
+                maxHeight: 200,
+                overflowY: "auto",
+                margin: "var(--space-1) 0 0 0",
+                padding: 0,
+                listStyle: "none",
+                background: "var(--glass-bg-strong)",
+                border: "1px solid var(--glass-border-medium)",
+                borderRadius: "var(--radius-md)",
+                zIndex: 50,
+                boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+              }}
+            >
+              {filteredTimezones.length === 0 && (
+                <li
+                  style={{
+                    padding: "var(--space-2) var(--space-3)",
+                    fontSize: "var(--font-size-sm)",
+                    color: "var(--color-text-muted)",
+                  }}
+                >
+                  No timezones found
+                </li>
+              )}
+              {filteredTimezones.slice(0, 50).map((tz) => (
+                <li
+                  key={tz}
+                  role="option"
+                  aria-selected={tz === tzName}
+                  onClick={() => {
+                    setTzName(tz);
+                    setTzOpen(false);
+                    setTzSearch("");
+                  }}
+                  style={{
+                    padding: "var(--space-2) var(--space-3)",
+                    fontSize: "var(--font-size-sm)",
+                    color: tz === tzName ? "var(--color-accent)" : "var(--color-text)",
+                    cursor: "pointer",
+                    background: tz === tzName ? "var(--glass-bg-subtle)" : "transparent",
+                    transition: "background 100ms ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "var(--glass-bg-subtle)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.background =
+                      tz === tzName ? "var(--glass-bg-subtle)" : "transparent";
+                  }}
+                >
+                  {tz}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
 
       {/* General error */}

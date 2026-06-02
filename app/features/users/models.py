@@ -85,7 +85,7 @@ class User(Base):
         Boolean, nullable=False, default=False, server_default="0"
     )
     tz_name: Mapped[str] = mapped_column(
-        String(64), nullable=False, default="UTC", server_default="UTC"
+        String(64), nullable=False, default="Asia/Manila", server_default="Asia/Manila"
     )
     password_hash: Mapped[str | None] = mapped_column(String(255), nullable=True)
     cross_category_preview: Mapped[bool] = mapped_column(
