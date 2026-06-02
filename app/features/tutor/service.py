@@ -257,17 +257,31 @@ class TutorService:
             detected_intent = "fallback"
             updated_context_json = context_json or {}
 
-        interaction = self._tutor_repo.create_interaction(
-            user_id=user_id,
-            question_id=None,
-            subtopic_id=subtopic_id,
-            interaction_type="lesson_chat",
-            request_context={
-                "message": message,
-                "active_section_index": active_section_index,
-                "detected_intent": detected_intent,
-            },
+        interaction = None
+        try:
+            interaction = self._tutor_repo.create_interaction(
+                user_id=user_id,
+                question_id=None,
+                subtopic_id=subtopic_id,
+                interaction_type="lesson_chat",
+                request_context={
+                    "message": message,
+                    "active_section_index": active_section_index,
+                    "detected_intent": detected_intent,
+                },
+                response_text=response_text,
+            )
+        except Exception:
+            logger.exception(
+                "Failed to persist chat interaction for user=%d subtopic=%d",
+                user_id, subtopic_id,
+            )
+
+        return LessonChatResponse(
+            interaction_id=interaction.id if interaction else 0,
             response_text=response_text,
+            detected_intent=detected_intent,
+            context_json=updated_context_json,
         )
 
         return LessonChatResponse(
