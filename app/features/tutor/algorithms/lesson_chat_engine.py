@@ -1,578 +1,103 @@
-"""Rule-based lesson chat engine for the pseudo-AI chatbot.
+"""Smart Chat Engine orchestrator for the pseudo-AI chatbot.
 
-Provides contextual, conversational responses about the lesson the student
-is currently reading. No external LLM API calls — all responses are
-assembled from the lesson's own content_json using intent classification
-and template-based generation.
+Provides the main entry point ``generate_chat_response`` which wires
+together the full orchestration pipeline:
 
-Intent classification uses keyword matching against a fixed set of intents.
-Each intent handler extracts relevant content from the lesson and formats
-it into a helpful, conversational response.
+    ContextManager → AnaphoraResolver → IntentClassifier → SocraticModule → ResponseGenerator
+
+The engine remains purely rule-based (no LLM, no external API calls).
+All responses are assembled from the lesson's own content_json using
+discourse-aware intent classification and template-based generation.
+
+The old stateless signature is replaced with a keyword-arg interface
+returning ``ChatResult``. Backward compatibility is maintained: when
+``context_json`` is None, the engine starts a fresh conversation context.
 """
 
 from __future__ import annotations
 
-import random
+import logging
 import re
+from pathlib import Path
 from typing import Any
 
+from app.features.tutor.algorithms.anaphora_resolver import AnaphoraResolver
+from app.features.tutor.algorithms.chat_models import (
+    ChatResult,
+    ConversationContext,
+    DiscourseState,
+    MasteryLevel,
+    SocraticPrompt,
+)
+from app.features.tutor.algorithms.context_manager import ContextManager
+from app.features.tutor.algorithms.cross_lesson_registry import CrossLessonRegistry
+from app.features.tutor.algorithms.intent_classifier import IntentClassifier
+from app.features.tutor.algorithms.response_generator import (
+    ResponseGenerator,
+    activate_override,
+    compute_complexity_level,
+    resolve_effective_complexity,
+)
+from app.features.tutor.algorithms.socratic_module import SocraticModule
+from app.features.tutor.algorithms.template_loader import TemplateLoader
+
+logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Intent definitions
+# Module-level singletons (lazily initialized)
 # ---------------------------------------------------------------------------
 
-_INTENT_PATTERNS: dict[str, list[str]] = {
-    "explain_section": [
-        r"(?:explain|what does|what is|what are|how does|how do|why does|why do|tell me about|help me understand|i don'?t (?:get|understand))",
-        r"(?:confused about|unclear|clarify|elaborate|break down|what'?s the (?:meaning|difference))",
-    ],
-    "give_example": [
-        r"(?:give|show|provide|another|more) (?:me )?(?:an? )?example",
-        r"(?:can you|could you) (?:show|demonstrate|illustrate)",
-        r"(?:sample|illustration|demonstrate|practice problem)",
-    ],
-    "summarize": [
-        r"(?:summarize|summary|sum up|recap|overview|in short|tldr|tl;dr)",
-        r"(?:main (?:points?|ideas?|concepts?)|key (?:points?|ideas?))",
-    ],
-    "quiz_me": [
-        r"(?:quiz|test|assess|check) (?:me|my|myself)",
-        r"(?:practice question|ask me|challenge me|try me)",
-    ],
-    "relate_to_exam": [
-        r"(?:exam|cse|civil service|test|board)",
-        r"(?:how (?:is|will) (?:this|it) (?:tested|asked|appear))",
-        r"(?:exam (?:tip|strategy|trick)|test.taking)",
-    ],
-    "memory_aid": [
-        r"(?:remember|memorize|mnemonic|memory (?:aid|tip|trick))",
-        r"(?:how (?:do i|can i|to) remember|easy way to recall)",
-    ],
-    "next_step": [
-        r"(?:what'?s next|what should i|where do i go|after this|move on)",
-        r"(?:next (?:topic|section|lesson|step))",
-    ],
-    "greeting": [
-        r"^(?:hi|hello|hey|good (?:morning|afternoon|evening)|sup|yo)[\s!?.]*$",
-    ],
-    "thanks": [
-        r"(?:thanks?|thank you|thx|ty|appreciate|helpful)",
-    ],
-}
+_context_manager = ContextManager()
+_anaphora_resolver = AnaphoraResolver()
+_intent_classifier = IntentClassifier()
+_socratic_module = SocraticModule()
+_response_generator = ResponseGenerator()
 
-# Compiled patterns for performance
-_COMPILED_INTENTS: dict[str, list[re.Pattern[str]]] = {
-    intent: [re.compile(p, re.IGNORECASE) for p in patterns]
-    for intent, patterns in _INTENT_PATTERNS.items()
-}
+# Template loader — loaded once from the data directory.
+_TEMPLATES_DIR = Path(__file__).resolve().parents[4] / "data" / "chat_templates"
+_template_loader: TemplateLoader | None = None
 
 
-def classify_intent(message: str) -> str:
-    """Classify user message into one of the known intents.
+def _get_template_loader() -> TemplateLoader:
+    """Lazily initialize and return the template loader singleton."""
+    global _template_loader
+    if _template_loader is None:
+        _template_loader = TemplateLoader.load(_TEMPLATES_DIR)
+    return _template_loader
 
-    Returns the intent key, or 'fallback' if no pattern matches.
+
+# ---------------------------------------------------------------------------
+# Complexity adjustment detection
+# ---------------------------------------------------------------------------
+
+_SIMPLIFY_PATTERNS: list[re.Pattern[str]] = [
+    re.compile(r"(?:explain (?:more )?simply|too (?:complex|complicated|hard|difficult))", re.IGNORECASE),
+    re.compile(r"(?:dumb it down|simpler|easier|in simple terms|eli5)", re.IGNORECASE),
+]
+
+_DEEPEN_PATTERNS: list[re.Pattern[str]] = [
+    re.compile(r"(?:give me more detail|go deeper|more (?:depth|advanced|technical))", re.IGNORECASE),
+    re.compile(r"(?:too (?:simple|basic|easy)|more complex|elaborate more)", re.IGNORECASE),
+]
+
+
+def _detect_complexity_direction(message: str) -> str | None:
+    """Detect whether the message requests a complexity adjustment.
+
+    Returns ``"simpler"`` or ``"deeper"`` if detected, else None.
     """
-    message = message.strip()
-
-    for intent, patterns in _COMPILED_INTENTS.items():
-        for pattern in patterns:
-            if pattern.search(message):
-                return intent
-
-    return "fallback"
-
-
-# ---------------------------------------------------------------------------
-# Content extraction helpers
-# ---------------------------------------------------------------------------
-
-
-def _get_section_by_index(content: dict[str, Any], index: int) -> dict[str, Any] | None:
-    """Get a section from the enhanced sections list by index."""
-    sections = content.get("sections") or []
-    if 0 <= index < len(sections):
-        return sections[index]
+    for pattern in _SIMPLIFY_PATTERNS:
+        if pattern.search(message):
+            return "simpler"
+    for pattern in _DEEPEN_PATTERNS:
+        if pattern.search(message):
+            return "deeper"
     return None
-
-
-def _get_section_text(section: dict[str, Any]) -> str:
-    """Extract plain text from a section's blocks."""
-    blocks = section.get("blocks", [])
-    parts: list[str] = []
-    for block in blocks:
-        content = block.get("content", "")
-        if isinstance(content, str):
-            parts.append(content)
-        elif isinstance(content, dict):
-            # Table data — summarize
-            headers = content.get("headers", [])
-            if headers:
-                parts.append(f"Table: {', '.join(headers)}")
-    return "\n\n".join(parts)
-
-
-def _find_section_by_keyword(content: dict[str, Any], keyword: str) -> dict[str, Any] | None:
-    """Find the section whose title or content best matches a keyword."""
-    sections = content.get("sections") or []
-    keyword_lower = keyword.lower()
-
-    # First pass: title match
-    for section in sections:
-        if keyword_lower in section.get("title", "").lower():
-            return section
-
-    # Second pass: content match
-    for section in sections:
-        text = _get_section_text(section).lower()
-        if keyword_lower in text:
-            return section
-
-    return None
-
-
-def _extract_keyword_from_message(message: str) -> str:
-    """Extract the likely topic keyword from a user message.
-
-    Strips common question prefixes to isolate what the user is asking about.
-    """
-    # Remove common question starters
-    cleaned = re.sub(
-        r"^(?:can you |could you |please |help me |i (?:don'?t |can'?t )?"
-        r"(?:understand|get) |explain |what (?:is|are|does) |how (?:do|does|to) |"
-        r"tell me about |why (?:do|does|is) )",
-        "",
-        message.strip(),
-        flags=re.IGNORECASE,
-    )
-    # Remove trailing punctuation
-    cleaned = re.sub(r"[?.!]+$", "", cleaned).strip()
-    return cleaned if cleaned else message.strip()
-
-
-def _get_practice_problems(content: dict[str, Any]) -> list[dict[str, Any]]:
-    """Get practice problems from the lesson content."""
-    return content.get("practice_problems") or []
-
-
-def _get_exam_strategies(content: dict[str, Any]) -> list[str]:
-    """Get exam strategies from the lesson content."""
-    return content.get("exam_strategies") or []
-
-
-def _get_memory_aids(content: dict[str, Any]) -> list[str]:
-    """Get memory aids from the lesson content."""
-    return content.get("memory_aids") or []
-
-
-def _get_key_takeaways(content: dict[str, Any]) -> list[str]:
-    """Get key takeaways from the lesson content."""
-    return content.get("key_takeaways") or []
-
-
-def _get_lesson_title(content: dict[str, Any]) -> str:
-    """Get the lesson title from metadata."""
-    metadata = content.get("metadata") or {}
-    return metadata.get("title", "this topic")
-
-
-def _get_all_sections(content: dict[str, Any]) -> list[dict[str, Any]]:
-    """Get all sections from the lesson."""
-    return content.get("sections") or []
-
-
-# ---------------------------------------------------------------------------
-# Response generators per intent
-# ---------------------------------------------------------------------------
-
-
-def _respond_explain_section(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Generate an explanation response."""
-    keyword = _extract_keyword_from_message(message)
-
-    # Try to find a relevant section by keyword first
-    section = _find_section_by_keyword(content, keyword)
-
-    # Fall back to the active section
-    if section is None and active_section_index is not None:
-        section = _get_section_by_index(content, active_section_index)
-
-    if section is None:
-        # Fall back to first non-preamble section
-        sections = _get_all_sections(content)
-        for s in sections:
-            title = s.get("title", "").lower()
-            if not any(
-                kw in title
-                for kw in ["introduction", "why ", "learning objective", "common mistakes"]
-            ):
-                section = s
-                break
-
-    if section is None:
-        return (
-            "I couldn't find a specific section matching your question. "
-            "Could you be more specific about which part of the lesson you'd like me to explain? "
-            "You can mention a section title or a specific concept."
-        )
-
-    title = section.get("title", "this section")
-    text = _get_section_text(section)
-
-    # Build a simplified explanation
-    sentences = [s.strip() for s in text.split(".") if s.strip()]
-    # Take the first few sentences as the core explanation
-    core = ". ".join(sentences[:4]) + "." if sentences else text[:300]
-
-    response_parts: list[str] = []
-    response_parts.append(f"**{title}** — here's the key idea:\n")
-    response_parts.append(core)
-
-    # Add a tip if available
-    takeaways = _get_key_takeaways(content)
-    if takeaways:
-        relevant = [t for t in takeaways if keyword.lower() in t.lower()]
-        if relevant:
-            response_parts.append(f"\n\n💡 **Key point:** {relevant[0]}")
-        elif len(takeaways) > 0:
-            response_parts.append(f"\n\n💡 **Remember:** {random.choice(takeaways)}")
-
-    return "\n".join(response_parts)
-
-
-def _respond_give_example(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Provide an example from the lesson content."""
-    problems = _get_practice_problems(content)
-
-    if problems:
-        # Pick a random problem (avoid repeating if possible)
-        used_numbers = set()
-        for msg in history:
-            if msg.get("role") == "assistant":
-                # Extract problem numbers mentioned in previous responses
-                nums = re.findall(r"#(\d+)", msg.get("content", ""))
-                used_numbers.update(int(n) for n in nums)
-
-        available = [p for p in problems if p.get("number") not in used_numbers]
-        if not available:
-            available = problems
-
-        problem = random.choice(available)
-        parts: list[str] = []
-        parts.append("Here's a practice example:\n")
-        parts.append(f"**Problem #{problem.get('number', '?')}:** {problem.get('question', '')}\n")
-        parts.append("Try to solve it, then ask me to reveal the answer when you're ready!")
-        return "\n".join(parts)
-
-    # Fall back to worked examples from explanations
-    sections = _get_all_sections(content)
-    for section in sections:
-        for block in section.get("blocks", []):
-            if block.get("type") in ("example", "step_by_step"):
-                content_text = block.get("content", "")
-                if isinstance(content_text, str) and content_text:
-                    return f"Here's an example from the lesson:\n\n{content_text}"
-
-    return (
-        "This lesson doesn't have standalone practice examples in this section. "
-        "Try asking me to explain a specific concept, and I'll walk you through it step by step!"
-    )
-
-
-def _respond_summarize(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Summarize the lesson or current section."""
-    # If asking about a specific section, summarize that
-    if active_section_index is not None:
-        section = _get_section_by_index(content, active_section_index)
-        if section:
-            title = section.get("title", "this section")
-            text = _get_section_text(section)
-            sentences = [s.strip() for s in text.split(".") if s.strip()]
-            summary = ". ".join(sentences[:3]) + "." if sentences else text[:200]
-            return f"**Quick summary of {title}:**\n\n{summary}"
-
-    # Otherwise, use the lesson's built-in summary
-    summary = content.get("summary", "")
-    if summary:
-        return f"**Lesson Summary:**\n\n{summary}"
-
-    # Fall back to key takeaways
-    takeaways = _get_key_takeaways(content)
-    if takeaways:
-        parts = ["**Key points from this lesson:**\n"]
-        for i, t in enumerate(takeaways[:5], 1):
-            parts.append(f"{i}. {t}")
-        return "\n".join(parts)
-
-    return "I don't have a summary available for this lesson. Try asking about a specific section!"
-
-
-def _respond_quiz_me(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Serve a practice question from the lesson."""
-    problems = _get_practice_problems(content)
-
-    if not problems:
-        # Generate a simple recall question from key takeaways
-        takeaways = _get_key_takeaways(content)
-        if takeaways:
-            takeaway = random.choice(takeaways)
-            return (
-                "**Quick check:** Can you explain this concept in your own words?\n\n"
-                f"*\"{takeaway}\"*\n\n"
-                "Try to rephrase it without looking at the lesson. "
-                "When you're done, I'll let you know if you've got the right idea!"
-            )
-        return "This lesson doesn't have practice problems yet. Try reviewing the key takeaways instead!"
-
-    # Pick a problem not yet used in this conversation
-    used_numbers = set()
-    for msg in history:
-        if msg.get("role") == "assistant" and "Problem #" in msg.get("content", ""):
-            nums = re.findall(r"Problem #(\d+)", msg.get("content", ""))
-            used_numbers.update(int(n) for n in nums)
-
-    available = [p for p in problems if p.get("number") not in used_numbers]
-    if not available:
-        available = problems
-
-    problem = random.choice(available)
-    difficulty = problem.get("difficulty", "medium")
-    emoji = {"easy": "🟢", "medium": "🟡", "hard": "🔴"}.get(difficulty, "🟡")
-
-    parts: list[str] = []
-    parts.append(f"{emoji} **Problem #{problem.get('number', '?')}** ({difficulty}):\n")
-    parts.append(f"{problem.get('question', '')}\n")
-    parts.append("Take your time! When you're ready, say **\"show answer\"** or tell me your answer.")
-    return "\n".join(parts)
-
-
-def _respond_relate_to_exam(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Explain how this topic appears in the CSE."""
-    strategies = _get_exam_strategies(content)
-    title = _get_lesson_title(content)
-
-    parts: list[str] = []
-    parts.append(f"**How \"{title}\" appears in the Civil Service Exam:**\n")
-
-    if strategies:
-        for i, strategy in enumerate(strategies[:4], 1):
-            parts.append(f"{i}. {strategy}")
-    else:
-        parts.append(
-            "This topic is commonly tested through multiple-choice questions "
-            "that require you to apply the concepts directly. Focus on understanding "
-            "the rules and practicing with timed conditions."
-        )
-
-    # Add memory aids if available
-    aids = _get_memory_aids(content)
-    if aids:
-        parts.append(f"\n🧠 **Quick memory tip:** {random.choice(aids)}")
-
-    return "\n".join(parts)
-
-
-def _respond_memory_aid(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Provide memory aids and mnemonics."""
-    aids = _get_memory_aids(content)
-    title = _get_lesson_title(content)
-
-    if aids:
-        parts: list[str] = []
-        parts.append(f"**Memory aids for {title}:**\n")
-        for aid in aids:
-            parts.append(f"🧠 {aid}")
-        return "\n".join(parts)
-
-    # Fall back to key takeaways formatted as memory points
-    takeaways = _get_key_takeaways(content)
-    if takeaways:
-        parts = [f"**Key things to remember about {title}:**\n"]
-        for i, t in enumerate(takeaways[:4], 1):
-            parts.append(f"📌 {t}")
-        parts.append(
-            "\n*Tip: Try creating your own mnemonic by taking the first letter "
-            "of each key point!*"
-        )
-        return "\n".join(parts)
-
-    return (
-        "I don't have specific memory aids for this lesson, but here's a general tip: "
-        "try teaching the concept to someone else (or even to yourself out loud). "
-        "If you can explain it simply, you understand it!"
-    )
-
-
-def _respond_next_step(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Suggest what to do next."""
-    sections = _get_all_sections(content)
-    problems = _get_practice_problems(content)
-    title = _get_lesson_title(content)
-
-    parts: list[str] = []
-    parts.append("**Suggested next steps:**\n")
-
-    if active_section_index is not None and active_section_index < len(sections) - 1:
-        next_section = sections[active_section_index + 1]
-        parts.append(f"1. 📖 Continue to the next section: **{next_section.get('title', 'Next')}**")
-    else:
-        parts.append("1. ✅ You've reached the end of the lesson content!")
-
-    if problems:
-        parts.append(f"2. 🎯 Try the practice problems ({len(problems)} available) — say \"quiz me\"")
-
-    parts.append("3. 📝 Review the key takeaways to solidify your understanding")
-    parts.append("4. 🔄 Mark the lesson complete and move to the next subtopic")
-
-    return "\n".join(parts)
-
-
-def _respond_greeting(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Respond to a greeting."""
-    title = _get_lesson_title(content)
-    greetings = [
-        f"Hey! 👋 I'm here to help you with **{title}**. What would you like to know?",
-        f"Hi there! Ready to dive into **{title}**? Ask me anything about what you're reading.",
-        f"Hello! I'm your study buddy for **{title}**. Feel free to ask questions, request examples, or say \"quiz me\" to test yourself!",
-    ]
-    return random.choice(greetings)
-
-
-def _respond_thanks(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Respond to thanks."""
-    responses = [
-        "You're welcome! Let me know if you have more questions. 📚",
-        "Happy to help! Keep going — you're doing great. 💪",
-        "Anytime! Feel free to ask more questions or say \"quiz me\" when you're ready to test yourself.",
-        "No problem! Remember, understanding beats memorizing. Ask away if anything else is unclear.",
-    ]
-    return random.choice(responses)
-
-
-def _respond_reveal_answer(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Reveal the answer to the last quiz question asked."""
-    # Find the last problem number mentioned in assistant messages
-    for msg in reversed(history):
-        if msg.get("role") == "assistant":
-            nums = re.findall(r"Problem #(\d+)", msg.get("content", ""))
-            if nums:
-                problem_num = int(nums[-1])
-                problems = _get_practice_problems(content)
-                for p in problems:
-                    if p.get("number") == problem_num:
-                        parts: list[str] = []
-                        parts.append(f"**Answer to Problem #{problem_num}:**\n")
-                        parts.append(f"✅ **{p.get('answer', 'N/A')}**\n")
-                        if p.get("explanation"):
-                            parts.append(f"**Why:** {p['explanation']}")
-                        parts.append("\nWant another question? Say \"quiz me\" or ask about something else!")
-                        return "\n".join(parts)
-
-    return "I don't see a pending question to reveal. Say \"quiz me\" and I'll give you a fresh problem!"
-
-
-def _respond_fallback(
-    content: dict[str, Any],
-    message: str,
-    active_section_index: int | None,
-    history: list[dict[str, str]],
-) -> str:
-    """Handle unrecognized messages with a helpful fallback."""
-    title = _get_lesson_title(content)
-
-    # Check if they might be answering a quiz question
-    if _has_pending_quiz(history):
-        return (
-            "Hmm, I'm not sure if that's the right answer. "
-            "Say **\"show answer\"** to see the correct answer, or try again!"
-        )
-
-    suggestions = [
-        f"I'm not sure I understood that. Here's what I can help with for **{title}**:\n\n"
-        "• **\"Explain [concept]\"** — I'll break down a specific part\n"
-        "• **\"Give me an example\"** — I'll show a practice problem\n"
-        "• **\"Summarize\"** — Quick recap of the current section\n"
-        "• **\"Quiz me\"** — Test your understanding\n"
-        "• **\"How is this tested?\"** — CSE exam tips\n"
-        "• **\"Help me remember\"** — Memory aids and mnemonics",
-    ]
-    return suggestions[0]
-
-
-def _has_pending_quiz(history: list[dict[str, str]]) -> bool:
-    """Check if the last assistant message was a quiz question."""
-    for msg in reversed(history):
-        if msg.get("role") == "assistant":
-            content = msg.get("content", "")
-            return "Problem #" in content and "show answer" in content.lower()
-    return False
 
 
 # ---------------------------------------------------------------------------
 # Main entry point
 # ---------------------------------------------------------------------------
-
-_INTENT_HANDLERS = {
-    "explain_section": _respond_explain_section,
-    "give_example": _respond_give_example,
-    "summarize": _respond_summarize,
-    "quiz_me": _respond_quiz_me,
-    "relate_to_exam": _respond_relate_to_exam,
-    "memory_aid": _respond_memory_aid,
-    "next_step": _respond_next_step,
-    "greeting": _respond_greeting,
-    "thanks": _respond_thanks,
-    "fallback": _respond_fallback,
-}
 
 
 def generate_chat_response(
@@ -580,31 +105,318 @@ def generate_chat_response(
     content_json: dict[str, Any],
     message: str,
     active_section_index: int | None = None,
-    history: list[dict[str, str]] | None = None,
-) -> tuple[str, str]:
+    context_json: dict | None = None,
+    mastery_score: float | None = None,
+    mastery_level: str | None = None,
+    cross_lesson_registry: CrossLessonRegistry | None = None,
+) -> ChatResult:
     """Generate a contextual chat response for a lesson.
+
+    Orchestrates the full pipeline:
+    1. Build or restore conversation context.
+    2. Resolve anaphoric references.
+    3. Classify intent (with discourse awareness).
+    4. Handle special cases (clarification, disambiguation, complexity).
+    5. Apply Socratic module if appropriate.
+    6. Generate response via templates.
+    7. Update context and return ChatResult.
 
     Args:
         content_json: The lesson's full content_json dict.
         message: The user's chat message.
-        active_section_index: Index of the section the user is currently viewing.
-        history: List of previous messages [{"role": "user"|"assistant", "content": "..."}].
+        active_section_index: Index of the section the user is viewing.
+        context_json: Serialized ConversationContext from frontend (None starts fresh).
+        mastery_score: User's mastery score for the subtopic (None if unavailable).
+        mastery_level: User's mastery level string (None if unavailable).
+        cross_lesson_registry: Registry for cross-lesson concept lookup.
 
     Returns:
-        A tuple of (response_text, detected_intent).
+        ChatResult with response_text, detected_intent, and serialized context_json.
     """
-    if history is None:
-        history = []
+    # --- Step 1: Build conversation context ---
+    ctx = _context_manager.build_context(context_json)
 
-    message_stripped = message.strip()
+    # --- Step 2: Resolve anaphoric references ---
+    resolved = _anaphora_resolver.resolve(message, ctx)
 
-    # Special case: "show answer" / "reveal answer" — check before intent classification
-    if re.search(r"(?:show|reveal|tell me|what'?s) (?:the )?answer", message_stripped, re.IGNORECASE):
-        response = _respond_reveal_answer(content_json, message_stripped, active_section_index, history)
-        return response, "reveal_answer"
+    # --- Handle clarification when anaphora resolution fails ---
+    if _needs_clarification(resolved, ctx):
+        response_text = _build_clarification_response(resolved)
+        # Update context with the clarification exchange
+        ctx = _context_manager.update_context(
+            ctx, message, response_text, "clarification"
+        )
+        serialized = _context_manager.serialize(ctx)
+        return ChatResult(
+            response_text=response_text,
+            detected_intent="clarification",
+            context_json=serialized,
+        )
 
-    intent = classify_intent(message_stripped)
-    handler = _INTENT_HANDLERS.get(intent, _respond_fallback)
-    response = handler(content_json, message_stripped, active_section_index, history)
+    # --- Step 3: Classify intent ---
+    classification = _intent_classifier.classify(message, resolved, ctx)
 
-    return response, intent
+    # --- Handle disambiguation when confidence is too low ---
+    if classification.needs_disambiguation:
+        response_text = _build_disambiguation_response(classification)
+        ctx.discourse_state = DiscourseState.CLARIFICATION
+        ctx = _context_manager.update_context(
+            ctx, message, response_text, "disambiguation"
+        )
+        serialized = _context_manager.serialize(ctx)
+        return ChatResult(
+            response_text=response_text,
+            detected_intent="disambiguation",
+            context_json=serialized,
+        )
+
+    detected_intent = classification.intent
+
+    # --- Step 4: Handle complexity adjustment ---
+    direction = _detect_complexity_direction(message)
+    if detected_intent == "complexity_adjustment" or direction is not None:
+        if direction is None:
+            direction = "simpler"  # default if pattern not clear
+        base_level = compute_complexity_level(mastery_score)
+        activate_override(ctx, direction, base_level)
+        detected_intent = "complexity_adjustment"
+
+    # --- Step 5: Socratic module ---
+    parsed_mastery_level = _parse_mastery_level(mastery_level)
+    socratic_prompt: SocraticPrompt | None = None
+
+    if _socratic_module.should_activate(detected_intent, parsed_mastery_level, ctx):
+        # Determine section content for key term extraction
+        section_content = _get_section_content(content_json, active_section_index)
+        reasoning_type = _socratic_module.select_reasoning_type(ctx)
+        concept = resolved.referent if resolved.referent else _extract_concept(message)
+
+        socratic_prompt = _socratic_module.generate_guiding_question(
+            concept=concept,
+            section_content=section_content,
+            reasoning_type=reasoning_type,
+            attempts=ctx.socratic_state.attempts,
+        )
+
+        # Update Socratic state in context
+        ctx.socratic_state.active = True
+        ctx.socratic_state.target_concept = socratic_prompt.target_concept
+        ctx.socratic_state.key_terms = socratic_prompt.key_terms
+        ctx.socratic_state.attempts += 1
+        ctx.socratic_state.reasoning_type = socratic_prompt.reasoning_type
+
+    # --- Handle Socratic evaluation for quiz_answer_attempt in Socratic exchange ---
+    if (
+        detected_intent == "quiz_answer_attempt"
+        and ctx.socratic_state.active
+        and ctx.discourse_state == DiscourseState.SOCRATIC_EXCHANGE
+    ):
+        evaluation = _socratic_module.evaluate_response(message, ctx.socratic_state)
+        if evaluation.understood:
+            # Deactivate Socratic mode and provide confirmation
+            ctx.socratic_state.active = False
+            ctx.socratic_state.attempts = 0
+            detected_intent = "explain_section"
+            socratic_prompt = None  # Let response generator handle normally
+        elif evaluation.should_escalate:
+            # Max attempts — provide direct answer
+            ctx.socratic_state.active = False
+            ctx.socratic_state.attempts = 0
+            detected_intent = "direct_answer_request"
+            socratic_prompt = None
+
+    # --- Step 6: Cross-lesson references ---
+    cross_refs = []
+    if cross_lesson_registry is not None:
+        # Gather terms from the current topic thread for lookup
+        terms = _gather_cross_ref_terms(ctx, resolved)
+        # Get current subtopic_id from content_json metadata
+        metadata = content_json.get("metadata") or {}
+        current_subtopic_id = metadata.get("subtopic_id", -1)
+        cross_refs = cross_lesson_registry.find_related(terms, current_subtopic_id)
+
+    # --- Step 7: Generate response ---
+    template_loader = _get_template_loader()
+
+    effective_complexity = resolve_effective_complexity(mastery_score, ctx)
+    template = template_loader.get_template(detected_intent, effective_complexity)
+
+    response_text = _response_generator.generate(
+        intent=detected_intent,
+        content_json=content_json,
+        ctx=ctx,
+        mastery_score=mastery_score,
+        cross_refs=cross_refs,
+        socratic_prompt=socratic_prompt,
+        active_section_index=active_section_index,
+        template=template,
+    )
+
+    # --- Step 8: Update context with this exchange ---
+    ctx = _context_manager.update_context(
+        ctx, message, response_text, detected_intent
+    )
+
+    # --- Step 9: Serialize and return ---
+    serialized = _context_manager.serialize(ctx)
+
+    return ChatResult(
+        response_text=response_text,
+        detected_intent=detected_intent,
+        context_json=serialized,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Private helpers
+# ---------------------------------------------------------------------------
+
+
+def _needs_clarification(resolved, ctx: ConversationContext) -> bool:
+    """Check if anaphora resolution failed and clarification is needed.
+
+    Clarification is needed when:
+    - The message contains anaphoric references (candidates were generated)
+    - Resolution confidence is below threshold (referent is None)
+    - There are candidates to present (≤ 2)
+    """
+    if resolved.referent is not None:
+        return False
+    if not resolved.candidates:
+        return False
+    # Resolution failed — confidence too low, present candidates
+    return resolved.confidence < 0.4
+
+
+def _build_clarification_response(resolved) -> str:
+    """Build a clarification question when anaphora resolution fails.
+
+    Presents at most 2 candidate interpretations.
+    """
+    candidates = resolved.candidates[:2]
+    if len(candidates) == 1:
+        return (
+            f"I'm not sure what you're referring to. "
+            f"Did you mean **{candidates[0]}**?"
+        )
+    return (
+        f"I'm not sure what you're referring to. "
+        f"Did you mean **{candidates[0]}** or **{candidates[1]}**?"
+    )
+
+
+def _build_disambiguation_response(classification) -> str:
+    """Build a disambiguation question when intent confidence is low.
+
+    Presents the top 2 candidate intents as options, or asks an open-ended
+    clarifying question if fewer than 2 candidates exist.
+    """
+    options = classification.disambiguation_options
+    if options and len(options) >= 2:
+        # Map intent keys to user-friendly labels
+        labels = {
+            "explain_section": "get an explanation",
+            "give_example": "see an example",
+            "summarize": "get a summary",
+            "quiz_me": "take a quiz",
+            "relate_to_exam": "learn how this appears in exams",
+            "memory_aid": "get memory tips",
+            "next_step": "know what to do next",
+            "conceptual_question": "understand why/how something works",
+            "direct_answer_request": "get a direct answer",
+            "cross_reference_request": "see how topics connect",
+            "complexity_adjustment": "adjust explanation complexity",
+        }
+        label_1 = labels.get(options[0], options[0])
+        label_2 = labels.get(options[1], options[1])
+        return (
+            f"I want to help, but I'm not sure what you need. "
+            f"Would you like to **{label_1}** or **{label_2}**?"
+        )
+    # Open-ended clarifying prompt
+    return (
+        "I'm not quite sure what you're asking. "
+        "Could you rephrase your question or tell me what you'd like help with?"
+    )
+
+
+def _parse_mastery_level(mastery_level: str | None) -> MasteryLevel:
+    """Parse mastery level string to MasteryLevel enum.
+
+    Defaults to BEGINNER if not provided or unrecognized.
+    """
+    if mastery_level is None:
+        return MasteryLevel.BEGINNER
+    try:
+        return MasteryLevel(mastery_level)
+    except (ValueError, KeyError):
+        # Try uppercase match
+        try:
+            return MasteryLevel[mastery_level.upper()]
+        except (KeyError, AttributeError):
+            return MasteryLevel.BEGINNER
+
+
+def _get_section_content(
+    content_json: dict[str, Any], active_section_index: int | None
+) -> str:
+    """Extract section text for Socratic key term extraction."""
+    sections = content_json.get("sections") or []
+    if active_section_index is not None and 0 <= active_section_index < len(sections):
+        section = sections[active_section_index]
+        blocks = section.get("blocks", [])
+        parts: list[str] = []
+        for block in blocks:
+            content = block.get("content", "")
+            if isinstance(content, str):
+                parts.append(content)
+        return " ".join(parts)
+    # Fall back to first section
+    if sections:
+        blocks = sections[0].get("blocks", [])
+        parts = []
+        for block in blocks:
+            content = block.get("content", "")
+            if isinstance(content, str):
+                parts.append(content)
+        return " ".join(parts)
+    return ""
+
+
+def _extract_concept(message: str) -> str:
+    """Extract the likely concept from a user message.
+
+    Strips common question prefixes to isolate the target concept.
+    """
+    cleaned = re.sub(
+        r"^(?:can you |could you |please |help me |i (?:don'?t |can'?t )?"
+        r"(?:understand|get) |explain |what (?:is|are|does) |how (?:do|does|to) |"
+        r"tell me about |why (?:do|does|is) |why )",
+        "",
+        message.strip(),
+        flags=re.IGNORECASE,
+    )
+    cleaned = re.sub(r"[?.!]+$", "", cleaned).strip()
+    return cleaned if cleaned else message.strip()
+
+
+def _gather_cross_ref_terms(ctx: ConversationContext, resolved) -> list[str]:
+    """Gather terms for cross-lesson registry lookup.
+
+    Uses the active topic thread's key terms and the resolved referent.
+    """
+    terms: list[str] = []
+
+    # Add resolved referent
+    if resolved.referent:
+        terms.append(resolved.referent)
+
+    # Add active topic thread terms
+    for thread in ctx.topic_threads:
+        if thread.is_active:
+            terms.extend(thread.key_terms)
+            if thread.subject and thread.subject not in terms:
+                terms.append(thread.subject)
+            break
+
+    return terms

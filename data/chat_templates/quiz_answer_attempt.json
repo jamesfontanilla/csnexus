@@ -1,0 +1,47 @@
+{
+  "intent": "quiz_answer_attempt",
+  "variants": {
+    "SIMPLIFIED": {
+      "opener": [
+        "Let's see how you did. ",
+        "Okay, checking your answer. ",
+        "Let me look at that. "
+      ],
+      "core": "{content}",
+      "cross_reference": "Remember, this connects to what you learned about {related_topic}. ",
+      "closing": [
+        "Want to try another question?",
+        "Should I explain this more?",
+        "Ready for the next one?"
+      ]
+    },
+    "STANDARD": {
+      "opener": [
+        "Here's how your answer measures up. ",
+        "Let me evaluate your response. ",
+        "Good effort — here's the breakdown. "
+      ],
+      "core": "{content}",
+      "cross_reference": "This answer also relates to principles from {related_topic}. ",
+      "closing": [
+        "Would you like another question on this topic?",
+        "Want me to explain the reasoning in more detail?",
+        "Ready to move on or practice more?"
+      ]
+    },
+    "DETAILED": {
+      "opener": [
+        "Let me give you detailed feedback on your response. ",
+        "Here's a thorough analysis of your answer. ",
+        "Let's break down your reasoning step by step. "
+      ],
+      "core": "{content}",
+      "cross_reference": "Understanding why this works also reinforces your knowledge of {related_topic}. ",
+      "closing": [
+        "Want to try a harder variation to push your understanding?",
+        "Shall we analyze the common mistakes people make here?",
+        "Would you like to see how this reasoning applies in different contexts?"
+      ]
+    }
+  }
+}

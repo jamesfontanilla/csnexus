@@ -1,0 +1,47 @@
+{
+  "intent": "memory_aid",
+  "variants": {
+    "SIMPLIFIED": {
+      "opener": [
+        "Here's an easy way to remember this. ",
+        "Try this memory trick. ",
+        "A simple way to keep this in mind. "
+      ],
+      "core": "{content}",
+      "cross_reference": "You can also use this trick when studying {related_topic}. ",
+      "closing": [
+        "Does that help it stick?",
+        "Want another memory trick?",
+        "Should I come up with a different way to remember it?"
+      ]
+    },
+    "STANDARD": {
+      "opener": [
+        "Here's a mnemonic to help you retain this. ",
+        "Let me give you a memory technique for this concept. ",
+        "This association might help it stick. "
+      ],
+      "core": "{content}",
+      "cross_reference": "A similar mnemonic approach works for {related_topic} as well. ",
+      "closing": [
+        "Would you like additional memory strategies?",
+        "Want to quiz yourself on this to reinforce it?",
+        "Should I suggest a different mnemonic approach?"
+      ]
+    },
+    "DETAILED": {
+      "opener": [
+        "Here's a structured memory technique based on cognitive science principles. ",
+        "Let me give you a multi-layered mnemonic that connects to your existing knowledge. ",
+        "This memory framework links the concept to patterns you already know. "
+      ],
+      "core": "{content}",
+      "cross_reference": "For a stronger memory network, connect this to your knowledge of {related_topic}. ",
+      "closing": [
+        "Want to build a more elaborate memory palace for this topic?",
+        "Shall we create flashcard-style associations for the details?",
+        "Would you like to see how this mnemonic extends to related concepts?"
+      ]
+    }
+  }
+}

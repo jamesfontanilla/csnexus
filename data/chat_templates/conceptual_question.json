@@ -1,0 +1,47 @@
+{
+  "intent": "conceptual_question",
+  "variants": {
+    "SIMPLIFIED": {
+      "opener": [
+        "That's a great question — here's the basic idea. ",
+        "Let me explain the 'why' behind this. ",
+        "Here's the simple reason. "
+      ],
+      "core": "{content}",
+      "cross_reference": "This idea also comes up in {related_topic}. ",
+      "closing": [
+        "Does that answer your question?",
+        "Want me to explain it another way?",
+        "Need me to go deeper on any part?"
+      ]
+    },
+    "STANDARD": {
+      "opener": [
+        "Here's the conceptual foundation behind this. ",
+        "Let me address the underlying principle. ",
+        "The reasoning works like this. "
+      ],
+      "core": "{content}",
+      "cross_reference": "This principle also underlies {related_topic}, creating an important connection. ",
+      "closing": [
+        "Would you like to explore the implications further?",
+        "Any follow-up questions on this reasoning?",
+        "Want to see how this principle applies in practice?"
+      ]
+    },
+    "DETAILED": {
+      "opener": [
+        "Let me unpack the full reasoning and its implications. ",
+        "Here's the complete conceptual framework behind this. ",
+        "This is a layered question — let me address each dimension. "
+      ],
+      "core": "{content}",
+      "cross_reference": "For deeper understanding, examine how this same principle operates in {related_topic}. ",
+      "closing": [
+        "Want to examine exceptions or edge cases to this reasoning?",
+        "Shall we trace how this principle evolves in more complex scenarios?",
+        "Would you like to debate a counterargument to deepen understanding?"
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "intent": "direct_answer_request",
+  "variants": {
+    "SIMPLIFIED": {
+      "opener": [
+        "Here's the straight answer. ",
+        "No detours — here it is. ",
+        "The direct answer is this. "
+      ],
+      "core": "{content}",
+      "cross_reference": "For more context, this connects to {related_topic}. ",
+      "closing": [
+        "Need any more detail on this?",
+        "Does that clear things up?",
+        "Want me to explain why this is the case?"
+      ]
+    },
+    "STANDARD": {
+      "opener": [
+        "Here's the direct explanation you're looking for. ",
+        "Let me give you a clear, concise answer. ",
+        "Straight to the point — "
+      ],
+      "core": "{content}",
+      "cross_reference": "If you want the broader picture, this relates to {related_topic}. ",
+      "closing": [
+        "Would you like the reasoning behind this?",
+        "Want to explore this concept further?",
+        "Any follow-up questions?"
+      ]
+    },
+    "DETAILED": {
+      "opener": [
+        "Here's the complete answer with full context. ",
+        "Let me lay out the answer comprehensively. ",
+        "Here's everything you need to know about this. "
+      ],
+      "core": "{content}",
+      "cross_reference": "For a complete picture, consider the intersection with {related_topic}. ",
+      "closing": [
+        "Want to examine the edge cases?",
+        "Shall we look at how this applies under exam conditions?",
+        "Would you like to see this in a more complex context?"
+      ]
+    }
+  }
+}

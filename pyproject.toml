@@ -23,6 +23,7 @@ dependencies = [
     "google-auth>=2.29,<3",
     "requests>=2.31,<3",
     "slowapi>=0.1.9,<1",
+    "python-dotenv>=1.0,<2",
 ]
 
 [project.optional-dependencies]
@@ -45,6 +46,9 @@ exclude = ["tests*"]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-ra"
+markers = [
+    "integration: marks tests as integration tests (deselect with '-m \"not integration\"')",
+]
 
 [tool.ruff]
 line-length = 100

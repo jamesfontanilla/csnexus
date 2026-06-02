@@ -99,6 +99,27 @@ def require_admin(user: User = Depends(get_current_user)) -> User:
     return user
 
 
+def get_cross_lesson_registry(
+    request: Request,
+) -> "CrossLessonRegistry | None":
+    """Return the singleton CrossLessonRegistry built at startup.
+
+    Returns None if the registry failed to build (the engine handles
+    this gracefully — no cross-references are produced). Stored on
+    ``app.state`` by the lifespan handler in ``app/main.py``.
+    """
+    from app.features.tutor.algorithms.cross_lesson_registry import (
+        CrossLessonRegistry,
+    )
+
+    registry = getattr(request.app.state, "cross_lesson_registry", None)
+    if registry is None:
+        return None
+    if not isinstance(registry, CrossLessonRegistry):
+        return None
+    return registry
+
+
 def require_no_active_mock(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),

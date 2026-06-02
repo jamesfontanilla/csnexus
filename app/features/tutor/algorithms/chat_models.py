@@ -1,0 +1,247 @@
+"""Data models for the Smart Chat Engine.
+
+Defines enums, dataclasses, and type structures used across all engine
+sub-modules: context management, intent classification, Socratic
+questioning, cross-lesson awareness, adaptive complexity, and template
+composition.
+
+No business logic lives here — these are pure data containers.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from enum import Enum
+
+from app.features.mastery.models import MasteryLevel
+
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+
+class ComplexityLevel(str, Enum):
+    """Response complexity tier derived from mastery score.
+
+    SIMPLIFIED: mastery_score < 0.3
+    STANDARD:   0.3 <= mastery_score <= 0.7
+    DETAILED:   mastery_score > 0.7
+    """
+
+    SIMPLIFIED = "SIMPLIFIED"
+    STANDARD = "STANDARD"
+    DETAILED = "DETAILED"
+
+
+class DiscourseState(str, Enum):
+    """Phase classification for the current conversation flow.
+
+    Drives disambiguation bonuses in intent classification.
+    """
+
+    INITIAL = "initial"
+    FOLLOW_UP = "follow_up"
+    QUIZ_PENDING = "quiz_pending"
+    SOCRATIC_EXCHANGE = "socratic_exchange"
+    CLARIFICATION = "clarification"
+
+
+# Re-export MasteryLevel so engine modules can import from one place.
+# Values: BEGINNER, FAMILIAR, PROFICIENT, ADVANCED, MASTERED
+__all__ = [
+    "ComplexityLevel",
+    "DiscourseState",
+    "MasteryLevel",
+    "TopicThread",
+    "SocraticState",
+    "ComplexityOverride",
+    "Exchange",
+    "ConversationContext",
+    "ResolvedMessage",
+    "IntentScore",
+    "ClassificationResult",
+    "SocraticPrompt",
+    "SocraticEvaluation",
+    "ChatResult",
+    "ConceptEntry",
+    "TemplatePart",
+    "ResponseTemplate",
+]
+
+
+# ---------------------------------------------------------------------------
+# Context dataclasses
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class TopicThread:
+    """A sequence of related messages about the same concept."""
+
+    subject: str
+    start_exchange_index: int
+    key_terms: list[str] = field(default_factory=list)
+    is_active: bool = True
+
+
+@dataclass
+class SocraticState:
+    """Tracks an active Socratic questioning sequence."""
+
+    active: bool = False
+    target_concept: str | None = None
+    key_terms: list[str] = field(default_factory=list)
+    attempts: int = 0
+    reasoning_type: str | None = None
+
+
+@dataclass
+class ComplexityOverride:
+    """Temporary override of the mastery-computed complexity level.
+
+    Activated by phrases like "explain simpler" or "go deeper".
+    Counts down from 3 responses then expires.
+    """
+
+    level: ComplexityLevel
+    remaining_responses: int = 3
+
+
+@dataclass
+class Exchange:
+    """One user-assistant message pair within a conversation."""
+
+    user_message: str
+    assistant_response: str
+    intent: str
+    topic_thread_subject: str
+
+
+@dataclass
+class ConversationContext:
+    """Full multi-turn conversation state.
+
+    Serialized to/from JSON for frontend persistence.
+    Maximum 10 exchanges; oldest evicted first.
+    Maximum 4 topic threads (1 active + 3 preserved).
+    """
+
+    schema_version: int = 1
+    exchanges: list[Exchange] = field(default_factory=list)
+    topic_threads: list[TopicThread] = field(default_factory=list)
+    discourse_state: DiscourseState = DiscourseState.INITIAL
+    socratic_state: SocraticState = field(default_factory=SocraticState)
+    complexity_override: ComplexityOverride | None = None
+    template_usage: dict[str, list[int]] = field(default_factory=dict)
+
+
+# ---------------------------------------------------------------------------
+# Anaphora / Intent classification dataclasses
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class ResolvedMessage:
+    """Result of anaphora resolution on a user message."""
+
+    original: str
+    resolved: str
+    confidence: float
+    candidates: list[str] = field(default_factory=list)
+    referent: str | None = None
+
+
+@dataclass
+class IntentScore:
+    """A single intent candidate with its computed score."""
+
+    intent: str
+    score: float
+    source: str  # "pattern" | "discourse" | "context"
+
+
+@dataclass
+class ClassificationResult:
+    """Output of the intent classifier."""
+
+    intent: str
+    confidence: float
+    all_scores: list[IntentScore] = field(default_factory=list)
+    needs_disambiguation: bool = False
+    disambiguation_options: list[str] | None = None
+
+
+# ---------------------------------------------------------------------------
+# Socratic module dataclasses
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class SocraticPrompt:
+    """A guiding question generated by the Socratic module."""
+
+    question: str
+    target_concept: str
+    key_terms: list[str] = field(default_factory=list)
+    reasoning_type: str = ""
+
+
+@dataclass
+class SocraticEvaluation:
+    """Evaluation of a learner's response to a Socratic question."""
+
+    understood: bool
+    matched_terms: list[str] = field(default_factory=list)
+    should_escalate: bool = False
+
+
+# ---------------------------------------------------------------------------
+# Engine output
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class ChatResult:
+    """Final output from the smart chat engine."""
+
+    response_text: str
+    detected_intent: str
+    context_json: dict = field(default_factory=dict)
+
+
+# ---------------------------------------------------------------------------
+# Cross-lesson registry dataclasses
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class ConceptEntry:
+    """A concept mapped to its source subtopic in the registry."""
+
+    term: str
+    subtopic_id: int
+    subtopic_title: str
+    source: str  # "key_takeaway" | "section_heading" | "prerequisite"
+
+
+# ---------------------------------------------------------------------------
+# Template system dataclasses
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class TemplatePart:
+    """A named slot in a response template with multiple variants."""
+
+    key: str  # "opener" | "core" | "cross_reference" | "closing"
+    variants: list[str] = field(default_factory=list)
+
+
+@dataclass
+class ResponseTemplate:
+    """A complete response template for an intent-complexity combination."""
+
+    intent: str
+    complexity: ComplexityLevel
+    parts: dict[str, TemplatePart] = field(default_factory=dict)

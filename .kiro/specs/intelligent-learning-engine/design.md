@@ -2,7 +2,7 @@
 
 ## Overview
 
-This design describes the implementation of seven interconnected learning intelligence capabilities across CSNexus: a composite Readiness Score, Smart Daily Queue, Inline Question Explanations, Post-Mock Exam Analytics, Competence-Based Gamification, Exam Date Onboarding, and Readiness Self-Assessment Calibration. Together these transform CSNexus from a content delivery platform into an adaptive exam preparation engine.
+This design describes the implementation of fourteen interconnected learning intelligence capabilities across CSNexus, organized into seven core phases (Readiness Score, Smart Daily Queue, Inline Explanations, Post-Mock Exam Analytics, Competence-Based Gamification, Exam Date Onboarding, Readiness Self-Assessment Calibration) and seven research-backed learning technique extensions (Pretesting, Elaborative Interrogation, Generation Effect/Recall Mode, Sleep-Aware Review, Metacognitive Reflection, Concrete Examples, Productive Failure). Together these transform CSNexus from a content delivery platform into an adaptive exam preparation engine.
 
 The system is implemented as four new feature slices (`readiness`, `smart_queue`, `explanations`, `mock_analytics`) and extensions to two existing slices (`gamification`, `planner`). Algorithm modules containing pure computation logic are isolated under each feature's `algorithms/` subdirectory, following the pattern established by `flashcards/algorithms/`.
 
@@ -451,6 +451,7 @@ erDiagram
     User ||--o{ CompetenceMilestoneAward : earns
     User ||--o{ StudyConsistency : tracks
     User ||--|| OnboardingProfile : configures
+    User ||--|| StudyPlan : follows
     User ||--o{ SelfAssessmentRecord : self_assesses
     DailyQueue ||--o{ QueueItem : contains
     DiagnosticReport ||--o{ RecommendationRecord : produces
@@ -648,6 +649,119 @@ class OnboardingProfile(Base):
         CheckConstraint("time_budget_minutes IN (15, 30, 60)", name="ck_onboarding_time_budget"),
     )
 ```
+
+#### StudyPlan (generated from OnboardingProfile)
+
+```python
+class StudyPlan(Base):
+    """Generated study plan with daily task assignments across the exam prep timeline."""
+    __tablename__ = "study_plans"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, unique=True)
+    target_exam_date: Mapped[date] = mapped_column(Date, nullable=False)
+    exam_category: Mapped[str] = mapped_column(String(20), nullable=False)
+    available_hours_per_day: Mapped[float] = mapped_column(Float, nullable=False)  # 0.25, 0.5, or 1.0
+    total_days: Mapped[int] = mapped_column(Integer, nullable=False)
+    subtopics_per_week: Mapped[int] = mapped_column(Integer, nullable=False)
+    mock_exams_scheduled: Mapped[int] = mapped_column(Integer, nullable=False)
+    plan_data: Mapped[str] = mapped_column(Text, nullable=False)  # JSON: array of daily assignments
+    estimated_readiness_at_exam: Mapped[float] = mapped_column(Float, nullable=False)  # projected score
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
+```
+
+### Study Plan Generation Algorithm Interface
+
+```python
+# app/features/planner/algorithms/plan_generator.py
+
+@dataclass(frozen=True)
+class PlanConfig:
+    target_exam_date: date
+    available_hours_per_day: float
+    exam_category: str
+    mastered_subtopic_ids: list[int]  # subtopics with mastery ≥ 0.8 (skipped)
+
+@dataclass(frozen=True)
+class DailyAssignment:
+    day_number: int
+    date: date
+    phase: str  # "coverage", "weakness", "review"
+    new_subtopics: list[int]  # max 3 per day
+    review_subtopics: list[int]
+    mock_exam_scheduled: bool
+
+@dataclass(frozen=True)
+class GeneratedPlan:
+    assignments: list[DailyAssignment]
+    total_days: int
+    subtopics_per_week: int
+    mock_exams_scheduled: int
+    estimated_readiness_at_exam: float
+
+def generate_study_plan(
+    all_subtopic_ids: list[int],
+    config: PlanConfig,
+) -> GeneratedPlan:
+    """Generate a phased study plan: coverage (introduce all subtopics) → weakness (deepen) → review (final 20%).
+    Max 3 new subtopics/day, review every 3 study days, mock exams 1/week from week 2 (2/week in final 2 weeks).
+    Pure function."""
+    ...
+
+def regenerate_plan_from_today(
+    existing_plan: GeneratedPlan,
+    new_exam_date: date,
+    completed_days: int,
+    config: PlanConfig,
+) -> GeneratedPlan:
+    """Regenerate plan from current date forward, preserving completed days. Pure function."""
+    ...
+```
+
+### Gamification Migration Service Interface
+
+```python
+# Added to gamification service (app/features/gamification/service.py)
+
+class GamificationMigrationService:
+    """Handles transition from XP-based to competence-based gamification."""
+
+    def activate_competence_system(self, user_id: int) -> list[CompetenceMilestoneAward]:
+        """Activate competence milestones for a user. Retroactively evaluates all milestones
+        against existing mastery data. Awards any already-satisfied milestones with original dates.
+        XP system continues earning alongside — milestones replace generic achievements as primary indicator."""
+        ...
+
+    def map_existing_badges(self, user_id: int) -> list[tuple[int, int]]:
+        """Map existing achievement badges to competence milestones where applicable.
+        Returns list of (old_badge_id, new_milestone_id) mappings.
+        Preserves original awarded_at date for retroactively matched milestones."""
+        ...
+
+    def replace_streak_with_consistency(self, user_id: int) -> StudyConsistency:
+        """Replace the existing gamification streak logic with the Study_Consistency metric.
+        Migrates longest_streak from old system. Called when user opts into intelligent learning engine."""
+        ...
+```
+
+### Dashboard Performance Strategy
+
+The `GET /v1/readiness/dashboard` endpoint must respond within 2 seconds (Requirement 3.4). To achieve this:
+
+1. **The dashboard serves precomputed data** — it reads the most recent `ReadinessScoreHistory` record (already computed and persisted during the last study activity). It does NOT recompute the score on every dashboard load.
+2. **Point-impact calculation is lightweight** — it queries the top 3 subtopics with lowest mastery × highest exam weight, which is a simple sorted query over ~60 rows.
+3. **Trend data uses a simple query** — `SELECT score, computed_at FROM readiness_score_history WHERE user_id = ? AND computed_at >= ? ORDER BY computed_at` with carry-forward logic applied in Python (not SQL).
+4. **If no score exists yet** — return score 0 immediately without any computation.
+
+### Explanation Caching Strategy (Backend)
+
+The `GET /v1/explanations/{question_id}` and `POST /v1/explanations/bulk` endpoints support conditional requests:
+
+1. **ETag header** — Each explanation response includes an `ETag` header with value equal to the `cache_version` field (integer stringified).
+2. **If-None-Match** — When the client sends `If-None-Match: "3"` and the current `cache_version` is 3, the server returns `304 Not Modified` with no body.
+3. **Bulk endpoint** — Returns a `max_cache_version` field representing the highest cache_version across all returned explanations. The client can use this for staleness detection.
+4. **cache_version increment** — Only incremented when an explanation's content is updated (not on read). Default value is 1 for all seeded explanations.
 
 #### SelfAssessmentRecord
 
@@ -903,6 +1017,267 @@ class SelfAssessmentRecord(Base):
 
 **Validates: Requirements 19.1**
 
+### Property 39: Pretest scores SHALL NOT affect mastery component
+
+*For any* pretest submission (assessment_type: "pretest"), the pretest score SHALL NOT be included in the mastery component calculation. Only post-lesson quiz performance (assessment_type: "quiz") SHALL affect the mastery_score for a subtopic.
+
+**Validates: Requirements 21.2**
+
+### Property 40: Recall grading uses Levenshtein distance ≤ 2 for fuzzy matching
+
+*For any* user_response and expected_keywords list, the grade_recall_answer function SHALL return is_correct=True with match_type="exact" if the response contains an exact keyword (case-insensitive), match_type="fuzzy" if the response contains a word within Levenshtein distance ≤ 2 of any keyword, and is_correct=False with match_type="needs_review" otherwise.
+
+**Validates: Requirements 24.3, 24.4**
+
+### Property 41: Goodnight Review contains only items studied today
+
+*For any* generated Goodnight Review session, every card_id in the session's items list SHALL correspond to an item that was studied (flashcard reviewed, quiz attempted, or lesson read) on the same calendar day as the session_date.
+
+**Validates: Requirements 25.1, 25.7**
+
+### Property 42: Goodnight Review session is ≤ 10 items
+
+*For any* generated Goodnight Review session, the items list SHALL contain at most 10 card_ids, regardless of how many items were studied that day.
+
+**Validates: Requirements 25.1, 25.3**
+
+### Property 43: Session reflection confidence 1-2 boosts next-day queue priority
+
+*For any* session reflection where confidence_rating is 1 or 2, the Queue_Engine SHALL add extra review items for the subtopic(s) covered in that session to the next day's queue, treating them as priority level 2 (weak-subtopic) items.
+
+**Validates: Requirements 26.4, 26.5**
+
+### Property 44: Challenge Problems only appear for mastery < 0.4
+
+*For any* generated daily queue containing a Challenge Problem item, the associated subtopic SHALL have a mastery_score strictly less than 0.4. Challenge Problems SHALL NOT be generated for subtopics with mastery_score ≥ 0.4.
+
+**Validates: Requirements 28.1, 28.6**
+
+### Property 45: Maximum 1 Challenge Problem per daily queue
+
+*For any* generated daily queue, the queue SHALL contain at most 1 Challenge Problem item, regardless of how many subtopics have mastery_score < 0.4.
+
+**Validates: Requirements 28.7**
+
+---
+
+## New Data Models (Phases 8–14)
+
+### PretestAttempt
+
+```python
+class PretestAttempt(Base):
+    """Stores pretest results before lesson for pre/post comparison."""
+    __tablename__ = "pretest_attempts"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    subtopic_id: Mapped[int] = mapped_column(Integer, ForeignKey("subtopics.id", ondelete="CASCADE"), nullable=False)
+    questions: Mapped[str] = mapped_column(Text, nullable=False)  # JSON array of {question_id, answer, is_correct}
+    score: Mapped[float] = mapped_column(Float, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+    __table_args__ = (
+        Index("ix_pretest_attempts_user_subtopic", "user_id", "subtopic_id"),
+    )
+```
+
+### PersonalNote
+
+```python
+class PersonalNote(Base):
+    """User-generated elaborative interrogation note linked to a question."""
+    __tablename__ = "personal_notes"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    question_id: Mapped[int] = mapped_column(Integer, ForeignKey("questions.id", ondelete="CASCADE"), nullable=False)
+    note_text: Mapped[str] = mapped_column(String(500), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+    __table_args__ = (
+        Index("ix_personal_notes_user_question", "user_id", "question_id"),
+    )
+```
+
+### LessonReflection
+
+```python
+class LessonReflection(Base):
+    """User reflection at key concept points within a lesson."""
+    __tablename__ = "lesson_reflections"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    lesson_id: Mapped[int] = mapped_column(Integer, ForeignKey("lessons.id", ondelete="CASCADE"), nullable=False)
+    section_index: Mapped[int] = mapped_column(Integer, nullable=False)
+    reflection_text: Mapped[str] = mapped_column(Text, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+    __table_args__ = (
+        Index("ix_lesson_reflections_user_lesson", "user_id", "lesson_id"),
+    )
+```
+
+### RecallAnswer
+
+```python
+class RecallAnswer(Base):
+    """User response to a generation-effect fill-in-the-blank recall question."""
+    __tablename__ = "recall_answers"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    question_id: Mapped[int] = mapped_column(Integer, ForeignKey("questions.id", ondelete="CASCADE"), nullable=False)
+    user_response: Mapped[str] = mapped_column(Text, nullable=False)
+    is_correct: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    match_type: Mapped[str] = mapped_column(String(20), nullable=False)  # exact, keyword, fuzzy, needs_review
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+    __table_args__ = (
+        CheckConstraint("match_type IN ('exact', 'keyword', 'fuzzy', 'needs_review')", name="ck_recall_match_type"),
+        Index("ix_recall_answers_user_question", "user_id", "question_id"),
+    )
+```
+
+### GoodnightReviewSession
+
+```python
+class GoodnightReviewSession(Base):
+    """Sleep-aware review session generated at bedtime."""
+    __tablename__ = "goodnight_review_sessions"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    session_date: Mapped[date] = mapped_column(Date, nullable=False)
+    items: Mapped[str] = mapped_column(Text, nullable=False)  # JSON array of card_ids
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    bedtime_preference: Mapped[str] = mapped_column(String(5), nullable=False, default="22:00", server_default="22:00")  # HH:MM format
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+    __table_args__ = (
+        Index("ix_goodnight_sessions_user_date", "user_id", "session_date"),
+    )
+```
+
+### SessionReflection
+
+```python
+class SessionReflection(Base):
+    """Post-session metacognitive reflection record."""
+    __tablename__ = "session_reflections"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    session_date: Mapped[date] = mapped_column(Date, nullable=False)
+    hardest_item_id: Mapped[int] = mapped_column(Integer, nullable=False)
+    confidence_rating: Mapped[int] = mapped_column(Integer, nullable=False)  # 1-5
+    review_note: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+    __table_args__ = (
+        CheckConstraint("confidence_rating BETWEEN 1 AND 5", name="ck_session_reflection_confidence"),
+        Index("ix_session_reflections_user_date", "user_id", "session_date"),
+    )
+```
+
+### QuestionExplanation Extension (concrete_examples field)
+
+```python
+# Add to existing QuestionExplanation model:
+concrete_examples: Mapped[str | None] = mapped_column(Text, nullable=True)  # JSON array of strings, max 3 items × 100 chars each
+```
+
+### ChallengeAttempt
+
+```python
+class ChallengeAttempt(Base):
+    """Productive failure sequence — challenge problem before instruction."""
+    __tablename__ = "challenge_attempts"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    subtopic_id: Mapped[int] = mapped_column(Integer, ForeignKey("subtopics.id", ondelete="CASCADE"), nullable=False)
+    question_id: Mapped[int] = mapped_column(Integer, ForeignKey("questions.id", ondelete="CASCADE"), nullable=False)
+    pre_lesson_answer: Mapped[str] = mapped_column(Text, nullable=False)
+    pre_lesson_correct: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    post_lesson_answer: Mapped[str | None] = mapped_column(Text, nullable=True)
+    post_lesson_correct: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+    is_productive_failure_success: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default="0")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+    __table_args__ = (
+        Index("ix_challenge_attempts_user_subtopic", "user_id", "subtopic_id"),
+    )
+```
+
+---
+
+## New API Endpoints (Phases 8–14)
+
+| Method | Path | Description | Auth |
+|--------|------|-------------|------|
+| POST | `/v1/pretests/{subtopic_id}/start` | Start a pretest for a subtopic | Required |
+| POST | `/v1/pretests/{pretest_id}/submit` | Submit pretest answers | Required |
+| GET | `/v1/pretests/{subtopic_id}/comparison` | Get pre vs post comparison | Required |
+| POST | `/v1/explanations/{question_id}/note` | Submit elaborative note | Required |
+| GET | `/v1/notes` | Get all personal notes | Required |
+| POST | `/v1/lessons/{lesson_id}/reflections` | Submit lesson reflection | Required |
+| POST | `/v1/quiz-attempts/{attempt_id}/recall-answer` | Submit recall mode answer | Required |
+| GET | `/v1/queue/goodnight` | Get goodnight review session | Required |
+| POST | `/v1/queue/goodnight/:complete` | Mark goodnight review completed | Required |
+| PATCH | `/v1/preferences/bedtime` | Set bedtime preference | Required |
+| POST | `/v1/sessions/{date}/reflection` | Submit session reflection | Required |
+| GET | `/v1/sessions/reflections` | Get reflection history | Required |
+| POST | `/v1/challenges/{subtopic_id}/attempt` | Submit challenge problem attempt | Required |
+| POST | `/v1/challenges/{challenge_id}/retest` | Submit post-lesson retest | Required |
+
+---
+
+## New Algorithm Interfaces (Phases 8–14)
+
+### Queue Generator Additions
+
+```python
+# app/features/smart_queue/algorithms/generator.py (additions)
+
+def generate_goodnight_review(
+    today_studied_items: list[tuple[int, float]],  # (card_id, confidence_score)
+    max_items: int = 10,
+) -> list[int]:
+    """Select lowest-confidence items from today's study. Pure function."""
+    ...
+
+def generate_pretest(
+    subtopic_id: int,
+    question_pool: list[tuple[int, str, str]],  # (question_id, difficulty, key_concept)
+    count: int = 5,
+) -> list[int]:
+    """Select 3-5 questions covering distinct key_concepts at easy-medium difficulty."""
+    ...
+```
+
+### Recall Grader Algorithm
+
+```python
+# app/features/explanations/algorithms/recall_grader.py (new file)
+
+def grade_recall_answer(
+    user_response: str,
+    expected_keywords: list[str],
+    levenshtein_threshold: int = 2,
+) -> tuple[bool, str]:
+    """Grade a recall answer by keyword matching. Returns (is_correct, match_type).
+    
+    match_type values:
+    - "exact": response contains an exact keyword (case-insensitive)
+    - "keyword": response contains a keyword substring match
+    - "fuzzy": response contains a word within Levenshtein distance ≤ threshold
+    - "needs_review": no clear match found
+    """
+    ...
+```
+
 ## Error Handling
 
 ### Graceful Degradation Strategy
@@ -991,7 +1366,8 @@ tests/features/
 ├── explanations/
 │   ├── test_repository.py
 │   ├── test_service.py
-│   └── test_router.py
+│   ├── test_router.py
+│   └── test_recall_grader_properties.py  # Property-based tests for algorithms/recall_grader.py
 ├── mock_analytics/
 │   ├── test_repository.py
 │   ├── test_service.py
@@ -1000,8 +1376,32 @@ tests/features/
 │   └── test_prediction_properties.py   # Property-based tests for algorithms/prediction.py
 ├── gamification/
 │   └── test_milestones_properties.py   # Property-based tests for milestone evaluation
-└── planner/
-    └── test_plan_generator_properties.py  # Property-based tests for plan generation
+├── planner/
+│   └── test_plan_generator_properties.py  # Property-based tests for plan generation
+├── pretests/
+│   ├── test_repository.py
+│   ├── test_service.py
+│   └── test_router.py
+├── elaboration/
+│   ├── test_repository.py
+│   ├── test_service.py
+│   └── test_router.py
+├── recall/
+│   ├── test_repository.py
+│   ├── test_service.py
+│   └── test_router.py
+├── goodnight_review/
+│   ├── test_repository.py
+│   ├── test_service.py
+│   └── test_router.py
+├── session_reflection/
+│   ├── test_repository.py
+│   ├── test_service.py
+│   └── test_router.py
+└── challenges/
+    ├── test_repository.py
+    ├── test_service.py
+    └── test_router.py
 ```
 
 ### Property Test Coverage Map
@@ -1020,6 +1420,11 @@ tests/features/
 | 31–34 | `test_plan_generator_properties.py` | `planner/algorithms/plan_generator.py` |
 | 35 | `test_generator_properties.py` | Cross-module interleaving in `smart_queue/algorithms/generator.py` |
 | 36–38 | `test_scorer_properties.py` | Self-assessment calibration in `readiness/service.py` |
+| 39 | `test_generator_properties.py` | Pretest isolation from mastery in `smart_queue/algorithms/generator.py` |
+| 40 | `test_recall_grader_properties.py` | Recall grading in `explanations/algorithms/recall_grader.py` |
+| 41–42 | `test_generator_properties.py` | Goodnight review generation in `smart_queue/algorithms/generator.py` |
+| 43 | `test_generator_properties.py` | Reflection queue boost in `smart_queue/algorithms/generator.py` |
+| 44–45 | `test_generator_properties.py` | Challenge problem constraints in `smart_queue/algorithms/generator.py` |
 
 ### Unit Test Coverage Requirements
 

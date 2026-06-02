@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This feature implements research-backed learning intelligence across the CSNexus platform, transforming it from a content delivery system into an adaptive exam preparation engine. It introduces six interconnected capabilities: a composite Readiness Score that synthesizes mastery, retention, and mock exam data into a single 0–100 metric; a Smart Daily Queue that algorithmically generates personalized study sessions; inline question explanations with AI Tutor escalation; post-mock exam diagnostic analytics with actionable recommendations; competence-based gamification milestones tied to exam structure; and an exam date onboarding flow that makes the study planner the entry point to the platform.
+This feature implements research-backed learning intelligence across the CSNexus platform, transforming it from a content delivery system into an adaptive exam preparation engine. It introduces fourteen interconnected capabilities across seven core phases and seven research-backed learning technique extensions: a composite Readiness Score that synthesizes mastery, retention, and mock exam data into a single 0–100 metric; a Smart Daily Queue that algorithmically generates personalized study sessions; inline question explanations with AI Tutor escalation; post-mock exam diagnostic analytics with actionable recommendations; competence-based gamification milestones tied to exam structure; an exam date onboarding flow that makes the study planner the entry point to the platform; readiness self-assessment calibration to combat overconfidence; pretesting before lessons; elaborative interrogation prompts; fill-in-the-blank recall mode; sleep-aware review scheduling; post-session metacognitive reflection; concrete Filipino-context example anchoring; and productive failure sequences.
 
 ## Glossary
 
@@ -16,12 +16,19 @@ This feature implements research-backed learning intelligence across the CSNexus
 - **Diagnostic_Report**: A structured analysis of a completed mock exam showing subtopic-level point loss, predicted score range, and actionable recommendations
 - **Competence_Milestone**: A gamification achievement tied to exam-relevant competence thresholds rather than generic activity metrics
 - **Study_Consistency**: A metric tracking days where the user followed their Smart Daily Queue, replacing raw login streaks
-- **Onboarding_Engine**: The backend service (`app/features/onboarding/service.py`) that captures exam date and generates the initial personalized study plan
+- **Onboarding_Engine**: The backend service (`app/features/planner/service.py`) that captures exam date, generates the initial personalized study plan, and manages exam date updates
 - **FSRS_Retention**: The projected probability of recall for a flashcard at a future date, computed using the FSRS algorithm's memory stability and elapsed time
 - **Coverage_Gap**: A subtopic where the user has attempted fewer than 10% of available questions or has no mastery record
 - **Time_Budget**: The user's preferred daily study session length (15, 30, or 60 minutes)
 - **Point_Impact**: The estimated score improvement achievable by raising a specific subtopic's mastery from its current level to the target threshold
 - **Calibration_Warning**: A notification surfaced when the user's self-assessed readiness exceeds their computed readiness by more than 15 points, designed to combat overconfidence
+- **Pretest_Challenge**: A set of 3–5 questions presented to a user before they read a subtopic lesson for the first time, designed to prime attention and activate the pretesting effect
+- **Elaborative_Prompt**: A "Why does this make sense?" text input shown after incorrect answers, leveraging the elaborative interrogation technique to deepen encoding through self-generated explanations
+- **Recall_Mode**: A question type where the user types an answer from memory rather than selecting from multiple choices, leveraging the generation effect for stronger memory traces
+- **Goodnight_Review**: A brief 5-minute flashcard session surfacing the day's lowest-confidence items, timed for the user's bedtime to leverage sleep-dependent memory consolidation
+- **Session_Reflection**: A 30-second metacognitive prompt shown after completing a daily queue session, asking the user to identify difficult items and rate confidence
+- **Concrete_Examples**: Short Filipino-context illustrations (max 100 chars each) attached to question explanations, grounding abstract rules in relatable daily-life scenarios
+- **Challenge_Problem**: A hard-difficulty question presented before instruction on a new subtopic (mastery < 0.4), leveraging productive failure to prime deeper understanding of the subsequent lesson
 
 ## Requirements
 
@@ -293,3 +300,148 @@ This feature implements research-backed learning intelligence across the CSNexus
 5. WHEN the self-assessment delta is below -10 (user underestimates), THE Readiness_Engine SHALL return a calibration_status of "underconfident" with a message highlighting areas of strength the user may be overlooking
 6. THE Readiness_Engine SHALL expose a calibration history endpoint returning all self-assessment records for the user, enabling visualization of calibration accuracy over time
 7. IF a user dismisses or skips the self-assessment prompt, THE Readiness_Engine SHALL not prompt again until the next 7-day interval; the prompt SHALL NOT block access to the dashboard
+
+---
+
+## Phase 8: Pretesting (Try Before You Learn)
+
+### Requirement 20: Pretest Before Lesson
+
+**User Story:** As a CSE examinee, I want to attempt questions on a topic before reading the lesson, so that my brain is primed to pay attention to the concepts I couldn't answer and I encode the material more deeply.
+
+#### Acceptance Criteria
+
+1. WHEN a user navigates to a new subtopic lesson for the first time, THE Queue_Engine SHALL present a "Pretest Challenge" of 3–5 questions from that subtopic before showing the lesson content
+2. THE Pretest Challenge SHALL draw questions at easy-to-medium difficulty from the subtopic's question bank, selecting questions that cover distinct key_concepts within the subtopic
+3. WHEN the user completes the Pretest Challenge, THE system SHALL display their score with a message framing errors positively (e.g., "You got 1/5 — that's normal! The lesson will make these click. Let's learn.")
+4. THE system SHALL persist the pretest results (questions attempted, answers given, correctness) so that the same questions can be re-presented after the lesson for comparison
+5. AFTER the user completes the lesson, THE system SHALL offer a "Retest" using the same questions from the pretest, allowing the user to experience the contrast between their pre-lesson and post-lesson performance
+6. THE system SHALL display a before/after comparison showing which questions improved from incorrect to correct
+7. IF the user has already completed the lesson for a subtopic (returning user), THE system SHALL skip the pretest and proceed directly to the lesson or quiz
+
+### Requirement 21: Pretest Integration with Smart Queue
+
+**User Story:** As a CSE examinee, I want pretest results to inform my study plan, so that the system knows what I don't know before I even start learning.
+
+#### Acceptance Criteria
+
+1. WHEN a pretest is completed, THE Queue_Engine SHALL record which key_concepts the user got wrong and prioritize those concepts in subsequent quiz_practice items for that subtopic
+2. THE Readiness_Engine SHALL NOT count pretest scores toward the mastery component, since pretests occur before learning; only post-lesson quiz performance SHALL affect mastery
+3. THE system SHALL store pretest performance separately from regular quiz performance, tagged as `assessment_type: "pretest"` to distinguish it in analytics
+
+---
+
+## Phase 9: Elaborative Interrogation Prompts
+
+### Requirement 22: "Why?" Prompt After Explanation
+
+**User Story:** As a CSE examinee, I want to be prompted to explain in my own words why an answer is correct, so that I form deeper memory connections through active generation rather than passive reading.
+
+#### Acceptance Criteria
+
+1. AFTER showing an explanation for a question the user answered incorrectly, THE Explanation_Service SHALL display an optional "Why does this make sense?" prompt with a text input field
+2. THE prompt SHALL be non-blocking — the user can skip it by tapping "Next" without entering text
+3. WHEN the user submits a response to the elaborative prompt, THE system SHALL persist it as a personal_note linked to the question_id and user_id with a created_at timestamp
+4. THE system SHALL NOT grade or evaluate the user's elaborative response — the act of generation is the learning mechanism, not correctness
+5. WHEN the user encounters the same question in a future review, THE system SHALL display their previous personal_note alongside the explanation, reinforcing the self-generated connection
+6. THE system SHALL expose a "My Notes" endpoint returning all personal notes for a user, grouped by subtopic, enabling review of self-generated explanations
+
+### Requirement 23: Elaborative Interrogation in Lessons
+
+**User Story:** As a CSE examinee reading a lesson, I want periodic "why" prompts embedded in the content, so that I actively process rules rather than passively reading them.
+
+#### Acceptance Criteria
+
+1. THE Lesson_Reader SHALL insert elaborative interrogation prompts at key points in each lesson — specifically after each "Key Rule" or "Key Concept" section — asking "Why does this rule make sense?" or "Can you think of an example?"
+2. THE prompts SHALL be collapsible — shown as a tappable card that expands to reveal a text input when activated
+3. THE system SHALL persist user responses as lesson_reflections linked to the lesson_id, section_index, and user_id
+4. IF the user skips a prompt, THE system SHALL not penalize them or block lesson progress
+5. THE system SHALL surface lesson_reflections in the daily queue as review items — showing the user their own notes from past lessons to reinforce elaboration
+
+---
+
+## Phase 10: Generation Effect (Fill-in-the-Blank Recall)
+
+### Requirement 24: Recall Mode Question Type
+
+**User Story:** As a CSE examinee, I want a study mode where I type answers from memory rather than choosing from options, so that I build stronger recall pathways through active generation.
+
+#### Acceptance Criteria
+
+1. THE Quiz_Engine SHALL support a "recall" question type where the question presents a statement with a blank (e.g., "In a direct proportion, as one quantity increases, the other ___") and the user types their answer
+2. THE recall question type SHALL be generated from existing MCQ questions by converting the correct answer into a blank within the question stem or by presenting the stem and asking for the key term
+3. THE system SHALL grade recall answers using keyword matching: the user's response is correct if it contains the key term(s) from the expected answer (case-insensitive, ignoring minor spelling variations with a Levenshtein distance threshold of 2)
+4. IF keyword matching is inconclusive (no clear match or partial match), THE system SHALL mark the answer as "needs review" and show the correct answer alongside the user's response for self-assessment
+5. THE Queue_Engine SHALL include recall-mode items in the daily queue for subtopics where the user's mastery_score is between 0.5 and 0.8 (too easy for new learning, not yet mastered — the zone where generation is most effective)
+6. THE system SHALL track recall accuracy separately from MCQ accuracy, storing both in the mastery calculation with recall weighted 1.5× compared to MCQ (since successful recall indicates stronger memory)
+
+---
+
+## Phase 11: Sleep-Aware Review Scheduling
+
+### Requirement 25: Goodnight Review Session
+
+**User Story:** As a CSE examinee, I want a brief review session suggested before I sleep, so that my brain consolidates the day's most difficult material during the night.
+
+#### Acceptance Criteria
+
+1. THE Queue_Engine SHALL generate a "Goodnight Review" session containing 5–10 flashcards representing the items with the lowest confidence from the current day's study activity
+2. THE Goodnight Review SHALL be triggered at the user's configured bedtime (stored as a user preference, default 22:00 local time) via a push notification or in-app prompt
+3. THE Goodnight Review session SHALL be limited to 5 minutes maximum duration (approximately 5–10 flashcards at 30–45 seconds each)
+4. WHEN a user completes a Goodnight Review, THE system SHALL mark those items as "sleep-consolidated" and adjust their next FSRS review interval by a factor of 1.2× (extending the interval since sleep consolidation strengthens the memory trace)
+5. IF the user does not complete the Goodnight Review, THE system SHALL not penalize them — the items remain in the normal FSRS schedule
+6. THE system SHALL infer the user's typical bedtime from usage patterns (last activity timestamp averaged over the past 7 days) if no explicit bedtime preference is set
+7. THE Goodnight Review SHALL only surface items studied today — it SHALL NOT introduce new material
+
+---
+
+## Phase 12: Post-Session Metacognitive Reflection
+
+### Requirement 26: Session End Reflection Prompt
+
+**User Story:** As a CSE examinee, I want a brief reflection prompt after each study session, so that I become more aware of what I know and don't know, improving my self-regulation.
+
+#### Acceptance Criteria
+
+1. WHEN a user completes their daily queue session (all items completed or session explicitly ended), THE system SHALL display a reflection prompt containing 3 quick questions
+2. THE reflection prompt SHALL include: (a) "What was the hardest thing today?" — selectable from the completed queue items, (b) "Rate your confidence: could you teach this to someone?" — 1 to 5 scale, (c) "One thing I want to review tomorrow:" — optional free-text input
+3. THE system SHALL persist reflection responses as a session_reflection record containing: user_id, session_date, hardest_item_id, confidence_rating (1–5), review_note (text or null), and created_at timestamp
+4. WHEN a user selects a "hardest item" in the reflection, THE Queue_Engine SHALL boost that item's priority in the next day's queue by treating it as equivalent to a weak-subtopic item (priority level 2)
+5. WHEN a user rates confidence at 1 or 2, THE Queue_Engine SHALL add extra review items for the subtopic(s) covered in that session to the next day's queue
+6. THE reflection prompt SHALL be completable in under 30 seconds — it SHALL NOT require lengthy text input
+7. THE system SHALL track reflection completion rate and display it alongside study consistency metrics (users who reflect regularly are likely learning more effectively)
+
+---
+
+## Phase 13: Concrete Example Anchoring
+
+### Requirement 27: Filipino-Context Concrete Examples
+
+**User Story:** As a CSE examinee, I want abstract rules illustrated with concrete examples from Filipino daily life, so that I can relate concepts to my own experience and remember them more easily.
+
+#### Acceptance Criteria
+
+1. THE Explanation_Service SHALL store a `concrete_examples` field per question explanation containing 2–3 short examples (max 100 characters each) that ground the abstract concept in Filipino daily life contexts (e.g., jeepneys, barangays, government offices, Filipino names, local scenarios)
+2. WHEN an explanation is displayed, THE system SHALL show the concrete examples in a visually distinct callout below the explanation_text, labeled "Think of it like this:"
+3. THE concrete_examples field SHALL use contexts relevant to the CSE examinee demographic: government workplace scenarios, Filipino cultural references, local geography, and common Philippine situations
+4. THE system SHALL store concrete examples alongside the key_concept so that flashcards generated from question explanations can include the concrete example as a memory cue
+5. IF a question does not have concrete_examples stored, THE system SHALL display the explanation without the callout — the feature degrades gracefully
+
+---
+
+## Phase 14: Productive Failure Sequences
+
+### Requirement 28: Challenge-Before-Instruction Mode
+
+**User Story:** As a CSE examinee struggling with a hard topic, I want to be given a challenging problem to attempt before receiving instruction, so that my failed attempt primes me to understand the solution more deeply.
+
+#### Acceptance Criteria
+
+1. WHEN the Queue_Engine generates new_content items for subtopics where the user has mastery_score < 0.4, THE Queue_Engine SHALL prepend a "Challenge Problem" — a single hard-difficulty question from that subtopic — before the new_content item
+2. THE Challenge Problem SHALL be presented with framing that normalizes failure: "This is meant to be hard. Give it your best guess — the lesson that follows will explain how it works."
+3. AFTER the user attempts the Challenge Problem (regardless of correctness), THE system SHALL proceed to the lesson content and mark the Challenge Problem as "attempted_before_instruction"
+4. AFTER the user completes the lesson, THE system SHALL re-present the same Challenge Problem and display a comparison: "Before the lesson: [your answer]. After the lesson: [your new answer]. Here's why the correct answer is [X]."
+5. THE system SHALL track productive failure outcomes: questions where the user failed the Challenge Problem but answered correctly on the re-attempt are flagged as "productive_failure_success" — indicating deep learning occurred
+6. THE Queue_Engine SHALL NOT use Challenge Problems for subtopics where the user's mastery_score is ≥ 0.4 — productive failure is most effective for genuinely unfamiliar material
+7. THE system SHALL limit Challenge Problems to one per daily queue session to avoid frustration — too many failures in sequence can be demotivating
+

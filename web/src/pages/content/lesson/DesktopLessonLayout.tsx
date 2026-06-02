@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import type { EnhancedLessonContent, LessonSection } from "./types";
 import { BlockRenderer } from "./BlockRenderer";
 import { SidebarTOC } from "./SidebarTOC";
-import { PracticePanel } from "./PracticePanel";
+import { PracticePanel, InlineLessonChat } from "./PracticePanel";
 import { GlassProgressBar } from "../../../components/GlassProgressBar";
 import { MarkdownText } from "../../../components/MarkdownText";
 import { useReducedMotion } from "../../../design-system/motion";
@@ -234,7 +234,7 @@ export function DesktopLessonLayout({
           </div>
         </main>
 
-        {/* Right: Practice panel + Chat */}
+        {/* Right: Practice panel */}
         <PracticePanel
           problems={practiceProblems}
           memoryAids={memoryAids}
@@ -245,6 +245,42 @@ export function DesktopLessonLayout({
           lessonTitle={metadata.title}
         />
       </div>
+
+      {/* Study Buddy Chat — full-width below the main grid */}
+      <section
+        aria-label="Study Buddy"
+        style={{
+          marginTop: "2.5rem",
+          padding: "1.25rem 1.5rem",
+          background: "rgba(255, 255, 255, 0.02)",
+          border: "1px solid rgba(255, 255, 255, 0.08)",
+          borderRadius: "12px",
+          maxWidth: "900px",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "1rem",
+            fontWeight: 700,
+            color: "var(--color-text)",
+            margin: "0 0 1rem 0",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+          }}
+        >
+          <span aria-hidden="true">🤖</span> Study Buddy
+        </h2>
+        <div style={{ height: "400px", display: "flex", flexDirection: "column" }}>
+          <InlineLessonChat
+            subtopicId={subtopicId}
+            activeSectionIndex={activeIndex}
+            lessonTitle={metadata.title}
+          />
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,0 +1,47 @@
+{
+  "intent": "fallback",
+  "variants": {
+    "SIMPLIFIED": {
+      "opener": [
+        "I'm not quite sure what you mean. ",
+        "Let me make sure I understand. ",
+        "I want to help — let me clarify. "
+      ],
+      "core": "{content}",
+      "cross_reference": "",
+      "closing": [
+        "Could you rephrase that for me?",
+        "What would you like me to help with?",
+        "Can you tell me more about what you're looking for?"
+      ]
+    },
+    "STANDARD": {
+      "opener": [
+        "I'd like to help, but I need a bit more clarity. ",
+        "Let me make sure I understand your question correctly. ",
+        "I want to give you the right answer — could you clarify? "
+      ],
+      "core": "{content}",
+      "cross_reference": "",
+      "closing": [
+        "Could you rephrase or give me more context?",
+        "What specific aspect would you like me to address?",
+        "Would you like to ask about a particular concept in this section?"
+      ]
+    },
+    "DETAILED": {
+      "opener": [
+        "Your question could be interpreted a few different ways — let me clarify. ",
+        "I want to address this thoroughly, but I need to understand your angle. ",
+        "To give you the most useful response, I need a bit more direction. "
+      ],
+      "core": "{content}",
+      "cross_reference": "",
+      "closing": [
+        "Could you specify which aspect you'd like me to focus on?",
+        "What's the specific context — exam prep, conceptual understanding, or application?",
+        "Would you like to narrow this down to a particular subtopic?"
+      ]
+    }
+  }
+}

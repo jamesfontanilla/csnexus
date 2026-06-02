@@ -115,3 +115,82 @@ def test_unauthenticated_returns_401():
     client = TestClient(app)
     response = client.post("/v1/tutor/explain", json={"question_id": 1})
     assert response.status_code == 401
+
+
+# ---------------------------------------------------------------------------
+# Lesson Chat endpoint tests
+# ---------------------------------------------------------------------------
+
+
+def test_lesson_chat_with_context_json_returns_200(client, mock_service):
+    """POST /v1/tutor/lesson-chat with context_json returns 200 with response
+    including context_json and detected_intent."""
+    from app.features.tutor.schemas import LessonChatResponse
+
+    mock_service.lesson_chat.return_value = LessonChatResponse(
+        interaction_id=10,
+        response_text="Let me explain fractions.",
+        detected_intent="conceptual_question",
+        context_json={"schema_version": 1, "exchanges": []},
+    )
+
+    response = client.post(
+        "/v1/tutor/lesson-chat",
+        json={
+            "subtopic_id": 5,
+            "message": "What are fractions?",
+            "context_json": {"schema_version": 1, "exchanges": []},
+        },
+    )
+
+    assert response.status_code == 200
+    data = response.json()
+    assert data["interaction_id"] == 10
+    assert data["response_text"] == "Let me explain fractions."
+    assert data["detected_intent"] == "conceptual_question"
+    assert "context_json" in data
+    assert data["context_json"]["schema_version"] == 1
+
+
+def test_lesson_chat_without_context_json_returns_fresh_context(client, mock_service):
+    """POST /v1/tutor/lesson-chat without context_json (backward compat)
+    returns a response with a fresh context."""
+    from app.features.tutor.schemas import LessonChatResponse
+
+    mock_service.lesson_chat.return_value = LessonChatResponse(
+        interaction_id=11,
+        response_text="Hello! How can I help?",
+        detected_intent="greeting",
+        context_json={"schema_version": 1, "exchanges": []},
+    )
+
+    response = client.post(
+        "/v1/tutor/lesson-chat",
+        json={
+            "subtopic_id": 5,
+            "message": "Hi there",
+        },
+    )
+
+    assert response.status_code == 200
+    data = response.json()
+    assert data["interaction_id"] == 11
+    assert data["detected_intent"] == "greeting"
+    assert "context_json" in data
+    # Service was called with context_json=None (backward compat)
+    mock_service.lesson_chat.assert_called_once()
+    call_kwargs = mock_service.lesson_chat.call_args
+    assert call_kwargs.kwargs.get("context_json") is None or call_kwargs[1].get("context_json") is None
+
+
+def test_lesson_chat_empty_message_returns_422(client):
+    """POST /v1/tutor/lesson-chat with empty message returns 422."""
+    response = client.post(
+        "/v1/tutor/lesson-chat",
+        json={
+            "subtopic_id": 5,
+            "message": "",
+        },
+    )
+
+    assert response.status_code == 422

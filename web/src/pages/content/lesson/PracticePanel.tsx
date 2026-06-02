@@ -27,16 +27,17 @@ export function PracticePanel({
   activeSectionIndex,
   lessonTitle,
 }: PracticePanelProps) {
-  const [activeTab, setActiveTab] = useState<"practice" | "aids" | "takeaways" | "chat">(
-    problems.length > 0 ? "practice" : "chat"
+  const [activeTab, setActiveTab] = useState<"practice" | "aids" | "takeaways">(
+    problems.length > 0 ? "practice" : memoryAids.length > 0 || examStrategies.length > 0 ? "aids" : "takeaways"
   );
 
   const tabs = [
     { id: "practice" as const, label: "Practice", count: problems.length, show: problems.length > 0 },
     { id: "aids" as const, label: "Aids & Tips", count: memoryAids.length + examStrategies.length, show: memoryAids.length > 0 || examStrategies.length > 0 },
     { id: "takeaways" as const, label: "Takeaways", count: keyTakeaways.length, show: keyTakeaways.length > 0 },
-    { id: "chat" as const, label: "🤖 Chat", count: 0, show: true },
   ].filter((t) => t.show);
+
+  if (tabs.length === 0) return null;
 
   return (
     <aside
@@ -45,7 +46,7 @@ export function PracticePanel({
         position: "sticky",
         top: "5rem",
         maxHeight: "calc(100vh - 6rem)",
-        overflowY: activeTab === "chat" ? "hidden" : "auto",
+        overflowY: "auto",
         display: "flex",
         flexDirection: "column",
       }}
@@ -101,13 +102,6 @@ export function PracticePanel({
         {activeTab === "practice" && <PracticeProblems problems={problems} />}
         {activeTab === "aids" && <AidsAndStrategies memoryAids={memoryAids} examStrategies={examStrategies} />}
         {activeTab === "takeaways" && <TakeawaysList items={keyTakeaways} />}
-        {activeTab === "chat" && (
-          <InlineLessonChat
-            subtopicId={subtopicId}
-            activeSectionIndex={activeSectionIndex}
-            lessonTitle={lessonTitle}
-          />
-        )}
       </div>
     </aside>
   );
@@ -128,7 +122,7 @@ interface LessonChatResponse {
   detected_intent: string;
 }
 
-function InlineLessonChat({
+export function InlineLessonChat({
   subtopicId,
   activeSectionIndex,
   lessonTitle,

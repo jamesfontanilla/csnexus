@@ -6,7 +6,7 @@ All routes require authentication.
 
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
 from sqlalchemy.orm import Session
 
 from app.common.deps import get_current_user
@@ -15,6 +15,8 @@ from app.features.content.repository import (
     QuestionRepository,
     SubtopicRepository,
 )
+from app.features.mastery.repository import MasteryRepository
+from app.features.tutor.algorithms.cross_lesson_registry import CrossLessonRegistry
 from app.features.tutor.repository import TutorRepository
 from app.features.tutor.schemas import (
     LessonChatRequest,
@@ -32,13 +34,34 @@ from app.infrastructure.database.session import get_db
 router = APIRouter(prefix="/v1/tutor", tags=["tutor"])
 
 
-def _get_tutor_service(db: Session = Depends(get_db)) -> TutorService:
+# ---------------------------------------------------------------------------
+# Cross-Lesson Registry dependency (built once at startup, stored on app.state)
+# ---------------------------------------------------------------------------
+
+
+def get_cross_lesson_registry(request: Request) -> CrossLessonRegistry:
+    """Return the CrossLessonRegistry built at app startup.
+
+    The registry is stored on ``app.state.cross_lesson_registry`` by the
+    lifespan handler in ``app/main.py``. If the build failed at startup,
+    the lifespan stores an empty registry so this always returns a usable
+    instance (the engine handles empty registries gracefully per Req 4.7).
+    """
+    return request.app.state.cross_lesson_registry
+
+
+def _get_tutor_service(
+    db: Session = Depends(get_db),
+    registry: CrossLessonRegistry = Depends(get_cross_lesson_registry),
+) -> TutorService:
     """Construct TutorService for the request."""
     return TutorService(
         tutor_repo=TutorRepository(db=db),
         question_repo=QuestionRepository(db=db),
         subtopic_repo=SubtopicRepository(db=db),
         lesson_repo=LessonRepository(db=db),
+        mastery_repo=MasteryRepository(db=db),
+        cross_lesson_registry=registry,
     )
 
 
@@ -132,11 +155,10 @@ def lesson_chat(
     active section index. Returns a contextual response generated from
     the lesson's own content.
     """
-    history = [{"role": m.role, "content": m.content} for m in payload.history]
     return service.lesson_chat(
         user_id=user.id,
         subtopic_id=payload.subtopic_id,
         message=payload.message,
         active_section_index=payload.active_section_index,
-        history=history,
+        context_json=payload.context_json,
     )

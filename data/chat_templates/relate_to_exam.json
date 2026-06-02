@@ -1,0 +1,47 @@
+{
+  "intent": "relate_to_exam",
+  "variants": {
+    "SIMPLIFIED": {
+      "opener": [
+        "Here's how this might show up on the exam. ",
+        "On the test, you'd see this like — ",
+        "For exam purposes, keep this in mind. "
+      ],
+      "core": "{content}",
+      "cross_reference": "Exam questions sometimes combine this with {related_topic}. ",
+      "closing": [
+        "Want me to show you a practice question?",
+        "Should I give you a tip for remembering this?",
+        "Does that help you see how it connects to the exam?"
+      ]
+    },
+    "STANDARD": {
+      "opener": [
+        "Here's the exam relevance of this concept. ",
+        "This topic typically appears on the civil service exam in this way. ",
+        "Let me connect this to exam preparation. "
+      ],
+      "core": "{content}",
+      "cross_reference": "Note that exam questions may also incorporate {related_topic}. ",
+      "closing": [
+        "Would you like to practice with an exam-style question?",
+        "Want to know what common mistakes to avoid?",
+        "Ready to try a mock question on this?"
+      ]
+    },
+    "DETAILED": {
+      "opener": [
+        "Let me break down exactly how this appears in civil service examinations. ",
+        "Here's a comprehensive look at exam patterns for this concept. ",
+        "From an exam strategy perspective, here's what you need to know. "
+      ],
+      "core": "{content}",
+      "cross_reference": "Advanced exam questions often integrate this with {related_topic} for multi-step problems. ",
+      "closing": [
+        "Want to work through a multi-step exam scenario?",
+        "Shall we analyze common distractors for this type of question?",
+        "Would you like strategies for eliminating wrong answers here?"
+      ]
+    }
+  }
+}

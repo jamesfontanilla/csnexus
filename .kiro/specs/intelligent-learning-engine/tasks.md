@@ -2,7 +2,7 @@
 
 ## Overview
 
-This plan implements seven interconnected learning intelligence capabilities across CSNexus: Readiness Score, Smart Daily Queue, Inline Question Explanations, Post-Mock Exam Analytics, Competence-Based Gamification, Exam Date Onboarding, and Readiness Self-Assessment Calibration. The implementation follows the feature-sliced architecture with algorithm isolation, building four new feature slices and extending two existing ones.
+This plan implements fourteen interconnected learning intelligence capabilities across CSNexus, organized into seven core phases (Readiness Score, Smart Daily Queue, Inline Explanations, Post-Mock Exam Analytics, Competence-Based Gamification, Exam Date Onboarding, Readiness Self-Assessment Calibration) and seven research-backed learning technique extensions (Pretesting, Elaborative Interrogation, Generation Effect/Recall Mode, Sleep-Aware Review, Metacognitive Reflection, Concrete Examples, Productive Failure). The implementation follows the feature-sliced architecture with algorithm isolation, building four new feature slices and extending two existing ones.
 
 ## Tasks
 
@@ -37,10 +37,11 @@ This plan implements seven interconnected learning intelligence capabilities acr
     - Add `StudyConsistency` model with unique constraint on user_id
     - _Requirements: 13.5, 14.4_
 
-  - [ ] 1.6 Create Onboarding extension model (OnboardingProfile) and Self-Assessment model
+  - [ ] 1.6 Create Onboarding extension model (OnboardingProfile, StudyPlan) and Self-Assessment model
     - Add `OnboardingProfile` model with check constraints on exam_category and time_budget_minutes
+    - Add `StudyPlan` model with target_exam_date, exam_category, available_hours_per_day, total_days, subtopics_per_week, mock_exams_scheduled, plan_data (JSON), estimated_readiness_at_exam
     - Add `SelfAssessmentRecord` model with check constraints on score range and calibration_status, index on (user_id, assessed_at)
-    - _Requirements: 16.2, 16.4, 19.2_
+    - _Requirements: 16.2, 16.4, 17.4, 19.2_
 
   - [ ] 1.7 Generate Alembic migration for all new models
     - Create a single migration file covering all new tables
@@ -298,7 +299,8 @@ This plan implements seven interconnected learning intelligence capabilities acr
     - Implement `update_consistency(user_id, items_total, items_completed)` — qualify day if ≥50% completed
     - Implement streak reset logic (reset current_streak, preserve longest_streak)
     - Implement catch-up queue adjustment for missed days
-    - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5_
+    - Implement `replace_streak_with_consistency(user_id)` — migrate from old gamification streak to new Study_Consistency metric, preserving longest_streak
+    - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5, 14.6_
 
   - [ ]* 9.4 Write property tests for study consistency (Properties 28-29)
     - **Property 28: Study consistency qualifies on ≥50% queue completion**
@@ -319,11 +321,13 @@ This plan implements seven interconnected learning intelligence capabilities acr
 - [ ] 10. Implement Exam Date Onboarding
   - [ ] 10.1 Implement onboarding validation and plan generation logic
     - Implement exam date validation (1-365 days in future, reject past dates)
-    - Implement plan generation algorithm: coverage phase → weakness phase → review phase (final 20%)
+    - Implement `generate_study_plan` pure function in `app/features/planner/algorithms/plan_generator.py`: coverage phase → weakness phase → review phase (final 20%)
+    - Implement `regenerate_plan_from_today` for exam date updates
     - Implement spaced introduction (max 3 new subtopics/day, review every 3 study days)
     - Implement mock exam scheduling (1/week from week 2, 2/week in final 2 weeks)
     - Skip already-mastered subtopics (mastery_score ≥ 0.8) for returning users
-    - _Requirements: 16.2, 16.3, 17.1, 17.2, 17.3, 17.5_
+    - Persist generated plan as `StudyPlan` record with plan_data JSON
+    - _Requirements: 16.2, 16.3, 16.4, 17.1, 17.2, 17.3, 17.4, 17.5_
 
   - [ ]* 10.2 Write property tests for onboarding and plan generation (Properties 30-34)
     - **Property 30: Onboarding date validation accepts 1–365 days in future**
@@ -661,6 +665,181 @@ This plan implements seven interconnected learning intelligence capabilities acr
     - Milestone status returns within 2 seconds (Req 13.8)
     - _Requirements: 2.1, 3.4, 13.8_
 
+- [ ] 24. Implement Pretesting System (Phase 8)
+  - [ ] 24.1 Create PretestAttempt model and migration
+    - Add PretestAttempt table with user_id, subtopic_id, questions JSON, score, created_at
+    - _Requirements: 20.4, 21.3_
+  - [ ] 24.2 Implement pretest generation algorithm
+    - Select 3-5 questions covering distinct key_concepts at easy-medium difficulty
+    - Ensure questions are from the subtopic's question bank
+    - _Requirements: 20.1, 20.2_
+  - [ ] 24.3 Implement pretest service and router
+    - POST /v1/pretests/{subtopic_id}/start — generate and return pretest questions
+    - POST /v1/pretests/{pretest_id}/submit — submit answers, persist results
+    - GET /v1/pretests/{subtopic_id}/comparison — return pre vs post comparison
+    - Skip pretest if lesson already completed (Req 20.7)
+    - _Requirements: 20.1, 20.3, 20.4, 20.5, 20.6, 20.7_
+  - [ ] 24.4 Wire pretest results into Queue_Engine
+    - Record which key_concepts user got wrong, prioritize in future quiz_practice
+    - Ensure pretest scores do NOT affect mastery component
+    - _Requirements: 21.1, 21.2, 21.3_
+  - [ ]* 24.5 Write tests for pretesting
+    - Property test: pretest scores do not affect mastery (Property 39)
+    - Unit tests: pretest generation covers distinct key_concepts, skip logic for completed lessons
+    - _Requirements: 20.2, 20.7, 21.2_
+
+- [ ] 25. Implement Elaborative Interrogation (Phase 9)
+  - [ ] 25.1 Create PersonalNote and LessonReflection models
+    - PersonalNote: user_id, question_id, note_text (500 chars max), created_at
+    - LessonReflection: user_id, lesson_id, section_index, reflection_text, created_at
+    - _Requirements: 22.3, 23.3_
+  - [ ] 25.2 Implement elaborative prompt service and router
+    - POST /v1/explanations/{question_id}/note — persist personal note (no grading)
+    - GET /v1/notes — return all notes grouped by subtopic
+    - POST /v1/lessons/{lesson_id}/reflections — persist lesson reflection
+    - Display previous note on re-encounter (Req 22.5)
+    - _Requirements: 22.1, 22.3, 22.4, 22.5, 22.6, 23.1, 23.3_
+  - [ ] 25.3 Surface lesson reflections in daily queue as review items
+    - _Requirements: 23.5_
+  - [ ]* 25.4 Write unit tests for elaborative interrogation
+    - Test note persistence and retrieval, skippable prompts, note display on re-encounter
+    - _Requirements: 22.2, 22.5, 23.4_
+
+- [ ] 26. Implement Generation Effect / Recall Mode (Phase 10)
+  - [ ] 26.1 Create RecallAnswer model and recall grading algorithm
+    - RecallAnswer: user_id, question_id, user_response, is_correct, match_type, created_at
+    - Implement grade_recall_answer with keyword matching + Levenshtein distance ≤ 2
+    - _Requirements: 24.1, 24.3, 24.4_
+  - [ ] 26.2 Implement recall question generation from existing MCQs
+    - Convert MCQ correct answer into a blank within the stem
+    - _Requirements: 24.2_
+  - [ ] 26.3 Implement recall mode in quiz service and router
+    - POST /v1/quiz-attempts/{attempt_id}/recall-answer — grade and persist recall answer
+    - Track recall accuracy separately, weight 1.5× in mastery calculation
+    - _Requirements: 24.3, 24.4, 24.6_
+  - [ ] 26.4 Integrate recall items into Queue_Engine
+    - Include recall-mode items for subtopics with mastery 0.5-0.8
+    - _Requirements: 24.5_
+  - [ ]* 26.5 Write tests for recall mode
+    - Property test: Levenshtein distance ≤ 2 accepts fuzzy matches (Property 40)
+    - Unit tests: MCQ-to-recall conversion, "needs review" for inconclusive matches
+    - _Requirements: 24.3, 24.4_
+
+- [ ] 27. Implement Sleep-Aware Review (Phase 11)
+  - [ ] 27.1 Create GoodnightReviewSession model and bedtime preference
+    - GoodnightReviewSession: user_id, session_date, items JSON, completed_at, bedtime_preference
+    - Add bedtime_preference field to user settings (default 22:00)
+    - _Requirements: 25.1, 25.2, 25.6_
+  - [ ] 27.2 Implement goodnight review generation algorithm
+    - Select 5-10 items with lowest confidence from today's study activity
+    - Cap at 5 minutes duration
+    - Only include items studied today (no new material)
+    - _Requirements: 25.1, 25.3, 25.7_
+  - [ ] 27.3 Implement goodnight review service and router
+    - GET /v1/queue/goodnight — generate and return goodnight session
+    - POST /v1/queue/goodnight/:complete — mark completed, apply 1.2× FSRS interval adjustment
+    - PATCH /v1/preferences/bedtime — set bedtime preference
+    - _Requirements: 25.1, 25.2, 25.4, 25.5_
+  - [ ] 27.4 Implement bedtime inference from usage patterns
+    - Average last activity timestamp over past 7 days
+    - _Requirements: 25.6_
+  - [ ]* 27.5 Write tests for sleep-aware review
+    - Property test: goodnight review only contains today's items (Property 41)
+    - Property test: goodnight review ≤ 10 items (Property 42)
+    - Unit tests: 1.2× interval adjustment on completion, no penalty on skip
+    - _Requirements: 25.1, 25.4, 25.5, 25.7_
+
+- [ ] 28. Implement Post-Session Metacognitive Reflection (Phase 12)
+  - [ ] 28.1 Create SessionReflection model
+    - id, user_id, session_date, hardest_item_id, confidence_rating (1-5), review_note (nullable text), created_at
+    - _Requirements: 26.3_
+  - [ ] 28.2 Implement reflection service and router
+    - POST /v1/sessions/{date}/reflection — persist reflection
+    - GET /v1/sessions/reflections — return reflection history
+    - _Requirements: 26.1, 26.3, 26.7_
+  - [ ] 28.3 Wire reflection into Queue_Engine
+    - Hardest item gets priority boost (level 2) in next day's queue
+    - Confidence 1-2 adds extra review items for session's subtopics
+    - _Requirements: 26.4, 26.5_
+  - [ ]* 28.4 Write tests for metacognitive reflection
+    - Property test: confidence 1-2 boosts next-day queue (Property 43)
+    - Unit tests: reflection persistence, priority boost logic
+    - _Requirements: 26.4, 26.5_
+
+- [ ] 29. Implement Concrete Example Anchoring (Phase 13)
+  - [ ] 29.1 Add concrete_examples field to QuestionExplanation model
+    - Add column: concrete_examples (Text, nullable, JSON array of strings max 3 items × 100 chars)
+    - Run migration
+    - _Requirements: 27.1_
+  - [ ] 29.2 Update explanation response to include concrete examples
+    - Display in a visually distinct callout labeled "Think of it like this:"
+    - Degrade gracefully when no examples stored
+    - _Requirements: 27.2, 27.5_
+  - [ ] 29.3 Generate concrete examples for existing question bank
+    - Create script to batch-generate Filipino-context concrete examples for all questions with explanations
+    - Use contexts: jeepneys, barangays, government offices, Filipino names
+    - _Requirements: 27.1, 27.3_
+  - [ ] 29.4 Include concrete examples in flashcard generation
+    - _Requirements: 27.4_
+  - [ ]* 29.5 Write unit tests for concrete examples
+    - Test graceful degradation when field is null
+    - Test that examples array is limited to 3 items
+    - _Requirements: 27.2, 27.5_
+
+- [ ] 30. Implement Productive Failure Sequences (Phase 14)
+  - [ ] 30.1 Create ChallengeAttempt model
+    - id, user_id, subtopic_id, question_id, pre_lesson_answer, pre_lesson_correct, post_lesson_answer, post_lesson_correct, is_productive_failure_success, created_at
+    - _Requirements: 28.5_
+  - [ ] 30.2 Implement challenge problem selection in Queue_Engine
+    - Prepend a hard-difficulty question before new_content items when mastery < 0.4
+    - Limit to 1 challenge problem per daily queue session
+    - Only for subtopics with mastery < 0.4
+    - _Requirements: 28.1, 28.6, 28.7_
+  - [ ] 30.3 Implement challenge service and router
+    - POST /v1/challenges/{subtopic_id}/attempt — submit pre-lesson attempt with failure-normalizing framing
+    - POST /v1/challenges/{challenge_id}/retest — submit post-lesson retest, compute comparison
+    - Track productive_failure_success flag
+    - _Requirements: 28.2, 28.3, 28.4, 28.5_
+  - [ ]* 30.4 Write tests for productive failure
+    - Property test: challenge problems only for mastery < 0.4 (Property 44)
+    - Property test: max 1 challenge per queue (Property 45)
+    - Unit tests: before/after comparison display, productive_failure_success flagging
+    - _Requirements: 28.1, 28.5, 28.6, 28.7_
+
+- [ ] 31. Frontend: New learning technique UIs
+  - [ ] 31.1 Build Pretest Challenge UI
+    - Present pretest before first lesson visit with encouraging framing
+    - Show before/after comparison after lesson completion
+    - _Requirements: 20.1, 20.3, 20.5, 20.6_
+  - [ ] 31.2 Build Elaborative Interrogation UI
+    - "Why does this make sense?" text input after incorrect answers
+    - Display previous personal notes on re-encounter
+    - Collapsible prompts in lesson reader at key concept sections
+    - _Requirements: 22.1, 22.2, 22.5, 23.1, 23.2_
+  - [ ] 31.3 Build Recall Mode UI in Quiz Player
+    - Text input field instead of MCQ options
+    - "Needs review" state with self-assessment option
+    - _Requirements: 24.1, 24.4_
+  - [ ] 31.4 Build Goodnight Review UI
+    - Compact flashcard session triggered at bedtime
+    - Show "sleep consolidation" message on completion
+    - _Requirements: 25.1, 25.2, 25.3_
+  - [ ] 31.5 Build Session Reflection UI
+    - 30-second reflection prompt after queue completion
+    - Hardest item selector, confidence slider, optional note
+    - _Requirements: 26.1, 26.2, 26.6_
+  - [ ] 31.6 Build Concrete Examples callout in explanation display
+    - Visually distinct callout: "Think of it like this:"
+    - Filipino-context examples below explanation text
+    - _Requirements: 27.2, 27.3_
+  - [ ] 31.7 Build Productive Failure UI
+    - Challenge problem with failure-normalizing framing
+    - Before/after comparison after lesson
+    - _Requirements: 28.2, 28.3, 28.4_
+
+- [ ] 32. Final checkpoint - All phases verified
+  - Ensure all tests pass for phases 8-14, ask the user if questions arise.
+
 ## Notes
 
 - Tasks marked with `*` are optional and can be skipped for faster MVP
@@ -696,7 +875,12 @@ This plan implements seven interconnected learning intelligence capabilities acr
     { "id": 16, "tasks": ["18.1", "18.2", "18.3", "18.4", "19.1", "19.2", "19.3"] },
     { "id": 17, "tasks": ["20.1", "20.2", "20.3", "20.4", "21.1", "21.2", "21.3"] },
     { "id": 18, "tasks": ["22.3", "22.4"] },
-    { "id": 19, "tasks": ["23.1", "23.2", "23.3"] }
+    { "id": 19, "tasks": ["23.1", "23.2", "23.3"] },
+    { "id": 20, "tasks": ["24.1", "25.1", "26.1", "28.1", "29.1", "30.1"] },
+    { "id": 21, "tasks": ["24.2", "24.3", "25.2", "26.2", "26.3", "27.1", "27.2", "29.2", "30.2"] },
+    { "id": 22, "tasks": ["24.4", "24.5", "25.3", "25.4", "26.4", "26.5", "27.3", "27.4", "27.5", "28.2", "28.3", "28.4", "29.3", "29.4", "29.5", "30.3", "30.4"] },
+    { "id": 23, "tasks": ["31.1", "31.2", "31.3", "31.4", "31.5", "31.6", "31.7"] },
+    { "id": 24, "tasks": ["32"] }
   ]
 }
 ```

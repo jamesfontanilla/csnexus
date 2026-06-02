@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import Any
+
 from pydantic import BaseModel, Field
 
 
@@ -61,6 +63,8 @@ class LessonChatRequest(BaseModel):
     subtopic_id: int
     message: str = Field(min_length=1, max_length=1000)
     active_section_index: int | None = None
+    context_json: dict[str, Any] | None = None
+    # Deprecated: kept for backward compatibility, ignored if context_json present
     history: list[ChatMessage] = Field(default_factory=list, max_length=20)
 
 
@@ -70,3 +74,4 @@ class LessonChatResponse(BaseModel):
     interaction_id: int
     response_text: str
     detected_intent: str
+    context_json: dict[str, Any] = Field(default_factory=dict)

@@ -1,0 +1,47 @@
+{
+  "intent": "complexity_adjustment",
+  "variants": {
+    "SIMPLIFIED": {
+      "opener": [
+        "Got it — let me adjust my explanation. ",
+        "No problem, let me try a different approach. ",
+        "Sure, here's a simpler take. "
+      ],
+      "core": "{content}",
+      "cross_reference": "This also applies to {related_topic} if you revisit it. ",
+      "closing": [
+        "Is this level better?",
+        "Want me to adjust further?",
+        "Does this make more sense now?"
+      ]
+    },
+    "STANDARD": {
+      "opener": [
+        "Adjusting the level for you. ",
+        "Let me recalibrate my explanation. ",
+        "Here's the same concept at a different depth. "
+      ],
+      "core": "{content}",
+      "cross_reference": "This adjusted perspective also applies to {related_topic}. ",
+      "closing": [
+        "Is this the right level of detail?",
+        "Want me to go further in either direction?",
+        "Does this match what you're looking for?"
+      ]
+    },
+    "DETAILED": {
+      "opener": [
+        "Let me provide this at a deeper level of analysis. ",
+        "Here's the more rigorous treatment you're looking for. ",
+        "Diving deeper into the mechanics of this concept. "
+      ],
+      "core": "{content}",
+      "cross_reference": "At this depth, the connections to {related_topic} become especially relevant. ",
+      "closing": [
+        "Want to go even deeper into the theory?",
+        "Is this the level of rigor you were looking for?",
+        "Shall we examine the formal underpinnings?"
+      ]
+    }
+  }
+}

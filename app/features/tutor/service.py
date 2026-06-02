@@ -7,6 +7,8 @@ template-based generation to produce helpful responses.
 
 from __future__ import annotations
 
+import logging
+
 from fastapi import HTTPException, status
 
 from app.features.content.models import Question, Subtopic
@@ -15,6 +17,8 @@ from app.features.content.repository import (
     QuestionRepository,
     SubtopicRepository,
 )
+from app.features.mastery.repository import MasteryRepository
+from app.features.tutor.algorithms.cross_lesson_registry import CrossLessonRegistry
 from app.features.tutor.algorithms.explanation_engine import (
     explain_answer,
     generate_hint,
@@ -31,6 +35,8 @@ from app.features.tutor.schemas import (
     TutorResponse,
 )
 
+logger = logging.getLogger(__name__)
+
 
 class TutorService:
     """Orchestrates tutor interactions."""
@@ -42,11 +48,15 @@ class TutorService:
         question_repo: QuestionRepository,
         subtopic_repo: SubtopicRepository,
         lesson_repo: LessonRepository | None = None,
+        mastery_repo: MasteryRepository | None = None,
+        cross_lesson_registry: CrossLessonRegistry | None = None,
     ) -> None:
         self._tutor_repo = tutor_repo
         self._question_repo = question_repo
         self._subtopic_repo = subtopic_repo
         self._lesson_repo = lesson_repo
+        self._mastery_repo = mastery_repo
+        self._cross_lesson_registry = cross_lesson_registry
 
     def _get_question(self, question_id: int) -> Question:
         """Load a question or raise 404."""
@@ -183,12 +193,18 @@ class TutorService:
         subtopic_id: int,
         message: str,
         active_section_index: int | None = None,
+        context_json: dict | None = None,
         history: list[dict[str, str]] | None = None,
     ) -> LessonChatResponse:
         """Handle a lesson chatbot message.
 
         Loads the lesson content for the given subtopic, classifies the user's
         intent, and generates a contextual response using the lesson's own data.
+        Fetches mastery data and passes it (along with the cross-lesson registry)
+        to the engine for adaptive complexity and cross-referencing.
+
+        On engine failure, returns a fallback response using the fallback template
+        rather than propagating an internal server error.
         """
         if self._lesson_repo is None:
             raise HTTPException(
@@ -205,12 +221,41 @@ class TutorService:
 
         content_json = lesson.content_json or {}
 
-        response_text, detected_intent = generate_chat_response(
-            content_json=content_json,
-            message=message,
-            active_section_index=active_section_index,
-            history=history,
-        )
+        # Fetch mastery data for adaptive complexity (Req 5.1, 5.7)
+        mastery_score: float | None = None
+        mastery_level: str | None = None
+        if self._mastery_repo is not None:
+            mastery = self._mastery_repo.get_by_user_and_subtopic(
+                user_id, subtopic_id
+            )
+            if mastery is not None:
+                mastery_score = mastery.mastery_score
+                mastery_level = mastery.mastery_level
+
+        try:
+            result = generate_chat_response(
+                content_json=content_json,
+                message=message,
+                active_section_index=active_section_index,
+                context_json=context_json,
+                mastery_score=mastery_score,
+                mastery_level=mastery_level,
+                cross_lesson_registry=self._cross_lesson_registry,
+            )
+            response_text = result.response_text
+            detected_intent = result.detected_intent
+            updated_context_json = result.context_json
+        except Exception:
+            logger.exception(
+                "Chat engine failed for user=%d subtopic=%d", user_id, subtopic_id
+            )
+            # Fallback: return a safe response without crashing (Req 7.1)
+            response_text = (
+                "I'm having trouble processing that right now. "
+                "Could you rephrase or try again?"
+            )
+            detected_intent = "fallback"
+            updated_context_json = context_json or {}
 
         interaction = self._tutor_repo.create_interaction(
             user_id=user_id,
@@ -229,4 +274,5 @@ class TutorService:
             interaction_id=interaction.id,
             response_text=response_text,
             detected_intent=detected_intent,
+            context_json=updated_context_json,
         )

@@ -14,6 +14,10 @@ during unit tests.
 
 from __future__ import annotations
 
+# Load .env file if present (development convenience — production uses real env vars)
+from dotenv import load_dotenv
+load_dotenv()
+
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -48,7 +52,6 @@ from app.infrastructure.scheduler.jobs import start_scheduler, stop_scheduler
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Start the scheduler on app boot, auto-seed if DB is empty."""
-    del app  # unused; the lifespan signature requires the parameter
 
     # Ensure tables exist and seed if empty (handles ephemeral deploys
     # like Render free tier where the SQLite file is wiped on restart).
@@ -88,6 +91,45 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         )
         # Non-fatal: app boots without DB init. Endpoints that need the DB
         # will fail individually, but /health will still respond.
+
+    # --- Build CrossLessonRegistry once at startup (Req 4.1, 4.2) ----------
+    # Avoids per-request DB queries for concept lookup. The registry is
+    # stored on app.state and exposed via get_cross_lesson_registry dep.
+    from app.features.tutor.algorithms.cross_lesson_registry import (
+        CrossLessonRegistry,
+    )
+
+    try:
+        session = SessionLocal()
+        try:
+            from app.features.content.models import Lesson, Subtopic
+
+            lessons_with_subtopics = (
+                session.query(Lesson.content_json, Lesson.subtopic_id, Subtopic.title)
+                .join(Subtopic, Lesson.subtopic_id == Subtopic.id)
+                .all()
+            )
+            lesson_dicts: list[dict] = []
+            for content_json, subtopic_id, subtopic_title in lessons_with_subtopics:
+                entry = dict(content_json) if content_json else {}
+                entry["subtopic_id"] = subtopic_id
+                entry["subtopic_title"] = subtopic_title
+                lesson_dicts.append(entry)
+
+            app.state.cross_lesson_registry = CrossLessonRegistry.build_from_lessons(
+                lesson_dicts
+            )
+        finally:
+            session.close()
+    except Exception as exc:
+        import logging
+
+        logging.getLogger(__name__).warning(
+            "CrossLessonRegistry build failed (chat will work without cross-refs): %s",
+            exc,
+        )
+        # Non-fatal: the engine handles registry=None gracefully (Req 4.7).
+        app.state.cross_lesson_registry = CrossLessonRegistry()
 
     start_scheduler()
     try:
