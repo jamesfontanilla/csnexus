@@ -10,6 +10,7 @@ import {
 import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
 import { GlassSkeleton } from "../../components/GlassSkeleton";
+import { GlassSelect } from "../../components/GlassSelect";
 import { PageTransition } from "../../components/PageTransition";
 
 const CARD_TYPES: CardType[] = [
@@ -279,15 +280,16 @@ export function DeckDetail() {
                     rows={2}
                     style={{ width: "100%", padding: "0.625rem", background: "var(--glass-bg-subtle)", border: "1px solid var(--glass-border-medium)", borderRadius: "var(--radius-sm)", color: "var(--color-text)", fontSize: "var(--font-size-base)", resize: "vertical" }}
                   />
-                  <select
+                  <GlassSelect
                     value={editVisibility}
-                    onChange={(e) => setEditVisibility(e.target.value)}
-                    style={{ padding: "0.625rem", background: "var(--glass-bg-subtle)", border: "1px solid var(--glass-border-medium)", borderRadius: "var(--radius-sm)", color: "var(--color-text)", fontSize: "var(--font-size-base)" }}
-                  >
-                    <option value="private">Private</option>
-                    <option value="public">Public</option>
-                    <option value="unlisted">Unlisted</option>
-                  </select>
+                    onChange={(v) => setEditVisibility(v)}
+                    options={[
+                      { value: "private", label: "Private" },
+                      { value: "public", label: "Public" },
+                      { value: "unlisted", label: "Unlisted" },
+                    ]}
+                    aria-label="Deck visibility"
+                  />
                   <div style={{ display: "flex", gap: "0.5rem" }}>
                     <GlassButton
                       variant="primary"
@@ -384,24 +386,12 @@ export function DeckDetail() {
                       resize: "vertical",
                     }}
                   />
-                  <select
+                  <GlassSelect
                     value={newType}
-                    onChange={(e) => setNewType(e.target.value as CardType)}
-                    style={{
-                      padding: "0.625rem",
-                      background: "var(--glass-bg-subtle)",
-                      border: "1px solid var(--glass-border-medium)",
-                      borderRadius: "var(--radius-sm)",
-                      color: "var(--color-text)",
-                      fontSize: "var(--font-size-base)",
-                    }}
-                  >
-                    {CARD_TYPES.map((t) => (
-                      <option key={t} value={t}>
-                        {t.replace("_", " ")}
-                      </option>
-                    ))}
-                  </select>
+                    onChange={(v) => setNewType(v as CardType)}
+                    options={CARD_TYPES.map((t) => ({ value: t, label: t.replace("_", " ") }))}
+                    aria-label="Card type"
+                  />
                   <div style={{ display: "flex", gap: "0.75rem" }}>
                     <GlassButton type="submit" variant="primary" size="sm" loading={addLoading}>
                       Add Card
@@ -479,24 +469,12 @@ export function DeckDetail() {
                         resize: "vertical",
                       }}
                     />
-                    <select
+                    <GlassSelect
                       value={editType}
-                      onChange={(e) => setEditType(e.target.value as CardType)}
-                      style={{
-                        padding: "0.625rem",
-                        background: "var(--glass-bg-subtle)",
-                        border: "1px solid var(--glass-border-medium)",
-                        borderRadius: "var(--radius-sm)",
-                        color: "var(--color-text)",
-                        fontSize: "var(--font-size-base)",
-                      }}
-                    >
-                      {CARD_TYPES.map((t) => (
-                        <option key={t} value={t}>
-                          {t.replace("_", " ")}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={(v) => setEditType(v as CardType)}
+                      options={CARD_TYPES.map((t) => ({ value: t, label: t.replace("_", " ") }))}
+                      aria-label="Card type"
+                    />
                     <div style={{ display: "flex", gap: "0.75rem" }}>
                       <GlassButton
                         variant="primary"

@@ -6,6 +6,7 @@ import { PageTransition } from "../../components/PageTransition";
 import { GlassCard } from "../../components/GlassCard";
 import { GlassInput } from "../../components/GlassInput";
 import { GlassButton } from "../../components/GlassButton";
+import { GlassSelect } from "../../components/GlassSelect";
 import { GradientText } from "../../components/GradientText";
 import { GoogleSignInWithCategoryPicker } from "../../components/GoogleSignInButton";
 import { scaleIn } from "../../design-system";
@@ -119,16 +120,15 @@ export function Signup() {
                   <label htmlFor="signup-category" style={{ display: "block", marginBottom: "var(--space-1)", fontSize: "var(--font-size-sm)", fontWeight: 500, color: "var(--color-text-secondary)" }}>
                     Category
                   </label>
-                  <select
-                    id="signup-category"
+                  <GlassSelect
                     value={category}
-                    onChange={(e) => setCategory(e.target.value)}
+                    onChange={(v) => setCategory(v)}
+                    options={[
+                      { value: "PROFESSIONAL", label: "Professional" },
+                      { value: "SUB_PROFESSIONAL", label: "Sub-Professional" },
+                    ]}
                     aria-label="Exam category"
-                    style={{ width: "100%", padding: "var(--space-2) var(--space-3)", fontSize: "var(--font-size-base)", borderRadius: "var(--radius-md)", background: "rgba(255, 255, 255, 0.05)", border: "1px solid var(--glass-border-light)", color: "var(--color-text)" }}
-                  >
-                    <option value="PROFESSIONAL">Professional</option>
-                    <option value="SUB_PROFESSIONAL">Sub-Professional</option>
-                  </select>
+                  />
                 </div>
 
                 {error && (

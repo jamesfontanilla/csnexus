@@ -8,6 +8,7 @@ import {
 import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
 import { GlassSkeleton } from "../../components/GlassSkeleton";
+import { GlassSelect } from "../../components/GlassSelect";
 import { EmptyState } from "../../components/EmptyState";
 import { CrossfadeContent } from "../../components/CrossfadeContent";
 import { PageTransition } from "../../components/PageTransition";
@@ -205,42 +206,21 @@ export function Marketplace() {
                 fontSize: "var(--font-size-base)",
               }}
             />
-            <select
+            <GlassSelect
               value={category}
-              onChange={(e) => setCategory(e.target.value as DeckCategory | "all")}
-              style={{
-                padding: "0.625rem",
-                background: "var(--glass-bg-subtle)",
-                border: "1px solid var(--glass-border-medium)",
-                borderRadius: "var(--radius-sm)",
-                color: "var(--color-text)",
-                fontSize: "var(--font-size-base)",
-              }}
-            >
-              {CATEGORIES.map((c) => (
-                <option key={c} value={c}>
-                  {c === "all" ? "All Categories" : c.charAt(0).toUpperCase() + c.slice(1)}
-                </option>
-              ))}
-            </select>
-            <select
+              onChange={(v) => setCategory(v as DeckCategory | "all")}
+              options={CATEGORIES.map((c) => ({
+                value: c,
+                label: c === "all" ? "All Categories" : c.charAt(0).toUpperCase() + c.slice(1),
+              }))}
+              aria-label="Category filter"
+            />
+            <GlassSelect
               value={sort}
-              onChange={(e) => setSort(e.target.value as SortOption)}
-              style={{
-                padding: "0.625rem",
-                background: "var(--glass-bg-subtle)",
-                border: "1px solid var(--glass-border-medium)",
-                borderRadius: "var(--radius-sm)",
-                color: "var(--color-text)",
-                fontSize: "var(--font-size-base)",
-              }}
-            >
-              {SORT_OPTIONS.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
+              onChange={(v) => setSort(v as SortOption)}
+              options={SORT_OPTIONS.map((opt) => ({ value: opt.value, label: opt.label }))}
+              aria-label="Sort order"
+            />
           </div>
         </GlassCard>
 

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { flashcardsApi, Deck } from "../../api/flashcards";
 import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
+import { GlassSelect } from "../../components/GlassSelect";
 import { PageTransition } from "../../components/PageTransition";
 
 interface GeneratedCard {
@@ -240,24 +241,16 @@ export function GenerateCards() {
                 Add selected cards to a deck
               </h3>
               <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
-                <select
-                  value={selectedDeckId ?? ""}
-                  onChange={(e) => setSelectedDeckId(e.target.value ? Number(e.target.value) : null)}
-                  style={{
-                    flex: "1 1 200px",
-                    padding: "0.625rem",
-                    background: "var(--glass-bg-subtle)",
-                    border: "1px solid var(--glass-border-medium)",
-                    borderRadius: "var(--radius-sm)",
-                    color: "var(--color-text)",
-                    fontSize: "var(--font-size-base)",
-                  }}
-                >
-                  <option value="">Select a deck...</option>
-                  {decks.map((d) => (
-                    <option key={d.id} value={d.id}>{d.title}</option>
-                  ))}
-                </select>
+                <GlassSelect
+                  value={selectedDeckId?.toString() ?? ""}
+                  onChange={(v) => setSelectedDeckId(v ? Number(v) : null)}
+                  options={[
+                    { value: "", label: "Select a deck..." },
+                    ...decks.map((d) => ({ value: d.id.toString(), label: d.title })),
+                  ]}
+                  style={{ flex: "1 1 200px" }}
+                  aria-label="Select deck"
+                />
                 <GlassButton
                   variant="primary"
                   onClick={handleAddToDeck}
