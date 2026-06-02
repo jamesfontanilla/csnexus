@@ -950,3 +950,38 @@ html[data-reduced-motion="on"] *::after {
   animation-duration: 0.01ms !important;
   transition-duration: 0.01ms !important;
 }
+
+/* Native select styling for dark glass theme */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--glass-bg-subtle);
+  color: var(--color-text);
+  border: 1px solid var(--glass-border-medium);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+select:hover {
+  border-color: var(--glass-border-strong);
+}
+
+select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.15);
+}
+
+select option {
+  background-color: var(--color-surface, #1a1a2e);
+  color: var(--color-text);
+  padding: 0.5rem;
+}
