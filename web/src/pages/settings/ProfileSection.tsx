@@ -90,7 +90,7 @@ const indicatorStyle: React.CSSProperties = {
 
 function getTimezones(): string[] {
   try {
-    return Intl.supportedValuesOf("timeZone");
+    return (Intl as unknown as { supportedValuesOf(key: string): string[] }).supportedValuesOf("timeZone");
   } catch {
     // Fallback for environments that don't support this API
     return ["UTC", "America/New_York", "America/Chicago", "America/Denver", "America/Los_Angeles", "Europe/London", "Asia/Manila", "Asia/Tokyo"];

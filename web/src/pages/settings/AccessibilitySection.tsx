@@ -3,9 +3,7 @@ import {
   getAccessibilityPreferences,
   setAccessibilityPreference,
   applyAccessibilityToDOM,
-  isSoundEnabled,
   setSoundEnabled,
-  isHapticEnabled,
   setHapticEnabled,
 } from "../../stores/preferences";
 import type { AccessibilityPreferences } from "../../stores/preferences";
