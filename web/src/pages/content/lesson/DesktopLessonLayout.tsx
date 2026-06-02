@@ -234,53 +234,51 @@ export function DesktopLessonLayout({
           </div>
         </main>
 
-        {/* Right: Practice panel */}
-        <PracticePanel
-          problems={practiceProblems}
-          memoryAids={memoryAids}
-          examStrategies={examStrategies}
-          keyTakeaways={keyTakeaways}
-          subtopicId={subtopicId}
-          activeSectionIndex={activeIndex}
-          lessonTitle={metadata.title}
-        />
-      </div>
-
-      {/* Study Buddy Chat — full-width below the main grid */}
-      <section
-        aria-label="Study Buddy"
-        style={{
-          marginTop: "2.5rem",
-          padding: "1.25rem 1.5rem",
-          background: "rgba(255, 255, 255, 0.02)",
-          border: "1px solid rgba(255, 255, 255, 0.08)",
-          borderRadius: "12px",
-          maxWidth: "900px",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "1rem",
-            fontWeight: 700,
-            color: "var(--color-text)",
-            margin: "0 0 1rem 0",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
-          <span aria-hidden="true">🤖</span> Study Buddy
-        </h2>
-        <div style={{ height: "400px", display: "flex", flexDirection: "column" }}>
-          <InlineLessonChat
+        {/* Right: Practice panel + Study Buddy chat stacked */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          <PracticePanel
+            problems={practiceProblems}
+            memoryAids={memoryAids}
+            examStrategies={examStrategies}
+            keyTakeaways={keyTakeaways}
             subtopicId={subtopicId}
             activeSectionIndex={activeIndex}
             lessonTitle={metadata.title}
           />
+
+          {/* Study Buddy Chat — in right column below practice panel */}
+          <section
+            aria-label="Study Buddy"
+            style={{
+              padding: "0.75rem",
+              background: "rgba(255, 255, 255, 0.02)",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
+              borderRadius: "8px",
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                color: "var(--color-text)",
+                margin: "0 0 0.5rem 0",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.375rem",
+              }}
+            >
+              <span aria-hidden="true">🤖</span> Study Buddy
+            </h3>
+            <div style={{ height: "320px", display: "flex", flexDirection: "column" }}>
+              <InlineLessonChat
+                subtopicId={subtopicId}
+                activeSectionIndex={activeIndex}
+                lessonTitle={metadata.title}
+              />
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
