@@ -127,6 +127,21 @@ class UserUpdate(BaseModel):
         return _validate_username(v)
 
 
+class AccountDeleteRequest(BaseModel):
+    """Account deletion payload (Req 5.7). Requires exact confirmation phrase."""
+
+    confirmation_phrase: str
+
+    @field_validator("confirmation_phrase")
+    @classmethod
+    def _must_match_phrase(cls, v: str) -> str:
+        if v != "DELETE MY ACCOUNT":
+            raise ValueError(
+                'confirmation phrase must be exactly "DELETE MY ACCOUNT"'
+            )
+        return v
+
+
 class UserResponse(BaseModel):
     """Read-side projection. ``from_attributes`` enables ORM-row serialization."""
 

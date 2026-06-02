@@ -28,12 +28,10 @@ describe("Leaderboard page", () => {
   });
 
   it("renders leaderboard entries from /v1/leaderboards/global", async () => {
-    mockGet.mockResolvedValue({
-      entries: [
-        { display_name: "Alice", level: 5, xp_window: 1200, category: "PROFESSIONAL" },
-        { display_name: "Bob", level: 3, xp_window: 800, category: "PROFESSIONAL" },
-      ],
-    });
+    mockGet.mockResolvedValue([
+      { display_name: "Alice", level: 5, xp_window: 1200, category: "PROFESSIONAL" },
+      { display_name: "Bob", level: 3, xp_window: 800, category: "PROFESSIONAL" },
+    ]);
 
     render(
       <MemoryRouter>

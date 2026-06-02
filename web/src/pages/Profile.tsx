@@ -7,7 +7,6 @@ import { GlassButton } from "../components/GlassButton";
 import { GlassSkeleton } from "../components/GlassSkeleton";
 import { AnimatedNumber } from "../components/AnimatedNumber";
 import { GradientText } from "../components/GradientText";
-import { FeedbackToggle } from "../components/FeedbackToggle";
 import { PageTransition } from "../components/PageTransition";
 import { GlassProgressBar } from "../components/GlassProgressBar";
 import { GlassBadge } from "../components/GlassBadge";
@@ -46,6 +45,11 @@ export function Profile() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Editable display name
+  const [editingName, setEditingName] = useState(false);
+  const [nameInput, setNameInput] = useState("");
+  const [savingName, setSavingName] = useState(false);
+
   useEffect(() => {
     Promise.all([
       apiClient.get<XPData>("/v1/xp/me"),
@@ -66,6 +70,34 @@ export function Profile() {
     logout();
     toast.info("Logged out successfully");
     navigate("/login");
+  }
+
+  function startEditingName() {
+    if (profile) {
+      setNameInput(profile.display_name);
+      setEditingName(true);
+    }
+  }
+
+  async function handleSaveName() {
+    const trimmed = nameInput.trim();
+    if (!trimmed || trimmed === profile?.display_name) {
+      setEditingName(false);
+      return;
+    }
+    setSavingName(true);
+    try {
+      const updated = await apiClient.patch<UserProfile>("/v1/users/me", {
+        display_name: trimmed,
+      });
+      setProfile(updated);
+      toast.success("Display name updated");
+      setEditingName(false);
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : "Failed to update name");
+    } finally {
+      setSavingName(false);
+    }
   }
 
   if (loading) {
@@ -101,9 +133,74 @@ export function Profile() {
 
         {profile && (
           <div style={{ marginBottom: "var(--space-6)" }}>
-            <p style={{ fontSize: "1.25rem", fontWeight: 600, margin: "0 0 var(--space-1) 0", color: "var(--color-text)" }}>
-              {profile.display_name}
-            </p>
+            {editingName ? (
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", marginBottom: "var(--space-1)" }}>
+                <input
+                  type="text"
+                  value={nameInput}
+                  onChange={(e) => setNameInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleSaveName();
+                    if (e.key === "Escape") setEditingName(false);
+                  }}
+                  maxLength={255}
+                  autoFocus
+                  aria-label="Display name"
+                  style={{
+                    flex: 1,
+                    fontSize: "1.25rem",
+                    fontWeight: 600,
+                    padding: "var(--space-2) var(--space-3)",
+                    background: "var(--glass-bg-subtle)",
+                    border: "1px solid var(--glass-border-medium)",
+                    borderRadius: "var(--radius-md)",
+                    color: "var(--color-text)",
+                    outline: "none",
+                    fontFamily: "var(--font-family)",
+                  }}
+                />
+                <GlassButton
+                  size="sm"
+                  variant="primary"
+                  onClick={handleSaveName}
+                  loading={savingName}
+                  aria-label="Save display name"
+                >
+                  Save
+                </GlassButton>
+                <GlassButton
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => setEditingName(false)}
+                  disabled={savingName}
+                  aria-label="Cancel editing"
+                >
+                  ✕
+                </GlassButton>
+              </div>
+            ) : (
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", marginBottom: "var(--space-1)" }}>
+                <p style={{ fontSize: "1.25rem", fontWeight: 600, margin: 0, color: "var(--color-text)" }}>
+                  {profile.display_name}
+                </p>
+                <button
+                  onClick={startEditingName}
+                  aria-label="Edit display name"
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "0.875rem",
+                    color: "var(--color-text-muted)",
+                    padding: "var(--space-1)",
+                    borderRadius: "var(--radius-sm)",
+                    transition: "color var(--duration-fast) ease",
+                  }}
+                >
+                  ✏️
+                </button>
+              </div>
+            )}
             <p style={{ fontSize: "var(--font-size-sm)", margin: 0, color: "var(--color-text-secondary)" }}>
               {profile.email}
             </p>
@@ -175,18 +272,20 @@ export function Profile() {
 
         {/* Settings */}
         <section style={{ marginTop: "var(--space-6)" }}>
-          <h2 style={{ fontSize: "var(--font-size-sm)", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "var(--space-3)" }}>
-            Preferences
-          </h2>
-          <GlassCard>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <div>
-                <p style={{ margin: 0, color: "var(--color-text)", fontSize: "var(--font-size-base)", fontWeight: 500 }}>Sound & Haptics</p>
-                <p style={{ margin: 0, color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)" }}>Audio feedback on actions</p>
+          <Link to="/settings" style={{ textDecoration: "none", display: "block" }} aria-label="Go to Settings">
+            <GlassCard>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
+                  <span style={{ fontSize: "1.25rem" }}>⚙️</span>
+                  <div>
+                    <p style={{ margin: 0, color: "var(--color-text)", fontSize: "var(--font-size-base)", fontWeight: 500 }}>Settings</p>
+                    <p style={{ margin: 0, color: "var(--color-text-secondary)", fontSize: "var(--font-size-sm)" }}>Preferences, accessibility, and account</p>
+                  </div>
+                </div>
+                <span style={{ color: "var(--color-text-muted)", fontSize: "1.25rem" }}>›</span>
               </div>
-              <FeedbackToggle />
-            </div>
-          </GlassCard>
+            </GlassCard>
+          </Link>
         </section>
 
         <div style={{ marginTop: "var(--space-8)", display: "flex", gap: "var(--space-4)" }}>

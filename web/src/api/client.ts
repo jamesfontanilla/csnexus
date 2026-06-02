@@ -110,7 +110,7 @@ export const apiClient = {
     return request<T>("PATCH", url, body);
   },
 
-  delete<T>(url: string): Promise<T> {
-    return request<T>("DELETE", url);
+  delete<T>(url: string, body?: unknown): Promise<T> {
+    return request<T>("DELETE", url, body);
   },
 };

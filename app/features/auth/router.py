@@ -14,6 +14,7 @@ Routes mounted under ``/v1/auth``:
 * ``DELETE /sessions/me`` — logout the current session by JTI.
 * ``POST   /password-reset-requests`` — issue a reset OTP if the email exists.
 * ``POST   /password-resets`` — verify a reset OTP and rotate the password.
+* ``POST   /password-change`` — authenticated password rotation (no OTP).
 
 The logout route reads ``request.state.token_claims`` rather than depending
 on ``get_current_user``. The auth middleware is permissive (it never raises),
@@ -34,6 +35,7 @@ from app.features.auth.schemas import (
     GoogleAuthResponse,
     LoginRequest,
     LoginResponse,
+    PasswordChangeRequest,
     PasswordResetConfirmRequest,
     PasswordResetRequest,
 )
@@ -215,6 +217,26 @@ def reset_password(
 ) -> Response:
     """Verify a reset OTP, rotate the password, revoke all sessions (Req 4.3, 4.4)."""
     service.reset_password(payload)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@router.post("/password-change", status_code=status.HTTP_204_NO_CONTENT)
+def change_password(
+    payload: PasswordChangeRequest,
+    user: User = Depends(get_current_user),
+    service: AuthService = Depends(get_auth_service),
+) -> Response:
+    """Verify current password and rotate to a new one (Req 5.2, 5.3).
+
+    Authenticated endpoint — the user proves identity by supplying the
+    current password inline (no OTP needed). On success all sessions are
+    revoked so the user must re-authenticate with the new password.
+    """
+    service.change_password(
+        user,
+        current_password=payload.current_password,
+        new_password=payload.new_password,
+    )
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 

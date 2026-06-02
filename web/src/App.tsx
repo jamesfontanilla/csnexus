@@ -16,6 +16,7 @@ import { Mastery } from "./pages/Mastery";
 import { Goals } from "./pages/Goals";
 import { Tournaments } from "./pages/Tournaments";
 import { Profile } from "./pages/Profile";
+import { Settings } from "./pages/Settings";
 import { Analytics } from "./pages/Analytics";
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { GlassNavbar } from "./components/GlassNavbar";
@@ -146,6 +147,14 @@ function AppContent() {
             element={
               <AuthGuard>
                 <Profile />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <AuthGuard>
+                <Settings />
               </AuthGuard>
             }
           />

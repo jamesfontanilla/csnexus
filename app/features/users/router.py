@@ -8,13 +8,19 @@ Routes mounted under ``/v1/users``:
 
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, Query, status
+from fastapi import APIRouter, Depends, Query, Response, status
 from sqlalchemy.orm import Session
 
 from app.common.deps import get_current_user
+from app.features.auth.repository import AuthRepository
 from app.features.users.models import User
 from app.features.users.repository import UserRepository
-from app.features.users.schemas import UserResponse, UserUpdate, validate_username
+from app.features.users.schemas import (
+    AccountDeleteRequest,
+    UserResponse,
+    UserUpdate,
+    validate_username,
+)
 from app.features.users.service import UserService
 from app.infrastructure.database.session import get_db
 
@@ -26,7 +32,7 @@ router = APIRouter(prefix="/v1/users", tags=["users"])
 
 def get_user_service(db: Session = Depends(get_db)) -> UserService:
     """Construct a :class:`UserService` for the request scope."""
-    return UserService(user_repo=UserRepository(db=db))
+    return UserService(user_repo=UserRepository(db=db), auth_repo=AuthRepository(db=db))
 
 
 # --- routes ----------------------------------------------------------------
@@ -57,3 +63,18 @@ def check_username(
     except ValueError:
         return {"available": False}
     return {"available": service.check_username_available(username)}
+
+
+@router.delete("/me", status_code=status.HTTP_204_NO_CONTENT)
+def delete_account(
+    payload: AccountDeleteRequest,
+    user: User = Depends(get_current_user),
+    service: UserService = Depends(get_user_service),
+) -> Response:
+    """Soft-delete the authenticated user's account.
+
+    Requires a confirmation phrase (``"DELETE MY ACCOUNT"``) in the request
+    body. Transitions the account to DELETED state and revokes all sessions.
+    """
+    service.delete_account(user, confirmation_phrase=payload.confirmation_phrase)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

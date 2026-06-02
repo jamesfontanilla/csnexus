@@ -31,10 +31,13 @@ describe("Profile page", () => {
   it("renders XP, level, and streak from /v1/xp/me", async () => {
     mockGet.mockImplementation((url: string) => {
       if (url === "/v1/xp/me") {
-        return Promise.resolve({ cumulative_xp: 5000, level: 7, streak_count: 3 });
+        return Promise.resolve({ cumulative_xp: 5000, level: 7, streak: 3 });
       }
       if (url === "/v1/achievements/me") {
-        return Promise.resolve({ items: [{ id: "FIRST_LESSON", title: "First Lesson", granted_at: "2024-01-01T00:00:00Z" }] });
+        return Promise.resolve([{ achievement_id: "FIRST_LESSON", title: "First Lesson", granted_at: "2024-01-01T00:00:00Z" }]);
+      }
+      if (url === "/v1/auth/me") {
+        return Promise.resolve({ display_name: "TestUser", username: "testuser", email: "test@example.com" });
       }
       return Promise.resolve({});
     });
@@ -49,8 +52,8 @@ describe("Profile page", () => {
 
     await waitFor(() => {
       expect(screen.getByText("7")).toBeInTheDocument(); // level
-      expect(screen.getByText("5,000")).toBeInTheDocument(); // XP
-      expect(screen.getByText("3")).toBeInTheDocument(); // streak
+      expect(screen.getByText("5000")).toBeInTheDocument(); // XP
+      expect(screen.getByText(/3/)).toBeInTheDocument(); // streak
       expect(screen.getByText("First Lesson")).toBeInTheDocument();
     });
 

@@ -35,6 +35,9 @@ coverage.xml
 *.swp
 .DS_Store
 
+# Node
+node_modules/
+
 # Build artifacts
 build/
 dist/

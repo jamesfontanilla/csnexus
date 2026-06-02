@@ -32,9 +32,7 @@ describe("Signup page", () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByLabelText("Signup form")).toBeInTheDocument();
-    expect(screen.getByLabelText("Sign up")).toBeInTheDocument();
-    expect(screen.getByLabelText("Email", { selector: "input" })).toBeInTheDocument();
-    expect(screen.getByLabelText("Password", { selector: "input" })).toBeInTheDocument();
+    // Initial state shows "Continue with Email" button (form is hidden behind toggle)
+    expect(screen.getByLabelText("Continue with email")).toBeInTheDocument();
   });
 });

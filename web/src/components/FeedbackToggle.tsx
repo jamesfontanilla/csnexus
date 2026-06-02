@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { isFeedbackEnabled, setFeedbackEnabled } from "../utils/feedback";
+import { isSoundEnabled, setSoundEnabled } from "../stores/preferences";
 
 /**
  * Toggle for sound/haptic feedback preferences.
  * Renders as a small icon button suitable for settings or navbar.
  */
 export function FeedbackToggle() {
-  const [enabled, setEnabled] = useState(isFeedbackEnabled);
+  const [enabled, setEnabled] = useState(isSoundEnabled);
 
   function toggle() {
     const next = !enabled;
     setEnabled(next);
-    setFeedbackEnabled(next);
+    setSoundEnabled(next);
   }
 
   return (

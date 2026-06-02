@@ -531,3 +531,93 @@ def test_reset_password_400_for_invalid_otp(
     assert response.json() == {
         "error": {"message": "otp_invalid_or_expired", "code": "HTTP_400"}
     }
+
+
+# --- POST /v1/auth/password-change ----------------------------------------
+
+
+@pytest.fixture
+def authed_client(app: FastAPI, mock_service: MagicMock) -> TestClient:
+    """Client with ``get_current_user`` overridden to return a test user.
+
+    The password-change endpoint uses ``Depends(get_current_user)`` instead
+    of reading token claims manually, so we override the dependency to
+    bypass the full auth middleware flow.
+    """
+    from app.common.deps import get_current_user
+
+    app.dependency_overrides[get_current_user] = lambda: _make_user(
+        account_state=AccountState.VERIFIED.value
+    )
+    return TestClient(app)
+
+
+def test_password_change_204_on_success(
+    authed_client: TestClient, mock_service: MagicMock
+) -> None:
+    mock_service.change_password.return_value = None
+
+    response = authed_client.post(
+        "/v1/auth/password-change",
+        json={
+            "current_password": "OldPass1!",
+            "new_password": "BrandNew2!Pass",
+        },
+    )
+
+    assert response.status_code == 204
+    assert response.content == b""
+    mock_service.change_password.assert_called_once()
+
+
+def test_password_change_401_for_wrong_current_password(
+    authed_client: TestClient, mock_service: MagicMock
+) -> None:
+    mock_service.change_password.side_effect = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="invalid_credentials",
+    )
+
+    response = authed_client.post(
+        "/v1/auth/password-change",
+        json={
+            "current_password": "WrongPass1!",
+            "new_password": "BrandNew2!Pass",
+        },
+    )
+
+    assert response.status_code == 401
+    assert response.json() == {
+        "error": {"message": "invalid_credentials", "code": "HTTP_401"}
+    }
+
+
+def test_password_change_400_for_policy_violation(
+    authed_client: TestClient, mock_service: MagicMock
+) -> None:
+    """Schema-level validator catches weak new_password as 422.
+
+    The ``PasswordChangeRequest`` schema applies ``_validate_password`` on
+    ``new_password`` via a field_validator, so policy violations surface as
+    422 (Pydantic catches them before the service runs).
+    """
+    response = authed_client.post(
+        "/v1/auth/password-change",
+        json={
+            "current_password": "OldPass1!",
+            "new_password": "short",
+        },
+    )
+
+    assert response.status_code == 422
+
+
+def test_password_change_422_for_missing_fields(
+    authed_client: TestClient,
+) -> None:
+    """Schema-level validation rejects payloads missing required fields."""
+    response = authed_client.post(
+        "/v1/auth/password-change",
+        json={"current_password": "OldPass1!"},
+    )
+    assert response.status_code == 422

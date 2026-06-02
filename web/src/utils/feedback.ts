@@ -3,31 +3,12 @@
  * All feedback respects user preferences and fails silently.
  */
 
-const STORAGE_KEY = "csnexus-feedback-enabled";
-
-// --- Preference Management ---
-
-export function isFeedbackEnabled(): boolean {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    return stored !== "false"; // enabled by default
-  } catch {
-    return true;
-  }
-}
-
-export function setFeedbackEnabled(enabled: boolean): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, String(enabled));
-  } catch {
-    // silent
-  }
-}
+import { isSoundEnabled, isHapticEnabled } from "../stores/preferences";
 
 // --- Haptic Feedback ---
 
 function vibrate(pattern: number | number[]): void {
-  if (!isFeedbackEnabled()) return;
+  if (!isHapticEnabled()) return;
   try {
     navigator?.vibrate?.(pattern);
   } catch {
@@ -52,7 +33,7 @@ export function hapticError(): void {
 let audioContext: AudioContext | null = null;
 
 function getAudioContext(): AudioContext | null {
-  if (!isFeedbackEnabled()) return null;
+  if (!isSoundEnabled()) return null;
   try {
     if (!audioContext) {
       audioContext = new AudioContext();

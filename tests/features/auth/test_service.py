@@ -422,3 +422,70 @@ def test_get_current_user_from_jti_raises_403_for_banned_user() -> None:
 
     assert exc_info.value.status_code == 403
     assert exc_info.value.detail == "account_banned"
+
+
+# --- change_password (authenticated) --------------------------------------
+
+
+def test_change_password_succeeds_with_correct_current_password() -> None:
+    service, user_repo, auth_repo, _ = _make_service()
+    user = _make_user()
+
+    service.change_password(
+        user, current_password=_RIGHT_PASSWORD, new_password=_NEW_PASSWORD
+    )
+
+    # The user's password hash was updated via repo.update.
+    user_repo.update.assert_called_once()
+    update_call = user_repo.update.call_args
+    assert update_call.args[0] is user
+    new_hash = update_call.kwargs["password_hash"]
+    assert new_hash.startswith("$2")
+    assert new_hash != _NEW_PASSWORD
+
+    # All sessions revoked (Req 5.4).
+    auth_repo.revoke_all_for_user.assert_called_once_with(user.id)
+
+
+def test_change_password_raises_401_for_wrong_current_password() -> None:
+    service, user_repo, auth_repo, _ = _make_service()
+    user = _make_user()
+
+    with pytest.raises(HTTPException) as exc_info:
+        service.change_password(
+            user, current_password="WrongPass1!", new_password=_NEW_PASSWORD
+        )
+
+    assert exc_info.value.status_code == 401
+    assert exc_info.value.detail == "invalid_credentials"
+    user_repo.update.assert_not_called()
+    auth_repo.revoke_all_for_user.assert_not_called()
+
+
+def test_change_password_raises_400_for_weak_new_password() -> None:
+    service, user_repo, auth_repo, _ = _make_service()
+    user = _make_user()
+
+    with pytest.raises(HTTPException) as exc_info:
+        service.change_password(
+            user, current_password=_RIGHT_PASSWORD, new_password="short"
+        )
+
+    assert exc_info.value.status_code == 400
+    user_repo.update.assert_not_called()
+    auth_repo.revoke_all_for_user.assert_not_called()
+
+
+def test_change_password_raises_401_for_google_only_account() -> None:
+    service, user_repo, auth_repo, _ = _make_service()
+    user = _make_user(password_hash=None)
+
+    with pytest.raises(HTTPException) as exc_info:
+        service.change_password(
+            user, current_password="AnyPass1!", new_password=_NEW_PASSWORD
+        )
+
+    assert exc_info.value.status_code == 401
+    assert exc_info.value.detail == "invalid_credentials"
+    user_repo.update.assert_not_called()
+    auth_repo.revoke_all_for_user.assert_not_called()

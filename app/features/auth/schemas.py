@@ -12,7 +12,24 @@ from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-from app.features.users.schemas import _validate_email
+from app.features.users.schemas import _validate_email, _validate_password
+
+
+class PasswordChangeRequest(BaseModel):
+    """Payload for ``POST /v1/auth/password-change`` (Req 5.2).
+
+    Authenticated endpoint — the user provides their current password to
+    prove identity (no OTP) and a new password that must satisfy Req 1.3
+    password policy (8+ chars, uppercase, lowercase, digit, symbol).
+    """
+
+    current_password: str
+    new_password: str
+
+    @field_validator("new_password")
+    @classmethod
+    def _password_rules(cls, v: str) -> str:
+        return _validate_password(v)
 
 
 class LoginRequest(BaseModel):

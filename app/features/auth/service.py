@@ -397,6 +397,42 @@ class AuthService:
         self._auth_repo.revoke_all_for_user(user.id)
 
     # ------------------------------------------------------------------
+    # password change (authenticated)
+    # ------------------------------------------------------------------
+
+    def change_password(self, user: User, *, current_password: str, new_password: str) -> None:
+        """Verify current password, validate + persist new password, revoke sessions.
+
+        Steps (Req 5.2, 5.3, 5.4):
+
+        1. Verify ``current_password`` against the stored hash. Google-only
+           accounts (no password_hash) always fail this check with 401.
+        2. Validate ``new_password`` against Req 1.3 policy via
+           :func:`~app.features.users.schemas.validate_password`.
+        3. Hash and persist the new password.
+        4. Revoke all sessions for the user so they must re-authenticate.
+        """
+        if user.password_hash is None or not verify_password(
+            current_password, user.password_hash
+        ):
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail=_ERR_INVALID_CREDENTIALS,
+            )
+
+        try:
+            validate_password(new_password)
+        except ValueError as exc:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=str(exc),
+            ) from exc
+
+        new_hash = hash_password(new_password)
+        self._user_repo.update(user, password_hash=new_hash)
+        self._auth_repo.revoke_all_for_user(user.id)
+
+    # ------------------------------------------------------------------
     # Google OAuth
     # ------------------------------------------------------------------
 

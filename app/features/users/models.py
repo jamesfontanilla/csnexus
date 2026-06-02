@@ -48,6 +48,7 @@ class AccountState(str, Enum):
 
     UNVERIFIED = "UNVERIFIED"
     VERIFIED = "VERIFIED"
+    DELETED = "DELETED"
 
 
 class User(Base):
@@ -108,7 +109,7 @@ class User(Base):
         ),
         CheckConstraint("role IN ('LEARNER', 'ADMIN')", name="ck_users_role"),
         CheckConstraint(
-            "account_state IN ('UNVERIFIED', 'VERIFIED')",
+            "account_state IN ('UNVERIFIED', 'VERIFIED', 'DELETED')",
             name="ck_users_account_state",
         ),
         # Composite index for the admin user-list filter (role + ban status, Req 15.2/15.3).

@@ -938,3 +938,15 @@
 .bottom-nav-item.active {
   color: var(--color-accent);
 }
+
+/* Font-size preference overrides (Requirement 4.5, 4.6) */
+html[data-font-size="compact"] { font-size: 87.5%; }
+html[data-font-size="large"] { font-size: 115%; }
+
+/* Reduced-motion user preference override (Requirement 4.3) */
+html[data-reduced-motion="on"] *,
+html[data-reduced-motion="on"] *::before,
+html[data-reduced-motion="on"] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
