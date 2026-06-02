@@ -19,7 +19,9 @@ Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 6.1, 6.2, 6.3, 6.4, 6.5
 
 from __future__ import annotations
 
+import json
 import random
+from pathlib import Path
 from typing import Any
 
 from app.features.tutor.algorithms.chat_models import (
@@ -31,6 +33,91 @@ from app.features.tutor.algorithms.chat_models import (
     SocraticPrompt,
     TemplatePart,
 )
+
+
+# ---------------------------------------------------------------------------
+# Response pool (pre-authored variations loaded from data/chat_responses/)
+# ---------------------------------------------------------------------------
+
+_RESPONSE_POOL: dict[str, dict[str, dict[str, dict[str, list[str]]]]] | None = None
+_CHAT_RESPONSES_DIR = Path(__file__).resolve().parents[4] / "data" / "chat_responses"
+
+
+def _load_response_pool() -> dict[str, dict[str, dict[str, dict[str, list[str]]]]]:
+    """Load pre-authored response variations from data/chat_responses/ on first access.
+
+    Returns a nested dict keyed by:
+        subtopic_id -> section_title -> intent -> complexity_level -> [variations]
+    """
+    global _RESPONSE_POOL  # noqa: PLW0603
+    if _RESPONSE_POOL is not None:
+        return _RESPONSE_POOL
+
+    pool: dict[str, dict[str, dict[str, dict[str, list[str]]]]] = {}
+
+    if not _CHAT_RESPONSES_DIR.is_dir():
+        _RESPONSE_POOL = pool
+        return pool
+
+    for responses_file in _CHAT_RESPONSES_DIR.rglob("responses.json"):
+        try:
+            data = json.loads(responses_file.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        subtopic_id = data.get("subtopic_id")
+        if not subtopic_id:
+            continue
+
+        subtopic_id = str(subtopic_id)
+        if subtopic_id not in pool:
+            pool[subtopic_id] = {}
+
+        for section in data.get("sections", []):
+            section_title = section.get("section_title", "")
+            if not section_title:
+                continue
+
+            pool[subtopic_id][section_title] = {}
+            responses = section.get("responses", {})
+            for intent_key, complexity_map in responses.items():
+                pool[subtopic_id][section_title][intent_key] = {}
+                for level_key, variations in complexity_map.items():
+                    if isinstance(variations, list) and variations:
+                        pool[subtopic_id][section_title][intent_key][level_key] = variations
+
+    _RESPONSE_POOL = pool
+    return pool
+
+
+def _lookup_response_pool(
+    subtopic_id: str,
+    section_title: str,
+    intent: str,
+    complexity: ComplexityLevel,
+) -> str | None:
+    """Check the response pool for a matching pre-authored variation.
+
+    Returns a random choice from the pool if a match exists, otherwise None.
+    """
+    pool = _load_response_pool()
+    subtopic_sections = pool.get(subtopic_id)
+    if not subtopic_sections:
+        return None
+
+    section_intents = subtopic_sections.get(section_title)
+    if not section_intents:
+        return None
+
+    complexity_map = section_intents.get(intent)
+    if not complexity_map:
+        return None
+
+    variations = complexity_map.get(complexity.value)
+    if not variations:
+        return None
+
+    return random.choice(variations)
 
 
 # ---------------------------------------------------------------------------
@@ -358,12 +445,28 @@ class ResponseGenerator:
     ) -> str:
         """Build the core content portion of the response.
 
-        Extracts relevant information from the lesson content based on
-        intent and the active section. Always returns a non-empty string.
+        Checks the pre-authored response pool first. If a match exists for
+        (subtopic_id, section_title, intent, complexity), returns a random
+        choice from that pool. Falls back to template-stitching logic otherwise.
+
+        Always returns a non-empty string.
         """
+        # --- Response pool lookup (pre-authored variations) ---
         sections = content_json.get("sections") or []
-        key_takeaways = content_json.get("key_takeaways") or []
         metadata = content_json.get("metadata") or {}
+
+        subtopic_id = str(content_json.get("subtopic_id", metadata.get("subtopic_id", "")))
+        section_title = ""
+        if active_section_index is not None and 0 <= active_section_index < len(sections):
+            section_title = sections[active_section_index].get("title", "")
+
+        if subtopic_id and section_title:
+            pool_response = _lookup_response_pool(subtopic_id, section_title, intent, complexity)
+            if pool_response:
+                return pool_response
+
+        # --- Fallback: template-stitching logic ---
+        key_takeaways = content_json.get("key_takeaways") or []
         title = metadata.get("title", "this topic")
 
         # Get the active section if available.

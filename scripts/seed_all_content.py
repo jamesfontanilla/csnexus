@@ -1,4 +1,4 @@
-"""Seed ALL content (verbal ability, numerical ability, analytical ability) into the database.
+"""Seed ALL content (verbal, numerical, analytical, clerical ability) into the database.
 
 NON-DESTRUCTIVE: Only inserts new modules/topics/subtopics/lessons/questions.
 Skips anything that already exists (matched by slug). Updates lesson content
@@ -54,6 +54,24 @@ Creates the full hierarchy:
                  symbolic-characteristic-and-location-relationships,
                  language-meaning-and-context-relationships,
                  numerical-letter-and-abstract-analogies
+  Module: "Clerical Ability" (per category)
+    Topic: "Alphabetical Filing"
+      Subtopics: basic-alphabetizing, business-and-office-filing,
+                 chronological-filing, filing-rules, name-filing,
+                 numerical-filing, prefix-and-special-name-handling
+    Topic: "Spelling"
+      Subtopics: common-spelling-errors, correct-spelling-recognition,
+                 homophones, office-and-administrative-vocabulary,
+                 word-recognition
+    Topic: "Name and Number Comparison"
+      Subtopics: name-comparison, number-comparison,
+                 alphanumeric-comparison, error-detection,
+                 speed-and-accuracy-drills
+    Topic: "Coding and Decoding"
+      Subtopics: code-conversion
+    Topic: "Indexing and Record Organization"
+      Subtopics: indexing-basics, record-classification, coding-systems,
+                 filing-systems, record-retrieval
 
 Usage:
     python scripts/seed_all_content.py
@@ -205,6 +223,42 @@ ANALYTICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
     ]),
 ]
 
+CLERICAL_ABILITY_TOPICS: list[tuple[str, str, list[tuple[str, str, int]]]] = [
+    ("alphabetical-filing", "Alphabetical Filing", [
+        ("basic-alphabetizing", "Basic Alphabetizing", 1),
+        ("business-and-office-filing", "Business and Office Filing", 2),
+        ("chronological-filing", "Chronological Filing", 3),
+        ("filing-rules", "Filing Rules", 4),
+        ("name-filing", "Name Filing", 5),
+        ("numerical-filing", "Numerical Filing", 6),
+        ("prefix-and-special-name-handling", "Prefix and Special Name Handling", 7),
+    ]),
+    ("spelling", "Spelling", [
+        ("common-spelling-errors", "Common Spelling Errors", 1),
+        ("correct-spelling-recognition", "Correct Spelling Recognition", 2),
+        ("homophones", "Homophones", 3),
+        ("office-and-administrative-vocabulary", "Office and Administrative Vocabulary", 4),
+        ("word-recognition", "Word Recognition", 5),
+    ]),
+    ("name-and-number-comparison", "Name and Number Comparison", [
+        ("name-comparison", "Name Comparison", 1),
+        ("number-comparison", "Number Comparison", 2),
+        ("alphanumeric-comparison", "Alphanumeric Comparison", 3),
+        ("error-detection", "Error Detection", 4),
+        ("speed-and-accuracy-drills", "Speed and Accuracy Drills", 5),
+    ]),
+    ("coding-and-decoding", "Coding and Decoding", [
+        ("code-conversion", "Code Conversion", 1),
+    ]),
+    ("indexing-and-record-organization", "Indexing and Record Organization", [
+        ("indexing-basics", "Indexing Basics", 1),
+        ("record-classification", "Record Classification", 2),
+        ("coding-systems", "Coding Systems", 3),
+        ("filing-systems", "Filing Systems", 4),
+        ("record-retrieval", "Record Retrieval", 5),
+    ]),
+]
+
 # Map topic slugs to their lesson/question directories
 LESSON_DIRS = {
     "grammar-and-correct-usage": SEED_BASE / "lessons" / "verbal-ability" / "grammar",
@@ -217,6 +271,11 @@ LESSON_DIRS = {
     "abstract-reasoning": SEED_BASE / "lessons" / "analytical-ability" / "abstract-reasoning",
     "symbolic-logic": SEED_BASE / "lessons" / "analytical-ability" / "symbolic-logic",
     "word-analogy": SEED_BASE / "lessons" / "analytical-ability" / "word-analogy",
+    "alphabetical-filing": SEED_BASE / "lessons" / "clerical-ability" / "alphabetical-filing",
+    "spelling": SEED_BASE / "lessons" / "clerical-ability" / "spelling",
+    "name-and-number-comparison": SEED_BASE / "lessons" / "clerical-ability" / "name-and-number-comparison",
+    "coding-and-decoding": SEED_BASE / "lessons" / "clerical-ability" / "coding-and-decoding",
+    "indexing-and-record-organization": SEED_BASE / "lessons" / "clerical-ability" / "indexing-and-record-organization",
 }
 
 QUESTION_DIRS = {
@@ -230,6 +289,11 @@ QUESTION_DIRS = {
     "abstract-reasoning": SEED_BASE / "questions" / "analytical-ability" / "abstract-reasoning",
     "symbolic-logic": SEED_BASE / "questions" / "analytical-ability" / "symbolic-logic",
     "word-analogy": SEED_BASE / "questions" / "analytical-ability" / "word-analogy",
+    "alphabetical-filing": SEED_BASE / "questions" / "clerical-ability" / "alphabetical-filing",
+    "spelling": SEED_BASE / "questions" / "clerical-ability" / "spelling",
+    "name-and-number-comparison": SEED_BASE / "questions" / "clerical-ability" / "name-and-number-comparison",
+    "coding-and-decoding": SEED_BASE / "questions" / "clerical-ability" / "coding-and-decoding",
+    "indexing-and-record-organization": SEED_BASE / "questions" / "clerical-ability" / "indexing-and-record-organization",
 }
 
 
@@ -489,6 +553,32 @@ def main() -> None:
                 for slug, title, order_idx in subtopics:
                     added = seed_subtopic(
                         session, topic, aa_module,
+                        slug, title, order_idx,
+                        lesson_dir, question_dir,
+                    )
+                    total_questions += added
+
+            # --- Clerical Ability module ---
+            ca_module = get_or_create_module(
+                session,
+                slug=f"clerical-ability-{cat_key}",
+                title="Clerical Ability",
+                category=cat_value,
+                order_index=40,
+            )
+
+            for topic_idx, (topic_slug, topic_title, subtopics) in enumerate(CLERICAL_ABILITY_TOPICS, start=1):
+                topic = get_or_create_topic(
+                    session, ca_module.id, topic_slug, topic_title,
+                    order_index=topic_idx,
+                )
+
+                lesson_dir = LESSON_DIRS[topic_slug]
+                question_dir = QUESTION_DIRS[topic_slug]
+
+                for slug, title, order_idx in subtopics:
+                    added = seed_subtopic(
+                        session, topic, ca_module,
                         slug, title, order_idx,
                         lesson_dir, question_dir,
                     )
