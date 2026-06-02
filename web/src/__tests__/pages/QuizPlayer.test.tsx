@@ -223,7 +223,7 @@ describe("QuizPlayer page (Task 18.5)", () => {
       mockPost.mockResolvedValue(mockAttemptInProgress);
       mockPatch.mockResolvedValue({});
 
-      const { container } = renderQuizPlayer();
+      renderQuizPlayer();
 
       const practiceBtn = await screen.findByLabelText("Start Practice Mode");
       await act(async () => {
