@@ -23,10 +23,12 @@ export function PracticePanel({
   memoryAids,
   examStrategies,
   keyTakeaways,
-  subtopicId,
-  activeSectionIndex,
-  lessonTitle,
+  subtopicId: _subtopicId,
+  activeSectionIndex: _activeSectionIndex,
+  lessonTitle: _lessonTitle,
 }: PracticePanelProps) {
+  // These props are passed through to InlineLessonChat in DesktopLessonLayout
+  void _subtopicId; void _activeSectionIndex; void _lessonTitle;
   const [activeTab, setActiveTab] = useState<"practice" | "aids" | "takeaways">(
     problems.length > 0 ? "practice" : memoryAids.length > 0 || examStrategies.length > 0 ? "aids" : "takeaways"
   );
