@@ -22,7 +22,6 @@ vi.mock("framer-motion", () => ({
               tabIndex,
               "aria-modal": ariaModal,
               "aria-label": ariaLabel,
-              ..._rest
             }: Record<string, unknown>,
             ref: React.Ref<unknown>
           ) => {

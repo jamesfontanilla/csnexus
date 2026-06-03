@@ -13,7 +13,6 @@ import * as fc from "fast-check";
  */
 
 const VALID_LAYOUT_MODES = ["standard", "centered", "split"] as const;
-type _LayoutMode = (typeof VALID_LAYOUT_MODES)[number];
 
 /**
  * Pure function mirroring the ContentArea's getContentClassName logic.
