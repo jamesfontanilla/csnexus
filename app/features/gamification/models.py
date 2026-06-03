@@ -1,12 +1,15 @@
 """SQLAlchemy ORM models for the gamification slice.
 
-Four tables:
+Seven tables:
 
 - :class:`UserDailyGoal` — per-user per-day XP target tracking.
 - :class:`StreakFreeze` — consumable streak protection tokens.
 - :class:`XPMultiplier` — time-limited XP multipliers from various sources.
 - :class:`Tournament` — competitive events with leaderboards.
 - :class:`TournamentParticipant` — user enrollment + XP earned in a tournament.
+- :class:`CompetenceMilestone` — exam-relevant competence milestone definitions.
+- :class:`CompetenceMilestoneAward` — records of users earning milestones.
+- :class:`StudyConsistency` — per-user study consistency tracking.
 """
 
 from __future__ import annotations
@@ -206,4 +209,85 @@ class TournamentParticipant(Base):
         UniqueConstraint(
             "tournament_id", "user_id", name="uq_tournament_participants_tournament_user"
         ),
+    )
+
+
+class CompetenceMilestone(Base):
+    """Definition of a competence milestone (seeded, not user-created)."""
+
+    __tablename__ = "competence_milestones"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    slug: Mapped[str] = mapped_column(String(50), nullable=False, unique=True)
+    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    description: Mapped[str] = mapped_column(Text, nullable=False)
+    category: Mapped[str] = mapped_column(
+        String(20), nullable=False
+    )  # mastery, readiness, recovery
+    threshold_config: Mapped[str] = mapped_column(
+        Text, nullable=False
+    )  # JSON: milestone-specific criteria
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+
+class CompetenceMilestoneAward(Base):
+    """Record of a user earning a milestone — permanent, never revoked."""
+
+    __tablename__ = "competence_milestone_awards"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    milestone_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey("competence_milestones.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    triggering_values: Mapped[str] = mapped_column(
+        Text, nullable=False
+    )  # JSON: metric values at award time
+    awarded_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "user_id", "milestone_id", name="uq_milestone_award_user_milestone"
+        ),
+    )
+
+
+class StudyConsistency(Base):
+    """Per-user study consistency tracking (replaces raw login streaks)."""
+
+    __tablename__ = "study_consistency"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        unique=True,
+    )
+    current_streak: Mapped[int] = mapped_column(
+        Integer, nullable=False, default=0, server_default="0"
+    )
+    longest_streak: Mapped[int] = mapped_column(
+        Integer, nullable=False, default=0, server_default="0"
+    )
+    total_consistent_days: Mapped[int] = mapped_column(
+        Integer, nullable=False, default=0, server_default="0"
+    )
+    last_qualifying_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        onupdate=func.now(),
+        nullable=False,
     )

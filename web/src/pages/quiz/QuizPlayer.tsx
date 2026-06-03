@@ -7,8 +7,10 @@ import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
 import { AnimatedNumber } from "../../components/AnimatedNumber";
 import { GradientText } from "../../components/GradientText";
+import { InlineExplanation } from "../../components/InlineExplanation";
 import { scaleIn, staggerContainer, staggerItem, springDefault, useReducedMotion } from "../../design-system";
 import { soundCorrect, soundIncorrect, soundTap, hapticTap } from "../../utils/feedback";
+import { prefetchExplanations } from "../../hooks/useExplanation";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -337,6 +339,9 @@ export function QuizPlayer() {
       );
       setAttempt(res);
       setPhase("submitted");
+      // Prefetch explanations for offline access
+      const questionIds = res.questions.map((q) => q.id);
+      prefetchExplanations(questionIds);
       // Sound feedback based on result
       const score = res.score ?? 0;
       const maxScore = res.max_score ?? 1;
@@ -649,11 +654,7 @@ export function QuizPlayer() {
                       <OptionDisplay value={q.correct_answer} isCorrect={true} />
                     </p>
                   )}
-                  {q.explanation && (
-                    <p style={{ color: "var(--color-text-muted)", fontSize: "0.8125rem", marginTop: "0.5rem" }}>
-                      {q.explanation}
-                    </p>
-                  )}
+                  <InlineExplanation questionId={q.id} fallbackText={q.explanation} />
                 </GlassCard>
               </motion.div>
             ))}

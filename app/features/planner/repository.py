@@ -1,4 +1,4 @@
-"""Repository for study plans and plan days."""
+"""Repository for study plans, plan days, and onboarding profiles."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from datetime import date
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.features.planner.models import StudyPlan, StudyPlanDay
+from app.features.planner.models import OnboardingProfile, StudyPlan, StudyPlanDay
 from app.infrastructure.repositories.base import BaseRepository
 
 
@@ -84,3 +84,39 @@ class StudyPlanDayRepository(BaseRepository[StudyPlanDay]):
             StudyPlanDay.plan_id == plan_id,
         )
         return len(list(self.db.execute(stmt).scalars().all()))
+
+
+class OnboardingRepository(BaseRepository[OnboardingProfile]):
+    """Data access for onboarding profiles."""
+
+    model = OnboardingProfile
+
+    def __init__(self, db: Session) -> None:
+        super().__init__(db)
+
+    def create_profile(self, profile: OnboardingProfile) -> OnboardingProfile:
+        """Persist a new onboarding profile."""
+        self.db.add(profile)
+        self.db.commit()
+        self.db.refresh(profile)
+        return profile
+
+    def get_profile(self, user_id: int) -> OnboardingProfile | None:
+        """Get onboarding profile for a user."""
+        stmt = select(OnboardingProfile).where(
+            OnboardingProfile.user_id == user_id
+        )
+        return self.db.execute(stmt).scalar_one_or_none()
+
+    def update_exam_date(self, user_id: int, exam_date: date) -> OnboardingProfile | None:
+        """Update the exam date for a user's onboarding profile.
+
+        Returns the updated profile or None if no profile exists.
+        """
+        profile = self.get_profile(user_id)
+        if profile is None:
+            return None
+        profile.exam_date = exam_date
+        self.db.commit()
+        self.db.refresh(profile)
+        return profile

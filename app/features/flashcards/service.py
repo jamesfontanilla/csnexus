@@ -415,6 +415,9 @@ class FlashcardService:
         # XP award: (2 * cards_reviewed) + (1 * cards_correct)
         xp_earned = (2 * session.cards_reviewed) + session.cards_correct
 
+        # Trigger readiness score recomputation after flashcard review session (Req 2.1)
+        self._trigger_readiness_recompute(user.id)
+
         return StudySessionSummary(
             cards_reviewed=session.cards_reviewed,
             cards_correct=session.cards_correct,
@@ -423,6 +426,44 @@ class FlashcardService:
             duration_seconds=duration,
             xp_earned=xp_earned,
         )
+
+    # ------------------------------------------------------------------
+    # Cross-feature integration hooks
+    # ------------------------------------------------------------------
+
+    def _trigger_readiness_recompute(self, user_id: int) -> None:
+        """Trigger readiness score recomputation after flashcard review session.
+
+        Wraps in try/except to avoid disrupting the primary flashcard flow.
+        The readiness recompute also triggers milestone evaluation internally.
+        (Req 2.1, 13.4)
+        """
+        try:
+            from app.features.content.repository import QuestionRepository as QRepo
+            from app.features.content.repository import SubtopicRepository as SRepo
+            from app.features.flashcards.repository import FlashcardRepository as FRepo
+            from app.features.mastery.repository import MasteryRepository as MRepo
+            from app.features.mock_exams.repository import MockExamRepository as MERepo
+            from app.features.readiness.repository import ReadinessRepository
+            from app.features.readiness.service import ReadinessService
+
+            db = self._repo.db
+            readiness_service = ReadinessService(
+                readiness_repo=ReadinessRepository(db=db),
+                mastery_repo=MRepo(db=db),
+                flashcard_repo=FRepo(db=db),
+                mock_exam_repo=MERepo(db=db),
+                content_repo=SRepo(db=db),
+                question_repo=QRepo(db=db),
+            )
+            readiness_service.compute_and_persist(user_id)
+        except Exception:
+            import logging
+            logging.getLogger(__name__).warning(
+                "Readiness recompute after flashcard session failed for user_id=%d (non-fatal)",
+                user_id,
+                exc_info=True,
+            )
 
     # ------------------------------------------------------------------
     # Review Queue (Req 6.1-6.7)

@@ -32,8 +32,12 @@ coverage.xml
 # IDE / editor
 .vscode/
 .idea/
+.kiro/
 *.swp
 .DS_Store
+
+# Prompts
+prompts/
 
 # Node
 node_modules/

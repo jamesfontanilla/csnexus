@@ -35,17 +35,25 @@ from app.features.mastery.router import router as mastery_router
 from app.features.auth.router import router as auth_router
 from app.features.content.router import router as content_router
 from app.features.gamification.router import router as gamification_router
+from app.features.gamification.milestone_router import router as milestone_router
 from app.features.tutor.router import router as tutor_router
 from app.features.focus.router import router as focus_router
+from app.features.explanations.router import router as explanations_router
 from app.features.flashcards.router import router as flashcard_router
 from app.features.planner.router import router as planner_router
+from app.features.planner.onboarding_router import router as onboarding_router
 from app.features.leaderboards.router import router as leaderboard_router
 from app.features.mock_exams.router import router as mock_exam_router
+from app.features.mock_analytics.router import router as mock_analytics_router
 from app.features.otp.router import router as otp_router
 from app.features.progress.router import router as progress_router
 from app.features.quizzes.router import router as quiz_router
+from app.features.readiness.router import router as readiness_router
+from app.features.smart_queue.router import router as smart_queue_router
 from app.features.users.router import router as users_router
 from app.features.xp.router import router as xp_router
+from app.features.pretesting.router import router as pretest_router
+from app.features.learning_techniques.router import router as learning_techniques_router
 from app.infrastructure.scheduler.jobs import start_scheduler, stop_scheduler
 
 
@@ -196,10 +204,18 @@ app.include_router(admin_router)
 app.include_router(audit_router)
 app.include_router(mastery_router)
 app.include_router(gamification_router)
+app.include_router(milestone_router)
 app.include_router(tutor_router)
 app.include_router(planner_router)
+app.include_router(onboarding_router)
 app.include_router(focus_router)
 app.include_router(flashcard_router)
+app.include_router(explanations_router)
+app.include_router(readiness_router)
+app.include_router(smart_queue_router)
+app.include_router(mock_analytics_router)
+app.include_router(pretest_router)
+app.include_router(learning_techniques_router)
 
 
 # --- Health probe ----------------------------------------------------------

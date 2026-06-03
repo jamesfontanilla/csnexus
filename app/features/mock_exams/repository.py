@@ -386,3 +386,29 @@ class MockExamRepository(BaseRepository[MockExamAttempt]):
     # may prefer ``update_focus_loss`` for symmetry with other "update"
     # verbs in the slice; both delegate to the same logic.
     update_focus_loss = append_focus_loss
+
+    # ------------------------------------------------------------------
+    # Readiness Score support
+    # ------------------------------------------------------------------
+
+    def get_completed_for_user(
+        self, user_id: int, *, limit: int = 20
+    ) -> list[MockExamAttempt]:
+        """Return completed attempts for a user, ordered by submitted_at desc.
+
+        Includes both SUBMITTED and AUTO_SUBMITTED statuses — both represent
+        fully graded exams usable for readiness score computation.
+        """
+        stmt = (
+            select(MockExamAttempt)
+            .where(
+                MockExamAttempt.user_id == user_id,
+                MockExamAttempt.status.in_([
+                    MockExamAttemptStatus.SUBMITTED.value,
+                    MockExamAttemptStatus.AUTO_SUBMITTED.value,
+                ]),
+            )
+            .order_by(MockExamAttempt.submitted_at.desc())
+            .limit(limit)
+        )
+        return list(self.db.execute(stmt).scalars().all())

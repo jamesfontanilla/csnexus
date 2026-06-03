@@ -495,7 +495,81 @@ class MockExamService:
         awarded_xp = self._award_pass_xp_if_passing(
             user=user, attempt=attempt, occurred_at=when
         )
+
+        # Cross-feature hooks: readiness recompute + diagnostic generation
+        self._trigger_readiness_recompute(user.id)
+        self._trigger_diagnostic_generation(user.id, attempt.id)
+
         return self._build_submitted_response(attempt, awarded_xp=awarded_xp)
+
+    # ------------------------------------------------------------------
+    # Cross-feature integration hooks
+    # ------------------------------------------------------------------
+
+    def _trigger_readiness_recompute(self, user_id: int) -> None:
+        """Trigger readiness score recomputation after mock exam submission.
+
+        Wraps in try/except to avoid disrupting the primary mock exam flow.
+        The readiness recompute also triggers milestone evaluation internally.
+        (Req 2.1, 13.4)
+        """
+        try:
+            from app.features.content.repository import QuestionRepository as QRepo
+            from app.features.content.repository import SubtopicRepository as SRepo
+            from app.features.flashcards.repository import FlashcardRepository as FRepo
+            from app.features.mastery.repository import MasteryRepository as MRepo
+            from app.features.mock_exams.repository import MockExamRepository as MERepo
+            from app.features.readiness.repository import ReadinessRepository
+            from app.features.readiness.service import ReadinessService
+
+            db = self._mock_repo.db
+            readiness_service = ReadinessService(
+                readiness_repo=ReadinessRepository(db=db),
+                mastery_repo=MRepo(db=db),
+                flashcard_repo=FRepo(db=db),
+                mock_exam_repo=MERepo(db=db),
+                content_repo=SRepo(db=db),
+                question_repo=QRepo(db=db),
+            )
+            readiness_service.compute_and_persist(user_id)
+        except Exception:
+            import logging
+            logging.getLogger(__name__).warning(
+                "Readiness recompute after mock exam failed for user_id=%d (non-fatal)",
+                user_id,
+                exc_info=True,
+            )
+
+    def _trigger_diagnostic_generation(self, user_id: int, attempt_id: int) -> None:
+        """Trigger diagnostic report generation after mock exam submission.
+
+        Wraps in try/except to avoid disrupting the primary mock exam flow.
+        The diagnostic is persisted for later retrieval via the mock-analytics
+        endpoints. (Req 10.1, 10.5)
+        """
+        try:
+            from app.features.content.repository import SubtopicRepository as SRepo
+            from app.features.mastery.repository import MasteryRepository as MRepo
+            from app.features.mock_analytics.repository import MockAnalyticsRepository
+            from app.features.mock_analytics.service import MockAnalyticsService
+            from app.features.mock_exams.repository import MockExamRepository as MERepo
+
+            db = self._mock_repo.db
+            analytics_service = MockAnalyticsService(
+                analytics_repo=MockAnalyticsRepository(db=db),
+                mock_exam_repo=MERepo(db=db),
+                mastery_repo=MRepo(db=db),
+                subtopic_repo=SRepo(db=db),
+            )
+            analytics_service.generate_diagnostic(user_id, attempt_id)
+        except Exception:
+            import logging
+            logging.getLogger(__name__).warning(
+                "Diagnostic generation after mock exam failed for user_id=%d, attempt_id=%d (non-fatal)",
+                user_id,
+                attempt_id,
+                exc_info=True,
+            )
 
     # ------------------------------------------------------------------
     # Internal helpers
