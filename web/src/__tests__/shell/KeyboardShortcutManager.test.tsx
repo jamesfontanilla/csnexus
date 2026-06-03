@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import { render, act } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { ShellProvider, useShell, type ShellState } from "../../context/ShellContext";

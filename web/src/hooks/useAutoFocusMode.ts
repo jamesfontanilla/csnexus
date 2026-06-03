@@ -38,7 +38,7 @@ export function useAutoFocusMode(): void {
   const prevFocusModeActiveRef = useRef(state.focusModeActive);
 
   useEffect(() => {
-    const wasAutoFocusMode = prevAutoFocusModeRef.current;
+    const _wasAutoFocusMode = prevAutoFocusModeRef.current;
     const wasFocusModeActive = prevFocusModeActiveRef.current;
 
     // Detect manual exit: focus mode was active and auto-activated,

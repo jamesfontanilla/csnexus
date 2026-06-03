@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { GlassCard } from "./GlassCard";
 import { GlassButton } from "./GlassButton";
 import { GlassBadge } from "./GlassBadge";
 import { learningTechniquesApi, type RecallAnswerResponse } from "../api/learningTechniques";
@@ -16,7 +15,7 @@ interface RecallModeProps {
  * Grades using keyword matching + Levenshtein distance ≤ 2.
  * Requirements: 24.1, 24.4
  */
-export function RecallMode({ attemptId, questionId, stem, onComplete }: RecallModeProps) {
+export function RecallMode({ attemptId, questionId, onComplete }: RecallModeProps) {
   const [response, setResponse] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<RecallAnswerResponse | null>(null);

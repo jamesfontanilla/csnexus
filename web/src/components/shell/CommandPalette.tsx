@@ -370,7 +370,7 @@ export function CommandPalette() {
                 </div>
               )}
 
-              {renderList.map((entry, i) => {
+              {renderList.map((entry) => {
                 if (entry.type === "header") {
                   return (
                     <div

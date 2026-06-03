@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { GlassCard } from "./GlassCard";
 import { GlassBadge } from "./GlassBadge";
 import { GlassButton } from "./GlassButton";
 import { useExplanation } from "../hooks/useExplanation";

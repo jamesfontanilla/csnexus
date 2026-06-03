@@ -1,4 +1,4 @@
-import { render, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { ShellProvider } from "../../context/ShellContext";
 import { ContentArea } from "../../components/shell/ContentArea";
@@ -58,7 +58,7 @@ describe("ContentArea", () => {
   });
 
   it("resets scroll to top on route change", async () => {
-    const { container, rerender } = render(
+    const { container } = render(
       <MemoryRouter initialEntries={["/modules", "/profile"]} initialIndex={0}>
         <ShellProvider>
           <ContentArea>
