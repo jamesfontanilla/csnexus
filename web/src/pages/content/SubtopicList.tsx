@@ -59,7 +59,16 @@ export function SubtopicList() {
         >
           ← Back
         </Link>
-        <h1 style={{ marginTop: "0.75rem" }}>Subtopics</h1>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.75rem" }}>
+          <h1 style={{ margin: 0 }}>Subtopics</h1>
+          <Link
+            to={`/quiz/topic/${topicId}`}
+            className="btn-glass btn-glass-primary"
+            aria-label="Start 50-item topic quiz"
+          >
+            📝 Topic Quiz (50 items)
+          </Link>
+        </div>
         <motion.div
           variants={staggerContainer}
           initial="initial"

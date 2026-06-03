@@ -465,6 +465,78 @@ def seed_subtopic(
     return questions_added
 
 
+def seed_topic_questions(
+    session: SASession,
+    topic: Topic,
+    module: Module,
+    question_dir: Path,
+) -> int:
+    """Seed topic-level questions from a questions.json at the topic directory root.
+
+    These are used for 50-question topic quizzes (level_scope=TOPIC).
+    Each question's 'subtopic' field is resolved to the DB subtopic_id.
+    Returns the number of questions added.
+    """
+    topic_questions_path = question_dir / "questions.json"
+    if not topic_questions_path.exists():
+        return 0
+
+    # Check if topic-level questions already exist for this topic
+    existing_count = session.query(Question).filter(
+        Question.topic_id == topic.id,
+        Question.level_scope == LevelScope.TOPIC.value,
+    ).count()
+    if existing_count > 0:
+        print(f"    [EXISTS] Topic questions for '{topic.slug}' ({existing_count} already present)")
+        return 0
+
+    # Build subtopic slug→id map for this topic
+    subtopics = session.query(Subtopic).filter(Subtopic.topic_id == topic.id).all()
+    subtopic_map: dict[str, int] = {}
+    for st in subtopics:
+        subtopic_map[st.slug] = st.id
+        # Also map by title for fallback matching
+        subtopic_map[st.title] = st.id
+
+    questions_raw = json.loads(topic_questions_path.read_text(encoding="utf-8"))
+    added = 0
+
+    for q in questions_raw:
+        # Resolve subtopic_id from the question's 'subtopic' field
+        subtopic_name = q.get("subtopic", "")
+        # Try slug-style match first (convert title to slug)
+        slug_candidate = subtopic_name.lower().replace(" ", "-")
+        subtopic_id = subtopic_map.get(slug_candidate) or subtopic_map.get(subtopic_name)
+
+        if not subtopic_id:
+            # Fallback: use the first subtopic in this topic
+            if subtopics:
+                subtopic_id = subtopics[0].id
+            else:
+                continue  # Skip if no subtopics exist
+
+        session.add(Question(
+            subtopic_id=subtopic_id,
+            topic_id=topic.id,
+            module_id=module.id,
+            category=module.category,
+            level_scope=LevelScope.TOPIC.value,
+            stem=q["question"],
+            options=q["choices"],
+            correct_answer=q["answer"],
+            explanation=q["explanation"],
+            difficulty=DIFFICULTY_MAP.get(q["difficulty"], Difficulty.EASY.value),
+            qtype=QuestionType.MULTIPLE_CHOICE.value,
+            is_active=True,
+        ))
+        added += 1
+
+    if added > 0:
+        print(f"    [TOPIC QUESTIONS ADDED] '{topic.slug}' ({added} questions, level_scope=TOPIC)")
+
+    return added
+
+
 def main() -> None:
     Base.metadata.create_all(bind=engine)
     session = SessionLocal()
@@ -506,6 +578,11 @@ def main() -> None:
                     )
                     total_questions += added
 
+                # Seed topic-level questions (for 50-item topic quizzes)
+                total_questions += seed_topic_questions(
+                    session, topic, va_module, question_dir,
+                )
+
             # --- Numerical Ability module ---
             na_module = get_or_create_module(
                 session,
@@ -531,6 +608,11 @@ def main() -> None:
                         lesson_dir, question_dir,
                     )
                     total_questions += added
+
+                # Seed topic-level questions (for 50-item topic quizzes)
+                total_questions += seed_topic_questions(
+                    session, topic, na_module, question_dir,
+                )
 
             # --- Analytical Ability module ---
             aa_module = get_or_create_module(
@@ -558,6 +640,11 @@ def main() -> None:
                     )
                     total_questions += added
 
+                # Seed topic-level questions (for 50-item topic quizzes)
+                total_questions += seed_topic_questions(
+                    session, topic, aa_module, question_dir,
+                )
+
             # --- Clerical Ability module ---
             ca_module = get_or_create_module(
                 session,
@@ -583,6 +670,11 @@ def main() -> None:
                         lesson_dir, question_dir,
                     )
                     total_questions += added
+
+                # Seed topic-level questions (for 50-item topic quizzes)
+                total_questions += seed_topic_questions(
+                    session, topic, ca_module, question_dir,
+                )
 
         session.commit()
         print(f"\n{'='*60}")
