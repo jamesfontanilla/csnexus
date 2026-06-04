@@ -45,6 +45,8 @@ from app.features.smart_queue import models as _smart_queue_models  # noqa: F401
 from app.features.readiness import models as _readiness_models  # noqa: F401
 from app.features.explanations import models as _explanation_models  # noqa: F401
 from app.features.mock_analytics import models as _mock_analytics_models  # noqa: F401
+from app.features.learning_techniques import models as _learning_techniques_models  # noqa: F401
+from app.features.pretesting import models as _pretesting_models  # noqa: F401
 
 
 @pytest.fixture(scope="session", autouse=True)

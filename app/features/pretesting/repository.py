@@ -41,7 +41,7 @@ class PretestRepository:
                 PretestAttempt.user_id == user_id,
                 PretestAttempt.subtopic_id == subtopic_id,
             )
-            .order_by(PretestAttempt.created_at.desc())
+            .order_by(PretestAttempt.created_at.desc(), PretestAttempt.id.desc())
             .first()
         )
 
