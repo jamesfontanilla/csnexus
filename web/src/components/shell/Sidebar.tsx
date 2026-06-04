@@ -15,12 +15,14 @@ export interface SidebarNavItem {
 
 const PRIMARY_NAV_ITEMS: SidebarNavItem[] = [
   { id: "dashboard", to: "/", label: "Dashboard", icon: <DashboardIcon />, section: "primary" },
+  { id: "queue", to: "/queue", label: "Daily Queue", icon: <QueueIcon />, section: "primary" },
   { id: "modules", to: "/modules", label: "Modules", icon: <ModulesIcon />, section: "primary" },
   { id: "flashcards", to: "/flashcards", label: "Flashcards", icon: <FlashcardsIcon />, section: "primary" },
   { id: "tutor", to: "/tutor", label: "Tutor", icon: <TutorIcon />, section: "primary" },
 ];
 
 const SECONDARY_NAV_ITEMS: SidebarNavItem[] = [
+  { id: "milestones", to: "/milestones", label: "Milestones", icon: <MilestonesIcon />, section: "secondary" },
   { id: "analytics", to: "/analytics", label: "Analytics", icon: <AnalyticsIcon />, section: "secondary" },
   { id: "leaderboard", to: "/leaderboard", label: "Leaderboard", icon: <LeaderboardIcon />, section: "secondary" },
   { id: "goals", to: "/goals", label: "Goals", icon: <GoalsIcon />, section: "secondary" },
@@ -252,6 +254,26 @@ function TournamentsIcon() {
       <path d="M9 9v3" />
       <path d="M6 14h6" />
       <path d="M7 14v2h4v-2" />
+    </svg>
+  );
+}
+
+function QueueIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 4h12" />
+      <path d="M3 9h8" />
+      <path d="M3 14h5" />
+      <path d="M14 10l2 2-2 2" />
+    </svg>
+  );
+}
+
+function MilestonesIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 15V3" />
+      <path d="M4 3l8 3-8 3" />
     </svg>
   );
 }
