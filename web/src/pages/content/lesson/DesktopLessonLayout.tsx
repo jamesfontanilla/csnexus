@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, forwardRef } from "react";
 import { Link } from "react-router-dom";
-import type { EnhancedLessonContent, LessonSection, LessonSegment, InlineCheck } from "./types";
+import type { EnhancedLessonContent, LessonSection, InlineCheck } from "./types";
 import { BlockRenderer } from "./BlockRenderer";
 import { SidebarTOC } from "./SidebarTOC";
 import { PracticePanel, InlineLessonChat } from "./PracticePanel";

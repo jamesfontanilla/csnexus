@@ -11,7 +11,7 @@ import { useToast } from "../../context/ToastContext";
 import { useReducedMotion } from "../../design-system/motion";
 import { DesktopLessonLayout, BlockRenderer, useIsDesktop } from "./lesson";
 import { LessonChatPanel } from "./lesson";
-import type { EnhancedLessonContent, LessonSegment, InlineCheck } from "./lesson";
+import type { EnhancedLessonContent, InlineCheck } from "./lesson";
 
 interface LessonExplanation {
   title?: string;
