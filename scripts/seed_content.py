@@ -75,14 +75,14 @@ QUESTIONS_PATH = GRAMMAR_QUESTIONS / "subject-verb-agreement" / "questions.json"
 
 # --- Markdown parser ---
 
-def parse_lesson_markdown(md_text: str) -> dict[str, Any]:
+def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
     """Parse lesson markdown into LessonContent JSON structure.
 
     Delegates to the enhanced parser in scripts/parse_lesson.py which
     produces both legacy-compatible fields and rich UI metadata.
     """
     from scripts.parse_lesson import parse_lesson_markdown as _enhanced_parse
-    return _enhanced_parse(md_text)
+    return _enhanced_parse(md_text, category=category)
 
 
 def _parse_h3_entries(text: str) -> list[tuple[str, str]]:

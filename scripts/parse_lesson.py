@@ -33,9 +33,30 @@ BLOCK_TYPE_EXAMPLE = "example"
 BLOCK_TYPE_STEP_BY_STEP = "step_by_step"
 BLOCK_TYPE_LIST = "list"
 BLOCK_TYPE_SVG = "svg"
+BLOCK_TYPE_CHECK_UNDERSTANDING = "check_understanding"
 
 # Average reading speed in words per minute for educational content
 _WORDS_PER_MINUTE = 200
+
+# Segment target: words per segment (~3-5 min read)
+_SEGMENT_TARGET_WORDS = 800
+
+# Section titles that always start a new segment (mode-shift boundaries)
+_SEGMENT_BREAK_TITLES = {
+    "exam strategies",
+    "memory aids",
+    "guided practice",
+    "which method?",
+    "before you practice",
+    "mini practice set",
+    "practice set",
+    "connections",
+    "mastery checklist",
+    "check your understanding",
+}
+
+# Categories where segmentation is applied
+_SEGMENTED_CATEGORIES = {"clerical-ability"}
 
 
 # ---------------------------------------------------------------------------
@@ -43,8 +64,15 @@ _WORDS_PER_MINUTE = 200
 # ---------------------------------------------------------------------------
 
 
-def parse_lesson_markdown(md_text: str) -> dict[str, Any]:
+def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
     """Parse lesson markdown into a rich, UI-friendly JSON structure.
+
+    Args:
+        md_text:  Raw markdown content of the lesson file.
+        category: Dot-separated content category path, e.g. "clerical-ability"
+                  or "clerical-ability.spelling".  Used to decide whether to
+                  apply segment-and-gate parsing.  Callers that don't supply
+                  this get the legacy flat-section output unchanged.
 
     Handles two lesson formats:
     1. Old format: Single "## Explanations" with all content under H3 headings
@@ -60,6 +88,8 @@ def parse_lesson_markdown(md_text: str) -> dict[str, Any]:
     - exam_strategies: test-taking tips
     - summary: quick recap content
     - table_of_contents: section titles for navigation
+    - segments: (clerical-ability only) list of timed chunks with gate checks
+    - is_segmented: bool flag for the frontend layout dispatcher
     """
     # Strip the H1 title (lesson title comes from the subtopic record)
     lines = md_text.split("\n")
@@ -182,6 +212,17 @@ def parse_lesson_markdown(md_text: str) -> dict[str, Any]:
         d = p.get("difficulty", "medium")
         practice_difficulty_dist[d] = practice_difficulty_dist.get(d, 0) + 1
 
+    # Determine if this lesson should be segmented
+    apply_segmentation = any(
+        category.startswith(cat) for cat in _SEGMENTED_CATEGORIES
+    ) if category else False
+
+    segments: list[dict[str, Any]] = []
+    if apply_segmentation and sections:
+        segments = _build_segments(sections)
+
+    is_segmented = len(segments) > 0
+
     metadata = {
         "title": title,
         "estimated_reading_minutes": estimated_reading_minutes,
@@ -190,6 +231,7 @@ def parse_lesson_markdown(md_text: str) -> dict[str, Any]:
         "practice_problem_count": len(practice_problems),
         "difficulty_distribution": difficulty_dist,
         "total_word_count": total_words,
+        **({"segment_count": len(segments), "is_segmented": True} if is_segmented else {}),
     }
 
     # Build the legacy-compatible fields too (explanations/worked_examples)
@@ -275,6 +317,9 @@ def parse_lesson_markdown(md_text: str) -> dict[str, Any]:
         "practice_problems": practice_problems,
         "memory_aids": memory_aids,
         "exam_strategies": exam_strategies,
+        # Segment-and-gate fields (clerical-ability and future opt-in categories)
+        "segments": segments,
+        "is_segmented": is_segmented,
     }
 
 
@@ -403,6 +448,19 @@ def _parse_content_blocks(text: str) -> list[dict[str, Any]]:
                 warn_lines.append(lines[i])
                 i += 1
             blocks.append({"type": BLOCK_TYPE_WARNING, "content": "\n".join(warn_lines)})
+            continue
+
+        # Check Your Understanding sub-heading within a section body
+        # Handles "### Check Your Understanding" appearing inside H3 section text
+        if re.match(r"^#{3,4}\s+Check Your Understanding", line, re.IGNORECASE):
+            check_lines: list[str] = []
+            i += 1
+            while i < len(lines) and not lines[i].startswith("#"):
+                check_lines.append(lines[i])
+                i += 1
+            checks = _extract_inline_checks("\n".join(check_lines))
+            if checks:
+                blocks.append({"type": BLOCK_TYPE_CHECK_UNDERSTANDING, "content": checks})
             continue
 
         # Blockquote callouts (> 💡, > ⚠️, > 🧠) — classify by emoji/keyword
@@ -741,3 +799,199 @@ def _build_summary(sections: list[dict[str, Any]]) -> str:
                     summary = " ".join(sentences[:2])
                 return summary
     return ""
+
+
+# ---------------------------------------------------------------------------
+# Inline check extraction
+# ---------------------------------------------------------------------------
+
+def _extract_inline_checks(text: str) -> list[dict[str, Any]]:
+    """Extract Q&A pairs from a 'Check Your Understanding' block.
+
+    Supports two formats found in clerical-ability lessons:
+
+    Format 1 — bold numbered items with arrow answers:
+        **1.** Are "Gonzales" and "Gonzalez" identical? → **No** (reason)
+
+    Format 2 — plain numbered lines with answer on same line after →:
+        1. What type of error is "Reyes" → "Reyse"? → **Transposition**
+
+    Returns a list of {"question": str, "answer": str, "rationale": str} dicts.
+    """
+    if not text.strip():
+        return []
+
+    checks: list[dict[str, Any]] = []
+
+    # Pattern: optional bold markers, number, question text, → answer, optional (rationale)
+    # Matches both "**1.**" and "1." prefixes
+    line_pattern = re.compile(
+        r"^\*{0,2}(\d+)\.\*{0,2}\s+"   # number
+        r"(.+?)"                          # question text (non-greedy)
+        r"\s*→\s*"                        # arrow separator
+        r"\*{0,2}(.+?)\*{0,2}"           # answer (strip bold markers)
+        r"(?:\s+\(([^)]+)\))?\s*$",       # optional (rationale)
+        re.MULTILINE,
+    )
+
+    for match in line_pattern.finditer(text):
+        question = match.group(2).strip()
+        answer = match.group(3).strip()
+        rationale = match.group(4).strip() if match.group(4) else ""
+        if question and answer:
+            checks.append({
+                "question": question,
+                "answer": answer,
+                "rationale": rationale,
+            })
+
+    return checks
+
+
+# ---------------------------------------------------------------------------
+# Segment builder
+# ---------------------------------------------------------------------------
+
+def _is_break_section(title: str) -> bool:
+    """Return True if this section title always starts a new segment."""
+    lower = title.lower().strip()
+    return any(lower == b or lower.startswith(b) for b in _SEGMENT_BREAK_TITLES)
+
+
+def _build_segments(sections: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Group sections into timed segments of ~_SEGMENT_TARGET_WORDS words.
+
+    Rules:
+    1. Preamble sections (Introduction, Why Tested, Learning Objectives,
+       Common Mistakes) are always grouped into the first segment regardless
+       of word count — they frame what follows.
+    2. Content sections accumulate until word count would exceed the target,
+       then a new segment begins.
+    3. Certain section titles (Exam Strategies, Memory Aids, Guided Practice,
+       Mini Practice Set, etc.) always start a new segment — they represent
+       a mode shift from reading to applying.
+    4. Each segment's checks are extracted from check_understanding blocks
+       embedded within its sections, then removed from the section blocks so
+       they don't render twice.
+
+    Returns a list of segment dicts:
+        {
+            "index": int,
+            "sections": [...],   # LessonSection dicts (blocks stripped of checks)
+            "estimated_minutes": int,
+            "checks": [...]      # InlineCheck dicts
+        }
+    """
+    _preamble_patterns = (
+        "introduction",
+        "why ",
+        "learning objective",
+        "common mistakes",
+        "focus areas",
+    )
+
+    def is_preamble(title: str) -> bool:
+        lower = title.lower()
+        return any(lower.startswith(p) or lower == p.strip() for p in _preamble_patterns)
+
+    segments: list[dict[str, Any]] = []
+    current_sections: list[dict[str, Any]] = []
+    current_words = 0
+    current_checks: list[dict[str, Any]] = []
+
+    def _flush(secs: list[dict[str, Any]], chks: list[dict[str, Any]], words: int) -> None:
+        if not secs:
+            return
+        minutes = max(1, math.ceil(words / _WORDS_PER_MINUTE))
+        segments.append({
+            "index": len(segments),
+            "sections": secs,
+            "estimated_minutes": minutes,
+            "checks": chks,
+        })
+
+    def _strip_and_collect_checks(section: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+        """Pull check_understanding blocks out of a section's blocks.
+
+        Returns (clean_section, extracted_checks).
+        The clean_section has those blocks removed so they won't render inline —
+        the segment gate panel renders them instead.
+        """
+        clean_blocks = []
+        extracted: list[dict[str, Any]] = []
+        for block in section.get("blocks", []):
+            if block["type"] == BLOCK_TYPE_CHECK_UNDERSTANDING:
+                if isinstance(block["content"], list):
+                    extracted.extend(block["content"])
+            else:
+                clean_blocks.append(block)
+        clean_section = {**section, "blocks": clean_blocks}
+        return clean_section, extracted
+
+    for section in sections:
+        title = section.get("title", "")
+        word_count = section.get("word_count", 0)
+
+        # "Check Your Understanding" sections: their content becomes gate checks
+        # for the *current* segment rather than a segment of their own.
+        if title.lower().strip() == "check your understanding":
+            raw_text = "\n".join(
+                block["content"]
+                for block in section.get("blocks", [])
+                if block["type"] in ("prose", "list") and isinstance(block["content"], str)
+            )
+            extracted = _extract_inline_checks(raw_text)
+            if extracted:
+                current_checks.extend(extracted)
+            continue
+
+        # Strip check_understanding blocks early so the result is available
+        # for all branches below.
+        clean_section, section_checks = _strip_and_collect_checks(section)
+
+        # Mode-shift titles always flush the current reading segment, then the
+        # break sections themselves accumulate together into a single "Practice
+        # & Review" tail segment (prevents micro-segments of 1 min each).
+        if _is_break_section(title):
+            # Only flush if we have non-break content accumulated
+            current_is_all_breaks = all(
+                _is_break_section(s.get("title", "")) for s in current_sections
+            ) if current_sections else True
+
+            if not current_is_all_breaks:
+                _flush(current_sections, current_checks, current_words)
+                current_sections = [clean_section]
+                current_words = word_count
+                current_checks = list(section_checks)
+            else:
+                # Already in a break-section accumulation — keep collecting
+                current_sections.append(clean_section)
+                current_words += word_count
+                current_checks.extend(section_checks)
+            continue
+
+        if not current_sections:
+            # Starting a new segment — always add regardless of word count
+            current_sections.append(clean_section)
+            current_words += word_count
+            current_checks.extend(section_checks)
+        elif is_preamble(title) and len(segments) == 0:
+            # Preamble sections stay in segment 0 even if they exceed target
+            current_sections.append(clean_section)
+            current_words += word_count
+            current_checks.extend(section_checks)
+        elif current_words + word_count > _SEGMENT_TARGET_WORDS and not is_preamble(title):
+            # Would exceed target — flush and start fresh
+            _flush(current_sections, current_checks, current_words)
+            current_sections = [clean_section]
+            current_words = word_count
+            current_checks = list(section_checks)
+        else:
+            current_sections.append(clean_section)
+            current_words += word_count
+            current_checks.extend(section_checks)
+
+    # Flush the final in-progress segment
+    _flush(current_sections, current_checks, current_words)
+
+    return segments

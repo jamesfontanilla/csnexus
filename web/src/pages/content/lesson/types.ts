@@ -4,14 +4,29 @@
  */
 
 export interface ContentBlock {
-  type: "prose" | "table" | "code" | "formula" | "tip" | "warning" | "example" | "step_by_step" | "list" | "svg";
-  content: string | TableData;
+  type: "prose" | "table" | "code" | "formula" | "tip" | "warning" | "example" | "step_by_step" | "list" | "svg" | "check_understanding";
+  content: string | TableData | InlineCheck[];
   language?: string;
 }
 
 export interface TableData {
   headers: string[];
   rows: string[][];
+}
+
+export interface InlineCheck {
+  question: string;
+  answer: string;
+  rationale?: string;
+}
+
+export interface LessonSegment {
+  index: number;
+  /** Sections belonging to this segment */
+  sections: LessonSection[];
+  estimated_minutes: number;
+  /** Inline comprehension checks gating the "Continue" button */
+  checks: InlineCheck[];
 }
 
 export interface LessonSection {
@@ -43,6 +58,9 @@ export interface LessonMetadata {
   practice_problem_count: number;
   difficulty_distribution: Record<string, number>;
   total_word_count: number;
+  /** Present when the lesson has been segmented */
+  segment_count?: number;
+  is_segmented?: boolean;
 }
 
 /** Legacy fields (still present for backward compat) */
@@ -61,6 +79,9 @@ export interface EnhancedLessonContent extends LessonContentLegacy {
   practice_problems: PracticeProblem[];
   memory_aids: string[];
   exam_strategies: string[];
+  /** Populated for clerical-ability lessons — segments group sections into ~3-5 min chunks */
+  segments?: LessonSegment[];
+  is_segmented?: boolean;
 }
 
 export interface LessonResponse {

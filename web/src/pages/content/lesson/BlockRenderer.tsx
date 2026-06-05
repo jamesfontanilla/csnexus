@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ContentBlock, TableData } from "./types";
+import type { ContentBlock, TableData, InlineCheck } from "./types";
 import { MarkdownText } from "../../../components/MarkdownText";
 
 /**
@@ -9,6 +9,12 @@ import { MarkdownText } from "../../../components/MarkdownText";
 export function BlockRenderer({ block }: { block: ContentBlock }) {
   // Safety: if content is null/undefined, skip rendering
   if (block.content == null) return null;
+
+  // check_understanding blocks carry InlineCheck[] — handle before string coercion
+  if (block.type === "check_understanding") {
+    const checks = Array.isArray(block.content) ? (block.content as InlineCheck[]) : [];
+    return <CheckUnderstandingBlock checks={checks} />;
+  }
 
   // Coerce content to string for non-table types
   const textContent = typeof block.content === "string"
@@ -41,7 +47,6 @@ export function BlockRenderer({ block }: { block: ContentBlock }) {
       return <ProseBlock content={textContent} />;
   }
 }
-
 // ---------------------------------------------------------------------------
 // Block components
 // ---------------------------------------------------------------------------
@@ -337,5 +342,123 @@ function SvgBlock({ content }: { content: string }) {
       aria-label="Diagram"
       role="img"
     />
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Check Your Understanding — inline interactive reveal cards
+// ---------------------------------------------------------------------------
+
+function CheckUnderstandingBlock({ checks }: { checks: InlineCheck[] }) {
+  const [revealed, setRevealed] = useState<Set<number>>(new Set());
+
+  if (checks.length === 0) return null;
+
+  function toggle(i: number) {
+    setRevealed((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
+  }
+
+  return (
+    <div
+      className="lesson-block lesson-block--check"
+      style={{
+        background: "rgba(80, 200, 120, 0.04)",
+        border: "1px solid rgba(80, 200, 120, 0.2)",
+        borderRadius: "8px",
+        padding: "0.875rem 1rem",
+      }}
+    >
+      <div
+        style={{
+          fontSize: "0.6875rem",
+          fontWeight: 700,
+          color: "rgba(80, 200, 120, 0.9)",
+          marginBottom: "0.625rem",
+          textTransform: "uppercase",
+          letterSpacing: "0.05em",
+        }}
+      >
+        ✓ Check Your Understanding
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+        {checks.map((check, i) => {
+          const isOpen = revealed.has(i);
+          return (
+            <div
+              key={i}
+              style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.07)",
+                borderRadius: "6px",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  padding: "0.5rem 0.75rem",
+                  fontSize: "0.8125rem",
+                  lineHeight: 1.5,
+                  color: "var(--color-text)",
+                  fontWeight: 500,
+                }}
+              >
+                <MarkdownText text={check.question} />
+              </div>
+              <button
+                onClick={() => toggle(i)}
+                aria-expanded={isOpen}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  padding: "0.35rem 0.75rem",
+                  background: isOpen ? "rgba(80, 200, 120, 0.08)" : "rgba(255,255,255,0.03)",
+                  border: "none",
+                  borderTop: "1px solid rgba(255,255,255,0.06)",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  fontSize: "0.6875rem",
+                  fontWeight: 600,
+                  color: isOpen ? "rgba(80, 200, 120, 0.9)" : "var(--color-text-muted)",
+                  letterSpacing: "0.03em",
+                }}
+              >
+                {isOpen ? "▾ Hide answer" : "▸ Show answer"}
+              </button>
+              {isOpen && (
+                <div
+                  style={{
+                    padding: "0.5rem 0.75rem",
+                    background: "rgba(80, 200, 120, 0.05)",
+                    borderTop: "1px solid rgba(80, 200, 120, 0.15)",
+                    fontSize: "0.8125rem",
+                    lineHeight: 1.5,
+                    color: "var(--color-text)",
+                  }}
+                >
+                  <MarkdownText text={check.answer} />
+                  {check.rationale && (
+                    <div
+                      style={{
+                        marginTop: "0.375rem",
+                        fontSize: "0.75rem",
+                        color: "var(--color-text-muted)",
+                        fontStyle: "italic",
+                      }}
+                    >
+                      <MarkdownText text={check.rationale} />
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }

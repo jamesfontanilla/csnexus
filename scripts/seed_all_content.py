@@ -353,6 +353,9 @@ def seed_subtopic(
     question_dir: Path,
 ) -> int:
     """Seed a single subtopic with its lesson and questions. Returns questions added."""
+    # Derive content category from module slug (e.g. "clerical-ability-professional" → "clerical-ability")
+    module_category = module.slug.rsplit("-professional", 1)[0].rsplit("-sub-professional", 1)[0]
+
     # Check if subtopic already exists
     existing = session.query(Subtopic).filter(
         Subtopic.topic_id == topic.id, Subtopic.slug == slug
@@ -369,7 +372,7 @@ def seed_subtopic(
         lesson_path = lesson_dir / slug / "lesson.md"
         if lesson_path.exists():
             md_text = lesson_path.read_text(encoding="utf-8")
-            new_content = parse_lesson_markdown(md_text)
+            new_content = parse_lesson_markdown(md_text, category=module_category)
             if lesson:
                 lesson.content_json = new_content
             else:
@@ -426,7 +429,7 @@ def seed_subtopic(
     lesson_path = lesson_dir / slug / "lesson.md"
     if lesson_path.exists():
         md_text = lesson_path.read_text(encoding="utf-8")
-        lesson_content = parse_lesson_markdown(md_text)
+        lesson_content = parse_lesson_markdown(md_text, category=module_category)
         lesson = Lesson(
             subtopic_id=subtopic.id,
             content_json=lesson_content,

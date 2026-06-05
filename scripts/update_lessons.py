@@ -28,20 +28,27 @@ SEED_BASE = Path(__file__).resolve().parent.parent / "data" / "seed"
 LESSONS_ROOT = SEED_BASE / "lessons"
 
 
-def discover_lesson_files() -> list[tuple[str, Path]]:
-    """Walk the lessons directory and return (slug, path) pairs.
+def discover_lesson_files() -> list[tuple[str, str, Path]]:
+    """Walk the lessons directory and return (slug, category, path) tuples.
 
     The slug is derived from the parent folder name of each lesson.md file.
-    E.g., data/seed/lessons/verbal-ability/grammar/subject-verb-agreement/lesson.md
-    yields slug "subject-verb-agreement".
+    The category is the top-level folder under lessons/ (e.g. "clerical-ability").
+    E.g., data/seed/lessons/clerical-ability/spelling/homophones/lesson.md
+    yields slug="homophones", category="clerical-ability".
     """
-    results: list[tuple[str, Path]] = []
+    results: list[tuple[str, str, Path]] = []
     if not LESSONS_ROOT.exists():
         return results
 
     for lesson_path in LESSONS_ROOT.rglob("lesson.md"):
         slug = lesson_path.parent.name
-        results.append((slug, lesson_path))
+        # category is the first directory level under LESSONS_ROOT
+        try:
+            relative = lesson_path.relative_to(LESSONS_ROOT)
+            category = relative.parts[0]  # e.g. "clerical-ability"
+        except (ValueError, IndexError):
+            category = ""
+        results.append((slug, category, lesson_path))
 
     return results
 
@@ -57,10 +64,10 @@ def main() -> None:
         lesson_files = discover_lesson_files()
         print(f"Found {len(lesson_files)} lesson.md files to process.\n")
 
-        for slug, lesson_path in lesson_files:
+        for slug, category, lesson_path in lesson_files:
             try:
                 md_text = lesson_path.read_text(encoding="utf-8")
-                new_content = parse_lesson_markdown(md_text)
+                new_content = parse_lesson_markdown(md_text, category=category)
 
                 # Find all subtopics with this slug (both categories)
                 subtopics = session.query(Subtopic).filter(

@@ -7,7 +7,9 @@ export { useIsDesktop, useMediaQuery } from "./useMediaQuery";
 export type {
   ContentBlock,
   TableData,
+  InlineCheck,
   LessonSection,
+  LessonSegment,
   PracticeProblem,
   TOCEntry,
   LessonMetadata,
