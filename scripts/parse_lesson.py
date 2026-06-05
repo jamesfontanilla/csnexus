@@ -782,8 +782,25 @@ def _blocks_to_markdown(blocks: list[dict[str, Any]]) -> str:
                         cells.append("")
                     table_lines.append("| " + " | ".join(cells[:col_count]) + " |")
                 parts.append("\n".join(table_lines))
+        elif block["type"] == BLOCK_TYPE_CHECK_UNDERSTANDING:
+            # Reconstruct check_understanding blocks as markdown Q&A lines
+            checks = block["content"]
+            if isinstance(checks, list):
+                lines = ["**Check Your Understanding**"]
+                for i, check in enumerate(checks, start=1):
+                    if isinstance(check, dict):
+                        q = check.get("question", "")
+                        a = check.get("answer", "")
+                        r = check.get("rationale", "")
+                        line = f"**{i}.** {q} → **{a}**"
+                        if r:
+                            line += f" ({r})"
+                        lines.append(line)
+                parts.append("\n".join(lines))
         else:
-            parts.append(block["content"])
+            content = block["content"]
+            if isinstance(content, str):
+                parts.append(content)
     return "\n\n".join(parts)
 
 
