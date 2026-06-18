@@ -42,6 +42,9 @@ prompts/
 # Node
 node_modules/
 
+# Local Gradle cache
+.gradle-cache/
+
 # Build artifacts
 build/
 dist/
