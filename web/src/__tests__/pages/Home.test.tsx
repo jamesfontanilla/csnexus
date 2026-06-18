@@ -100,30 +100,32 @@ describe("Home page (Task 16.2)", () => {
     mockMatchMedia(false);
   });
 
-  describe("Social proof section renders AnimatedCounter (Requirement 11.3)", () => {
-    it("renders AnimatedNumber components in the social proof section", () => {
-      const { container } = render(
-        <MemoryRouter>
-          <Home />
-        </MemoryRouter>
-      );
-
-      // AnimatedNumber renders <span> with aria-live="polite" and data-duration attribute
-      const animatedNumbers = container.querySelectorAll('span[aria-live="polite"][data-duration]');
-      // Social proof section has 3 counters: Active Learners, Questions Answered, Pass Rate
-      expect(animatedNumbers.length).toBeGreaterThanOrEqual(3);
-    });
-
-    it("renders counter labels for social proof metrics", () => {
+  describe("Homepage copy stays aligned with README product claims", () => {
+    it("does not show fabricated user-count social proof", () => {
       render(
         <MemoryRouter>
           <Home />
         </MemoryRouter>
       );
 
-      expect(screen.getByText("Active Learners")).toBeInTheDocument();
-      expect(screen.getByText("Questions Answered")).toBeInTheDocument();
-      expect(screen.getByText("Pass Rate")).toBeInTheDocument();
+      expect(screen.queryByText("Active Learners")).not.toBeInTheDocument();
+      expect(screen.queryByText("Questions Answered")).not.toBeInTheDocument();
+      expect(screen.queryByText("Pass Rate")).not.toBeInTheDocument();
+    });
+
+    it("highlights the real product features from the README", () => {
+      render(
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>
+      );
+
+      expect(screen.getByText("Structured Lessons")).toBeInTheDocument();
+      expect(screen.getByText("Practice Quizzes")).toBeInTheDocument();
+      expect(screen.getByText("Timed Mock Exams")).toBeInTheDocument();
+      expect(screen.getByText("XP & Levels")).toBeInTheDocument();
+      expect(screen.getByText("Leaderboards")).toBeInTheDocument();
+      expect(screen.getByText("Achievements")).toBeInTheDocument();
     });
   });
 

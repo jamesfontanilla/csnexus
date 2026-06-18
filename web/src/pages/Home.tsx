@@ -4,17 +4,14 @@ import { isAuthenticated } from "../stores/auth";
 import { GlassCard } from "../components/GlassCard";
 import { GlassButton } from "../components/GlassButton";
 import { GradientText } from "../components/GradientText";
-import { AnimatedNumber } from "../components/AnimatedNumber";
 import { PageTransition } from "../components/PageTransition";
 import { cardStaggerContainer, cardStaggerItem, useReducedMotion } from "../design-system/motion";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-import { useInView } from "../hooks/useInView";
 
 export function Home() {
   const reducedMotion = useReducedMotion();
   const [heroRef, heroMotionProps] = useScrollReveal();
   const [featuresRef, featuresMotionProps] = useScrollReveal();
-  const [socialRef, socialMotionProps] = useScrollReveal();
   const [footerRef, footerMotionProps] = useScrollReveal();
 
   return (
@@ -86,11 +83,6 @@ export function Home() {
           <FeaturesSection reducedMotion={reducedMotion} />
         </motion.div>
 
-        {/* Social proof */}
-        <motion.div ref={socialRef} {...socialMotionProps}>
-          <SocialProofSection />
-        </motion.div>
-
         {/* Footer */}
         <motion.div ref={footerRef} {...footerMotionProps}>
           <footer
@@ -106,89 +98,6 @@ export function Home() {
         </motion.div>
       </main>
     </PageTransition>
-  );
-}
-
-function SocialProofSection() {
-  const [ref, isInView] = useInView({ rootMargin: "100px" });
-
-  return (
-    <section
-      ref={ref}
-      style={{
-        textAlign: "center",
-        padding: "var(--space-12) var(--space-6)",
-        borderTop: "1px solid var(--glass-border-light)",
-      }}
-    >
-      <p
-        style={{
-          fontSize: "var(--font-size-lg)",
-          color: "var(--color-text-secondary)",
-          margin: "0 0 var(--space-8)",
-        }}
-      >
-        Join learners preparing for the Civil Service Exam
-      </p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "var(--space-10)",
-          flexWrap: "wrap",
-        }}
-      >
-        <AnimatedCounter
-          value={isInView ? 2500 : 0}
-          label="Active Learners"
-          suffix="+"
-        />
-        <AnimatedCounter
-          value={isInView ? 15000 : 0}
-          label="Questions Answered"
-          suffix="+"
-        />
-        <AnimatedCounter
-          value={isInView ? 98 : 0}
-          label="Pass Rate"
-          suffix="%"
-        />
-      </div>
-    </section>
-  );
-}
-
-interface AnimatedCounterProps {
-  value: number;
-  label: string;
-  suffix?: string;
-  prefix?: string;
-}
-
-function AnimatedCounter({ value, label, suffix = "", prefix = "" }: AnimatedCounterProps) {
-  return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
-      <AnimatedNumber
-        value={value}
-        duration={1200}
-        prefix={prefix}
-        suffix={suffix}
-        style={{
-          fontSize: "var(--font-size-3xl)",
-          fontWeight: 700,
-          fontFamily: "var(--font-display)",
-          color: "var(--color-accent)",
-        }}
-      />
-      <span
-        style={{
-          fontSize: "var(--font-size-sm)",
-          color: "var(--color-text-secondary)",
-        }}
-      >
-        {label}
-      </span>
-    </div>
   );
 }
 
