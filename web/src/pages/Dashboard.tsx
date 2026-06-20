@@ -58,6 +58,11 @@ interface UserXPResponse {
   streak: number;
 }
 
+interface DashboardLoadState {
+  readinessScore: number;
+  impactAreas: ImpactArea[];
+}
+
 // --- Constants ---
 
 const TYPE_ICONS: Record<DailyQueueItem["type"], string> = {
@@ -68,6 +73,11 @@ const TYPE_ICONS: Record<DailyQueueItem["type"], string> = {
 };
 
 const ERROR_TIMEOUT_MS = 10_000;
+
+const FALLBACK_DASHBOARD_LOAD_STATE: DashboardLoadState = {
+  readinessScore: 0,
+  impactAreas: [],
+};
 
 const MOBILE_FEATURES = [
   {
@@ -136,7 +146,7 @@ function queueItemTypeToDashboardType(itemType: string): DailyQueueItem["type"] 
 }
 
 function extractQueueItemTitle(item: QueueItemSchema): string {
-  const payload = item.payload;
+  const payload = item.payload ?? {};
   const keys = ["title", "name", "subtopic_name", "subtopic_title", "lesson_title", "deck_title", "topic_name"];
 
   for (const key of keys) {
@@ -186,31 +196,42 @@ export function Dashboard() {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
       const readinessResult = results[0];
-      if (readinessResult.status !== "fulfilled") {
+      const xpResult = results[1];
+      const queueResult = results[2];
+      const hasAnySuccessfulResponse = results.some((result) => result.status === "fulfilled");
+
+      if (!hasAnySuccessfulResponse) {
         setLoading(false);
         setError(true);
         return;
       }
 
-      const xpResult = results[1];
-      const queueResult = results[2];
-      const readinessData = readinessResult.value;
       const xpData = xpResult.status === "fulfilled" ? xpResult.value : null;
       const queueData = queueResult.status === "fulfilled" ? queueResult.value : null;
-      const topImpact = readinessData.top_impact_subtopics ?? [];
-      const highestImpact = Math.max(1, ...topImpact.map((item) => item.point_impact));
+      const readinessLoadState =
+        readinessResult.status === "fulfilled"
+          ? (() => {
+              const topImpact = readinessResult.value.top_impact_subtopics ?? [];
+              const highestImpact = Math.max(1, ...topImpact.map((item) => item.point_impact));
+
+              return {
+                readinessScore: readinessResult.value.score,
+                impactAreas: topImpact.map((item) => ({
+                  subject: item.subtopic_name,
+                  score: item.point_impact,
+                  maxScore: highestImpact,
+                })),
+              };
+            })()
+          : FALLBACK_DASHBOARD_LOAD_STATE;
 
       setData({
-        readinessScore: readinessData.score,
+        readinessScore: readinessLoadState.readinessScore,
         streak: xpData?.streak ?? 0,
         xpToday: xpData?.cumulative_xp ?? 0,
         questionsToday: queueData?.items.length ?? 0,
         dailyQueue: queueData?.items.map(mapQueueItem) ?? [],
-        impactAreas: topImpact.map((item) => ({
-          subject: item.subtopic_name,
-          score: item.point_impact,
-          maxScore: highestImpact,
-        })),
+        impactAreas: readinessLoadState.impactAreas,
       });
       setLoading(false);
     }).catch(() => {

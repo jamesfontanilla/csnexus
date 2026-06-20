@@ -223,5 +223,19 @@ describe("Dashboard page (Task 17.2)", () => {
         expect(screen.queryByText("Quick Access")).not.toBeInTheDocument();
       });
     });
+
+    it("keeps the mobile dashboard usable when readiness data fails", async () => {
+      mockMobileViewport = true;
+      mockMatchMedia(false);
+      mockReadinessGetDashboard.mockRejectedValue(new Error("readiness unavailable"));
+
+      renderDashboard();
+
+      await waitFor(() => {
+        expect(screen.getByText("Quick Access")).toBeInTheDocument();
+        expect(screen.getByRole("link", { name: "Queue" })).toHaveAttribute("href", "/queue");
+        expect(screen.queryByText("Unable to Load Dashboard")).not.toBeInTheDocument();
+      });
+    });
   });
 });
