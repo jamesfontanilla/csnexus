@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.RadialGradientShader
 import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import kotlin.math.sin
@@ -34,6 +35,8 @@ private val BackgroundWarm = Color(0xFF080808)
 
 // Vignette edge color: warm-dark from the web's ambient-depth
 private val VignetteEdge = Color(0x801A0F0A) // rgba(26,15,10,0.5)
+
+private const val MobileBreakpointDp = 640
 
 /**
  * Immutable definition of a single animated blob.
@@ -84,6 +87,27 @@ private val BlobSpecs = listOf(
     ),
 )
 
+private val MobileBlobSpecs = listOf(
+    BlobSpec(
+        centerXBase = 0.20f, centerYBase = 0.15f,
+        radiusFraction = 0.60f, alpha = 0.42f, color = BlobGold,
+        xAmplitude = 0.06f, yAmplitude = 0.05f,
+        periodMs = 12000, phaseOffset = 0f,
+    ),
+    BlobSpec(
+        centerXBase = 0.82f, centerYBase = 0.38f,
+        radiusFraction = 0.52f, alpha = 0.36f, color = BlobMetallic,
+        xAmplitude = 0.05f, yAmplitude = 0.07f,
+        periodMs = 14000, phaseOffset = 1.2f,
+    ),
+    BlobSpec(
+        centerXBase = 0.48f, centerYBase = 0.80f,
+        radiusFraction = 0.58f, alpha = 0.38f, color = BlobInfo,
+        xAmplitude = 0.04f, yAmplitude = 0.05f,
+        periodMs = 11000, phaseOffset = 2.5f,
+    ),
+)
+
 /**
  * Full-screen animated ambient background layer.
  *
@@ -98,6 +122,10 @@ private val BlobSpecs = listOf(
 fun AmbientBackground(modifier: Modifier = Modifier) {
     val reducedMotion = rememberCSNexusReducedMotion()
     val performanceTier = LocalCSNexusPerformanceTier.current
+    val screenWidthDp = LocalConfiguration.current.screenWidthDp
+    val blobSpecs = remember(screenWidthDp) {
+        if (screenWidthDp < MobileBreakpointDp) MobileBlobSpecs else BlobSpecs
+    }
 
     val infiniteTransition = rememberInfiniteTransition(label = "ambient_bg")
 
@@ -106,7 +134,7 @@ fun AmbientBackground(modifier: Modifier = Modifier) {
     val animateAmbient = !reducedMotion && performanceTier.animationsEnabled
 
     val blobProgresses: List<State<Float>> = if (animateAmbient) {
-        BlobSpecs.map { spec ->
+        blobSpecs.map { spec ->
             infiniteTransition.animateFloat(
                 initialValue = 0f,
                 targetValue = 1f,
@@ -119,7 +147,7 @@ fun AmbientBackground(modifier: Modifier = Modifier) {
         }
     } else {
         // Reduced motion: blobs stay at initial position (progress = 0f)
-        remember { BlobSpecs.map { mutableFloatStateOf(0f) } }
+        remember(blobSpecs) { blobSpecs.map { mutableFloatStateOf(0f) } }
     }
 
     // Step-animated noise offset: cycles through 10 discrete positions over 8 seconds.
@@ -153,30 +181,29 @@ fun AmbientBackground(modifier: Modifier = Modifier) {
         // 1. Solid dark background fill
         drawRect(color = BackgroundWarm)
 
-        // 2. Draw blobs (skip entirely on Low performance tier)
-        if (performanceTier != PerformanceTier.Low) {
-            BlobSpecs.forEachIndexed { index, spec ->
-                val progress = blobProgresses[index].value
-                val angle = (progress * 2f * Math.PI.toFloat()) + spec.phaseOffset
+        // 2. Draw blobs. Even the low tier keeps a reduced static composition
+        // so mobile screens still match the web's ambient depth.
+        blobSpecs.forEachIndexed { index, spec ->
+            val progress = blobProgresses[index].value
+            val angle = (progress * 2f * Math.PI.toFloat()) + spec.phaseOffset
 
-                val cx = (spec.centerXBase + spec.xAmplitude * sin(angle)) * w
-                val cy = (spec.centerYBase + spec.yAmplitude * sin(angle * 0.7f + 1.3f)) * h
-                val radius = spec.radiusFraction * minOf(w, h)
+            val cx = (spec.centerXBase + spec.xAmplitude * sin(angle)) * w
+            val cy = (spec.centerYBase + spec.yAmplitude * sin(angle * 0.7f + 1.3f)) * h
+            val radius = spec.radiusFraction * minOf(w, h)
 
-                drawBlobCircle(
-                    center = Offset(cx, cy),
-                    radius = radius,
-                    color = spec.color,
-                    alpha = spec.alpha,
-                )
-            }
-
-            // 3. Noise overlay (dithered dot pattern at 3% alpha)
-            drawNoiseOverlay(
-                stepOffset = noiseStep.toInt(),
-                spacingPx = noiseSpacingPx,
+            drawBlobCircle(
+                center = Offset(cx, cy),
+                radius = radius,
+                color = spec.color,
+                alpha = spec.alpha,
             )
         }
+
+        // 3. Noise overlay (dithered dot pattern at 3% alpha)
+        drawNoiseOverlay(
+            stepOffset = noiseStep.toInt(),
+            spacingPx = noiseSpacingPx,
+        )
 
         // 4. Radial vignette: transparent center → dark edges
         drawVignette()

@@ -42,16 +42,16 @@ private val DarkColors: ColorScheme = darkColorScheme(
     onSecondary = ObsidianWarm,
     tertiary = Info,
     onTertiary = ObsidianWarm,
-    background = Obsidian,
+    outline = Color(0x33FFFFFF),
+    outlineVariant = Color(0x1AFFFFFF),
+    error = Danger,
+    onError = Color.White,
+    background = Color.Transparent,
     onBackground = WarmWhite,
     surface = Surface,
     onSurface = WarmWhite,
     surfaceVariant = SurfaceRaised,
     onSurfaceVariant = TextSecondary,
-    outline = Color(0x33FFFFFF),
-    outlineVariant = Color(0x1AFFFFFF),
-    error = Danger,
-    onError = Color.White,
 )
 
 @Immutable

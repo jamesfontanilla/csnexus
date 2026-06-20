@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { apiClient } from "../api/client";
 import { GlassCard } from "../components/GlassCard";
 import { GlassSkeleton } from "../components/GlassSkeleton";
@@ -8,6 +9,7 @@ import { ProgressRing } from "../components/ProgressRing";
 import { EmptyState } from "../components/EmptyState";
 import { PageTransition } from "../components/PageTransition";
 import { GradientText } from "../components/GradientText";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 // --- TypeScript Interfaces ---
 
@@ -44,9 +46,61 @@ const TYPE_ICONS: Record<DailyQueueItem["type"], string> = {
 
 const ERROR_TIMEOUT_MS = 10_000;
 
+const MOBILE_FEATURES = [
+  {
+    to: "/queue",
+    title: "Queue",
+    icon: "🔄",
+    description: "Daily plan",
+  },
+  {
+    to: "/flashcards",
+    title: "Flashcards",
+    icon: "🃏",
+    description: "Decks and study",
+  },
+  {
+    to: "/tutor",
+    title: "Tutor",
+    icon: "🤖",
+    description: "Guided help",
+  },
+  {
+    to: "/focus",
+    title: "Focus",
+    icon: "⏱️",
+    description: "Study timer",
+  },
+  {
+    to: "/readiness",
+    title: "Readiness",
+    icon: "📊",
+    description: "Exam state",
+  },
+  {
+    to: "/analytics",
+    title: "Analytics",
+    icon: "📈",
+    description: "Progress detail",
+  },
+  {
+    to: "/leaderboard",
+    title: "Leaderboard",
+    icon: "🏆",
+    description: "Rankings",
+  },
+  {
+    to: "/study-plan",
+    title: "Study Plan",
+    icon: "🗓️",
+    description: "Schedule",
+  },
+] as const;
+
 // --- Component ---
 
 export function Dashboard() {
+  const isMobile = useMediaQuery("(max-width: 639px)");
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -217,6 +271,87 @@ export function Dashboard() {
             </div>
           </ProgressRing>
         </section>
+
+        {isMobile && (
+          <section style={{ marginBottom: "var(--space-6)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-lg)",
+                fontWeight: 600,
+                fontFamily: "var(--font-display)",
+                color: "var(--color-text)",
+                marginBottom: "var(--space-3)",
+              }}
+            >
+              Quick Access
+            </h2>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                gap: "var(--space-3)",
+              }}
+            >
+              {MOBILE_FEATURES.map((feature) => (
+                <Link
+                  key={feature.to}
+                  to={feature.to}
+                  aria-label={feature.title}
+                  style={{
+                    textDecoration: "none",
+                    display: "block",
+                    minWidth: 0,
+                  }}
+                >
+                  <GlassCard
+                    hoverable
+                    as="article"
+                    style={{
+                      height: "100%",
+                      minHeight: "7.5rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      gap: "var(--space-3)",
+                    }}
+                  >
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        fontSize: "1.4rem",
+                        lineHeight: 1,
+                        color: "var(--color-accent)",
+                      }}
+                    >
+                      {feature.icon}
+                    </span>
+                    <div style={{ minWidth: 0 }}>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontSize: "var(--font-size-base)",
+                          fontWeight: 600,
+                          color: "var(--color-text)",
+                        }}
+                      >
+                        {feature.title}
+                      </p>
+                      <p
+                        style={{
+                          margin: "0.25rem 0 0",
+                          fontSize: "var(--font-size-xs)",
+                          color: "var(--color-text-secondary)",
+                        }}
+                      >
+                        {feature.description}
+                      </p>
+                    </div>
+                  </GlassCard>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Quick Stats Row */}
         <section

@@ -4,6 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 
 // Control reduced motion from tests
 let mockReducedMotion = false;
+let mockMobileViewport = false;
 
 vi.mock("../../design-system/motion", () => ({
   useReducedMotion: () => mockReducedMotion,
@@ -49,7 +50,12 @@ function mockMatchMedia(reducedMotion: boolean) {
   Object.defineProperty(window, "matchMedia", {
     writable: true,
     value: vi.fn().mockImplementation((query: string) => ({
-      matches: query === "(prefers-reduced-motion: reduce)" ? reducedMotion : false,
+      matches:
+        query === "(prefers-reduced-motion: reduce)"
+          ? reducedMotion
+          : query === "(max-width: 639px)"
+            ? mockMobileViewport
+            : false,
       media: query,
       onchange: null,
       addEventListener: vi.fn(),
@@ -106,6 +112,7 @@ function renderDashboard() {
 describe("Dashboard page (Task 17.2)", () => {
   beforeEach(() => {
     mockReducedMotion = false;
+    mockMobileViewport = false;
     mockMatchMedia(false);
     vi.clearAllMocks();
   });
@@ -154,6 +161,35 @@ describe("Dashboard page (Task 17.2)", () => {
         expect(screen.getByText("Day Streak 🔥")).toBeInTheDocument();
         expect(screen.getByText("XP Today")).toBeInTheDocument();
         expect(screen.getByText("Questions Today")).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe("Mobile feature hub renders quick access links", () => {
+    it("shows queue, flashcards, tutor, and readiness links on mobile", async () => {
+      mockMobileViewport = true;
+      mockMatchMedia(false);
+      mockGet.mockResolvedValue(mockDashboardData);
+
+      renderDashboard();
+
+      await waitFor(() => {
+        expect(screen.getByRole("link", { name: "Queue" })).toHaveAttribute("href", "/queue");
+        expect(screen.getByRole("link", { name: "Flashcards" })).toHaveAttribute("href", "/flashcards");
+        expect(screen.getByRole("link", { name: "Tutor" })).toHaveAttribute("href", "/tutor");
+        expect(screen.getByRole("link", { name: "Readiness" })).toHaveAttribute("href", "/readiness");
+      });
+    });
+
+    it("does not render the feature hub on desktop", async () => {
+      mockMobileViewport = false;
+      mockMatchMedia(false);
+      mockGet.mockResolvedValue(mockDashboardData);
+
+      renderDashboard();
+
+      await waitFor(() => {
+        expect(screen.queryByText("Quick Access")).not.toBeInTheDocument();
       });
     });
   });

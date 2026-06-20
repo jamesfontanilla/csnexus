@@ -15,6 +15,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.ui.graphics.Color
 import com.csnexus.app.core.design.GlassBottomNav
 import com.csnexus.app.core.design.GlassBottomNavItem
 import com.csnexus.app.core.design.GlassToast
@@ -182,13 +183,14 @@ fun CSNexusNavGraph(container: AppContainer) {
 
     Box(modifier = Modifier.fillMaxSize()) {
         Scaffold(
+            containerColor = Color.Transparent,
             topBar = {
             if (isAuthenticated) {
                 TopAppBar(
                     title = { Text(currentRoute.titleForRoute()) },
                     colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.background,
-                        scrolledContainerColor = MaterialTheme.colorScheme.surface,
+                        containerColor = Color.Transparent,
+                        scrolledContainerColor = Color.Transparent,
                         titleContentColor = MaterialTheme.colorScheme.onBackground,
                         navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
                         actionIconContentColor = MaterialTheme.colorScheme.onBackground,
