@@ -17,7 +17,7 @@ export interface Deck {
   description: string | null;
   category: DeckCategory;
   visibility: DeckVisibility;
-  tags: string[];
+  tags: string | null;
   card_count: number;
   average_rating: number;
   created_at: string;
@@ -56,7 +56,6 @@ export interface CardCreate {
 export interface CardUpdate {
   front?: string;
   back?: string;
-  card_type?: CardType;
   hints?: string[];
   tags?: string[];
 }
@@ -134,8 +133,7 @@ export interface MarketplaceDeck {
 }
 
 export interface DeckRating {
-  score: number;
-  comment?: string;
+  rating: number;
 }
 
 export interface DeckComment {
@@ -226,19 +224,19 @@ export const flashcardsApi = {
   getDecks: () => apiClient.get<Deck[]>("/v1/flashcards/decks"),
   getDeck: (id: number) => apiClient.get<Deck>(`/v1/flashcards/decks/${id}`),
   createDeck: (data: DeckCreate) => apiClient.post<Deck>("/v1/flashcards/decks", data),
-  duplicateDeck: (id: number) => apiClient.post<Deck>(`/v1/flashcards/decks/${id}/duplicate`),
+  duplicateDeck: (id: number) => apiClient.post<Deck>(`/v1/flashcards/decks/${id}/:duplicate`),
 
   // Cards
   getDeckCards: (deckId: number) => apiClient.get<FlashCard[]>(`/v1/flashcards/decks/${deckId}/cards`),
   createCard: (deckId: number, data: CardCreate) => apiClient.post<FlashCard>(`/v1/flashcards/decks/${deckId}/cards`, data),
-  updateCard: (deckId: number, cardId: number, data: CardUpdate) => apiClient.patch<FlashCard>(`/v1/flashcards/decks/${deckId}/cards/${cardId}`, data),
-  deleteCard: (deckId: number, cardId: number) => apiClient.delete<void>(`/v1/flashcards/decks/${deckId}/cards/${cardId}`),
+  updateCard: (_deckId: number, cardId: number, data: CardUpdate) => apiClient.patch<FlashCard>(`/v1/flashcards/cards/${cardId}`, data),
+  deleteCard: (_deckId: number, cardId: number) => apiClient.delete<void>(`/v1/flashcards/cards/${cardId}`),
 
   // Study Sessions
   createSession: (data: SessionCreate) => apiClient.post<StudySession>("/v1/flashcards/sessions", data),
   getSessionCards: (sessionId: number) => apiClient.get<SessionCard[]>(`/v1/flashcards/sessions/${sessionId}/cards`),
   respondToCard: (sessionId: number, data: SessionResponse) => apiClient.post<void>(`/v1/flashcards/sessions/${sessionId}/respond`, data),
-  endSession: (sessionId: number) => apiClient.post<SessionSummary>(`/v1/flashcards/sessions/${sessionId}/end`),
+  endSession: (sessionId: number) => apiClient.post<SessionSummary>(`/v1/flashcards/sessions/${sessionId}/:end`),
 
   // Review Queue
   getQueue: () => apiClient.get<QueueCard[]>("/v1/flashcards/queue"),
@@ -253,9 +251,9 @@ export const flashcardsApi = {
     const qs = query.toString();
     return apiClient.get<MarketplaceDeck[]>(`/v1/flashcards/marketplace${qs ? `?${qs}` : ""}`);
   },
-  cloneDeck: (id: number) => apiClient.post<Deck>(`/v1/flashcards/marketplace/${id}/clone`),
+  cloneDeck: (id: number) => apiClient.post<Deck>(`/v1/flashcards/marketplace/${id}/:clone`),
   rateDeck: (id: number, data: DeckRating) => apiClient.post<void>(`/v1/flashcards/marketplace/${id}/ratings`, data),
-  getDeckComments: (id: number) => apiClient.get<DeckComment[]>(`/v1/flashcards/marketplace/${id}/ratings`),
+  getDeckComments: (id: number) => apiClient.get<DeckComment[]>(`/v1/flashcards/marketplace/${id}/comments`),
 
   // Analytics
   getDashboard: () => apiClient.get<AnalyticsDashboard>("/v1/flashcards/analytics/dashboard"),

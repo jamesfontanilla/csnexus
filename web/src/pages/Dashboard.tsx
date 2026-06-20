@@ -9,6 +9,7 @@ import { ProgressRing } from "../components/ProgressRing";
 import { EmptyState } from "../components/EmptyState";
 import { PageTransition } from "../components/PageTransition";
 import { GradientText } from "../components/GradientText";
+import { readinessApi } from "../api/readiness";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
 // --- TypeScript Interfaces ---
@@ -33,6 +34,28 @@ export interface DashboardData {
   questionsToday: number;
   dailyQueue: DailyQueueItem[];
   impactAreas: ImpactArea[];
+}
+
+interface QueueItemSchema {
+  id: number;
+  position: number;
+  item_type: string;
+  payload: Record<string, unknown>;
+  estimated_seconds: number;
+}
+
+interface QueueResponse {
+  items: QueueItemSchema[];
+  total_estimated_seconds: number;
+  items_remaining: number;
+  items_completed: number;
+  time_budget_minutes: number;
+}
+
+interface UserXPResponse {
+  cumulative_xp: number;
+  level: number;
+  streak: number;
 }
 
 // --- Constants ---
@@ -97,6 +120,44 @@ const MOBILE_FEATURES = [
   },
 ] as const;
 
+function toTitleCase(value: string): string {
+  return value
+    .split(/[_\s-]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(" ");
+}
+
+function queueItemTypeToDashboardType(itemType: string): DailyQueueItem["type"] {
+  if (itemType.includes("flashcard")) return "flashcard";
+  if (itemType.includes("quiz")) return "quiz";
+  if (itemType.includes("content") || itemType.includes("lesson")) return "lesson";
+  return "review";
+}
+
+function extractQueueItemTitle(item: QueueItemSchema): string {
+  const payload = item.payload;
+  const keys = ["title", "name", "subtopic_name", "subtopic_title", "lesson_title", "deck_title", "topic_name"];
+
+  for (const key of keys) {
+    const value = payload[key];
+    if (typeof value === "string" && value.trim()) {
+      return value;
+    }
+  }
+
+  return toTitleCase(item.item_type);
+}
+
+function mapQueueItem(item: QueueItemSchema): DailyQueueItem {
+  return {
+    id: String(item.id),
+    title: extractQueueItemTitle(item),
+    type: queueItemTypeToDashboardType(item.item_type),
+    estimatedMinutes: Math.max(1, Math.ceil(item.estimated_seconds / 60)),
+  };
+}
+
 // --- Component ---
 
 export function Dashboard() {
@@ -112,24 +173,51 @@ export function Dashboard() {
     setError(false);
     setAnimatedScore(0);
 
-    // Start the 10s error timeout
     timeoutRef.current = setTimeout(() => {
       setLoading(false);
       setError(true);
     }, ERROR_TIMEOUT_MS);
 
-    apiClient
-      .get<DashboardData>("/v1/dashboard/me")
-      .then((result) => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        setData(result);
-        setLoading(false);
-      })
-      .catch(() => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    Promise.allSettled([
+      readinessApi.getDashboard(),
+      apiClient.get<UserXPResponse>("/v1/xp/me"),
+      apiClient.get<QueueResponse>("/v1/queue"),
+    ]).then((results) => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+      const readinessResult = results[0];
+      if (readinessResult.status !== "fulfilled") {
         setLoading(false);
         setError(true);
+        return;
+      }
+
+      const xpResult = results[1];
+      const queueResult = results[2];
+      const readinessData = readinessResult.value;
+      const xpData = xpResult.status === "fulfilled" ? xpResult.value : null;
+      const queueData = queueResult.status === "fulfilled" ? queueResult.value : null;
+      const topImpact = readinessData.top_impact_subtopics ?? [];
+      const highestImpact = Math.max(1, ...topImpact.map((item) => item.point_impact));
+
+      setData({
+        readinessScore: readinessData.score,
+        streak: xpData?.streak ?? 0,
+        xpToday: xpData?.cumulative_xp ?? 0,
+        questionsToday: queueData?.items.length ?? 0,
+        dailyQueue: queueData?.items.map(mapQueueItem) ?? [],
+        impactAreas: topImpact.map((item) => ({
+          subject: item.subtopic_name,
+          score: item.point_impact,
+          maxScore: highestImpact,
+        })),
       });
+      setLoading(false);
+    }).catch(() => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      setLoading(false);
+      setError(true);
+    });
   }
 
   useEffect(() => {
@@ -408,7 +496,7 @@ export function Dashboard() {
                 letterSpacing: "0.03em",
               }}
             >
-              XP Today
+              Total XP
             </p>
           </GlassCard>
 
@@ -433,7 +521,7 @@ export function Dashboard() {
                 letterSpacing: "0.03em",
               }}
             >
-              Questions Today
+              Queue Items
             </p>
           </GlassCard>
         </section>

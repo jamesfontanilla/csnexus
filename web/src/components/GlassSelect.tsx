@@ -11,13 +11,14 @@ interface GlassSelectProps {
   options: GlassSelectOption[];
   style?: React.CSSProperties;
   "aria-label"?: string;
+  disabled?: boolean;
 }
 
 /**
  * Custom select dropdown styled with the glass design system.
  * Replaces native <select> to avoid browser-default light dropdown popups.
  */
-export function GlassSelect({ value, onChange, options, style, "aria-label": ariaLabel }: GlassSelectProps) {
+export function GlassSelect({ value, onChange, options, style, "aria-label": ariaLabel, disabled = false }: GlassSelectProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -37,10 +38,13 @@ export function GlassSelect({ value, onChange, options, style, "aria-label": ari
     <div ref={containerRef} style={{ position: "relative", ...style }}>
       <button
         type="button"
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => {
+          if (!disabled) setOpen((prev) => !prev);
+        }}
         aria-label={ariaLabel}
         aria-expanded={open}
         aria-haspopup="listbox"
+        disabled={disabled}
         style={{
           width: "100%",
           padding: "0.5rem 2rem 0.5rem 0.75rem",
@@ -51,7 +55,8 @@ export function GlassSelect({ value, onChange, options, style, "aria-label": ari
           fontSize: "var(--font-size-sm)",
           fontFamily: "inherit",
           textAlign: "left",
-          cursor: "pointer",
+          cursor: disabled ? "not-allowed" : "pointer",
+          opacity: disabled ? 0.7 : 1,
           outline: "none",
           position: "relative",
           transition: "border-color 150ms ease",
@@ -74,7 +79,7 @@ export function GlassSelect({ value, onChange, options, style, "aria-label": ari
         </span>
       </button>
 
-      {open && (
+      {open && !disabled && (
         <ul
           role="listbox"
           style={{

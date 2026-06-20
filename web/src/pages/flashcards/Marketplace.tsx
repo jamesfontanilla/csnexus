@@ -101,7 +101,7 @@ export function Marketplace() {
   async function handleRate(deckId: number) {
     if (ratingScore < 1 || ratingScore > 5) return;
     try {
-      await flashcardsApi.rateDeck(deckId, { score: ratingScore });
+      await flashcardsApi.rateDeck(deckId, { rating: ratingScore });
       setRatingDeckId(null);
       setRatingScore(0);
       fetchDecks();

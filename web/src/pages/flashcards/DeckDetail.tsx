@@ -109,7 +109,7 @@ export function DeckDetail() {
       const updated = await flashcardsApi.updateCard(
         parseInt(deckId, 10),
         cardId,
-        { front: editFront, back: editBack, card_type: editType }
+        { front: editFront, back: editBack }
       );
       setCards((prev) => prev.map((c) => (c.id === cardId ? updated : c)));
       setEditingId(null);
@@ -474,7 +474,11 @@ export function DeckDetail() {
                       onChange={(v) => setEditType(v as CardType)}
                       options={CARD_TYPES.map((t) => ({ value: t, label: t.replace("_", " ") }))}
                       aria-label="Card type"
+                      disabled
                     />
+                    <p style={{ margin: 0, fontSize: "var(--font-size-xs)", color: "var(--color-text-secondary)" }}>
+                      Card type is fixed after creation.
+                    </p>
                     <div style={{ display: "flex", gap: "0.75rem" }}>
                       <GlassButton
                         variant="primary"

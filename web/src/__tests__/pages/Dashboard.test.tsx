@@ -67,14 +67,21 @@ function mockMatchMedia(reducedMotion: boolean) {
   });
 }
 
-const mockGet = vi.fn();
+const mockApiGet = vi.fn();
+const mockReadinessGetDashboard = vi.fn();
 
 vi.mock("../../api/client", () => ({
   apiClient: {
-    get: (...args: unknown[]) => mockGet(...args),
+    get: (...args: unknown[]) => mockApiGet(...args),
     post: vi.fn(),
     patch: vi.fn(),
     delete: vi.fn(),
+  },
+}));
+
+vi.mock("../../api/readiness", () => ({
+  readinessApi: {
+    getDashboard: () => mockReadinessGetDashboard(),
   },
 }));
 
@@ -89,16 +96,32 @@ vi.mock("../../stores/auth", () => ({
 import { Dashboard } from "../../pages/Dashboard";
 
 const mockDashboardData = {
-  readinessScore: 72,
+  score: 72,
+  top_impact_subtopics: [
+    { subtopic_id: 1, subtopic_name: "Numerical Ability", point_impact: 8.5 },
+  ],
+};
+
+const mockXpData = {
+  cumulative_xp: 1500,
+  level: 7,
   streak: 5,
-  xpToday: 150,
-  questionsToday: 23,
-  dailyQueue: [
-    { id: "1", title: "Basic Operations", type: "lesson", estimatedMinutes: 10 },
+};
+
+const mockQueueData = {
+  items: [
+    {
+      id: 1,
+      position: 1,
+      item_type: "quiz_practice",
+      payload: { title: "Basic Operations" },
+      estimated_seconds: 600,
+    },
   ],
-  impactAreas: [
-    { subject: "Numerical Ability", score: 80, maxScore: 100 },
-  ],
+  total_estimated_seconds: 600,
+  items_remaining: 1,
+  items_completed: 0,
+  time_budget_minutes: 15,
 };
 
 function renderDashboard() {
@@ -115,11 +138,18 @@ describe("Dashboard page (Task 17.2)", () => {
     mockMobileViewport = false;
     mockMatchMedia(false);
     vi.clearAllMocks();
+    mockReadinessGetDashboard.mockResolvedValue(mockDashboardData);
+    mockApiGet.mockImplementation((url: string) => {
+      if (url === "/v1/xp/me") return Promise.resolve(mockXpData);
+      if (url === "/v1/queue") return Promise.resolve(mockQueueData);
+      return Promise.reject(new Error(`Unexpected URL ${url}`));
+    });
   });
 
   describe("Skeleton placeholders render while loading (Requirement 12.6)", () => {
     it("renders skeleton placeholders before data loads", () => {
-      mockGet.mockReturnValue(new Promise(() => {}));
+      mockReadinessGetDashboard.mockReturnValue(new Promise(() => {}));
+      mockApiGet.mockReturnValue(new Promise(() => {}));
 
       const { container } = renderDashboard();
 
@@ -128,19 +158,20 @@ describe("Dashboard page (Task 17.2)", () => {
     });
 
     it("does not render section content while loading", () => {
-      mockGet.mockReturnValue(new Promise(() => {}));
+      mockReadinessGetDashboard.mockReturnValue(new Promise(() => {}));
+      mockApiGet.mockReturnValue(new Promise(() => {}));
 
       renderDashboard();
 
       expect(screen.queryByText("Day Streak 🔥")).not.toBeInTheDocument();
-      expect(screen.queryByText("XP Today")).not.toBeInTheDocument();
-      expect(screen.queryByText("Questions Today")).not.toBeInTheDocument();
+      expect(screen.queryByText("Total XP")).not.toBeInTheDocument();
+      expect(screen.queryByText("Queue Items")).not.toBeInTheDocument();
     });
   });
 
   describe("ProgressRing receives value={0} initially then actual score (Requirement 12.2)", () => {
     it("renders ProgressRing after data loads", async () => {
-      mockGet.mockResolvedValue(mockDashboardData);
+      mockReadinessGetDashboard.mockResolvedValue(mockDashboardData);
 
       const { container } = renderDashboard();
 
@@ -153,14 +184,14 @@ describe("Dashboard page (Task 17.2)", () => {
 
   describe("AnimatedNumber components present for streak, XP, and questions (Requirement 12.4)", () => {
     it("renders the quick stats labels after data loads", async () => {
-      mockGet.mockResolvedValue(mockDashboardData);
+      mockReadinessGetDashboard.mockResolvedValue(mockDashboardData);
 
       renderDashboard();
 
       await waitFor(() => {
         expect(screen.getByText("Day Streak 🔥")).toBeInTheDocument();
-        expect(screen.getByText("XP Today")).toBeInTheDocument();
-        expect(screen.getByText("Questions Today")).toBeInTheDocument();
+        expect(screen.getByText("Total XP")).toBeInTheDocument();
+        expect(screen.getByText("Queue Items")).toBeInTheDocument();
       });
     });
   });
@@ -169,7 +200,7 @@ describe("Dashboard page (Task 17.2)", () => {
     it("shows queue, flashcards, tutor, and readiness links on mobile", async () => {
       mockMobileViewport = true;
       mockMatchMedia(false);
-      mockGet.mockResolvedValue(mockDashboardData);
+      mockReadinessGetDashboard.mockResolvedValue(mockDashboardData);
 
       renderDashboard();
 
@@ -184,7 +215,7 @@ describe("Dashboard page (Task 17.2)", () => {
     it("does not render the feature hub on desktop", async () => {
       mockMobileViewport = false;
       mockMatchMedia(false);
-      mockGet.mockResolvedValue(mockDashboardData);
+      mockReadinessGetDashboard.mockResolvedValue(mockDashboardData);
 
       renderDashboard();
 
