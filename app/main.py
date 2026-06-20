@@ -57,6 +57,54 @@ from app.features.learning_techniques.router import router as learning_technique
 from app.infrastructure.scheduler.jobs import start_scheduler, stop_scheduler
 
 
+def _ensure_auth_session_schema() -> None:
+    """Patch auth session columns that ``create_all`` cannot add to old DBs."""
+
+    from sqlalchemy import inspect, text
+
+    from app.infrastructure.database.session import engine
+
+    inspector = inspect(engine)
+    if "sessions" not in inspector.get_table_names():
+        return
+
+    columns = {column["name"] for column in inspector.get_columns("sessions")}
+    dialect = engine.dialect.name
+
+    statements: list[str] = []
+    if "refresh_jti" not in columns:
+        if dialect == "postgresql":
+            statements.append(
+                "ALTER TABLE sessions ADD COLUMN IF NOT EXISTS refresh_jti VARCHAR(64)"
+            )
+        else:
+            statements.append("ALTER TABLE sessions ADD COLUMN refresh_jti VARCHAR(64)")
+
+    if "refresh_expires_at" not in columns:
+        if dialect == "postgresql":
+            statements.append(
+                "ALTER TABLE sessions ADD COLUMN IF NOT EXISTS refresh_expires_at TIMESTAMP WITH TIME ZONE"
+            )
+        else:
+            statements.append(
+                "ALTER TABLE sessions ADD COLUMN refresh_expires_at DATETIME"
+            )
+
+    index_names = {index["name"] for index in inspector.get_indexes("sessions")}
+    if "ix_sessions_refresh_jti" not in index_names:
+        statements.append(
+            "CREATE UNIQUE INDEX IF NOT EXISTS ix_sessions_refresh_jti "
+            "ON sessions (refresh_jti)"
+        )
+
+    if not statements:
+        return
+
+    with engine.begin() as connection:
+        for statement in statements:
+            connection.execute(text(statement))
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Start the scheduler on app boot, auto-seed if DB is empty."""
@@ -68,6 +116,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
     try:
         Base.metadata.create_all(bind=engine)
+        _ensure_auth_session_schema()
         session = SessionLocal()
         try:
             from app.features.users.models import User
