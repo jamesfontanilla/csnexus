@@ -5,7 +5,7 @@ import { isAuthenticated } from "../stores/auth";
 import { apiClient } from "../api/client";
 import { slideDown, springDefault } from "../design-system";
 import { BottomNav } from "./BottomNav";
-import { useMediaQuery } from "../pages/content/lesson/useMediaQuery";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 import "./GlassNavbar.css";
 
 interface XPData {

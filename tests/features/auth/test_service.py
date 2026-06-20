@@ -29,6 +29,7 @@ from app.features.auth.schemas import (
 from app.features.otp.models import OTPPurpose
 from app.features.otp.schemas import OTPIssueRequest, OTPVerifyRequest
 from app.features.users.models import AccountState
+from app.infrastructure.security.jwt import REFRESH_TOKEN_TYPE, encode_token
 from tests.features.auth._helpers import (
     _NEW_PASSWORD,
     _RIGHT_PASSWORD,
@@ -119,12 +120,19 @@ def test_login_returns_token_for_verified_user() -> None:
     service, user_repo, auth_repo, _ = _make_service()
     user_repo.get_by_email.return_value = _make_user()
 
-    token, claims = service.login(email="alice@example.com", password=_RIGHT_PASSWORD)
+    token, claims, refresh_token, refresh_claims = service.login(
+        email="alice@example.com",
+        password=_RIGHT_PASSWORD,
+    )
 
     assert isinstance(token, str) and token.count(".") == 2  # JWT shape
+    assert isinstance(refresh_token, str) and refresh_token.count(".") == 2
     assert claims["sub"] == "1"
+    assert claims["typ"] == "access"
+    assert refresh_claims["typ"] == "refresh"
     assert "jti" in claims and "iat" in claims and "exp" in claims
-    assert claims["exp"] - claims["iat"] == 24 * 3600
+    assert claims["exp"] - claims["iat"] == 900
+    assert refresh_claims["exp"] - refresh_claims["iat"] == 2_592_000
     auth_repo.record_login_attempt.assert_called_with(
         user_id=1, attempted_at=auth_repo.record_login_attempt.call_args.kwargs["attempted_at"], success=True
     )
@@ -134,14 +142,19 @@ def test_login_persists_session_row() -> None:
     service, user_repo, auth_repo, _ = _make_service()
     user_repo.get_by_email.return_value = _make_user()
 
-    _, claims = service.login(email="alice@example.com", password=_RIGHT_PASSWORD)
+    _, claims, _, refresh_claims = service.login(
+        email="alice@example.com",
+        password=_RIGHT_PASSWORD,
+    )
 
     auth_repo.create_session.assert_called_once()
     call = auth_repo.create_session.call_args
     assert call.kwargs["jti"] == claims["jti"]
+    assert call.kwargs["refresh_jti"] == refresh_claims["jti"]
     assert call.kwargs["user_id"] == 1
     assert isinstance(call.kwargs["issued_at"], datetime)
     assert isinstance(call.kwargs["expires_at"], datetime)
+    assert isinstance(call.kwargs["refresh_expires_at"], datetime)
 
 
 def test_login_raises_401_for_unknown_email() -> None:
@@ -239,6 +252,83 @@ def test_logout_revokes_session_by_jti() -> None:
     service.logout("jti-123")
 
     auth_repo.revoke_session_by_jti.assert_called_once_with("jti-123")
+
+
+def test_refresh_session_rotates_tokens_and_revokes_previous_session() -> None:
+    service, user_repo, auth_repo, _ = _make_service()
+    user_repo.get.return_value = _make_user()
+    now = datetime.now(tz=timezone.utc)
+    old_access_token, old_access_claims = encode_token(sub="1")
+    old_refresh_token, old_refresh_claims = encode_token(
+        sub="1",
+        token_type=REFRESH_TOKEN_TYPE,
+    )
+    session_row = MagicMock()
+    session_row.jti = old_access_claims["jti"]
+    session_row.user_id = 1
+    session_row.revoked_at = None
+    session_row.refresh_expires_at = now + timedelta(days=1)
+    auth_repo.get_session_by_refresh_jti.return_value = session_row
+    auth_repo.revoke_session_if_active.return_value = True
+
+    access_token, access_claims, refresh_token, refresh_claims = service.refresh_session(
+        refresh_token=old_refresh_token,
+        now=now,
+    )
+
+    assert access_token != old_access_token
+    assert access_claims["jti"] != old_access_claims["jti"]
+    assert refresh_claims["jti"] != old_refresh_claims["jti"]
+    auth_repo.revoke_session_if_active.assert_called_once_with(
+        old_access_claims["jti"],
+        now=now,
+    )
+    auth_repo.create_session.assert_called_once()
+
+
+def test_refresh_session_raises_replayed_for_revoked_session() -> None:
+    service, _, auth_repo, _ = _make_service()
+    now = datetime.now(tz=timezone.utc)
+    refresh_token, refresh_claims = encode_token(
+        sub="1",
+        token_type=REFRESH_TOKEN_TYPE,
+    )
+    session_row = MagicMock()
+    session_row.jti = "old-access-jti"
+    session_row.user_id = 1
+    session_row.revoked_at = now - timedelta(seconds=1)
+    session_row.refresh_expires_at = now + timedelta(days=1)
+    auth_repo.get_session_by_refresh_jti.return_value = session_row
+
+    with pytest.raises(HTTPException) as exc_info:
+        service.refresh_session(refresh_token=refresh_token, now=now)
+
+    assert exc_info.value.status_code == 401
+    assert exc_info.value.detail == {
+        "message": "refresh_token_replayed",
+        "code": "REFRESH_TOKEN_REPLAYED",
+    }
+    auth_repo.revoke_session_if_active.assert_not_called()
+
+
+def test_refresh_session_raises_expired_for_expired_refresh_token() -> None:
+    service, _, auth_repo, _ = _make_service()
+    now = datetime.now(tz=timezone.utc)
+    refresh_token, _ = encode_token(
+        sub="1",
+        token_type=REFRESH_TOKEN_TYPE,
+        ttl_seconds=-60,
+    )
+
+    with pytest.raises(HTTPException) as exc_info:
+        service.refresh_session(refresh_token=refresh_token, now=now)
+
+    assert exc_info.value.status_code == 401
+    assert exc_info.value.detail == {
+        "message": "refresh_token_expired",
+        "code": "REFRESH_TOKEN_EXPIRED",
+    }
+    auth_repo.get_session_by_refresh_jti.assert_not_called()
 
 
 # --- request_password_reset -----------------------------------------------

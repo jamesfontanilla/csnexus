@@ -174,8 +174,20 @@ h3 {
 
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
   .page {
-    padding: 1rem 0.75rem;
+    padding: 0.875rem 0.75rem calc(5.25rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  h1 {
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    letter-spacing: -0.015em;
   }
 }
 

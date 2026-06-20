@@ -32,6 +32,12 @@ class Session(Base):
     __tablename__ = "sessions"
 
     jti: Mapped[str] = mapped_column(String(64), primary_key=True)
+    refresh_jti: Mapped[str | None] = mapped_column(
+        String(64),
+        nullable=True,
+        unique=True,
+        index=True,
+    )
     user_id: Mapped[int] = mapped_column(
         Integer,
         ForeignKey("users.id", ondelete="CASCADE"),
@@ -40,6 +46,10 @@ class Session(Base):
     )
     issued_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    refresh_expires_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
     revoked_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
     )

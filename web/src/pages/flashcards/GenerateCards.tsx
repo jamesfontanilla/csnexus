@@ -5,6 +5,7 @@ import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
 import { GlassSelect } from "../../components/GlassSelect";
 import { PageTransition } from "../../components/PageTransition";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 interface GeneratedCard {
   front: string;
@@ -16,6 +17,7 @@ interface GeneratedCard {
 
 export function GenerateCards() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 639px)");
   const [lessonContent, setLessonContent] = useState("");
   const [cardCount, setCardCount] = useState(25);
   const [generating, setGenerating] = useState(false);
@@ -110,18 +112,18 @@ export function GenerateCards() {
           variant="ghost"
           size="sm"
           onClick={() => navigate("/flashcards")}
-          style={{ marginBottom: "1.5rem" }}
+          style={{ marginBottom: "1.25rem", width: isMobile ? "100%" : undefined }}
         >
           ← Back
         </GlassButton>
 
-        <h1 style={{ fontSize: "var(--font-size-2xl)", color: "var(--color-text)", marginBottom: "1.5rem" }}>
+        <h1 style={{ fontSize: isMobile ? "var(--font-size-xl)" : "var(--font-size-2xl)", color: "var(--color-text)", marginBottom: "1.25rem" }}>
           Generate Flashcards
         </h1>
 
         {/* Input section */}
         {cards.length === 0 && (
-          <GlassCard style={{ marginBottom: "1.5rem" }}>
+          <GlassCard style={{ marginBottom: "1.25rem" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               <div>
                 <label style={{ display: "block", fontSize: "var(--font-size-sm)", color: "var(--color-text-secondary)", marginBottom: "0.375rem", fontWeight: 500 }}>
@@ -131,7 +133,7 @@ export function GenerateCards() {
                   value={lessonContent}
                   onChange={(e) => setLessonContent(e.target.value)}
                   placeholder="Paste your lesson text here. The generator will extract terms and create flashcards automatically..."
-                  rows={10}
+                  rows={isMobile ? 8 : 10}
                   style={{
                     width: "100%",
                     padding: "0.75rem",
@@ -164,11 +166,11 @@ export function GenerateCards() {
                   <span>50</span>
                 </div>
               </div>
-              <GlassButton variant="primary" onClick={handleGenerate} loading={generating} disabled={lessonContent.trim().length < 50}>
-                Generate Cards
-              </GlassButton>
-            </div>
-          </GlassCard>
+                <GlassButton variant="primary" onClick={handleGenerate} loading={generating} disabled={lessonContent.trim().length < 50} style={{ width: "100%" }}>
+                  Generate Cards
+                </GlassButton>
+              </div>
+            </GlassCard>
         )}
 
         {/* Error */}
@@ -192,27 +194,27 @@ export function GenerateCards() {
               <p style={{ fontSize: "var(--font-size-base)", color: "var(--color-text)", margin: 0 }}>
                 {termsExtracted} terms extracted · {cards.length} cards generated · {selectedCount} selected
               </p>
-              <div style={{ display: "flex", gap: "0.5rem" }}>
+              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                 <GlassButton variant="ghost" size="sm" onClick={selectAll}>Select All</GlassButton>
                 <GlassButton variant="ghost" size="sm" onClick={deselectAll}>Deselect All</GlassButton>
                 <GlassButton variant="ghost" size="sm" onClick={() => setCards([])}>Clear</GlassButton>
               </div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", maxHeight: "50vh", overflowY: "auto", marginBottom: "1.5rem" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", maxHeight: isMobile ? "unset" : "50vh", overflowY: isMobile ? "visible" : "auto", marginBottom: "1.5rem" }}>
               {cards.map((card, i) => (
                 <GlassCard
                   key={i}
                   style={{ opacity: card.selected ? 1 : 0.5, cursor: "pointer" }}
                   onClick={() => toggleCard(i)}
                 >
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", flexDirection: isMobile ? "column" : "row" }}>
                     <input
                       type="checkbox"
                       checked={card.selected}
                       onChange={() => toggleCard(i)}
                       onClick={(e) => e.stopPropagation()}
-                      style={{ marginTop: "0.25rem", width: "1.125rem", height: "1.125rem" }}
+                      style={{ marginTop: isMobile ? 0 : "0.25rem", width: "1.125rem", height: "1.125rem" }}
                     />
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{ fontSize: "var(--font-size-base)", color: "var(--color-text)", margin: "0 0 0.25rem", fontWeight: 500 }}>
@@ -221,7 +223,7 @@ export function GenerateCards() {
                       <p style={{ fontSize: "var(--font-size-sm)", color: "var(--color-text-secondary)", margin: "0 0 0.5rem" }}>
                         {card.back}
                       </p>
-                      <div style={{ display: "flex", gap: "0.5rem" }}>
+                      <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                         <span style={{ fontSize: "var(--font-size-sm)", padding: "0.125rem 0.5rem", borderRadius: "var(--radius-sm)", background: "var(--glass-bg-subtle)", color: "var(--color-accent)", textTransform: "capitalize" }}>
                           {card.card_type}
                         </span>
@@ -240,7 +242,7 @@ export function GenerateCards() {
               <h3 style={{ fontSize: "var(--font-size-base)", color: "var(--color-text)", margin: "0 0 1rem" }}>
                 Add selected cards to a deck
               </h3>
-              <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+              <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center", flexDirection: isMobile ? "column" : "row" }}>
                 <GlassSelect
                   value={selectedDeckId?.toString() ?? ""}
                   onChange={(v) => setSelectedDeckId(v ? Number(v) : null)}
@@ -248,7 +250,7 @@ export function GenerateCards() {
                     { value: "", label: "Select a deck..." },
                     ...decks.map((d) => ({ value: d.id.toString(), label: d.title })),
                   ]}
-                  style={{ flex: "1 1 200px" }}
+                  style={{ flex: isMobile ? "1 1 auto" : "1 1 200px", width: isMobile ? "100%" : undefined }}
                   aria-label="Select deck"
                 />
                 <GlassButton
@@ -256,6 +258,7 @@ export function GenerateCards() {
                   onClick={handleAddToDeck}
                   loading={adding}
                   disabled={!selectedDeckId || selectedCount === 0}
+                  style={{ width: isMobile ? "100%" : undefined }}
                 >
                   Add {selectedCount} Cards
                 </GlassButton>

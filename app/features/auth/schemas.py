@@ -52,8 +52,16 @@ class LoginResponse(BaseModel):
     """
 
     access_token: str
+    refresh_token: str | None = None
     token_type: str = "Bearer"
     expires_in: int
+    refresh_expires_in: int | None = None
+
+
+class RefreshSessionRequest(BaseModel):
+    """Payload for ``POST /v1/auth/sessions:refresh``."""
+
+    refresh_token: str = Field(min_length=1)
 
 
 class PasswordResetRequest(BaseModel):
@@ -124,8 +132,10 @@ class GoogleAuthResponse(BaseModel):
     """
 
     access_token: str
+    refresh_token: str | None = None
     token_type: str = "Bearer"
     expires_in: int
+    refresh_expires_in: int | None = None
     is_new_user: bool
     user: "GoogleUserResponse"
 
@@ -140,3 +150,4 @@ class GoogleUserResponse(BaseModel):
     display_name: str
     username: str | None
     category: str
+    role: str | None = None

@@ -10,9 +10,11 @@ import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
 import { GlassSkeleton } from "../../components/GlassSkeleton";
 import { PageTransition } from "../../components/PageTransition";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 export function FlashcardAnalytics() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 639px)");
   const [dashboard, setDashboard] = useState<AnalyticsDashboard | null>(null);
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
   const [heatmap, setHeatmap] = useState<HeatmapEntry[]>([]);
@@ -109,24 +111,25 @@ export function FlashcardAnalytics() {
         >
           <h1
             style={{
-              fontSize: "var(--font-size-2xl)",
+              fontSize: isMobile ? "var(--font-size-xl)" : "var(--font-size-2xl)",
               color: "var(--color-text)",
               margin: 0,
             }}
           >
             Flashcard Analytics
           </h1>
-          <GlassButton
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate("/flashcards")}
-          >
-            ← Back
-          </GlassButton>
-        </div>
+            <GlassButton
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate("/flashcards")}
+              style={{ width: isMobile ? "100%" : undefined }}
+            >
+              ← Back
+            </GlassButton>
+          </div>
 
         {/* Overall Retention */}
-        <GlassCard style={{ marginBottom: "2rem", textAlign: "center" }}>
+        <GlassCard style={{ marginBottom: "1.5rem", textAlign: "center" }}>
           <p
             style={{
               fontSize: "var(--font-size-sm)",
@@ -140,7 +143,7 @@ export function FlashcardAnalytics() {
           </p>
           <p
             style={{
-              fontSize: "4rem",
+              fontSize: isMobile ? "3rem" : "4rem",
               color: "var(--color-accent)",
               fontWeight: 700,
               margin: 0,
@@ -162,14 +165,15 @@ export function FlashcardAnalytics() {
         </GlassCard>
 
         {/* Predicted Readiness */}
-        <GlassCard style={{ marginBottom: "2rem" }}>
+        <GlassCard style={{ marginBottom: "1.5rem" }}>
           <div
             style={{
               display: "flex",
-              alignItems: "center",
               justifyContent: "space-between",
               flexWrap: "wrap",
               gap: "1rem",
+              flexDirection: isMobile ? "column" : "row",
+              alignItems: isMobile ? "flex-start" : "center",
             }}
           >
             <div>
@@ -186,7 +190,7 @@ export function FlashcardAnalytics() {
               </p>
               <p
                 style={{
-                  fontSize: "var(--font-size-2xl)",
+                  fontSize: isMobile ? "var(--font-size-xl)" : "var(--font-size-2xl)",
                   color: "var(--color-text)",
                   fontWeight: 700,
                   margin: 0,
@@ -197,7 +201,7 @@ export function FlashcardAnalytics() {
             </div>
             <div
               style={{
-                width: "120px",
+                width: isMobile ? "100%" : "120px",
                 height: "8px",
                 background: "var(--glass-bg-subtle)",
                 borderRadius: "var(--radius-sm)",

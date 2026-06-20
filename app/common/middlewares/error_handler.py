@@ -53,12 +53,14 @@ async def http_exception_handler(request: Request, exc: HTTPException) -> JSONRe
     The ``message`` is the exception's ``detail`` — services are expected to
     pass user-safe strings per ``api-standard.md``.
     """
-    body = ErrorResponse(
-        error=ErrorDetail(
-            message=str(exc.detail),
-            code=f"HTTP_{exc.status_code}",
-        )
-    )
+    detail = exc.detail
+    if isinstance(detail, dict):
+        message = str(detail.get("message", "Request failed"))
+        code = str(detail.get("code", f"HTTP_{exc.status_code}"))
+    else:
+        message = str(detail)
+        code = f"HTTP_{exc.status_code}"
+    body = ErrorResponse(error=ErrorDetail(message=message, code=code))
     return JSONResponse(status_code=exc.status_code, content=body.model_dump())
 
 

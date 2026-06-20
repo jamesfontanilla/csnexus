@@ -1,6 +1,7 @@
 import type { ReactNode, CSSProperties, KeyboardEvent } from "react";
 import { motion, type TargetAndTransition } from "framer-motion";
 import { useReducedMotion } from "../design-system/motion";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 type Elevation = "flat" | "raised" | "floating";
 
@@ -55,6 +56,7 @@ export function GlassCard({
   as = "div",
 }: GlassCardProps) {
   const reducedMotion = useReducedMotion();
+  const isMobile = useMediaQuery("(max-width: 639px)");
   const Component = motion[as];
 
   // Determine effective elevation
@@ -120,7 +122,7 @@ export function GlassCard({
   // Inline styles
   const inlineStyle: CSSProperties = {
     position: "relative",
-    padding: "var(--space-6)",
+    padding: isMobile ? "var(--space-4)" : "var(--space-6)",
     willChange: hoverable || effectiveElevation ? "transform" : undefined,
     transform: lifted ? "translateY(-2px)" : undefined,
     boxShadow: effectiveElevation

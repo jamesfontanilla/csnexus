@@ -12,6 +12,7 @@ import { GlassSelect } from "../../components/GlassSelect";
 import { EmptyState } from "../../components/EmptyState";
 import { CrossfadeContent } from "../../components/CrossfadeContent";
 import { PageTransition } from "../../components/PageTransition";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 type SortOption = "popular" | "rating" | "newest";
 
@@ -24,6 +25,7 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 
 export function Marketplace() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 639px)");
   const [decks, setDecks] = useState<MarketplaceDeck[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -163,7 +165,7 @@ export function Marketplace() {
         >
           <h1
             style={{
-              fontSize: "var(--font-size-2xl)",
+              fontSize: isMobile ? "var(--font-size-xl)" : "var(--font-size-2xl)",
               color: "var(--color-text)",
               margin: 0,
               fontFamily: "var(--font-display)",
@@ -172,57 +174,62 @@ export function Marketplace() {
           >
             Marketplace
           </h1>
-          <GlassButton
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate("/flashcards")}
-          >
-            ← Back
-          </GlassButton>
-        </div>
+            <GlassButton
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate("/flashcards")}
+              style={{ width: isMobile ? "100%" : undefined }}
+            >
+              ← Back
+            </GlassButton>
+          </div>
 
         {/* Filters */}
-        <GlassCard style={{ marginBottom: "1.5rem" }}>
-          <div
-            style={{
-              display: "flex",
-              gap: "1rem",
-              flexWrap: "wrap",
-              alignItems: "center",
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Search decks..."
+          <GlassCard style={{ marginBottom: "1.5rem" }}>
+            <div
+              style={{
+                display: "flex",
+                gap: "1rem",
+                flexWrap: "wrap",
+                alignItems: "center",
+                flexDirection: isMobile ? "column" : "row",
+              }}
+            >
+              <input
+                type="text"
+                placeholder="Search decks..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              style={{
-                flex: "1 1 200px",
-                padding: "0.625rem",
-                background: "var(--glass-bg-subtle)",
-                border: "1px solid var(--glass-border-medium)",
-                borderRadius: "var(--radius-sm)",
+                style={{
+                  flex: isMobile ? "1 1 auto" : "1 1 200px",
+                  width: isMobile ? "100%" : undefined,
+                  padding: "0.625rem",
+                  background: "var(--glass-bg-subtle)",
+                  border: "1px solid var(--glass-border-medium)",
+                  borderRadius: "var(--radius-sm)",
                 color: "var(--color-text)",
                 fontSize: "var(--font-size-base)",
               }}
             />
-            <GlassSelect
-              value={category}
-              onChange={(v) => setCategory(v as DeckCategory | "all")}
-              options={CATEGORIES.map((c) => ({
-                value: c,
-                label: c === "all" ? "All Categories" : c.charAt(0).toUpperCase() + c.slice(1),
-              }))}
-              aria-label="Category filter"
-            />
-            <GlassSelect
-              value={sort}
-              onChange={(v) => setSort(v as SortOption)}
-              options={SORT_OPTIONS.map((opt) => ({ value: opt.value, label: opt.label }))}
-              aria-label="Sort order"
-            />
-          </div>
-        </GlassCard>
+              <GlassSelect
+                value={category}
+                onChange={(v) => setCategory(v as DeckCategory | "all")}
+                options={CATEGORIES.map((c) => ({
+                  value: c,
+                  label: c === "all" ? "All Categories" : c.charAt(0).toUpperCase() + c.slice(1),
+                }))}
+                aria-label="Category filter"
+                style={{ width: isMobile ? "100%" : undefined }}
+              />
+              <GlassSelect
+                value={sort}
+                onChange={(v) => setSort(v as SortOption)}
+                options={SORT_OPTIONS.map((opt) => ({ value: opt.value, label: opt.label }))}
+                aria-label="Sort order"
+                style={{ width: isMobile ? "100%" : undefined }}
+              />
+            </div>
+          </GlassCard>
 
         {/* Error */}
         {error && (
@@ -245,8 +252,8 @@ export function Marketplace() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: "1.5rem",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))",
+              gap: "1rem",
             }}
           >
             {decks.map((deck) => (

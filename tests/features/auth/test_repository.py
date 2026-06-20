@@ -44,15 +44,19 @@ def test_create_session_persists_jti(db_session: DBSession) -> None:
     repo = AuthRepository(db=db_session)
     now = datetime.now(tz=timezone.utc)
     jti = _new_jti()
+    refresh_jti = _new_jti()
 
     created = repo.create_session(
         jti=jti,
+        refresh_jti=refresh_jti,
         user_id=user.id,
         issued_at=now,
         expires_at=now + timedelta(hours=24),
+        refresh_expires_at=now + timedelta(days=30),
     )
 
     assert created.jti == jti
+    assert created.refresh_jti == refresh_jti
     assert created.user_id == user.id
     assert created.revoked_at is None
 
@@ -260,3 +264,44 @@ def test_get_session_by_jti_returns_row_or_none(db_session: DBSession) -> None:
     assert row.user_id == user.id
 
     assert repo.get_session_by_jti("nonexistent-jti") is None
+
+
+def test_get_session_by_refresh_jti_returns_row_or_none(db_session: DBSession) -> None:
+    user = _make_user(db_session)
+    repo = AuthRepository(db=db_session)
+    now = datetime.now(tz=timezone.utc)
+    jti = _new_jti()
+    refresh_jti = _new_jti()
+    repo.create_session(
+        jti=jti,
+        refresh_jti=refresh_jti,
+        user_id=user.id,
+        issued_at=now,
+        expires_at=now + timedelta(minutes=15),
+        refresh_expires_at=now + timedelta(days=30),
+    )
+
+    row = repo.get_session_by_refresh_jti(refresh_jti)
+    assert row is not None
+    assert row.jti == jti
+    assert row.refresh_jti == refresh_jti
+
+    assert repo.get_session_by_refresh_jti("nonexistent-refresh-jti") is None
+
+
+def test_revoke_session_if_active_only_updates_unrevoked_rows(
+    db_session: DBSession,
+) -> None:
+    user = _make_user(db_session)
+    repo = AuthRepository(db=db_session)
+    now = datetime.now(tz=timezone.utc)
+    jti = _new_jti()
+    repo.create_session(
+        jti=jti,
+        user_id=user.id,
+        issued_at=now,
+        expires_at=now + timedelta(hours=24),
+    )
+
+    assert repo.revoke_session_if_active(jti, now=now + timedelta(minutes=1)) is True
+    assert repo.revoke_session_if_active(jti, now=now + timedelta(minutes=2)) is False

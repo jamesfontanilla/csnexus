@@ -13,8 +13,11 @@ import jwt as pyjwt  # disambiguate from the local `jwt` module name
 import pytest
 
 from app.infrastructure.security.jwt import (
+    ACCESS_TOKEN_TYPE,
     JWT_ALGORITHM,
-    JWT_TTL_HOURS,
+    JWT_ACCESS_TTL_SECONDS,
+    JWT_REFRESH_TTL_SECONDS,
+    REFRESH_TOKEN_TYPE,
     decode_token,
     encode_token,
 )
@@ -71,7 +74,17 @@ def test_encode_decode_round_trip(monkeypatch: pytest.MonkeyPatch) -> None:
     assert decoded["jti"] == claims["jti"]
     assert decoded["iat"] == claims["iat"]
     assert decoded["exp"] == claims["exp"]
-    assert decoded["exp"] - decoded["iat"] == JWT_TTL_HOURS * 3600
+    assert decoded["typ"] == ACCESS_TOKEN_TYPE
+    assert decoded["exp"] - decoded["iat"] == JWT_ACCESS_TTL_SECONDS * 1
+
+
+def test_refresh_token_uses_refresh_ttl(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("JWT_SECRET", _TEST_SECRET)
+    token, claims = encode_token(sub="42", token_type=REFRESH_TOKEN_TYPE)
+    decoded = decode_token(token, expected_type=REFRESH_TOKEN_TYPE)
+
+    assert decoded["typ"] == REFRESH_TOKEN_TYPE
+    assert decoded["exp"] - decoded["iat"] == JWT_REFRESH_TTL_SECONDS
 
 
 def test_encode_generates_unique_jtis(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -84,10 +97,10 @@ def test_encode_generates_unique_jtis(monkeypatch: pytest.MonkeyPatch) -> None:
 def test_decode_rejects_expired_token(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("JWT_SECRET", _TEST_SECRET)
     past = datetime.now(tz=timezone.utc) - timedelta(hours=1)
-    iat = int((past - timedelta(hours=JWT_TTL_HOURS)).timestamp())
+    iat = int((past - timedelta(seconds=JWT_ACCESS_TTL_SECONDS)).timestamp())
     exp = int(past.timestamp())
     expired = pyjwt.encode(
-        {"sub": "42", "jti": "fixed-jti", "iat": iat, "exp": exp},
+        {"sub": "42", "jti": "fixed-jti", "iat": iat, "exp": exp, "typ": ACCESS_TOKEN_TYPE},
         _TEST_SECRET,
         algorithm=JWT_ALGORITHM,
     )

@@ -9,7 +9,7 @@ let mockIsMobile = false;
 let mockAuthenticated = true;
 
 // Mock the useMediaQuery hook
-vi.mock("../../pages/content/lesson/useMediaQuery", () => ({
+vi.mock("../../hooks/useMediaQuery", () => ({
   useMediaQuery: () => mockIsMobile,
 }));
 

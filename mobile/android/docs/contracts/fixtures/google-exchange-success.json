@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/v1/auth/google",
+    "body": {
+      "id_token": "google-id-token",
+      "platform": "android",
+      "android_package": "com.csnexus.app"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "X-Request-ID": "req-google-success"
+    },
+    "body": {
+      "access_token": "access-token",
+      "refresh_token": "refresh-token",
+      "token_type": "bearer",
+      "expires_in": 900,
+      "refresh_expires_in": 2592000,
+      "user": {
+        "id": 123,
+        "email": "learner@example.com",
+        "display_name": "Learner",
+        "role": "learner"
+      },
+      "account_status": "signed_in"
+    }
+  }
+}

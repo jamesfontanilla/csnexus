@@ -38,6 +38,7 @@ from app.features.auth.schemas import (
     PasswordChangeRequest,
     PasswordResetConfirmRequest,
     PasswordResetRequest,
+    RefreshSessionRequest,
 )
 from app.features.auth.service import AuthService
 from app.features.otp.repository import OTPRepository
@@ -149,9 +150,45 @@ def login(
     ``expires_in`` is reported in seconds (``exp - iat``) rather than as an
     absolute timestamp so clients don't have to reason about clock skew.
     """
-    token, claims = service.login(email=payload.email, password=payload.password)
+    token, claims, refresh_token, refresh_claims = service.login(
+        email=payload.email,
+        password=payload.password,
+    )
     expires_in = int(claims["exp"]) - int(claims["iat"])
-    return LoginResponse(access_token=token, token_type="Bearer", expires_in=expires_in)
+    refresh_expires_in = int(refresh_claims["exp"]) - int(refresh_claims["iat"])
+    return LoginResponse(
+        access_token=token,
+        refresh_token=refresh_token,
+        token_type="Bearer",
+        expires_in=expires_in,
+        refresh_expires_in=refresh_expires_in,
+    )
+
+
+@router.post(
+    "/sessions:refresh",
+    status_code=status.HTTP_200_OK,
+    response_model=LoginResponse,
+)
+@limiter.limit(AUTH_RATE_LIMIT)
+def refresh_session(
+    request: Request,
+    payload: RefreshSessionRequest,
+    service: AuthService = Depends(get_auth_service),
+) -> LoginResponse:
+    """Rotate a refresh token into a new access+refresh token pair."""
+    token, claims, refresh_token, refresh_claims = service.refresh_session(
+        refresh_token=payload.refresh_token,
+    )
+    expires_in = int(claims["exp"]) - int(claims["iat"])
+    refresh_expires_in = int(refresh_claims["exp"]) - int(refresh_claims["iat"])
+    return LoginResponse(
+        access_token=token,
+        refresh_token=refresh_token,
+        token_type="Bearer",
+        expires_in=expires_in,
+        refresh_expires_in=refresh_expires_in,
+    )
 
 
 @router.delete("/sessions/me", status_code=status.HTTP_204_NO_CONTENT)
@@ -263,15 +300,20 @@ def google_authenticate(
     If the Google email matches an existing email+password account, the
     Google ID is linked to that account automatically.
     """
-    token, claims, user, is_new_user = service.google_authenticate(
+    token, claims, refresh_token, refresh_claims, user, is_new_user = (
+        service.google_authenticate(
         id_token=payload.id_token,
         category=payload.category,
+        )
     )
     expires_in = int(claims["exp"]) - int(claims["iat"])
+    refresh_expires_in = int(refresh_claims["exp"]) - int(refresh_claims["iat"])
     return {
         "access_token": token,
+        "refresh_token": refresh_token,
         "token_type": "Bearer",
         "expires_in": expires_in,
+        "refresh_expires_in": refresh_expires_in,
         "is_new_user": is_new_user,
         "user": user,
     }

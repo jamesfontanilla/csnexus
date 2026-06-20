@@ -26,6 +26,7 @@ import string
 from datetime import datetime, timedelta, timezone
 from typing import Any, Final
 
+import jwt as pyjwt
 from fastapi import HTTPException, status
 
 from app.features.auth.repository import AuthRepository
@@ -40,8 +41,13 @@ from app.features.otp.service import OTPService
 from app.features.users.models import AccountState, User
 from app.features.users.repository import UserRepository
 from app.features.users.schemas import UserCreate, validate_password
-from app.infrastructure.external.google_oauth import GoogleOAuthVerifier, GoogleUserInfo
-from app.infrastructure.security.jwt import encode_token
+from app.infrastructure.external.google_oauth import GoogleOAuthVerifier
+from app.infrastructure.security.jwt import (
+    ACCESS_TOKEN_TYPE,
+    REFRESH_TOKEN_TYPE,
+    decode_token,
+    encode_token,
+)
 from app.infrastructure.security.passwords import hash_password, verify_password
 
 # Canonical error strings.
@@ -52,11 +58,27 @@ _ERR_BANNED: Final[str] = "account_banned"
 _ERR_NOT_VERIFIED: Final[str] = "email_not_verified"
 _ERR_GOOGLE_TOKEN_INVALID: Final[str] = "google_token_invalid"
 _ERR_CATEGORY_REQUIRED: Final[str] = "category_required"
+_ERR_MALFORMED_REFRESH: Final[str] = "MALFORMED_REFRESH_TOKEN"
+_ERR_REFRESH_EXPIRED: Final[str] = "REFRESH_TOKEN_EXPIRED"
+_ERR_REFRESH_REVOKED: Final[str] = "REFRESH_TOKEN_REVOKED"
+_ERR_REFRESH_REPLAYED: Final[str] = "REFRESH_TOKEN_REPLAYED"
 
 
 def _utcnow() -> datetime:
     """Aware UTC `now` so callers can pin time during tests."""
     return datetime.now(tz=timezone.utc)
+
+
+def _http_error(
+    status_code: int,
+    *,
+    message: str,
+    code: str,
+) -> HTTPException:
+    return HTTPException(
+        status_code=status_code,
+        detail={"message": message, "code": code},
+    )
 
 
 class AuthService:
@@ -180,7 +202,7 @@ class AuthService:
         email: str,
         password: str,
         now: datetime | None = None,
-    ) -> tuple[str, dict[str, Any]]:
+    ) -> tuple[str, dict[str, Any], str, dict[str, Any]]:
         """Authenticate and mint a session token.
 
         Branches (Req 2.4, 3.1, 3.2, 3.3, 15.3):
@@ -262,14 +284,19 @@ class AuthService:
         self._auth_repo.record_login_attempt(
             user_id=user.id, attempted_at=now, success=True
         )
-        token, claims = encode_token(sub=user.id)
+        token, claims, refresh_token, refresh_claims = self._issue_session_tokens(user.id)
         self._auth_repo.create_session(
             jti=claims["jti"],
+            refresh_jti=refresh_claims["jti"],
             user_id=user.id,
             issued_at=datetime.fromtimestamp(claims["iat"], tz=timezone.utc),
             expires_at=datetime.fromtimestamp(claims["exp"], tz=timezone.utc),
+            refresh_expires_at=datetime.fromtimestamp(
+                refresh_claims["exp"],
+                tz=timezone.utc,
+            ),
         )
-        return token, claims
+        return token, claims, refresh_token, refresh_claims
 
     @staticmethod
     def _is_locked(locked_until: datetime, now: datetime) -> bool:
@@ -292,6 +319,117 @@ class AuthService:
         wraps it.
         """
         self._auth_repo.revoke_session_by_jti(jti)
+
+    def refresh_session(
+        self,
+        *,
+        refresh_token: str,
+        now: datetime | None = None,
+    ) -> tuple[str, dict[str, Any], str, dict[str, Any]]:
+        """Rotate a refresh token into a new access+refresh token pair."""
+        current_time = now or _utcnow()
+        try:
+            claims = decode_token(refresh_token, expected_type=REFRESH_TOKEN_TYPE)
+        except pyjwt.ExpiredSignatureError as exc:
+            raise _http_error(
+                status.HTTP_401_UNAUTHORIZED,
+                message="refresh_token_expired",
+                code=_ERR_REFRESH_EXPIRED,
+            ) from exc
+        except pyjwt.InvalidTokenError as exc:
+            raise _http_error(
+                status.HTTP_400_BAD_REQUEST,
+                message="malformed_refresh_token",
+                code=_ERR_MALFORMED_REFRESH,
+            ) from exc
+
+        refresh_jti = str(claims.get("jti", "")).strip()
+        if not refresh_jti:
+            raise _http_error(
+                status.HTTP_400_BAD_REQUEST,
+                message="malformed_refresh_token",
+                code=_ERR_MALFORMED_REFRESH,
+            )
+
+        session = self._auth_repo.get_session_by_refresh_jti(refresh_jti)
+        if session is None:
+            raise _http_error(
+                status.HTTP_401_UNAUTHORIZED,
+                message="refresh_token_revoked",
+                code=_ERR_REFRESH_REVOKED,
+            )
+
+        refresh_expires_at = session.refresh_expires_at
+        if refresh_expires_at is None:
+            raise _http_error(
+                status.HTTP_401_UNAUTHORIZED,
+                message="refresh_token_revoked",
+                code=_ERR_REFRESH_REVOKED,
+            )
+        if refresh_expires_at.tzinfo is None:
+            refresh_expires_at = refresh_expires_at.replace(tzinfo=timezone.utc)
+        if refresh_expires_at <= current_time:
+            self._auth_repo.revoke_session_by_jti(session.jti, now=current_time)
+            raise _http_error(
+                status.HTTP_401_UNAUTHORIZED,
+                message="refresh_token_expired",
+                code=_ERR_REFRESH_EXPIRED,
+            )
+        if session.revoked_at is not None:
+            raise _http_error(
+                status.HTTP_401_UNAUTHORIZED,
+                message="refresh_token_replayed",
+                code=_ERR_REFRESH_REPLAYED,
+            )
+
+        user = self._user_repo.get(session.user_id)
+        if user is None:
+            self._auth_repo.revoke_session_by_jti(session.jti, now=current_time)
+            raise _http_error(
+                status.HTTP_401_UNAUTHORIZED,
+                message="refresh_token_revoked",
+                code=_ERR_REFRESH_REVOKED,
+            )
+        if user.is_banned:
+            self._auth_repo.revoke_session_by_jti(session.jti, now=current_time)
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail=_ERR_BANNED,
+            )
+
+        if not self._auth_repo.revoke_session_if_active(session.jti, now=current_time):
+            raise _http_error(
+                status.HTTP_401_UNAUTHORIZED,
+                message="refresh_token_replayed",
+                code=_ERR_REFRESH_REPLAYED,
+            )
+
+        next_access_token, next_access_claims, next_refresh_token, next_refresh_claims = (
+            self._issue_session_tokens(user.id)
+        )
+        self._auth_repo.create_session(
+            jti=next_access_claims["jti"],
+            refresh_jti=next_refresh_claims["jti"],
+            user_id=user.id,
+            issued_at=datetime.fromtimestamp(
+                next_access_claims["iat"],
+                tz=timezone.utc,
+            ),
+            expires_at=datetime.fromtimestamp(
+                next_access_claims["exp"],
+                tz=timezone.utc,
+            ),
+            refresh_expires_at=datetime.fromtimestamp(
+                next_refresh_claims["exp"],
+                tz=timezone.utc,
+            ),
+        )
+        return (
+            next_access_token,
+            next_access_claims,
+            next_refresh_token,
+            next_refresh_claims,
+        )
 
     def get_current_user_from_jti(
         self, jti: str, *, now: datetime | None = None
@@ -441,7 +579,7 @@ class AuthService:
         *,
         id_token: str,
         category: str | None = None,
-    ) -> tuple[str, dict[str, Any], User, bool]:
+    ) -> tuple[str, dict[str, Any], str, dict[str, Any], User, bool]:
         """Authenticate via Google ID token. Handles both login and signup.
 
         Flow:
@@ -453,8 +591,9 @@ class AuthService:
            b. If email does not exist → signup (requires ``category``).
 
         Returns:
-            ``(token, claims, user, is_new_user)`` — ``is_new_user`` is True
-            when a new account was created (signup), False for login.
+            ``(access_token, access_claims, refresh_token, refresh_claims,
+            user, is_new_user)`` — ``is_new_user`` is True when a new
+            account was created (signup), False for login.
 
         Raises:
             HTTPException 401: Invalid Google token.
@@ -528,14 +667,21 @@ class AuthService:
                 )
 
         # Mint JWT session
-        token, claims = encode_token(sub=user.id)
+        token, claims, refresh_token, refresh_claims = self._issue_session_tokens(
+            user.id
+        )
         self._auth_repo.create_session(
             jti=claims["jti"],
+            refresh_jti=refresh_claims["jti"],
             user_id=user.id,
             issued_at=datetime.fromtimestamp(claims["iat"], tz=timezone.utc),
             expires_at=datetime.fromtimestamp(claims["exp"], tz=timezone.utc),
+            refresh_expires_at=datetime.fromtimestamp(
+                refresh_claims["exp"],
+                tz=timezone.utc,
+            ),
         )
-        return token, claims, user, is_new_user
+        return token, claims, refresh_token, refresh_claims, user, is_new_user
 
     # ------------------------------------------------------------------
     # username derivation
@@ -569,3 +715,17 @@ class AuthService:
             candidate = f"{base}_{suffix}"
 
         return candidate
+
+    def _issue_session_tokens(
+        self,
+        user_id: int,
+    ) -> tuple[str, dict[str, Any], str, dict[str, Any]]:
+        access_token, access_claims = encode_token(
+            sub=user_id,
+            token_type=ACCESS_TOKEN_TYPE,
+        )
+        refresh_token, refresh_claims = encode_token(
+            sub=user_id,
+            token_type=REFRESH_TOKEN_TYPE,
+        )
+        return access_token, access_claims, refresh_token, refresh_claims

@@ -36,16 +36,20 @@ class AuthRepository(BaseRepository[Session]):
         self,
         *,
         jti: str,
+        refresh_jti: str | None = None,
         user_id: int,
         issued_at: datetime,
         expires_at: datetime,
+        refresh_expires_at: datetime | None = None,
     ) -> Session:
         """Persist a freshly-minted session row (Req 3.1)."""
         session = Session(
             jti=jti,
+            refresh_jti=refresh_jti,
             user_id=user_id,
             issued_at=issued_at,
             expires_at=expires_at,
+            refresh_expires_at=refresh_expires_at,
         )
         self.db.add(session)
         self.db.commit()
@@ -108,6 +112,29 @@ class AuthRepository(BaseRepository[Session]):
         active-check and the user-lookup paths during logout (Req 3.4, 3.5).
         """
         return self.db.get(Session, jti)
+
+    def get_session_by_refresh_jti(self, refresh_jti: str) -> Session | None:
+        """Return the session row for ``refresh_jti`` or ``None`` if absent."""
+        stmt = select(Session).where(Session.refresh_jti == refresh_jti)
+        return self.db.execute(stmt).scalar_one_or_none()
+
+    def revoke_session_if_active(
+        self, jti: str, *, now: datetime | None = None
+    ) -> bool:
+        """Revoke ``jti`` only if it is still active.
+
+        Returns ``True`` when the row was active and is now revoked. Returns
+        ``False`` if the row is missing or was already revoked.
+        """
+        stamp = now or _utcnow()
+        stmt = (
+            update(Session)
+            .where(Session.jti == jti, Session.revoked_at.is_(None))
+            .values(revoked_at=stamp)
+        )
+        result = self.db.execute(stmt)
+        self.db.commit()
+        return bool(result.rowcount)
 
     # --- login attempts ----------------------------------------------------
 

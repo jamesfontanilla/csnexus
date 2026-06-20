@@ -483,6 +483,9 @@ function SegmentedLessonLayout({
             border: "1px solid rgba(255,255,255,0.07)",
             borderRadius: "8px",
             padding: "0.75rem",
+            maxHeight: "calc(100vh - 6rem)",
+            overflowY: "auto",
+            alignSelf: "start",
           }}
           aria-label="Lesson parts"
         >

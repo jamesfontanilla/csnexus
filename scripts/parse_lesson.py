@@ -488,10 +488,29 @@ def _parse_content_blocks(text: str) -> list[dict[str, Any]]:
         if re.match(r"^\*\*Example", line.strip()):
             example_lines = [line]
             i += 1
-            while i < len(lines) and lines[i].strip() and not lines[i].startswith("#"):
-                # Continue collecting until empty line or new heading
-                example_lines.append(lines[i])
+            blank_count = 0
+            while i < len(lines):
+                next_line = lines[i]
+                # Hard stops: new heading, new Example block, fenced code opens
+                if (next_line.startswith("#") or
+                    re.match(r"^\*\*(Example|Tip|Note|CSE|Common|Warning|Error)", next_line.strip()) or
+                    next_line.strip().startswith("```") or
+                    next_line.strip().startswith("> ") or
+                    re.match(r"^#{3,4}\s+Check Your Understanding", next_line, re.IGNORECASE)):
+                    break
+                # Allow up to 2 consecutive blank lines inside the example
+                if not next_line.strip():
+                    blank_count += 1
+                    if blank_count > 2:
+                        break
+                    example_lines.append(next_line)
+                else:
+                    blank_count = 0
+                    example_lines.append(next_line)
                 i += 1
+            # Strip trailing blank lines from the captured content
+            while example_lines and not example_lines[-1].strip():
+                example_lines.pop()
             blocks.append({"type": BLOCK_TYPE_EXAMPLE, "content": "\n".join(example_lines)})
             continue
 

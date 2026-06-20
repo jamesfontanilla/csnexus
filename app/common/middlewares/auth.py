@@ -26,7 +26,7 @@ from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoin
 from starlette.requests import Request
 from starlette.responses import Response
 
-from app.infrastructure.security.jwt import decode_token
+from app.infrastructure.security.jwt import ACCESS_TOKEN_TYPE, decode_token
 
 
 class AuthMiddleware(BaseHTTPMiddleware):
@@ -41,7 +41,7 @@ class AuthMiddleware(BaseHTTPMiddleware):
             token = auth_header.split(" ", 1)[1].strip()
             if token:
                 try:
-                    claims = decode_token(token)
+                    claims = decode_token(token, expected_type=ACCESS_TOKEN_TYPE)
                 except (
                     jwt.ExpiredSignatureError,
                     jwt.InvalidTokenError,

@@ -112,11 +112,19 @@
 
 /* Mobile: show hamburger, hide desktop nav */
 @media (max-width: 768px) {
+  .glass-navbar {
+    padding: 0.625rem 0.875rem;
+  }
+
   .glass-navbar-desktop {
     display: none;
   }
 
   .glass-navbar-hamburger {
     display: inline-flex;
+  }
+
+  .glass-mobile-drawer {
+    padding: 0.5rem 0.75rem;
   }
 }

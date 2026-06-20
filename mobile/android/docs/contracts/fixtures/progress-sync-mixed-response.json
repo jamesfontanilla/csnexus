@@ -1,0 +1,55 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/v1/progress:sync",
+    "body": {
+      "events": [
+        {
+          "client_event_id": "11111111-1111-1111-1111-111111111111",
+          "idempotency_key": "lesson-completed-user-123-lesson-1001",
+          "kind": "lesson.completed",
+          "client_timestamp": "2026-06-08T00:00:00Z",
+          "payload_hash": "sha256-example",
+          "payload": {
+            "subtopic_id": 42,
+            "lesson_id": 1001
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "X-Request-ID": "req-sync-mixed"
+    },
+      "body": {
+        "accepted": [
+          {
+            "client_event_id": "11111111-1111-1111-1111-111111111111",
+            "server_event_id": "evt-server-1",
+            "server_state": {
+              "lesson_completed": true
+            }
+          }
+        ],
+        "rejected": [
+          {
+            "client_event_id": "22222222-2222-2222-2222-222222222222",
+            "reason": "invalid_payload",
+            "retryable": false
+          }
+        ],
+        "conflicts": [
+          {
+            "client_event_id": "33333333-3333-3333-3333-333333333333",
+            "reason": "stale_client_state",
+            "server_state": {
+              "lesson_completed": true,
+              "completed_at": "2026-06-08T00:00:00Z"
+            }
+          }
+        ]
+      }
+  }
+}

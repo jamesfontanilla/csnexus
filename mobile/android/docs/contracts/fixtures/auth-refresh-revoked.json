@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/v1/auth/sessions:refresh",
+    "body": {
+      "refresh_token": "refresh-token-revoked"
+    }
+  },
+  "response": {
+    "status": 401,
+    "headers": {
+      "X-Request-ID": "req-refresh-revoked"
+    },
+    "body": {
+      "error": {
+        "message": "Refresh token has been revoked.",
+        "code": "REFRESH_TOKEN_REVOKED"
+      }
+    }
+  }
+}

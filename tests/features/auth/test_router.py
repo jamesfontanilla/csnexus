@@ -303,9 +303,22 @@ def test_login_201(client: TestClient, mock_service: MagicMock) -> None:
         "sub": "1",
         "jti": "fresh-jti",
         "iat": iat,
-        "exp": iat + 24 * 3600,
+        "exp": iat + 900,
+        "typ": "access",
     }
-    mock_service.login.return_value = ("signed.jwt.token", claims)
+    refresh_claims = {
+        "sub": "1",
+        "jti": "refresh-jti",
+        "iat": iat,
+        "exp": iat + 2_592_000,
+        "typ": "refresh",
+    }
+    mock_service.login.return_value = (
+        "signed.jwt.token",
+        claims,
+        "signed.refresh.token",
+        refresh_claims,
+    )
 
     response = client.post(
         "/v1/auth/sessions",
@@ -315,8 +328,10 @@ def test_login_201(client: TestClient, mock_service: MagicMock) -> None:
     assert response.status_code == 201
     body = response.json()
     assert body["access_token"] == "signed.jwt.token"
+    assert body["refresh_token"] == "signed.refresh.token"
     assert body["token_type"] == "Bearer"
-    assert body["expires_in"] == 24 * 3600
+    assert body["expires_in"] == 900
+    assert body["refresh_expires_in"] == 2_592_000
 
 
 def test_login_422_for_missing_password(client: TestClient) -> None:
@@ -375,6 +390,72 @@ def test_login_403_for_banned(
     assert response.status_code == 403
     assert response.json() == {
         "error": {"message": "account_banned", "code": "HTTP_403"}
+    }
+
+
+def test_refresh_session_200(client: TestClient, mock_service: MagicMock) -> None:
+    iat = int(datetime.now(tz=timezone.utc).timestamp())
+    claims = {
+        "sub": "1",
+        "jti": "fresh-access-jti",
+        "iat": iat,
+        "exp": iat + 900,
+        "typ": "access",
+    }
+    refresh_claims = {
+        "sub": "1",
+        "jti": "fresh-refresh-jti",
+        "iat": iat,
+        "exp": iat + 2_592_000,
+        "typ": "refresh",
+    }
+    mock_service.refresh_session.return_value = (
+        "signed.jwt.token",
+        claims,
+        "signed.refresh.token",
+        refresh_claims,
+    )
+
+    response = client.post(
+        "/v1/auth/sessions:refresh",
+        json={"refresh_token": "old-refresh-token"},
+    )
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "access_token": "signed.jwt.token",
+        "refresh_token": "signed.refresh.token",
+        "token_type": "Bearer",
+        "expires_in": 900,
+        "refresh_expires_in": 2_592_000,
+    }
+    mock_service.refresh_session.assert_called_once_with(
+        refresh_token="old-refresh-token"
+    )
+
+
+def test_refresh_session_401_preserves_backend_error_code(
+    client: TestClient, mock_service: MagicMock
+) -> None:
+    mock_service.refresh_session.side_effect = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail={
+            "message": "refresh_token_replayed",
+            "code": "REFRESH_TOKEN_REPLAYED",
+        },
+    )
+
+    response = client.post(
+        "/v1/auth/sessions:refresh",
+        json={"refresh_token": "stale-refresh-token"},
+    )
+
+    assert response.status_code == 401
+    assert response.json() == {
+        "error": {
+            "message": "refresh_token_replayed",
+            "code": "REFRESH_TOKEN_REPLAYED",
+        }
     }
 
 

@@ -5,9 +5,11 @@ import { GlassCard } from "../../components/GlassCard";
 import { GlassButton } from "../../components/GlassButton";
 import { GlassSkeleton } from "../../components/GlassSkeleton";
 import { PageTransition } from "../../components/PageTransition";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 export function Flashcards() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 639px)");
   const [decks, setDecks] = useState<Deck[]>([]);
   const [queueSummary, setQueueSummary] = useState<QueueSummary | null>(null);
   const [loading, setLoading] = useState(true);
@@ -103,9 +105,9 @@ export function Flashcards() {
       <main className="page container">
         <h1
           style={{
-            fontSize: "var(--font-size-2xl)",
+            fontSize: isMobile ? "var(--font-size-xl)" : "var(--font-size-2xl)",
             color: "var(--color-text)",
-            marginBottom: "1.5rem",
+            marginBottom: isMobile ? "1rem" : "1.5rem",
           }}
         >
           Flashcards
@@ -114,7 +116,7 @@ export function Flashcards() {
         {/* Queue Summary */}
         {queueSummary && queueSummary.due_count > 0 && (
           <GlassCard
-            style={{ marginBottom: "2rem", cursor: "pointer" }}
+            style={{ marginBottom: isMobile ? "1.5rem" : "2rem", cursor: "pointer" }}
             hoverable
             onClick={() => navigate("/flashcards/study")}
           >
@@ -150,13 +152,21 @@ export function Flashcards() {
                   ~{queueSummary.estimated_minutes} min estimated
                 </p>
               </div>
-              <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "0.5rem",
+                  alignItems: "center",
+                  flexWrap: isMobile ? "wrap" : "nowrap",
+                }}
+              >
                 <GlassButton
                   variant="primary"
                   size="sm"
                   onClick={() => {
                     navigate("/flashcards/study", { state: { mode: "swipe" } });
                   }}
+                  style={{ flex: isMobile ? "1 1 100%" : undefined }}
                 >
                   Study Now
                 </GlassButton>
@@ -166,6 +176,7 @@ export function Flashcards() {
                   onClick={() => {
                     navigate("/flashcards/study", { state: { mode: "typing" } });
                   }}
+                  style={{ flex: isMobile ? "1 1 100%" : undefined }}
                 >
                   Type Mode
                 </GlassButton>
@@ -181,11 +192,13 @@ export function Flashcards() {
             alignItems: "center",
             justifyContent: "space-between",
             marginBottom: "1.5rem",
+            flexWrap: "wrap",
+            gap: "0.75rem",
           }}
         >
           <h2
             style={{
-              fontSize: "var(--font-size-lg)",
+              fontSize: isMobile ? "var(--font-size-base)" : "var(--font-size-lg)",
               color: "var(--color-text)",
               margin: 0,
             }}
@@ -218,12 +231,14 @@ export function Flashcards() {
                 <GlassButton
                   variant="primary"
                   onClick={() => navigate("/flashcards/decks/new")}
+                  style={{ flex: isMobile ? "1 1 100%" : undefined }}
                 >
                   Create Deck
                 </GlassButton>
                 <GlassButton
                   variant="secondary"
                   onClick={() => navigate("/flashcards/marketplace")}
+                  style={{ flex: isMobile ? "1 1 100%" : undefined }}
                 >
                   Browse Marketplace
                 </GlassButton>
@@ -234,8 +249,8 @@ export function Flashcards() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: "1.5rem",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))",
+              gap: "1rem",
             }}
           >
             {decks.map((deck) => (
@@ -392,8 +407,8 @@ export function Flashcards() {
         <div
           style={{
             display: "flex",
-            gap: "1rem",
-            marginTop: "2rem",
+            gap: "0.75rem",
+            marginTop: "1.5rem",
             flexWrap: "wrap",
           }}
         >

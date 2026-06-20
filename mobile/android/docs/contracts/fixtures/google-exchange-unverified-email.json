@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/v1/auth/google",
+    "body": {
+      "id_token": "google-id-token-unverified",
+      "platform": "android",
+      "android_package": "com.csnexus.app"
+    }
+  },
+  "response": {
+    "status": 403,
+    "headers": {
+      "X-Request-ID": "req-google-unverified"
+    },
+    "body": {
+      "error": {
+        "message": "Google account email must be verified.",
+        "code": "GOOGLE_EMAIL_UNVERIFIED"
+      }
+    }
+  }
+}

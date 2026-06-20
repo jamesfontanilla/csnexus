@@ -1,4 +1,4 @@
-"""HS256 session-token encoding and decoding.
+"""HS256 access-token and refresh-token encoding and decoding.
 
 The signing secret is read lazily from the ``JWT_SECRET`` environment variable
 on every encode/decode. Reading it lazily (rather than at module import) lets
@@ -21,7 +21,14 @@ from typing import Any, Final
 import jwt
 
 JWT_ALGORITHM: Final[str] = "HS256"
-JWT_TTL_HOURS: Final[int] = 24
+ACCESS_TOKEN_TYPE: Final[str] = "access"
+REFRESH_TOKEN_TYPE: Final[str] = "refresh"
+JWT_ACCESS_TTL_SECONDS: Final[int] = int(
+    os.environ.get("JWT_ACCESS_TTL_SECONDS", "900")
+)
+JWT_REFRESH_TTL_SECONDS: Final[int] = int(
+    os.environ.get("JWT_REFRESH_TTL_SECONDS", "2592000")
+)
 _JWT_SECRET_ENV: Final[str] = "JWT_SECRET"
 
 
@@ -35,7 +42,13 @@ def _secret() -> str:
     return secret
 
 
-def encode_token(*, sub: str | int, jti: str | None = None) -> tuple[str, dict[str, Any]]:
+def encode_token(
+    *,
+    sub: str | int,
+    jti: str | None = None,
+    token_type: str = ACCESS_TOKEN_TYPE,
+    ttl_seconds: int | None = None,
+) -> tuple[str, dict[str, Any]]:
     """Mint a fresh JWT for the given subject.
 
     Returns:
@@ -45,22 +58,42 @@ def encode_token(*, sub: str | int, jti: str | None = None) -> tuple[str, dict[s
     """
     now = datetime.now(tz=timezone.utc)
     iat = int(now.timestamp())
-    exp = iat + JWT_TTL_HOURS * 3600
+    effective_ttl = ttl_seconds or _default_ttl_seconds(token_type)
+    exp = iat + effective_ttl
     claims: dict[str, Any] = {
         "sub": str(sub),
         "jti": jti if jti is not None else str(uuid.uuid4()),
         "iat": iat,
         "exp": exp,
+        "typ": token_type,
     }
     token = jwt.encode(claims, _secret(), algorithm=JWT_ALGORITHM)
     return token, claims
 
 
-def decode_token(token: str) -> dict[str, Any]:
+def decode_token(token: str, *, expected_type: str | None = None) -> dict[str, Any]:
     """Decode and verify ``token``.
 
     Lets ``pyjwt`` raise its own exceptions on failure: ``ExpiredSignatureError``
     on stale tokens, ``InvalidSignatureError`` on tampered signatures, and the
     broader ``InvalidTokenError`` family on structural problems.
     """
-    return jwt.decode(token, _secret(), algorithms=[JWT_ALGORITHM])
+    claims = jwt.decode(token, _secret(), algorithms=[JWT_ALGORITHM])
+    token_type = claims.get("typ")
+    if expected_type is not None:
+        # Backward compatibility: older access tokens in the field may not
+        # carry a `typ` claim yet, so treat a missing type as `access`.
+        if not (
+            token_type == expected_type
+            or (token_type is None and expected_type == ACCESS_TOKEN_TYPE)
+        ):
+            raise jwt.InvalidTokenError("unexpected_token_type")
+    return claims
+
+
+def _default_ttl_seconds(token_type: str) -> int:
+    if token_type == ACCESS_TOKEN_TYPE:
+        return JWT_ACCESS_TTL_SECONDS
+    if token_type == REFRESH_TOKEN_TYPE:
+        return JWT_REFRESH_TTL_SECONDS
+    raise ValueError(f"Unsupported token type: {token_type}")

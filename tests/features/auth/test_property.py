@@ -155,7 +155,7 @@ def _set_jwt_secret(monkeypatch: pytest.MonkeyPatch) -> None:
 @given(user_id=st.integers(min_value=1, max_value=10_000))
 @settings(max_examples=20, **_PBT_SETTINGS)
 def test_property_8_session_token_validity_window(user_id: int) -> None:
-    """Property 8 (Req 3.1): JWT exp == iat + 24h, jti is fresh UUIDv4, no revoke.
+    """Property 8 (Req 3.1): access JWT exp == iat + 900s, jti is fresh UUIDv4.
 
     Drives ``AuthService.login`` against a mocked repo where
     ``get_by_email`` returns a User with the canonical password hash. We
@@ -169,14 +169,22 @@ def test_property_8_session_token_validity_window(user_id: int) -> None:
     service, user_repo, auth_repo, _ = _make_service()
     user_repo.get_by_email.return_value = _make_user(id=user_id)
 
-    token, claims = service.login(email="alice@example.com", password=_RIGHT_PASSWORD)
+    token, claims, refresh_token, refresh_claims = service.login(
+        email="alice@example.com",
+        password=_RIGHT_PASSWORD,
+    )
 
     # JWT shape: header.payload.signature.
     assert isinstance(token, str)
     assert token.count(".") == 2
+    assert isinstance(refresh_token, str)
+    assert refresh_token.count(".") == 2
 
-    # 24-hour validity window (Req 3.1).
-    assert claims["exp"] - claims["iat"] == 24 * 3600
+    # Access/refresh validity windows.
+    assert claims["exp"] - claims["iat"] == 900
+    assert refresh_claims["exp"] - refresh_claims["iat"] == 2_592_000
+    assert claims["typ"] == "access"
+    assert refresh_claims["typ"] == "refresh"
 
     # ``jti`` is a fresh UUIDv4.
     parsed = uuid.UUID(claims["jti"])
@@ -188,6 +196,7 @@ def test_property_8_session_token_validity_window(user_id: int) -> None:
     create_kwargs = auth_repo.create_session.call_args.kwargs
     assert "revoked_at" not in create_kwargs
     assert create_kwargs["jti"] == claims["jti"]
+    assert create_kwargs["refresh_jti"] == refresh_claims["jti"]
     assert create_kwargs["user_id"] == user_id
 
     # Persisted issued/expires match the claims (within the 1-second
