@@ -30,6 +30,6 @@ Then rebuild from Android Studio or CI.
 
 ## Notes
 
-- The Android app must use an absolute `VITE_API_URL`; the Vite dev proxy only exists during local web development.
+- The Android app should use an absolute `VITE_API_URL` for custom deployments, but the shipped build now falls back to `https://api.csnexus.space` when the env var is omitted.
 - Keep native-only features in Capacitor plugins or Android code under `web/android`.
 - Google sign-in may need an Android OAuth client or native plugin before Play Store release, depending on how the WebView handles the current web sign-in flow.

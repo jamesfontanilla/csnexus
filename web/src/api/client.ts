@@ -21,7 +21,25 @@ export class ApiError extends Error {
   }
 }
 
-const API_BASE = import.meta.env.VITE_API_URL || "";
+const DEFAULT_PRODUCTION_API_BASE = "https://api.csnexus.space";
+
+export function resolveApiBase(): string {
+  const explicit = import.meta.env.VITE_API_URL?.trim();
+  if (explicit) {
+    return explicit.replace(/\/+$/, "");
+  }
+
+  if (typeof window !== "undefined") {
+    const hostname = window.location.hostname;
+    if (hostname === "localhost" || hostname === "127.0.0.1") {
+      return "";
+    }
+  }
+
+  return DEFAULT_PRODUCTION_API_BASE;
+}
+
+const API_BASE = resolveApiBase();
 
 async function request<T>(method: string, url: string, body?: unknown): Promise<T> {
   const headers: Record<string, string> = {

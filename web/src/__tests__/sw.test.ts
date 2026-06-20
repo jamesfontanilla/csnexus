@@ -38,6 +38,7 @@ describe("API Client - Authorization header", () => {
   beforeEach(() => {
     localStorageMock.clear();
     vi.restoreAllMocks();
+    vi.unstubAllEnvs();
   });
 
   it("attaches Authorization Bearer header when token is present", async () => {
@@ -119,6 +120,28 @@ describe("API Client - Authorization header", () => {
       message: "Token expired",
       requestId: "req-456",
     });
+  });
+});
+
+describe("API base resolution", () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+    vi.unstubAllEnvs();
+  });
+
+  it("uses an explicit VITE_API_URL when present", async () => {
+    vi.stubEnv("VITE_API_URL", "https://api.example.com/");
+    vi.resetModules();
+
+    const { resolveApiBase } = await import("../api/client");
+    expect(resolveApiBase()).toBe("https://api.example.com");
+  });
+
+  it("falls back to the local dev proxy on localhost", async () => {
+    vi.resetModules();
+
+    const { resolveApiBase } = await import("../api/client");
+    expect(resolveApiBase()).toBe("");
   });
 });
 
