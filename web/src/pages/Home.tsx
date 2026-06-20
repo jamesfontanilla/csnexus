@@ -54,11 +54,18 @@ export function Home() {
               {/* CTA Buttons */}
               <div style={{ display: "flex", gap: "var(--space-4)", justifyContent: "center", flexWrap: "wrap" }}>
                 {isAuthenticated() ? (
-                  <Link to="/modules" style={{ textDecoration: "none" }} aria-label="Continue studying">
-                    <GlassButton variant="primary" size="lg">
-                      Continue Studying →
-                    </GlassButton>
-                  </Link>
+                  <>
+                    <Link to="/dashboard" style={{ textDecoration: "none" }} aria-label="Open dashboard">
+                      <GlassButton variant="primary" size="lg">
+                        Dashboard
+                      </GlassButton>
+                    </Link>
+                    <Link to="/modules" style={{ textDecoration: "none" }} aria-label="Continue studying">
+                      <GlassButton variant="secondary" size="lg">
+                        Continue Studying →
+                      </GlassButton>
+                    </Link>
+                  </>
                 ) : (
                   <>
                     <Link to="/signup" style={{ textDecoration: "none" }} aria-label="Get started for free">

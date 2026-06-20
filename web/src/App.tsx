@@ -5,6 +5,7 @@ import { Signup } from "./pages/auth/Signup";
 import { ForgotPassword } from "./pages/auth/ForgotPassword";
 import { OTPVerification } from "./pages/auth/OTPVerification";
 import { Home } from "./pages/Home";
+import { Dashboard } from "./pages/Dashboard";
 import { ModuleList } from "./pages/content/ModuleList";
 import { TopicList } from "./pages/content/TopicList";
 import { SubtopicList } from "./pages/content/SubtopicList";
@@ -65,6 +66,14 @@ function AppRoutes() {
         <Route path="/verify-otp" element={<OTPVerification />} />
 
         {/* Protected routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <AuthGuard>
+              <Dashboard />
+            </AuthGuard>
+          }
+        />
         <Route
           path="/modules"
           element={

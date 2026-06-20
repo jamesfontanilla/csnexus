@@ -41,8 +41,10 @@ vi.mock("../../hooks/useInView", () => ({
   useInView: () => [vi.fn(), true],
 }));
 
+const mockIsAuthenticated = vi.fn(() => false);
+
 vi.mock("../../stores/auth", () => ({
-  isAuthenticated: () => false,
+  isAuthenticated: () => mockIsAuthenticated(),
   login: vi.fn(),
   logout: vi.fn(),
   getToken: () => null,
@@ -98,6 +100,7 @@ describe("Home page (Task 16.2)", () => {
   beforeEach(() => {
     mockReducedMotion = false;
     mockMatchMedia(false);
+    mockIsAuthenticated.mockReturnValue(false);
   });
 
   describe("Homepage copy stays aligned with README product claims", () => {
@@ -126,6 +129,19 @@ describe("Home page (Task 16.2)", () => {
       expect(screen.getByText("XP & Levels")).toBeInTheDocument();
       expect(screen.getByText("Leaderboards")).toBeInTheDocument();
       expect(screen.getByText("Achievements")).toBeInTheDocument();
+    });
+
+    it("shows a direct dashboard entry point for signed-in users", () => {
+      mockIsAuthenticated.mockReturnValue(true);
+
+      render(
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>
+      );
+
+      expect(screen.getByRole("link", { name: "Open dashboard" })).toHaveAttribute("href", "/dashboard");
+      expect(screen.getByRole("link", { name: "Continue studying" })).toHaveAttribute("href", "/modules");
     });
   });
 
