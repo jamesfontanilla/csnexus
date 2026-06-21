@@ -45,6 +45,9 @@ node_modules/
 # Local Gradle cache
 .gradle-cache/
 
+# Temporary workspace scratch
+.tmp/
+
 # Build artifacts
 build/
 dist/

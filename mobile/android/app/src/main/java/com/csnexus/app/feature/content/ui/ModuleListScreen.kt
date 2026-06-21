@@ -68,6 +68,7 @@ import com.csnexus.app.core.design.StaggeredItem
 import com.csnexus.app.core.design.csnexusHeading
 import com.csnexus.app.core.design.rememberCSNexusReducedMotion
 import com.csnexus.app.core.network.ApiResult
+import kotlinx.serialization.json.JsonElement
 import com.csnexus.app.feature.content.data.ContentRepository
 import com.csnexus.app.feature.content.domain.InlineCheck
 import com.csnexus.app.feature.content.domain.LearningModule
@@ -963,6 +964,7 @@ private fun TutorPanel(
     var messages by remember(lesson.id) { mutableStateOf(emptyList<LessonTutorMessage>()) }
     var loading by remember(lesson.id) { mutableStateOf(false) }
     var lastInteractionId by remember(lesson.id) { mutableStateOf<Int?>(null) }
+    var contextJson by remember(lesson.id) { mutableStateOf<JsonElement?>(null) }
     var draftNotice by remember(lesson.id) { mutableStateOf<String?>(null) }
 
     LaunchedEffect(lesson.id) {
@@ -970,6 +972,7 @@ private fun TutorPanel(
         messages = emptyList()
         loading = false
         lastInteractionId = null
+        contextJson = null
         draftNotice = null
     }
 
@@ -988,7 +991,6 @@ private fun TutorPanel(
             .dropLast(1)
             .takeLast(10)
             .map { LessonChatHistoryItemDto(role = it.role.wireValue, content = it.content) }
-        val context = "Lesson: ${lesson.title}; subtopicId: ${lesson.subtopicId}"
         messages = nextMessages
         message = ""
         draftNotice = null
@@ -998,7 +1000,7 @@ private fun TutorPanel(
             when (
                 val result = tutorRepository.lessonChat(
                     message = currentMessage,
-                    context = context,
+                    contextJson = contextJson,
                     subtopicId = lesson.subtopicId,
                     activeSectionIndex = activeSectionIndex,
                     history = history,
@@ -1012,6 +1014,7 @@ private fun TutorPanel(
                         content = assistantText,
                     )
                     lastInteractionId = result.value.interactionId.takeIf { it != 0 }
+                    contextJson = result.value.contextJson ?: contextJson
                 }
                 is ApiResult.Failure -> {
                     messages = nextMessages + LessonTutorMessage(

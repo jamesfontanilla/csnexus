@@ -1,24 +1,29 @@
 package com.csnexus.app.feature.tutor.ui
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,67 +34,43 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.LiveRegionMode
-import androidx.compose.ui.semantics.liveRegion
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.csnexus.app.core.design.CSNexusButton
 import com.csnexus.app.core.design.CSNexusButtonVariant
-import com.csnexus.app.core.design.PremiumCard
-import com.csnexus.app.core.design.CSNexusRetryPanel
-import com.csnexus.app.core.design.CSNexusSkeleton
-import com.csnexus.app.core.design.CSNexusStatusBadge
-import com.csnexus.app.core.design.CSNexusTextField
 import com.csnexus.app.core.design.GlassToast
 import com.csnexus.app.core.design.GlassToastState
 import com.csnexus.app.core.design.GlassToastVariant
-import com.csnexus.app.feature.tutor.data.TutorAction
-import com.csnexus.app.feature.tutor.data.TutorRepository
+import com.csnexus.app.core.design.PremiumCard
+import com.csnexus.app.core.design.CSNexusTextField
+import com.csnexus.app.feature.content.data.ContentRepository
 import com.csnexus.app.feature.tutor.data.TutorRepositoryContract
 
-// ── Entry point ───────────────────────────────────────────────────────────────
-
-/**
- * Full-parity native Tutor screen.
- *
- * Matches the web Tutor behavior:
- *  - Question ID + optional selected answer as inputs.
- *  - Action buttons: Explain, Simplify, Hint, Step-by-step, Similar.
- *  - Result area: plain text / numbered steps / similar question card.
- *  - Rating (👍 / 👎) shown after every successful response.
- *  - Failed-send shows an error card with a labelled Retry button.
- *  - Reset clears all state to start fresh.
- *
- * The [lessonContext] parameter wires lesson-aware context when the screen is
- * opened from the lesson companion panel (task 11.2).
- */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorScreen(
-    repository: TutorRepository,
+    repository: TutorRepositoryContract,
+    contentRepository: ContentRepository,
     contentPadding: PaddingValues,
-    lessonContext: String? = null,
     factory: androidx.lifecycle.ViewModelProvider.Factory? = null,
 ) {
     val vm: TutorViewModel = if (factory != null) {
         viewModel(factory = factory)
     } else {
-        viewModel(factory = TutorViewModelFactory(repository))
+        viewModel(factory = TutorViewModelFactory(repository, contentRepository))
     }
     val state by vm.uiState.collectAsState()
     var toastState by remember { mutableStateOf<GlassToastState?>(null) }
+    val listState = rememberLazyListState()
+    val keyboardController = LocalSoftwareKeyboardController.current
 
-    // Seed question ID from lesson context if it was provided (task 11.2 context passing).
-    // The lesson companion passes "lesson:<subtopicId>" as context; we do not pre-fill the ID
-    // field since the question ID must come from the user, but we do store context so
-    // the lesson-chat pathway can use it.
-    LaunchedEffect(lessonContext) {
-        // No-op on null; lesson context is passed to repository calls from the companion panel,
-        // not from this standalone screen.
+    LaunchedEffect(state.messages.size) {
+        if (state.messages.isNotEmpty()) {
+            listState.animateScrollToItem(state.messages.lastIndex)
+        }
     }
 
-    // Show rating feedback with the shared glass toast surface.
     LaunchedEffect(state.ratingFeedback) {
         val feedback = state.ratingFeedback ?: return@LaunchedEffect
         toastState = GlassToastState(
@@ -100,65 +81,110 @@ fun TutorScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(
-                top = contentPadding.calculateTopPadding() + 16.dp,
-                bottom = contentPadding.calculateBottomPadding() + 24.dp,
-                start = 16.dp,
-                end = 16.dp,
-            ),
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(contentPadding)
+                .padding(horizontal = 16.dp, vertical = 16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            item { TutorHeader() }
-            item {
-                TutorInputCard(
-                    questionIdInput = state.questionIdInput,
-                    selectedAnswerInput = state.selectedAnswerInput,
-                    loading = state.loading,
-                    onQuestionIdChanged = vm::onQuestionIdChanged,
-                    onSelectedAnswerChanged = vm::onSelectedAnswerChanged,
-                    onAction = vm::requestAction,
-                    onStepByStep = vm::requestStepByStep,
-                    onSimilar = vm::requestSimilar,
-                    onReset = vm::reset,
-                )
-            }
-            item {
-                AnimatedVisibility(
-                    visible = state.loading,
-                    enter = fadeIn(),
-                    exit = fadeOut(),
+            TutorHeader()
+
+            TutorContextCard(
+                state = state,
+                onModuleSelected = vm::onModuleSelected,
+                onTopicSelected = vm::onTopicSelected,
+                onSubtopicSelected = vm::onSubtopicSelected,
+            )
+
+            QuickPromptCard(
+                enabled = state.selectedSubtopicId != null && !state.sending,
+                onPrompt = vm::sendPrompt,
+            )
+
+            PremiumCard(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
-                    LoadingResultCard()
-                }
-            }
-            if (!state.loading) {
-                when (val result = state.result) {
-                    is TutorResult.Text -> item {
-                        TextResultCard(result.text)
-                    }
-                    is TutorResult.Steps -> item {
-                        StepsResultCard(result.steps)
-                    }
-                    is TutorResult.Similar -> item {
-                        SimilarQuestionCard(result.dto)
-                    }
-                    is TutorResult.FailedSend -> item {
-                        CSNexusRetryPanel(
-                            title = "Could not reach tutor",
-                            body = result.message,
-                            onRetry = vm::retryLastAction,
+                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text("Chat", style = MaterialTheme.typography.titleMedium)
+                        val title = remember(state) {
+                            buildString {
+                                append(state.modules.firstOrNull { it.id == state.selectedModuleId }?.title ?: "Module")
+                                append(" / ")
+                                append(state.topics.firstOrNull { it.id == state.selectedTopicId }?.title ?: "Topic")
+                                append(" / ")
+                                append(state.subtopics.firstOrNull { it.id == state.selectedSubtopicId }?.title ?: "Subtopic")
+                            }
+                        }
+                        Text(
+                            text = title,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
-                    null -> Unit
-                }
-                if (state.result != null && state.result !is TutorResult.FailedSend) {
-                    item {
+
+                    if (state.errorMessage != null) {
+                        Text(
+                            text = state.errorMessage.orEmpty(),
+                            color = MaterialTheme.colorScheme.error,
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+
+                    LazyColumn(
+                        state = listState,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f),
+                        verticalArrangement = Arrangement.spacedBy(10.dp),
+                        contentPadding = PaddingValues(vertical = 4.dp),
+                    ) {
+                        items(state.messages) { message ->
+                            TutorBubble(message = message)
+                        }
+                        if (state.sending) {
+                            item {
+                                ChatTypingBubble()
+                            }
+                        }
+                    }
+
+                    if (state.lastInteractionId != null && !state.sending && state.messages.lastOrNull()?.role == TutorChatRole.Assistant && !state.messages.lastOrNull()!!.isError) {
                         RatingRow(
                             onHelpful = { vm.rateInteraction(true) },
                             onNotHelpful = { vm.rateInteraction(false) },
                         )
+                    }
+
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        CSNexusTextField(
+                            value = state.input,
+                            onValueChange = vm::onInputChanged,
+                            label = "Message",
+                            singleLine = false,
+                            supportingText = if (state.selectedSubtopicId == null) "Select a subtopic first." else null,
+                            modifier = Modifier.fillMaxWidth(),
+                            keyboardOptions = KeyboardOptions.Default,
+                            placeholder = "Ask anything about this subtopic",
+                        )
+                        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                            CSNexusButton(
+                                text = "Send",
+                                onClick = {
+                                    vm.sendMessage()
+                                    keyboardController?.hide()
+                                },
+                                enabled = state.selectedSubtopicId != null && state.input.isNotBlank() && !state.sending,
+                                loading = state.sending,
+                                modifier = Modifier.weight(1f),
+                            )
+                        }
                     }
                 }
             }
@@ -174,150 +200,120 @@ fun TutorScreen(
     }
 }
 
-// ── Sub-composables ───────────────────────────────────────────────────────────
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun TutorContextCard(
+    state: TutorUiState,
+    onModuleSelected: (String) -> Unit,
+    onTopicSelected: (String) -> Unit,
+    onSubtopicSelected: (String) -> Unit,
+) {
+    PremiumCard(modifier = Modifier.fillMaxWidth()) {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text("Context", style = MaterialTheme.typography.titleMedium)
+            TutorDropdownField(
+                label = "Module",
+                value = state.modules.firstOrNull { it.id == state.selectedModuleId }?.title ?: "Choose module",
+                options = state.modules.map { SelectionOption(it.id, it.title) },
+                enabled = !state.modulesLoading && state.modules.isNotEmpty(),
+                onSelected = { onModuleSelected(it.value.toString()) },
+            )
+            TutorDropdownField(
+                label = "Topic",
+                value = state.topics.firstOrNull { it.id == state.selectedTopicId }?.title ?: "Choose topic",
+                options = state.topics.map { SelectionOption(it.id, it.title) },
+                enabled = !state.topicsLoading && state.selectedModuleId != null && state.topics.isNotEmpty(),
+                onSelected = { onTopicSelected(it.value.toString()) },
+            )
+            TutorDropdownField(
+                label = "Subtopic",
+                value = state.subtopics.firstOrNull { it.id == state.selectedSubtopicId }?.title ?: "Choose subtopic",
+                options = state.subtopics.map { SelectionOption(it.id, it.title) },
+                enabled = !state.subtopicsLoading && state.selectedTopicId != null && state.subtopics.isNotEmpty(),
+                onSelected = { onSubtopicSelected(it.value.toString()) },
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun QuickPromptCard(
+    enabled: Boolean,
+    onPrompt: (String) -> Unit,
+) {
+    val prompts = listOf(
+        "Summarize this lesson",
+        "Explain it simpler",
+        "Give me an example",
+        "Quiz me on this topic",
+        "What should I remember?",
+    )
+
+    PremiumCard(modifier = Modifier.fillMaxWidth()) {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text("Quick prompts", style = MaterialTheme.typography.titleMedium)
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                prompts.forEachIndexed { index, prompt ->
+                    CSNexusButton(
+                        text = prompt,
+                        onClick = { onPrompt(prompt) },
+                        variant = if (index < 3) CSNexusButtonVariant.Secondary else CSNexusButtonVariant.Ghost,
+                        enabled = enabled,
+                    )
+                }
+            }
+        }
+    }
+}
 
 @Composable
 private fun TutorHeader() {
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Text("AI Tutor", style = MaterialTheme.typography.headlineMedium)
         Text(
-            text = "Get explanations, hints, and practice questions for any question in the bank.",
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            text = "AI Tutor",
+            style = MaterialTheme.typography.headlineMedium,
         )
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TutorInputCard(
-    questionIdInput: String,
-    selectedAnswerInput: String,
-    loading: Boolean,
-    onQuestionIdChanged: (String) -> Unit,
-    onSelectedAnswerChanged: (String) -> Unit,
-    onAction: (TutorAction) -> Unit,
-    onStepByStep: () -> Unit,
-    onSimilar: () -> Unit,
-    onReset: () -> Unit,
+private fun TutorDropdownField(
+    label: String,
+    value: String,
+    options: List<SelectionOption>,
+    enabled: Boolean,
+    onSelected: (SelectionOption) -> Unit,
 ) {
-    val hasQuestionId = questionIdInput.isNotBlank()
+    var expanded by remember { mutableStateOf(false) }
 
-    PremiumCard {
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            // Question ID field
-            CSNexusTextField(
-                value = questionIdInput,
-                onValueChange = onQuestionIdChanged,
-                label = "Question ID",
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
-                placeholder = "e.g. 42",
-            )
-
-            // Optional selected answer field
-            CSNexusTextField(
-                value = selectedAnswerInput,
-                onValueChange = onSelectedAnswerChanged,
-                label = "Your answer (optional)",
-                supportingText = "Helps the tutor tailor its explanation",
-            )
-
-            // Action buttons row (scrollable if needed)
-            LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                items(TutorAction.actionValues) { action ->
-                    CSNexusButton(
-                        text = action.label,
-                        onClick = { onAction(action) },
-                        variant = CSNexusButtonVariant.Secondary,
-                        enabled = hasQuestionId && !loading,
-                        loading = loading && false, // only spinner on result card
-                    )
-                }
-                item {
-                    CSNexusButton(
-                        text = "Step-by-step",
-                        onClick = onStepByStep,
-                        variant = CSNexusButtonVariant.Secondary,
-                        enabled = hasQuestionId && !loading,
-                    )
-                }
-                item {
-                    CSNexusButton(
-                        text = "Similar",
-                        onClick = onSimilar,
-                        variant = CSNexusButtonVariant.Secondary,
-                        enabled = hasQuestionId && !loading,
-                    )
-                }
-            }
-
-            HorizontalDivider()
-
-            // Reset button — clears inputs and result
-            CSNexusButton(
-                text = "Reset",
-                onClick = onReset,
-                variant = CSNexusButtonVariant.Ghost,
-                enabled = !loading,
-                modifier = Modifier.align(Alignment.End),
-            )
-        }
-    }
-}
-
-@Composable
-private fun LoadingResultCard() {
-    PremiumCard {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            CSNexusSkeleton(
-                modifier = Modifier
-                    .fillMaxWidth(0.16f)
-                    .height(20.dp),
-            )
-            Text(
-                text = "Loading response…",
-                modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                style = MaterialTheme.typography.bodyMedium,
-            )
-        }
-    }
-}
-
-@Composable
-private fun TextResultCard(text: String) {
-    PremiumCard {
-        Text(
-            text = text,
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = { if (enabled) expanded = !expanded },
+    ) {
+        OutlinedTextField(
+            value = value,
+            onValueChange = {},
             modifier = Modifier
-                .fillMaxWidth()
-                .semantics { liveRegion = LiveRegionMode.Assertive },
-            style = MaterialTheme.typography.bodyMedium,
+                .fillMaxWidth(),
+            readOnly = true,
+            enabled = enabled,
+            label = { Text(label) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
         )
-    }
-}
 
-@Composable
-private fun StepsResultCard(steps: List<String>) {
-    PremiumCard {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.fillMaxWidth(),
+        ExposedDropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false },
         ) {
-            Text(
-                text = "Step-by-Step Solution",
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.semantics { liveRegion = LiveRegionMode.Assertive },
-            )
-            steps.forEachIndexed { index, step ->
-                Text(
-                    text = "${index + 1}. $step",
-                    style = MaterialTheme.typography.bodyMedium,
+            options.forEach { option ->
+                DropdownMenuItem(
+                    text = { Text(option.label) },
+                    onClick = {
+                        expanded = false
+                        onSelected(option)
+                    },
                 )
             }
         }
@@ -325,34 +321,54 @@ private fun StepsResultCard(steps: List<String>) {
 }
 
 @Composable
-private fun SimilarQuestionCard(dto: com.csnexus.app.feature.tutor.data.SimilarQuestionDto) {
-    PremiumCard {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.fillMaxWidth(),
+private fun TutorBubble(message: TutorChatMessage) {
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = if (message.role == TutorChatRole.User) Alignment.CenterEnd else Alignment.CenterStart,
+    ) {
+        PremiumCard(
+            modifier = Modifier.widthIn(max = 320.dp),
         ) {
-            Text(
-                text = "Similar Question",
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.semantics { liveRegion = LiveRegionMode.Assertive },
-            )
-            Text("Q: ${dto.stem}", style = MaterialTheme.typography.bodyMedium)
-            dto.options?.forEachIndexed { index, option ->
-                val label = ('A' + index).toString()
-                Text("$label. $option", style = MaterialTheme.typography.bodyMedium)
-            }
-            Spacer(Modifier.height(4.dp))
-            CSNexusStatusBadge(
-                text = "Answer: ${dto.correctAnswer}",
-                color = MaterialTheme.colorScheme.tertiary,
-            )
-            if (dto.explanation.isNotBlank()) {
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Text(
-                    text = dto.explanation,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    text = if (message.role == TutorChatRole.User) "You" else "Tutor",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = if (message.isError) {
+                        MaterialTheme.colorScheme.error
+                    } else if (message.role == TutorChatRole.User) {
+                        MaterialTheme.colorScheme.primary
+                    } else {
+                        MaterialTheme.colorScheme.secondary
+                    },
+                )
+                Text(
+                    text = message.content,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = if (message.isError) {
+                        MaterialTheme.colorScheme.error
+                    } else {
+                        MaterialTheme.colorScheme.onSurface
+                    },
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun ChatTypingBubble() {
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.CenterStart,
+    ) {
+        PremiumCard(
+            modifier = Modifier.widthIn(max = 240.dp),
+        ) {
+            Text(
+                text = "Thinking...",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }
@@ -362,10 +378,7 @@ private fun RatingRow(
     onHelpful: () -> Unit,
     onNotHelpful: () -> Unit,
 ) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         Text(
             text = "Was this helpful?",
             style = MaterialTheme.typography.bodySmall,
@@ -384,14 +397,18 @@ private fun RatingRow(
     }
 }
 
-// ── ViewModelFactory ─────────────────────────────────────────────────────────
+private data class SelectionOption(
+    val value: Int,
+    val label: String,
+)
 
 internal class TutorViewModelFactory(
     private val repository: TutorRepositoryContract,
+    private val contentRepository: ContentRepository,
 ) : androidx.lifecycle.ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
         require(modelClass == TutorViewModel::class.java)
-        return TutorViewModel(repository) as T
+        return TutorViewModel(repository, contentRepository) as T
     }
 }

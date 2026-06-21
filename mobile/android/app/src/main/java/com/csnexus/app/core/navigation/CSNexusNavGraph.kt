@@ -645,6 +645,7 @@ fun CSNexusNavGraph(container: AppContainer) {
             composable(AppRoute.Tutor.route) {
                 TutorScreen(
                     repository = container.tutorRepository,
+                    contentRepository = container.contentRepository,
                     contentPadding = innerPadding,
                 )
             }

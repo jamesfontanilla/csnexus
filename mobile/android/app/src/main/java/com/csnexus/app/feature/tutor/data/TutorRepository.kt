@@ -2,6 +2,7 @@ package com.csnexus.app.feature.tutor.data
 
 import com.csnexus.app.core.network.ApiResult
 import com.csnexus.app.core.network.safeApiCall
+import kotlinx.serialization.json.JsonElement
 
 /** Typed enumeration of the actions the web Tutor supports. */
 enum class TutorAction(val endpoint: String, val label: String) {
@@ -40,7 +41,7 @@ interface TutorRepositoryContract {
 
     suspend fun lessonChat(
         message: String,
-        context: String? = null,
+        contextJson: JsonElement? = null,
         subtopicId: Int? = null,
         activeSectionIndex: Int? = null,
         history: List<LessonChatHistoryItemDto> = emptyList(),
@@ -93,7 +94,7 @@ open class TutorRepository(
      */
     override suspend fun lessonChat(
         message: String,
-        context: String?,
+        contextJson: JsonElement?,
         subtopicId: Int?,
         activeSectionIndex: Int?,
         history: List<LessonChatHistoryItemDto>,
@@ -102,7 +103,7 @@ open class TutorRepository(
             tutorApi.lessonChat(
                 LessonChatRequestDto(
                     message = message,
-                    context = context,
+                    contextJson = contextJson,
                     subtopicId = subtopicId,
                     activeSectionIndex = activeSectionIndex,
                     history = history,

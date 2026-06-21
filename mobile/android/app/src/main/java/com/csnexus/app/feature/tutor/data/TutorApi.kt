@@ -2,6 +2,7 @@ package com.csnexus.app.feature.tutor.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -50,7 +51,7 @@ data class RateInteractionRequestDto(
 @Serializable
 data class LessonChatRequestDto(
     val message: String,
-    val context: String? = null,
+    @SerialName("context_json") val contextJson: JsonElement? = null,
     @SerialName("subtopic_id") val subtopicId: Int? = null,
     @SerialName("active_section_index") val activeSectionIndex: Int? = null,
     val history: List<LessonChatHistoryItemDto> = emptyList(),
@@ -96,6 +97,7 @@ data class LessonChatResponseDto(
     @SerialName("interaction_id") val interactionId: Int = 0,
     @SerialName("response_text") val responseText: String = "",
     @SerialName("detected_intent") val detectedIntent: String = "",
+    @SerialName("context_json") val contextJson: JsonElement? = null,
     val response: String = "",
     val answer: String = "",
 ) {

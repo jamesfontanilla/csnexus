@@ -11,6 +11,7 @@ interface LessonChatResponse {
   interaction_id: number;
   response_text: string;
   detected_intent: string;
+  context_json?: Record<string, unknown> | null;
 }
 
 interface LessonChatPanelProps {
@@ -30,6 +31,7 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [lastInteractionId, setLastInteractionId] = useState<number | null>(null);
+  const [contextJson, setContextJson] = useState<Record<string, unknown> | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -44,6 +46,14 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    setMessages([]);
+    setInput("");
+    setLoading(false);
+    setLastInteractionId(null);
+    setContextJson(null);
+  }, [subtopicId, activeSectionIndex]);
 
   async function handleSend() {
     const trimmed = input.trim();
@@ -66,6 +76,7 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
         subtopic_id: Number(subtopicId),
         message: trimmed,
         active_section_index: activeSectionIndex,
+        context_json: contextJson,
         history: history.slice(0, -1), // Exclude the current message from history
       });
 
@@ -75,6 +86,7 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
       };
       setMessages((prev) => [...prev, assistantMessage]);
       setLastInteractionId(data.interaction_id);
+      setContextJson(data.context_json ?? contextJson);
     } catch {
       const errorMessage: ChatMessage = {
         role: "assistant",
@@ -122,6 +134,7 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
         subtopic_id: Number(subtopicId),
         message: msg,
         active_section_index: activeSectionIndex,
+        context_json: contextJson,
         history: history.slice(0, -1),
       });
 
@@ -131,6 +144,7 @@ export function LessonChatPanel({ subtopicId, activeSectionIndex, lessonTitle }:
       };
       setMessages((prev) => [...prev, assistantMessage]);
       setLastInteractionId(data.interaction_id);
+      setContextJson(data.context_json ?? contextJson);
     } catch {
       const errorMessage: ChatMessage = {
         role: "assistant",

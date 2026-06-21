@@ -1,16 +1,25 @@
 package com.csnexus.app.feature.tutor.ui
 
 import com.csnexus.app.core.network.ApiResult
-import com.csnexus.app.core.error.AppError
+import com.csnexus.app.feature.content.data.ContentApi
+import com.csnexus.app.feature.content.data.ContentRepository
+import com.csnexus.app.feature.content.data.CachedContent
+import com.csnexus.app.feature.content.data.LessonCache
+import com.csnexus.app.feature.content.data.LessonCompleteRequestDto
+import com.csnexus.app.feature.content.data.LessonCompletionDto
+import com.csnexus.app.feature.content.data.LessonDto
+import com.csnexus.app.feature.content.data.ModuleDto
+import com.csnexus.app.feature.content.data.PaginatedResponseDto
+import com.csnexus.app.feature.content.data.SubtopicDto
+import com.csnexus.app.feature.content.data.TopicDto
+import com.csnexus.app.feature.content.domain.LearningModule
+import com.csnexus.app.feature.content.domain.LearningSubtopic
+import com.csnexus.app.feature.content.domain.LearningTopic
+import com.csnexus.app.feature.content.domain.Lesson
+import com.csnexus.app.feature.content.domain.LessonCompletion
 import com.csnexus.app.feature.tutor.data.LessonChatHistoryItemDto
-import com.csnexus.app.feature.tutor.data.LessonChatRequestDto
 import com.csnexus.app.feature.tutor.data.LessonChatResponseDto
-import com.csnexus.app.feature.tutor.data.RateInteractionRequestDto
-import com.csnexus.app.feature.tutor.data.SimilarQuestionDto
-import com.csnexus.app.feature.tutor.data.StepByStepDto
-import com.csnexus.app.feature.tutor.data.TutorAction
 import com.csnexus.app.feature.tutor.data.TutorRepositoryContract
-import com.csnexus.app.feature.tutor.data.TutorResponseDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -18,12 +27,16 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
-import org.junit.After
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.put
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -42,446 +55,251 @@ class TutorViewModelTest {
         Dispatchers.resetMain()
     }
 
-    // ── Input validation ──────────────────────────────────────────────────────
-
     @Test
-    fun requestActionDoesNothingWhenQuestionIdIsBlank() = runTest {
-        val vm = TutorViewModel(FakeTutorRepository())
-        // No question ID set; action should be ignored.
-        vm.requestAction(TutorAction.Explain)
+    fun initializesByLoadingModulesAndAutoSelectingTheFirstContext() = runTest {
+        val vm = createViewModel()
+
         advanceUntilIdle()
 
-        assertFalse(vm.uiState.value.loading)
-        assertNull(vm.uiState.value.result)
+        val state = vm.uiState.value
+        assertEquals(1, state.modules.size)
+        vm.onModuleSelected("10")
+        advanceUntilIdle()
+        vm.onTopicSelected("20")
+        advanceUntilIdle()
+        vm.onSubtopicSelected("30")
+        advanceUntilIdle()
+
+        val selectedState = vm.uiState.value
+        assertEquals(10, selectedState.selectedModuleId)
+        assertEquals(20, selectedState.selectedTopicId)
+        assertEquals(30, selectedState.selectedSubtopicId)
     }
 
     @Test
-    fun questionIdInputFiltersNonDigits() = runTest {
-        val vm = TutorViewModel(FakeTutorRepository())
-        vm.onQuestionIdChanged("abc12!@#")
-        assertEquals("12", vm.uiState.value.questionIdInput)
-    }
-
-    @Test
-    fun questionIdInputTruncatesAt9Digits() = runTest {
-        val vm = TutorViewModel(FakeTutorRepository())
-        vm.onQuestionIdChanged("123456789012")
-        assertEquals("123456789", vm.uiState.value.questionIdInput)
-    }
-
-    // ── Explain action ────────────────────────────────────────────────────────
-
-    @Test
-    fun requestActionExplainSetsTextResultAndInteractionId() = runTest {
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Success(
-                TutorResponseDto(interactionId = 7, responseText = "Explanation text."),
+    fun sendMessageAppendsAssistantResponseAndPersistsContext() = runTest {
+        val tutorRepo = FakeTutorRepository(
+            response = LessonChatResponseDto(
+                interactionId = 7,
+                responseText = "Here is a helpful answer.",
+                detectedIntent = "explain",
+                contextJson = buildJsonObject {
+                    put("turn", 1)
+                },
             ),
         )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("10")
+        val vm = createViewModel(tutorRepository = tutorRepo)
 
-        vm.requestAction(TutorAction.Explain)
+        advanceUntilIdle()
+        vm.onModuleSelected("10")
+        advanceUntilIdle()
+        vm.onTopicSelected("20")
+        advanceUntilIdle()
+        vm.onSubtopicSelected("30")
+        advanceUntilIdle()
+        vm.onInputChanged("What does this mean?")
+        vm.sendMessage()
         advanceUntilIdle()
 
         val state = vm.uiState.value
-        assertFalse(state.loading)
-        assertTrue(state.result is TutorResult.Text)
-        assertEquals("Explanation text.", (state.result as TutorResult.Text).text)
-        assertEquals(7, state.interactionId)
+        assertEquals(2, state.messages.size)
+        assertEquals("What does this mean?", state.messages.first().content)
+        assertEquals("Here is a helpful answer.", state.messages.last().content)
+        assertEquals(7, state.lastInteractionId)
+        assertNotNull(state.chatContext)
+        assertTrue(tutorRepo.lastHistory.isEmpty())
+        assertEquals("What does this mean?", tutorRepo.lastMessage)
     }
 
     @Test
-    fun requestActionUsesSelectedAnswerInput() = runTest {
-        val repo = FakeTutorRepository()
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("5")
-        vm.onSelectedAnswerChanged("B")
-
-        vm.requestAction(TutorAction.Hint)
-        advanceUntilIdle()
-
-        assertEquals("B", repo.lastSelectedAnswer)
-    }
-
-    // ── Step-by-step action ───────────────────────────────────────────────────
-
-    @Test
-    fun requestStepByStepSetsStepsResult() = runTest {
-        val repo = FakeTutorRepository(
-            stepByStepResult = ApiResult.Success(
-                StepByStepDto(
-                    interactionId = 3,
-                    steps = listOf("Step 1", "Step 2", "Step 3"),
-                ),
-            ),
+    fun rateInteractionShowsFeedback() = runTest {
+        val tutorRepo = FakeTutorRepository(
+            response = LessonChatResponseDto(interactionId = 9, responseText = "ok", detectedIntent = "explain"),
         )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("8")
-
-        vm.requestStepByStep()
-        advanceUntilIdle()
-
-        val state = vm.uiState.value
-        assertTrue(state.result is TutorResult.Steps)
-        assertEquals(3, (state.result as TutorResult.Steps).steps.size)
-        assertEquals(3, state.interactionId)
-    }
-
-    @Test
-    fun requestStepByStepDoesNothingWhenQuestionIdBlank() = runTest {
-        val vm = TutorViewModel(FakeTutorRepository())
-        vm.requestStepByStep()
-        advanceUntilIdle()
-
-        assertNull(vm.uiState.value.result)
-    }
-
-    // ── Similar action ────────────────────────────────────────────────────────
-
-    @Test
-    fun requestSimilarSetsSimilarResult() = runTest {
-        val repo = FakeTutorRepository(
-            similarResult = ApiResult.Success(
-                SimilarQuestionDto(
-                    interactionId = 11,
-                    stem = "What is 3+3?",
-                    options = listOf("5", "6", "7"),
-                    correctAnswer = "6",
-                    explanation = "3 plus 3 is 6.",
-                ),
-            ),
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("2")
-
-        vm.requestSimilar()
-        advanceUntilIdle()
-
-        val state = vm.uiState.value
-        assertTrue(state.result is TutorResult.Similar)
-        assertEquals("What is 3+3?", (state.result as TutorResult.Similar).dto.stem)
-        assertEquals(11, state.interactionId)
-    }
-
-    // ── Failed send and retry ─────────────────────────────────────────────────
-
-    @Test
-    fun actionFailureSetsFailedSendResult() = runTest {
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Failure(AppError.Network("Network unreachable")),
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("4")
-
-        vm.requestAction(TutorAction.Simplify)
-        advanceUntilIdle()
-
-        val state = vm.uiState.value
-        assertFalse(state.loading)
-        assertTrue(state.result is TutorResult.FailedSend)
-        assertEquals("Simplify", (state.result as TutorResult.FailedSend).retryLabel)
-        assertNull(state.interactionId)
-    }
-
-    @Test
-    fun retryLastActionTriesAgainAfterFailure() = runTest {
-        var callCount = 0
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Success(TutorResponseDto(responseText = "ok")),
-            onAction = { callCount++ },
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("1")
-
-        // First call succeeds; set up a FailedSend manually via a failing repo then retry.
-        val failRepo = FakeTutorRepository(
-            actionResult = ApiResult.Failure(AppError.Network("down")),
-        )
-        val vmFail = TutorViewModel(failRepo)
-        vmFail.onQuestionIdChanged("1")
-
-        vmFail.requestAction(TutorAction.Explain)
-        advanceUntilIdle()
-
-        assertTrue(vmFail.uiState.value.result is TutorResult.FailedSend)
-
-        // After retry, same action is dispatched again.
-        vmFail.retryLastAction()
-        advanceUntilIdle()
-
-        // Still a FailedSend because repo still returns Failure; no crash.
-        assertTrue(vmFail.uiState.value.result is TutorResult.FailedSend)
-    }
-
-    @Test
-    fun stepByStepFailureSetsLabeledRetry() = runTest {
-        val repo = FakeTutorRepository(
-            stepByStepResult = ApiResult.Failure(AppError.Network("timeout")),
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("3")
-
-        vm.requestStepByStep()
-        advanceUntilIdle()
-
-        val result = vm.uiState.value.result as? TutorResult.FailedSend
-        assertNotNull(result)
-        assertEquals("Step-by-step", result!!.retryLabel)
-    }
-
-    @Test
-    fun similarFailureSetsLabeledRetry() = runTest {
-        val repo = FakeTutorRepository(
-            similarResult = ApiResult.Failure(AppError.Http(503, "ERROR", "Server down", null)),
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("1")
-
-        vm.requestSimilar()
-        advanceUntilIdle()
-
-        val result = vm.uiState.value.result as? TutorResult.FailedSend
-        assertNotNull(result)
-        assertEquals("Similar", result!!.retryLabel)
-    }
-
-    // ── Loading state ─────────────────────────────────────────────────────────
-
-    @Test
-    fun loadingIsTrueWhileRequestIsInFlight() = runTest {
-        val repo = FakeTutorRepository()
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("1")
-
-        // Before advanceUntilIdle, loading should be true.
-        vm.requestAction(TutorAction.Explain)
-        assertTrue(vm.uiState.value.loading)
+        val vm = createViewModel(tutorRepository = tutorRepo)
 
         advanceUntilIdle()
-        assertFalse(vm.uiState.value.loading)
-    }
-
-    @Test
-    fun newRequestClearsPreviousResult() = runTest {
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Success(TutorResponseDto(responseText = "first")),
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("1")
-
-        vm.requestAction(TutorAction.Explain)
+        vm.onModuleSelected("10")
         advanceUntilIdle()
-
-        // Second request: during loading, result is null.
-        vm.requestAction(TutorAction.Simplify)
-        assertTrue(vm.uiState.value.loading)
-        assertNull(vm.uiState.value.result)
-    }
-
-    // ── Rating ────────────────────────────────────────────────────────────────
-
-    @Test
-    fun ratingHelpfulSetsRatingFeedback() = runTest {
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Success(TutorResponseDto(interactionId = 9, responseText = "Great.")),
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("1")
-
-        vm.requestAction(TutorAction.Explain)
+        vm.onTopicSelected("20")
         advanceUntilIdle()
-
+        vm.onSubtopicSelected("30")
+        advanceUntilIdle()
+        vm.onInputChanged("Explain this")
+        vm.sendMessage()
+        advanceUntilIdle()
         vm.rateInteraction(helpful = true)
         advanceUntilIdle()
 
+        assertEquals(true, tutorRepo.lastHelpful)
         assertNotNull(vm.uiState.value.ratingFeedback)
-        assertTrue(repo.rateHelpful == true)
-        assertEquals(9, repo.rateInteractionId)
     }
 
     @Test
-    fun ratingNotHelpfulSetsRatingFeedback() = runTest {
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Success(TutorResponseDto(interactionId = 4, responseText = "Hmm.")),
+    fun resetConversationClearsMessagesAndContext() = runTest {
+        val tutorRepo = FakeTutorRepository(
+            response = LessonChatResponseDto(interactionId = 2, responseText = "ok", detectedIntent = "explain"),
         )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("1")
+        val vm = createViewModel(tutorRepository = tutorRepo)
 
-        vm.requestAction(TutorAction.Explain)
         advanceUntilIdle()
-
-        vm.rateInteraction(helpful = false)
+        vm.onModuleSelected("10")
         advanceUntilIdle()
-
-        assertNotNull(vm.uiState.value.ratingFeedback)
-        assertTrue(repo.rateHelpful == false)
-    }
-
-    @Test
-    fun ratingIsSkippedWhenNoInteractionId() = runTest {
-        val repo = FakeTutorRepository()
-        val vm = TutorViewModel(repo)
-        // No action fired; interactionId is null.
-        vm.rateInteraction(helpful = true)
+        vm.onTopicSelected("20")
         advanceUntilIdle()
-
-        assertNull(vm.uiState.value.ratingFeedback)
-        assertEquals(-1, repo.rateInteractionId)
-    }
-
-    @Test
-    fun clearRatingFeedbackNullsTheField() = runTest {
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Success(TutorResponseDto(interactionId = 1, responseText = "ok")),
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("1")
-
-        vm.requestAction(TutorAction.Explain)
+        vm.onSubtopicSelected("30")
         advanceUntilIdle()
-        vm.rateInteraction(helpful = true)
+        vm.onInputChanged("Hello")
+        vm.sendMessage()
         advanceUntilIdle()
-
-        vm.clearRatingFeedback()
-        assertNull(vm.uiState.value.ratingFeedback)
-    }
-
-    // ── Offline draft ─────────────────────────────────────────────────────────
-
-    @Test
-    fun offlineDraftIsPreservedAndClearable() = runTest {
-        val vm = TutorViewModel(FakeTutorRepository())
-        vm.saveOfflineDraft("Draft message")
-        assertEquals("Draft message", vm.uiState.value.offlineDraft)
-
-        vm.clearOfflineDraft()
-        assertNull(vm.uiState.value.offlineDraft)
-    }
-
-    @Test
-    fun blankDraftIsStoredAsNull() = runTest {
-        val vm = TutorViewModel(FakeTutorRepository())
-        vm.saveOfflineDraft("   ")
-        assertNull(vm.uiState.value.offlineDraft)
-    }
-
-    // ── Reset ─────────────────────────────────────────────────────────────────
-
-    @Test
-    fun resetClearsAllState() = runTest {
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Success(TutorResponseDto(interactionId = 1, responseText = "ok")),
-        )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("42")
-        vm.onSelectedAnswerChanged("C")
-        vm.requestAction(TutorAction.Explain)
-        advanceUntilIdle()
-
-        vm.reset()
+        vm.resetConversation()
 
         val state = vm.uiState.value
-        assertEquals("", state.questionIdInput)
-        assertEquals("", state.selectedAnswerInput)
-        assertFalse(state.loading)
-        assertNull(state.result)
-        assertNull(state.interactionId)
-        assertNull(state.ratingFeedback)
+        assertTrue(state.messages.isEmpty())
+        assertNull(state.chatContext)
+        assertNull(state.lastInteractionId)
+        assertFalse(state.sending)
     }
 
-    // ── Context redaction safety ──────────────────────────────────────────────
-
-    @Test
-    fun noTokensOrSensitiveDataLeakIntoRepositoryCalls() = runTest {
-        // Verify that the ViewModel never passes auth tokens or PII through action requests.
-        // The action request payload is {question_id, selected_answer} only.
-        val repo = FakeTutorRepository(
-            actionResult = ApiResult.Success(TutorResponseDto(responseText = "ok")),
+    private fun createViewModel(
+        tutorRepository: FakeTutorRepository = FakeTutorRepository(),
+    ): TutorViewModel {
+        val contentRepository = ContentRepository(
+            contentApi = FakeContentApi(),
+            lessonCache = FakeLessonCache(),
         )
-        val vm = TutorViewModel(repo)
-        vm.onQuestionIdChanged("99")
-        vm.onSelectedAnswerChanged("B")
-
-        vm.requestAction(TutorAction.Explain)
-        advanceUntilIdle()
-
-        assertEquals(99, repo.lastQuestionId)
-        assertEquals("B", repo.lastSelectedAnswer)
-        // Only these two fields should be passed — no extra payload.
+        return TutorViewModel(tutorRepository, contentRepository)
     }
 }
 
-// ── Fake repository ───────────────────────────────────────────────────────────
+private class FakeContentApi : ContentApi {
+    override suspend fun modules(): PaginatedResponseDto<ModuleDto> =
+        PaginatedResponseDto(
+            items = listOf(
+                ModuleDto(
+                    id = 10,
+                    category = "General",
+                    slug = "general",
+                    title = "General Ability",
+                    orderIndex = 1,
+                    isPublished = true,
+                ),
+            ),
+            total = 1,
+            skip = 0,
+            limit = 1,
+        )
+
+    override suspend fun topics(moduleId: Int): List<TopicDto> =
+        listOf(
+            TopicDto(
+                id = 20,
+                moduleId = moduleId,
+                slug = "topic",
+                title = "Topic Alpha",
+                orderIndex = 1,
+                isPublished = true,
+            ),
+        )
+
+    override suspend fun subtopics(topicId: Int): List<SubtopicDto> =
+        listOf(
+            SubtopicDto(
+                id = 30,
+                topicId = topicId,
+                slug = "subtopic",
+                title = "Subtopic One",
+                orderIndex = 1,
+                isPublished = true,
+            ),
+        )
+
+    override suspend fun lesson(subtopicId: Int): LessonDto =
+        LessonDto(
+            id = 40,
+            subtopicId = subtopicId,
+            title = "Lesson",
+            status = "PUBLISHED",
+            contentJson = buildJsonObject {
+                put("metadata", buildJsonObject { put("subtopic_id", subtopicId) })
+            },
+        )
+
+    override suspend fun completeLesson(
+        subtopicId: Int,
+        request: LessonCompleteRequestDto,
+        idempotencyKey: String?,
+    ): LessonCompletionDto {
+        return LessonCompletionDto(
+            lessonId = subtopicId,
+            userId = 1,
+            completedAt = "2026-01-01T00:00:00Z",
+            awardedXp = 10,
+            alreadyCompleted = false,
+        )
+    }
+}
+
+private class FakeLessonCache : LessonCache {
+    override suspend fun modules(): CachedContent<List<LearningModule>>? = null
+    override suspend fun putModules(modules: List<LearningModule>) = Unit
+    override suspend fun topics(moduleId: Int): CachedContent<List<LearningTopic>>? = null
+    override suspend fun putTopics(moduleId: Int, topics: List<LearningTopic>) = Unit
+    override suspend fun subtopics(topicId: Int): CachedContent<List<LearningSubtopic>>? = null
+    override suspend fun putSubtopics(topicId: Int, subtopics: List<LearningSubtopic>) = Unit
+    override suspend fun get(subtopicId: Int): Lesson? = null
+    override suspend fun put(lesson: Lesson) = Unit
+}
 
 private class FakeTutorRepository(
-    private val actionResult: ApiResult<TutorResponseDto> = ApiResult.Success(
-        TutorResponseDto(responseText = "default response"),
+    private val response: LessonChatResponseDto = LessonChatResponseDto(
+        interactionId = 1,
+        responseText = "default response",
+        detectedIntent = "explain",
     ),
-    private val stepByStepResult: ApiResult<StepByStepDto> = ApiResult.Success(
-        StepByStepDto(steps = listOf("Step A")),
-    ),
-    private val similarResult: ApiResult<SimilarQuestionDto> = ApiResult.Success(
-        SimilarQuestionDto(stem = "Q?", correctAnswer = "A"),
-    ),
-    private val onAction: (() -> Unit)? = null,
 ) : TutorRepositoryContract {
-
-    var lastQuestionId: Int = -1
-        private set
-    var lastSelectedAnswer: String? = null
-        private set
-    var rateInteractionId: Int = -1
-        private set
-    var rateHelpful: Boolean? = null
-        private set
-    var lastLessonChatMessage: String? = null
-        private set
-    var lastLessonChatContext: String? = null
-        private set
+    var lastMessage: String? = null
+    var lastHistory: List<LessonChatHistoryItemDto> = emptyList()
+    var lastHelpful: Boolean? = null
+    var lastContextJson: JsonElement? = null
 
     override suspend fun tutorAction(
-        action: TutorAction,
+        action: com.csnexus.app.feature.tutor.data.TutorAction,
         questionId: Int,
         selectedAnswer: String?,
-    ): ApiResult<TutorResponseDto> {
-        lastQuestionId = questionId
-        lastSelectedAnswer = selectedAnswer
-        onAction?.invoke()
-        return actionResult
+    ): ApiResult<com.csnexus.app.feature.tutor.data.TutorResponseDto> {
+        error("Not used")
     }
 
     override suspend fun stepByStep(
         questionId: Int,
         selectedAnswer: String?,
-    ): ApiResult<StepByStepDto> {
-        lastQuestionId = questionId
-        return stepByStepResult
+    ): ApiResult<com.csnexus.app.feature.tutor.data.StepByStepDto> {
+        error("Not used")
     }
 
     override suspend fun similar(
         questionId: Int,
         selectedAnswer: String?,
-    ): ApiResult<SimilarQuestionDto> {
-        lastQuestionId = questionId
-        return similarResult
+    ): ApiResult<com.csnexus.app.feature.tutor.data.SimilarQuestionDto> {
+        error("Not used")
     }
 
     override suspend fun rateInteraction(interactionId: Int, helpful: Boolean): ApiResult<Unit> {
-        rateInteractionId = interactionId
-        rateHelpful = helpful
+        lastHelpful = helpful
         return ApiResult.Success(Unit)
     }
 
     override suspend fun lessonChat(
         message: String,
-        context: String?,
+        contextJson: JsonElement?,
         subtopicId: Int?,
         activeSectionIndex: Int?,
         history: List<LessonChatHistoryItemDto>,
     ): ApiResult<LessonChatResponseDto> {
-        lastLessonChatMessage = message
-        lastLessonChatContext = context
-        return ApiResult.Success(LessonChatResponseDto(response = "ok"))
+        lastMessage = message
+        lastContextJson = contextJson
+        lastHistory = history
+        return ApiResult.Success(response)
     }
 }

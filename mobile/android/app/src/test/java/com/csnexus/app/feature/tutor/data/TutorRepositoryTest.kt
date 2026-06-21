@@ -1,6 +1,11 @@
 package com.csnexus.app.feature.tutor.data
 
 import kotlinx.coroutines.test.runTest
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.put
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -183,7 +188,10 @@ class TutorRepositoryTest {
 
         val result = repo.lessonChat(
             message = "What does this formula mean?",
-            context = "Lesson: Algebra; subtopicId: 7",
+            contextJson = buildJsonObject {
+                put("lesson", "Algebra")
+                put("subtopicId", 7)
+            },
             subtopicId = 7,
             activeSectionIndex = 2,
             history = listOf(
@@ -196,7 +204,8 @@ class TutorRepositoryTest {
         assertEquals("The answer is 42.", dto.resolvedText())
         assertEquals(12, dto.interactionId)
         assertEquals("What does this formula mean?", api.lastLessonChatMessage)
-        assertEquals("Lesson: Algebra; subtopicId: 7", api.lastLessonChatContext)
+        assertTrue(api.lastLessonChatContext is JsonElement)
+        assertEquals("Algebra", api.lastLessonChatContext!!.jsonObject["lesson"]!!.jsonPrimitive.content)
         assertEquals(7, api.lastLessonChatSubtopicId)
         assertEquals(2, api.lastLessonChatActiveSectionIndex)
         assertEquals(2, api.lastLessonChatHistory.size)
@@ -209,7 +218,7 @@ class TutorRepositoryTest {
         )
         val repo = TutorRepository(api)
 
-        val result = repo.lessonChat(message = "Test", context = null)
+        val result = repo.lessonChat(message = "Test", contextJson = null)
 
         val dto = (result as com.csnexus.app.core.network.ApiResult.Success).value
         assertEquals("Legacy answer field.", dto.resolvedText())
@@ -222,7 +231,7 @@ class TutorRepositoryTest {
         )
         val repo = TutorRepository(api)
 
-        repo.lessonChat(message = "Hello", context = null)
+        repo.lessonChat(message = "Hello", contextJson = null)
 
         assertEquals(null, api.lastLessonChatContext)
     }
@@ -242,7 +251,7 @@ private class FakeTutorApi(
         private set
     var lastLessonChatMessage: String? = null
         private set
-    var lastLessonChatContext: String? = null
+    var lastLessonChatContext: JsonElement? = null
         private set
     var lastLessonChatSubtopicId: Int? = null
         private set
@@ -267,7 +276,7 @@ private class FakeTutorApi(
 
     override suspend fun lessonChat(request: LessonChatRequestDto): LessonChatResponseDto {
         lastLessonChatMessage = request.message
-        lastLessonChatContext = request.context
+        lastLessonChatContext = request.contextJson
         lastLessonChatSubtopicId = request.subtopicId
         lastLessonChatActiveSectionIndex = request.activeSectionIndex
         lastLessonChatHistory = request.history

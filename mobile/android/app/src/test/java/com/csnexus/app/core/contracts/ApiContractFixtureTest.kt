@@ -8,10 +8,12 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.encodeToJsonElement
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.put
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -103,7 +105,9 @@ class ApiContractFixtureTest {
             LessonChatRequestDto.serializer(),
             LessonChatRequestDto(
                 message = "Explain this line",
-                context = "lesson-42",
+                contextJson = buildJsonObject {
+                    put("lesson", "lesson-42")
+                },
                 subtopicId = 42,
                 activeSectionIndex = 2,
                 history = listOf(
@@ -114,7 +118,7 @@ class ApiContractFixtureTest {
         ).jsonObject
 
         assertEquals("Explain this line", encoded.string("message"))
-        assertEquals("lesson-42", encoded.string("context"))
+        assertEquals("lesson-42", encoded["context_json"]!!.jsonObject.string("lesson"))
         assertEquals(42, encoded.int("subtopic_id"))
         assertEquals(2, encoded.int("active_section_index"))
         assertEquals(2, encoded["history"]!!.jsonArray.size)
