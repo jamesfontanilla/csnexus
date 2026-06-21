@@ -1,13 +1,13 @@
-"""Smart Chat Engine orchestrator for the pseudo-AI chatbot.
+"""Smart Chat Engine orchestrator for the lesson chatbot.
 
 Provides the main entry point ``generate_chat_response`` which wires
 together the full orchestration pipeline:
 
     ContextManager → AnaphoraResolver → IntentClassifier → SocraticModule → ResponseGenerator
 
-The engine remains purely rule-based (no LLM, no external API calls).
-All responses are assembled from the lesson's own content_json using
-discourse-aware intent classification and template-based generation.
+The engine keeps the local rule-based response generator as the source of
+truth, then optionally lets the five-step external LLM fallback stack polish
+the draft response when Gemini or Groq credentials are available.
 
 The old stateless signature is replaced with a keyword-arg interface
 returning ``ChatResult``. Backward compatibility is maintained: when
@@ -22,6 +22,7 @@ from pathlib import Path
 from typing import Any
 
 from app.features.tutor.algorithms.anaphora_resolver import AnaphoraResolver
+from app.features.tutor.algorithms.chatbot_llm_stack import TutorChatFallbackStack
 from app.features.tutor.algorithms.chat_models import (
     ChatResult,
     ConversationContext,
@@ -52,6 +53,7 @@ _anaphora_resolver = AnaphoraResolver()
 _intent_classifier = IntentClassifier()
 _socratic_module = SocraticModule()
 _response_generator = ResponseGenerator()
+_chat_fallback_stack: TutorChatFallbackStack | None = None
 
 # Template loader — loaded once from the data directory.
 _TEMPLATES_DIR = Path(__file__).resolve().parents[4] / "data" / "chat_templates"
@@ -64,6 +66,14 @@ def _get_template_loader() -> TemplateLoader:
     if _template_loader is None:
         _template_loader = TemplateLoader.load(_TEMPLATES_DIR)
     return _template_loader
+
+
+def _get_chat_fallback_stack() -> TutorChatFallbackStack:
+    """Lazily initialize and return the external chat fallback stack."""
+    global _chat_fallback_stack
+    if _chat_fallback_stack is None:
+        _chat_fallback_stack = TutorChatFallbackStack.from_environment()
+    return _chat_fallback_stack
 
 
 # ---------------------------------------------------------------------------
@@ -241,7 +251,7 @@ def generate_chat_response(
     effective_complexity = resolve_effective_complexity(mastery_score, ctx)
     template = template_loader.get_template(detected_intent, effective_complexity)
 
-    response_text = _response_generator.generate(
+    draft_response = _response_generator.generate(
         intent=detected_intent,
         content_json=content_json,
         ctx=ctx,
@@ -251,6 +261,18 @@ def generate_chat_response(
         active_section_index=active_section_index,
         template=template,
     )
+
+    response_text = draft_response
+    polished = _get_chat_fallback_stack().polish_response(
+        content_json=content_json,
+        context=ctx,
+        message=message,
+        detected_intent=detected_intent,
+        draft_response=draft_response,
+        active_section_index=active_section_index,
+    )
+    if polished:
+        response_text = polished
 
     # --- Step 8: Update context with this exchange ---
     ctx = _context_manager.update_context(
