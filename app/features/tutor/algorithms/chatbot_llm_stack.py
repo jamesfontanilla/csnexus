@@ -189,6 +189,9 @@ class TutorChatFallbackStack:
             "Rewrite the draft response so it sounds natural and polished, "
             "but preserve the meaning, facts, numbers, and intent exactly. "
             "Do not add new facts. Do not mention policies or internal steps. "
+            "Do not use markdown heading syntax such as #, ##, ###, or ####. "
+            "If you need a section label, use a short bold phrase or a plain "
+            "sentence on its own line. "
             "Return only the final message text."
         )
         user_prompt = json.dumps(

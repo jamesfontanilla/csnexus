@@ -3,17 +3,17 @@ import React, { useState } from "react";
 /**
  * Lightweight inline markdown renderer.
  * Handles: **bold**, *italic*, `code`, - bullet lists, | tables |,
- * #### H4 section boxes, > blockquote callouts, and line breaks.
+ * ##/###/#### section boxes, > blockquote callouts, and line breaks.
  * No external dependencies.
  */
 export function MarkdownText({ text, style }: { text: string; style?: React.CSSProperties }) {
-  const blocks = splitByH4(text);
+  const blocks = splitByHeadingSections(text);
 
   return (
     <div style={style}>
       {blocks.map((block, i) =>
-        block.type === "h4section" ? (
-          <H4SectionBox key={i} title={block.title} body={block.body} />
+        block.type === "section" ? (
+          <SectionBox key={i} level={block.level} title={block.title} body={block.body} />
         ) : (
           <RawMarkdownBlock key={i} text={block.text} />
         )
@@ -24,14 +24,15 @@ export function MarkdownText({ text, style }: { text: string; style?: React.CSSP
 
 type ContentBlock =
   | { type: "raw"; text: string }
-  | { type: "h4section"; title: string; body: string };
+  | { type: "section"; level: 2 | 3 | 4; title: string; body: string };
 
-function splitByH4(text: string): ContentBlock[] {
+function splitByHeadingSections(text: string): ContentBlock[] {
   const lines = text.split("\n");
   const blocks: ContentBlock[] = [];
   let rawBuffer: string[] = [];
-  let h4Title: string | null = null;
-  let h4Buffer: string[] = [];
+  let sectionTitle: string | null = null;
+  let sectionLevel: 2 | 3 | 4 | null = null;
+  let sectionBuffer: string[] = [];
 
   function flushRaw() {
     const joined = rawBuffer.join("\n").trim();
@@ -39,38 +40,48 @@ function splitByH4(text: string): ContentBlock[] {
     rawBuffer = [];
   }
 
-  function flushH4() {
-    if (h4Title !== null) {
-      blocks.push({ type: "h4section", title: h4Title, body: h4Buffer.join("\n").trim() });
-      h4Title = null;
-      h4Buffer = [];
+  function flushSection() {
+    if (sectionTitle !== null && sectionLevel !== null) {
+      blocks.push({
+        type: "section",
+        level: sectionLevel,
+        title: sectionTitle,
+        body: sectionBuffer.join("\n").trim(),
+      });
+      sectionTitle = null;
+      sectionLevel = null;
+      sectionBuffer = [];
     }
   }
 
   for (const line of lines) {
     const trimmed = line.trim();
-    if (trimmed.startsWith("#### ")) {
-      if (h4Title !== null) flushH4();
+    const headingMatch = trimmed.match(/^(#{2,4})\s+(.+)$/);
+    if (headingMatch) {
+      if (sectionTitle !== null) flushSection();
       else flushRaw();
-      h4Title = trimmed.slice(5);
-      h4Buffer = [];
-    } else if (h4Title !== null) {
-      h4Buffer.push(line);
+      sectionLevel = headingMatch[1].length as 2 | 3 | 4;
+      sectionTitle = headingMatch[2].trim();
+      sectionBuffer = [];
+    } else if (sectionTitle !== null) {
+      sectionBuffer.push(line);
     } else {
       rawBuffer.push(line);
     }
   }
-  if (h4Title !== null) flushH4();
+  if (sectionTitle !== null) flushSection();
   else flushRaw();
 
   return blocks;
 }
 
-function H4SectionBox({ title, body }: { title: string; body: string }) {
+function SectionBox({ level, title, body }: { level: 2 | 3 | 4; title: string; body: string }) {
+  const isLevel2 = level === 2;
+  const isLevel3 = level === 3;
   return (
     <div
       style={{
-        margin: "0.75rem 0",
+        margin: isLevel2 ? "0.875rem 0" : "0.75rem 0",
         border: "1px solid var(--glass-border-medium, rgba(255,255,255,0.12))",
         borderRadius: "var(--radius-md, 8px)",
         overflow: "hidden",
@@ -78,18 +89,18 @@ function H4SectionBox({ title, body }: { title: string; body: string }) {
     >
       <div
         style={{
-          padding: "0.4rem 0.75rem",
-          background: "rgba(212, 165, 116, 0.08)",
+          padding: isLevel2 ? "0.45rem 0.85rem" : "0.4rem 0.75rem",
+          background: isLevel2 ? "rgba(212, 165, 116, 0.12)" : isLevel3 ? "rgba(212, 165, 116, 0.09)" : "rgba(212, 165, 116, 0.08)",
           borderBottom: "1px solid var(--glass-border-medium, rgba(255,255,255,0.12))",
-          fontWeight: 600,
-          fontSize: "0.8125rem",
+          fontWeight: isLevel2 ? 700 : 600,
+          fontSize: isLevel2 ? "0.875rem" : "0.8125rem",
           color: "var(--color-text)",
         }}
       >
         <InlineMarkdown text={title} />
       </div>
       {body && (
-        <div style={{ padding: "0.5rem 0.75rem" }}>
+        <div style={{ padding: isLevel2 ? "0.6rem 0.85rem" : "0.5rem 0.75rem" }}>
           <RawMarkdownBlock text={body} />
         </div>
       )}
