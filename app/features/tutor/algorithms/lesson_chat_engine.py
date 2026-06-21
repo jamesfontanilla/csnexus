@@ -263,16 +263,17 @@ def generate_chat_response(
     )
 
     response_text = draft_response
-    polished = _get_chat_fallback_stack().polish_response(
-        content_json=content_json,
-        context=ctx,
-        message=message,
-        detected_intent=detected_intent,
-        draft_response=draft_response,
-        active_section_index=active_section_index,
-    )
-    if polished:
-        response_text = polished
+    if _should_polish_response(draft_response, detected_intent):
+        polished = _get_chat_fallback_stack().polish_response(
+            content_json=content_json,
+            context=ctx,
+            message=message,
+            detected_intent=detected_intent,
+            draft_response=draft_response,
+            active_section_index=active_section_index,
+        )
+        if polished:
+            response_text = polished
 
     # --- Step 8: Update context with this exchange ---
     ctx = _context_manager.update_context(
@@ -442,3 +443,20 @@ def _gather_cross_ref_terms(ctx: ConversationContext, resolved) -> list[str]:
             break
 
     return terms
+
+
+def _should_polish_response(draft_response: str, detected_intent: str) -> bool:
+    """Return True when the external polish stack is worth trying.
+
+    Short control responses tend to be better left in their local grounded
+    form. This avoids replacing a correct response with a truncated or
+    over-embellished model rewrite.
+    """
+    if detected_intent in {"complexity_adjustment", "greeting", "thanks"}:
+        return False
+
+    cleaned = draft_response.strip()
+    if len(cleaned) < 120:
+        return False
+
+    return True

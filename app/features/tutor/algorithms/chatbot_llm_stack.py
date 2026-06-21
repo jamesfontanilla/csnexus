@@ -224,8 +224,14 @@ class TutorChatFallbackStack:
                 )
                 continue
 
-            if response:
+            if response and _looks_complete_response(response):
                 return response
+
+            logger.warning(
+                "Tutor chat provider produced an unusable rewrite provider=%s model=%s",
+                provider.provider_name,
+                provider.model_name,
+            )
 
         return None
 
@@ -402,6 +408,51 @@ def _normalize_response_text(text: str) -> str:
     cleaned = text.strip()
     cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
     return cleaned
+
+
+def _looks_complete_response(response_text: str) -> bool:
+    """Reject rewrites that look truncated or structurally broken."""
+    cleaned = response_text.strip()
+    if not cleaned:
+        return False
+
+    if cleaned.startswith("```") or "```" in cleaned:
+        return False
+
+    if cleaned.startswith("##"):
+        return False
+
+    if cleaned.endswith("..."):
+        return False
+
+    if not re.search(r"[.!?][\"')\]]?$", cleaned):
+        return False
+
+    last_word = re.sub(r"[^A-Za-z']+$", "", cleaned.split()[-1].lower())
+    if last_word in {
+        "and",
+        "or",
+        "of",
+        "to",
+        "my",
+        "your",
+        "the",
+        "a",
+        "an",
+        "with",
+        "for",
+        "in",
+        "on",
+        "at",
+        "from",
+        "about",
+        "because",
+        "if",
+        "that",
+    }:
+        return False
+
+    return True
 
 
 def _post_json(

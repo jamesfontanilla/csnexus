@@ -72,6 +72,32 @@ def test_stack_uses_first_successful_provider() -> None:
     assert result == "Polished tutor answer."
 
 
+def test_stack_rejects_truncated_polished_response() -> None:
+    stack = TutorChatFallbackStack(
+        providers=[
+            _FakeProvider(
+                provider_name="gemini",
+                model_name="gemini-3.5-flash",
+                response="Got it - let me adjust my explanation. I've adjusted the complexity of my",
+            )
+        ]
+    )
+
+    result = stack.polish_response(
+        content_json={
+            "metadata": {"title": "Lesson"},
+            "sections": [{"title": "Intro", "blocks": []}],
+            "key_takeaways": ["Point one"],
+        },
+        context=ConversationContext(),
+        message="Explain it simpler.",
+        detected_intent="explain_section",
+        draft_response="Draft tutor answer that should remain intact.",
+    )
+
+    assert result is None
+
+
 def test_engine_prefers_polished_response_when_available() -> None:
     fake_stack = MagicMock()
     fake_stack.polish_response.return_value = "Polished tutor answer."
@@ -118,3 +144,26 @@ def test_engine_falls_back_to_local_draft_when_stack_unavailable() -> None:
 
     assert result.response_text == "Draft tutor answer."
     fake_stack.polish_response.assert_called_once()
+
+
+def test_engine_skips_polish_for_short_control_responses() -> None:
+    fake_stack = MagicMock()
+
+    with patch(
+        "app.features.tutor.algorithms.lesson_chat_engine._chat_fallback_stack",
+        fake_stack,
+    ), patch(
+        "app.features.tutor.algorithms.lesson_chat_engine._response_generator.generate",
+        return_value="I've adjusted the complexity of my responses.",
+    ):
+        result = generate_chat_response(
+            content_json={
+                "metadata": {"title": "Lesson"},
+                "sections": [{"title": "Intro", "blocks": []}],
+                "key_takeaways": ["Point one"],
+            },
+            message="Explain it simpler.",
+        )
+
+    assert result.response_text == "I've adjusted the complexity of my responses."
+    fake_stack.polish_response.assert_not_called()
