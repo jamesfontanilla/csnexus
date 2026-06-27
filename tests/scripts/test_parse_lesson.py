@@ -55,3 +55,30 @@ def test_parse_lesson_keeps_segmented_clerical_lesson_intact() -> None:
     assert result["metadata"]["segment_count"] == 3
     assert result["metadata"]["section_count"] == len(result["sections"])
     assert find_section(result["sections"], "4.1 Understanding Alphabetical Order")
+
+
+def test_parse_lesson_classifies_common_callout_labels() -> None:
+    content = read_lesson(
+        "data/seed/lessons/analytical-ability/word-analogy/synonym-and-antonym-analogies/lesson.md"
+    )
+
+    result = parse_lesson_markdown(content)
+    section = find_section(result["sections"], "4.1 What Is a Word Analogy?")
+    blocks = section["blocks"]
+
+    assert any(
+        block["type"] == "tip" and "Why does this work" in str(block["content"])
+        for block in blocks
+    )
+    assert any(
+        block["type"] == "warning" and "Misconception" in str(block["content"])
+        for block in blocks
+    )
+    assert any(
+        block["type"] == "warning" and "Why it fails" in str(block["content"])
+        for block in blocks
+    )
+    assert any(
+        block["type"] == "tip" and "Correct model" in str(block["content"])
+        for block in blocks
+    )

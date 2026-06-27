@@ -501,6 +501,32 @@ def _extract_summary_candidate(text: str) -> str:
     return candidate.strip()
 
 
+def _classify_blockquote(stripped_bq: str, raw_bq: str) -> str:
+    """Classify a blockquote callout by its label first, then by fallback cues."""
+    first_line = next((line.strip() for line in stripped_bq.split("\n") if line.strip()), "")
+    normalized = re.sub(r"^[^\w]+", "", first_line.lower()).replace("**", "").strip()
+    raw_lower = raw_bq.lower()
+
+    if normalized.startswith("misconception"):
+        return BLOCK_TYPE_WARNING
+    if normalized.startswith("why it fails"):
+        return BLOCK_TYPE_WARNING
+    if normalized.startswith("correct model"):
+        return BLOCK_TYPE_TIP
+    if normalized.startswith("why does this work"):
+        return BLOCK_TYPE_TIP
+
+    # Fallback cues for older authored lessons that rely on emoji or keyword hints
+    if "🤔" in raw_bq or "tip" in raw_lower[:40] or "note" in raw_lower[:40] or "important" in raw_lower[:40]:
+        return BLOCK_TYPE_TIP
+    if "⚠️" in raw_bq or "warning" in raw_lower[:40] or "caution" in raw_lower[:40]:
+        return BLOCK_TYPE_WARNING
+    if "🧠" in raw_bq or "mnemonic" in raw_lower[:40] or "memory" in raw_lower[:40]:
+        return BLOCK_TYPE_TIP
+
+    return BLOCK_TYPE_EXAMPLE
+
+
 def _parse_content_blocks(text: str) -> list[dict[str, Any]]:
     """Parse a section body into typed content blocks.
 
@@ -594,7 +620,7 @@ def _parse_content_blocks(text: str) -> list[dict[str, Any]]:
                 blocks.append({"type": BLOCK_TYPE_CHECK_UNDERSTANDING, "content": checks})
             continue
 
-        # Blockquote callouts (> 💡, > ⚠️, > 🧠) — classify by emoji/keyword
+        # Blockquote callouts: classify label-first, then fall back to emoji/keyword
         if line.strip().startswith("> "):
             bq_lines = [line]
             i += 1
@@ -602,17 +628,9 @@ def _parse_content_blocks(text: str) -> list[dict[str, Any]]:
                 bq_lines.append(lines[i])
                 i += 1
             bq_content = "\n".join(bq_lines)
-            # Strip the "> " prefix for content storage
             stripped_bq = "\n".join(l.lstrip("> ").rstrip() for l in bq_lines)
-            # Classify based on emoji or keywords
-            if "💡" in bq_content or "tip" in bq_content.lower()[:40]:
-                blocks.append({"type": BLOCK_TYPE_TIP, "content": stripped_bq})
-            elif "⚠️" in bq_content or "warning" in bq_content.lower()[:40] or "caution" in bq_content.lower()[:40]:
-                blocks.append({"type": BLOCK_TYPE_WARNING, "content": stripped_bq})
-            elif "🧠" in bq_content or "mnemonic" in bq_content.lower()[:40] or "memory" in bq_content.lower()[:40]:
-                blocks.append({"type": BLOCK_TYPE_TIP, "content": stripped_bq})
-            else:
-                blocks.append({"type": BLOCK_TYPE_EXAMPLE, "content": stripped_bq})
+            block_type = _classify_blockquote(stripped_bq, bq_content)
+            blocks.append({"type": block_type, "content": stripped_bq})
             continue
 
         # Example blocks (lines starting with **Example**)
