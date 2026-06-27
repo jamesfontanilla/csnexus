@@ -22,6 +22,12 @@ Recommended Android request:
   "context": "lesson-42",
   "subtopic_id": 42,
   "active_section_index": 2,
+  "reasoning_context": {
+    "mode": "GRAPH_INTERPRETATION",
+    "question_text": "What does this line graph show?",
+    "math_expression": "2x + 4 = 10",
+    "notes": "Optional structured hint for the tutor backend."
+  },
   "history": [
     { "role": "user", "content": "Can you explain this?" },
     { "role": "assistant", "content": "Sure." }
@@ -38,6 +44,8 @@ Current Android contract accepts the existing tutor response envelope:
   "interaction_id": 123,
   "response_text": "Here is the explanation...",
   "detected_intent": "lesson_chat",
+  "reasoning_mode": "GRAPH_INTERPRETATION",
+  "reasoning_summary": "Reasoning mode: GRAPH_INTERPRETATION",
   "response": "legacy fallback",
   "answer": "legacy fallback"
 }

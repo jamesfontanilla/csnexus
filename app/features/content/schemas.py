@@ -78,6 +78,7 @@ class LessonSection(BaseModel):
     - Table of contents navigation
     - Progress tracking (which sections read)
     - Mobile pagination (one section per screen)
+    - Nested bite-sized subsections when the source lesson has deeper headings
     """
 
     title: str
@@ -85,6 +86,7 @@ class LessonSection(BaseModel):
     difficulty: list[str] = Field(default_factory=list)
     word_count: int = 0
     estimated_reading_seconds: int = 0
+    subsections: list[LessonSection] = Field(default_factory=list)
 
 
 class PracticeProblem(BaseModel):

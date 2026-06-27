@@ -33,6 +33,7 @@ from app.features.tutor.algorithms.chat_models import (
 from app.features.tutor.algorithms.context_manager import ContextManager
 from app.features.tutor.algorithms.cross_lesson_registry import CrossLessonRegistry
 from app.features.tutor.algorithms.intent_classifier import IntentClassifier
+from app.features.tutor.algorithms.reasoning_support import build_reasoning_packet
 from app.features.tutor.algorithms.response_generator import (
     ResponseGenerator,
     activate_override,
@@ -116,6 +117,7 @@ def generate_chat_response(
     message: str,
     active_section_index: int | None = None,
     context_json: dict | None = None,
+    reasoning_context: dict[str, Any] | None = None,
     mastery_score: float | None = None,
     mastery_level: str | None = None,
     cross_lesson_registry: CrossLessonRegistry | None = None,
@@ -145,6 +147,10 @@ def generate_chat_response(
     """
     # --- Step 1: Build conversation context ---
     ctx = _context_manager.build_context(context_json)
+    reasoning_packet = build_reasoning_packet(
+        text=message,
+        reasoning_context=reasoning_context,
+    )
 
     # --- Step 2: Resolve anaphoric references ---
     resolved = _anaphora_resolver.resolve(message, ctx)
@@ -161,6 +167,8 @@ def generate_chat_response(
             response_text=response_text,
             detected_intent="clarification",
             context_json=serialized,
+            reasoning_mode=reasoning_packet.mode.value if reasoning_packet else None,
+            reasoning_summary=reasoning_packet.summary if reasoning_packet else None,
         )
 
     # --- Step 3: Classify intent ---
@@ -178,6 +186,8 @@ def generate_chat_response(
             response_text=response_text,
             detected_intent="disambiguation",
             context_json=serialized,
+            reasoning_mode=reasoning_packet.mode.value if reasoning_packet else None,
+            reasoning_summary=reasoning_packet.summary if reasoning_packet else None,
         )
 
     detected_intent = classification.intent
@@ -255,6 +265,8 @@ def generate_chat_response(
         intent=detected_intent,
         content_json=content_json,
         ctx=ctx,
+        message=message,
+        reasoning_context=reasoning_context,
         mastery_score=mastery_score,
         cross_refs=cross_refs,
         socratic_prompt=socratic_prompt,
@@ -271,6 +283,7 @@ def generate_chat_response(
             detected_intent=detected_intent,
             draft_response=draft_response,
             active_section_index=active_section_index,
+            reasoning_context=reasoning_context,
         )
         if polished:
             response_text = polished
@@ -287,6 +300,8 @@ def generate_chat_response(
         response_text=response_text,
         detected_intent=detected_intent,
         context_json=serialized,
+        reasoning_mode=reasoning_packet.mode.value if reasoning_packet else None,
+        reasoning_summary=reasoning_packet.summary if reasoning_packet else None,
     )
 
 

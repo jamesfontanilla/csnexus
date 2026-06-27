@@ -45,6 +45,8 @@ Android stores the freshness fields on the lesson model and cache entry so the a
 | `svg` | Sanitized diagram renderer or image alternative with content description. |
 | `check_understanding` | Inline check list with answer/reveal/feedback behavior. |
 
+Lesson sections may also include optional `subsections` entries. These reuse the same section shape, preserve deeper lesson headings, and remain safe for clients that still render only the top-level `sections` array.
+
 Sanitization rules:
 
 - `formula` blocks are rendered as inert text/monospace content. Android does not execute formula markup.

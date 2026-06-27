@@ -357,6 +357,8 @@ class TestTemplateFallback:
             intent="explain_section",
             content_json=content,
             ctx=ctx,
+            message="Explain this section",
+            reasoning_context=None,
             mastery_score=0.5,
             template=None,
         )
@@ -379,6 +381,8 @@ class TestTemplateFallback:
             intent="explain_section",
             content_json=content,
             ctx=ctx,
+            message="Explain this section",
+            reasoning_context=None,
             mastery_score=0.5,
             template=template,
         )
@@ -407,6 +411,8 @@ class TestResponseGeneratorGenerate:
             intent="conceptual_question",
             content_json=content,
             ctx=ctx,
+            message="What do you think happens when...?",
+            reasoning_context=None,
             mastery_score=0.5,
             socratic_prompt=prompt,
         )
@@ -424,6 +430,8 @@ class TestResponseGeneratorGenerate:
             intent="explain_section",
             content_json=content,
             ctx=ctx,
+            message="Explain this section",
+            reasoning_context=None,
             mastery_score=0.5,
             template=None,
         )
@@ -448,6 +456,8 @@ class TestResponseGeneratorGenerate:
             intent="explain_section",
             content_json=content,
             ctx=ctx,
+            message="Explain this section",
+            reasoning_context=None,
             mastery_score=0.5,
             cross_refs=cross_refs,
             template=None,

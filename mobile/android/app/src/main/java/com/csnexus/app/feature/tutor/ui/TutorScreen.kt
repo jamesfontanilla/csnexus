@@ -2,6 +2,7 @@ package com.csnexus.app.feature.tutor.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -47,7 +48,7 @@ import com.csnexus.app.core.design.CSNexusTextField
 import com.csnexus.app.feature.content.data.ContentRepository
 import com.csnexus.app.feature.tutor.data.TutorRepositoryContract
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun TutorScreen(
     repository: TutorRepositoryContract,
@@ -80,123 +81,143 @@ fun TutorScreen(
         vm.clearRatingFeedback()
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(contentPadding)
-                .padding(horizontal = 16.dp, vertical = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-        ) {
-            TutorHeader()
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        val compactLayout = maxWidth < 600.dp
+        val horizontalPadding = if (compactLayout) 12.dp else 16.dp
+        val verticalPadding = if (compactLayout) 12.dp else 16.dp
+        val sectionGap = if (compactLayout) 12.dp else 16.dp
 
-            TutorContextCard(
-                state = state,
-                onModuleSelected = vm::onModuleSelected,
-                onTopicSelected = vm::onTopicSelected,
-                onSubtopicSelected = vm::onSubtopicSelected,
-            )
-
-            QuickPromptCard(
-                enabled = state.selectedSubtopicId != null && !state.sending,
-                onPrompt = vm::sendPrompt,
-            )
-
-            PremiumCard(
+        Box(modifier = Modifier.fillMaxSize()) {
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
+                    .fillMaxSize()
+                    .padding(contentPadding)
+                    .padding(horizontal = horizontalPadding, vertical = verticalPadding),
+                verticalArrangement = Arrangement.spacedBy(sectionGap),
             ) {
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                TutorHeader(
+                    onNewChat = vm::resetConversation,
+                    showNewChat = state.selectedSubtopicId != null && state.messages.isNotEmpty(),
+                )
+
+                TutorContextCard(
+                    state = state,
+                    onModuleSelected = vm::onModuleSelected,
+                    onTopicSelected = vm::onTopicSelected,
+                    onSubtopicSelected = vm::onSubtopicSelected,
+                )
+
+                if (!compactLayout) {
+                    QuickPromptCard(
+                        enabled = state.selectedSubtopicId != null && !state.sending,
+                        onPrompt = vm::sendPrompt,
+                    )
+                }
+
+                PremiumCard(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
                 ) {
-                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text("Chat", style = MaterialTheme.typography.titleMedium)
-                        val title = remember(state) {
-                            buildString {
-                                append(state.modules.firstOrNull { it.id == state.selectedModuleId }?.title ?: "Module")
-                                append(" / ")
-                                append(state.topics.firstOrNull { it.id == state.selectedTopicId }?.title ?: "Topic")
-                                append(" / ")
-                                append(state.subtopics.firstOrNull { it.id == state.selectedSubtopicId }?.title ?: "Subtopic")
-                            }
-                        }
-                        Text(
-                            text = title,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-
-                    if (state.errorMessage != null) {
-                        Text(
-                            text = state.errorMessage.orEmpty(),
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodySmall,
-                        )
-                    }
-
-                    LazyColumn(
-                        state = listState,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f),
-                        verticalArrangement = Arrangement.spacedBy(10.dp),
-                        contentPadding = PaddingValues(vertical = 4.dp),
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.spacedBy(if (compactLayout) 10.dp else 12.dp),
                     ) {
-                        items(state.messages) { message ->
-                            TutorBubble(message = message)
+                        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Text("Chat", style = MaterialTheme.typography.titleMedium)
+                            val title = remember(state) {
+                                buildString {
+                                    append(state.modules.firstOrNull { it.id == state.selectedModuleId }?.title ?: "Module")
+                                    append(" / ")
+                                    append(state.topics.firstOrNull { it.id == state.selectedTopicId }?.title ?: "Topic")
+                                    append(" / ")
+                                    append(state.subtopics.firstOrNull { it.id == state.selectedSubtopicId }?.title ?: "Subtopic")
+                                }
+                            }
+                            Text(
+                                text = title,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
                         }
-                        if (state.sending) {
-                            item {
-                                ChatTypingBubble()
+
+                        if (state.errorMessage != null) {
+                            Text(
+                                text = state.errorMessage.orEmpty(),
+                                color = MaterialTheme.colorScheme.error,
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                        }
+
+                        if (state.messages.isEmpty()) {
+                            CompactTutorPromptStrip(
+                                enabled = state.selectedSubtopicId != null && !state.sending,
+                                onPrompt = vm::sendPrompt,
+                                maxItems = if (compactLayout) 4 else 5,
+                            )
+                        }
+
+                        LazyColumn(
+                            state = listState,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .weight(1f),
+                            verticalArrangement = Arrangement.spacedBy(10.dp),
+                            contentPadding = PaddingValues(vertical = 4.dp),
+                        ) {
+                            items(state.messages) { message ->
+                                TutorBubble(message = message)
+                            }
+                            if (state.sending) {
+                                item {
+                                    ChatTypingBubble()
+                                }
                             }
                         }
-                    }
 
-                    if (state.lastInteractionId != null && !state.sending && state.messages.lastOrNull()?.role == TutorChatRole.Assistant && !state.messages.lastOrNull()!!.isError) {
-                        RatingRow(
-                            onHelpful = { vm.rateInteraction(true) },
-                            onNotHelpful = { vm.rateInteraction(false) },
-                        )
-                    }
-
-                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        CSNexusTextField(
-                            value = state.input,
-                            onValueChange = vm::onInputChanged,
-                            label = "Message",
-                            singleLine = false,
-                            supportingText = if (state.selectedSubtopicId == null) "Select a subtopic first." else null,
-                            modifier = Modifier.fillMaxWidth(),
-                            keyboardOptions = KeyboardOptions.Default,
-                            placeholder = "Ask anything about this subtopic",
-                        )
-                        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                            CSNexusButton(
-                                text = "Send",
-                                onClick = {
-                                    vm.sendMessage()
-                                    keyboardController?.hide()
-                                },
-                                enabled = state.selectedSubtopicId != null && state.input.isNotBlank() && !state.sending,
-                                loading = state.sending,
-                                modifier = Modifier.weight(1f),
+                        if (state.lastInteractionId != null && !state.sending && state.messages.lastOrNull()?.role == TutorChatRole.Assistant && !state.messages.lastOrNull()!!.isError) {
+                            RatingRow(
+                                onHelpful = { vm.rateInteraction(true) },
+                                onNotHelpful = { vm.rateInteraction(false) },
                             )
+                        }
+
+                        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                            CSNexusTextField(
+                                value = state.input,
+                                onValueChange = vm::onInputChanged,
+                                label = "Message",
+                                singleLine = false,
+                                supportingText = if (state.selectedSubtopicId == null) "Select a subtopic first." else null,
+                                modifier = Modifier.fillMaxWidth(),
+                                keyboardOptions = KeyboardOptions.Default,
+                                placeholder = "Ask anything about this subtopic",
+                            )
+                            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                                CSNexusButton(
+                                    text = "Send",
+                                    onClick = {
+                                        vm.sendMessage()
+                                        keyboardController?.hide()
+                                    },
+                                    enabled = state.selectedSubtopicId != null && state.input.isNotBlank() && !state.sending,
+                                    loading = state.sending,
+                                    modifier = Modifier.weight(1f),
+                                )
+                            }
                         }
                     }
                 }
             }
-        }
 
-        GlassToast(
-            state = toastState,
-            onDismiss = { toastState = null },
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(top = contentPadding.calculateTopPadding() + 12.dp, end = 12.dp),
-        )
+            GlassToast(
+                state = toastState,
+                onDismiss = { toastState = null },
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(top = contentPadding.calculateTopPadding() + 12.dp, end = 12.dp),
+            )
+        }
     }
 }
 
@@ -209,7 +230,7 @@ private fun TutorContextCard(
     onSubtopicSelected: (String) -> Unit,
 ) {
     PremiumCard(modifier = Modifier.fillMaxWidth()) {
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text("Context", style = MaterialTheme.typography.titleMedium)
             TutorDropdownField(
                 label = "Module",
@@ -267,13 +288,64 @@ private fun QuickPromptCard(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun TutorHeader() {
-    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+private fun CompactTutorPromptStrip(
+    enabled: Boolean,
+    onPrompt: (String) -> Unit,
+    maxItems: Int,
+) {
+    val prompts = listOf(
+        "Summarize this lesson",
+        "Explain it simpler",
+        "Give me an example",
+        "Quiz me on this topic",
+        "What should I remember?",
+    )
+
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(
+            text = "Ask about the selected subtopic.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            prompts.take(maxItems).forEachIndexed { index, prompt ->
+                CSNexusButton(
+                    text = prompt,
+                    onClick = { onPrompt(prompt) },
+                    variant = if (index < 3) CSNexusButtonVariant.Secondary else CSNexusButtonVariant.Ghost,
+                    enabled = enabled,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun TutorHeader(
+    onNewChat: () -> Unit,
+    showNewChat: Boolean,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
         Text(
             text = "AI Tutor",
             style = MaterialTheme.typography.headlineMedium,
         )
+        if (showNewChat) {
+            CSNexusButton(
+                text = "New chat",
+                onClick = onNewChat,
+                variant = CSNexusButtonVariant.Ghost,
+            )
+        }
     }
 }
 

@@ -172,13 +172,19 @@ def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
         blocks = _parse_content_blocks(sec_body)
         difficulty = _detect_section_difficulty(sec_body)
         word_count = len(sec_body.split())
-        sections.append({
+        section: dict[str, Any] = {
             "title": sec_title,
             "blocks": blocks,
             "difficulty": difficulty,
             "word_count": word_count,
             "estimated_reading_seconds": math.ceil(word_count / _WORDS_PER_MINUTE * 60),
-        })
+        }
+
+        subsections = _parse_nested_sections(sec_body)
+        if subsections:
+            section["subsections"] = subsections
+
+        sections.append(section)
 
     # Parse practice problems
     practice_problems = _parse_practice_problems(practice_raw)
@@ -272,29 +278,11 @@ def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
 
     # Build summary: prefer recap prose, then dedicated Summary H2, then auto-generate
     summary = ""
-    if recap_raw.strip():
-        # Try to get prose from recap, not tables or horizontal rules
-        recap_lines = recap_raw.strip().split("\n")
-        prose_parts = []
-        for line in recap_lines:
-            stripped = line.strip()
-            if (stripped and
-                not stripped.startswith("|") and
-                not stripped.startswith("---") and
-                len(stripped) > 5):
-                prose_parts.append(stripped)
-        if prose_parts:
-            summary = " ".join(prose_parts[:3])
+    if "Summary" in h2_sections:
+        summary = _extract_summary_candidate(h2_sections["Summary"])
 
-    if not summary and "Summary" in h2_sections:
-        summary_text = h2_sections["Summary"].strip()
-        if summary_text:
-            # Take prose lines, skip tables
-            summary_lines = [
-                l for l in summary_text.split("\n")
-                if l.strip() and not l.strip().startswith("|")
-            ]
-            summary = " ".join(summary_lines[:3])[:500]
+    if not summary and recap_raw.strip():
+        summary = _extract_summary_candidate(recap_raw)
 
     if not summary:
         summary = _build_summary(sections)
@@ -368,6 +356,149 @@ def _split_h3(text: str) -> list[tuple[str, str]]:
         entries.append((current_title, "\n".join(buffer).strip()))
 
     return entries
+
+
+def _build_heading_tree(text: str) -> list[dict[str, Any]]:
+    """Build a nested heading tree from markdown content.
+
+    The tree preserves heading order and nested structure without assuming
+    any specific lesson format. Headings inside fenced code blocks are left
+    untouched so examples and formulas are not misclassified.
+    """
+    root = {"level": 0, "title": "", "body_lines": [], "children": []}
+    stack = [root]
+    in_code_block = False
+
+    for line in text.split("\n"):
+        stripped = line.strip()
+        if stripped.startswith("```"):
+            in_code_block = not in_code_block
+            stack[-1]["body_lines"].append(line)
+            continue
+
+        heading_match = None if in_code_block else re.match(r"^(#{1,6})\s+(.+?)\s*$", line)
+        if heading_match:
+            level = len(heading_match.group(1))
+            node = {
+                "level": level,
+                "title": heading_match.group(2).strip(),
+                "body_lines": [],
+                "children": [],
+            }
+            while stack and stack[-1]["level"] >= level:
+                stack.pop()
+            if not stack:
+                stack = [root]
+            stack[-1]["children"].append(node)
+            stack.append(node)
+        else:
+            stack[-1]["body_lines"].append(line)
+
+    return root["children"]
+
+
+def _heading_tree_to_markdown(node: dict[str, Any]) -> str:
+    """Serialize one heading node back into markdown text."""
+    parts: list[str] = []
+
+    body = "\n".join(node.get("body_lines", [])).strip()
+    if body:
+        parts.append(body)
+
+    for child in node.get("children", []):
+        child_md = _heading_tree_to_markdown(child)
+        heading_line = f'{"#" * child["level"]} {child["title"]}'
+        parts.append("\n".join([heading_line, child_md]).strip() if child_md else heading_line)
+
+    return "\n\n".join(part for part in parts if part.strip()).strip()
+
+
+def _heading_tree_to_section(node: dict[str, Any]) -> dict[str, Any]:
+    """Convert a heading node into the lesson-section JSON shape."""
+    raw_text = _heading_tree_to_markdown(node)
+    blocks = _parse_content_blocks(raw_text)
+    difficulty = _detect_section_difficulty(raw_text)
+    word_count = len(raw_text.split())
+
+    section: dict[str, Any] = {
+        "title": node.get("title", ""),
+        "blocks": blocks,
+        "difficulty": difficulty,
+        "word_count": word_count,
+        "estimated_reading_seconds": math.ceil(word_count / _WORDS_PER_MINUTE * 60),
+    }
+
+    child_sections = [
+        _heading_tree_to_section(child)
+        for child in node.get("children", [])
+        if child.get("title", "").strip()
+    ]
+    if child_sections:
+        section["subsections"] = child_sections
+
+    return section
+
+
+def _parse_nested_sections(text: str) -> list[dict[str, Any]]:
+    """Parse nested headings within a lesson section into subsection JSON."""
+    return [
+        _heading_tree_to_section(node)
+        for node in _build_heading_tree(text)
+        if node.get("title", "").strip()
+    ]
+
+
+def _extract_summary_candidate(text: str) -> str:
+    """Strip markdown scaffolding and return the first meaningful prose."""
+    if not text.strip():
+        return ""
+
+    paragraphs: list[str] = []
+    current: list[str] = []
+
+    def flush_current() -> None:
+        if not current:
+            return
+        paragraph = " ".join(current).strip()
+        if paragraph:
+            paragraphs.append(paragraph)
+        current.clear()
+
+    for line in text.split("\n"):
+        stripped = line.strip()
+        if not stripped:
+            flush_current()
+            continue
+
+        if stripped.startswith("#") or stripped.startswith("---") or stripped.startswith("|"):
+            flush_current()
+            continue
+
+        if stripped.startswith("- ") or stripped.startswith("* ") or re.match(r"^\d+\.\s", stripped):
+            flush_current()
+            continue
+
+        if stripped.startswith(">"):
+            stripped = stripped.lstrip("> ").strip()
+            if not stripped:
+                continue
+
+        current.append(re.sub(r"\s+", " ", stripped))
+
+    flush_current()
+
+    candidate = " ".join(paragraphs[:2]).strip()
+    if not candidate:
+        return ""
+
+    sentences = re.split(r"(?<=[.!?])\s+", candidate)
+    if len(sentences) > 3:
+        candidate = " ".join(sentences[:3])
+
+    if len(candidate) > 500:
+        candidate = candidate[:500].rsplit(" ", 1)[0]
+
+    return candidate.strip()
 
 
 def _parse_content_blocks(text: str) -> list[dict[str, Any]]:

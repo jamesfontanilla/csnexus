@@ -208,6 +208,8 @@ class ChatResult:
     response_text: str
     detected_intent: str
     context_json: dict = field(default_factory=dict)
+    reasoning_mode: str | None = None
+    reasoning_summary: str | None = None
 
 
 # ---------------------------------------------------------------------------

@@ -261,6 +261,8 @@ class TestLessonChatHappyPath:
             response_text="Here is a detailed explanation.",
             detected_intent="explain_section",
             context_json={"schema_version": 1, "exchanges": [{"msg": "hi"}]},
+            reasoning_mode="ALGEBRA",
+            reasoning_summary="Reasoning mode: ALGEBRA",
         )
         mock_tutor_repo.create_interaction.return_value = _make_interaction(
             id=42, interaction_type="lesson_chat"
@@ -272,11 +274,17 @@ class TestLessonChatHappyPath:
             message="Explain this section",
             active_section_index=0,
             context_json={"schema_version": 1, "exchanges": []},
+            reasoning_context={
+                "mode": "ALGEBRA",
+                "math_expression": "2x + 4 = 10",
+            },
         )
 
         assert result.interaction_id == 42
         assert result.response_text == "Here is a detailed explanation."
         assert result.detected_intent == "explain_section"
+        assert result.reasoning_mode == "ALGEBRA"
+        assert result.reasoning_summary == "Reasoning mode: ALGEBRA"
         assert result.context_json == {
             "schema_version": 1,
             "exchanges": [{"msg": "hi"}],
@@ -286,6 +294,10 @@ class TestLessonChatHappyPath:
         call_kwargs = mock_engine.call_args[1]
         assert call_kwargs["mastery_score"] == 0.5
         assert call_kwargs["mastery_level"] == "FAMILIAR"
+        assert call_kwargs["reasoning_context"] == {
+            "mode": "ALGEBRA",
+            "math_expression": "2x + 4 = 10",
+        }
 
 
 class TestLessonChatNoMastery:

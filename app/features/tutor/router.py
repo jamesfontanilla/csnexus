@@ -161,4 +161,5 @@ def lesson_chat(
         message=payload.message,
         active_section_index=payload.active_section_index,
         context_json=payload.context_json,
+        reasoning_context=payload.reasoning_context,
     )

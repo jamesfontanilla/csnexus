@@ -194,6 +194,7 @@ class TutorService:
         message: str,
         active_section_index: int | None = None,
         context_json: dict | None = None,
+        reasoning_context: dict | None = None,
         history: list[dict[str, str]] | None = None,
     ) -> LessonChatResponse:
         """Handle a lesson chatbot message.
@@ -238,6 +239,7 @@ class TutorService:
                 message=message,
                 active_section_index=active_section_index,
                 context_json=context_json,
+                reasoning_context=reasoning_context,
                 mastery_score=mastery_score,
                 mastery_level=mastery_level,
                 cross_lesson_registry=self._cross_lesson_registry,
@@ -245,6 +247,8 @@ class TutorService:
             response_text = result.response_text
             detected_intent = result.detected_intent
             updated_context_json = result.context_json
+            reasoning_mode = result.reasoning_mode
+            reasoning_summary = result.reasoning_summary
         except Exception:
             logger.exception(
                 "Chat engine failed for user=%d subtopic=%d", user_id, subtopic_id
@@ -256,6 +260,8 @@ class TutorService:
             )
             detected_intent = "fallback"
             updated_context_json = context_json or {}
+            reasoning_mode = None
+            reasoning_summary = None
 
         interaction = None
         try:
@@ -268,6 +274,8 @@ class TutorService:
                     "message": message,
                     "active_section_index": active_section_index,
                     "detected_intent": detected_intent,
+                    "reasoning_mode": reasoning_mode,
+                    "reasoning_summary": reasoning_summary,
                 },
                 response_text=response_text,
             )
@@ -282,11 +290,6 @@ class TutorService:
             response_text=response_text,
             detected_intent=detected_intent,
             context_json=updated_context_json,
-        )
-
-        return LessonChatResponse(
-            interaction_id=interaction.id,
-            response_text=response_text,
-            detected_intent=detected_intent,
-            context_json=updated_context_json,
+            reasoning_mode=reasoning_mode,
+            reasoning_summary=reasoning_summary,
         )

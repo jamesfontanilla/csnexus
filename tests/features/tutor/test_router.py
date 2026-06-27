@@ -132,16 +132,22 @@ def test_lesson_chat_with_context_json_returns_200(client, mock_service):
         response_text="Let me explain fractions.",
         detected_intent="conceptual_question",
         context_json={"schema_version": 1, "exchanges": []},
+        reasoning_mode="ARITHMETIC",
+        reasoning_summary="Reasoning mode: ARITHMETIC",
     )
 
     response = client.post(
         "/v1/tutor/lesson-chat",
-        json={
-            "subtopic_id": 5,
-            "message": "What are fractions?",
-            "context_json": {"schema_version": 1, "exchanges": []},
-        },
-    )
+            json={
+                "subtopic_id": 5,
+                "message": "What are fractions?",
+                "context_json": {"schema_version": 1, "exchanges": []},
+                "reasoning_context": {
+                    "mode": "ARITHMETIC",
+                    "math_expression": "1/2 + 1/4",
+                },
+            },
+        )
 
     assert response.status_code == 200
     data = response.json()
@@ -150,6 +156,13 @@ def test_lesson_chat_with_context_json_returns_200(client, mock_service):
     assert data["detected_intent"] == "conceptual_question"
     assert "context_json" in data
     assert data["context_json"]["schema_version"] == 1
+    assert data["reasoning_mode"] == "ARITHMETIC"
+    assert data["reasoning_summary"] == "Reasoning mode: ARITHMETIC"
+    mock_service.lesson_chat.assert_called_once()
+    call_kwargs = mock_service.lesson_chat.call_args.kwargs
+    reasoning_context = call_kwargs["reasoning_context"]
+    assert reasoning_context.mode.value == "ARITHMETIC"
+    assert reasoning_context.math_expression == "1/2 + 1/4"
 
 
 def test_lesson_chat_without_context_json_returns_fresh_context(client, mock_service):

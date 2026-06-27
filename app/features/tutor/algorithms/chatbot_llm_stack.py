@@ -18,6 +18,7 @@ from urllib import error as urllib_error
 from urllib import request as urllib_request
 
 from app.features.tutor.algorithms.chat_models import ConversationContext
+from app.features.tutor.algorithms.reasoning_support import build_reasoning_packet
 
 logger = logging.getLogger(__name__)
 
@@ -175,6 +176,7 @@ class TutorChatFallbackStack:
         detected_intent: str,
         draft_response: str,
         active_section_index: int | None = None,
+        reasoning_context: dict[str, Any] | None = None,
     ) -> str | None:
         """Ask providers to polish the grounded draft response.
 
@@ -202,6 +204,7 @@ class TutorChatFallbackStack:
                 detected_intent=detected_intent,
                 draft_response=draft_response,
                 active_section_index=active_section_index,
+                reasoning_context=reasoning_context,
             ),
             ensure_ascii=False,
             separators=(",", ":"),
@@ -244,7 +247,13 @@ def _build_prompt_payload(
     detected_intent: str,
     draft_response: str,
     active_section_index: int | None,
+    reasoning_context: dict[str, Any] | None,
 ) -> dict[str, Any]:
+    reasoning_packet = build_reasoning_packet(
+        text=message,
+        reasoning_context=reasoning_context,
+    )
+
     lesson_title = _resolve_lesson_title(content_json)
     section_title, section_text = _resolve_section_snapshot(
         content_json, active_section_index
@@ -262,6 +271,12 @@ def _build_prompt_payload(
         "message": _truncate(message, 400),
         "detected_intent": detected_intent,
         "draft_response": _truncate(draft_response, 1200),
+        "reasoning_mode": reasoning_packet.mode.value if reasoning_packet else None,
+        "reasoning_summary": reasoning_packet.summary if reasoning_packet else None,
+        "reasoning_brief": _truncate(
+            reasoning_packet.summary if reasoning_packet else "",
+            1200,
+        ),
         "response_rules": [
             "Preserve the meaning of the draft.",
             "Do not add new facts.",

@@ -233,13 +233,14 @@ csnexus/
 - **Interleaving** — Mixes cards across CSE ability areas to build context-switching skill
 - **Retention Analytics** — Forgetting curves, retention heatmaps, and mastery progression graphs
 
-### Smart Chat Engine (Rule-Based Tutor)
+### Smart Chat Engine (AI Tutor Chatbot)
 - **Multi-Turn Context** — Tracks topic threads, discourse state, and pronoun/anaphora resolution across up to 10 exchanges
 - **Discourse-Aware Intent Classification** — Classifies intent relative to conversation flow, not just isolated keywords
 - **Socratic Questioning** — Guides learners toward answers through questions when mastery level is FAMILIAR or above
 - **Cross-Lesson Awareness** — References related concepts from other studied lessons
 - **Adaptive Complexity** — Adjusts vocabulary density and example depth based on mastery score (Simplified / Standard / Detailed)
-- No paid LLM APIs — all logic is rule-based and deterministic
+- **Grounded Response Core** — Generates lesson-aware replies from the local engine first, then optionally polishes them with external AI
+- **Free AI Fallback Stack** — Uses Gemini first, then Groq, and falls back to the local draft if a provider is unavailable or returns an unusable rewrite
 
 ### Gamification
 - **XP System** — Experience points earned through quizzes, lessons, streaks, and flashcard reviews
@@ -382,6 +383,8 @@ Open `mobile/android` in Android Studio. The app targets API 26+ and connects to
 | `EMAIL_FROM_ADDR` | No | `CSNexus <noreply@csnexus.space>` | Sender address for emails |
 | `OTP_OFFLINE_LOG_PATH` | No | `data/otp_offline.log` | Fallback OTP log when email is unconfigured |
 | `GOOGLE_CLIENT_ID` | No | — | Google OAuth client ID |
+| `GEMINI_API_KEY` | No | — | Gemini API key for AI Tutor response polishing |
+| `GROQ_API_KEY` | No | — | Groq API key for AI Tutor response polishing |
 | `APP_ENV` | No | `development` | `development` or `production` (controls CORS, HSTS) |
 | `ADMIN_EMAIL` | No | `admin@cse.local` | Admin user email for seeding |
 | `ADMIN_PASSWORD` | No | `Admin1Pass!` | Admin user password for seeding |
@@ -517,6 +520,7 @@ The project deploys on a **zero-cost stack**:
 | Frontend | Vercel (unlimited static deploys, global CDN) |
 | Email | Brevo/Resend (3,000 emails/month free) |
 | Keep-alive | cron-job.org + UptimeRobot (prevents Render sleep) |
+| AI Tutor | Gemini + Groq fallback stack, with local grounded responses as the source of truth |
 
 See [DEPLOY.md](DEPLOY.md) for the full step-by-step deployment guide.
 

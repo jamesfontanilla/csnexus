@@ -33,6 +33,11 @@ from app.features.tutor.algorithms.chat_models import (
     SocraticPrompt,
     TemplatePart,
 )
+from app.features.tutor.algorithms.reasoning_support import (
+    ReasoningMode,
+    build_reasoning_packet,
+    render_reasoning_brief,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -353,7 +358,9 @@ class ResponseGenerator:
         intent: str,
         content_json: dict[str, Any],
         ctx: ConversationContext,
-        mastery_score: float | None,
+        message: str,
+        reasoning_context: dict[str, Any] | None = None,
+        mastery_score: float | None = None,
         cross_refs: list[ConceptEntry] | None = None,
         socratic_prompt: SocraticPrompt | None = None,
         active_section_index: int | None = None,
@@ -366,6 +373,8 @@ class ResponseGenerator:
             content_json: Lesson content data.
             ctx: Current conversation context (mutated: override counter,
                 template usage tracking).
+            message: The current user message.
+            reasoning_context: Optional structured math/graph context.
             mastery_score: User mastery score (None if not available).
             cross_refs: Related concepts from the cross-lesson registry.
             socratic_prompt: If set, the Socratic module's guiding question
@@ -384,6 +393,12 @@ class ResponseGenerator:
         if socratic_prompt is not None:
             return socratic_prompt.question
 
+        reasoning_packet = build_reasoning_packet(
+            text=message,
+            reasoning_context=reasoning_context,
+        )
+        reasoning_brief = render_reasoning_brief(reasoning_packet)
+
         # Resolve effective complexity (accounts for override).
         complexity = resolve_effective_complexity(mastery_score, ctx)
 
@@ -395,6 +410,12 @@ class ResponseGenerator:
         core_content = self._build_core_content(
             intent, content_json, active_section_index, complexity
         )
+        if reasoning_packet is not None and reasoning_packet.mode != ReasoningMode.TEXT:
+            if reasoning_brief:
+                if core_content and reasoning_brief not in core_content:
+                    core_content = f"{reasoning_brief} {core_content}".strip()
+                else:
+                    core_content = reasoning_brief
         cross_ref_text = format_cross_references(cross_refs)
         closing = self._select_closing(intent, complexity, ctx, template)
 

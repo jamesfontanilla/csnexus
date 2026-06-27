@@ -35,6 +35,7 @@ export interface LessonSection {
   difficulty: string[];
   word_count: number;
   estimated_reading_seconds: number;
+  subsections?: LessonSection[];
 }
 
 export interface PracticeProblem {
