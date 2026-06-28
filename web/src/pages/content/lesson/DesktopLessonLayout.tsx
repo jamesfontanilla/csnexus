@@ -71,6 +71,7 @@ export function DesktopLessonLayout({
     title: "",
     estimated_reading_minutes: Math.ceil(sections.reduce((acc, s) => acc + s.word_count, 0) / 200),
     section_count: sections.length,
+    learning_objective_count: 0,
     has_practice_problems: false,
     practice_problem_count: 0,
     difficulty_distribution: {},

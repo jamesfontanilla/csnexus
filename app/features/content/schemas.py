@@ -109,6 +109,7 @@ class LessonMetadata(BaseModel):
     title: str = ""
     estimated_reading_minutes: int = 0
     section_count: int = 0
+    learning_objective_count: int = 0
     has_practice_problems: bool = False
     practice_problem_count: int = 0
     difficulty_distribution: dict[str, int] = Field(default_factory=dict)
@@ -120,6 +121,28 @@ class TableOfContentsEntry(BaseModel):
 
     title: str
     index: int
+
+
+class GuidedSessionStep(BaseModel):
+    """One guided-session card in the modern lesson flow."""
+
+    index: int
+    kind: str
+    title: str
+    summary: str = ""
+    section_index: int | None = None
+    estimated_reading_seconds: int = 0
+    subsection_count: int = 0
+    focus_tags: list[str] = Field(default_factory=list)
+
+
+class GuidedSession(BaseModel):
+    """A bite-sized session outline that can drive card-based UX."""
+
+    title: str = ""
+    objective: str = ""
+    must_know: list[str] = Field(default_factory=list)
+    steps: list[GuidedSessionStep] = Field(default_factory=list)
 
 
 class LessonContent(BaseModel):
@@ -157,6 +180,8 @@ class LessonContent(BaseModel):
 
     # Enhanced fields (optional — present when parsed with new parser)
     metadata: LessonMetadata | None = None
+    learning_objectives: list[str] = Field(default_factory=list)
+    guided_session: GuidedSession | None = None
     table_of_contents: list[TableOfContentsEntry] | None = None
     sections: list[LessonSection] | None = None
     practice_problems: list[PracticeProblem] | None = None

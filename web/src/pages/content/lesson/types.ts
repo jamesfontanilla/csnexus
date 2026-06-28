@@ -38,6 +38,24 @@ export interface LessonSection {
   subsections?: LessonSection[];
 }
 
+export interface GuidedSessionStep {
+  index: number;
+  kind: "objective" | "foundation" | "concept" | "insight" | "example" | "warning" | "practice" | "strategy" | "summary" | "exit" | string;
+  title: string;
+  summary: string;
+  section_index: number | null;
+  estimated_reading_seconds: number;
+  subsection_count: number;
+  focus_tags: string[];
+}
+
+export interface GuidedSession {
+  title: string;
+  objective: string;
+  must_know: string[];
+  steps: GuidedSessionStep[];
+}
+
 export interface PracticeProblem {
   number: number;
   question: string;
@@ -55,6 +73,7 @@ export interface LessonMetadata {
   title: string;
   estimated_reading_minutes: number;
   section_count: number;
+  learning_objective_count: number;
   has_practice_problems: boolean;
   practice_problem_count: number;
   difficulty_distribution: Record<string, number>;
@@ -75,6 +94,8 @@ export interface LessonContentLegacy {
 /** Full enhanced lesson content from the parser */
 export interface EnhancedLessonContent extends LessonContentLegacy {
   metadata: LessonMetadata;
+  learning_objectives: string[];
+  guided_session: GuidedSession;
   table_of_contents: TOCEntry[];
   sections: LessonSection[];
   practice_problems: PracticeProblem[];

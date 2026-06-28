@@ -7,6 +7,7 @@ Extracts rich structured content from lesson.md files for frontend rendering:
 - Difficulty-tagged examples
 - Estimated reading time and section counts
 - Key takeaways and exam strategies extracted into dedicated fields
+- Guided-session metadata for bite-sized, card-oriented lesson UX
 
 The output JSON is designed so a frontend can render each content type
 with a distinct UI component rather than dumping raw markdown.
@@ -34,6 +35,17 @@ BLOCK_TYPE_STEP_BY_STEP = "step_by_step"
 BLOCK_TYPE_LIST = "list"
 BLOCK_TYPE_SVG = "svg"
 BLOCK_TYPE_CHECK_UNDERSTANDING = "check_understanding"
+
+GUIDED_STEP_KIND_OBJECTIVE = "objective"
+GUIDED_STEP_KIND_FOUNDATION = "foundation"
+GUIDED_STEP_KIND_CONCEPT = "concept"
+GUIDED_STEP_KIND_INSIGHT = "insight"
+GUIDED_STEP_KIND_EXAMPLE = "example"
+GUIDED_STEP_KIND_WARNING = "warning"
+GUIDED_STEP_KIND_PRACTICE = "practice"
+GUIDED_STEP_KIND_STRATEGY = "strategy"
+GUIDED_STEP_KIND_SUMMARY = "summary"
+GUIDED_STEP_KIND_EXIT = "exit"
 
 # Average reading speed in words per minute for educational content
 _WORDS_PER_MINUTE = 200
@@ -198,6 +210,9 @@ def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
     # Parse key takeaways from mastery checklist or recap
     key_takeaways = _extract_checklist(mastery_raw) or _extract_bullets_or_paragraphs(recap_raw)
 
+    # Extract learning objectives for metadata and the guided-session outline
+    learning_objectives = _extract_learning_objectives(h2_sections, all_sections)
+
     # Build table of contents
     toc = [{"title": s["title"], "index": i} for i, s in enumerate(sections)]
 
@@ -233,6 +248,7 @@ def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
         "title": title,
         "estimated_reading_minutes": estimated_reading_minutes,
         "section_count": len(sections),
+        "learning_objective_count": len(learning_objectives),
         "has_practice_problems": len(practice_problems) > 0,
         "practice_problem_count": len(practice_problems),
         "difficulty_distribution": difficulty_dist,
@@ -290,6 +306,15 @@ def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
     if not summary:
         summary = f"Lesson covering {title} with {len(sections)} sections."
 
+    guided_session = _build_guided_session(
+        title=title,
+        summary=summary,
+        learning_objectives=learning_objectives,
+        key_takeaways=key_takeaways,
+        sections=sections,
+        practice_problems=practice_problems,
+    )
+
     return {
         # Legacy-compatible fields (existing schema validation)
         "explanations": explanations_legacy,
@@ -300,6 +325,8 @@ def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
         "summary": summary,
         # Enhanced fields for rich UI rendering
         "metadata": metadata,
+        "learning_objectives": learning_objectives,
+        "guided_session": guided_session,
         "table_of_contents": toc,
         "sections": sections,
         "practice_problems": practice_problems,
@@ -499,6 +526,242 @@ def _extract_summary_candidate(text: str) -> str:
         candidate = candidate[:500].rsplit(" ", 1)[0]
 
     return candidate.strip()
+
+
+def _extract_learning_objectives(
+    h2_sections: dict[str, str],
+    all_sections: list[tuple[str, str]],
+) -> list[str]:
+    """Extract learning objectives from dedicated objective sections."""
+    sources: list[str] = []
+
+    for title, body in h2_sections.items():
+        lower = title.lower().strip()
+        if "learning objective" in lower or lower in {"objective", "objectives"}:
+            sources.append(body)
+
+    for title, body in all_sections:
+        lower = title.lower().strip()
+        if "learning objective" in lower or lower in {"objective", "objectives"}:
+            sources.append(body)
+
+    objectives: list[str] = []
+    for source in sources:
+        objectives.extend(_extract_bullets_or_paragraphs(source))
+
+    if not objectives:
+        return []
+
+    return _dedupe_nonempty(objectives)
+
+
+def _build_guided_session(
+    *,
+    title: str,
+    summary: str,
+    learning_objectives: list[str],
+    key_takeaways: list[str],
+    sections: list[dict[str, Any]],
+    practice_problems: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Build a bite-sized guided session outline for modern lesson UX."""
+    objective = ""
+    if learning_objectives:
+        objective = learning_objectives[0]
+    elif summary.strip():
+        objective = summary.strip()
+
+    must_know = _dedupe_nonempty((learning_objectives[:3] if learning_objectives else []) + key_takeaways[:4])
+    if not must_know and summary.strip():
+        must_know = [summary.strip()]
+
+    steps: list[dict[str, Any]] = []
+    if objective:
+        steps.append({
+            "index": 0,
+            "kind": GUIDED_STEP_KIND_OBJECTIVE,
+            "title": "Learning outcome",
+            "summary": objective,
+            "section_index": None,
+            "estimated_reading_seconds": 0,
+            "subsection_count": 0,
+            "focus_tags": ["objective"],
+        })
+
+    for index, section in enumerate(sections):
+        step_kind = _classify_guided_step_kind(section, index, len(sections))
+        section_summary = _summarize_guided_section(section)
+        if not section_summary:
+            section_summary = _derive_section_preview(section)
+
+        steps.append({
+            "index": len(steps),
+            "kind": step_kind,
+            "title": section.get("title", ""),
+            "summary": section_summary,
+            "section_index": index,
+            "estimated_reading_seconds": section.get("estimated_reading_seconds", 0),
+            "subsection_count": len(section.get("subsections") or []),
+            "focus_tags": _build_guided_focus_tags(section),
+        })
+
+    if summary.strip() or practice_problems:
+        exit_summary = summary.strip()
+        if not exit_summary:
+            exit_summary = "Finish with the practice set, then revisit the key takeaways if needed."
+        steps.append({
+            "index": len(steps),
+            "kind": GUIDED_STEP_KIND_EXIT,
+            "title": "What to do next",
+            "summary": exit_summary,
+            "section_index": None,
+            "estimated_reading_seconds": 0,
+            "subsection_count": 0,
+            "focus_tags": ["exit", "practice"],
+        })
+
+    return {
+        "title": title,
+        "objective": objective,
+        "must_know": must_know,
+        "steps": steps,
+    }
+
+
+def _classify_guided_step_kind(
+    section: dict[str, Any],
+    index: int,
+    total_sections: int,
+) -> str:
+    """Map a lesson section to a guided-session step kind."""
+    title = str(section.get("title", "")).lower().strip()
+    block_types = {
+        str(block.get("type", "")).lower()
+        for block in section.get("blocks", [])
+        if isinstance(block, dict)
+    }
+
+    if index == 0 and any(
+        title.startswith(prefix)
+        for prefix in ("introduction", "overview", "what is", "learning objective")
+    ):
+        return GUIDED_STEP_KIND_FOUNDATION
+    if "learning objective" in title or title in {"objective", "objectives"}:
+        return GUIDED_STEP_KIND_OBJECTIVE
+    if "summary" in title or "recap" in title or "wrap up" in title:
+        return GUIDED_STEP_KIND_SUMMARY
+    if "practice" in title or "check your understanding" in title:
+        return GUIDED_STEP_KIND_PRACTICE
+    if "strategy" in title or "memory aid" in title or "mnemonic" in title:
+        return GUIDED_STEP_KIND_STRATEGY
+    if "warning" in title or "mistake" in title or "misconception" in title:
+        return GUIDED_STEP_KIND_WARNING
+    if "example" in title or BLOCK_TYPE_EXAMPLE in block_types:
+        return GUIDED_STEP_KIND_EXAMPLE
+    if "why" in title or "how" in title or "principle" in title or "rule" in title:
+        return GUIDED_STEP_KIND_INSIGHT
+    if "concept" in title or "analysis" in title or "technique" in title:
+        return GUIDED_STEP_KIND_CONCEPT
+    if index == total_sections - 1:
+        return GUIDED_STEP_KIND_EXIT
+    return GUIDED_STEP_KIND_CONCEPT if index > 0 else GUIDED_STEP_KIND_FOUNDATION
+
+
+def _summarize_guided_section(section: dict[str, Any]) -> str:
+    """Build a short, human-readable summary for a guided-session step."""
+    text_parts: list[str] = []
+    for block in section.get("blocks", []):
+        if not isinstance(block, dict):
+            continue
+        block_type = str(block.get("type", ""))
+        content = block.get("content", "")
+        if block_type in {
+            BLOCK_TYPE_PROSE,
+            BLOCK_TYPE_TIP,
+            BLOCK_TYPE_WARNING,
+            BLOCK_TYPE_EXAMPLE,
+            BLOCK_TYPE_LIST,
+            BLOCK_TYPE_STEP_BY_STEP,
+        } and isinstance(content, str):
+            text_parts.append(content)
+
+    summary = _extract_summary_candidate("\n\n".join(text_parts))
+    if summary:
+        return summary
+
+    for block in section.get("blocks", []):
+        if not isinstance(block, dict):
+            continue
+        content = block.get("content", "")
+        if isinstance(content, str) and content.strip():
+            return content.strip().split("\n", 1)[0][:240]
+
+    return ""
+
+
+def _derive_section_preview(section: dict[str, Any]) -> str:
+    """Fallback preview used when a section has no obvious prose summary."""
+    blocks = section.get("blocks", [])
+    preview_parts: list[str] = []
+    for block in blocks[:2]:
+        if not isinstance(block, dict):
+            continue
+        content = block.get("content", "")
+        if isinstance(content, str) and content.strip():
+            preview_parts.append(content.strip().split("\n", 1)[0])
+        elif isinstance(content, dict):
+            preview_parts.append(str(content.get("summary") or content.get("text") or ""))
+    preview = " ".join(part for part in preview_parts if part)
+    return preview[:240].strip()
+
+
+def _build_guided_focus_tags(section: dict[str, Any]) -> list[str]:
+    """Derive small focus tags for chip-style UI treatment."""
+    tags: list[str] = []
+    title = str(section.get("title", "")).lower()
+    block_types = {
+        str(block.get("type", "")).lower()
+        for block in section.get("blocks", [])
+        if isinstance(block, dict)
+    }
+
+    if "example" in title or BLOCK_TYPE_EXAMPLE in block_types:
+        tags.append("example")
+    if "warning" in title or "mistake" in title or "misconception" in title or BLOCK_TYPE_WARNING in block_types:
+        tags.append("warning")
+    if "practice" in title or "check your understanding" in title or BLOCK_TYPE_CHECK_UNDERSTANDING in block_types:
+        tags.append("practice")
+    if "strategy" in title or "technique" in title:
+        tags.append("strategy")
+    if "summary" in title or "recap" in title:
+        tags.append("summary")
+    if "why" in title or "how" in title or "principle" in title or "rule" in title:
+        tags.append("insight")
+    if "analysis" in title or "concept" in title:
+        tags.append("concept")
+    if "learning objective" in title or title in {"objective", "objectives"}:
+        tags.append("objective")
+
+    if not tags:
+        tags.append("lesson")
+
+    return _dedupe_nonempty(tags)
+
+
+def _dedupe_nonempty(items: list[str]) -> list[str]:
+    """Remove blank entries while preserving order."""
+    seen: set[str] = set()
+    result: list[str] = []
+    for item in items:
+        value = item.strip()
+        if not value:
+            continue
+        key = value.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        result.append(value)
+    return result
 
 
 def _classify_blockquote(stripped_bq: str, raw_bq: str) -> str:

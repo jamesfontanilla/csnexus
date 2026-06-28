@@ -6,6 +6,8 @@ import com.csnexus.app.feature.content.domain.LearningTopic
 import com.csnexus.app.feature.content.domain.LessonFreshness
 import com.csnexus.app.feature.content.domain.Lesson
 import com.csnexus.app.feature.content.domain.InlineCheck
+import com.csnexus.app.feature.content.domain.GuidedSession
+import com.csnexus.app.feature.content.domain.GuidedSessionStep
 import com.csnexus.app.feature.content.domain.LessonBlock
 import com.csnexus.app.feature.content.domain.LessonExplanation
 import com.csnexus.app.feature.content.domain.LessonSegment
@@ -75,6 +77,8 @@ fun LessonDto.toDomain(): Lesson {
         },
         keyTakeaways = parsed?.keyTakeaways.orEmpty(),
         summary = parsed?.summary.orEmpty(),
+        learningObjectives = parsed?.learningObjectives.orEmpty(),
+        guidedSession = parsed?.guidedSession?.toDomain(),
         sections = parsed?.sections.orEmpty().map { it.toDomainSection() },
         isSegmented = parsed?.isSegmented == true && parsed.segments.isNotEmpty(),
         segments = parsed?.segments.orEmpty().map { it.toDomainSegment() },
@@ -95,6 +99,24 @@ fun LessonDto.toDomain(): Lesson {
 private fun LessonSectionDto.toDomainSection(): LessonSection = LessonSection(
     title = title,
     blocks = blocks.map { it.toDomainBlock() },
+)
+
+private fun GuidedSessionDto.toDomain(): GuidedSession = GuidedSession(
+    title = title,
+    objective = objective,
+    mustKnow = mustKnow,
+    steps = steps.map { it.toDomain() },
+)
+
+private fun GuidedSessionStepDto.toDomain(): GuidedSessionStep = GuidedSessionStep(
+    index = index,
+    kind = kind,
+    title = title,
+    summary = summary,
+    sectionIndex = sectionIndex,
+    estimatedReadingSeconds = estimatedReadingSeconds,
+    subsectionCount = subsectionCount,
+    focusTags = focusTags,
 )
 
 private fun LessonSegmentDto.toDomainSegment(): LessonSegment = LessonSegment(

@@ -10,6 +10,8 @@ export type {
   InlineCheck,
   LessonSection,
   LessonSegment,
+  GuidedSession,
+  GuidedSessionStep,
   PracticeProblem,
   TOCEntry,
   LessonMetadata,

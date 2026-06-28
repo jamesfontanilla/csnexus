@@ -33,6 +33,8 @@ data class Lesson(
     val workedExamples: List<LessonWorkedExample> = emptyList(),
     val keyTakeaways: List<String> = emptyList(),
     val summary: String = "",
+    val learningObjectives: List<String> = emptyList(),
+    val guidedSession: GuidedSession? = null,
     val sections: List<LessonSection> = emptyList(),
     val isSegmented: Boolean = false,
     val segments: List<LessonSegment> = emptyList(),
@@ -62,6 +64,24 @@ data class LessonWorkedExample(
 data class LessonSection(
     val title: String,
     val blocks: List<LessonBlock>,
+)
+
+data class GuidedSession(
+    val title: String = "",
+    val objective: String = "",
+    val mustKnow: List<String> = emptyList(),
+    val steps: List<GuidedSessionStep> = emptyList(),
+)
+
+data class GuidedSessionStep(
+    val index: Int,
+    val kind: String,
+    val title: String,
+    val summary: String = "",
+    val sectionIndex: Int? = null,
+    val estimatedReadingSeconds: Int = 0,
+    val subsectionCount: Int = 0,
+    val focusTags: List<String> = emptyList(),
 )
 
 data class LessonSegment(

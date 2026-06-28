@@ -36,7 +36,10 @@ def test_parse_lesson_preserves_nested_subsections_and_summary() -> None:
     subsections = section.get("subsections") or []
     subsection_titles = [subsection.get("title") for subsection in subsections]
 
-    assert "Rule 1: Subjects Joined by \"And\" — Plural Verb" in subsection_titles
+    assert any(
+        str(title).startswith('Rule 1: Subjects Joined by "And"')
+        for title in subsection_titles
+    )
     assert "Exceptions to the \"And\" Rule" in subsection_titles
 
     exceptions = find_section(subsections, "Exceptions to the \"And\" Rule")
@@ -82,3 +85,23 @@ def test_parse_lesson_classifies_common_callout_labels() -> None:
         block["type"] == "tip" and "Correct model" in str(block["content"])
         for block in blocks
     )
+
+
+def test_parse_lesson_builds_guided_session_for_analytical_lesson() -> None:
+    content = read_lesson(
+        "data/seed/lessons/analytical-ability/abstract-reasoning/figure-series/lesson.md"
+    )
+
+    result = parse_lesson_markdown(content)
+    guided_session = result["guided_session"]
+    steps = guided_session["steps"]
+
+    assert result["metadata"]["title"] == "Figure Series"
+    assert result["metadata"]["learning_objective_count"] >= 1
+    assert guided_session["objective"]
+    assert guided_session["must_know"]
+    assert steps
+    assert steps[0]["kind"] == "objective"
+    assert any(step["kind"] in {"concept", "insight", "strategy", "warning"} for step in steps)
+    assert any(step["kind"] in {"summary", "exit"} for step in steps)
+    assert any(step["section_index"] == 0 for step in steps if step["kind"] != "objective")

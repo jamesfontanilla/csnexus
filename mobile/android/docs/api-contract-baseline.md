@@ -50,7 +50,9 @@ This document maps the web endpoint surface that the native app must preserve th
 Lesson schema types seen in web:
 
 - `LessonResponse`: `id`, `subtopic_id`, `content_json`, `status`.
-- `content_json.metadata`: title, estimated reading minutes, section count, practice counts, difficulty distribution, word count, optional segment count.
+- `content_json.metadata`: title, estimated reading minutes, section count, learning objective count, practice counts, difficulty distribution, word count, optional segment count.
+- `content_json.learning_objectives`: extracted learning goal bullets when present.
+- `content_json.guided_session`: bite-sized outline with objective, must-know items, and step cards.
 - `content_json.sections`: section title, typed blocks, difficulty, word count, estimated reading seconds.
 - `ContentBlock.type`: prose, table, code, formula, tip, warning, example, step_by_step, list, svg, check_understanding.
 - `segments`: grouped sections, estimated minutes, checks.

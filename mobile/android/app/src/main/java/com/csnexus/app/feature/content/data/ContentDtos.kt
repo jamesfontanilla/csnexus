@@ -71,6 +71,10 @@ data class LessonContentDto(
     @SerialName("key_takeaways")
     val keyTakeaways: List<String> = emptyList(),
     val summary: String = "",
+    @SerialName("learning_objectives")
+    val learningObjectives: List<String> = emptyList(),
+    @SerialName("guided_session")
+    val guidedSession: GuidedSessionDto? = null,
     val sections: List<LessonSectionDto> = emptyList(),
     @SerialName("is_segmented")
     val isSegmented: Boolean = false,
@@ -113,6 +117,31 @@ data class LessonWorkedExampleDto(
 data class LessonSectionDto(
     val title: String = "",
     val blocks: List<LessonBlockDto> = emptyList(),
+)
+
+@Serializable
+data class GuidedSessionDto(
+    val title: String = "",
+    val objective: String = "",
+    @SerialName("must_know")
+    val mustKnow: List<String> = emptyList(),
+    val steps: List<GuidedSessionStepDto> = emptyList(),
+)
+
+@Serializable
+data class GuidedSessionStepDto(
+    val index: Int = 0,
+    val kind: String = "",
+    val title: String = "",
+    val summary: String = "",
+    @SerialName("section_index")
+    val sectionIndex: Int? = null,
+    @SerialName("estimated_reading_seconds")
+    val estimatedReadingSeconds: Int = 0,
+    @SerialName("subsection_count")
+    val subsectionCount: Int = 0,
+    @SerialName("focus_tags")
+    val focusTags: List<String> = emptyList(),
 )
 
 @Serializable

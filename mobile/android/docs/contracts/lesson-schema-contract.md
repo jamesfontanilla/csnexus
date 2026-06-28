@@ -47,6 +47,11 @@ Android stores the freshness fields on the lesson model and cache entry so the a
 
 Lesson sections may also include optional `subsections` entries. These reuse the same section shape, preserve deeper lesson headings, and remain safe for clients that still render only the top-level `sections` array.
 
+The parser may also emit:
+
+- `learning_objectives`: a flat list of the lesson's stated objectives.
+- `guided_session`: a card-oriented outline with `objective`, `must_know`, and `steps` so mobile can render a bite-sized guided flow.
+
 Sanitization rules:
 
 - `formula` blocks are rendered as inert text/monospace content. Android does not execute formula markup.
