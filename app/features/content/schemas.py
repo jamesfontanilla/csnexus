@@ -114,6 +114,7 @@ class LessonMetadata(BaseModel):
     practice_problem_count: int = 0
     difficulty_distribution: dict[str, int] = Field(default_factory=dict)
     total_word_count: int = 0
+    screen_count: int = 0
 
 
 class TableOfContentsEntry(BaseModel):
@@ -143,6 +144,32 @@ class GuidedSession(BaseModel):
     objective: str = ""
     must_know: list[str] = Field(default_factory=list)
     steps: list[GuidedSessionStep] = Field(default_factory=list)
+
+
+class LessonScreen(BaseModel):
+    """One compiled screen in the guided lesson flow."""
+
+    index: int
+    kind: str
+    title: str
+    summary: str = ""
+    section_indices: list[int] = Field(default_factory=list)
+    section_titles: list[str] = Field(default_factory=list)
+    estimated_reading_seconds: int = 0
+    focus_tags: list[str] = Field(default_factory=list)
+    node_kinds: list[str] = Field(default_factory=list)
+    call_to_action: str = ""
+
+
+class LessonScreenPlan(BaseModel):
+    """Compiled screen plan produced by the lesson compiler."""
+
+    title: str = ""
+    objective: str = ""
+    must_know: list[str] = Field(default_factory=list)
+    screens: list[LessonScreen] = Field(default_factory=list)
+    estimated_reading_minutes: int = 0
+    screen_count: int = 0
 
 
 class LessonContent(BaseModel):
@@ -182,6 +209,7 @@ class LessonContent(BaseModel):
     metadata: LessonMetadata | None = None
     learning_objectives: list[str] = Field(default_factory=list)
     guided_session: GuidedSession | None = None
+    screen_plan: LessonScreenPlan | None = None
     table_of_contents: list[TableOfContentsEntry] | None = None
     sections: list[LessonSection] | None = None
     practice_problems: list[PracticeProblem] | None = None

@@ -9,7 +9,7 @@ import { MarkdownText } from "../../components/MarkdownText";
 import { XPGainAnimation } from "../../components/XPGainAnimation";
 import { useToast } from "../../context/ToastContext";
 import { useReducedMotion } from "../../design-system/motion";
-import { DesktopLessonLayout, BlockRenderer, useIsDesktop } from "./lesson";
+import { DesktopLessonLayout, BlockRenderer, LessonFlowRenderer, useIsDesktop } from "./lesson";
 import { LessonChatPanel } from "./lesson";
 import type { EnhancedLessonContent, InlineCheck } from "./lesson";
 
@@ -316,6 +316,12 @@ export function LessonReader() {
   if (!lesson) return <div className="page container" style={{ color: "var(--color-text-secondary)" }}>Lesson not found.</div>;
 
   const content = lesson.content_json;
+  const enhancedContent = content as unknown as EnhancedLessonContent;
+  const hasScreenPlan = Boolean(enhancedContent.screen_plan?.screens?.length);
+  const isSegmentedLesson =
+    enhancedContent.is_segmented &&
+    Array.isArray(enhancedContent.segments) &&
+    enhancedContent.segments.length > 0;
 
   // Desktop layout: three-column with typed block rendering
   if (isDesktop) {
@@ -324,7 +330,7 @@ export function LessonReader() {
         <ReadingProgressBar progress={readingProgress} />
         <XPGainAnimation amount={xpGained} onComplete={() => { setXpGained(0); toast.success("✅ Lesson completed"); }} />
         <DesktopLessonLayout
-          content={content as unknown as EnhancedLessonContent}
+          content={enhancedContent}
           subtopicId={subtopicId || ""}
           onMarkComplete={handleMarkComplete}
           completing={completing}
@@ -334,10 +340,8 @@ export function LessonReader() {
     );
   }
 
-  const enhancedContent = content as unknown as EnhancedLessonContent;
-
   // Mobile segmented layout — used for clerical-ability lessons
-  if (enhancedContent.is_segmented && Array.isArray(enhancedContent.segments) && enhancedContent.segments.length > 0) {
+  if (isSegmentedLesson) {
     return (
       <PageTransition>
         <ReadingProgressBar progress={readingProgress} />
@@ -348,6 +352,23 @@ export function LessonReader() {
           onMarkComplete={handleMarkComplete}
           completing={completing}
           completed={completed}
+        />
+      </PageTransition>
+    );
+  }
+
+  if (hasScreenPlan) {
+    return (
+      <PageTransition>
+        <ReadingProgressBar progress={readingProgress} />
+        <XPGainAnimation amount={xpGained} onComplete={() => { setXpGained(0); toast.success("Lesson completed"); }} />
+        <LessonFlowRenderer
+          content={enhancedContent}
+          subtopicId={subtopicId || ""}
+          onMarkComplete={handleMarkComplete}
+          completing={completing}
+          completed={completed}
+          layout="mobile"
         />
       </PageTransition>
     );

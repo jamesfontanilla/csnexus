@@ -1,4 +1,5 @@
 export { DesktopLessonLayout } from "./DesktopLessonLayout";
+export { LessonFlowRenderer } from "./LessonFlowRenderer";
 export { BlockRenderer } from "./BlockRenderer";
 export { SidebarTOC } from "./SidebarTOC";
 export { PracticePanel, InlineLessonChat } from "./PracticePanel";

@@ -88,6 +88,7 @@ let mockIsDesktop = false;
 
 vi.mock("../../pages/content/lesson", () => ({
   DesktopLessonLayout: () => <div data-testid="desktop-layout" />,
+  LessonFlowRenderer: () => <div data-testid="lesson-flow" />,
   useIsDesktop: () => mockIsDesktop,
   LessonChatPanel: () => null,
 }));
@@ -127,6 +128,56 @@ describe("LessonReader page (Task 19.2)", () => {
     });
 
     expect(mockGet).toHaveBeenCalledWith("/v1/subtopics/5/lesson");
+  });
+
+  it("uses the compiled lesson flow when a screen plan is present", async () => {
+    mockIsDesktop = false;
+    mockGet.mockResolvedValue({
+      id: 1,
+      subtopic_id: 5,
+      content_json: {
+        explanations: [{ title: "Introduction", body: "This is an explanation." }],
+        worked_examples: [],
+        key_takeaways: [],
+        summary: "A summary of the lesson.",
+        screen_plan: {
+          title: "Compiled lesson",
+          objective: "Learn the compiled flow",
+          must_know: ["The lesson is compiled"],
+          screens: [
+            {
+              index: 0,
+              kind: "cover",
+              title: "Start here",
+              summary: "A compiled screen.",
+              section_indices: [0],
+              section_titles: ["Introduction"],
+              estimated_reading_seconds: 30,
+              focus_tags: ["cover"],
+              node_kinds: ["prose"],
+              call_to_action: "Begin",
+            },
+          ],
+          estimated_reading_minutes: 1,
+          screen_count: 1,
+        },
+      },
+      status: "COMPLETE",
+    });
+
+    render(
+      <ToastProvider>
+        <MemoryRouter initialEntries={["/subtopics/5/lesson"]}>
+          <Routes>
+            <Route path="/subtopics/:subtopicId/lesson" element={<LessonReader />} />
+          </Routes>
+        </MemoryRouter>
+      </ToastProvider>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId("lesson-flow")).toBeInTheDocument();
+    });
   });
 
   describe("Reading column has max-width: 680px (Requirement 14.1)", () => {

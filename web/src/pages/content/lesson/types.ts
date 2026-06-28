@@ -56,6 +56,43 @@ export interface GuidedSession {
   steps: GuidedSessionStep[];
 }
 
+export interface LessonScreen {
+  index: number;
+  kind:
+    | "cover"
+    | "objectives"
+    | "overview"
+    | "concept"
+    | "definition"
+    | "example"
+    | "visualization"
+    | "quick_check"
+    | "practice"
+    | "strategy"
+    | "remember"
+    | "takeaway"
+    | "summary"
+    | "completion"
+    | string;
+  title: string;
+  summary: string;
+  section_indices: number[];
+  section_titles: string[];
+  estimated_reading_seconds: number;
+  focus_tags: string[];
+  node_kinds: string[];
+  call_to_action: string;
+}
+
+export interface LessonScreenPlan {
+  title: string;
+  objective: string;
+  must_know: string[];
+  screens: LessonScreen[];
+  estimated_reading_minutes: number;
+  screen_count: number;
+}
+
 export interface PracticeProblem {
   number: number;
   question: string;
@@ -78,6 +115,7 @@ export interface LessonMetadata {
   practice_problem_count: number;
   difficulty_distribution: Record<string, number>;
   total_word_count: number;
+  screen_count?: number;
   /** Present when the lesson has been segmented */
   segment_count?: number;
   is_segmented?: boolean;
@@ -96,6 +134,7 @@ export interface EnhancedLessonContent extends LessonContentLegacy {
   metadata: LessonMetadata;
   learning_objectives: string[];
   guided_session: GuidedSession;
+  screen_plan?: LessonScreenPlan;
   table_of_contents: TOCEntry[];
   sections: LessonSection[];
   practice_problems: PracticeProblem[];

@@ -4,6 +4,7 @@ import type { EnhancedLessonContent, LessonSection, InlineCheck } from "./types"
 import { BlockRenderer } from "./BlockRenderer";
 import { SidebarTOC } from "./SidebarTOC";
 import { PracticePanel, InlineLessonChat } from "./PracticePanel";
+import { LessonFlowRenderer } from "./LessonFlowRenderer";
 import { GlassProgressBar } from "../../../components/GlassProgressBar";
 import { MarkdownText } from "../../../components/MarkdownText";
 import { useReducedMotion } from "../../../design-system/motion";
@@ -41,6 +42,19 @@ export function DesktopLessonLayout({
         onMarkComplete={onMarkComplete}
         completing={completing}
         completed={completed}
+      />
+    );
+  }
+
+  if (content.screen_plan?.screens?.length) {
+    return (
+      <LessonFlowRenderer
+        content={content}
+        subtopicId={subtopicId}
+        onMarkComplete={onMarkComplete}
+        completing={completing}
+        completed={completed}
+        layout="desktop"
       />
     );
   }

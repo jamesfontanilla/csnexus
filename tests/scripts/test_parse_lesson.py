@@ -31,6 +31,9 @@ def test_parse_lesson_preserves_nested_subsections_and_summary() -> None:
     assert result["metadata"]["title"] == "Subject-Verb Agreement"
     assert result["summary"].startswith("Subject-verb agreement is one of the most important grammar topics")
     assert not result["summary"].lstrip().startswith("###")
+    assert result["metadata"]["screen_count"] > 0
+    assert result["screen_plan"]["screen_count"] == result["metadata"]["screen_count"]
+    assert result["screen_plan"]["screens"][0]["kind"] == "cover"
 
     section = find_section(result["sections"], "4.3 Compound Subjects")
     subsections = section.get("subsections") or []

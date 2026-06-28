@@ -19,6 +19,8 @@ import math
 import re
 from typing import Any
 
+from app.features.content.lesson_engine import build_lesson_ast, compile_lesson_plan
+
 
 # ---------------------------------------------------------------------------
 # Content block types the frontend can render distinctly
@@ -315,6 +317,22 @@ def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
         practice_problems=practice_problems,
     )
 
+    lesson_ast = build_lesson_ast(
+        {
+            "metadata": metadata,
+            "summary": summary,
+            "learning_objectives": learning_objectives,
+            "key_takeaways": key_takeaways,
+            "practice_problems": practice_problems,
+            "memory_aids": memory_aids,
+            "exam_strategies": exam_strategies,
+            "guided_session": guided_session,
+            "sections": sections,
+        }
+    )
+    screen_plan = compile_lesson_plan(lesson_ast).to_dict()
+    metadata["screen_count"] = screen_plan["screen_count"]
+
     return {
         # Legacy-compatible fields (existing schema validation)
         "explanations": explanations_legacy,
@@ -332,6 +350,7 @@ def parse_lesson_markdown(md_text: str, category: str = "") -> dict[str, Any]:
         "practice_problems": practice_problems,
         "memory_aids": memory_aids,
         "exam_strategies": exam_strategies,
+        "screen_plan": screen_plan,
         # Segment-and-gate fields (clerical-ability and future opt-in categories)
         "segments": segments,
         "is_segmented": is_segmented,
