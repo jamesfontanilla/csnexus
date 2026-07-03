@@ -1,110 +1,169 @@
 from __future__ import annotations
 
-import sys
-from pathlib import Path
-
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
 from scripts.parse_lesson import parse_lesson_markdown
 
 
-def read_lesson(relative_path: str) -> str:
-    return (PROJECT_ROOT / relative_path).read_text(encoding="utf-8")
+SAMPLE_LESSON = """# Fractions and Ratios
+
+## Explanations
+### Introduction
+Fractions compare parts to a whole.
+
+> [!TIP]
+> Think of a fraction like a slice of pizza.
+
+### Why Topic Is Tested
+Fractions appear in speed, proportion, and comparison questions.
+
+### Common Mistakes
+> [!WARNING]
+> Mixing numerator and denominator roles.
+
+### Learning Objectives
+- Identify numerator and denominator
+- Simplify fractions
+- Convert between fractions and ratios
+
+## Ratio Moves
+### Overview
+Ratios are comparison tools.
+
+### Core Principle
+$$a:b = a/b$$
+
+### Visualization
+```mermaid
+graph TD
+  A[Whole] --> B[Part]
+```
+
+### Common Mistakes
+> [!WARNING]
+> Do not cross-multiply too early.
+
+### Worked Mini Example
+```python
+ratio = 2 / 5
+```
+
+### Quick Check
+Question: What is 1/2 of 8?
+Answer: 4
+
+### Key Insight
+Ratios compare quantities with the same units.
+
+## Worked Examples
+### Example 1
+1. Identify the total.
+2. Divide evenly.
+
+| A | B |
+|---|---|
+| 1 | 2 |
+
+### Example 2
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"></svg>
+```
+
+## Exam Strategies
+### Time Management
+- Estimate first.
+- Skip and return.
+
+### Shortcut & Elimination Techniques
+- Cancel common factors.
+
+## Memory Aids
+### Mnemonics
+- "Part over whole"
+
+## Practice & Review
+### Guided Practice
+```quiz
+Question: What is 3/4 of 8?
+Answer: 6
+```
+
+## Key Takeaways
+- Fractions compare parts.
+- Ratios compare quantities.
+
+## Summary
+Fractions and ratios are related forms of comparison.
+
+## Final Challenge
+### Mixed Practice Set
+Question: Which is larger, 2/3 or 3/5?
+Answer: 2/3
+
+## Bonus Notes
+Some extra note.
+"""
 
 
-def find_section(sections: list[dict[str, object]], title: str) -> dict[str, object]:
+def _find_section(sections: list[dict[str, object]], title: str) -> dict[str, object]:
     for section in sections:
         if section.get("title") == title:
             return section
     raise AssertionError(f"Section not found: {title}")
 
 
-def test_parse_lesson_preserves_nested_subsections_and_summary() -> None:
-    content = read_lesson(
-        "data/seed/lessons/verbal-ability/grammar/subject-verb-agreement/lesson.md"
-    )
+def test_parse_lesson_builds_semantic_sections_and_blocks() -> None:
+    result = parse_lesson_markdown(SAMPLE_LESSON, category="math")
 
-    result = parse_lesson_markdown(content)
-
-    assert result["metadata"]["title"] == "Subject-Verb Agreement"
-    assert result["summary"].startswith("Subject-verb agreement is one of the most important grammar topics")
-    assert not result["summary"].lstrip().startswith("###")
-    assert result["metadata"]["screen_count"] > 0
-    assert result["screen_plan"]["screen_count"] == result["metadata"]["screen_count"]
+    assert result["metadata"]["title"] == "Fractions and Ratios"
+    assert result["summary"].startswith("Fractions compare parts")
+    assert result["metadata"]["screen_count"] == result["screen_plan"]["screen_count"]
     assert result["screen_plan"]["screens"][0]["kind"] == "cover"
+    assert any(screen["kind"] == "concept" for screen in result["screen_plan"]["screens"])
+    assert any(screen["kind"] == "practice" for screen in result["screen_plan"]["screens"])
+    assert any(screen["kind"] == "summary" for screen in result["screen_plan"]["screens"])
 
-    section = find_section(result["sections"], "4.3 Compound Subjects")
-    subsections = section.get("subsections") or []
-    subsection_titles = [subsection.get("title") for subsection in subsections]
+    sections = result["sections"]
+    assert [section["kind"] for section in sections[:3]] == [
+        "explanations",
+        "micro_concept",
+        "worked_examples",
+    ]
 
-    assert any(
-        str(title).startswith('Rule 1: Subjects Joined by "And"')
-        for title in subsection_titles
-    )
-    assert "Exceptions to the \"And\" Rule" in subsection_titles
+    explanations = _find_section(sections, "Explanations")
+    explanation_titles = [subsection["title"] for subsection in explanations.get("subsections", [])]
+    assert "Introduction" in explanation_titles
+    assert "Learning Objectives" in explanation_titles
 
-    exceptions = find_section(subsections, "Exceptions to the \"And\" Rule")
-    nested_titles = [child.get("title") for child in (exceptions.get("subsections") or [])]
-    assert "Exception 1 — Same Person or Thing" in nested_titles
+    ratio_moves = _find_section(sections, "Ratio Moves")
+    subsection_map = {subsection["title"]: subsection for subsection in ratio_moves.get("subsections", [])}
+    assert "Core Principle" in subsection_map
+    assert "Visualization" in subsection_map
+    assert "Worked Mini Example" in subsection_map
+    assert "Quick Check" in subsection_map
 
+    core_principle_types = [block["type"] for block in subsection_map["Core Principle"]["blocks"]]
+    visualization_types = [block["type"] for block in subsection_map["Visualization"]["blocks"]]
+    worked_example_types = [block["type"] for block in subsection_map["Worked Mini Example"]["blocks"]]
+    quick_check_types = [block["type"] for block in subsection_map["Quick Check"]["blocks"]]
+    assert "formula" in core_principle_types
+    assert "code" in visualization_types
+    assert "code" in worked_example_types
+    assert "check_understanding" in quick_check_types
 
-def test_parse_lesson_keeps_segmented_clerical_lesson_intact() -> None:
-    content = read_lesson(
-        "data/seed/lessons/clerical-ability/alphabetical-filing/basic-alphabetizing/lesson.md"
-    )
+    worked_examples = _find_section(sections, "Worked Examples")
+    example_types = [subsection["kind"] for subsection in worked_examples.get("subsections", [])]
+    assert "generic_worked_example" in example_types or "generic_subsection" in example_types
 
-    result = parse_lesson_markdown(content, category="clerical-ability")
-
-    assert result["is_segmented"] is True
-    assert result["metadata"]["segment_count"] == 3
-    assert result["metadata"]["section_count"] == len(result["sections"])
-    assert find_section(result["sections"], "4.1 Understanding Alphabetical Order")
-
-
-def test_parse_lesson_classifies_common_callout_labels() -> None:
-    content = read_lesson(
-        "data/seed/lessons/analytical-ability/word-analogy/synonym-and-antonym-analogies/lesson.md"
-    )
-
-    result = parse_lesson_markdown(content)
-    section = find_section(result["sections"], "4.1 What Is a Word Analogy?")
-    blocks = section["blocks"]
-
-    assert any(
-        block["type"] == "tip" and "Why does this work" in str(block["content"])
-        for block in blocks
-    )
-    assert any(
-        block["type"] == "warning" and "Misconception" in str(block["content"])
-        for block in blocks
-    )
-    assert any(
-        block["type"] == "warning" and "Why it fails" in str(block["content"])
-        for block in blocks
-    )
-    assert any(
-        block["type"] == "tip" and "Correct model" in str(block["content"])
-        for block in blocks
-    )
+    assert result["practice_problems"]
+    assert result["metadata"]["has_practice_problems"] is True
+    assert result["memory_aids"]
+    assert result["exam_strategies"]
 
 
-def test_parse_lesson_builds_guided_session_for_analytical_lesson() -> None:
-    content = read_lesson(
-        "data/seed/lessons/analytical-ability/abstract-reasoning/figure-series/lesson.md"
-    )
+def test_parse_lesson_keeps_unknown_sections_without_crashing() -> None:
+    result = parse_lesson_markdown(SAMPLE_LESSON)
 
-    result = parse_lesson_markdown(content)
-    guided_session = result["guided_session"]
-    steps = guided_session["steps"]
-
-    assert result["metadata"]["title"] == "Figure Series"
-    assert result["metadata"]["learning_objective_count"] >= 1
-    assert guided_session["objective"]
-    assert guided_session["must_know"]
-    assert steps
-    assert steps[0]["kind"] == "objective"
-    assert any(step["kind"] in {"concept", "insight", "strategy", "warning"} for step in steps)
-    assert any(step["kind"] in {"summary", "exit"} for step in steps)
-    assert any(step["section_index"] == 0 for step in steps if step["kind"] != "objective")
+    bonus = _find_section(result["sections"], "Bonus Notes")
+    assert bonus["kind"] == "generic_section"
+    assert bonus["blocks"]
+    assert result["worked_examples"]
+    assert result["key_takeaways"]

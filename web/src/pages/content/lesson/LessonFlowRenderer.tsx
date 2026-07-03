@@ -108,7 +108,18 @@ function DesktopLessonFlow({
   const lessonTitle = plan.title || content.metadata?.title || "";
 
   return (
-    <div className="desktop-lesson-root page" style={{ maxWidth: "1400px", margin: "0 auto", padding: "1.5rem 2rem 4rem" }}>
+    <div
+      className="desktop-lesson-root page"
+      style={{
+        maxWidth: "1400px",
+        margin: "0 auto",
+        padding: "1.5rem 2rem 1rem",
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100dvh",
+        overflow: "hidden",
+      }}
+    >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", gap: "1rem" }}>
         <Link to="/modules" aria-label="Back to modules" className="btn-glass" style={{ padding: "0.3rem 0.6rem", fontSize: "0.75rem" }}>
           Back
@@ -141,12 +152,27 @@ function DesktopLessonFlow({
           gridTemplateColumns: "230px minmax(0, 1fr) 300px",
           gap: "1.5rem",
           marginTop: "1.5rem",
-          alignItems: "start",
+          alignItems: "stretch",
+          flex: "1 1 auto",
+          minHeight: 0,
+          overflow: "hidden",
         }}
       >
         <ScreenNavigator plan={plan} activeIndex={activeIndex} onNavigate={goTo} />
 
-        <main aria-label="Lesson screen" style={{ minWidth: 0, maxWidth: 720, margin: "0 auto", width: "100%" }}>
+        <main
+          aria-label="Lesson screen"
+          style={{
+            minWidth: 0,
+            maxWidth: 720,
+            margin: "0 auto",
+            width: "100%",
+            minHeight: 0,
+            overflow: "hidden",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <ScreenChrome
             screen={current}
             lessonTitle={lessonTitle}
@@ -256,7 +282,19 @@ function MobileLessonFlow({
   const lessonTitle = plan.title || content.metadata?.title || "";
 
   return (
-    <div className="page container" style={{ maxWidth: 680, margin: "0 auto", paddingBottom: "5rem", lineHeight: 1.75 }}>
+    <div
+      className="page container"
+      style={{
+        maxWidth: 680,
+        margin: "0 auto",
+        paddingBottom: "1rem",
+        lineHeight: 1.75,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100dvh",
+        overflow: "hidden",
+      }}
+    >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem", gap: "0.75rem" }}>
         <Link to="/modules" aria-label="Back to modules" className="btn-glass" style={{ padding: "0.3rem 0.6rem", fontSize: "0.75rem" }}>
           Back
@@ -280,27 +318,29 @@ function MobileLessonFlow({
 
       <GlassProgressBar value={activeIndex + 1} max={plan.screen_count} height={3} />
 
-      <ScreenChrome
-        screen={current}
-        lessonTitle={lessonTitle}
-        screenCount={plan.screen_count}
-        activeIndex={activeIndex}
-        onPrevious={() => goTo(activeIndex - 1)}
-        onNext={() => goTo(activeIndex + 1)}
-        onComplete={onMarkComplete}
-        completing={completing}
-        completed={completed}
-        compact
-      >
-        <ScreenBody
-          content={content}
-          plan={plan}
+      <div style={{ flex: "1 1 auto", minHeight: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+        <ScreenChrome
           screen={current}
-          currentSections={currentSections}
-          subtopicId={subtopicId}
+          lessonTitle={lessonTitle}
+          screenCount={plan.screen_count}
+          activeIndex={activeIndex}
+          onPrevious={() => goTo(activeIndex - 1)}
+          onNext={() => goTo(activeIndex + 1)}
+          onComplete={onMarkComplete}
+          completing={completing}
+          completed={completed}
           compact
-        />
-      </ScreenChrome>
+        >
+          <ScreenBody
+            content={content}
+            plan={plan}
+            screen={current}
+            currentSections={currentSections}
+            subtopicId={subtopicId}
+            compact
+          />
+        </ScreenChrome>
+      </div>
 
       {current.kind !== "practice" && (practiceProblems.length > 0 || memoryAids.length > 0 || examStrategies.length > 0) && (
         <div style={{ marginTop: "1.5rem" }}>
@@ -364,6 +404,11 @@ function ScreenChrome({
       style={{
         marginTop: compact ? "1rem" : 0,
         padding: compact ? "0" : "0",
+        height: "100%",
+        minHeight: 0,
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
       }}
     >
       <div
@@ -391,14 +436,27 @@ function ScreenChrome({
         </div>
       </div>
 
-      <GlassCard blur="sm" style={{ padding: compact ? "0.95rem" : "1.1rem 1.2rem", borderRadius: "12px" }}>
+      <GlassCard
+        blur="sm"
+        style={{
+          padding: compact ? "0.95rem" : "1.1rem 1.2rem",
+          borderRadius: "12px",
+          flex: "1 1 auto",
+          minHeight: 0,
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         {screen.summary && (
           <div style={{ marginBottom: "1rem", color: "var(--color-text-muted)", fontSize: compact ? "0.8rem" : "0.875rem", lineHeight: 1.65 }}>
             {screen.summary}
           </div>
         )}
 
-        {children}
+        <div style={{ minHeight: 0, overflow: "hidden", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          {children}
+        </div>
       </GlassCard>
 
       <div style={{ display: "flex", justifyContent: "space-between", gap: "0.5rem", marginTop: "1rem", flexWrap: "wrap" }}>

@@ -69,6 +69,8 @@ class ContentBlock(BaseModel):
     type: str
     content: Any
     language: str | None = None
+    children: list["ContentBlock"] = Field(default_factory=list)
+    metadata: dict[str, Any] = Field(default_factory=dict)
 
 
 class LessonSection(BaseModel):
@@ -83,6 +85,8 @@ class LessonSection(BaseModel):
 
     title: str
     blocks: list[ContentBlock]
+    kind: str = "generic_section"
+    metadata: dict[str, Any] = Field(default_factory=dict)
     difficulty: list[str] = Field(default_factory=list)
     word_count: int = 0
     estimated_reading_seconds: int = 0
@@ -230,6 +234,10 @@ class LessonContent(BaseModel):
         if not v.strip():
             raise ValueError("summary must be non-empty")
         return v
+
+
+ContentBlock.model_rebuild()
+LessonSection.model_rebuild()
 
 
 # ----- Module schemas -------------------------------------------------------

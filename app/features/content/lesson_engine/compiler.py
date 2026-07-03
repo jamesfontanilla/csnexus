@@ -1,455 +1,651 @@
-"""Lesson compiler.
-
-Consumes a semantic AST and produces a screen plan that a renderer can turn
-into a guided lesson flow. The compiler intentionally groups and labels
-screens by educational purpose instead of preserving Markdown structure.
-"""
+"""Compile the lesson AST into the JSON model consumed by the app."""
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, field
+from collections import defaultdict
 from typing import Any
 
-from .ast import LessonAstDocument, LessonAstNode, LessonAstSection
+from app.features.content.schemas import (
+    ContentBlock,
+    GuidedSession,
+    GuidedSessionStep,
+    LessonContent,
+    LessonExplanation,
+    LessonMetadata,
+    LessonScreen,
+    LessonScreenPlan,
+    LessonSection,
+    LessonWorkedExample,
+    PracticeProblem,
+    TableOfContentsEntry,
+)
 
-SCREEN_KIND_COVER = "cover"
-SCREEN_KIND_OBJECTIVES = "objectives"
-SCREEN_KIND_OVERVIEW = "overview"
-SCREEN_KIND_CONCEPT = "concept"
-SCREEN_KIND_EXAMPLE = "example"
-SCREEN_KIND_VISUALIZATION = "visualization"
-SCREEN_KIND_QUICK_CHECK = "quick_check"
-SCREEN_KIND_PRACTICE = "practice"
-SCREEN_KIND_STRATEGY = "strategy"
-SCREEN_KIND_REMEMBER = "remember"
-SCREEN_KIND_TAKEAWAY = "takeaway"
-SCREEN_KIND_SUMMARY = "summary"
-SCREEN_KIND_COMPLETION = "completion"
-
-_SPECIAL_SCREEN_KINDS = {
-    SCREEN_KIND_COVER,
-    SCREEN_KIND_OBJECTIVES,
-    SCREEN_KIND_OVERVIEW,
-    SCREEN_KIND_EXAMPLE,
-    SCREEN_KIND_VISUALIZATION,
-    SCREEN_KIND_QUICK_CHECK,
-    SCREEN_KIND_PRACTICE,
-    SCREEN_KIND_STRATEGY,
-    SCREEN_KIND_REMEMBER,
-    SCREEN_KIND_TAKEAWAY,
-    SCREEN_KIND_SUMMARY,
-    SCREEN_KIND_COMPLETION,
-}
-
-_TARGET_SCREEN_SECONDS = 180
+from .ast import LessonBlockNode, LessonDocumentAst, LessonSectionNode
 
 
-@dataclass(slots=True)
-class CompiledLessonScreen:
-    """One runtime screen in the guided lesson flow."""
+def compile_lesson_model(document: LessonDocumentAst) -> dict[str, Any]:
+    """Compile the semantic document into the published lesson JSON shape."""
 
-    index: int
-    kind: str
-    title: str
-    summary: str = ""
-    section_indices: list[int] = field(default_factory=list)
-    section_titles: list[str] = field(default_factory=list)
-    estimated_reading_seconds: int = 0
-    focus_tags: list[str] = field(default_factory=list)
-    node_kinds: list[str] = field(default_factory=list)
-    call_to_action: str = ""
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-
-@dataclass(slots=True)
-class CompiledLessonPlan:
-    """Top-level compiled lesson flow."""
-
-    title: str
-    objective: str
-    must_know: list[str]
-    screens: list[CompiledLessonScreen]
-    estimated_reading_minutes: int
-    screen_count: int
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+    sections = [_compile_section(section) for section in document.sections]
+    explanations = _compile_explanations(document)
+    worked_examples = _compile_worked_examples(document)
+    practice_problems = _compile_practice_problems(document)
+    memory_aids = _compile_text_list(document, {"memory_aids"})
+    exam_strategies = _compile_text_list(document, {"exam_strategies"})
+    table_of_contents = [TableOfContentsEntry(title=section.title, index=index) for index, section in enumerate(sections)]
+    guided_session = _build_guided_session(document, sections)
+    screen_plan = _build_screen_plan(document, sections, guided_session)
+    metadata = _compile_metadata(document, screen_plan, practice_problem_count=len(practice_problems))
+    model = LessonContent(
+        explanations=explanations,
+        worked_examples=worked_examples,
+        key_takeaways=document.key_takeaways or [document.summary or f"Learn {document.title}."],
+        summary=document.summary or f"Learn {document.title}.",
+        metadata=metadata,
+        learning_objectives=document.learning_objectives,
+        guided_session=guided_session,
+        screen_plan=screen_plan,
+        table_of_contents=table_of_contents,
+        sections=sections,
+        practice_problems=practice_problems,
+        memory_aids=memory_aids,
+        exam_strategies=exam_strategies,
+    )
+    return model.model_dump()
 
 
-def compile_lesson_plan(document: LessonAstDocument) -> CompiledLessonPlan:
-    """Compile semantic lesson nodes into an ordered screen plan."""
+def _compile_section(section: LessonSectionNode) -> LessonSection:
+    return LessonSection(
+        title=section.title,
+        kind=section.kind,
+        blocks=[_compile_block(block) for block in section.blocks],
+        subsections=[_compile_section(subsection) for subsection in section.subsections],
+        metadata=dict(section.metadata),
+        difficulty=_difficulty_for_section(section),
+        word_count=section.word_count,
+        estimated_reading_seconds=section.estimated_reading_seconds,
+    )
 
-    screens: list[CompiledLessonScreen] = []
-    screen_index = 0
 
-    objective = _choose_objective(document)
-    must_know = _choose_must_know(document)
+def _compile_block(block: LessonBlockNode) -> ContentBlock:
+    block_type, content, language, metadata = _render_block(block)
+    return ContentBlock(
+        type=block_type,
+        content=content,
+        language=language,
+        children=[_compile_block(child) for child in block.children],
+        metadata=metadata,
+    )
 
-    preamble_sections = list(document.sections[:3])
-    remainder_start = len(preamble_sections)
 
-    if preamble_sections:
+def _render_block(block: LessonBlockNode) -> tuple[str, Any, str | None, dict[str, Any]]:
+    metadata = dict(block.metadata)
+    kind = block.kind
+
+    if kind in {"prose", "definition", "quote", "note", "callout", "divider", "video"}:
+        return "prose", _block_to_markdown(block), block.language, metadata
+    if kind in {"bullet_list", "checklist"}:
+        items = metadata.get("items") or _block_list_items(block)
+        return "list", "\n".join(f"- {item}" for item in items), None, metadata
+    if kind == "ordered_list":
+        items = metadata.get("items") or _block_list_items(block)
+        return "step_by_step", "\n".join(f"{index + 1}. {item}" for index, item in enumerate(items)), None, metadata
+    if kind == "table":
+        return "table", block.content, None, metadata
+    if kind == "tip":
+        return "tip", _block_to_markdown(block), None, metadata
+    if kind == "warning":
+        return "warning", _block_to_markdown(block), None, metadata
+    if kind == "example":
+        return "example", _block_to_markdown(block), None, metadata
+    if kind == "code":
+        return "code", _block_to_markdown(block), block.language, metadata
+    if kind == "formula":
+        return "formula", _block_to_markdown(block), block.language or "formula", metadata
+    if kind == "svg":
+        return "svg", _block_to_markdown(block), None, metadata
+    if kind == "mermaid":
+        return "code", _block_to_markdown(block), "mermaid", metadata
+    if kind == "image":
+        return "prose", _block_to_markdown(block), None, metadata
+    if kind in {"question", "answer"}:
+        return "prose", _block_to_markdown(block), None, metadata
+    if kind in {"diagram"}:
+        return "svg", _block_to_markdown(block), None, metadata
+    if kind in {"interactive_exercise", "embedded_quiz"}:
+        checks = _extract_checks(block)
+        return "check_understanding", checks, None, metadata
+    if kind == "check_understanding":
+        checks = _extract_checks(block)
+        return "check_understanding", checks, None, metadata
+
+    return "prose", _block_to_markdown(block), block.language, metadata
+
+
+def _extract_checks(block: LessonBlockNode) -> list[dict[str, str]]:
+    checks: list[dict[str, str]] = []
+    if block.kind == "question":
+        question = _block_to_markdown(block)
+        answer = str(block.metadata.get("answer") or "").strip()
+        checks.append({"question": question, "answer": answer, "rationale": str(block.metadata.get("rationale") or "")})
+    elif block.kind == "answer":
+        answer = _block_to_markdown(block)
+        question = str(block.metadata.get("question") or "").strip()
+        checks.append({"question": question, "answer": answer, "rationale": str(block.metadata.get("rationale") or "")})
+    else:
+        payload = block.content if isinstance(block.content, list) else []
+        for item in payload:
+            if isinstance(item, dict):
+                question = str(item.get("question") or "").strip()
+                answer = str(item.get("answer") or "").strip()
+                rationale = str(item.get("rationale") or "").strip()
+                if question or answer:
+                    checks.append({"question": question, "answer": answer, "rationale": rationale})
+    return checks
+
+
+def _block_to_markdown(block: LessonBlockNode) -> str:
+    content = block.content
+    if isinstance(content, str):
+        return content
+    if isinstance(content, dict):
+        if "headers" in content and "rows" in content:
+            headers = content.get("headers") or []
+            rows = content.get("rows") or []
+            header_line = "| " + " | ".join(str(header) for header in headers) + " |"
+            separator_line = "| " + " | ".join("---" for _ in headers) + " |"
+            row_lines = ["| " + " | ".join(str(cell) for cell in row) + " |" for row in rows]
+            return "\n".join([header_line, separator_line, *row_lines]).strip()
+        if "text" in content and isinstance(content["text"], str):
+            return content["text"]
+        if "body" in content and isinstance(content["body"], str):
+            return content["body"]
+        if "content" in content and isinstance(content["content"], str):
+            return content["content"]
+        if "items" in content and isinstance(content["items"], list):
+            items = [str(item) for item in content["items"]]
+            return "\n".join(f"- {item}" for item in items)
+    if isinstance(content, list):
+        parts: list[str] = []
+        for item in content:
+            if isinstance(item, dict):
+                question = str(item.get("question") or "").strip()
+                answer = str(item.get("answer") or "").strip()
+                rationale = str(item.get("rationale") or "").strip()
+                if question:
+                    parts.append(f"Question: {question}")
+                if answer:
+                    parts.append(f"Answer: {answer}")
+                if rationale:
+                    parts.append(f"Rationale: {rationale}")
+            else:
+                parts.append(str(item))
+        return "\n\n".join(parts)
+    return str(content or "")
+
+
+def _block_list_items(block: LessonBlockNode) -> list[str]:
+    content = block.content
+    if isinstance(content, dict):
+        items = content.get("items")
+        if isinstance(items, list):
+            return [str(item) for item in items if str(item).strip()]
+    if isinstance(content, str):
+        return [line.strip(" -*\t") for line in content.splitlines() if line.strip()]
+    return []
+
+
+def _compile_explanations(document: LessonDocumentAst) -> list[LessonExplanation]:
+    explanations: list[LessonExplanation] = []
+    for section in document.sections:
+        if section.kind == "explanations":
+            for child in section.subsections:
+                body = _section_body(child)
+                if body:
+                    explanations.append(LessonExplanation(heading=child.title, body=body))
+            if not explanations:
+                body = _section_body(section)
+                if body:
+                    explanations.append(LessonExplanation(heading=section.title, body=body))
+    if not explanations:
+        fallback = document.summary or f"Lesson covering {document.title}."
+        explanations.append(LessonExplanation(heading="Overview", body=fallback))
+    return explanations
+
+
+def _compile_worked_examples(document: LessonDocumentAst) -> list[LessonWorkedExample]:
+    examples: list[LessonWorkedExample] = []
+    for section in document.sections:
+        if section.kind == "worked_examples":
+            for child in section.subsections:
+                body = _section_body(child)
+                examples.append(LessonWorkedExample(title=child.title or "Worked example", body=body or document.summary))
+            if not examples:
+                body = _section_body(section)
+                if body:
+                    examples.append(LessonWorkedExample(title=section.title, body=body))
+    if not examples:
+        examples.append(
+            LessonWorkedExample(
+                title="See lesson sections",
+                body="Worked examples are embedded within lesson sections.",
+            )
+        )
+    return examples
+
+
+def _compile_practice_problems(document: LessonDocumentAst) -> list[PracticeProblem]:
+    problems: list[PracticeProblem] = []
+    number = 1
+    for section in document.sections:
+        if section.kind not in {"practice_review", "final_challenge"}:
+            continue
+        for block in _flatten_blocks(section):
+            checks = _extract_checks(block)
+            for check in checks:
+                if not check["question"] and not check["answer"]:
+                    continue
+                problems.append(
+                    PracticeProblem(
+                        number=number,
+                        question=check["question"],
+                        answer=check["answer"],
+                        explanation=check.get("rationale", ""),
+                        difficulty="medium",
+                    )
+                )
+                number += 1
+    return problems
+
+
+def _compile_text_list(document: LessonDocumentAst, kinds: set[str]) -> list[str]:
+    items: list[str] = []
+    for section in document.sections:
+        if section.kind not in kinds:
+            continue
+        items.extend(_section_text_lines(section))
+        for child in section.subsections:
+            items.extend(_section_text_lines(child))
+    return _dedupe_text(items)
+
+
+def _section_text_lines(section: LessonSectionNode) -> list[str]:
+    lines: list[str] = []
+    for block in _flatten_blocks(section):
+        text = _block_to_markdown(block)
+        if not text.strip():
+            continue
+        for line in text.splitlines():
+            cleaned = line.strip(" -*\t")
+            if cleaned:
+                lines.append(cleaned)
+    return lines
+
+
+def _flatten_blocks(section: LessonSectionNode) -> list[LessonBlockNode]:
+    blocks = list(section.blocks)
+    for child in section.subsections:
+        blocks.extend(_flatten_blocks(child))
+    return blocks
+
+
+def _build_guided_session(document: LessonDocumentAst, sections: list[LessonSection]) -> GuidedSession:
+    steps: list[GuidedSessionStep] = []
+    index = 0
+
+    if document.learning_objectives:
+        steps.append(
+            GuidedSessionStep(
+                index=index,
+                kind="objective",
+                title="Learning objectives",
+                summary=document.learning_objectives[0],
+                section_index=0 if sections else None,
+                estimated_reading_seconds=20,
+                subsection_count=0,
+                focus_tags=["objective"],
+            )
+        )
+        index += 1
+
+    for section_index, section in enumerate(sections):
+        if section.kind == "explanations":
+            steps.append(
+                GuidedSessionStep(
+                    index=index,
+                    kind="foundation",
+                    title=section.title,
+                    summary=_section_preview(section),
+                    section_index=section_index,
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    subsection_count=len(section.subsections),
+                    focus_tags=[section.kind, "foundation"],
+                )
+            )
+            index += 1
+        elif section.kind == "micro_concept":
+            steps.append(
+                GuidedSessionStep(
+                    index=index,
+                    kind="concept",
+                    title=section.title,
+                    summary=_section_preview(section),
+                    section_index=section_index,
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    subsection_count=len(section.subsections),
+                    focus_tags=[section.kind, *[child.kind for child in section.subsections[:3]]],
+                )
+            )
+            index += 1
+        elif section.kind == "worked_examples":
+            steps.append(
+                GuidedSessionStep(
+                    index=index,
+                    kind="example",
+                    title=section.title,
+                    summary=_section_preview(section),
+                    section_index=section_index,
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    subsection_count=len(section.subsections),
+                    focus_tags=[section.kind, "example"],
+                )
+            )
+            index += 1
+        elif section.kind == "exam_strategies":
+            steps.append(
+                GuidedSessionStep(
+                    index=index,
+                    kind="strategy",
+                    title=section.title,
+                    summary=_section_preview(section),
+                    section_index=section_index,
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    subsection_count=len(section.subsections),
+                    focus_tags=[section.kind, "strategy"],
+                )
+            )
+            index += 1
+        elif section.kind == "memory_aids":
+            steps.append(
+                GuidedSessionStep(
+                    index=index,
+                    kind="insight",
+                    title=section.title,
+                    summary=_section_preview(section),
+                    section_index=section_index,
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    subsection_count=len(section.subsections),
+                    focus_tags=[section.kind, "memory"],
+                )
+            )
+            index += 1
+        elif section.kind == "practice_review":
+            steps.append(
+                GuidedSessionStep(
+                    index=index,
+                    kind="practice",
+                    title=section.title,
+                    summary=_section_preview(section),
+                    section_index=section_index,
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    subsection_count=len(section.subsections),
+                    focus_tags=[section.kind, "practice"],
+                )
+            )
+            index += 1
+        elif section.kind == "key_takeaways":
+            steps.append(
+                GuidedSessionStep(
+                    index=index,
+                    kind="summary",
+                    title=section.title,
+                    summary=_section_preview(section),
+                    section_index=section_index,
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    subsection_count=len(section.subsections),
+                    focus_tags=[section.kind, "recall"],
+                )
+            )
+            index += 1
+        elif section.kind == "summary":
+            steps.append(
+                GuidedSessionStep(
+                    index=index,
+                    kind="summary",
+                    title=section.title,
+                    summary=_section_preview(section),
+                    section_index=section_index,
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    subsection_count=len(section.subsections),
+                    focus_tags=[section.kind, "summary"],
+                )
+            )
+            index += 1
+
+    if document.summary:
+        steps.append(
+            GuidedSessionStep(
+                index=index,
+                kind="exit",
+                title="Wrap up",
+                summary=document.summary,
+                section_index=len(sections) - 1 if sections else None,
+                estimated_reading_seconds=10,
+                subsection_count=0,
+                focus_tags=["completion"],
+            )
+        )
+
+    return GuidedSession(
+        title=document.title,
+        objective=document.learning_objectives[0] if document.learning_objectives else document.summary,
+        must_know=(document.learning_objectives[:3] + document.key_takeaways[:3])[:5],
+        steps=steps,
+    )
+
+
+def _build_screen_plan(
+    document: LessonDocumentAst,
+    sections: list[LessonSection],
+    guided_session: GuidedSession,
+) -> LessonScreenPlan:
+    screens: list[LessonScreen] = []
+    index = 0
+
+    if sections:
         screens.append(
-            CompiledLessonScreen(
-                index=screen_index,
-                kind=SCREEN_KIND_COVER,
-                title=document.title or "Lesson cover",
-                summary=document.summary or objective,
-                section_indices=[0] if document.sections else [],
-                section_titles=[section.title for section in preamble_sections[:1]],
-                estimated_reading_seconds=sum(
-                    section.estimated_reading_seconds for section in preamble_sections[:1]
-                ),
-                focus_tags=["cover", "progress"],
-                node_kinds=_collect_node_kinds(preamble_sections[:1]),
+            LessonScreen(
+                index=index,
+                kind="cover",
+                title=document.title or "Lesson",
+                summary=document.summary or document.title,
+                section_indices=[0],
+                section_titles=[sections[0].title],
+                estimated_reading_seconds=sections[0].estimated_reading_seconds,
+                focus_tags=["cover"],
+                node_kinds=[sections[0].kind],
                 call_to_action="Start lesson",
             )
         )
-        screen_index += 1
+        index += 1
 
-    if len(preamble_sections) >= 2 or document.learning_objectives:
-        sections_for_objectives = preamble_sections[1:2] if len(preamble_sections) > 1 else []
-        screens.append(
-            CompiledLessonScreen(
-                index=screen_index,
-                kind=SCREEN_KIND_OBJECTIVES,
-                title="Learning objectives",
-                summary=document.learning_objectives[0] if document.learning_objectives else objective,
-                section_indices=[1] if len(document.sections) > 1 else [],
-                section_titles=[section.title for section in sections_for_objectives],
-                estimated_reading_seconds=sum(
-                    section.estimated_reading_seconds for section in sections_for_objectives
-                ),
-                focus_tags=["objectives", "clarity"],
-                node_kinds=_collect_node_kinds(sections_for_objectives),
-                call_to_action="See what you will master",
-            )
-        )
-        screen_index += 1
-
-    overview_sections = [
-        section
-        for section in document.sections
-        if section.metadata.get("role") == "overview"
-    ]
-    if overview_sections:
-        screens.append(
-            CompiledLessonScreen(
-                index=screen_index,
-                kind=SCREEN_KIND_OVERVIEW,
-                title="Section overview",
-                summary=_join_preview(overview_sections),
-                section_indices=_section_indices(document.sections, overview_sections),
-                section_titles=[section.title for section in overview_sections],
-                estimated_reading_seconds=sum(section.estimated_reading_seconds for section in overview_sections),
-                focus_tags=["overview", "navigation"],
-                node_kinds=_collect_node_kinds(overview_sections),
-                call_to_action="Map the journey",
-            )
-        )
-        screen_index += 1
-
-    content_sections = [
-        section for section in document.sections if section not in preamble_sections[:2] and section.metadata.get("role") not in {"overview"}
-    ]
-
-    grouped_sections = _group_sections_for_screens(content_sections)
-    for group in grouped_sections:
-        if not group:
+    for section_index, section in enumerate(sections):
+        kind = _screen_kind_for_section(section)
+        if section_index == 0 and kind == "cover":
             continue
-        kind = _screen_kind_for_group(group)
         screens.append(
-            CompiledLessonScreen(
-                index=screen_index,
+            LessonScreen(
+                index=index,
                 kind=kind,
-                title=_screen_title_for_group(kind, group),
-                summary=_join_preview(group),
-                section_indices=_section_indices(document.sections, group),
-                section_titles=[section.title for section in group],
-                estimated_reading_seconds=sum(section.estimated_reading_seconds for section in group),
-                focus_tags=_focus_tags_for_group(kind, group),
-                node_kinds=_collect_node_kinds(group),
-                call_to_action=_call_to_action_for_kind(kind),
+                title=section.title,
+                summary=_section_preview(section),
+                section_indices=[section_index],
+                section_titles=[section.title],
+                estimated_reading_seconds=section.estimated_reading_seconds,
+                focus_tags=[section.kind, *[child.kind for child in section.subsections[:3]]],
+                node_kinds=_collect_node_kinds(section),
+                call_to_action=_call_to_action(kind),
             )
         )
-        screen_index += 1
+        index += 1
 
-    if document.practice_problems:
+    if not screens:
         screens.append(
-            CompiledLessonScreen(
-                index=screen_index,
-                kind=SCREEN_KIND_PRACTICE,
-                title="Practice",
-                summary="Work through the guided practice and check your understanding.",
+            LessonScreen(
+                index=0,
+                kind="summary",
+                title=document.title or "Lesson",
+                summary=document.summary or document.title,
                 section_indices=[],
                 section_titles=[],
-                estimated_reading_seconds=max(60, len(document.practice_problems) * 45),
-                focus_tags=["practice", "feedback"],
-                node_kinds=["practice"],
-                call_to_action="Try the exercises",
+                estimated_reading_seconds=30,
+                focus_tags=["summary"],
+                node_kinds=["summary"],
+                call_to_action="Continue",
             )
         )
-        screen_index += 1
 
-    if document.memory_aids:
-        screens.append(
-            CompiledLessonScreen(
-                index=screen_index,
-                kind=SCREEN_KIND_REMEMBER,
-                title="Memory aids",
-                summary=document.memory_aids[0],
-                section_indices=[],
-                section_titles=[],
-                estimated_reading_seconds=max(20, len(document.memory_aids) * 15),
-                focus_tags=["memory", "retention"],
-                node_kinds=["memory_aid"],
-                call_to_action="Lock it in",
-            )
-        )
-        screen_index += 1
-
-    if document.exam_strategies:
-        screens.append(
-            CompiledLessonScreen(
-                index=screen_index,
-                kind=SCREEN_KIND_STRATEGY,
-                title="Exam strategy",
-                summary=document.exam_strategies[0],
-                section_indices=[],
-                section_titles=[],
-                estimated_reading_seconds=max(20, len(document.exam_strategies) * 15),
-                focus_tags=["strategy", "exam"],
-                node_kinds=["strategy"],
-                call_to_action="Use this on test day",
-            )
-        )
-        screen_index += 1
-
-    if document.key_takeaways:
-        screens.append(
-            CompiledLessonScreen(
-                index=screen_index,
-                kind=SCREEN_KIND_TAKEAWAY,
-                title="Key takeaways",
-                summary=document.key_takeaways[0],
-                section_indices=[],
-                section_titles=[],
-                estimated_reading_seconds=max(30, len(document.key_takeaways) * 12),
-                focus_tags=["takeaway", "recall"],
-                node_kinds=["takeaway"],
-                call_to_action="Review the essentials",
-            )
-        )
-        screen_index += 1
-
-    screens.append(
-        CompiledLessonScreen(
-            index=screen_index,
-            kind=SCREEN_KIND_COMPLETION,
-            title="Lesson complete",
-            summary=document.summary or objective,
-            section_indices=[],
-            section_titles=[],
-            estimated_reading_seconds=10,
-            focus_tags=["completion", "progress"],
-            node_kinds=["completion"],
-            call_to_action="Mark complete",
-        )
-    )
-
-    return CompiledLessonPlan(
+    return LessonScreenPlan(
         title=document.title,
-        objective=objective,
-        must_know=must_know,
+        objective=guided_session.objective,
+        must_know=guided_session.must_know,
         screens=screens,
-        estimated_reading_minutes=max(
-            1,
-            _round_minutes(
-                sum(screen.estimated_reading_seconds for screen in screens)
-            ),
-        ),
+        estimated_reading_minutes=max(1, int(round(sum(screen.estimated_reading_seconds for screen in screens) / 60))),
         screen_count=len(screens),
     )
 
 
-def _choose_objective(document: LessonAstDocument) -> str:
-    if document.learning_objectives:
-        return document.learning_objectives[0]
-    if document.summary.strip():
-        return document.summary.strip()
-    return f"Learn {document.title}".strip()
+def _screen_kind_for_section(section: LessonSectionNode) -> str:
+    if section.kind == "explanations":
+        return "overview"
+    if section.kind == "micro_concept":
+        return "concept"
+    if section.kind == "worked_examples":
+        return "example"
+    if section.kind == "exam_strategies":
+        return "strategy"
+    if section.kind == "memory_aids":
+        return "remember"
+    if section.kind == "practice_review":
+        return "practice"
+    if section.kind == "key_takeaways":
+        return "takeaway"
+    if section.kind == "summary":
+        return "summary"
+    if section.kind == "final_challenge":
+        return "completion"
+    return "concept"
 
 
-def _choose_must_know(document: LessonAstDocument) -> list[str]:
-    items: list[str] = []
-    items.extend(document.learning_objectives[:3])
-    items.extend(document.key_takeaways[:4])
-    return _dedupe_nonempty(items) or ([document.summary] if document.summary else [])
-
-
-def _group_sections_for_screens(
-    sections: list[LessonAstSection],
-) -> list[list[LessonAstSection]]:
-    groups: list[list[LessonAstSection]] = []
-    current: list[LessonAstSection] = []
-    current_seconds = 0
-    current_role = ""
-
-    def flush() -> None:
-        nonlocal current, current_seconds, current_role
-        if current:
-            groups.append(list(current))
-        current = []
-        current_seconds = 0
-        current_role = ""
-
-    for section in sections:
-        role = str(section.metadata.get("role") or "concept")
-        if role in {"cover", "objectives", "overview"}:
-            # The preamble screens are built separately.
-            continue
-
-        if not current:
-            current = [section]
-            current_seconds = section.estimated_reading_seconds
-            current_role = role
-            continue
-
-        should_force_split = role in _SPECIAL_SCREEN_KINDS and role not in {"concept"}
-        would_exceed_target = current_seconds + section.estimated_reading_seconds > _TARGET_SCREEN_SECONDS
-        role_shift = role != current_role and current_role == "concept"
-
-        if should_force_split or (would_exceed_target and role_shift):
-            flush()
-            current = [section]
-            current_seconds = section.estimated_reading_seconds
-            current_role = role
-        else:
-            current.append(section)
-            current_seconds += section.estimated_reading_seconds
-            if current_role == "concept" and role != "concept":
-                current_role = role
-
-    flush()
-    return groups
-
-
-def _screen_kind_for_group(group: list[LessonAstSection]) -> str:
-    roles = [str(section.metadata.get("role") or "concept") for section in group]
-    if any(role == "quick_check" for role in roles):
-        return SCREEN_KIND_QUICK_CHECK
-    if any(role == "practice" for role in roles):
-        return SCREEN_KIND_PRACTICE
-    if any(role == "strategy" for role in roles):
-        return SCREEN_KIND_STRATEGY
-    if any(role == "remember" for role in roles):
-        return SCREEN_KIND_REMEMBER
-    if any(role == "takeaway" for role in roles):
-        return SCREEN_KIND_TAKEAWAY
-    if any(role == "summary" for role in roles):
-        return SCREEN_KIND_SUMMARY
-    if any(role == "example" for role in roles):
-        return SCREEN_KIND_EXAMPLE
-    if any(role == "visualization" for role in roles):
-        return SCREEN_KIND_VISUALIZATION
-    return SCREEN_KIND_CONCEPT
-
-
-def _screen_title_for_group(kind: str, group: list[LessonAstSection]) -> str:
-    if len(group) == 1:
-        return group[0].title
-    if kind == SCREEN_KIND_CONCEPT:
-        return group[0].title
-    return kind.replace("_", " ").title()
-
-
-def _focus_tags_for_group(kind: str, group: list[LessonAstSection]) -> list[str]:
-    tags = [kind]
-    for section in group:
-        role = str(section.metadata.get("role") or "concept")
-        if role not in tags:
-            tags.append(role)
-        for node in section.nodes:
-            if node.kind not in tags:
-                tags.append(node.kind)
-    return _dedupe_nonempty(tags)
-
-
-def _call_to_action_for_kind(kind: str) -> str:
+def _call_to_action(kind: str) -> str:
     return {
-        SCREEN_KIND_CONCEPT: "Keep going",
-        SCREEN_KIND_EXAMPLE: "Study the example",
-        SCREEN_KIND_VISUALIZATION: "Read the visual",
-        SCREEN_KIND_QUICK_CHECK: "Check your understanding",
-        SCREEN_KIND_PRACTICE: "Practice now",
-        SCREEN_KIND_STRATEGY: "Use this strategy",
-        SCREEN_KIND_REMEMBER: "Memorize the cue",
-        SCREEN_KIND_TAKEAWAY: "Lock in the lesson",
-        SCREEN_KIND_SUMMARY: "Review the summary",
+        "cover": "Start lesson",
+        "overview": "Scan the structure",
+        "concept": "Study the concept",
+        "example": "Work through the example",
+        "strategy": "Use this strategy",
+        "remember": "Lock it in",
+        "practice": "Practice now",
+        "takeaway": "Review the essentials",
+        "summary": "Finish the summary",
+        "completion": "Complete the lesson",
     }.get(kind, "Continue")
 
 
-def _join_preview(sections: list[LessonAstSection]) -> str:
-    previews: list[str] = []
-    for section in sections:
-        preview = _section_preview(section)
-        if preview:
-            previews.append(preview)
-    return " ".join(previews).strip()
-
-
-def _section_preview(section: LessonAstSection) -> str:
-    for node in section.nodes:
-        if node.text.strip():
-            return _shorten(node.text)
-        if isinstance(node.content, dict):
-            candidate = str(node.content.get("summary") or node.content.get("text") or "")
-            if candidate.strip():
-                return _shorten(candidate)
-        if isinstance(node.content, str) and node.content.strip():
-            return _shorten(node.content)
+def _section_preview(section: LessonSectionNode) -> str:
+    for block in section.blocks:
+        text = _block_preview(block)
+        if text:
+            return text
+    for child in section.subsections:
+        text = _section_preview(child)
+        if text:
+            return text
     return ""
 
 
-def _shorten(text: str, limit: int = 180) -> str:
-    clean = " ".join(text.split())
-    if len(clean) <= limit:
-        return clean
-    return clean[:limit].rsplit(" ", 1)[0].strip()
+def _block_preview(block: LessonBlockNode) -> str:
+    if isinstance(block.content, str) and block.content.strip():
+        return " ".join(block.content.split())[:200]
+    if isinstance(block.content, dict):
+        for key in ("summary", "body", "content", "text"):
+            value = block.content.get(key)
+            if isinstance(value, str) and value.strip():
+                return " ".join(value.split())[:200]
+    if isinstance(block.content, list) and block.content:
+        first = block.content[0]
+        if isinstance(first, dict):
+            question = str(first.get("question") or "").strip()
+            answer = str(first.get("answer") or "").strip()
+            if question and answer:
+                return f"{question} {answer}"[:200]
+    return ""
 
 
-def _section_indices(
-    all_sections: list[LessonAstSection],
-    selected: list[LessonAstSection],
-) -> list[int]:
-    indices: list[int] = []
-    selected_ids = {id(section) for section in selected}
-    for index, section in enumerate(all_sections):
-        if id(section) in selected_ids:
-            indices.append(index)
-    return indices
-
-
-def _collect_node_kinds(sections: list[LessonAstSection]) -> list[str]:
+def _collect_node_kinds(section: LessonSectionNode) -> list[str]:
     kinds: list[str] = []
-    for section in sections:
-        for node in section.nodes:
-            if node.kind not in kinds:
-                kinds.append(node.kind)
+    for block in _flatten_blocks(section):
+        kind = str(block.metadata.get("semantic_kind") or block.type)
+        if kind not in kinds:
+            kinds.append(kind)
+    for child in section.subsections:
+        if child.kind not in kinds:
+            kinds.append(child.kind)
     return kinds
 
 
-def _round_minutes(seconds: int) -> int:
-    return max(1, (seconds + 59) // 60)
+def _difficulty_for_section(section: LessonSectionNode) -> list[str]:
+    if section.kind == "micro_concept":
+        return ["medium"]
+    if section.kind in {"worked_examples", "practice_review", "final_challenge"}:
+        return ["medium", "hard"]
+    if section.kind in {"key_takeaways", "summary", "memory_aids"}:
+        return ["easy"]
+    return ["medium"]
 
 
-def _dedupe_nonempty(items: list[str]) -> list[str]:
+def _compile_metadata(
+    document: LessonDocumentAst,
+    screen_plan: LessonScreenPlan,
+    *,
+    practice_problem_count: int,
+) -> LessonMetadata:
+    total_words = sum(section.word_count for section in document.sections)
+    return LessonMetadata(
+        title=document.title,
+        estimated_reading_minutes=screen_plan.estimated_reading_minutes,
+        section_count=len(document.sections),
+        learning_objective_count=len(document.learning_objectives),
+        has_practice_problems=practice_problem_count > 0,
+        practice_problem_count=practice_problem_count,
+        difficulty_distribution=_difficulty_distribution(document),
+        total_word_count=total_words,
+        screen_count=screen_plan.screen_count,
+    )
+
+
+def _difficulty_distribution(document: LessonDocumentAst) -> dict[str, int]:
+    distribution = defaultdict(int)
+    for section in document.sections:
+        for difficulty in _difficulty_for_section(section):
+            distribution[difficulty] += 1
+    return {"easy": distribution["easy"], "medium": distribution["medium"], "hard": distribution["hard"]}
+
+
+def _section_body(section: LessonSectionNode) -> str:
+    parts: list[str] = []
+    for block in section.blocks:
+        text = _block_preview(block)
+        if text:
+            parts.append(text)
+    return "\n\n".join(parts).strip()
+
+
+def _dedupe_text(items: list[str]) -> list[str]:
     seen: set[str] = set()
     result: list[str] = []
     for item in items:
-        value = item.strip()
+        value = " ".join(str(item).split()).strip()
         if not value:
             continue
         key = value.lower()

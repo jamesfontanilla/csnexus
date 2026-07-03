@@ -1,10 +1,10 @@
-"""Reset database and seed with real content only.
+"""Reset the database and seed baseline fixtures.
 
-Drops old placeholder modules and seeds:
+Drops the existing schema, recreates tables, and loads the minimal fixtures
+needed to make the system runnable:
 1. Users (admin + learners)
 2. Achievements
-3. Verbal Ability content (modules, topics, subtopics, lessons, questions)
-4. Mock exam configs pointing to the real modules
+3. Placeholder content hierarchy and mock exam configs
 
 Usage:
     python scripts/reset_and_seed.py
@@ -40,7 +40,6 @@ from app.features.gamification.models import UserDailyGoal, StreakFreeze, XPMult
 from app.features.announcements.models import Announcement, AnnouncementDismissal  # noqa: F401
 
 from scripts.seed import seed_database
-from scripts.seed_content import seed_content
 
 
 def main():
@@ -59,47 +58,10 @@ def main():
 
     session = SessionLocal()
     try:
-        # Step 1: Run base seed (users + achievements + placeholder content)
+        # Run the base seed (users + achievements + placeholder content).
         result = seed_database(session)
         print(f"Base seed: {result.get('status', 'unknown')}")
-
-        # Step 2: Remove placeholder modules and their mock configs
-        # The base seed creates "pro-module-1" and "sub-module-1" with fake content
-        placeholder_slugs = ["pro-module-1", "sub-module-1"]
-        for slug in placeholder_slugs:
-            mod = session.query(Module).filter(Module.slug == slug).first()
-            if mod:
-                # Remove mock config referencing this module
-                session.query(MockExamConfig).filter(
-                    MockExamConfig.category == mod.category
-                ).delete()
-                # Delete module (cascades to topics, subtopics, lessons, questions)
-                session.delete(mod)
-                print(f"  Removed placeholder: {slug}")
-
-        session.commit()
-
-        # Step 3: Seed real content (Verbal Ability for both categories)
-        content_result = seed_content(session)
-        print(f"Content seed: {content_result.get('status', 'unknown')}")
-        print(f"  Questions loaded: {content_result.get('questions_loaded', 0)}")
-
-        # Step 4: Create mock exam configs pointing to real modules
-        if content_result.get("modules"):
-            for mod_info in content_result["modules"]:
-                config = MockExamConfig(
-                    category=mod_info["category"],
-                    total_questions=50,
-                    weights_json={str(mod_info["module_id"]): 50},
-                    time_limit_minutes=180,
-                    nav_policy="FREE_NAV",
-                    pass_threshold=0.80,
-                )
-                session.add(config)
-            session.commit()
-            print("  Mock exam configs created for real modules.")
-
-        print("\nDone! The system now shows 'Verbal Ability' modules.")
+        print("\nDone! Baseline fixtures are ready.")
         print("  Professional learner: learner-pro@cse.local / Learner1Pass!")
         print("  Sub-Professional learner: learner-sub@cse.local / Learner1Pass!")
         print("  Admin: admin@cse.local / Admin1Pass!")

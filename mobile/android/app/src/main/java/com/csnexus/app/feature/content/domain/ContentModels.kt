@@ -38,6 +38,7 @@ data class Lesson(
     val sections: List<LessonSection> = emptyList(),
     val isSegmented: Boolean = false,
     val segments: List<LessonSegment> = emptyList(),
+    val screenPlan: LessonScreenPlan? = null,
     val practiceProblems: List<PracticeProblem> = emptyList(),
     val memoryAids: List<String> = emptyList(),
     val examStrategies: List<String> = emptyList(),
@@ -89,6 +90,28 @@ data class LessonSegment(
     val estimatedMinutes: Int,
     val sections: List<LessonSection>,
     val checks: List<InlineCheck> = emptyList(),
+)
+
+data class LessonScreenPlan(
+    val title: String = "",
+    val objective: String = "",
+    val mustKnow: List<String> = emptyList(),
+    val screens: List<LessonScreen> = emptyList(),
+    val estimatedReadingMinutes: Int = 0,
+    val screenCount: Int = 0,
+)
+
+data class LessonScreen(
+    val index: Int,
+    val kind: String,
+    val title: String,
+    val summary: String = "",
+    val sectionIndices: List<Int> = emptyList(),
+    val sectionTitles: List<String> = emptyList(),
+    val estimatedReadingSeconds: Int = 0,
+    val focusTags: List<String> = emptyList(),
+    val nodeKinds: List<String> = emptyList(),
+    val callToAction: String = "",
 )
 
 data class LessonBlock(

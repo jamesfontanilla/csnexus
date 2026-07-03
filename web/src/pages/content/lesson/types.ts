@@ -1,12 +1,14 @@
 /**
  * Type definitions for the enhanced lesson parser output.
- * Maps directly to the JSON structure produced by scripts/parse_lesson.py
+ * Maps directly to the lesson-content JSON contract.
  */
 
 export interface ContentBlock {
   type: "prose" | "table" | "code" | "formula" | "tip" | "warning" | "example" | "step_by_step" | "list" | "svg" | "check_understanding";
   content: string | TableData | InlineCheck[];
   language?: string;
+  children?: ContentBlock[];
+  metadata?: Record<string, unknown>;
 }
 
 export interface TableData {
@@ -32,6 +34,8 @@ export interface LessonSegment {
 export interface LessonSection {
   title: string;
   blocks: ContentBlock[];
+  kind?: string;
+  metadata?: Record<string, unknown>;
   difficulty: string[];
   word_count: number;
   estimated_reading_seconds: number;

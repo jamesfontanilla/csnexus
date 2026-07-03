@@ -131,13 +131,6 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
                 seed_database(session)
 
-            # Always run content seed — it's non-destructive (skips existing
-            # content by slug) so it's safe on every boot. This ensures new
-            # lessons/questions added to data/seed/ land in production
-            # automatically on the next deploy.
-            from scripts.seed_all_content import main as seed_all_content
-
-            seed_all_content()
         finally:
             session.close()
     except Exception as exc:

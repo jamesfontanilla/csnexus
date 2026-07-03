@@ -424,9 +424,9 @@ Manual seed:
 python -m scripts.seed
 ```
 
-Full content seed (lessons + questions from `data/seed/`):
+Reset the database and load baseline fixtures:
 ```bash
-python -m scripts.seed_all_content
+python scripts/reset_and_seed.py
 ```
 
 ---
@@ -490,8 +490,8 @@ Scripts in `scripts/` generate question banks programmatically:
 python scripts/gen_addition_questions.py
 python scripts/gen_synonyms_questions.py
 
-# Seed all content into the database
-python -m scripts.seed_all_content
+# Reset the database and seed baseline fixtures
+python scripts/reset_and_seed.py
 ```
 
 ### Utility Scripts
@@ -499,12 +499,8 @@ python -m scripts.seed_all_content
 | Script | Purpose |
 |--------|---------|
 | `seed.py` | Minimal fixture seed (users, content hierarchy, achievements) |
-| `seed_content.py` | Seed lessons and questions from `data/seed/` files |
-| `seed_all_content.py` | Full content seeding pipeline |
 | `reset_and_seed.py` | Drop all tables, recreate, and seed from scratch |
-| `parse_lesson.py` | Parse lesson markdown into structured JSON |
 | `smoke_test.py` | Quick API smoke test |
-| `update_lessons.py` | Update existing lessons from modified markdown files |
 | `add_missing_subtopics.py` | Add new subtopics to existing topics |
 
 ---
