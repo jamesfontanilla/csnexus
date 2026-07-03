@@ -83,6 +83,28 @@ Postgres persists data across all deploys.
 6. Note your Render URL (e.g. `https://csnexus-api.onrender.com`).
 7. Verify: `GET https://your-url/health` → `{"status": "ok"}`
 
+### One-off content reset job
+
+When you want to wipe the old lesson rows and seed only the new lesson tree,
+run the reset script as a Render one-off job against the existing
+`csnexus-api` service:
+
+```bash
+render jobs create <SERVICE_ID> --start-command "python scripts/reset_content_and_seed.py --category both"
+```
+
+Replace `<SERVICE_ID>` with the `srv-...` id for `csnexus-api` from the
+Render dashboard. The job uses the service's latest successful build and
+environment variables, so it can talk to Supabase without changing
+`render.yaml`.
+
+If you only want one track, swap the flag:
+
+```bash
+render jobs create <SERVICE_ID> --start-command "python scripts/reset_content_and_seed.py --category professional"
+render jobs create <SERVICE_ID> --start-command "python scripts/reset_content_and_seed.py --category sub-professional"
+```
+
 ---
 
 ## 4. Vercel (Frontend)
