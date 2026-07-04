@@ -5,9 +5,9 @@ This script is the lightweight "content reset" path for the app:
 - it clears the content hierarchy and content-dependent tables
 - it leaves users/auth/other app data alone
 - it seeds every ``lesson.md`` found under ``data/seed/lessons``
-
-The current repository only has one lesson file, so this will seed just
-``Verbal Ability / Word Meanings / Synonyms`` for now.
+ 
+The lesson tree is discovered dynamically, so any new ``lesson.md`` files
+added under ``data/seed/lessons`` are picked up automatically.
 
 Usage:
     python scripts/reset_content_and_seed.py
@@ -52,10 +52,40 @@ ROOT_TABLES = {
 # the raw slug path. Keep the override small and local so future lesson trees
 # can still fall back to slug-to-title conversion.
 TITLE_OVERRIDES: dict[tuple[str, str, str], tuple[str, str, str]] = {
+    ("verbal-ability", "word-meaning", "antonyms"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Antonyms",
+    ),
+    ("verbal-ability", "word-meaning", "context-clues"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Context Clues",
+    ),
+    ("verbal-ability", "word-meaning", "connotation"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Connotation",
+    ),
+    ("verbal-ability", "word-meaning", "multiple-meaning-words"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Multiple Meaning Words",
+    ),
+    ("verbal-ability", "word-meaning", "idioms-and-figurative-phrases"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Idioms and Figurative Phrases",
+    ),
     ("verbal-ability", "word-meaning", "synonyms"): (
         "Verbal Ability",
         "Word Meanings",
         "Synonyms",
+    ),
+    ("verbal-ability", "word-meaning", "prefixes"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Prefixes",
     ),
 }
 

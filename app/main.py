@@ -105,6 +105,65 @@ def _ensure_auth_session_schema() -> None:
             connection.execute(text(statement))
 
 
+def _ensure_question_difficulty_schema() -> None:
+    """Patch the questions difficulty check so ``Ultra`` is accepted."""
+
+    from sqlalchemy import inspect, text
+
+    from app.infrastructure.database.session import engine
+
+    inspector = inspect(engine)
+    if "questions" not in inspector.get_table_names():
+        return
+
+    checks = inspector.get_check_constraints("questions")
+    difficulty_check = next(
+        (
+            constraint
+            for constraint in checks
+            if constraint.get("name") == "ck_questions_difficulty"
+        ),
+        None,
+    )
+    if difficulty_check is not None and "ULTRA" in str(difficulty_check.get("sqltext", "")):
+        return
+
+    if engine.dialect.name == "postgresql":
+        statements = [
+            "ALTER TABLE questions DROP CONSTRAINT IF EXISTS ck_questions_difficulty",
+            (
+                "ALTER TABLE questions ADD CONSTRAINT ck_questions_difficulty "
+                "CHECK (difficulty IN ('EASY', 'MEDIUM', 'HARD', 'ULTRA'))"
+            ),
+        ]
+        with engine.begin() as connection:
+            for statement in statements:
+                connection.execute(text(statement))
+        return
+
+    if engine.dialect.name == "sqlite":
+        with engine.begin() as connection:
+            connection.exec_driver_sql("PRAGMA writable_schema = ON")
+            try:
+                result = connection.exec_driver_sql(
+                    "UPDATE sqlite_master "
+                    "SET sql = REPLACE(sql, ?, ?) "
+                    "WHERE type = 'table' AND name = 'questions'",
+                    (
+                        "difficulty IN ('EASY', 'MEDIUM', 'HARD')",
+                        "difficulty IN ('EASY', 'MEDIUM', 'HARD', 'ULTRA')",
+                    ),
+                )
+                if result.rowcount == 0:
+                    return
+            finally:
+                connection.exec_driver_sql("PRAGMA writable_schema = OFF")
+
+        # Close pooled SQLite connections so the updated schema is reloaded.
+        engine.dispose()
+        return
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Start the scheduler on app boot, auto-seed if DB is empty."""
@@ -117,6 +176,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     try:
         Base.metadata.create_all(bind=engine)
         _ensure_auth_session_schema()
+        _ensure_question_difficulty_schema()
         session = SessionLocal()
         try:
             from app.features.users.models import User

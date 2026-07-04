@@ -62,10 +62,15 @@ def _make_questions(
     count: int = 25,
 ) -> list[Question]:
     """Generate ``count`` quality-gated MC questions for a subtopic."""
-    difficulties = [Difficulty.EASY, Difficulty.MEDIUM, Difficulty.HARD]
+    difficulties = [
+        Difficulty.EASY,
+        Difficulty.MEDIUM,
+        Difficulty.HARD,
+        Difficulty.ULTRA,
+    ]
     questions: list[Question] = []
     for i in range(count):
-        diff = difficulties[i % 3]
+        diff = difficulties[i % 4]
         correct = f"Option {(i % 4) + 1}"
         options = [f"Option {j}" for j in range(1, 5)]
         questions.append(
