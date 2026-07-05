@@ -10,6 +10,7 @@ export interface MilestoneStatus {
   category: string;
   status: "locked" | "in_progress" | "earned";
   progress_percentage: number;
+  xp_reward: number;
   awarded_at: string | null;
 }
 

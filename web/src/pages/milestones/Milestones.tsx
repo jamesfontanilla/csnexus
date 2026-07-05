@@ -12,12 +12,14 @@ const CATEGORY_EMOJIS: Record<string, string> = {
   mastery: "🏆",
   readiness: "🎯",
   recovery: "💪",
+  subtest: "📋",
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
   mastery: "Subject Mastery",
   readiness: "Exam Readiness",
   recovery: "Comeback & Resilience",
+  subtest: "Subtest Progress",
 };
 
 export function Milestones() {
@@ -173,6 +175,11 @@ function MilestoneCard({ milestone }: { milestone: MilestoneStatus }) {
           <span style={{ fontSize: "var(--font-size-xs)", color: "var(--color-text-muted)" }}>
             {milestone.progress_percentage.toFixed(0)}%
           </span>
+        )}
+        {milestone.xp_reward > 0 && (
+          <p style={{ margin: "var(--space-1) 0 0", fontSize: "var(--font-size-xs)", color: "var(--color-accent)", textAlign: "right" }}>
+            +{milestone.xp_reward} XP
+          </p>
         )}
       </div>
     </GlassCard>
