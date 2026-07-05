@@ -56,6 +56,7 @@ DEFAULT_AMOUNT_BY_SOURCE: dict[XPSource, int] = {
     XPSource.QUIZ_PASS: 20,  # Req 7.7 (subtopic default)
     XPSource.MOCK_PASS: 500,  # Req 10.6
     XPSource.STREAK_DAY: 25,  # Req 11.3
+    XPSource.MILESTONE_AWARD: 0,  # variable — caller always passes explicit amount
 }
 
 # Sources that count as "qualifying activity" for the streak rollover

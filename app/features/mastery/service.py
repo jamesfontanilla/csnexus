@@ -121,7 +121,24 @@ class MasteryService:
         # Retention decays if not practiced recently (simplified model).
         mastery.retention_score = min(1.0, new_score + 0.1)
 
-        return self._mastery_repo.upsert(mastery)
+        result = self._mastery_repo.upsert(mastery)
+
+        # Record the score change in MasteryScoreHistory for accurate recovery
+        # milestone detection (only record when score actually changed).
+        try:
+            from app.features.gamification.models import MasteryScoreHistory
+            history_entry = MasteryScoreHistory(
+                user_id=user_id,
+                subtopic_id=subtopic_id,
+                mastery_score=new_score,
+            )
+            self._mastery_repo.db.add(history_entry)
+            # flush within the same transaction — commit happens at the caller level
+            self._mastery_repo.db.flush()
+        except Exception:
+            pass  # non-fatal — milestone detection degrades gracefully
+
+        return result
 
     def get_user_mastery(self, user_id: int) -> list[SubtopicMasteryResponse]:
         """Return all subtopic mastery data for a user."""

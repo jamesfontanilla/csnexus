@@ -43,7 +43,8 @@ from app.features.gamification.models import (
 # Strategies
 # ---------------------------------------------------------------------------
 
-MODULE_SLUGS = ["verbal-ability", "numerical-ability", "analytical-ability"]
+MODULE_SLUGS = ["verbal-ability", "numerical-ability", "analytical-ability",
+               "clerical-ability", "general-information"]
 
 
 @composite
@@ -269,6 +270,7 @@ def _seed_milestones(db: Session) -> list[CompetenceMilestone]:
             description=seed["description"],
             category=seed["category"],
             threshold_config=seed["threshold_config"],
+            xp_reward=seed.get("xp_reward", 0),
         )
         db.add(m)
         milestones.append(m)
@@ -768,7 +770,7 @@ class TestAwardedMilestonesNeverRevoked:
                 mastery_score=0.9,
                 module_slug="verbal-ability",
             )
-            for i in range(23)
+            for i in range(100)
         ]
         service = MilestoneService(db=db_session)
         awards = service.evaluate_mastery_milestones(user_id=1, mastery_data=high_data)
@@ -782,7 +784,7 @@ class TestAwardedMilestonesNeverRevoked:
                 mastery_score=low_score,
                 module_slug="verbal-ability",
             )
-            for i in range(23)
+            for i in range(100)
         ]
         awards2 = service.evaluate_mastery_milestones(user_id=1, mastery_data=low_data)
 
@@ -888,7 +890,7 @@ class TestAwardedMilestonesNeverRevoked:
                 mastery_score=0.9,
                 module_slug="verbal-ability",
             )
-            for i in range(23)
+            for i in range(100)
         ]
 
         service = MilestoneService(db=db_session)

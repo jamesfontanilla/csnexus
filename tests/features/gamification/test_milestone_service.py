@@ -56,6 +56,7 @@ def _seed_milestones(db: Session) -> list[CompetenceMilestone]:
             description=seed["description"],
             category=seed["category"],
             threshold_config=seed["threshold_config"],
+            xp_reward=seed.get("xp_reward", 0),
         )
         db.add(m)
         milestones.append(m)
@@ -165,7 +166,7 @@ class TestEnsureMilestonesSeeded:
     """Tests for milestone seed data insertion."""
 
     def test_seeds_all_milestones(self, db_session: Session) -> None:
-        """_ensure_milestones_seeded creates all 8 milestone definitions."""
+        """_ensure_milestones_seeded creates all milestone definitions."""
         _seed_user(db_session)
         service = MilestoneService(db=db_session)
         service._ensure_milestones_seeded()
@@ -175,7 +176,7 @@ class TestEnsureMilestonesSeeded:
         count = db_session.execute(
             select(func.count()).select_from(CompetenceMilestone)
         ).scalar_one()
-        assert count == 8
+        assert count == len(MILESTONE_SEED_DATA)
 
     def test_idempotent_seeding(self, db_session: Session) -> None:
         """Calling _ensure_milestones_seeded twice doesn't create duplicates."""
@@ -189,7 +190,7 @@ class TestEnsureMilestonesSeeded:
         count = db_session.execute(
             select(func.count()).select_from(CompetenceMilestone)
         ).scalar_one()
-        assert count == 8
+        assert count == len(MILESTONE_SEED_DATA)
 
 
 class TestEvaluateMasteryMilestones:
@@ -198,13 +199,13 @@ class TestEvaluateMasteryMilestones:
     def test_verbal_mastery_awarded_when_all_23_meet_threshold(
         self, db_session: Session
     ) -> None:
-        """Verbal Mastery awarded when all 23 verbal subtopics have mastery ≥ 0.8."""
+        """Verbal Mastery awarded when all 100 verbal subtopics have mastery ≥ 0.8."""
         _seed_user(db_session)
         _seed_milestones(db_session)
 
         mastery_data = [
             MasteryDataPoint(subtopic_id=i, mastery_score=0.85, module_slug="verbal-ability")
-            for i in range(1, 24)
+            for i in range(1, 101)
         ]
 
         service = MilestoneService(db=db_session)
@@ -226,9 +227,9 @@ class TestEvaluateMasteryMilestones:
 
         mastery_data = [
             MasteryDataPoint(subtopic_id=i, mastery_score=0.85, module_slug="verbal-ability")
-            for i in range(1, 23)
+            for i in range(1, 100)
         ] + [
-            MasteryDataPoint(subtopic_id=23, mastery_score=0.7, module_slug="verbal-ability")
+            MasteryDataPoint(subtopic_id=100, mastery_score=0.7, module_slug="verbal-ability")
         ]
 
         service = MilestoneService(db=db_session)
@@ -236,34 +237,32 @@ class TestEvaluateMasteryMilestones:
 
         assert len(awards) == 0
 
-    def test_full_spectrum_requires_all_60(self, db_session: Session) -> None:
-        """Full Spectrum requires all 60 subtopics at ≥ 0.8."""
+    def test_full_spectrum_requires_all_400(self, db_session: Session) -> None:
+        """Full Spectrum requires all 400 subtopics (4 subtests × 100) at ≥ 0.8."""
         _seed_user(db_session)
         _seed_milestones(db_session)
 
-        mastery_data = [
-            MasteryDataPoint(subtopic_id=i, mastery_score=0.9, module_slug="verbal-ability")
-            for i in range(1, 24)
-        ] + [
-            MasteryDataPoint(subtopic_id=i, mastery_score=0.9, module_slug="numerical-ability")
-            for i in range(24, 48)
-        ] + [
-            MasteryDataPoint(subtopic_id=i, mastery_score=0.9, module_slug="analytical-ability")
-            for i in range(48, 61)
-        ]
+        mastery_data = (
+            [MasteryDataPoint(subtopic_id=i, mastery_score=0.9, module_slug="verbal-ability")
+             for i in range(1, 101)]
+            + [MasteryDataPoint(subtopic_id=i, mastery_score=0.9, module_slug="numerical-ability")
+               for i in range(101, 201)]
+            + [MasteryDataPoint(subtopic_id=i, mastery_score=0.9, module_slug="analytical-ability")
+               for i in range(201, 301)]
+            + [MasteryDataPoint(subtopic_id=i, mastery_score=0.9, module_slug="clerical-ability")
+               for i in range(301, 401)]
+        )
 
         service = MilestoneService(db=db_session)
         awards = service.evaluate_mastery_milestones(user_id=1, mastery_data=mastery_data)
 
-        slugs = set()
-        for award in awards:
-            milestone = db_session.get(CompetenceMilestone, award.milestone_id)
-            slugs.add(milestone.slug)
+        slugs = {db_session.get(CompetenceMilestone, a.milestone_id).slug for a in awards}
 
-        # Should award all 4 mastery milestones
+        # Should award the 4 individual mastery milestones + full-spectrum
         assert "verbal-mastery" in slugs
         assert "numerical-mastery" in slugs
         assert "analytical-mastery" in slugs
+        assert "clerical-mastery" in slugs
         assert "full-spectrum" in slugs
 
     def test_already_awarded_not_re_awarded(self, db_session: Session) -> None:
@@ -273,7 +272,7 @@ class TestEvaluateMasteryMilestones:
 
         mastery_data = [
             MasteryDataPoint(subtopic_id=i, mastery_score=0.85, module_slug="verbal-ability")
-            for i in range(1, 24)
+            for i in range(1, 101)
         ]
 
         service = MilestoneService(db=db_session)
@@ -418,22 +417,19 @@ class TestEvaluateRecoveryMilestones:
             db_session, "verbal-ability", "Verbal Ability", 1
         )
 
-        # Seed mastery at ≥ 0.8 updated recently (within 14 days)
         now = datetime.now(tz=timezone.utc)
-        _seed_mastery(
-            db_session,
-            user_id=1,
-            subtopic_id=subtopics[0].id,
-            mastery_score=0.85,
-            updated_at=now - timedelta(days=5),
-        )
-
+        # Supply both the low point and the high point in history
         mastery_history = [
             MasteryHistoryPoint(
                 subtopic_id=subtopics[0].id,
-                mastery_score=0.85,
+                mastery_score=0.40,  # below 0.5 — the "fall"
+                recorded_at=(now - timedelta(days=10)).date(),
+            ),
+            MasteryHistoryPoint(
+                subtopic_id=subtopics[0].id,
+                mastery_score=0.85,  # above 0.8 — the "recovery"
                 recorded_at=(now - timedelta(days=5)).date(),
-            )
+            ),
         ]
 
         service = MilestoneService(db=db_session)
@@ -452,14 +448,42 @@ class TestEvaluateRecoveryMilestones:
         _seed_user(db_session)
         _seed_milestones(db_session)
 
-        # Mastery updated 20 days ago (outside 14-day window)
         now = datetime.now(tz=timezone.utc)
         mastery_history = [
             MasteryHistoryPoint(
                 subtopic_id=1,
-                mastery_score=0.85,
+                mastery_score=0.40,  # low point
                 recorded_at=(now - timedelta(days=20)).date(),
-            )
+            ),
+            MasteryHistoryPoint(
+                subtopic_id=1,
+                mastery_score=0.85,  # recovery — 20 days later, outside window
+                recorded_at=now.date(),
+            ),
+        ]
+
+        service = MilestoneService(db=db_session)
+        awards = service.evaluate_recovery_milestones(
+            user_id=1, mastery_history=mastery_history
+        )
+
+        assert len(awards) == 0
+
+    def test_comeback_not_awarded_without_prior_low(
+        self, db_session: Session
+    ) -> None:
+        """Comeback not awarded if subtopic never had a low point below 0.5."""
+        _seed_user(db_session)
+        _seed_milestones(db_session)
+
+        now = datetime.now(tz=timezone.utc)
+        # Only a high score with no prior low — should NOT trigger comeback
+        mastery_history = [
+            MasteryHistoryPoint(
+                subtopic_id=1,
+                mastery_score=0.85,
+                recorded_at=(now - timedelta(days=5)).date(),
+            ),
         ]
 
         service = MilestoneService(db=db_session)
@@ -477,27 +501,30 @@ class TestEvaluateRecoveryMilestones:
         _seed_milestones(db_session)
 
         now = datetime.now(tz=timezone.utc)
-        # Create 3 subtopics that have recovered
-        mastery_history = [
-            MasteryHistoryPoint(
+        # 3 subtopics each with a low→high pair within 14 days
+        mastery_history = []
+        for i in range(1, 4):
+            mastery_history.append(MasteryHistoryPoint(
+                subtopic_id=i,
+                mastery_score=0.35,
+                recorded_at=(now - timedelta(days=10)).date(),
+            ))
+            mastery_history.append(MasteryHistoryPoint(
                 subtopic_id=i,
                 mastery_score=0.85,
                 recorded_at=(now - timedelta(days=3)).date(),
-            )
-            for i in range(1, 4)
-        ]
+            ))
 
         service = MilestoneService(db=db_session)
         awards = service.evaluate_recovery_milestones(
             user_id=1, mastery_history=mastery_history
         )
 
-        slugs = []
-        for award in awards:
-            milestone = db_session.get(CompetenceMilestone, award.milestone_id)
-            slugs.append(milestone.slug)
+        slugs = [
+            db_session.get(CompetenceMilestone, a.milestone_id).slug
+            for a in awards
+        ]
 
-        # Should have comeback (awarded once) + resilient learner
         assert "comeback" in slugs
         assert "resilient-learner" in slugs
         assert len(awards) == 2
@@ -511,24 +538,22 @@ class TestRetroactiveEvaluation:
     ) -> None:
         """Retroactive evaluation awards milestones already met by existing data."""
         _seed_user(db_session)
-        # Create module hierarchy for verbal
+        # Create module hierarchy for verbal with 100 subtopics
         subtopics = _seed_module_hierarchy(
-            db_session, "verbal-ability", "Verbal Ability", 23
+            db_session, "verbal-ability", "Verbal Ability", 100
         )
 
-        # Seed all 23 verbal subtopics with mastery ≥ 0.8
+        # Seed all 100 verbal subtopics with mastery ≥ 0.8
         for st in subtopics:
             _seed_mastery(db_session, user_id=1, subtopic_id=st.id, mastery_score=0.85)
 
         service = MilestoneService(db=db_session)
         awards = service.retroactive_evaluation(user_id=1)
 
-        # Should award verbal-mastery
-        awarded_slugs = set()
-        for award in awards:
-            milestone = db_session.get(CompetenceMilestone, award.milestone_id)
-            awarded_slugs.add(milestone.slug)
-
+        awarded_slugs = {
+            db_session.get(CompetenceMilestone, a.milestone_id).slug
+            for a in awards
+        }
         assert "verbal-mastery" in awarded_slugs
 
     def test_retroactive_seeds_milestones_if_not_present(
@@ -539,7 +564,6 @@ class TestRetroactiveEvaluation:
 
         from sqlalchemy import select, func
 
-        # Verify no milestones exist yet
         count_before = db_session.execute(
             select(func.count()).select_from(CompetenceMilestone)
         ).scalar_one()
@@ -551,7 +575,7 @@ class TestRetroactiveEvaluation:
         count_after = db_session.execute(
             select(func.count()).select_from(CompetenceMilestone)
         ).scalar_one()
-        assert count_after == 8
+        assert count_after == len(MILESTONE_SEED_DATA)
 
 
 class TestMilestoneNeverRevoked:
@@ -562,27 +586,24 @@ class TestMilestoneNeverRevoked:
         _seed_user(db_session)
         _seed_milestones(db_session)
 
-        # Award verbal mastery
         mastery_data_high = [
             MasteryDataPoint(subtopic_id=i, mastery_score=0.85, module_slug="verbal-ability")
-            for i in range(1, 24)
+            for i in range(1, 101)
         ]
         service = MilestoneService(db=db_session)
         awards = service.evaluate_mastery_milestones(user_id=1, mastery_data=mastery_data_high)
         assert len(awards) == 1
         db_session.commit()
 
-        # Now re-evaluate with lower data — award should NOT be revoked
+        # Re-evaluate with lower data — award should NOT be revoked
         mastery_data_low = [
             MasteryDataPoint(subtopic_id=i, mastery_score=0.5, module_slug="verbal-ability")
-            for i in range(1, 24)
+            for i in range(1, 101)
         ]
         awards2 = service.evaluate_mastery_milestones(user_id=1, mastery_data=mastery_data_low)
         assert len(awards2) == 0
 
-        # Verify the original award still exists in the database
         from sqlalchemy import select, func
-
         award_count = db_session.execute(
             select(func.count())
             .select_from(CompetenceMilestoneAward)

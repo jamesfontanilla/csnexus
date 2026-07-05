@@ -67,6 +67,7 @@ class XPSource(str, Enum):
     STREAK_DAY = "STREAK_DAY"
     FLASHCARD_REVIEW = "FLASHCARD_REVIEW"
     ADMIN_CORRECTION = "ADMIN_CORRECTION"
+    MILESTONE_AWARD = "MILESTONE_AWARD"  # granted when a CompetenceMilestone is first earned
 
 
 class UserXP(Base):
@@ -197,7 +198,8 @@ class XPEvent(Base):
         CheckConstraint(
             "source IN ("
             "'LESSON_FIRST_COMPLETE', 'QUIZ_PASS', 'QUIZ_PERFECT', "
-            "'MOCK_PASS', 'STREAK_DAY', 'FLASHCARD_REVIEW', 'ADMIN_CORRECTION'"
+            "'MOCK_PASS', 'STREAK_DAY', 'FLASHCARD_REVIEW', 'ADMIN_CORRECTION', "
+            "'MILESTONE_AWARD'"
             ")",
             name="ck_xp_events_source",
         ),

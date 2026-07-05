@@ -223,10 +223,13 @@ class CompetenceMilestone(Base):
     description: Mapped[str] = mapped_column(Text, nullable=False)
     category: Mapped[str] = mapped_column(
         String(20), nullable=False
-    )  # mastery, readiness, recovery
+    )  # mastery, readiness, recovery, subtest
     threshold_config: Mapped[str] = mapped_column(
         Text, nullable=False
     )  # JSON: milestone-specific criteria
+    xp_reward: Mapped[int] = mapped_column(
+        Integer, nullable=False, default=0, server_default="0"
+    )  # XP granted to the user when this milestone is first awarded
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
@@ -255,6 +258,9 @@ class CompetenceMilestoneAward(Base):
     awarded_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
+    seen_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )  # NULL = not yet shown to the user; set on first retrieval
 
     __table_args__ = (
         UniqueConstraint(
@@ -290,4 +296,40 @@ class StudyConsistency(Base):
         server_default=func.now(),
         onupdate=func.now(),
         nullable=False,
+    )
+
+
+class MasteryScoreHistory(Base):
+    """Append-only log of every mastery score change per subtopic per user.
+
+    Written by the mastery service every time a subtopic's mastery_score
+    changes. Enables accurate recovery milestone detection — we can find
+    the exact date a subtopic was below 0.5 and when it crossed 0.8,
+    instead of inferring from the current snapshot's updated_at.
+    """
+
+    __tablename__ = "mastery_score_history"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    subtopic_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey("subtopics.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    mastery_score: Mapped[float] = mapped_column(Float, nullable=False)
+    recorded_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+    __table_args__ = (
+        Index(
+            "ix_mastery_score_history_user_subtopic_recorded",
+            "user_id", "subtopic_id", "recorded_at",
+        ),
     )

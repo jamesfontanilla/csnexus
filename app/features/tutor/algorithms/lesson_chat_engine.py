@@ -33,6 +33,7 @@ from app.features.tutor.algorithms.chat_models import (
 from app.features.tutor.algorithms.context_manager import ContextManager
 from app.features.tutor.algorithms.cross_lesson_registry import CrossLessonRegistry
 from app.features.tutor.algorithms.intent_classifier import IntentClassifier
+from app.features.tutor.algorithms.intent_classifier import _COMPILED_INTENTS
 from app.features.tutor.algorithms.reasoning_support import build_reasoning_packet
 from app.features.tutor.algorithms.response_generator import (
     ResponseGenerator,
@@ -171,7 +172,29 @@ def generate_chat_response(
             reasoning_summary=reasoning_packet.summary if reasoning_packet else None,
         )
 
-    # --- Step 3: Classify intent ---
+    # --- Step 3: Pre-check for off-topic messages ---
+    # Run before full classification so off-topic patterns can't be beaten by
+    # generic patterns like "what is" in explain_section.
+    _off_topic_patterns = _COMPILED_INTENTS.get("off_topic", [])
+    if any(p.search(message) for p in _off_topic_patterns):
+        subject = content_json.get("metadata", {}).get("title", "this lesson")
+        response_text = (
+            f"That's outside what I can help with here. "
+            f"I'm focused on {subject} and CSE exam topics. "
+            f"Try asking about the lesson content, key concepts, or exam strategies — "
+            f"I'm happy to help with those."
+        )
+        ctx = _context_manager.update_context(ctx, message, response_text, "off_topic")
+        serialized = _context_manager.serialize(ctx)
+        return ChatResult(
+            response_text=response_text,
+            detected_intent="off_topic",
+            context_json=serialized,
+            reasoning_mode=reasoning_packet.mode.value if reasoning_packet else None,
+            reasoning_summary=reasoning_packet.summary if reasoning_packet else None,
+        )
+
+    # --- Step 3b: Classify intent ---
     classification = _intent_classifier.classify(message, resolved, ctx)
 
     # --- Handle disambiguation when confidence is too low ---

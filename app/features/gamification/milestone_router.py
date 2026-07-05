@@ -3,6 +3,7 @@
 Mounts under ``/v1`` with tag ``gamification``. Provides:
 
 - ``GET /v1/milestones`` — all milestones with status (locked/in_progress/earned)
+- ``GET /v1/milestones/unseen`` — newly awarded milestones not yet seen; marks them seen
 - ``GET /v1/consistency`` — study consistency metric for the authenticated user
 
 Validates: Requirements 13.7, 13.8, 14.4
@@ -27,6 +28,8 @@ from app.features.gamification.models import (
     StudyConsistency,
 )
 from app.features.users.models import User
+from app.features.xp.repository import XPRepository
+from app.features.xp.service import XPService
 from app.infrastructure.database.session import get_db
 
 router = APIRouter(prefix="/v1", tags=["gamification"])
@@ -38,8 +41,6 @@ router = APIRouter(prefix="/v1", tags=["gamification"])
 
 
 class MilestoneStatusResponse(BaseModel):
-    """A single milestone with its current status for the user."""
-
     model_config = ConfigDict(from_attributes=True)
 
     id: int
@@ -48,19 +49,22 @@ class MilestoneStatusResponse(BaseModel):
     description: str
     category: str
     status: str  # "locked", "in_progress", "earned"
-    progress_percentage: float  # 0.0 to 100.0
+    progress_percentage: float
+    xp_reward: int
     awarded_at: datetime | None = None
 
 
 class MilestonesListResponse(BaseModel):
-    """All milestones with their statuses."""
-
     milestones: list[MilestoneStatusResponse]
 
 
-class ConsistencyMetricResponse(BaseModel):
-    """Study consistency metric for the authenticated user."""
+class UnseenAwardsResponse(BaseModel):
+    """Newly earned milestones the user hasn't seen yet."""
+    awards: list[MilestoneStatusResponse]
+    count: int
 
+
+class ConsistencyMetricResponse(BaseModel):
     current_streak: int
     longest_streak: int
     total_consistent_days: int
@@ -72,13 +76,15 @@ class ConsistencyMetricResponse(BaseModel):
 # ---------------------------------------------------------------------------
 
 
+def _build_xp_service(db: Session) -> XPService:
+    return XPService(xp_repo=XPRepository(db=db))
+
+
 def get_milestone_service(db: Session = Depends(get_db)) -> MilestoneService:
-    """Construct MilestoneService with DB session."""
-    return MilestoneService(db=db)
+    return MilestoneService(db=db, xp_service=_build_xp_service(db))
 
 
 def get_consistency_service(db: Session = Depends(get_db)) -> ConsistencyService:
-    """Construct ConsistencyService with DB session."""
     return ConsistencyService(db=db)
 
 
@@ -95,21 +101,12 @@ def get_milestones(
 ) -> MilestonesListResponse:
     """Return all milestones with status: locked, in_progress, or earned.
 
-    Progress percentage is computed as:
-    - Mastery milestones: qualifying subtopics / required count
-    - Readiness milestones: consecutive qualifying days / 7
-    - Recovery milestones (Comeback): 0 or 100
-    - Recovery milestones (Resilient Learner): comeback count / 3
-
     Validates: Requirement 13.7
     """
-    # Ensure milestone definitions exist
     service._ensure_milestones_seeded()
 
-    # Fetch all milestone definitions
     all_milestones = db.execute(select(CompetenceMilestone)).scalars().all()
 
-    # Fetch user's awards
     awards_stmt = select(CompetenceMilestoneAward).where(
         CompetenceMilestoneAward.user_id == user.id
     )
@@ -118,7 +115,6 @@ def get_milestones(
         a.milestone_id: a for a in awards
     }
 
-    # Gather user data for progress computation
     mastery_data = service._get_mastery_data(user.id)
     score_history = service._get_score_history(user.id)
     comeback_subtopics = service._get_comeback_awarded_subtopics(user.id)
@@ -129,7 +125,6 @@ def get_milestones(
         award = awards_by_milestone.get(milestone.id)
 
         if award is not None:
-            # Earned
             results.append(
                 MilestoneStatusResponse(
                     id=milestone.id,
@@ -139,13 +134,13 @@ def get_milestones(
                     category=milestone.category,
                     status="earned",
                     progress_percentage=100.0,
+                    xp_reward=milestone.xp_reward,
                     awarded_at=award.awarded_at,
                 )
             )
         else:
-            # Compute progress
             progress = _compute_progress(
-                milestone, mastery_data, score_history, comeback_subtopics
+                milestone, mastery_data, score_history, comeback_subtopics, service, user.id
             )
             status_label = "in_progress" if progress > 0.0 else "locked"
             results.append(
@@ -157,6 +152,7 @@ def get_milestones(
                     category=milestone.category,
                     status=status_label,
                     progress_percentage=round(progress, 1),
+                    xp_reward=milestone.xp_reward,
                     awarded_at=None,
                 )
             )
@@ -164,15 +160,57 @@ def get_milestones(
     return MilestonesListResponse(milestones=results)
 
 
+@router.get("/milestones/unseen", response_model=UnseenAwardsResponse)
+def get_unseen_milestones(
+    user: User = Depends(get_current_user),
+    service: MilestoneService = Depends(get_milestone_service),
+    db: Session = Depends(get_db),
+) -> UnseenAwardsResponse:
+    """Return newly earned milestones not yet shown to the user, then mark them seen.
+
+    Designed for the frontend to call on page load / app focus to drive
+    milestone-unlock toast notifications.
+    """
+    unseen_awards = service.get_unseen_awards(user.id)
+    db.commit()
+
+    if not unseen_awards:
+        return UnseenAwardsResponse(awards=[], count=0)
+
+    # Fetch milestone definitions for the unseen awards
+    milestone_ids = [a.milestone_id for a in unseen_awards]
+    milestones_stmt = select(CompetenceMilestone).where(
+        CompetenceMilestone.id.in_(milestone_ids)
+    )
+    milestones_by_id: dict[int, CompetenceMilestone] = {
+        m.id: m for m in db.execute(milestones_stmt).scalars().all()
+    }
+
+    responses = [
+        MilestoneStatusResponse(
+            id=milestones_by_id[a.milestone_id].id,
+            slug=milestones_by_id[a.milestone_id].slug,
+            name=milestones_by_id[a.milestone_id].name,
+            description=milestones_by_id[a.milestone_id].description,
+            category=milestones_by_id[a.milestone_id].category,
+            status="earned",
+            progress_percentage=100.0,
+            xp_reward=milestones_by_id[a.milestone_id].xp_reward,
+            awarded_at=a.awarded_at,
+        )
+        for a in unseen_awards
+        if a.milestone_id in milestones_by_id
+    ]
+
+    return UnseenAwardsResponse(awards=responses, count=len(responses))
+
+
 @router.get("/consistency", response_model=ConsistencyMetricResponse)
 def get_consistency(
     user: User = Depends(get_current_user),
     service: ConsistencyService = Depends(get_consistency_service),
 ) -> ConsistencyMetricResponse:
-    """Return study consistency metric for the authenticated user.
-
-    Validates: Requirement 14.4
-    """
+    """Return study consistency metric. Validates: Requirement 14.4"""
     record = service.get_consistency(user.id)
     return ConsistencyMetricResponse(
         current_streak=record.current_streak,
@@ -196,16 +234,9 @@ def _compute_progress(
     mastery_data: list,
     score_history: list,
     comeback_subtopics: set[int],
+    service: MilestoneService,
+    user_id: int,
 ) -> float:
-    """Compute progress percentage for an unearned milestone.
-
-    Returns a value from 0.0 to 100.0 (capped, never exceeds 100).
-
-    - Mastery milestones: (qualifying count / required count) * 100
-    - Readiness milestones: (max consecutive qualifying days / 7) * 100
-    - Recovery (Comeback): 0 (binary — either earned or not)
-    - Recovery (Resilient Learner): (comeback awards / 3) * 100
-    """
     config = json.loads(milestone.threshold_config)
 
     if milestone.category == "mastery":
@@ -214,27 +245,27 @@ def _compute_progress(
         return _compute_readiness_progress(config, score_history)
     elif milestone.category == "recovery":
         return _compute_recovery_progress(milestone.slug, config, comeback_subtopics)
+    elif milestone.category == "subtest":
+        return _compute_subtest_progress(config, service, user_id)
     return 0.0
 
 
 def _compute_mastery_progress(config: dict, mastery_data: list) -> float:
-    """Mastery: qualifying subtopics / required count * 100."""
     module_slug: str | None = config.get("module_slug")
     required_count: int = config.get("required_count", 1)
     threshold: float = config.get("threshold", 0.8)
 
-    if module_slug is not None:
-        relevant = [m for m in mastery_data if m.module_slug == module_slug]
-    else:
-        relevant = list(mastery_data)
-
+    relevant = (
+        [m for m in mastery_data if m.module_slug == module_slug]
+        if module_slug is not None
+        else list(mastery_data)
+    )
     qualifying = [m for m in relevant if m.mastery_score >= threshold]
     progress = (len(qualifying) / required_count) * 100.0 if required_count > 0 else 0.0
     return min(progress, 100.0)
 
 
 def _compute_readiness_progress(config: dict, score_history: list) -> float:
-    """Readiness: max consecutive qualifying days / 7 * 100."""
     from datetime import date as date_type
 
     min_score: int = config.get("min_score", 70)
@@ -243,24 +274,17 @@ def _compute_readiness_progress(config: dict, score_history: list) -> float:
     if not score_history:
         return 0.0
 
-    # Build daily scores (last per day)
     daily_scores: dict[date_type, int] = {}
     for point in score_history:
         daily_scores[point.computed_date] = point.score
 
-    if not daily_scores:
-        return 0.0
-
-    # Find max consecutive qualifying days
     qualifying_dates = sorted(
         d for d, s in daily_scores.items() if s >= min_score
     )
-
     if not qualifying_dates:
         return 0.0
 
-    max_consecutive = 1
-    current_consecutive = 1
+    max_consecutive = current_consecutive = 1
     for i in range(1, len(qualifying_dates)):
         if (qualifying_dates[i] - qualifying_dates[i - 1]).days == 1:
             current_consecutive += 1
@@ -269,28 +293,41 @@ def _compute_readiness_progress(config: dict, score_history: list) -> float:
             current_consecutive = 1
 
     max_consecutive = max(max_consecutive, current_consecutive)
-    progress = (max_consecutive / consecutive_days) * 100.0
-    return min(progress, 100.0)
+    return min((max_consecutive / consecutive_days) * 100.0, 100.0)
 
 
 def _compute_recovery_progress(
     slug: str, config: dict, comeback_subtopics: set[int]
 ) -> float:
-    """Recovery progress.
-
-    - Comeback: binary (0 or 100, but if unearned always 0 since we can't
-      partially detect a recovery in progress without historical snapshots).
-    - Resilient Learner: comeback_count / required_comebacks * 100
-    """
     if slug == "comeback":
-        # Comeback is binary — either you've recovered a subtopic or not.
-        # Without fine-grained history, partial progress isn't meaningful.
-        return 0.0
+        return 0.0  # binary — can't show partial without fine-grained history
     elif slug == "resilient-learner":
         required: int = config.get("required_comebacks", 3)
         count = len(comeback_subtopics)
-        if required <= 0:
-            return 0.0
-        progress = (count / required) * 100.0
-        return min(progress, 100.0)
+        return min((count / required) * 100.0, 100.0) if required > 0 else 0.0
+    return 0.0
+
+
+def _compute_subtest_progress(
+    config: dict, service: MilestoneService, user_id: int
+) -> float:
+    milestone_type: str = config.get("type", "")
+
+    if milestone_type == "lessons_complete":
+        module_slug: str = config["module_slug"]
+        required_count: int = config["required_count"]
+        completed = service._count_completed_lessons_for_module(user_id, module_slug)
+        return min((completed / required_count) * 100.0, 100.0) if required_count > 0 else 0.0
+
+    elif milestone_type == "subtest_exam_pass":
+        # Binary — either passed or not
+        module_slug = config["module_slug"]
+        pass_threshold: float = config["pass_threshold"]
+        passed = service._has_passed_subtest_exam(user_id, module_slug, pass_threshold)
+        return 100.0 if passed else 0.0
+
+    elif milestone_type == "all_subtests_passed":
+        passed = service._all_subtest_champions_earned(user_id)
+        return 100.0 if passed else 0.0
+
     return 0.0

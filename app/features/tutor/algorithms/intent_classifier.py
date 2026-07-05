@@ -98,6 +98,16 @@ _INTENT_PATTERNS: dict[str, list[str]] = {
         r"(?:relate (?:this|it) to|connection (?:to|with|between))",
         r"(?:compared to|in relation to|how is (?:this|it) (?:related|connected))",
     ],
+    # Off-topic: programming languages, tech, pop culture, general knowledge
+    # unrelated to CSE exam subjects (verbal, numerical, analytical ability).
+    "off_topic": [
+        r"\b(?:python|java(?:script)?|typescript|kotlin|swift|rust|golang|c\+\+|php|ruby|html|css|react|angular|vue|django|flask|fastapi|node\.?js|sql|database|algorithm|data structure|machine learning|artificial intelligence|blockchain|cryptocurrency|bitcoin|ethereum)\b",
+        r"\b(?:programming|coding|software|developer|devops|kubernetes|docker|git|github|linux|windows|macos|android|ios|smartphone)\b",
+        r"\b(?:anime|manga|netflix|spotify|tiktok|facebook|instagram|twitter|youtube|twitch|gaming|esports|minecraft|roblox)\b",
+        r"\b(?:recipe|cooking|baking|restaurant|food|nutrition|diet|workout|fitness|gym|sports|basketball|football|volleyball)\b",
+        r"\b(?:movie|film|television|series|actor|actress|celebrity|music|band|singer|concert|album)\b",
+        r"\b(?:stock market|forex|crypto|nft|investment|trading|real estate|mortgage)\b",
+    ],
 }
 
 # Compiled patterns for performance
