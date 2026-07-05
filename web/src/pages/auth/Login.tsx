@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { apiClient } from "../../api/client";
 import { login } from "../../stores/auth";
@@ -13,12 +13,15 @@ import { scaleIn } from "../../design-system";
 
 interface LoginResponse {
   access_token: string;
+  refresh_token: string | null;
   token_type: string;
   expires_in: number;
 }
 
 export function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { successMessage } = (location.state as { successMessage?: string }) ?? {};
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,7 +38,7 @@ export function Login() {
         email,
         password,
       });
-      login(res.access_token);
+      login(res.access_token, res.refresh_token ?? undefined);
       navigate("/modules");
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Login failed";
@@ -82,6 +85,24 @@ export function Login() {
                 Sign in to continue your prep
               </p>
             </div>
+
+            {/* Success message from OTP redirect */}
+            {successMessage && (
+              <p
+                style={{
+                  color: "var(--color-success)",
+                  fontSize: "var(--font-size-sm)",
+                  marginBottom: "var(--space-5)",
+                  padding: "var(--space-2) var(--space-3)",
+                  borderRadius: "var(--radius-sm)",
+                  background: "rgba(72, 199, 142, 0.1)",
+                  border: "1px solid rgba(72, 199, 142, 0.25)",
+                  textAlign: "center",
+                }}
+              >
+                {successMessage}
+              </p>
+            )}
 
             {/* Google OAuth */}
             <GoogleSignInWithCategoryPicker />

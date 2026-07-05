@@ -1,4 +1,4 @@
-import { getToken, logout } from "../stores/auth";
+import { getToken, getRefreshToken, login, logout } from "../stores/auth";
 
 export interface ErrorResponse {
   error: {
@@ -41,6 +41,49 @@ export function resolveApiBase(): string {
 
 const API_BASE = resolveApiBase();
 
+/** Prevent concurrent refresh races — one pending promise shared across all in-flight requests. */
+let _refreshPromise: Promise<boolean> | null = null;
+
+async function attemptTokenRefresh(): Promise<boolean> {
+  // Coalesce concurrent 401s into a single refresh attempt
+  if (_refreshPromise) return _refreshPromise;
+
+  _refreshPromise = (async () => {
+    const refreshToken = getRefreshToken();
+    if (!refreshToken) {
+      logout();
+      window.location.replace("/login");
+      return false;
+    }
+
+    try {
+      const response = await fetch(`${API_BASE}/v1/auth/sessions:refresh`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ refresh_token: refreshToken }),
+      });
+
+      if (!response.ok) {
+        logout();
+        window.location.replace("/login");
+        return false;
+      }
+
+      const data = await response.json();
+      login(data.access_token, data.refresh_token ?? refreshToken);
+      return true;
+    } catch {
+      logout();
+      window.location.replace("/login");
+      return false;
+    } finally {
+      _refreshPromise = null;
+    }
+  })();
+
+  return _refreshPromise;
+}
+
 async function request<T>(method: string, url: string, body?: unknown): Promise<T> {
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
@@ -59,19 +102,23 @@ async function request<T>(method: string, url: string, body?: unknown): Promise<
 
   const requestId = response.headers.get("X-Request-ID");
 
+  // On 401, attempt one silent token refresh then retry the original request.
+  // The refresh endpoint itself is excluded to prevent infinite loops.
+  if (response.status === 401 && !url.includes("/v1/auth/sessions:refresh")) {
+    const refreshed = await attemptTokenRefresh();
+    if (refreshed) {
+      return request<T>(method, url, body);
+    }
+    // attemptTokenRefresh already called logout() and redirected
+    throw new ApiError(401, "Session expired", "TOKEN_EXPIRED", requestId);
+  }
+
   if (!response.ok) {
     let errorBody: unknown = null;
     try {
       errorBody = await response.json();
     } catch {
       // response may not be JSON
-    }
-
-    // Auto-logout on 401 — token is stale/invalid (e.g., after server restart)
-    if (response.status === 401) {
-      logout();
-      // Use replace so the back button doesn't loop back to the broken page
-      window.location.replace("/login");
     }
 
     // Extract error message from various response shapes

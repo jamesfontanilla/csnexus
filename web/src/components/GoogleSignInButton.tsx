@@ -38,6 +38,7 @@ interface GoogleCredentialResponse {
 
 interface GoogleAuthApiResponse {
   access_token: string;
+  refresh_token: string | null;
   token_type: string;
   expires_in: number;
   is_new_user: boolean;
@@ -105,7 +106,7 @@ export function GoogleSignInButton({
         category,
       });
 
-      login(res.access_token);
+      login(res.access_token, res.refresh_token ?? undefined);
       navigate("/modules");
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Google sign-in failed";
@@ -202,7 +203,7 @@ export function GoogleSignInWithCategoryPicker() {
         category: null,
       });
 
-      login(res.access_token);
+      login(res.access_token, res.refresh_token ?? undefined);
       navigate("/modules");
     } catch (err: unknown) {
       if (err instanceof Error && err.message.includes("category_required")) {
@@ -229,7 +230,7 @@ export function GoogleSignInWithCategoryPicker() {
         category: selectedCategory,
       });
 
-      login(res.access_token);
+      login(res.access_token, res.refresh_token ?? undefined);
       setPendingCredential(null);
       setShowCategoryPicker(false);
       navigate("/modules");

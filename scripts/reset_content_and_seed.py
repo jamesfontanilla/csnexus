@@ -1,13 +1,17 @@
-"""Reset content tables and seed lessons from ``data/seed/lessons``.
+"""Reset content tables and seed lessons plus question banks.
 
-This script is the lightweight "content reset" path for the app:
+This script is the canonical content reset path for the app:
 
 - it clears the content hierarchy and content-dependent tables
 - it leaves users/auth/other app data alone
 - it seeds every ``lesson.md`` found under ``data/seed/lessons``
- 
+- it seeds every ``questions.json`` found under ``data/seed/questions``
+
 The lesson tree is discovered dynamically, so any new ``lesson.md`` files
 added under ``data/seed/lessons`` are picked up automatically.
+
+The question banks are discovered dynamically under the question tree, so any
+new ``questions.json`` files added there are picked up automatically.
 
 Usage:
     python scripts/reset_content_and_seed.py
@@ -18,10 +22,12 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 from sqlalchemy import inspect, select, text
 from sqlalchemy.orm import Session
@@ -30,7 +36,17 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from app.features.content.models import Lesson, LessonStatus, Module, Subtopic, Topic
+from app.features.content.models import (
+    Difficulty,
+    Lesson,
+    LessonStatus,
+    LevelScope,
+    Module,
+    Question,
+    QuestionType,
+    Subtopic,
+    Topic,
+)
 from app.features.content.schemas import LessonContent
 from app.features.users.models import Category
 from app.infrastructure.database.base import Base
@@ -39,6 +55,7 @@ from scripts.parse_lesson import parse_lesson_file
 
 
 LESSON_ROOT = PROJECT_ROOT / "data" / "seed" / "lessons"
+QUESTION_ROOT = PROJECT_ROOT / "data" / "seed" / "questions"
 ROOT_TABLES = {
     "modules",
     "topics",
@@ -87,11 +104,39 @@ TITLE_OVERRIDES: dict[tuple[str, str, str], tuple[str, str, str]] = {
         "Word Meanings",
         "Prefixes",
     ),
+    ("verbal-ability", "word-meaning", "suffixes"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Suffixes",
+    ),
+    ("verbal-ability", "word-meaning", "root-words"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Root Words",
+    ),
+    ("verbal-ability", "word-meaning", "word-families"): (
+        "Verbal Ability",
+        "Word Meanings",
+        "Word Families",
+    ),
+}
+
+QUESTION_CATEGORY_MAP: dict[str, Category] = {
+    "professional": Category.PROFESSIONAL,
+    "sub-professional": Category.SUB_PROFESSIONAL,
 }
 
 
 @dataclass(frozen=True)
 class LessonSpec:
+    path: Path
+    subtest_slug: str
+    topic_slug: str
+    subtopic_slug: str
+
+
+@dataclass(frozen=True)
+class QuestionSpec:
     path: Path
     subtest_slug: str
     topic_slug: str
@@ -137,6 +182,29 @@ def _discover_lesson_specs(lesson_root: Path) -> list[LessonSpec]:
             continue
         specs.append(
             LessonSpec(
+                path=path,
+                subtest_slug=subtest_slug,
+                topic_slug=topic_slug,
+                subtopic_slug=subtopic_slug,
+            )
+        )
+    return specs
+
+
+def _discover_question_specs(question_root: Path) -> list[QuestionSpec]:
+    if not question_root.exists():
+        raise FileNotFoundError(f"question root not found: {question_root}")
+
+    specs: list[QuestionSpec] = []
+    for path in sorted(question_root.rglob("questions.json")):
+        relative = path.relative_to(question_root)
+        if len(relative.parts) != 4:
+            continue
+        subtest_slug, topic_slug, subtopic_slug, filename = relative.parts
+        if filename != "questions.json":
+            continue
+        specs.append(
+            QuestionSpec(
                 path=path,
                 subtest_slug=subtest_slug,
                 topic_slug=topic_slug,
@@ -195,9 +263,7 @@ def _reset_content_tables(session: Session) -> None:
         quoted = ", ".join(
             bind.dialect.identifier_preparer.quote(table) for table in sorted(root_tables)
         )
-        session.execute(
-            text(f"TRUNCATE TABLE {quoted} RESTART IDENTITY CASCADE")
-        )
+        session.execute(text(f"TRUNCATE TABLE {quoted} RESTART IDENTITY CASCADE"))
         return
 
     # SQLite path: disable FK enforcement for the wipe, delete the full
@@ -218,12 +284,48 @@ def _reset_content_tables(session: Session) -> None:
         conn.exec_driver_sql("PRAGMA foreign_keys = ON")
 
 
-def _seed_lessons(session: Session, *, categories: list[Category], lesson_root: Path) -> dict[str, int]:
+def _load_question_bank(path: Path) -> list[dict[str, Any]]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError(f"question bank must be a list: {path}")
+    return data
+
+
+def _normalize_difficulty(raw: str) -> str:
+    value = raw.strip().upper()
+    try:
+        return Difficulty(value).value
+    except ValueError as exc:
+        raise ValueError(f"invalid difficulty value: {raw!r}") from exc
+
+
+def _resolve_question_categories(
+    raw_categories: list[str] | None, selected: list[Category]
+) -> list[Category]:
+    if raw_categories:
+        resolved: list[Category] = []
+        seen: set[Category] = set()
+        for raw in raw_categories:
+            category = QUESTION_CATEGORY_MAP.get(raw.strip().lower())
+            if category is not None and category not in seen:
+                resolved.append(category)
+                seen.add(category)
+    else:
+        resolved = list(selected)
+
+    selected_values = {category.value for category in selected}
+    return [category for category in resolved if category.value in selected_values]
+
+
+def _seed_lessons(
+    session: Session,
+    *,
+    categories: list[Category],
+    lesson_root: Path,
+) -> dict[str, int]:
     specs = _discover_lesson_specs(lesson_root)
     if not specs:
-        raise FileNotFoundError(
-            f"no lesson.md files found under {lesson_root}"
-        )
+        raise FileNotFoundError(f"no lesson.md files found under {lesson_root}")
 
     module_cache: dict[tuple[str, str], Module] = {}
     topic_cache: dict[tuple[str, str, str], Topic] = {}
@@ -324,9 +426,126 @@ def _seed_lessons(session: Session, *, categories: list[Category], lesson_root: 
     }
 
 
+def _seed_question_banks(
+    session: Session,
+    *,
+    categories: list[Category],
+    question_root: Path,
+) -> dict[str, Any]:
+    specs = _discover_question_specs(question_root)
+    if not specs:
+        raise FileNotFoundError(f"no question banks found under {question_root}")
+
+    modules = {
+        module.slug: module for module in session.execute(select(Module)).scalars().all()
+    }
+    topics = {
+        (topic.module_id, topic.slug): topic
+        for topic in session.execute(select(Topic)).scalars().all()
+    }
+    subtopics = {
+        (subtopic.topic_id, subtopic.slug): subtopic
+        for subtopic in session.execute(select(Subtopic)).scalars().all()
+    }
+
+    seeded_files = 0
+    seeded_rows = 0
+    seeded_by_category: dict[str, int] = {category.value: 0 for category in categories}
+
+    for spec in specs:
+        bank = _load_question_bank(spec.path)
+        if not bank:
+            raise ValueError(f"question bank is empty: {spec.path}")
+
+        raw_categories: list[str] | None = None
+        category_field = bank[0].get("category")
+        if isinstance(category_field, list):
+            raw_categories = [str(item) for item in category_field]
+        elif isinstance(category_field, str):
+            raw_categories = [category_field]
+
+        resolved_categories = _resolve_question_categories(raw_categories, categories)
+        if not resolved_categories:
+            continue
+
+        seeded_files += 1
+        for category in resolved_categories:
+            module_slug = _module_slug(spec.subtest_slug, category)
+            module = modules.get(module_slug)
+            if module is None:
+                raise RuntimeError(f"missing module for slug {module_slug}")
+
+            topic = topics.get((module.id, spec.topic_slug))
+            if topic is None:
+                raise RuntimeError(
+                    f"missing topic for module {module_slug} and topic {spec.topic_slug}"
+                )
+
+            subtopic = subtopics.get((topic.id, spec.subtopic_slug))
+            if subtopic is None:
+                raise RuntimeError(
+                    f"missing subtopic for topic {spec.topic_slug} and subtopic {spec.subtopic_slug}"
+                )
+
+            question_rows: list[Question] = []
+            for raw in bank:
+                stem = str(raw.get("question", "")).strip()
+                explanation = str(raw.get("explanation", "")).strip()
+                if not stem:
+                    raise ValueError(f"blank question text in {spec.path}")
+                if not explanation:
+                    raise ValueError(f"blank explanation in {spec.path}")
+
+                choices = raw.get("choices") or []
+                if not isinstance(choices, list):
+                    raise ValueError(f"choices must be a list in {spec.path}")
+                if not (2 <= len(choices) <= 6):
+                    raise ValueError(
+                        f"invalid choice count in {spec.path}: {len(choices)}"
+                    )
+
+                options = [str(choice).strip() for choice in choices]
+                if any(not option for option in options):
+                    raise ValueError(f"blank choice found in {spec.path}")
+
+                answer = str(raw.get("answer", "")).strip()
+                if answer not in options:
+                    raise ValueError(
+                        f"correct answer {answer!r} is not one of the choices in {spec.path}"
+                    )
+
+                question_rows.append(
+                    Question(
+                        subtopic_id=subtopic.id,
+                        topic_id=topic.id,
+                        module_id=module.id,
+                        category=category.value,
+                        level_scope=LevelScope.SUBTOPIC.value,
+                        stem=stem,
+                        options=options,
+                        correct_answer=answer,
+                        explanation=explanation,
+                        difficulty=_normalize_difficulty(str(raw.get("difficulty", ""))),
+                        qtype=QuestionType.MULTIPLE_CHOICE.value,
+                        is_active=True,
+                    )
+                )
+
+            session.add_all(question_rows)
+            session.flush()
+            seeded_rows += len(question_rows)
+            seeded_by_category[category.value] += len(question_rows)
+
+    return {
+        "files": seeded_files,
+        "rows": seeded_rows,
+        "by_category": seeded_by_category,
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Reset content tables and seed lessons from data/seed/lessons."
+        description="Reset content tables and seed lessons plus question banks."
     )
     parser.add_argument(
         "--category",
@@ -340,29 +559,46 @@ def main(argv: list[str] | None = None) -> int:
         default=LESSON_ROOT,
         help="Root folder that contains lesson.md files.",
     )
+    parser.add_argument(
+        "--question-root",
+        type=Path,
+        default=QUESTION_ROOT,
+        help="Root folder that contains question bank folders.",
+    )
     args = parser.parse_args(argv)
 
     categories = _parse_categories(args.category)
     lesson_root = args.lesson_root.resolve()
+    question_root = args.question_root.resolve()
 
     Base.metadata.create_all(bind=engine)
 
     with SessionLocal() as session:
         with session.begin():
             _reset_content_tables(session)
-            summary = _seed_lessons(
+            lesson_summary = _seed_lessons(
                 session,
                 categories=categories,
                 lesson_root=lesson_root,
             )
+            question_summary = _seed_question_banks(
+                session,
+                categories=categories,
+                question_root=question_root,
+            )
 
     category_list = ", ".join(category.value for category in categories)
     print(f"Reset complete for categories: {category_list}")
-    print(f"Seeded modules: {summary['modules']}")
-    print(f"Seeded topics: {summary['topics']}")
-    print(f"Seeded subtopics: {summary['subtopics']}")
-    print(f"Seeded lessons: {summary['lessons']}")
+    print(f"Seeded modules: {lesson_summary['modules']}")
+    print(f"Seeded topics: {lesson_summary['topics']}")
+    print(f"Seeded subtopics: {lesson_summary['subtopics']}")
+    print(f"Seeded lessons: {lesson_summary['lessons']}")
+    print(f"Seeded question files: {question_summary['files']}")
+    print(f"Seeded questions: {question_summary['rows']}")
+    for category_name, count in question_summary["by_category"].items():
+        print(f"Seeded questions for {category_name}: {count}")
     print(f"Lesson root: {lesson_root}")
+    print(f"Question root: {question_root}")
     return 0
 
 
