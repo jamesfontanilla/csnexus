@@ -18,6 +18,7 @@ export function OTPVerification() {
     (location.state as { email?: string; purpose?: string }) ?? {};
 
   const [digits, setDigits] = useState<string[]>(Array(OTP_LENGTH).fill(""));
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [newPassword, setNewPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -187,7 +188,8 @@ export function OTPVerification() {
                   onChange={(e) => handleDigitChange(i, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(i, e)}
                   onPaste={handlePaste}
-                  onFocus={(e) => e.target.select()}
+                  onFocus={(e) => { e.target.select(); setFocusedIndex(i); }}
+                  onBlur={() => setFocusedIndex(null)}
                   style={{
                     width: "48px",
                     height: "56px",
@@ -199,28 +201,19 @@ export function OTPVerification() {
                       ? "rgba(var(--color-accent-rgb, 139, 92, 246), 0.08)"
                       : "var(--glass-bg, rgba(255,255,255,0.05))",
                     border: `1.5px solid ${
-                      digit
+                      focusedIndex === i || digit
                         ? "var(--color-accent)"
                         : "var(--glass-border-light, rgba(255,255,255,0.12))"
                     }`,
                     borderRadius: "var(--radius-md, 10px)",
                     color: "var(--color-text)",
                     outline: "none",
+                    boxShadow: focusedIndex === i
+                      ? "0 0 0 2px rgba(var(--color-accent-rgb, 139, 92, 246), 0.25)"
+                      : "none",
                     transition: "border-color 0.15s, background 0.15s, box-shadow 0.15s",
                     caretColor: "transparent",
                     cursor: "text",
-                  }}
-                  onFocus={(e) => {
-                    e.target.select();
-                    (e.target as HTMLInputElement).style.borderColor = "var(--color-accent)";
-                    (e.target as HTMLInputElement).style.boxShadow =
-                      "0 0 0 2px rgba(var(--color-accent-rgb, 139, 92, 246), 0.25)";
-                  }}
-                  onBlur={(e) => {
-                    (e.target as HTMLInputElement).style.borderColor = digit
-                      ? "var(--color-accent)"
-                      : "var(--glass-border-light, rgba(255,255,255,0.12))";
-                    (e.target as HTMLInputElement).style.boxShadow = "none";
                   }}
                 />
               ))}
