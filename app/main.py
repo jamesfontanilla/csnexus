@@ -105,7 +105,80 @@ def _ensure_auth_session_schema() -> None:
             connection.execute(text(statement))
 
 
-def _ensure_question_difficulty_schema() -> None:
+def _ensure_milestone_enrichment_schema() -> None:
+    """Add milestone enrichment columns added in migration b3e1d5f9a2c8.
+
+    Mirrors what the Alembic migration does but runs at startup via
+    create_all / inspect so it works even when Alembic can't run
+    (e.g. PgBouncer transaction-mode session poolers).
+    """
+    from sqlalchemy import inspect, text
+    from app.infrastructure.database.session import engine
+
+    inspector = inspect(engine)
+    dialect = engine.dialect.name
+
+    # 1. competence_milestones.xp_reward
+    if "competence_milestones" in inspector.get_table_names():
+        cols = {c["name"] for c in inspector.get_columns("competence_milestones")}
+        if "xp_reward" not in cols:
+            stmt = (
+                "ALTER TABLE competence_milestones "
+                "ADD COLUMN IF NOT EXISTS xp_reward INTEGER NOT NULL DEFAULT 0"
+                if dialect == "postgresql"
+                else "ALTER TABLE competence_milestones ADD COLUMN xp_reward INTEGER NOT NULL DEFAULT 0"
+            )
+            with engine.begin() as conn:
+                conn.execute(text(stmt))
+
+    # 2. competence_milestone_awards.seen_at
+    if "competence_milestone_awards" in inspector.get_table_names():
+        cols = {c["name"] for c in inspector.get_columns("competence_milestone_awards")}
+        if "seen_at" not in cols:
+            stmt = (
+                "ALTER TABLE competence_milestone_awards "
+                "ADD COLUMN IF NOT EXISTS seen_at TIMESTAMP WITH TIME ZONE"
+                if dialect == "postgresql"
+                else "ALTER TABLE competence_milestone_awards ADD COLUMN seen_at DATETIME"
+            )
+            with engine.begin() as conn:
+                conn.execute(text(stmt))
+
+    # 3. mastery_score_history table
+    if "mastery_score_history" not in inspector.get_table_names():
+        if dialect == "postgresql":
+            stmt = """
+                CREATE TABLE IF NOT EXISTS mastery_score_history (
+                    id SERIAL PRIMARY KEY,
+                    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+                    subtopic_id INTEGER NOT NULL REFERENCES subtopics(id) ON DELETE CASCADE,
+                    mastery_score FLOAT NOT NULL,
+                    recorded_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+                )
+            """
+        else:
+            stmt = """
+                CREATE TABLE IF NOT EXISTS mastery_score_history (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+                    subtopic_id INTEGER NOT NULL REFERENCES subtopics(id) ON DELETE CASCADE,
+                    mastery_score REAL NOT NULL,
+                    recorded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )
+            """
+        with engine.begin() as conn:
+            conn.execute(text(stmt))
+        # Create index separately
+        with engine.begin() as conn:
+            idx_stmt = (
+                "CREATE INDEX IF NOT EXISTS ix_mastery_score_history_user_subtopic_recorded "
+                "ON mastery_score_history (user_id, subtopic_id, recorded_at)"
+                if dialect == "postgresql"
+                else
+                "CREATE INDEX IF NOT EXISTS ix_mastery_score_history_user_subtopic_recorded "
+                "ON mastery_score_history (user_id, subtopic_id, recorded_at)"
+            )
+            conn.execute(text(idx_stmt))
     """Patch the questions difficulty check so ``Ultra`` is accepted."""
 
     from sqlalchemy import inspect, text
@@ -177,6 +250,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         Base.metadata.create_all(bind=engine)
         _ensure_auth_session_schema()
         _ensure_question_difficulty_schema()
+        _ensure_milestone_enrichment_schema()
         session = SessionLocal()
         try:
             from app.features.users.models import User
