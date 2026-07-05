@@ -134,7 +134,7 @@ def get_milestones(
                     category=milestone.category,
                     status="earned",
                     progress_percentage=100.0,
-                    xp_reward=milestone.xp_reward,
+                    xp_reward=getattr(milestone, "xp_reward", 0) or 0,
                     awarded_at=award.awarded_at,
                 )
             )
@@ -152,7 +152,7 @@ def get_milestones(
                     category=milestone.category,
                     status=status_label,
                     progress_percentage=round(progress, 1),
-                    xp_reward=milestone.xp_reward,
+                    xp_reward=getattr(milestone, "xp_reward", 0) or 0,
                     awarded_at=None,
                 )
             )
@@ -195,7 +195,7 @@ def get_unseen_milestones(
             category=milestones_by_id[a.milestone_id].category,
             status="earned",
             progress_percentage=100.0,
-            xp_reward=milestones_by_id[a.milestone_id].xp_reward,
+            xp_reward=getattr(milestones_by_id[a.milestone_id], "xp_reward", 0) or 0,
             awarded_at=a.awarded_at,
         )
         for a in unseen_awards

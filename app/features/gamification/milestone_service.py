@@ -536,32 +536,54 @@ class MilestoneService:
     # ------------------------------------------------------------------
 
     def _ensure_milestones_seeded(self) -> None:
-        """Upsert all milestone definitions — insert new, update xp_reward on existing."""
+        """Upsert all milestone definitions — insert new, update xp_reward on existing.
+
+        Defensive: if the xp_reward column doesn't yet exist (migration pending),
+        falls back to inserting without it so the endpoint doesn't crash.
+        """
         existing: dict[str, CompetenceMilestone] = {
             row.slug: row
             for row in self._db.execute(select(CompetenceMilestone)).scalars().all()
         }
 
+        # Detect whether xp_reward column is present (migration may not have run yet)
+        _has_xp_reward = self._column_exists("competence_milestones", "xp_reward")
+
         for seed in MILESTONE_SEED_DATA:
             if seed["slug"] not in existing:
-                milestone = CompetenceMilestone(
-                    slug=seed["slug"],
-                    name=seed["name"],
-                    description=seed["description"],
-                    category=seed["category"],
-                    threshold_config=seed["threshold_config"],
-                    xp_reward=seed.get("xp_reward", 0),
-                )
+                kwargs: dict = {
+                    "slug": seed["slug"],
+                    "name": seed["name"],
+                    "description": seed["description"],
+                    "category": seed["category"],
+                    "threshold_config": seed["threshold_config"],
+                }
+                if _has_xp_reward:
+                    kwargs["xp_reward"] = seed.get("xp_reward", 0)
+                milestone = CompetenceMilestone(**kwargs)
                 self._db.add(milestone)
             else:
-                # Patch fields that may have changed (counts, xp_reward)
                 existing_row = existing[seed["slug"]]
                 existing_row.name = seed["name"]
                 existing_row.description = seed["description"]
                 existing_row.threshold_config = seed["threshold_config"]
-                existing_row.xp_reward = seed.get("xp_reward", 0)
+                if _has_xp_reward:
+                    existing_row.xp_reward = seed.get("xp_reward", 0)
 
         self._db.flush()
+
+    def _column_exists(self, table: str, column: str) -> bool:
+        """Check whether a column exists in the DB — used for safe migration transitions."""
+        try:
+            from sqlalchemy import text
+            result = self._db.execute(
+                text(f"SELECT {column} FROM {table} LIMIT 0")
+            )
+            result.close()
+            return True
+        except Exception:
+            self._db.rollback()
+            return False
 
     # ------------------------------------------------------------------
     # Private helpers — data access
@@ -870,7 +892,8 @@ class MilestoneService:
         self._db.flush()
 
         # Grant XP reward if service is wired in and milestone has a reward
-        if self._xp_service is not None and milestone.xp_reward > 0:
+        xp_reward = getattr(milestone, "xp_reward", 0) or 0
+        if self._xp_service is not None and xp_reward > 0:
             self._grant_milestone_xp(user_id, milestone)
 
         return award
@@ -883,13 +906,17 @@ class MilestoneService:
             from app.features.users.models import User
             from app.features.xp.models import XPSource
 
+            xp_reward = getattr(milestone, "xp_reward", 0) or 0
+            if xp_reward <= 0:
+                return
+
             user = self._db.get(User, user_id)
             if user is None:
                 return
             self._xp_service.award(
                 user=user,
                 source=XPSource.MILESTONE_AWARD,
-                amount=milestone.xp_reward,
+                amount=xp_reward,
                 source_ref_id=milestone.id,
             )
         except Exception:
