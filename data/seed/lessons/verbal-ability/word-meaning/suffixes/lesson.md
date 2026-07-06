@@ -1,4 +1,4 @@
-# Suffixes
+﻿# Suffixes
 
 ## Explanations
 
@@ -46,8 +46,8 @@ Think of suffixes as a ladder of meaning:
 | --- | --- | --- |
 | 1 | A suffix sits at the end of a word | `help` + `-ful` |
 | 2 | Common suffixes carry common meanings | `-less` = without |
-| 3 | Some suffixes change grammar | `teach` → `teacher` |
-| 4 | Some suffixes change degree or tense | `kind` → `kinder` / `walk` → `walked` |
+| 3 | Some suffixes change grammar | `teach` â†’ `teacher` |
+| 4 | Some suffixes change degree or tense | `kind` â†’ `kinder` / `walk` â†’ `walked` |
 | 5 | Context confirms the final meaning | "The careful worker" |
 
 When you climb this ladder, you move from simple recognition to actual exam solving.
@@ -93,10 +93,29 @@ So the suffix signals lack or absence.
 
 ### Quick Check
 
-1. What is a suffix?
-2. What does `-ful` usually suggest?
-3. True or false: every word ending in `-ly` is an adverb.
-4. What should you check after spotting a suffix?
+Question: What is a suffix
+Choices:
+- An affix added to the end of a word
+- without
+- full of
+Answer: An affix added to the end of a word
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: What does `-ful` usually suggest
+Choices:
+- without
+- Full of; having
+- full of
+Answer: Full of; having
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: True or false: every word ending in `-ly` is an adverb
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The suffix changes meaning or grammar at the end of the word.
 
 ### Key Insight
 
@@ -147,10 +166,29 @@ So the best answer is the noun-forming family.
 
 ### Quick Check
 
-1. What does `-ness` usually create?
-2. Which suffix often makes a word mean "without"?
-3. Which suffix can mean "person who"?
-4. Which family often helps form adjectives, such as `national` or `scientific`?
+Question: What does `-ness` usually create
+Choices:
+- A noun meaning a state or quality
+- without
+- full of
+Answer: A noun meaning a state or quality
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: Which suffix often makes a word mean "without"
+Choices:
+- without
+- -less
+- full of
+Answer: -less
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: Which suffix can mean "person who"
+Choices:
+- without
+- full of
+- -er
+Answer: -er
+Rationale: The suffix changes meaning or grammar at the end of the word.
 
 ### Key Insight
 
@@ -200,10 +238,29 @@ So the suffix creates a person noun.
 
 ### Quick Check
 
-1. What suffix often shows past tense?
-2. What suffix often turns an adjective into an adverb?
-3. What suffix often means "state or quality"?
-4. What suffix often means "person who"?
+Question: What suffix often shows past tense
+Choices:
+- -ed
+- without
+- full of
+Answer: -ed
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: What suffix often turns an adjective into an adverb
+Choices:
+- without
+- -ly
+- full of
+Answer: -ly
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: What suffix often means "state or quality"
+Choices:
+- without
+- full of
+- -ness
+Answer: -ness
+Rationale: The suffix changes meaning or grammar at the end of the word.
 
 ### Key Insight
 
@@ -254,10 +311,29 @@ This shows why spelling and grammar work together.
 
 ### Quick Check
 
-1. What often happens to `y` before `-ness`?
-2. What often happens to a silent `e` before `-ly`?
-3. Why does `running` have two `n`s?
-4. What should you do if the spelling looks strange?
+Question: What often happens to `y` before `-ness`
+Choices:
+- The y usually changes to i
+- without
+- full of
+Answer: The y usually changes to i
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: What often happens to a silent `e` before `-ly`
+Choices:
+- without
+- The silent e usually drops
+- full of
+Answer: The silent e usually drops
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: Why does `running` have two `n`s
+Choices:
+- without
+- full of
+- The spelling rule doubles the consonant after a short vowel
+Answer: The spelling rule doubles the consonant after a short vowel
+Rationale: The suffix changes meaning or grammar at the end of the word.
 
 ### Key Insight
 
@@ -310,10 +386,29 @@ The suffix tells you the word is describing an action, not a person or thing.
 
 ### Quick Check
 
-1. What is the first thing you should do in a suffix question?
-2. Why is the base word important?
-3. What does context confirm?
-4. What should you do if two answers look close?
+Question: What is the first thing you should do in a suffix question
+Choices:
+- Identify the base word
+- without
+- full of
+Answer: Identify the base word
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: Why is the base word important
+Choices:
+- without
+- The root carries the core meaning
+- full of
+Answer: The root carries the core meaning
+Rationale: The suffix changes meaning or grammar at the end of the word.
+
+Question: What does context confirm
+Choices:
+- without
+- full of
+- The exact meaning and grammar
+Answer: The exact meaning and grammar
+Rationale: The suffix changes meaning or grammar at the end of the word.
 
 ### Key Insight
 
@@ -353,160 +448,11 @@ Answer: The highest degree; most.
 
 Why: `brightest` means most bright.
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this method:
 
-1. Spot the suffix.
-2. State the base word.
-3. Name the common meaning of the suffix.
-4. Check grammar and part of speech.
-5. Use context to confirm.
 
-### Time Management
 
-Do not overthink a common suffix. If you know that `-less` means without or `-ful` means full of, answer quickly and move on. Save extra time for words with more than one possible suffix job.
-
-### Shortcut & Elimination Techniques
-
-- eliminate choices that ignore the suffix meaning
-- eliminate answers that change the part of speech incorrectly
-- eliminate words that fit the letters but not the sentence
-- watch for `-er`, `-ed`, and `-ing` because they can do more than one job
-- trust the most common suffix meaning first
-
-### Exam-Day Tips
-
-- learn the high-yield suffix families first
-- read the whole word, not just the ending
-- use the base word as your anchor
-- check whether the sentence needs a noun, adjective, adverb, or verb
-- stay alert for spelling changes such as `y` to `i`
-
-## Memory Aids
-
-### Mnemonics
-
-Use this short ladder:
-
-- **L**ess = without
-- **F**ul = full of
-- **N**ess = state or quality
-- **M**ent = act or result
-- **T**ion = action or result
-- **L**y = manner
-
-### Mental Models
-
-Think of suffixes as the "job title" at the end of the word. The job title tells you whether the word is acting like a noun, adjective, adverb, or verb.
-
-### Shortcuts & Tricks
-
-- if the word sounds like a person, check `-er` or `-or`
-- if the word sounds like a condition, check `-ness`, `-ment`, or `-ship`
-- if the word sounds like a description, check `-ful`, `-less`, `-ous`, `-al`, `-ic`, or `-y`
-- if the word sounds like how something is done, check `-ly`
-- if the word sounds like the most or more, check `-est` or `-er`
-
-### What to Memorize
-
-Memorize the meanings of the most common suffixes:
-
-- `-less`, `-ful`, `-ness`
-- `-ment`, `-tion`, `-sion`
-- `-able`, `-ible`
-- `-ly`, `-er`, `-est`
-- `-al`, `-ial`, `-ic`
-- `-ous`, `-y`, `-ish`
-- `-ship`, `-hood`, `-dom`
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can:
-
-- spot the suffix quickly
-- explain the suffix's usual meaning
-- name the base word
-- tell whether the suffix changes grammar
-
-### Which Method?
-
-Question: The ending looks familiar, but the sentence needs an adverb. Which method should you use?
-Answer: Check whether the suffix creates an adverb and confirm the sentence fit.
-
-Question: The word ends in `-er` and could mean a person or a comparison. Which method should you use?
-Answer: Use the sentence and the base word to decide which job `-er` has.
-
-Question: The word changes spelling when the suffix is added. Which method should you use?
-Answer: Apply the common spelling rule, then test the result in context.
-
-Question: The choices are close in meaning. Which method should you use?
-Answer: Eliminate choices that break the suffix meaning or part of speech.
-
-### Guided Practice
-
-Question: What does `-ful` suggest in `helpful`?
-Answer: Full of; having.
-
-Question: What does `-ment` suggest in `movement`?
-Answer: Act; process; result.
-
-Question: What does `-ic` suggest in `scientific`?
-Answer: Relating to; having the nature of.
-
-Question: What does `-ship` suggest in `friendship`?
-Answer: State or relation.
-
-### Independent Practice
-
-Question: What does `-ish` suggest in `childish`?
-Answer: Like; somewhat; characteristic of.
-
-Question: What does `-ward` suggest in `forward`?
-Answer: Toward; in the direction of.
-
-Question: What does `-able` suggest in `readable`?
-Answer: Capable of; fit to be.
-
-Question: What does `-est` suggest in `largest`?
-Answer: Most.
-
-### Challenge Questions
-
-Question: Why can `-er` be tricky?
-Answer: Because it can mean "one who" or "more," depending on the word.
-
-Question: Why can `-ly` be tricky?
-Answer: Because some `-ly` words are not adverbs, so you must check the sentence.
-
-Question: Why should you never rely on the ending alone?
-Answer: Because the whole word and the sentence determine the real meaning.
-
-Question: What is the safest way to solve a suffix item?
-Answer: Identify the suffix, test the base word, and confirm with context.
-
-### Connections
-
-This lesson connects directly to:
-
-- **Prefixes**, which help you read the start of a word
-- **Root words**, which give the core meaning
-- **Context clues**, which confirm the best meaning
-- **Synonyms and antonyms**, which help with close answer choices
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- identify common suffixes without hesitation
-- explain what a suffix does to meaning or grammar
-- recognize spelling shifts caused by suffixes
-- solve questions that use `-er`, `-est`, `-ly`, `-ness`, `-ment`, `-tion`, `-ful`, `-less`, `-able`, and `-ic`
-- use context to confirm the final answer
 
 ## Key Takeaways
 

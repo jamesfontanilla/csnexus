@@ -1,4 +1,4 @@
-# Antonyms
+﻿# Antonyms
 
 ## Explanations
 
@@ -116,17 +116,29 @@ The best answer is **abundant**.
 
 ### Quick Check
 
-Question: What kind of clue word often signals a contrast or opposite idea?
-Answer: Words like but, however, although, instead, and unlike.
+Question: What kind of clue word often signals a contrast or opposite idea
+Choices:
+- a contrast clue
+- synonym
+- same meaning
+Answer: a contrast clue
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: every antonym pair is exact in every sentence.
-Answer: False.
+Question: True or false: every antonym pair is exact in every sentence
+Choices:
+- True
+- False
+- It depends
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
-Question: Why do you need to check part of speech first?
-Answer: The opposite must fit the grammar of the sentence.
-
-Question: What should you do if a word has two meanings?
-Answer: Decide which sense the sentence is using before choosing the opposite.
+Question: Why do you need to check part of speech first
+Choices:
+- synonym
+- same meaning
+- Because the opposite must match the same word class
+Answer: Because the opposite must match the same word class
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -190,17 +202,29 @@ The best answer is **flexible**.
 
 ### Quick Check
 
-Question: Which clue word usually introduces a contrast?
-Answer: But or however.
+Question: Which clue word usually introduces a contrast
+Choices:
+- although
+- synonym
+- same meaning
+Answer: although
+Rationale: The word meaning or context points to the best answer.
 
-Question: What should you do after seeing "although" in a sentence?
-Answer: Check the second idea carefully because it often carries the contrast.
+Question: What should you do after seeing "although" in a sentence
+Choices:
+- synonym
+- look for the opposite idea
+- same meaning
+Answer: look for the opposite idea
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: a contrast clue can help you eliminate several choices quickly.
-Answer: True.
-
-Question: If the sentence says "not full but empty," which side matters most?
-Answer: The side after the contrast cue.
+Question: True or false: a contrast clue can help you eliminate several choices quickly
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -259,17 +283,29 @@ The best answer is **valid**.
 
 ### Quick Check
 
-Question: Why should you check part of speech before using a prefix clue?
-Answer: Because the opposite must match the grammar of the target word.
+Question: Why should you check part of speech before using a prefix clue
+Choices:
+- A prefix changes the meaning before the base word
+- synonym
+- same meaning
+Answer: A prefix changes the meaning before the base word
+Rationale: The word meaning or context points to the best answer.
 
-Question: Does a negative prefix always guarantee the correct antonym?
-Answer: No. It is a clue, not proof.
+Question: Does a negative prefix always guarantee the correct antonym
+Choices:
+- synonym
+- A prefix changes the meaning before the base word
+- same meaning
+Answer: A prefix changes the meaning before the base word
+Rationale: The word meaning or context points to the best answer.
 
-Question: What does dis- often suggest?
-Answer: Undoing, reversal, or opposition.
-
-Question: Which is more important, the prefix or the sentence context?
-Answer: The sentence context, with the prefix as support.
+Question: What does dis- often suggest
+Choices:
+- synonym
+- same meaning
+- A prefix changes the meaning before the base word
+Answer: A prefix changes the meaning before the base word
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -360,177 +396,11 @@ Reasoning:
 
 Correct answer: **reject**
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use a simple repeatable sequence:
 
-1. Read the whole sentence.
-2. Identify the part of speech.
-3. Decide which sense of the word is being used.
-4. Look for contrast clues or prefix clues.
-5. Eliminate choices that are related but not opposite.
 
-This method works because it turns an antonym question into a meaning question.
 
-### Time Management
-
-Do not get stuck on one word. If you know the answer quickly, answer quickly. If you are not sure after a short attempt, mark the item and move on. Come back later with a fresher mind.
-
-On the CSE, speed matters, but blind speed is dangerous. A careful 10-second check is better than a 30-second guess.
-
-### Shortcut & Elimination Techniques
-
-- eliminate synonyms immediately
-- eliminate choices with the wrong part of speech
-- eliminate words that are only loosely related
-- use contrast clues to locate the opposite idea
-- test the choice by substituting it back into the sentence
-
-Never use shortcuts as a substitute for understanding. Use them to support understanding.
-
-### Exam-Day Tips
-
-- read the entire sentence before looking at the options
-- watch for not, but, however, although, instead, and unlike
-- trust the sentence more than the flashiest word
-- keep your pace steady
-- if two answers feel close, choose the one that matches the sentence's exact sense
-
-## Memory Aids
-
-### Mnemonics
-
-Use **S-P-O-T**:
-
-- **S**ense
-- **P**art of speech
-- **O**pposite clue
-- **T**est substitution
-
-If you check those four things, you will avoid many careless antonym errors.
-
-### Mental Models
-
-Picture a word on one side of a scale and its opposite on the other.
-
-- the center is the target word
-- one side is the meaning you first notice
-- the other side is the opposite sense
-- the sentence tells you which side matters
-
-If the word has a prefix, treat the prefix like a signpost, not a final answer. It points you in a direction, but the sentence still has the last word.
-
-### Shortcuts & Tricks
-
-- replace the target word with the answer choice and read the sentence aloud
-- if the sentence sounds logically off, reject the choice
-- if two choices are opposites in different senses, match the sentence's sense first
-- use clue words like but, however, although, and unlike as anchors
-
-### What to Memorize
-
-Memorize patterns, not just pairs:
-
-- common opposite families: hot / cold, open / close, clean / dirty, full / empty
-- common contrast words: but, however, although, instead, whereas, unlike
-- common prefixes that often signal opposition: un-, in-, im-, ir-, il-, dis-, non-, anti-, de-, mis-
-- common trap words that are related but not opposite
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these three things:
-
-- define antonym in your own words
-- tell the difference between a true opposite and a related word
-- use context to choose the better answer
-
-If you can do those, you are ready.
-
-### Which Method?
-
-Question: The sentence includes a contrast clue like "but" or "however." Which method should you use?
-Answer: Use the contrast clue and paraphrase the sentence.
-
-Question: The answer choices are nearly the same, but one is the opposite and one is only related. Which method should you use?
-Answer: Compare the exact meaning and eliminate near matches.
-
-Question: The target word has a negative prefix. Which method should you use?
-Answer: Check the prefix, then confirm the meaning in context.
-
-Question: The sentence sounds like an office memo. Which method should you use?
-Answer: Match the register and the exact sense before choosing the opposite.
-
-### Guided Practice
-
-Question: Sentence: "The room was crowded before the guests left." Hint: think about the opposite of crowded. What is the best antonym?
-Answer: empty.
-
-Question: Sentence: "The instructions were clear and easy to follow." Hint: look for the opposite idea. What is the best antonym?
-Answer: unclear.
-
-Question: Sentence: "He was reluctant to answer at first." Hint: think about willingness. What is the best antonym?
-Answer: eager.
-
-Question: Sentence: "The policy was rigid, but the revision was flexible." Hint: use the contrast clue. What is the best antonym for rigid?
-Answer: flexible.
-
-### Independent Practice
-
-Question: Choose the best antonym for "fragile" in the sentence: "The vase was fragile and needed care."
-Answer: sturdy.
-
-Question: Choose the best antonym for "approve" in a formal report.
-Answer: reject.
-
-Question: Which word best opposes "visible"?
-Answer: invisible.
-
-Question: What is the opposite of "scarce"?
-Answer: abundant.
-
-Question: In the sentence "The answer was not vague but precise," which word is the antonym of vague?
-Answer: precise.
-
-### Challenge Questions
-
-Question: The sentence is literal, but one answer choice fits only a different sense of the word. What should you do?
-Answer: Re-read the sentence and use the sense that matches the context.
-
-Question: A word is familiar, but its most common meaning does not fit the sentence. What should you do next?
-Answer: Test the less common sense that the clues support.
-
-Question: Two answer choices are both opposites in different ways. How do part of speech and context help you choose?
-Answer: Pick the word that matches the grammar and the sentence's exact meaning.
-
-Question: How would you eliminate a choice that is grammatically possible but logically wrong?
-Answer: Substitute it into the sentence and check whether the meaning still works.
-
-### Connections
-
-This lesson connects to several other verbal ability skills:
-
-- synonyms help you spot related words that are not opposite
-- sentence completion uses context plus contrast clues
-- reading comprehension depends on careful word meaning
-- error recognition improves when you know how words normally behave
-- prefix knowledge helps you move faster through difficult items
-
-Antonyms are also useful outside the test. They help you write clearer reports, understand instructions faster, and choose better words in everyday communication.
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- explain what an antonym is
-- tell the difference between direct opposite and related word
-- use contrast clues to solve a new item
-- choose the best opposite based on tone and usage
-- spot misleading prefix clues
-- eliminate wrong answers systematically
 
 ## Key Takeaways
 

@@ -1,4 +1,4 @@
-# Prefixes
+﻿# Prefixes
 
 ## Explanations
 
@@ -76,10 +76,29 @@ The prefix changes the meaning in a simple but powerful way.
 
 ### Quick Check
 
-1. What is a prefix?
-2. What does `re-` usually signal?
-3. Why should you check the base word too?
-4. Why is context still important?
+Question: What is a prefix
+Choices:
+- An affix added before a base word
+- before
+- after
+Answer: An affix added before a base word
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: What does `re-` usually signal
+Choices:
+- before
+- Again or back
+- after
+Answer: Again or back
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: Why should you check the base word too
+Choices:
+- before
+- after
+- Words in the same family share a common base meaning
+Answer: Words in the same family share a common base meaning
+Rationale: The prefix clue changes the meaning before the base word.
 
 ### Key Insight
 
@@ -122,10 +141,29 @@ The prefix points directly to quantity.
 
 ### Quick Check
 
-1. What does `sub-` usually mean?
-2. What does `inter-` usually mean?
-3. What does `multi-` usually mean?
-4. Which prefix suggests self?
+Question: What does `sub-` usually mean
+Choices:
+- Under or below
+- before
+- after
+Answer: Under or below
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: What does `inter-` usually mean
+Choices:
+- before
+- Between
+- after
+Answer: Between
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: What does `multi-` usually mean
+Choices:
+- before
+- after
+- Many or multiple
+Answer: Many or multiple
+Rationale: The prefix clue changes the meaning before the base word.
 
 ### Key Insight
 
@@ -170,10 +208,29 @@ The prefix shows repetition.
 
 ### Quick Check
 
-1. What prefix often means again?
-2. What prefix often means before?
-3. What prefix often means after?
-4. What prefix often means under?
+Question: What prefix often means again
+Choices:
+- Again or back
+- before
+- after
+Answer: Again or back
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: What prefix often means before
+Choices:
+- before
+- pre-
+- after
+Answer: pre-
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: What prefix often means after
+Choices:
+- before
+- after
+- post-
+Answer: post-
+Rationale: The prefix clue changes the meaning before the base word.
 
 ### Key Insight
 
@@ -220,10 +277,29 @@ The prefix helps you see why the word means delay.
 
 ### Quick Check
 
-1. What should you do first when decoding a word?
-2. Why is the base word important?
-3. Why should you check the sentence?
-4. What should you do if two answers look close?
+Question: What should you do first when decoding a word
+Choices:
+- Find the prefix
+- before
+- after
+Answer: Find the prefix
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: Why is the base word important
+Choices:
+- before
+- The root carries the core meaning
+- after
+Answer: The root carries the core meaning
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: Why should you check the sentence
+Choices:
+- before
+- after
+- The sentence confirms the exact sense
+Answer: The sentence confirms the exact sense
+Rationale: The prefix clue changes the meaning before the base word.
 
 ### Key Insight
 
@@ -268,10 +344,29 @@ The signal helps you decode the whole word.
 
 ### Quick Check
 
-1. What does `auto-` usually mean?
-2. What does `inter-` usually mean?
-3. What does `pre-` usually mean?
-4. Why should you not stop at the signal?
+Question: What does `auto-` usually mean
+Choices:
+- auto-
+- before
+- after
+Answer: auto-
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: What does `inter-` usually mean
+Choices:
+- before
+- Between
+- after
+Answer: Between
+Rationale: The prefix clue changes the meaning before the base word.
+
+Question: What does `pre-` usually mean
+Choices:
+- before
+- after
+- pre-
+Answer: pre-
+Rationale: The prefix clue changes the meaning before the base word.
 
 ### Key Insight
 
@@ -311,166 +406,11 @@ Answer: Self.
 
 Why: An autobiography is a life story written by oneself. The prefix points to the self.
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Spot the prefix quickly.
-2. Recall its common meaning.
-3. Break the word into prefix and base.
-4. Check the sentence for the best fit.
-5. Choose the option that keeps both meaning and grammar intact.
 
-### Time Management
 
-Do not spend too long trying to memorize every word. The exam usually rewards a small set of common prefix meanings. If you know the families well, many items become fast elimination questions.
-
-### Shortcut & Elimination Techniques
-
-- eliminate answers with the wrong prefix meaning
-- eliminate choices that change the base word's idea
-- prefer the most common prefix meaning first
-- check whether the answer matches the sentence's tone
-- watch for a prefix that can mean more than one thing
-
-### Exam-Day Tips
-
-- learn the most common prefix families first
-- keep a short list of meaning clues in your head
-- read the whole word, not just the first two letters
-- use context when two choices look close
-- trust the simplest meaning when it fits the sentence
-
-## Memory Aids
-
-### Mnemonics
-
-Use this ladder mnemonic:
-
-- **N**egation
-- **R**epeat
-- **T**ime
-- **P**osition
-- **N**umber
-
-If you can place a prefix into one of those groups, the answer usually comes faster.
-
-### Mental Models
-
-Think of a prefix as a signpost at the front of a word. The signpost tells you which direction to read the meaning:
-
-- not
-- again
-- before
-- after
-- under
-- between
-- many
-- self
-
-### Shortcuts & Tricks
-
-- if a word sounds like it means the opposite, check for a negative prefix
-- if the word sounds repeated, look for `re-`
-- if the word sounds like time comes first, look for `pre-` or `post-`
-- if the word sounds like quantity, check `uni-`, `bi-`, `tri-`, or `multi-`
-- if the word sounds technical, look for size or distance prefixes like `micro-` and `tele-`
-
-### What to Memorize
-
-Memorize patterns, not just lists:
-
-- common prefix families: `un-`, `in-`, `im-`, `re-`, `pre-`, `sub-`, `inter-`, `multi-`
-- common tone clues: not, again, before, after, under, between, many, self
-- common quantity prefixes: `uni-`, `bi-`, `tri-`, `multi-`
-- common location prefixes: `sub-`, `inter-`, `trans-`, `intra-`
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these three things:
-
-- name the prefix in a word
-- tell what the prefix usually means
-- use the sentence to confirm the answer
-
-### Which Method?
-
-Question: The word starts with `re-` and the sentence suggests an action done again. Which method should you use?
-Answer: Match the prefix to its common meaning and confirm with context.
-
-Question: The word starts with `sub-` and the sentence suggests a lower position. Which method should you use?
-Answer: Break the word into parts and test the meaning under or below.
-
-Question: The word starts with `multi-`. Which method should you use?
-Answer: Check whether the word points to many or multiple parts.
-
-Question: The word looks familiar, but you are not sure the beginning is a true prefix. Which method should you use?
-Answer: Read the full sentence and confirm the meaning before choosing.
-
-### Guided Practice
-
-Question: What does `pre-` mean in `preview`?
-Answer: Before.
-
-Question: What does `inter-` mean in `international`?
-Answer: Between or among.
-
-Question: What does `micro-` mean in `microscope`?
-Answer: Very small.
-
-Question: What does `post-` mean in `postpone`?
-Answer: After.
-
-### Independent Practice
-
-Question: What does `under-` mean in `underpay`?
-Answer: Too little or below the proper amount.
-
-Question: What does `counter-` mean in `counterattack`?
-Answer: Against or in response to.
-
-Question: What does `pseudo-` mean in `pseudoscience`?
-Answer: False.
-
-Question: What does `intra-` mean in `intramural`?
-Answer: Within.
-
-### Challenge Questions
-
-Question: Why should you not rely on the first two letters alone?
-Answer: Because the same letters can appear in words that do not use the prefix in the way you expect.
-
-Question: Why is context still important?
-Answer: Because the sentence tells you whether the prefix meaning really fits.
-
-Question: Why is a small prefix list useful on the CSE?
-Answer: Because a few common prefix meanings can unlock many vocabulary items.
-
-Question: What should you do if two choices have similar meaning clues?
-Answer: Compare the full word, the sentence, and the prefix family before deciding.
-
-### Connections
-
-This lesson connects to several other verbal ability skills:
-
-- **Synonyms** help you compare close meanings.
-- **Antonyms** help you notice opposite ideas and negative prefixes.
-- **Context clues** help you confirm which sense of a word is used.
-- **Word families** help you see how one root can grow in different directions.
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- identify common prefixes quickly
-- explain what a prefix does to meaning
-- split a word into prefix and base
-- use context to confirm the right sense
-- avoid overtrusting letters that only look like a prefix
 
 ## Key Takeaways
 

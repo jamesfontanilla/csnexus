@@ -48,7 +48,25 @@ ratio = 2 / 5
 
 ### Quick Check
 Question: What is 1/2 of 8?
+Choices:
+- 2
+- 4
+- 6
 Answer: 4
+
+Question: Which ratio is equivalent to 2:4?
+Choices:
+- 1:2
+- 2:1
+- 3:4
+Answer: 1:2
+
+Question: True or false: ratios compare quantities with the same units.
+Choices:
+- True
+- False
+- Not sure
+Answer: True
 
 ### Key Insight
 Ratios compare quantities with the same units.
@@ -65,25 +83,6 @@ Ratios compare quantities with the same units.
 ### Example 2
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"></svg>
-```
-
-## Exam Strategies
-### Time Management
-- Estimate first.
-- Skip and return.
-
-### Shortcut & Elimination Techniques
-- Cancel common factors.
-
-## Memory Aids
-### Mnemonics
-- "Part over whole"
-
-## Practice & Review
-### Guided Practice
-```quiz
-Question: What is 3/4 of 8?
-Answer: 6
 ```
 
 ## Key Takeaways
@@ -118,7 +117,8 @@ def test_parse_lesson_builds_semantic_sections_and_blocks() -> None:
     assert result["metadata"]["screen_count"] == result["screen_plan"]["screen_count"]
     assert result["screen_plan"]["screens"][0]["kind"] == "cover"
     assert any(screen["kind"] == "concept" for screen in result["screen_plan"]["screens"])
-    assert any(screen["kind"] == "practice" for screen in result["screen_plan"]["screens"])
+    assert any(screen["kind"] == "quick_check" for screen in result["screen_plan"]["screens"])
+    assert any(screen["kind"] == "completion" for screen in result["screen_plan"]["screens"])
     assert any(screen["kind"] == "summary" for screen in result["screen_plan"]["screens"])
 
     sections = result["sections"]
@@ -149,14 +149,18 @@ def test_parse_lesson_builds_semantic_sections_and_blocks() -> None:
     assert "code" in worked_example_types
     assert "check_understanding" in quick_check_types
 
+    quick_check_block = next(block for block in subsection_map["Quick Check"]["blocks"] if block["type"] == "check_understanding")
+    quick_check_checks = quick_check_block["content"]
+    assert isinstance(quick_check_checks, list)
+    assert quick_check_checks[0]["choices"] == ["2", "4", "6"]
+    assert quick_check_checks[0]["correct_choice_index"] == 1
+
     worked_examples = _find_section(sections, "Worked Examples")
     example_types = [subsection["kind"] for subsection in worked_examples.get("subsections", [])]
     assert "generic_worked_example" in example_types or "generic_subsection" in example_types
 
     assert result["practice_problems"]
     assert result["metadata"]["has_practice_problems"] is True
-    assert result["memory_aids"]
-    assert result["exam_strategies"]
 
 
 def test_parse_lesson_keeps_unknown_sections_without_crashing() -> None:

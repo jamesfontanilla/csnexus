@@ -15,7 +15,7 @@ lives in ``test_property.py``; this file focuses on:
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from unittest.mock import MagicMock
 
 import pytest
@@ -93,20 +93,24 @@ def _make_attempt(
     status_value: str = "IN_PROGRESS",
     max_score: int = 2,
     score: int | None = None,
+    started_at: datetime | None = None,
+    time_limit_seconds: int | None = None,
 ) -> QuizAttempt:
+    started = started_at or datetime(2025, 1, 1, tzinfo=timezone.utc)
     return QuizAttempt(
         id=attempt_id,
         user_id=user_id,
         scope_level=scope_level.value,
         scope_id=scope_id,
         status=status_value,
-        started_at=datetime(2025, 1, 1, tzinfo=timezone.utc),
+        started_at=started,
         submitted_at=None
         if status_value == "IN_PROGRESS"
-        else datetime(2025, 1, 1, 0, 30, tzinfo=timezone.utc),
+        else started + timedelta(minutes=30),
         max_score=max_score,
         seed=12345,
         score=score,
+        time_limit_seconds=time_limit_seconds,
     )
 
 
@@ -186,6 +190,26 @@ def test_set_answer_409_when_attempt_submitted() -> None:
 
     assert exc_info.value.status_code == 409
     assert exc_info.value.detail == "attempt_already_submitted"
+
+
+def test_set_answer_409_when_attempt_time_limit_expired() -> None:
+    service, repos = _build_service()
+    user = _make_user()
+    repos["quiz_repo"].get_attempt_for_user.return_value = _make_attempt(
+        time_limit_seconds=60,
+    )
+
+    with pytest.raises(HTTPException) as exc_info:
+        service.set_answer(
+            attempt_id=99,
+            question_id=1,
+            payload=QuizAnswerPatchRequest(selected_answer="A"),
+            user=user,
+        )
+
+    assert exc_info.value.status_code == 409
+    assert exc_info.value.detail == "attempt_time_expired"
+    repos["quiz_repo"].set_answer.assert_not_called()
 
 
 def test_set_answer_403_when_question_not_on_attempt() -> None:
@@ -381,6 +405,27 @@ def test_submit_attempt_409_when_already_submitted() -> None:
 
     assert exc_info.value.status_code == 409
     assert exc_info.value.detail == "attempt_already_submitted"
+
+
+def test_submit_attempt_clamps_submitted_at_to_deadline_when_late() -> None:
+    service, repos = _build_service()
+    user = _make_user()
+    attempt = _make_attempt(time_limit_seconds=60)
+    _seed_submit_mocks(
+        repos,
+        attempt=attempt,
+        selected_by_qid={1: "A", 2: "B"},
+        correct_by_qid={1: "A", 2: "B"},
+    )
+
+    late_when = datetime(2025, 1, 1, 0, 2, tzinfo=timezone.utc)
+    result = service.submit_attempt(attempt_id=99, user=user, now=late_when)
+
+    deadline = datetime(2025, 1, 1, 0, 1, tzinfo=timezone.utc)
+    assert result.submitted_at == deadline
+    submit_call = repos["quiz_repo"].submit_attempt.call_args.kwargs
+    assert submit_call["submitted_at"] == deadline
+    assert service._xp_service.award.call_args.kwargs["occurred_at"] == deadline
 
 
 # --- get_attempt -----------------------------------------------------------

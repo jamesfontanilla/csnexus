@@ -14,11 +14,11 @@ class QuizRepositoryTest {
         val store = MemoryActiveQuizStore()
         val repository = QuizRepository(api, store)
 
-        val result = repository.startQuiz(QuizScope.Topic, scopeId = 42, mode = QuizMode.Power)
+        val result = repository.startQuiz(QuizScope.Topic, scopeId = 42, mode = QuizMode.Sprint)
 
         assertTrue(result is ApiResult.Success)
         assertEquals("topic:42", api.startedScope)
-        assertEquals(QuizMode.Power.timeLimitSeconds, api.startedRequest?.timeLimitSeconds)
+        assertEquals(QuizMode.Sprint.timeLimitSeconds, api.startedRequest?.timeLimitSeconds)
         assertEquals(99, store.activeAttemptId())
     }
 

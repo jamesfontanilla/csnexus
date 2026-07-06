@@ -10,7 +10,7 @@ type QuizMode = StudyPreferences["defaultQuizMode"];
 const QUIZ_MODES: { value: QuizMode; label: string }[] = [
   { value: "practice", label: "Practice" },
   { value: "exam", label: "Exam" },
-  { value: "power", label: "Power" },
+  { value: "power", label: "Sprint" },
 ];
 
 /**

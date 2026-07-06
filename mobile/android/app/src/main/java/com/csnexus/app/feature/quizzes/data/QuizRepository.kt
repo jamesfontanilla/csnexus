@@ -28,8 +28,8 @@ enum class QuizMode(val label: String, val description: String, val timeLimitSec
         description = "15 minutes, closer to real CSE pacing",
         timeLimitSeconds = 15 * 60,
     ),
-    Power(
-        label = "Power Mode",
+    Sprint(
+        label = "Sprint Mode",
         description = "10 minutes, fastest challenge",
         timeLimitSeconds = 10 * 60,
     );

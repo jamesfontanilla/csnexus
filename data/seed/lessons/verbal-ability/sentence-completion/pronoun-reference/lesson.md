@@ -1,4 +1,4 @@
-# Pronoun Reference
+﻿# Pronoun Reference
 
 ## Explanations
 
@@ -105,17 +105,29 @@ Answer: **it**
 
 ### Quick Check
 
-Question: What is an antecedent?
-Answer: The noun that a pronoun refers to.
+Question: What is an antecedent
+Choices:
+- The noun a pronoun refers to
+- antecedent
+- ownership
+Answer: The noun a pronoun refers to
+Rationale: The sentence relationship determines the correct choice.
 
-Question: What should a pronoun point to?
-Answer: One clear antecedent.
+Question: What should a pronoun point to
+Choices:
+- antecedent
+- Its antecedent
+- ownership
+Answer: Its antecedent
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: the nearest noun is always the antecedent.
-Answer: False.
-
-Question: Why does pronoun reference matter?
-Answer: Because the reader must know exactly what the pronoun refers to.
+Question: True or false: the nearest noun is always the antecedent
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -175,17 +187,29 @@ Answer: **they**
 
 ### Quick Check
 
-Question: Which pronoun usually matches a singular thing?
-Answer: `it`.
+Question: Which pronoun usually matches a singular thing
+Choices:
+- The subject controls agreement
+- antecedent
+- ownership
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which pronoun usually matches plural nouns?
-Answer: `they`.
+Question: Which pronoun usually matches plural nouns
+Choices:
+- antecedent
+- The subject controls agreement
+- ownership
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
-Question: What should you do with a collective noun?
-Answer: Check whether the group is acting as one unit or as individual members.
-
-Question: True or false: number agreement matters in pronoun reference.
-Answer: True.
+Question: What should you do with a collective noun
+Choices:
+- antecedent
+- ownership
+- The subject controls agreement
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -240,17 +264,29 @@ Answer: **he**
 
 ### Quick Check
 
-Question: What is ambiguity?
-Answer: When more than one noun could be the antecedent.
+Question: What is ambiguity
+Choices:
+- More than one possible antecedent
+- antecedent
+- ownership
+Answer: More than one possible antecedent
+Rationale: The sentence relationship determines the correct choice.
 
-Question: What should you do if a pronoun is unclear?
-Answer: Repeat the noun or rewrite the sentence.
+Question: What should you do if a pronoun is unclear
+Choices:
+- antecedent
+- Repeat the noun or rewrite the sentence
+- ownership
+Answer: Repeat the noun or rewrite the sentence
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: a pronoun can be grammatically correct and still be unclear.
-Answer: True.
-
-Question: Why is clarity important?
-Answer: Because the reader should not have to guess the reference.
+Question: True or false: a pronoun can be grammatically correct and still be unclear
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -305,17 +341,29 @@ Answer: **their**
 
 ### Quick Check
 
-Question: What does `each applicant` suggest?
-Answer: A singular idea for each person.
+Question: What does `each applicant` suggest
+Choices:
+- One person at a time
+- antecedent
+- ownership
+Answer: One person at a time
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which pronoun shows possession for a plural antecedent?
-Answer: `their`.
+Question: Which pronoun shows possession for a plural antecedent
+Choices:
+- antecedent
+- their
+- ownership
+Answer: their
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Can singular they be used in modern standard English?
-Answer: Yes, especially with an indefinite or unknown-gender antecedent.
-
-Question: What should you check before choosing the pronoun?
-Answer: Whether the antecedent is singular or plural.
+Question: Can singular they be used in modern standard English
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -368,17 +416,29 @@ Answer: **herself**
 
 ### Quick Check
 
-Question: When do you use a reflexive pronoun?
-Answer: When the subject and object are the same.
+Question: When do you use a reflexive pronoun
+Choices:
+- when the subject and object are the same
+- antecedent
+- ownership
+Answer: when the subject and object are the same
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which form goes before a noun, `their` or `theirs`?
-Answer: `their`.
+Question: Which form goes before a noun, `their` or `theirs`
+Choices:
+- antecedent
+- their
+- ownership
+Answer: their
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `herself` can usually replace `her`.
-Answer: False.
-
-Question: What does a possessive pronoun show?
-Answer: Ownership or belonging.
+Question: True or false: `herself` can usually replace `her`
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -440,17 +500,29 @@ Answer: **who**
 
 ### Quick Check
 
-Question: Which relative pronoun usually refers to a person as subject?
-Answer: `who`.
+Question: Which relative pronoun usually refers to a person as subject
+Choices:
+- The subject controls agreement
+- antecedent
+- ownership
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which relative pronoun shows possession?
-Answer: `whose`.
+Question: Which relative pronoun shows possession
+Choices:
+- antecedent
+- The subject controls agreement
+- ownership
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which relative pronoun usually refers to a thing?
-Answer: `which`.
-
-Question: What should you check first with a relative pronoun?
-Answer: Whether it refers to a person or a thing and what job it has in the clause.
+Question: Which relative pronoun usually refers to a thing
+Choices:
+- antecedent
+- ownership
+- The subject controls agreement
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -542,175 +614,11 @@ Reasoning:
 
 Correct answer: **herself**
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Find the antecedent.
-2. Decide whether it is singular or plural.
-3. Decide whether the pronoun should be subject, object, possessive, or reflexive.
-4. Check whether the reference is clear.
-5. Eliminate choices that point to the wrong noun or use the wrong form.
 
-### Time Management
 
-If the antecedent is obvious, answer quickly. If the sentence has more than one possible noun, slow down and trace the reference before choosing. If the reference is still unclear, do not force it.
-
-### Shortcut & Elimination Techniques
-
-- identify the noun the pronoun replaces
-- test number first
-- test pronoun role second
-- watch for ambiguity
-- use `who` for people and `which` for things
-- use reflexive pronouns only when the subject and object are the same
-
-### Exam-Day Tips
-
-- read the whole sentence, not just the blank
-- check the nouns before the blank and after it
-- do not let the nearest noun mislead you
-- if the sentence sounds odd after substitution, eliminate that choice
-- if a pronoun is vague, the writer should usually repeat the noun instead
-
-## Memory Aids
-
-### Mnemonics
-
-- `A`ntecedent first
-- `N`umber next
-- `R`ole next
-- `C`larity always
-- `R`eflexive means the subject comes back to itself
-- `W`ho for people, `w`hich for things
-
-### Mental Models
-
-- Think of a pronoun as an arrow pointing backward.
-- Think of the antecedent as the target of the arrow.
-- Think of a reflexive pronoun as a boomerang that returns to the subject.
-- Think of ambiguity as two signs pointing in different directions.
-
-### Shortcuts & Tricks
-
-- `it` usually replaces a singular thing or idea
-- `they` usually replaces a plural noun
-- `their` usually shows ownership
-- `themselves` usually returns to the subject
-- `who` usually points to a person
-- `which` usually points to a thing
-
-### What To Memorize
-
-- the main pronoun forms
-- the difference between subject and object pronouns
-- the difference between possessive determiners and possessive pronouns
-- the reflexive pronoun set
-- the basic relative pronouns
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these things:
-
-- find the antecedent
-- tell singular from plural
-- choose the right pronoun role
-- recognize ambiguity
-- use reflexive and relative pronouns correctly
-
-### Which Method?
-
-Question: The blank points back to a thing. Which method should you use?
-Answer: Antecedent and number agreement.
-
-Question: The blank comes after a verb and refers to the same subject. Which method should you use?
-Answer: Reflexive reference.
-
-Question: The blank introduces a clause about a person. Which method should you use?
-Answer: Relative pronoun reference.
-
-Question: The sentence has two possible noun targets. Which method should you use?
-Answer: Ambiguity check.
-
-### Guided Practice
-
-Question: Which pronoun best completes the sentence below?
-
-"The files were missing, so ____ were recreated."
-
-Answer: **they**
-
-Question: Which pronoun best completes the sentence below?
-
-"The committee finished the review and sent ____ report to the director."
-
-Answer: **its**
-
-Question: Which pronoun best completes the sentence below?
-
-"The officer thanked Daniel because ____ had found the error."
-
-Answer: **he**
-
-Question: Which pronoun best completes the sentence below?
-
-"Each applicant should keep ____ receipt."
-
-Answer: **their**
-
-### Independent Practice
-
-Question: Which pronoun best completes the sentence below?
-
-"The report was revised because ____ had errors."
-
-Answer: **it**
-
-Question: Which pronoun best completes the sentence below?
-
-"The clerk organized the records by ____."
-
-Answer: **herself**
-
-Question: Which word best completes the sentence below?
-
-"The officer ____ reviewed the file signed the memo."
-
-Answer: **who**
-
-Question: Which pronoun best completes the sentence below?
-
-"The officers finished the review, and ____ submitted the report."
-
-Answer: **they**
-
-### Challenge Questions
-
-Question: Why can a pronoun be grammatically correct but still wrong?
-Answer: Because it may point to the wrong antecedent.
-
-Question: Why is ambiguity a problem in formal writing?
-Answer: Because the reader may not know who or what the pronoun refers to.
-
-Question: Why are reflexive pronouns easy to misuse?
-Answer: Because they look similar to object and possessive forms.
-
-Question: Why do relative pronouns matter in sentence completion?
-Answer: Because they connect the clause to the correct noun and show its role.
-
-### Connections
-
-This lesson connects directly to:
-
-- **grammar fit**, because pronoun form must match the sentence structure
-- **logical fit**, because the pronoun must point to the right idea
-- **sentence completion**, because the blank often depends on reference, not just meaning
-- **cause and effect**, because pronouns often appear in explanatory clauses
-- **reading comprehension**, because tracking reference is a major reading skill
 
 ## Key Takeaways
 

@@ -1,4 +1,4 @@
-# Context Clues
+﻿# Context Clues
 
 ## Explanations
 
@@ -103,17 +103,29 @@ Answer: **concise**
 
 ### Quick Check
 
-Question: What is a context clue?
-Answer: A hint in or around the sentence that helps you choose the blank.
+Question: What is a context clue
+Choices:
+- A hint in the surrounding words or sentence
+- dictionary guess
+- part of speech
+Answer: A hint in the surrounding words or sentence
+Rationale: The word meaning or context points to the best answer.
 
-Question: What should you check after you find the clue?
-Answer: Grammar fit and part of speech.
+Question: What should you check after you find the clue
+Choices:
+- dictionary guess
+- the blank's meaning
+- part of speech
+Answer: the blank's meaning
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: the blank should be solved by meaning alone.
-Answer: False.
-
-Question: What is the safest habit in sentence completion?
-Answer: Read the whole sentence before choosing.
+Question: True or false: the blank should be solved by meaning alone
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -177,17 +189,29 @@ Answer: **terse**
 
 ### Quick Check
 
-Question: Which phrase often signals a restatement clue?
-Answer: `in other words` or `that is`.
+Question: Which phrase often signals a restatement clue
+Choices:
+- in other words
+- dictionary guess
+- part of speech
+Answer: in other words
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: punctuation can help reveal the meaning of the blank.
-Answer: True.
+Question: True or false: punctuation can help reveal the meaning of the blank
+Choices:
+- False
+- True
+- It depends
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
-Question: If the sentence says `X, or Y`, what is Y usually doing?
-Answer: Restating or defining X.
-
-Question: What is the best answer in a definition clue?
-Answer: The word that matches the explanation most closely.
+Question: If the sentence says `X, or Y`, what is Y usually doing
+Choices:
+- dictionary guess
+- part of speech
+- restating or defining the word
+Answer: restating or defining the word
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -254,17 +278,29 @@ Answer: **concise**
 
 ### Quick Check
 
-Question: Which word usually signals contrast?
-Answer: `but` or `however`.
+Question: Which word usually signals contrast
+Choices:
+- however
+- dictionary guess
+- part of speech
+Answer: however
+Rationale: The word meaning or context points to the best answer.
 
-Question: What kind of clue is `unlike`?
-Answer: A contrast clue.
+Question: What kind of clue is `unlike`
+Choices:
+- dictionary guess
+- contrast clue
+- part of speech
+Answer: contrast clue
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: contrast clues can help you eliminate wrong answers fast.
-Answer: True.
-
-Question: If the sentence says `not X but Y`, which idea matters most?
-Answer: Y.
+Question: True or false: contrast clues can help you eliminate wrong answers fast
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -380,17 +416,29 @@ Answer: **shy**
 
 ### Quick Check
 
-Question: What should you do when there is no obvious clue word?
-Answer: Use the general sense of the sentence.
+Question: What should you do when there is no obvious clue word
+Choices:
+- use the surrounding sentence and part of speech
+- dictionary guess
+- part of speech
+Answer: use the surrounding sentence and part of speech
+Rationale: The word meaning or context points to the best answer.
 
-Question: Why does part of speech matter?
-Answer: Because the answer must fit the grammar.
+Question: Why does part of speech matter
+Choices:
+- dictionary guess
+- It tells you what kind of word fits
+- part of speech
+Answer: It tells you what kind of word fits
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: the sentence can still give a clue even without `means` or `however`.
-Answer: True.
-
-Question: What is the safest habit when the meaning is not direct?
-Answer: Read the full sentence and test the choices.
+Question: True or false: the sentence can still give a clue even without `means` or `however`
+Choices:
+- the sentence can still give a clue even without `means`
+- `however`
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -515,110 +563,9 @@ Reasoning:
 
 Correct answer: **representative**
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use a repeatable process:
 
-1. Read the sentence.
-2. Find the clue.
-3. State the blank's meaning in plain English.
-4. Check the grammar.
-5. Substitute each choice.
-6. Pick the one that still makes the sentence natural.
-
-### Time Management
-
-Do not overthink a clue that is already direct. If a restatement or contrast clue is obvious, trust it and keep moving.
-
-### Shortcut and Elimination Techniques
-
-- eliminate antonyms immediately
-- eliminate words with the wrong part of speech
-- eliminate choices that sound too formal or too casual
-- eliminate words that create awkward collocations
-- use substitution to test whether the sentence still works
-
-### Exam-Day Tips
-
-- keep your pace steady
-- read the sentence before the choices
-- watch for signal words
-- do not choose the first familiar word
-- if two choices are close, choose the one that fits the clue most precisely
-
-## Practice & Review
-
-### Guided Practice
-
-Question: Which word best completes the sentence below?
-
-"The manager was ____ in checking the figures, or very careful and precise."
-
-Answer: **meticulous**
-
-Question: Which word best completes the sentence below?
-
-"The policy was rigid, but the revised policy was ____."
-
-Answer: **flexible**
-
-Question: Which word best completes the sentence below?
-
-"The speech was ____ - dull and lifeless - according to the audience."
-
-Answer: **vapid**
-
-Question: What type of context clue is used in the sentence `The jacket was warm, but the gloves were thin and chilly.`?
-Answer: **contrast clue**
-
-### Independent Practice
-
-Question: Which word best completes the sentence below?
-
-"The choir sounded ____ during the evening performance, meaning smooth and pleasing to hear."
-
-Answer: **melodious**
-
-Question: Which word best completes the sentence below?
-
-"The athlete was ____ after the long race and needed water right away."
-
-Answer: **exhausted**
-
-Question: Which word best completes the sentence below?
-
-"The report was ____; it was short, clear, and to the point."
-
-Answer: **concise**
-
-Question: What type of context clue is used in the sentence `The teacher explained the term, that is, the meaning of the blank.`?
-Answer: **restatement clue**
-
-### Challenge Questions
-
-Question: The clue is not direct, but the sentence still makes sense only if you know the blank. What should you do?
-Answer: Use the general sense of the sentence and test each choice.
-
-Question: A word has two possible meanings. How do you decide which one fits?
-Answer: Use the surrounding context and the clue type.
-
-Question: If two answer choices are both related, what should you check next?
-Answer: Which one matches the sentence's exact meaning and tone.
-
-Question: Why are punctuation clues easy to miss?
-Answer: Because they can explain the blank without using an obvious signal word.
-
-### Connections
-
-This lesson connects directly to:
-
-- **word meaning**, because you must recognize the right sense
-- **sentence completion**, because the sentence must stay logical and grammatical
-- **synonyms**, because restatement clues often repeat meaning
-- **antonyms**, because contrast clues often point to the opposite idea
-- **reading comprehension**, because careful reading improves accuracy
 
 ## Key Takeaways
 

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { apiClient, ApiError } from "../../api/client";
@@ -135,7 +135,7 @@ const MODES: Record<QuizMode, ModeConfig> = {
     icon: "📝",
   },
   power: {
-    label: "Power Mode",
+    label: "Sprint Mode",
     description: "10 minutes — maximum challenge, fastest pace",
     timeLimitSeconds: 10 * 60,
     color: "var(--color-danger)",
@@ -183,37 +183,53 @@ function DifficultyBadge({ difficulty }: { difficulty: string }) {
 // Timer hook
 // ---------------------------------------------------------------------------
 
-function useCountdown(totalSeconds: number | null, onExpire: () => void) {
+function remainingUntilDeadline(deadlineMs: number): number {
+  return Math.max(0, Math.ceil((deadlineMs - Date.now()) / 1000));
+}
+
+function useCountdown(deadlineMs: number | null, onExpire: () => void) {
   const [remaining, setRemaining] = useState<number | null>(
-    totalSeconds !== null ? totalSeconds : null
+    deadlineMs !== null ? remainingUntilDeadline(deadlineMs) : null
   );
   const expiredRef = useRef(false);
   // Keep onExpire in a ref so the interval always calls the latest version
   // without needing to restart the timer when the callback identity changes.
   const onExpireRef = useRef(onExpire);
-  useEffect(() => { onExpireRef.current = onExpire; });
+  useEffect(() => {
+    onExpireRef.current = onExpire;
+  }, [onExpire]);
 
   useEffect(() => {
-    if (totalSeconds === null) return;
-    setRemaining(totalSeconds);
+    if (deadlineMs === null) {
+      setRemaining(null);
+      expiredRef.current = false;
+      return;
+    }
+
     expiredRef.current = false;
 
-    const id = setInterval(() => {
-      setRemaining((prev) => {
-        if (prev === null) return null;
-        const next = prev - 1;
-        if (next <= 0 && !expiredRef.current) {
-          expiredRef.current = true;
-          clearInterval(id);
-          onExpireRef.current();
-          return 0;
-        }
-        return next;
-      });
-    }, 1000);
+    const syncRemaining = () => {
+      const next = remainingUntilDeadline(deadlineMs);
+      setRemaining(next);
+      if (next === 0 && !expiredRef.current) {
+        expiredRef.current = true;
+        onExpireRef.current();
+      }
+    };
 
-    return () => clearInterval(id);
-  }, [totalSeconds]);
+    syncRemaining();
+
+    const id = setInterval(syncRemaining, 1000);
+    const handleVisibilityChange = () => {
+      syncRemaining();
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      clearInterval(id);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [deadlineMs]);
 
   return remaining;
 }
@@ -247,25 +263,19 @@ export function QuizPlayer() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const submittingRef = useRef(false);
 
-  // Memoized so it only recomputes when phase or attempt changes,
-  // preventing the timer from restarting on unrelated renders.
-  const computedTimeLimit = useMemo(() => {
-    if (phase !== "in-progress" || !attempt?.time_limit_seconds) return null;
-    const elapsed = Math.floor(
-      (Date.now() - new Date(attempt.started_at).getTime()) / 1000
-    );
-    const left = attempt.time_limit_seconds - elapsed;
-    return left > 0 ? left : 0;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, attempt?.attempt_id]);
+  const deadlineMs =
+    phase === "in-progress" && attempt?.time_limit_seconds != null
+      ? new Date(attempt.started_at).getTime() + attempt.time_limit_seconds * 1000
+      : null;
 
   const remaining = useCountdown(
-    computedTimeLimit,
+    deadlineMs,
     () => {
       // Auto-submit when timer expires
       if (phase === "in-progress" && attempt) {
-        handleSubmitQuiz();
+        void handleSubmitQuiz(true);
       }
     }
   );
@@ -308,7 +318,7 @@ export function QuizPlayer() {
   }
 
   async function handleSelectAnswer(questionId: number, selected: string) {
-    if (!attempt) return;
+    if (!attempt || submittingRef.current || quizLocked) return;
     hapticTap();
     soundTap();
     try {
@@ -330,8 +340,9 @@ export function QuizPlayer() {
     }
   }
 
-  async function handleSubmitQuiz() {
-    if (!attempt || submitting) return;
+  async function handleSubmitQuiz(force = false) {
+    if (!attempt || submittingRef.current || (!force && quizLocked)) return;
+    submittingRef.current = true;
     setSubmitting(true);
     try {
       const res = await apiClient.post<QuizAttempt>(
@@ -353,6 +364,7 @@ export function QuizPlayer() {
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Failed to submit quiz");
     } finally {
+      submittingRef.current = false;
       setSubmitting(false);
     }
   }
@@ -684,6 +696,7 @@ export function QuizPlayer() {
   const answeredCount = attempt.questions.filter((q) => q.selected_answer != null).length;
   const modeConfig = selectedMode ? MODES[selectedMode] : null;
   const timerExpired = remaining === 0;
+  const quizLocked = timerExpired || submitting;
 
   return (
     <PageTransition>
@@ -797,6 +810,7 @@ export function QuizPlayer() {
                 <motion.button
                   key={opt}
                   onClick={() => handleSelectAnswer(question.id, opt)}
+                  disabled={quizLocked}
                   whileHover={reducedMotion ? undefined : { scale: 1.01 }}
                   whileTap={reducedMotion ? undefined : { scale: 1.02 }}
                   transition={{ duration: 0.08, ease: [0.4, 0, 0.2, 1] }}
@@ -860,6 +874,7 @@ export function QuizPlayer() {
               className="glass-input"
               value={question.selected_answer ?? ""}
               onChange={(e) => handleSelectAnswer(question.id, e.target.value)}
+              disabled={quizLocked}
             />
           </div>
         )}
@@ -875,7 +890,7 @@ export function QuizPlayer() {
           <GlassButton
             variant="secondary"
             onClick={() => setCurrentIdx((i) => Math.max(0, i - 1))}
-            disabled={currentIdx === 0}
+            disabled={quizLocked || currentIdx === 0}
             aria-label="Previous question"
           >
             Previous
@@ -884,6 +899,7 @@ export function QuizPlayer() {
             <GlassButton
               variant="primary"
               onClick={() => setCurrentIdx((i) => i + 1)}
+              disabled={quizLocked}
               aria-label="Next question"
             >
               Next
@@ -891,8 +907,8 @@ export function QuizPlayer() {
           )}
           <GlassButton
             variant={currentIdx === totalQuestions - 1 ? "primary" : "danger"}
-            onClick={handleSubmitQuiz}
-            disabled={submitting}
+            onClick={() => { void handleSubmitQuiz(); }}
+            disabled={quizLocked}
             loading={submitting}
             aria-label="Submit quiz"
             style={{ marginLeft: "auto" }}
@@ -925,6 +941,7 @@ export function QuizPlayer() {
                 <button
                   key={q.id}
                   onClick={() => setCurrentIdx(i)}
+                  disabled={quizLocked}
                   aria-label={`Go to question ${i + 1}${isAnswered ? " (answered)" : ""}`}
                   aria-current={isActive ? "step" : undefined}
                   style={{

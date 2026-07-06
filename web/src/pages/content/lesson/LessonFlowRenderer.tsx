@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { CSSProperties, ReactNode, RefObject } from "react";
 import { Link } from "react-router-dom";
 import type {
   EnhancedLessonContent,
@@ -79,6 +79,7 @@ function DesktopLessonFlow({
   const [activeIndex, setActiveIndex] = useState(0);
   const [bookmarked, setBookmarked] = useState(false);
   const reducedMotion = useReducedMotion();
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const current = plan.screens[activeIndex];
   const currentSections = useMemo(
@@ -94,11 +95,10 @@ function DesktopLessonFlow({
   function goTo(index: number) {
     if (index < 0 || index >= plan.screens.length) return;
     setActiveIndex(index);
-    if (!reducedMotion) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      window.scrollTo(0, 0);
-    }
+    scrollRef.current?.scrollTo({
+      top: 0,
+      behavior: reducedMotion ? "auto" : "smooth",
+    });
   }
 
   const practiceProblems = Array.isArray(content.practice_problems) ? content.practice_problems : [];
@@ -179,11 +179,12 @@ function DesktopLessonFlow({
             screenCount={plan.screen_count}
             activeIndex={activeIndex}
             onPrevious={() => goTo(activeIndex - 1)}
-            onNext={() => goTo(activeIndex + 1)}
-            onComplete={onMarkComplete}
-            completing={completing}
-            completed={completed}
-          >
+          onNext={() => goTo(activeIndex + 1)}
+          onComplete={onMarkComplete}
+          completing={completing}
+          completed={completed}
+          scrollRef={scrollRef}
+        >
             <ScreenBody
               content={content}
               plan={plan}
@@ -199,7 +200,7 @@ function DesktopLessonFlow({
             position: "sticky",
             top: "5rem",
             maxHeight: "calc(100vh - 6rem)",
-            overflowY: "auto",
+            overflow: "hidden",
             display: "flex",
             flexDirection: "column",
             gap: "1.25rem",
@@ -253,6 +254,7 @@ function MobileLessonFlow({
   const [activeIndex, setActiveIndex] = useState(0);
   const [bookmarked, setBookmarked] = useState(false);
   const reducedMotion = useReducedMotion();
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const current = plan.screens[activeIndex];
   const currentSections = useMemo(
@@ -268,11 +270,10 @@ function MobileLessonFlow({
   function goTo(index: number) {
     if (index < 0 || index >= plan.screens.length) return;
     setActiveIndex(index);
-    if (!reducedMotion) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      window.scrollTo(0, 0);
-    }
+    scrollRef.current?.scrollTo({
+      top: 0,
+      behavior: reducedMotion ? "auto" : "smooth",
+    });
   }
 
   const practiceProblems = Array.isArray(content.practice_problems) ? content.practice_problems : [];
@@ -330,6 +331,7 @@ function MobileLessonFlow({
           completing={completing}
           completed={completed}
           compact
+          scrollRef={scrollRef}
         >
           <ScreenBody
             content={content}
@@ -381,6 +383,7 @@ function ScreenChrome({
   onComplete,
   completing,
   completed,
+  scrollRef,
   compact = false,
   children,
 }: {
@@ -393,6 +396,7 @@ function ScreenChrome({
   onComplete: () => void;
   completing: boolean;
   completed: boolean;
+  scrollRef: RefObject<HTMLDivElement>;
   compact?: boolean;
   children: ReactNode;
 }) {
@@ -419,6 +423,7 @@ function ScreenChrome({
           gap: "0.75rem",
           marginBottom: "0.75rem",
           flexWrap: "wrap",
+          flexShrink: 0,
         }}
       >
         <div style={{ minWidth: 0 }}>
@@ -436,30 +441,60 @@ function ScreenChrome({
         </div>
       </div>
 
-      <GlassCard
-        blur="sm"
+      <div
         style={{
-          padding: compact ? "0.95rem" : "1.1rem 1.2rem",
-          borderRadius: "12px",
+          position: "relative",
           flex: "1 1 auto",
           minHeight: 0,
-          overflow: "hidden",
           display: "flex",
           flexDirection: "column",
         }}
       >
-        {screen.summary && (
-          <div style={{ marginBottom: "1rem", color: "var(--color-text-muted)", fontSize: compact ? "0.8rem" : "0.875rem", lineHeight: 1.65 }}>
-            {screen.summary}
-          </div>
-        )}
+        <div
+          ref={scrollRef}
+          style={{
+            flex: "1 1 auto",
+            minHeight: 0,
+            overflowY: "auto",
+            paddingRight: compact ? "0.1rem" : "0.35rem",
+            paddingBottom: compact ? "5.5rem" : "6rem",
+          }}
+        >
+          <GlassCard
+            blur="sm"
+            style={{
+              padding: compact ? "0.95rem" : "1.1rem 1.2rem",
+              borderRadius: "12px",
+              display: "block",
+            }}
+          >
+            {screen.summary && (
+              <div style={{ marginBottom: "1rem", color: "var(--color-text-muted)", fontSize: compact ? "0.8rem" : "0.875rem", lineHeight: 1.65 }}>
+                {screen.summary}
+              </div>
+            )}
 
-        <div style={{ minHeight: 0, overflow: "hidden", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          {children}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              {children}
+            </div>
+          </GlassCard>
         </div>
-      </GlassCard>
 
-      <div style={{ display: "flex", justifyContent: "space-between", gap: "0.5rem", marginTop: "1rem", flexWrap: "wrap" }}>
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: compact ? "4.25rem" : "4.75rem",
+            background: "linear-gradient(to top, rgba(7, 7, 7, 0.98) 0%, rgba(7, 7, 7, 0.84) 34%, rgba(7, 7, 7, 0.0) 100%)",
+            pointerEvents: "none",
+          }}
+        />
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "space-between", gap: "0.5rem", marginTop: "0.85rem", flexWrap: "wrap", flexShrink: 0 }}>
         <button
           type="button"
           className="btn-glass"
@@ -480,7 +515,7 @@ function ScreenChrome({
             onClick={onNext}
             style={{ padding: "0.625rem 1rem", minWidth: "7rem" }}
           >
-            Next
+            Continue
           </button>
         ) : (
           <button
@@ -582,6 +617,15 @@ function ScreenBody({
         </div>
       );
 
+    case "concept":
+    case "definition":
+    case "example":
+    case "visualization":
+      return <SectionStack sections={currentSections} excludeSubsectionKinds={["quick_check"]} />;
+
+    case "quick_check":
+      return <SectionStack sections={collectSectionsByKind(currentSections, "quick_check")} />;
+
     case "practice":
       return (
         <PracticePanel
@@ -634,17 +678,20 @@ function ScreenBody({
       );
 
     default:
-      return (
-        <div style={{ display: "grid", gap: "1rem" }}>
-          {currentSections.map((section, index) => (
-            <SectionCard key={`${section.title}-${index}`} section={section} depth={0} />
-          ))}
-        </div>
-      );
+      return <SectionStack sections={currentSections} excludeSubsectionKinds={screen.kind === "concept" ? ["quick_check"] : []} />;
   }
 }
 
-function SectionCard({ section, depth }: { section: LessonSection; depth: number }) {
+function SectionCard({
+  section,
+  depth,
+  excludeSubsectionKinds = [],
+}: {
+  section: LessonSection;
+  depth: number;
+  excludeSubsectionKinds?: string[];
+}) {
+  const subsections = (section.subsections ?? []).filter((subsection) => !excludeSubsectionKinds.includes(subsection.kind ?? ""));
   const headingStyle: CSSProperties = {
     fontSize: depth === 0 ? "1.05rem" : depth === 1 ? "0.95rem" : "0.875rem",
     fontWeight: depth === 0 ? 700 : 600,
@@ -662,14 +709,46 @@ function SectionCard({ section, depth }: { section: LessonSection; depth: number
           <BlockRenderer key={`${section.title}-${index}`} block={block} />
         ))}
       </div>
-      {section.subsections?.length ? (
+      {subsections.length ? (
         <div style={{ marginTop: "0.9rem", display: "grid", gap: "0.9rem" }}>
-          {section.subsections.map((subsection, index) => (
-            <SectionCard key={`${subsection.title}-${index}`} section={subsection} depth={depth + 1} />
+          {subsections.map((subsection, index) => (
+            <SectionCard
+              key={`${subsection.title}-${index}`}
+              section={subsection}
+              depth={depth + 1}
+              excludeSubsectionKinds={excludeSubsectionKinds}
+            />
           ))}
         </div>
       ) : null}
     </section>
+  );
+}
+
+function SectionStack({
+  sections,
+  excludeSubsectionKinds = [],
+}: {
+  sections: LessonSection[];
+  excludeSubsectionKinds?: string[];
+}) {
+  return (
+    <div style={{ display: "grid", gap: "1rem" }}>
+      {sections.map((section, index) => (
+        <SectionCard
+          key={`${section.title}-${index}`}
+          section={section}
+          depth={0}
+          excludeSubsectionKinds={excludeSubsectionKinds}
+        />
+      ))}
+    </div>
+  );
+}
+
+function collectSectionsByKind(sections: LessonSection[], kind: string): LessonSection[] {
+  return sections.flatMap((section) =>
+    (section.subsections ?? []).filter((subsection) => subsection.kind === kind)
   );
 }
 
@@ -689,7 +768,7 @@ function ScreenNavigator({
         position: "sticky",
         top: "5rem",
         maxHeight: "calc(100vh - 6rem)",
-        overflowY: "auto",
+        overflow: "hidden",
         paddingRight: "0.5rem",
       }}
     >

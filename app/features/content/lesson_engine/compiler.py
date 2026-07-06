@@ -122,25 +122,39 @@ def _render_block(block: LessonBlockNode) -> tuple[str, Any, str | None, dict[st
     return "prose", _block_to_markdown(block), block.language, metadata
 
 
-def _extract_checks(block: LessonBlockNode) -> list[dict[str, str]]:
-    checks: list[dict[str, str]] = []
-    if block.kind == "question":
+def _extract_checks(block: LessonBlockNode | ContentBlock) -> list[dict[str, Any]]:
+    checks: list[dict[str, Any]] = []
+    kind = getattr(block, "kind", None) or getattr(block, "type", None) or ""
+    metadata = getattr(block, "metadata", {}) or {}
+
+    if kind == "question":
         question = _block_to_markdown(block)
-        answer = str(block.metadata.get("answer") or "").strip()
-        checks.append({"question": question, "answer": answer, "rationale": str(block.metadata.get("rationale") or "")})
-    elif block.kind == "answer":
+        answer = str(metadata.get("answer") or "").strip()
+        checks.append({"question": question, "answer": answer, "rationale": str(metadata.get("rationale") or "")})
+    elif kind == "answer":
         answer = _block_to_markdown(block)
-        question = str(block.metadata.get("question") or "").strip()
-        checks.append({"question": question, "answer": answer, "rationale": str(block.metadata.get("rationale") or "")})
+        question = str(metadata.get("question") or "").strip()
+        checks.append({"question": question, "answer": answer, "rationale": str(metadata.get("rationale") or "")})
     else:
         payload = block.content if isinstance(block.content, list) else []
         for item in payload:
             if isinstance(item, dict):
                 question = str(item.get("question") or "").strip()
                 answer = str(item.get("answer") or "").strip()
+                choices = item.get("choices")
+                correct_choice_index = item.get("correct_choice_index")
                 rationale = str(item.get("rationale") or "").strip()
                 if question or answer:
-                    checks.append({"question": question, "answer": answer, "rationale": rationale})
+                    check: dict[str, Any] = {
+                        "question": question,
+                        "answer": answer,
+                        "rationale": rationale,
+                    }
+                    if isinstance(choices, list) and choices:
+                        check["choices"] = [str(choice) for choice in choices if str(choice).strip()]
+                    if isinstance(correct_choice_index, int):
+                        check["correct_choice_index"] = correct_choice_index
+                    checks.append(check)
     return checks
 
 
@@ -171,9 +185,13 @@ def _block_to_markdown(block: LessonBlockNode) -> str:
             if isinstance(item, dict):
                 question = str(item.get("question") or "").strip()
                 answer = str(item.get("answer") or "").strip()
+                choices = item.get("choices")
                 rationale = str(item.get("rationale") or "").strip()
                 if question:
                     parts.append(f"Question: {question}")
+                if isinstance(choices, list) and choices:
+                    parts.append("Choices:")
+                    parts.extend(f"- {choice}" for choice in choices if str(choice).strip())
                 if answer:
                     parts.append(f"Answer: {answer}")
                 if rationale:
@@ -470,6 +488,42 @@ def _build_screen_plan(
         index += 1
 
     for section_index, section in enumerate(sections):
+        if section.kind == "micro_concept":
+            screens.append(
+                LessonScreen(
+                    index=index,
+                    kind="concept",
+                    title=section.title,
+                    summary=_section_preview(section, exclude_kinds={"quick_check"}),
+                    section_indices=[section_index],
+                    section_titles=[section.title],
+                    estimated_reading_seconds=section.estimated_reading_seconds,
+                    focus_tags=[section.kind, *[child.kind for child in section.subsections[:3] if child.kind != "quick_check"]],
+                    node_kinds=_collect_node_kinds(section, exclude_kinds={"quick_check"}),
+                    call_to_action=_call_to_action("concept"),
+                )
+            )
+            index += 1
+
+            quick_check_sections = _quick_check_sections(section)
+            if quick_check_sections:
+                screens.append(
+                    LessonScreen(
+                        index=index,
+                        kind="quick_check",
+                        title=f"Quick Check: {section.title}",
+                        summary=_quick_check_summary(section.title, quick_check_sections),
+                        section_indices=[section_index],
+                        section_titles=[section.title, *[subsection.title for subsection in quick_check_sections]],
+                        estimated_reading_seconds=max(20, sum(subsection.estimated_reading_seconds for subsection in quick_check_sections)),
+                        focus_tags=[section.kind, "quick_check"],
+                        node_kinds=_collect_node_kinds_from_sections(quick_check_sections),
+                        call_to_action=_call_to_action("quick_check"),
+                    )
+                )
+                index += 1
+            continue
+
         kind = _screen_kind_for_section(section)
         if section_index == 0 and kind == "cover":
             continue
@@ -542,6 +596,7 @@ def _call_to_action(kind: str) -> str:
         "cover": "Start lesson",
         "overview": "Scan the structure",
         "concept": "Study the concept",
+        "quick_check": "Answer the questions",
         "example": "Work through the example",
         "strategy": "Use this strategy",
         "remember": "Lock it in",
@@ -552,13 +607,15 @@ def _call_to_action(kind: str) -> str:
     }.get(kind, "Continue")
 
 
-def _section_preview(section: LessonSectionNode) -> str:
+def _section_preview(section: LessonSectionNode, *, exclude_kinds: set[str] | None = None) -> str:
     for block in section.blocks:
         text = _block_preview(block)
         if text:
             return text
     for child in section.subsections:
-        text = _section_preview(child)
+        if exclude_kinds and child.kind in exclude_kinds:
+            continue
+        text = _section_preview(child, exclude_kinds=exclude_kinds)
         if text:
             return text
     return ""
@@ -582,16 +639,43 @@ def _block_preview(block: LessonBlockNode) -> str:
     return ""
 
 
-def _collect_node_kinds(section: LessonSectionNode) -> list[str]:
+def _collect_node_kinds(section: LessonSectionNode, *, exclude_kinds: set[str] | None = None) -> list[str]:
     kinds: list[str] = []
     for block in _flatten_blocks(section):
         kind = str(block.metadata.get("semantic_kind") or block.type)
         if kind not in kinds:
             kinds.append(kind)
     for child in section.subsections:
+        if exclude_kinds and child.kind in exclude_kinds:
+            continue
         if child.kind not in kinds:
             kinds.append(child.kind)
     return kinds
+
+
+def _collect_node_kinds_from_sections(sections: list[LessonSectionNode]) -> list[str]:
+    kinds: list[str] = []
+    for section in sections:
+        for kind in _collect_node_kinds(section):
+            if kind not in kinds:
+                kinds.append(kind)
+    return kinds
+
+
+def _quick_check_sections(section: LessonSectionNode) -> list[LessonSectionNode]:
+    return [child for child in section.subsections if child.kind == "quick_check"]
+
+
+def _quick_check_summary(title: str, quick_check_sections: list[LessonSectionNode]) -> str:
+    question_count = sum(
+        len(_extract_checks(block))
+        for section in quick_check_sections
+        for block in _flatten_blocks(section)
+    )
+    if question_count <= 0:
+        return f"Test your understanding of {title.lower()}."
+    plural = "question" if question_count == 1 else "questions"
+    return f"Check your understanding with {question_count} {plural} on {title.lower()}."
 
 
 def _difficulty_for_section(section: LessonSectionNode) -> list[str]:

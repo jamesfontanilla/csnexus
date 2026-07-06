@@ -1,4 +1,4 @@
-# Connector Words
+﻿# Connector Words
 
 ## Explanations
 
@@ -110,17 +110,29 @@ Answer: **and**
 
 ### Quick Check
 
-Question: What is a connector's main job?
-Answer: To show the relationship between ideas.
+Question: What is a connector's main job
+Choices:
+- To show the relationship between ideas
+- contrast
+- cause
+Answer: To show the relationship between ideas
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: every connector can be used anywhere if the sentence sounds natural.
-Answer: False.
+Question: True or false: every connector can be used anywhere if the sentence sounds natural
+Choices:
+- True
+- False
+- It depends
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which relationship does `however` usually show?
-Answer: Contrast.
-
-Question: Which relationship does `because` usually show?
-Answer: Cause or reason.
+Question: Which relationship does `however` usually show
+Choices:
+- cause
+- addition
+- Contrast
+Answer: Contrast
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -186,17 +198,29 @@ Answer: **and**
 
 ### Quick Check
 
-Question: Which coordinator usually shows contrast?
-Answer: `but`.
+Question: Which coordinator usually shows contrast
+Choices:
+- but
+- contrast
+- cause
+Answer: but
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which coordinator usually shows result?
-Answer: `so`.
+Question: Which coordinator usually shows result
+Choices:
+- contrast
+- so
+- cause
+Answer: so
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which coordinator usually adds a reason in formal grammar descriptions?
-Answer: `for`.
-
-Question: True or false: coordinating connectors always show the same relationship.
-Answer: False.
+Question: Which coordinator usually adds a reason in formal grammar descriptions
+Choices:
+- contrast
+- cause
+- The root carries the core meaning
+Answer: The root carries the core meaning
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -260,17 +284,29 @@ Answer: **because**
 
 ### Quick Check
 
-Question: Which connector often begins a dependent reason clause?
-Answer: `because`.
+Question: Which connector often begins a dependent reason clause
+Choices:
+- because
+- contrast
+- cause
+Answer: because
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector often means "except if"?
-Answer: `unless`.
+Question: Which connector often means "except if"
+Choices:
+- contrast
+- unless
+- cause
+Answer: unless
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector often introduces a condition?
-Answer: `if`.
-
-Question: True or false: a subordinating connector usually links a dependent idea to a main idea.
-Answer: True.
+Question: Which connector often introduces a condition
+Choices:
+- contrast
+- cause
+- if
+Answer: if
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -328,17 +364,29 @@ Answer: **moreover**
 
 ### Quick Check
 
-Question: Which connector usually adds one more point?
-Answer: `also`.
+Question: Which connector usually adds one more point
+Choices:
+- moreover
+- contrast
+- cause
+Answer: moreover
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector sounds more formal: `moreover` or `but`?
-Answer: `moreover`.
+Question: Which connector sounds more formal: `moreover` or `but`
+Choices:
+- `but`
+- moreover
+- contrast
+Answer: moreover
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector keeps the same direction of thought?
-Answer: An addition connector.
-
-Question: True or false: addition connectors usually turn the sentence to the opposite idea.
-Answer: False.
+Question: Which connector keeps the same direction of thought
+Choices:
+- contrast
+- cause
+- and
+Answer: and
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -394,17 +442,29 @@ Answer: **however**
 
 ### Quick Check
 
-Question: Which connector usually shows an opposite idea?
-Answer: `but` or `however`.
+Question: Which connector usually shows an opposite idea
+Choices:
+- but
+- contrast
+- cause
+Answer: but
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector often admits one fact before the main point continues?
-Answer: `nevertheless`.
+Question: Which connector often admits one fact before the main point continues
+Choices:
+- contrast
+- although
+- cause
+Answer: although
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector is closer to concession than simple contrast?
-Answer: `although`.
-
-Question: True or false: contrast means the two ideas point in the same direction.
-Answer: False.
+Question: Which connector is closer to concession than simple contrast
+Choices:
+- contrast
+- cause
+- although
+Answer: although
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -467,17 +527,29 @@ Answer: **so**
 
 ### Quick Check
 
-Question: Which connector usually introduces a reason?
-Answer: `because` or `since`.
+Question: Which connector usually introduces a reason
+Choices:
+- because
+- contrast
+- cause
+Answer: because
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector usually introduces a result?
-Answer: `therefore` or `as a result`.
+Question: Which connector usually introduces a result
+Choices:
+- contrast
+- so
+- cause
+Answer: so
+Rationale: The sentence relationship determines the correct choice.
 
-Question: What should you ask first in a cause-result item?
-Answer: Whether the blank shows a reason or an effect.
-
-Question: True or false: cause and result are the same direction.
-Answer: False.
+Question: What should you ask first in a cause-result item
+Choices:
+- contrast
+- cause
+- Whether the blank shows a reason or an effect
+Answer: Whether the blank shows a reason or an effect
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -542,17 +614,29 @@ Answer: **if**
 
 ### Quick Check
 
-Question: Which connector usually introduces an example?
-Answer: `for example`.
+Question: Which connector usually introduces an example
+Choices:
+- for example
+- contrast
+- cause
+Answer: for example
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector usually rephrases the same idea?
-Answer: `in other words`.
+Question: Which connector usually rephrases the same idea
+Choices:
+- contrast
+- in other words
+- cause
+Answer: in other words
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector usually shows the next step?
-Answer: `next` or `then`.
-
-Question: Which connector usually means "except if"?
-Answer: `unless`.
+Question: Which connector usually shows the next step
+Choices:
+- contrast
+- cause
+- then
+Answer: then
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -654,185 +738,11 @@ Reasoning:
 
 Correct answer: **if**
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Read both sides of the blank.
-2. Identify the relationship.
-3. Decide whether the connector should add, contrast, explain, order, illustrate, restate, or condition.
-4. Check the grammar that follows the connector.
-5. Eliminate choices that point in the wrong direction.
 
-### Time Management
 
-If the relationship is obvious, answer quickly. If two choices seem possible, test each one against the sentence's meaning. If the connector changes the direction of the sentence, it is probably wrong.
-
-### Shortcut & Elimination Techniques
-
-- `and`, `also`, `moreover`, `furthermore`, `in addition` usually add or reinforce
-- `but`, `however`, `yet`, `nevertheless` usually contrast
-- `because`, `so`, `therefore`, `as a result` usually show cause or result
-- `first`, `next`, `then`, `finally` usually show order
-- `for example`, `for instance`, `namely` usually show illustration
-- `in other words`, `that is`, `specifically` usually restate
-- `if`, `unless`, `provided that`, `otherwise` usually show condition or exception
-
-### Exam-Day Tips
-
-- read the whole sentence before choosing
-- do not use a connector just because it sounds formal
-- watch for semicolons, commas, and dependent clauses
-- if the sentence turns direction, look for contrast or concession
-- if one event causes another, look for cause or result
-
-## Memory Aids
-
-### Mnemonics
-
-- `ADD` for addition
-- `TURN` for contrast
-- `WHY` for cause
-- `STEP` for sequence
-- `SHOW` for example
-- `SAY AGAIN` for restatement
-- `RULE` for condition
-- `EXCEPT` for exception
-
-### Mental Models
-
-- Think of addition connectors as a straight road.
-- Think of contrast connectors as a turn in the road.
-- Think of cause-result connectors as an arrow.
-- Think of sequence connectors as steps on a ladder.
-- Think of example connectors as a flashlight shining on one case.
-- Think of restatement connectors as a paraphrase.
-- Think of condition connectors as a gate that opens only if a rule is met.
-
-### Shortcuts & Tricks
-
-- if the sentence says `another`, `also`, or `more`, check addition first
-- if the sentence says `but`, `yet`, or `still`, check contrast first
-- if the sentence says `because` or `so`, check cause and result first
-- if the sentence says `first` or `next`, check sequence first
-- if the sentence says `for example`, check illustration first
-- if the sentence says `in other words`, check restatement first
-- if the sentence says `unless`, check exception first
-
-### What To Memorize
-
-- the core connector families
-- the most common conjunctions and transitional phrases
-- the difference between reason and result
-- the difference between example and restatement
-- the difference between condition and exception
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these things:
-
-- identify the relationship between ideas
-- tell addition from contrast
-- tell cause from result
-- tell sequence from example
-- tell example from restatement
-- tell condition from exception
-
-### Which Method?
-
-Question: The sentence adds another point. Which method should you use?
-Answer: Addition and reinforcement.
-
-Question: The sentence turns to the opposite idea. Which method should you use?
-Answer: Contrast and concession.
-
-Question: The sentence explains why something happened. Which method should you use?
-Answer: Cause and result.
-
-Question: The sentence gives a specific case. Which method should you use?
-Answer: Example and illustration.
-
-### Guided Practice
-
-Question: Which connector best completes the sentence below?
-
-"The manager reviewed the draft, ____ the assistant checked the attachments."
-
-Hint: The second idea adds another action.
-
-Answer: **and**
-
-Question: Which connector best completes the sentence below?
-
-"The memo was short; ____, it was clear."
-
-Hint: The second clause turns away from the first expectation.
-
-Answer: **however**
-
-Question: Which connector best completes the sentence below?
-
-"The room was dark, ____ the lights had gone out."
-
-Hint: The second clause gives the reason.
-
-Answer: **because**
-
-### Independent Practice
-
-Question: Which connector best completes the sentence below?
-
-"The team sorted the files, ____ it labeled each folder."
-
-Answer: **and**
-
-Question: Which connector best completes the sentence below?
-
-"The director praised the plan; ____, it still needed a final check."
-
-Answer: **nevertheless**
-
-Question: Which connector best completes the sentence below?
-
-"The clerk will leave early ____ the work is finished."
-
-Answer: **if**
-
-### Challenge Questions
-
-Question: Which connector best completes the sentence below?
-
-"The office was busy, ____ it still met the deadline."
-
-Answer: **yet**
-
-Question: Which connector best completes the sentence below?
-
-"The report cited several issues; ____, the main concern was the delay in delivery."
-
-Answer: **in other words**
-
-Question: Which connector best completes the sentence below?
-
-"The supervisor will approve the release ____ the figures are verified."
-
-Answer: **provided that**
-
-### Connections
-
-Connector words connect closely with logical fit because you still need to see the relationship between the ideas. They also connect with contrast signals and cause-and-effect items because those lessons go deeper into specific connector families. In the CSE, the safest habit is to read the whole sentence first, then decide what job the connector must do.
-
-### Mastery Checklist
-
-- I can identify the relationship the blank must show.
-- I can distinguish addition, contrast, cause, sequence, example, restatement, condition, and exception.
-- I can tell when a connector needs a dependent clause.
-- I can explain why a distractor fails logically.
-- I can solve connector items without guessing from familiarity alone.
 
 ## Key Takeaways
 
@@ -902,4 +812,3 @@ Answer: **in other words**
 ### What's Next?
 
 Next, the ladder moves into more focused connector families such as contrast signals and cause-and-effect patterns. That will make your sentence-completion decisions even faster and more precise.
-

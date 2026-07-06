@@ -18,6 +18,8 @@ export interface TableData {
 
 export interface InlineCheck {
   question: string;
+  choices?: string[];
+  correct_choice_index?: number;
   answer: string;
   rationale?: string;
 }

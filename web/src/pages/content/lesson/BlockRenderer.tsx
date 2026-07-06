@@ -13,7 +13,8 @@ export function BlockRenderer({ block }: { block: ContentBlock }) {
   // check_understanding blocks carry InlineCheck[] — handle before string coercion
   if (block.type === "check_understanding") {
     const checks = Array.isArray(block.content) ? (block.content as InlineCheck[]) : [];
-    return <CheckUnderstandingBlock checks={checks} />;
+    const sectionTitle = typeof block.metadata?.section_title === "string" ? block.metadata.section_title : undefined;
+    return <CheckUnderstandingBlock checks={checks} sectionTitle={sectionTitle} />;
   }
 
   // Coerce content to string for non-table types
@@ -58,6 +59,297 @@ function ProseBlock({ content }: { content: string }) {
       <MarkdownText text={content} style={{ lineHeight: 1.7, fontSize: "0.9rem", color: "var(--color-text)" }} />
     </div>
   );
+}
+
+function MultipleChoiceCheckCard({
+  index,
+  check,
+  choices,
+  selectedChoiceIndex,
+  onSelect,
+}: {
+  index: number;
+  check: InlineCheck;
+  choices: string[];
+  selectedChoiceIndex?: number;
+  onSelect: (choiceIndex: number) => void;
+}) {
+  const correctChoiceIndex = resolveCorrectChoiceIndex(check, choices);
+  const hasSelection = typeof selectedChoiceIndex === "number";
+  const isCorrect = hasSelection && selectedChoiceIndex === correctChoiceIndex;
+  const statusText = hasSelection
+    ? isCorrect
+      ? "Correct."
+      : `Not quite. The best answer is ${choices[correctChoiceIndex]}.`
+    : "";
+
+  return (
+    <div
+      style={{
+        background: "rgba(255,255,255,0.02)",
+        border: "1px solid rgba(255,255,255,0.07)",
+        borderRadius: "6px",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          padding: "0.5rem 0.75rem",
+          fontSize: "0.8125rem",
+          lineHeight: 1.5,
+          color: "var(--color-text)",
+          fontWeight: 500,
+        }}
+      >
+        <div style={{ fontSize: "0.625rem", fontWeight: 700, color: "var(--color-text-muted)", marginBottom: "0.35rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+          Question {index + 1}
+        </div>
+        <MarkdownText text={check.question} />
+      </div>
+
+      <div style={{ display: "grid", gap: "0.4rem", padding: "0 0.75rem 0.75rem" }}>
+        {choices.map((choice, choiceIndex) => {
+          const isSelected = selectedChoiceIndex === choiceIndex;
+          const isAnswer = choiceIndex === correctChoiceIndex;
+          return (
+            <button
+              key={choiceIndex}
+              type="button"
+              onClick={() => onSelect(choiceIndex)}
+              aria-pressed={isSelected}
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "0.55rem",
+                width: "100%",
+                padding: "0.55rem 0.7rem",
+                background: isSelected
+                  ? isAnswer
+                    ? "rgba(80, 200, 120, 0.12)"
+                    : "rgba(220, 80, 80, 0.1)"
+                  : "rgba(255,255,255,0.03)",
+                border: `1px solid ${
+                  isSelected
+                    ? isAnswer
+                      ? "rgba(80, 200, 120, 0.35)"
+                      : "rgba(220, 80, 80, 0.35)"
+                    : "rgba(255,255,255,0.08)"
+                }`,
+                borderRadius: "6px",
+                cursor: "pointer",
+                textAlign: "left",
+                color: "var(--color-text)",
+                fontSize: "0.8rem",
+                lineHeight: 1.5,
+              }}
+            >
+              <span
+                style={{
+                  flexShrink: 0,
+                  width: "1.2rem",
+                  height: "1.2rem",
+                  borderRadius: "999px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "0.625rem",
+                  fontWeight: 700,
+                  background: isSelected
+                    ? isAnswer
+                      ? "rgba(80, 200, 120, 0.2)"
+                      : "rgba(220, 80, 80, 0.2)"
+                    : "rgba(255,255,255,0.08)",
+                  color: isSelected
+                    ? isAnswer
+                      ? "rgba(80, 200, 120, 0.95)"
+                      : "rgba(220, 80, 80, 0.95)"
+                    : "var(--color-text-muted)",
+                  marginTop: "0.05rem",
+                }}
+              >
+                {String.fromCharCode(65 + choiceIndex)}
+              </span>
+              <span style={{ minWidth: 0, flex: 1 }}>
+                <MarkdownText text={choice} />
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {hasSelection && (
+        <div
+          style={{
+            padding: "0.55rem 0.75rem 0.75rem",
+            borderTop: "1px solid rgba(255,255,255,0.06)",
+            background: isCorrect ? "rgba(80, 200, 120, 0.05)" : "rgba(220, 80, 80, 0.05)",
+            fontSize: "0.75rem",
+            lineHeight: 1.55,
+            color: "var(--color-text)",
+          }}
+        >
+          <div style={{ fontWeight: 600, marginBottom: check.rationale ? "0.25rem" : 0, color: isCorrect ? "rgba(80, 200, 120, 0.95)" : "rgba(220, 80, 80, 0.95)" }}>
+            {statusText}
+          </div>
+          {check.rationale && <MarkdownText text={check.rationale} />}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function resolveCorrectChoiceIndex(check: InlineCheck, choices: string[]): number {
+  if (typeof check.correct_choice_index === "number" && choices[check.correct_choice_index]) {
+    return check.correct_choice_index;
+  }
+
+  const normalizedAnswer = normalizeChoiceText(check.answer);
+  const choiceIndex = choices.findIndex((choice) => normalizeChoiceText(choice) === normalizedAnswer);
+  if (choiceIndex >= 0) {
+    return choiceIndex;
+  }
+
+  const letterIndex = parseChoiceLetter(check.answer, choices.length);
+  if (letterIndex !== null) {
+    return letterIndex;
+  }
+
+  return 0;
+}
+
+function parseChoiceLetter(answer: string, choiceCount: number): number | null {
+  if (!answer) return null;
+  const match = answer.trim().match(/^(?:choice\s*)?([abc])(?:[\).:\-\s].*)?$/i);
+  if (!match) return null;
+  const index = match[1].toUpperCase().charCodeAt(0) - 65;
+  return index >= 0 && index < choiceCount ? index : null;
+}
+
+function normalizeChoiceText(text: string): string {
+  return text
+    .replace(/[`*_]/g, "")
+    .replace(/\s+/g, " ")
+    .replace(/[.?!]+$/g, "")
+    .trim()
+    .toLowerCase();
+}
+
+function resolveChoiceOptions(check: InlineCheck, sectionTitle: string | undefined, questionIndex: number): string[] {
+  const explicitChoices = Array.isArray(check.choices)
+    ? check.choices.map((choice) => choice.trim()).filter(Boolean)
+    : [];
+
+  if (explicitChoices.length >= 3) {
+    return explicitChoices.slice(0, 3);
+  }
+
+  const answer = check.answer?.trim() || "Not sure";
+  const pool = buildDistractorPool(check.question, sectionTitle, answer);
+  const combined = [answer, ...pool];
+  const unique: string[] = [];
+  for (const option of combined) {
+    if (!option) continue;
+    if (unique.some((item) => normalizeChoiceText(item) === normalizeChoiceText(option))) {
+      continue;
+    }
+    unique.push(option);
+    if (unique.length === 3) break;
+  }
+
+  while (unique.length < 3) {
+    unique.push(unique.length === 1 ? "It depends" : "None of these");
+  }
+
+  const rotation = questionIndex % 3;
+  if (rotation === 1) {
+    return [unique[1], unique[0], unique[2]];
+  }
+  if (rotation === 2) {
+    return [unique[1], unique[2], unique[0]];
+  }
+  return unique;
+}
+
+function buildDistractorPool(question: string, sectionTitle: string | undefined, answer: string): string[] {
+  const lowerTitle = (sectionTitle || "").toLowerCase();
+  const pool: string[] = [];
+
+  const add = (...items: string[]) => {
+    for (const item of items) {
+      if (!item) continue;
+      if (normalizeChoiceText(item) === normalizeChoiceText(answer)) continue;
+      if (pool.some((existing) => normalizeChoiceText(existing) === normalizeChoiceText(item))) continue;
+      pool.push(item);
+    }
+  };
+
+  const extractedAlternatives = extractQuestionAlternatives(question);
+  add(...extractedAlternatives);
+
+  if (/^(true|false)$/i.test(answer)) {
+    add("True", "False", "It depends");
+    return pool;
+  }
+
+  if (lowerTitle.includes("prefix")) {
+    add("before", "after", "under or below", "many or multiple", "self", "between", "again or back");
+  } else if (lowerTitle.includes("root")) {
+    add("carry", "write", "look or see", "life", "time", "build", "small", "hear or listen", "water");
+  } else if (lowerTitle.includes("suffix")) {
+    add("without", "full of", "person who", "most", "state or quality", "adverb", "past tense");
+  } else if (lowerTitle.includes("family")) {
+    add("base word", "root", "affix", "same family", "different spelling");
+  } else if (lowerTitle.includes("synonym")) {
+    add("antonym", "tone", "register", "collocation", "context clue");
+  } else if (lowerTitle.includes("antonym")) {
+    add("synonym", "same meaning", "definition", "tone", "context clue");
+  } else if (lowerTitle.includes("connotation")) {
+    add("denotation", "grammar", "spelling", "syllable count", "dictionary meaning");
+  } else if (lowerTitle.includes("context")) {
+    add("dictionary guess", "part of speech", "sentence clue", "random guess", "word memory");
+  } else if (lowerTitle.includes("idiom") || lowerTitle.includes("figurative")) {
+    add("literal meaning", "word-for-word meaning", "dictionary definition", "surface meaning");
+  } else if (lowerTitle.includes("connector")) {
+    add("contrast", "cause", "addition", "example", "condition", "result");
+  } else if (lowerTitle.includes("grammar")) {
+    add("nearest noun", "plural verb", "object case", "sound", "part of speech");
+  } else if (lowerTitle.includes("subject") || lowerTitle.includes("agreement") || lowerTitle.includes("collective") || lowerTitle.includes("there")) {
+    add("singular verb", "plural verb", "head noun", "nearest noun", "subject phrase", "verb form");
+  } else if (lowerTitle.includes("pronoun")) {
+    add("antecedent", "ownership", "plural noun", "verb", "adjective");
+  } else if (lowerTitle.includes("tense")) {
+    add("simple past", "simple present", "future", "perfect", "progressive");
+  } else if (lowerTitle.includes("contrast")) {
+    add("addition", "cause", "example", "condition", "sequence");
+  } else if (lowerTitle.includes("cause")) {
+    add("contrast", "result", "condition", "example", "sequence");
+  } else if (lowerTitle.includes("elimination")) {
+    add("meaning", "grammar", "tone", "logic", "punctuation");
+  } else if (lowerTitle.includes("register")) {
+    add("casual", "formal", "technical", "neutral", "official");
+  } else {
+    add("not quite", "something else", "another clue", "best fit");
+  }
+
+  if (pool.length < 2) {
+    add("Another choice", "Different choice", "Closest fit");
+  }
+
+  return pool;
+}
+
+function extractQuestionAlternatives(question: string): string[] {
+  const matches: string[] = [];
+  const orMatch = question.match(/:\s*(.+?)\s+or\s+(.+?)[?]?$/i);
+  if (orMatch) {
+    matches.push(orMatch[1].trim().replace(/[?.,]$/g, ""));
+    matches.push(orMatch[2].trim().replace(/[?.,]$/g, ""));
+  }
+
+  const backtickMatches = [...question.matchAll(/`([^`]+)`/g)].map((match) => match[1].trim());
+  matches.push(...backtickMatches);
+
+  return matches.filter(Boolean);
 }
 
 function InteractiveTable({ data }: { data: TableData }) {
@@ -349,8 +641,15 @@ function SvgBlock({ content }: { content: string }) {
 // Check Your Understanding — inline interactive reveal cards
 // ---------------------------------------------------------------------------
 
-function CheckUnderstandingBlock({ checks }: { checks: InlineCheck[] }) {
+function CheckUnderstandingBlock({
+  checks,
+  sectionTitle,
+}: {
+  checks: InlineCheck[];
+  sectionTitle?: string;
+}) {
   const [revealed, setRevealed] = useState<Set<number>>(new Set());
+  const [selectedChoices, setSelectedChoices] = useState<Record<number, number>>({});
 
   if (checks.length === 0) return null;
 
@@ -361,6 +660,13 @@ function CheckUnderstandingBlock({ checks }: { checks: InlineCheck[] }) {
       else next.add(i);
       return next;
     });
+  }
+
+  function selectChoice(questionIndex: number, choiceIndex: number) {
+    setSelectedChoices((prev) => ({
+      ...prev,
+      [questionIndex]: choiceIndex,
+    }));
   }
 
   return (
@@ -387,6 +693,20 @@ function CheckUnderstandingBlock({ checks }: { checks: InlineCheck[] }) {
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
         {checks.map((check, i) => {
+          const choices = resolveChoiceOptions(check, sectionTitle, i);
+          if (choices.length >= 3) {
+            return (
+              <MultipleChoiceCheckCard
+                key={i}
+                index={i}
+                check={check}
+                choices={choices}
+                selectedChoiceIndex={selectedChoices[i]}
+                onSelect={(choiceIndex) => selectChoice(i, choiceIndex)}
+              />
+            );
+          }
+
           const isOpen = revealed.has(i);
           return (
             <div
@@ -410,6 +730,7 @@ function CheckUnderstandingBlock({ checks }: { checks: InlineCheck[] }) {
                 <MarkdownText text={check.question} />
               </div>
               <button
+                type="button"
                 onClick={() => toggle(i)}
                 aria-expanded={isOpen}
                 style={{

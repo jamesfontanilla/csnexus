@@ -1,4 +1,4 @@
-# Idioms and Figurative Phrases
+﻿# Idioms and Figurative Phrases
 
 ## Explanations
 
@@ -97,14 +97,29 @@ The best answer is **very easy**.
 
 ### Quick Check
 
-Question: Does an idiom usually mean exactly what the words say?
-Answer: No.
+Question: Does an idiom usually mean exactly what the words say
+Choices:
+- False
+- True
+- It depends
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
-Question: What should you focus on first, the literal words or the intended meaning?
-Answer: The intended meaning.
+Question: What should you focus on first, the literal words or the intended meaning
+Choices:
+- literal meaning
+- the intended meaning
+- word-for-word meaning
+Answer: the intended meaning
+Rationale: The word meaning or context points to the best answer.
 
-Question: Why are idioms tricky on exams?
-Answer: Because they look literal but mean something different.
+Question: Why are idioms tricky on exams
+Choices:
+- literal meaning
+- word-for-word meaning
+- Because the literal words can mislead you
+Answer: Because the literal words can mislead you
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -160,14 +175,29 @@ The best answer is **in agreement**.
 
 ### Quick Check
 
-Question: What helps you most in an idiom question besides the phrase itself?
-Answer: The context around the phrase.
+Question: What helps you most in an idiom question besides the phrase itself
+Choices:
+- context
+- literal meaning
+- word-for-word meaning
+Answer: context
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: the most literal answer is always correct.
-Answer: False.
+Question: True or false: the most literal answer is always correct
+Choices:
+- True
+- False
+- It depends
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
-Question: Which words often signal a contrast?
-Answer: But, however, and instead.
+Question: Which words often signal a contrast
+Choices:
+- literal meaning
+- word-for-word meaning
+- but or however
+Answer: but or however
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -222,171 +252,39 @@ The best answer is **revealed a secret**.
 
 ### Quick Check
 
-Question: What is the figurative meaning of "hit the nail on the head"?
-Answer: To say or do something exactly right.
+Question: What is the figurative meaning of "hit the nail on the head"
+Choices:
+- say or do something exactly right
+- literal meaning
+- word-for-word meaning
+Answer: say or do something exactly right
+Rationale: The word meaning or context points to the best answer.
 
-Question: Is the literal picture the final answer in an idiom question?
-Answer: No.
+Question: Is the literal picture the final answer in an idiom question
+Choices:
+- True
+- False
+- It depends
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
-Question: What should you trust more than the literal image?
-Answer: The established figurative meaning.
+Question: What should you trust more than the literal image
+Choices:
+- literal meaning
+- word-for-word meaning
+- the intended meaning
+Answer: the intended meaning
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
 Literal meaning is what the words say. Figurative meaning is what the phrase means. On the CSE, the figurative meaning is usually what counts.
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Read the whole item once.
-2. Decide whether the phrase is figurative.
-3. Replace the phrase with plain English in your mind.
-4. Check which choice preserves the meaning.
-5. Eliminate answers that are too literal, too broad, or off-tone.
 
-This works because idiom questions are really meaning questions in disguise.
 
-### Time Management
-
-Do not spend too long on one phrase. If you know it, answer it. If you do not, make a quick best guess, mark it, and move on. Return later if time allows.
-
-### Shortcut & Elimination Techniques
-
-- eliminate literal answers that do not fit the situation
-- eliminate choices that reverse the mood or message
-- eliminate choices that sound too extreme or too weak
-- use substitution: read the sentence with the choice inserted
-- trust the context more than the visual image
-
-### Exam-Day Tips
-
-- read the whole sentence before you decide
-- watch for clue words like because, but, therefore, and although
-- stay alert for phrases that express emotion, secrecy, difficulty, or success
-- do not overthink a common idiom
-- if two answers are close, choose the one that matches the tone best
-
-## Memory Aids
-
-### Mnemonics
-
-Use **P-A-C-E**:
-
-- **P**hrase as a whole
-- **A**dd context
-- **C**heck the tone
-- **E**liminate literal traps
-
-### Mental Models
-
-Think of idioms as road signs. The sign image may be unusual, but the direction is clear once you know what the sign stands for.
-
-### Shortcuts & Tricks
-
-- replace the idiom with plain English and reread the sentence
-- if the sentence still makes sense, you probably have the right meaning
-- if the answer sounds like a literal action and the sentence is not literal, reject it
-- remember that common idioms are usually fixed expressions
-
-### What To Memorize
-
-Focus on the most common meaning groups:
-
-- luck and encouragement
-- secrecy and disclosure
-- difficulty and trouble
-- success and failure
-- speed and time pressure
-- agreement and disagreement
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these three things:
-
-- identify whether a phrase is literal or figurative
-- explain the meaning in plain English
-- use the sentence around the phrase as evidence
-
-### Which Method?
-
-Question: The phrase sounds strange if taken literally. What should you do first?
-Answer: Look for the figurative meaning.
-
-Question: The sentence has a clue word like "but" or "however." What should you do?
-Answer: Recheck the context and contrast.
-
-Question: The answer choices are all close. What should you test?
-Answer: Which choice preserves the meaning and tone.
-
-Question: You know the idiom but not the exact wording. What should you rely on?
-Answer: The intended meaning in context.
-
-### Guided Practice
-
-Question: "She kept her chin up after the setback." What does it mean?
-Answer: She stayed positive.
-
-Question: "The speaker hit the nail on the head." What does it mean?
-Answer: The speaker was exactly right.
-
-Question: "He decided to bite the bullet and finish the work." What does it mean?
-Answer: He faced the difficult task bravely.
-
-Question: "The secret was out once he spilled the beans." What does it mean?
-Answer: He revealed the secret.
-
-### Independent Practice
-
-Question: Which idiom means "very easy"?
-Answer: Piece of cake.
-
-Question: Which idiom means "feeling ill"?
-Answer: Under the weather.
-
-Question: Which idiom means "in agreement"?
-Answer: On the same page.
-
-Question: Which idiom means "give up"?
-Answer: Throw in the towel.
-
-### Challenge Questions
-
-Question: Why is a literal interpretation often wrong in idiom items?
-Answer: Because the intended meaning is figurative.
-
-Question: How can context narrow down the correct idiom meaning?
-Answer: It shows the situation, tone, and clue words.
-
-Question: What should you do if an idiom is unfamiliar?
-Answer: Use the sentence clues and test the answer choices.
-
-Question: How do you avoid a trap answer?
-Answer: Eliminate choices that fit the words but not the meaning.
-
-### Connections
-
-This lesson connects to several other verbal ability skills:
-
-- **Context clues** help you infer meaning from surrounding words.
-- **Multiple meaning words** train you to choose the right sense in a sentence.
-- **Synonyms** help you match meaning more precisely.
-- **Reading comprehension** depends on intended meaning, not just literal wording.
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- explain what an idiom is
-- separate literal and figurative meaning
-- use context to choose the right answer
-- avoid word-for-word traps
-- solve common idiom items quickly
-- justify your answer in plain English
 
 ## Key Takeaways
 

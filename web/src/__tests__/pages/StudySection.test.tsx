@@ -66,11 +66,11 @@ describe("StudySection", () => {
   it("persists quiz mode changes immediately", () => {
     render(<StudySection />);
 
-    const powerBtn = screen.getByRole("radio", { name: "Power" });
-    fireEvent.click(powerBtn);
+    const sprintBtn = screen.getByRole("radio", { name: "Sprint" });
+    fireEvent.click(sprintBtn);
 
     expect(mockSetStudyPreference).toHaveBeenCalledWith("defaultQuizMode", "power");
-    expect(powerBtn).toHaveAttribute("aria-checked", "true");
+    expect(sprintBtn).toHaveAttribute("aria-checked", "true");
   });
 
   it("persists exam date changes immediately", () => {

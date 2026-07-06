@@ -1,4 +1,4 @@
-# Context Clues
+﻿# Context Clues
 
 ## Explanations
 
@@ -94,17 +94,29 @@ The main idea is that the sentence gives the meaning instead of making you guess
 
 ### Quick Check
 
-Question: What is a context clue?
-Answer: A hint in the sentence or passage that helps reveal a word's meaning.
+Question: What is a context clue
+Choices:
+- A hint in the surrounding words or sentence
+- dictionary guess
+- part of speech
+Answer: A hint in the surrounding words or sentence
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: context clues can appear in a nearby sentence, not only the same sentence.
-Answer: True.
+Question: True or false: context clues can appear in a nearby sentence, not only the same sentence
+Choices:
+- False
+- True
+- It depends
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
-Question: Which is more useful, the target word alone or the target word plus the surrounding sentence?
-Answer: The target word plus the surrounding sentence.
-
-Question: Name one signal word for a definition clue.
-Answer: *means*, *is*, *refers to*, or *is called*.
+Question: Which is more useful, the target word alone or the target word plus the surrounding sentence
+Choices:
+- dictionary guess
+- part of speech
+- the target word plus the surrounding sentence
+Answer: the target word plus the surrounding sentence
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -170,17 +182,29 @@ The best answer is **a slow-moving mass of ice**.
 
 ### Quick Check
 
-Question: Which signal word often introduces a definition clue?
-Answer: *means* or *refers to*.
+Question: Which signal word often introduces a definition clue
+Choices:
+- means
+- dictionary guess
+- part of speech
+Answer: means
+Rationale: The word meaning or context points to the best answer.
 
-Question: If the sentence says "X, or Y," what is Y usually doing?
-Answer: Restating or defining X.
+Question: If the sentence says "X, or Y," what is Y usually doing
+Choices:
+- dictionary guess
+- restating or defining the word
+- part of speech
+Answer: restating or defining the word
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: punctuation can help reveal meaning.
-Answer: True.
-
-Question: In a definition clue, should you trust the explanation or ignore it?
-Answer: Trust the explanation.
+Question: True or false: punctuation can help reveal meaning
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -241,17 +265,29 @@ The best answer is **dull and lifeless**.
 
 ### Quick Check
 
-Question: Which phrase often signals a restatement clue?
-Answer: *in other words* or *that is*.
+Question: Which phrase often signals a restatement clue
+Choices:
+- in other words
+- dictionary guess
+- part of speech
+Answer: in other words
+Rationale: The word meaning or context points to the best answer.
 
-Question: Is a restatement clue usually close to the word it explains?
-Answer: Yes, usually in the same sentence or the next one.
+Question: Is a restatement clue usually close to the word it explains
+Choices:
+- False
+- True
+- It depends
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: a restatement clue can use easier words than the target word.
-Answer: True.
-
-Question: What should you do if two choices are related but only one repeats the same idea?
-Answer: Choose the one that restates the idea most directly.
+Question: True or false: a restatement clue can use easier words than the target word
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -319,17 +355,29 @@ The best answer is **stiff**.
 
 ### Quick Check
 
-Question: Which word usually signals contrast?
-Answer: *but* or *however*.
+Question: Which word usually signals contrast
+Choices:
+- however
+- dictionary guess
+- part of speech
+Answer: however
+Rationale: The word meaning or context points to the best answer.
 
-Question: What kind of clue is "unlike"?
-Answer: A contrast clue.
+Question: What kind of clue is "unlike"
+Choices:
+- dictionary guess
+- contrast clue
+- part of speech
+Answer: contrast clue
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: contrast clues can help you eliminate wrong choices fast.
-Answer: True.
-
-Question: If the sentence says "not X but Y," which idea usually matters most?
-Answer: Y.
+Question: True or false: contrast clues can help you eliminate wrong choices fast
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -391,17 +439,29 @@ The best answer is **tools for eating**.
 
 ### Quick Check
 
-Question: Which phrase often introduces examples?
-Answer: *such as* or *for example*.
+Question: Which phrase often introduces examples
+Choices:
+- for example
+- dictionary guess
+- part of speech
+Answer: for example
+Rationale: The word meaning or context points to the best answer.
 
-Question: What should you look for after the examples?
-Answer: The general category or meaning they point to.
+Question: What should you look for after the examples
+Choices:
+- dictionary guess
+- the shared idea
+- part of speech
+Answer: the shared idea
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: example clues always give the exact definition word for word.
-Answer: False.
-
-Question: If a sentence lists apples, pears, and mangoes, what kind of clue is it likely using?
-Answer: An example clue.
+Question: True or false: example clues always give the exact definition word for word
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -462,17 +522,29 @@ The best answer is **representative**.
 
 ### Quick Check
 
-Question: Which punctuation mark can signal a restatement clue?
-Answer: Comma, dash, parentheses, or colon.
+Question: Which punctuation mark can signal a restatement clue
+Choices:
+- comma
+- dictionary guess
+- part of speech
+Answer: comma
+Rationale: The word meaning or context points to the best answer.
 
-Question: What is an appositive?
-Answer: A noun phrase that renames or explains another noun.
+Question: What is an appositive
+Choices:
+- dictionary guess
+- a noun phrase that renames another noun
+- part of speech
+Answer: a noun phrase that renames another noun
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: punctuation can help reveal meaning even without a clue word.
-Answer: True.
-
-Question: If a word is followed by a phrase in parentheses, what should you do?
-Answer: Read the phrase carefully because it may explain the word.
+Question: True or false: punctuation can help reveal meaning even without a clue word
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -533,17 +605,29 @@ The best answer is **shy**.
 
 ### Quick Check
 
-Question: What should you do when there is no obvious clue word?
-Answer: Use the general sense of the sentence.
+Question: What should you do when there is no obvious clue word
+Choices:
+- use the surrounding sentence and part of speech
+- dictionary guess
+- part of speech
+Answer: use the surrounding sentence and part of speech
+Rationale: The word meaning or context points to the best answer.
 
-Question: Why does part of speech matter?
-Answer: Because the answer must fit the grammar.
+Question: Why does part of speech matter
+Choices:
+- dictionary guess
+- It tells you what kind of word fits
+- part of speech
+Answer: It tells you what kind of word fits
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: the sentence can still give a clue even without words like *means* or *however*.
-Answer: True.
-
-Question: What is the safest habit when the meaning is not direct?
-Answer: Read the full sentence and test the choices.
+Question: True or false: the sentence can still give a clue even without words like *means* or *however*
+Choices:
+- the sentence can still give a clue even without words like *means*
+- *however*
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -675,98 +759,7 @@ Reasoning:
 
 Correct answer: **sleepy**
 
-## Practice & Review
 
-### Before You Practice
-
-Make sure you can do these three things:
-
-- name the clue type in a sentence
-- explain the meaning in your own words
-- eliminate choices that do not fit the clue
-
-If you can do those, you are ready.
-
-### Which Method?
-
-Question: The sentence says "or" and then gives a simpler phrase. Which method should you use?
-Answer: Use a restatement or definition clue.
-
-Question: The sentence uses "but" or "however." Which method should you use?
-Answer: Use a contrast clue.
-
-Question: The sentence gives several examples. Which method should you use?
-Answer: Use an example clue and identify the shared category.
-
-Question: The sentence uses commas or dashes to insert an explanation. Which method should you use?
-Answer: Use the punctuation clue.
-
-### Guided Practice
-
-Question: Sentence: "The manager was terse, or brief and blunt, in the memo." What does terse mean?
-Answer: brief and blunt.
-
-Question: Sentence: "Celestial bodies, such as the sun, moon, and stars, are discussed in astronomy." What kind of clue is used?
-Answer: example clue.
-
-Question: Sentence: "The policy was rigid, but the revision was flexible." What clue is being used?
-Answer: contrast clue.
-
-Question: Sentence: "The envoy, a representative sent on a mission, addressed the council." What does envoy mean?
-Answer: representative.
-
-### Independent Practice
-
-Question: What does "vapid" mean in the sentence: "The speech was vapid - dull and lifeless - according to the audience."
-Answer: dull and lifeless.
-
-Question: What kind of clue is used in the sentence: "The jacket was warm, but the gloves were thin and chilly."
-Answer: contrast clue.
-
-Question: What does "glacier" mean in the sentence: "A glacier, or a slow-moving mass of ice, covered the valley."
-Answer: slow-moving mass of ice.
-
-Question: What does "utensils" mean in the sentence: "The kitchen drawer held utensils such as spoons, forks, and knives."
-Answer: tools for eating.
-
-Question: What does "timid" mean in the sentence: "The timid child stood behind the teacher and avoided eye contact."
-Answer: shy.
-
-### Challenge Questions
-
-Question: The clue is not direct, but the sentence still makes sense only if you know the word's meaning. What should you do?
-Answer: Use the general sense of the sentence and test each choice.
-
-Question: A word has two possible meanings. How do you decide which one fits?
-Answer: Use the surrounding context and the clue type.
-
-Question: If two answer choices are both related, what should you check next?
-Answer: Which one matches the sentence's exact meaning and tone.
-
-Question: Why are punctuation clues easy to miss?
-Answer: Because they can explain a word without using an obvious signal word.
-
-### Connections
-
-This lesson connects to several other verbal ability skills:
-
-- **Word meaning** depends heavily on context clues.
-- **Sentence completion** often uses the same clue types.
-- **Synonyms** help you recognize restatement clues.
-- **Antonyms** help you spot contrast clues.
-- **Reading comprehension** improves when you notice how writers explain unfamiliar words.
-
-Context clues are also useful outside the exam. They help you understand notices, memos, reports, and instructions faster, especially when the wording is formal or technical.
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- define context clues clearly
-- identify definition, synonym, antonym, example, and punctuation clues
-- use sentence logic when no direct clue is present
-- choose the best answer without guessing
-- explain why the wrong choices are wrong
 
 ## Key Takeaways
 

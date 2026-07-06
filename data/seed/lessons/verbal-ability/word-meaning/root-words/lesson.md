@@ -1,4 +1,4 @@
-# Root Words
+﻿# Root Words
 
 ## Explanations
 
@@ -78,10 +78,29 @@ So the root points to the core idea.
 
 ### Quick Check
 
-1. What is a root word?
-2. What does the root do in a word family?
-3. Why should you check affixes too?
-4. Why is context still important?
+Question: What is a root word
+Choices:
+- The core of a word that carries the main meaning
+- carry
+- write
+Answer: The core of a word that carries the main meaning
+Rationale: The root carries the core meaning.
+
+Question: What does the root do in a word family
+Choices:
+- carry
+- It gives the shared meaning to related words
+- write
+Answer: It gives the shared meaning to related words
+Rationale: The root carries the core meaning.
+
+Question: Why should you check affixes too
+Choices:
+- carry
+- write
+- Affixes can change meaning or part of speech
+Answer: Affixes can change meaning or part of speech
+Rationale: The root carries the core meaning.
 
 ### Key Insight
 
@@ -123,10 +142,29 @@ So `scope` helps show how a root can work inside a family.
 
 ### Quick Check
 
-1. What is a free root?
-2. What is a bound root?
-3. Why are root families helpful?
-4. Which is easier to spot in `microscope`: the root or the full meaning?
+Question: What is a free root
+Choices:
+- A root that can stand alone as a word
+- carry
+- write
+Answer: A root that can stand alone as a word
+Rationale: The root carries the core meaning.
+
+Question: What is a bound root
+Choices:
+- carry
+- A root that cannot stand alone
+- write
+Answer: A root that cannot stand alone
+Rationale: The root carries the core meaning.
+
+Question: Why are root families helpful
+Choices:
+- carry
+- write
+- They help you decode unfamiliar words
+Answer: They help you decode unfamiliar words
+Rationale: The root carries the core meaning.
 
 ### Key Insight
 
@@ -185,10 +223,29 @@ So the root family helps explain the word.
 
 ### Quick Check
 
-1. What does `aud` mean?
-2. What does `port` mean?
-3. Which root means `to write`?
-4. Which root means `water`?
+Question: What does `aud` mean
+Choices:
+- Hear or listen
+- carry
+- write
+Answer: Hear or listen
+Rationale: The root carries the core meaning.
+
+Question: What does `port` mean
+Choices:
+- write
+- Carry
+- look or see
+Answer: Carry
+Rationale: The root carries the core meaning.
+
+Question: Which root means `to write`
+Choices:
+- carry
+- write
+- script / scrib
+Answer: script / scrib
+Rationale: The root carries the core meaning.
 
 ### Key Insight
 
@@ -235,10 +292,29 @@ The root gives the core action.
 
 ### Quick Check
 
-1. What is the first thing you should do in a root-word question?
-2. Why do you check the root family?
-3. Why do you still read the sentence?
-4. Why should you not stop at the first familiar part?
+Question: What is the first thing you should do in a root-word question
+Choices:
+- Find the root
+- carry
+- write
+Answer: Find the root
+Rationale: The root carries the core meaning.
+
+Question: Why do you check the root family
+Choices:
+- carry
+- It helps you group related words and meanings
+- write
+Answer: It helps you group related words and meanings
+Rationale: The root carries the core meaning.
+
+Question: Why do you still read the sentence
+Choices:
+- carry
+- write
+- A prefix changes the meaning before the base word
+Answer: A prefix changes the meaning before the base word
+Rationale: The root carries the core meaning.
 
 ### Key Insight
 
@@ -282,166 +358,39 @@ The root cluster explains the meaning.
 
 ### Quick Check
 
-1. What idea does `graph` carry?
-2. What idea does `spect` carry?
-3. What idea does `bio` carry?
-4. What idea does `chron` carry?
+Question: What idea does `graph` carry
+Choices:
+- Write
+- carry
+- look or see
+Answer: Write
+Rationale: The root carries the core meaning.
+
+Question: What idea does `spect` carry
+Choices:
+- carry
+- Look or see
+- write
+Answer: Look or see
+Rationale: The root carries the core meaning.
+
+Question: What idea does `bio` carry
+Choices:
+- carry
+- write
+- Life
+Answer: Life
+Rationale: The root carries the core meaning.
 
 ### Key Insight
 
 Root clusters matter because they let you see patterns. Once the pattern is clear, new words become easier to predict.
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Spot the root quickly.
-2. Recall its common meaning.
-3. Check for prefixes or suffixes.
-4. Read the sentence for context.
-5. Choose the option that keeps the root meaning intact.
 
-### Time Management
 
-Do not spend too long trying to memorize every rare root. The exam usually rewards a small set of common roots and a steady method.
-
-### Shortcut & Elimination Techniques
-
-- eliminate choices that ignore the root meaning
-- eliminate choices that change the core idea too much
-- prefer the most common root meaning first
-- check whether the answer matches the sentence tone
-- watch for words that share letters but not the same root
-
-### Exam-Day Tips
-
-- learn the high-yield roots first
-- keep a small root family list in your head
-- read the whole word, not just the easiest piece
-- use context when two choices look close
-- trust the simplest meaning when it fits the sentence
-
-## Memory Aids
-
-### Mnemonics
-
-Use this root ladder mnemonic:
-
-- **R**ead the root
-- **O**bserve the affixes
-- **O**utline the family meaning
-- **T**est it in context
-
-### Mental Models
-
-Think of the root as the trunk of a tree:
-
-- the trunk holds the core meaning
-- branches are the related words
-- leaves are the extra letters and endings
-
-### Shortcuts & Tricks
-
-- if the word feels familiar, check whether a root family explains it
-- if the word looks technical, try a Greek or Latin root
-- if the word has two visible parts, test both parts before answering
-- if the root is bound, look for its family instead of waiting for a stand-alone word
-
-### What to Memorize
-
-Memorize patterns, not just lists:
-
-- common root families: `aud`, `bene`, `cent`, `dict`, `port`, `spect`, `struct`, `graph`, `bio`, `chron`
-- common meaning clues: hear, good, hundred, say, carry, look, build, write, life, time
-- common root forms: `scrib/script`, `sect/sec`, `vid/vis`, `duc/duct`
-- the fact that some roots stand alone and some do not
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these three things:
-
-- name the root in a word
-- tell what the root usually means
-- use context to confirm the answer
-
-### Which Method?
-
-Question: The word contains `aud-` and the sentence is about listening. Which method should you use?
-Answer: Match the root to its common meaning and confirm with context.
-
-Question: The word contains `struct-` and the sentence is about building or organizing. Which method should you use?
-Answer: Break the word into parts and test the root meaning build.
-
-Question: The word contains `graph-`. Which method should you use?
-Answer: Check whether the word points to writing, drawing, or recording.
-
-Question: The word looks technical, but you are not sure of the root family. Which method should you use?
-Answer: Read the full sentence and confirm the meaning before choosing.
-
-### Guided Practice
-
-Question: What does `aud` mean in `audible`?
-Answer: To hear or listen.
-
-Question: What does `port` mean in `transport`?
-Answer: To carry.
-
-Question: What does `graph` mean in `autograph`?
-Answer: To write.
-
-Question: What does `bio` mean in `biography`?
-Answer: Life.
-
-### Independent Practice
-
-Question: What does `spect` mean in `inspector`?
-Answer: To look or see.
-
-Question: What does `chron` mean in `chronic`?
-Answer: Time.
-
-Question: What does `micro` mean in `microscope`?
-Answer: Small.
-
-Question: What does `hydr` mean in `hydrant`?
-Answer: Water.
-
-### Challenge Questions
-
-Question: Why should you not rely on the first familiar-looking letters alone?
-Answer: Because the same letters can appear in words that do not use the same root.
-
-Question: Why is context still important?
-Answer: Because the sentence tells you whether the root meaning really fits.
-
-Question: Why is a small root list useful on the CSE?
-Answer: Because a few common roots can unlock many vocabulary items.
-
-Question: What should you do if two choices have similar root clues?
-Answer: Compare the full word, the sentence, and the root family before deciding.
-
-### Connections
-
-This lesson connects to several other verbal ability skills:
-
-- **Synonyms** help you compare close meanings.
-- **Antonyms** help you notice opposite ideas and negative or contrastive roots.
-- **Context clues** help you confirm which sense of a word is used.
-- **Prefixes and suffixes** help you see how the root is expanded.
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- identify common roots quickly
-- explain what a root does to meaning
-- tell the difference between free and bound roots
-- use root families to predict meaning
-- avoid overtrusting letters that only look like the root
 
 ## Key Takeaways
 

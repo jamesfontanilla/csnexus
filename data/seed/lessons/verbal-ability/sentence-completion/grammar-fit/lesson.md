@@ -1,4 +1,4 @@
-# Grammar Fit
+﻿# Grammar Fit
 
 ## Explanations
 
@@ -96,17 +96,29 @@ Answer: **is**
 
 ### Quick Check
 
-Question: What should you find first in a subject-verb item?
-Answer: The real subject.
+Question: What should you find first in a subject-verb item
+Choices:
+- The subject controls agreement
+- nearest noun
+- plural verb
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: the nearest noun is always the subject.
-Answer: False.
+Question: True or false: the nearest noun is always the subject
+Choices:
+- nearest noun
+- The subject controls agreement
+- plural verb
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which is correct for a singular subject, `is` or `are`?
-Answer: `is`.
-
-Question: What can hide the real subject?
-Answer: A prepositional phrase or a long modifier.
+Question: Which is correct for a singular subject, `is` or `are`
+Choices:
+- nearest noun
+- plural verb
+- The subject controls agreement
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -169,17 +181,29 @@ Answer: **him**
 
 ### Quick Check
 
-Question: Which form usually comes after a verb like `thanked`?
-Answer: Object case.
+Question: Which form usually comes after a verb like `thanked`
+Choices:
+- The subject controls agreement
+- nearest noun
+- plural verb
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which is correct: `between you and me` or `between you and I`?
-Answer: `between you and me`.
+Question: Which is correct: `between you and me` or `between you and I`
+Choices:
+- `between you and me`
+- The subject controls agreement
+- `between you and I`
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `their` and `theirs` do the same job in every sentence.
-Answer: False.
-
-Question: What does a reflexive pronoun usually show?
-Answer: That the action returns to the subject.
+Question: True or false: `their` and `theirs` do the same job in every sentence
+Choices:
+- nearest noun
+- plural verb
+- The subject controls agreement
+Answer: The subject controls agreement
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -245,17 +269,29 @@ Answer: **checked**
 
 ### Quick Check
 
-Question: Which time clue usually signals simple past?
-Answer: `yesterday` or `last week`.
+Question: Which time clue usually signals simple past
+Choices:
+- yesterday
+- nearest noun
+- plural verb
+Answer: yesterday
+Rationale: The sentence relationship determines the correct choice.
 
-Question: What does `by the time` often suggest?
-Answer: One action happened before another action.
+Question: What does `by the time` often suggest
+Choices:
+- nearest noun
+- an earlier completed action
+- plural verb
+Answer: an earlier completed action
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: tense should stay consistent unless the time changes.
-Answer: True.
-
-Question: Why is a tense choice wrong if the time clue is in the past?
-Answer: Because the verb should match the time of the sentence.
+Question: True or false: tense should stay consistent unless the time changes
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -309,17 +345,29 @@ Answer: **archive**
 
 ### Quick Check
 
-Question: What should a parallel list have?
-Answer: Matching grammatical form.
+Question: What should a parallel list have
+Choices:
+- matching forms
+- nearest noun
+- plural verb
+Answer: matching forms
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which pair needs balance on both sides?
-Answer: `either...or`.
+Question: Which pair needs balance on both sides
+Choices:
+- nearest noun
+- parallel structure
+- plural verb
+Answer: parallel structure
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: nouns and verbs can freely mix in the same list.
-Answer: False.
-
-Question: What is the parallel form of `to read, to write, and to summarize`?
-Answer: All three are infinitives.
+Question: True or false: nouns and verbs can freely mix in the same list
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -381,17 +429,29 @@ Answer: **an**
 
 ### Quick Check
 
-Question: What matters more for `a` or `an`, spelling or sound?
-Answer: Sound.
+Question: What matters more for `a` or `an`, spelling or sound
+Choices:
+- sound
+- nearest noun
+- plural verb
+Answer: sound
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which is correct: `interested in` or `interested on`?
-Answer: `interested in`.
+Question: Which is correct: `interested in` or `interested on`
+Choices:
+- `interested on`
+- interested in
+- nearest noun
+Answer: interested in
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: an adverb usually describes a noun.
-Answer: False.
-
-Question: Why can prepositions be tricky?
-Answer: Many are fixed by natural usage.
+Question: True or false: an adverb usually describes a noun
+Choices:
+- nearest noun
+- plural verb
+- The root carries the core meaning
+Answer: The root carries the core meaning
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -455,17 +515,29 @@ Answer: **clearer**
 
 ### Quick Check
 
-Question: Which word is used for a comparison between two things?
-Answer: `than`.
+Question: Which word is used for a comparison between two things
+Choices:
+- between
+- nearest noun
+- plural verb
+Answer: between
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which is correct: `fewer errors` or `less errors`?
-Answer: `fewer errors`.
+Question: Which is correct: `fewer errors` or `less errors`
+Choices:
+- `less errors`
+- fewer errors
+- nearest noun
+Answer: fewer errors
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `between` is usually used for more than two items.
-Answer: False.
-
-Question: What should you check in a mixed grammar item?
-Answer: The whole sentence, not just one clue.
+Question: True or false: `between` is usually used for more than two items
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -557,171 +629,11 @@ Reasoning:
 
 Correct answer: **archive**
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Read the whole sentence.
-2. Find the blank's grammatical role.
-3. Identify the rule being tested.
-4. Test the choices against the sentence.
-5. Eliminate choices that break grammar, not just meaning.
 
-### Time Management
 
-If the sentence has an obvious grammar clue, answer quickly. If the sentence has two possible traps, slow down and check both. If you cannot justify a choice, do not force it.
-
-### Shortcut & Elimination Techniques
-
-- find the real subject first
-- check pronoun case after verbs and prepositions
-- check the time clue before choosing a tense
-- test lists for parallel shape
-- watch for `a` versus `an`, `than`, `between`, and `among`
-
-### Exam-Day Tips
-
-- read the sentence aloud if needed
-- ask what kind of word belongs in the blank
-- do not let meaning override grammar
-- trust the structure of the sentence
-- if two choices look close, choose the one that fits the grammar exactly
-
-## Memory Aids
-
-### Mnemonics
-
-- `S`ubject first
-- `P`ronoun case second
-- `T`ense follows time
-- `P`arallel forms stay alike
-- `A`rticles and prepositions must sound natural
-- `C`omparisons need symmetry
-
-### Mental Models
-
-- Think of grammar as the skeleton and meaning as the clothing. The skeleton has to fit first.
-- Think of a list as a row of matching blocks. One odd block can break the pattern.
-- Think of a time clue as a clock hand. The verb should point the same way.
-
-### Shortcuts & Tricks
-
-- after a verb or preposition, check object pronoun forms
-- after `by the time` or `before`, look for earlier completion
-- with `either...or` and `neither...nor`, check the nearer subject
-- with `a` and `an`, listen to the first sound
-
-### What To Memorize
-
-- common pronoun cases
-- the main tense signals
-- the most frequent comparison patterns
-- the article sound rule
-- a few fixed prepositions and collocations
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these things:
-
-- spot the subject
-- spot the pronoun case
-- spot the tense clue
-- recognize parallel forms
-- check article, preposition, and comparison fit
-
-### Which Method?
-
-Question: The blank is after a verb like `thanked`. Which method should you use?
-Answer: Pronoun case.
-
-Question: The sentence says `Yesterday`. Which method should you use?
-Answer: Verb tense consistency.
-
-Question: The sentence has a list of equal ideas. Which method should you use?
-Answer: Parallelism.
-
-Question: The sentence says `an ___ officer`. Which method should you use?
-Answer: Article fit by sound.
-
-### Guided Practice
-
-Question: Which word best completes the sentence below?
-
-"The records were placed ____ the cabinet."
-
-Answer: **in**
-
-Question: Which word best completes the sentence below?
-
-"Every Monday, the manager ____ the reports."
-
-Answer: **reviews**
-
-Question: Which word best completes the sentence below?
-
-"The team needed to check, to sort, and to ____ the files."
-
-Answer: **file**
-
-Question: Which word best completes the sentence below?
-
-"The officer praised ____ after the review."
-
-Answer: **her**
-
-### Independent Practice
-
-Question: Which word best completes the sentence below?
-
-"By the end of the day, the staff ____ the memo."
-
-Answer: **will have finished**
-
-Question: Which word best completes the sentence below?
-
-"The second proposal was ____ than the first."
-
-Answer: **better**
-
-Question: Which word best completes the sentence below?
-
-"She is ____ honest worker."
-
-Answer: **an**
-
-Question: Which word best completes the sentence below?
-
-"The clerk filed the papers, stamped the forms, and ____ the log."
-
-Answer: **archived**
-
-### Challenge Questions
-
-Question: Why can a close-sounding choice still be wrong?
-Answer: Because it may break grammar even if the meaning is close.
-
-Question: What should you do if two choices both seem logical?
-Answer: Check which one matches the grammar of the sentence.
-
-Question: Why is tense consistency important?
-Answer: Because the sentence must stay on one time line unless the time changes.
-
-Question: Why are small words like `an`, `to`, and `than` important?
-Answer: Because they control the structure and fit of the sentence.
-
-### Connections
-
-This lesson connects directly to:
-
-- **logical fit**, because the blank still has to make sense
-- **pronoun reference**, because pronouns must point to the right noun
-- **tense consistency**, because time clues affect the blank
-- **connector words**, because sentence patterns often depend on linking words
-- **parallel structure**, because balanced lists are a common trap
 
 ## Key Takeaways
 

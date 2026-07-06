@@ -51,7 +51,7 @@ amount sign — bad combinations surface as 400 from there.
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from fastapi import HTTPException, status
 
@@ -99,11 +99,31 @@ _SUBTOPIC_PASS_XP = 20
 _SUBTOPIC_PERFECT_XP = 50
 _TOPIC_PASS_XP = 100
 _MODULE_PASS_XP = 250
+_ERR_ATTEMPT_TIME_EXPIRED = "attempt_time_expired"
 
 
 def _utcnow() -> datetime:
     """Aware UTC ``now`` so callers can pin time during tests."""
     return datetime.now(tz=timezone.utc)
+
+
+def _attempt_deadline(attempt: QuizAttempt) -> datetime | None:
+    """Return the UTC deadline for ``attempt`` if it has a timer."""
+    if attempt.time_limit_seconds is None:
+        return None
+
+    started_at = attempt.started_at
+    if started_at.tzinfo is None:
+        started_at = started_at.replace(tzinfo=timezone.utc)
+    return started_at + timedelta(seconds=attempt.time_limit_seconds)
+
+
+def _attempt_is_expired(attempt: QuizAttempt, when: datetime) -> bool:
+    """True iff ``when`` is at or beyond the attempt deadline."""
+    if when.tzinfo is None:
+        when = when.replace(tzinfo=timezone.utc)
+    deadline = _attempt_deadline(attempt)
+    return deadline is not None and when >= deadline
 
 
 class QuizService:
@@ -322,6 +342,7 @@ class QuizService:
 
         - 403 if the attempt isn't theirs.
         - 409 ``attempt_already_submitted`` if SUBMITTED.
+        - 409 ``attempt_time_expired`` if the server deadline has passed.
         - 403 if the question isn't on this attempt.
         - The repository commits before returning, satisfying Req 14.1
           (Property 24).
@@ -337,6 +358,11 @@ class QuizService:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="attempt_already_submitted",
+            )
+        if _attempt_is_expired(attempt, when):
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail=_ERR_ATTEMPT_TIME_EXPIRED,
             )
 
         try:
@@ -361,7 +387,12 @@ class QuizService:
         now: datetime | None = None,
     ) -> QuizSubmittedResponse:
         """Grade + persist + fan out XP / completion (Req 7.5–7.7,
-        8.4, 8.5, 9.4)."""
+        8.4, 8.5, 9.4).
+
+        Late submits still hard-submit the final answer set, but the
+        recorded ``submitted_at`` is clamped to the server deadline so
+        the persisted transcript reflects the timed boundary.
+        """
         when = now or _utcnow()
 
         attempt = self._quiz_repo.get_attempt_for_user(attempt_id, user.id)
@@ -374,6 +405,10 @@ class QuizService:
                 status_code=status.HTTP_409_CONFLICT,
                 detail="attempt_already_submitted",
             )
+        submitted_at = when
+        deadline = _attempt_deadline(attempt)
+        if deadline is not None and submitted_at > deadline:
+            submitted_at = deadline
 
         # Build the question lookup the grader needs.
         answers = self._quiz_repo.list_attempt_answers(attempt.id)
@@ -392,7 +427,7 @@ class QuizService:
         attempt = self._quiz_repo.submit_attempt(
             attempt.id,
             score=result.score,
-            submitted_at=when,
+            submitted_at=submitted_at,
             answer_corrections=[
                 {"question_id": g.question_id, "is_correct": g.is_correct}
                 for g in result.answers
@@ -405,7 +440,7 @@ class QuizService:
             attempt=attempt,
             is_perfect=result.is_perfect,
             is_passing=result.is_passing,
-            occurred_at=when,
+            occurred_at=submitted_at,
         )
 
         # Mastery recording: update per-subtopic mastery for each graded answer.

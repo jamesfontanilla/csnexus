@@ -1,4 +1,4 @@
-# Connotation
+﻿# Connotation
 
 ## Explanations
 
@@ -103,14 +103,29 @@ The best answer is **thrifty**.
 
 ### Quick Check
 
-Question: What is denotation?
-Answer: The direct dictionary meaning.
+Question: What is denotation
+Choices:
+- dictionary meaning
+- denotation
+- grammar
+Answer: dictionary meaning
+Rationale: The word meaning or context points to the best answer.
 
-Question: What is connotation?
-Answer: The feeling or attitude a word suggests.
+Question: What is connotation
+Choices:
+- denotation
+- the feeling or association a word carries
+- dictionary meaning
+Answer: the feeling or association a word carries
+Rationale: The word meaning or context points to the best answer.
 
-Question: Can two words have the same denotation but different connotation?
-Answer: Yes.
+Question: Can two words have the same denotation but different connotation
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -175,14 +190,29 @@ The best answer is **small**.
 
 ### Quick Check
 
-Question: Which connotation is usually best for a formal report?
-Answer: Neutral.
+Question: Which connotation is usually best for a formal report
+Choices:
+- The root carries the core meaning
+- denotation
+- dictionary meaning
+Answer: The root carries the core meaning
+Rationale: The word meaning or context points to the best answer.
 
-Question: Which connotation sounds harsh or insulting?
-Answer: Negative.
+Question: Which connotation sounds harsh or insulting
+Choices:
+- denotation
+- negative
+- dictionary meaning
+Answer: negative
+Rationale: The word meaning or context points to the best answer.
 
-Question: Which connotation sounds approving or respectful?
-Answer: Positive.
+Question: Which connotation sounds approving or respectful
+Choices:
+- denotation
+- dictionary meaning
+- The root carries the core meaning
+Answer: The root carries the core meaning
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -241,171 +271,39 @@ The best answer is **childlike**.
 
 ### Quick Check
 
-Question: What should you check first in a connotation item?
-Answer: The purpose and tone of the sentence.
+Question: What should you check first in a connotation item
+Choices:
+- the sentence purpose and tone
+- denotation
+- dictionary meaning
+Answer: the sentence purpose and tone
+Rationale: The word meaning or context points to the best answer.
 
-Question: If a word is correct in meaning but too harsh, should you keep it?
-Answer: No.
+Question: If a word is correct in meaning but too harsh, should you keep it
+Choices:
+- Yes
+- No
+- Not always
+Answer: No
+Rationale: The word meaning or context points to the best answer.
 
-Question: What kind of word usually fits a neutral news story?
-Answer: A neutral or balanced word.
+Question: What kind of word usually fits a neutral news story
+Choices:
+- denotation
+- dictionary meaning
+- neutral
+Answer: neutral
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
 The best word is not the one that means the same thing in the dictionary. It is the one that sounds right for the job.
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Read the sentence or the choices carefully.
-2. Decide whether the tone should be positive, negative, or neutral.
-3. Remove words with the wrong emotional shade.
-4. Compare the remaining words for formality and fairness.
-5. Choose the word that matches the situation best.
 
-### Time Management
 
-Connotation items usually reward quick but careful thinking. Do not overcomplicate the question. If one choice clearly sounds too rude, too casual, or too loaded, eliminate it immediately.
-
-### Shortcut & Elimination Techniques
-
-- reject words that sound too harsh for the situation
-- reject words that sound too warm for a factual statement
-- prefer neutral wording in official writing
-- compare the feeling of the word, not just its meaning
-- read the sentence aloud if two choices feel close
-
-### Exam-Day Tips
-
-- watch for formal language in memos and notices
-- watch for emotional language in complaints and criticism
-- use positive words for praise and encouragement
-- use neutral words when the sentence must stay objective
-- do not let a close synonym distract you from the tone
-
-## Memory Aids
-
-### Mnemonics
-
-Use **D-F-T**:
-
-- **D**enotation
-- **F**eeling
-- **T**one
-
-If you check those three things, you will avoid many connotation errors.
-
-### Mental Models
-
-Think of denotation as the label and connotation as the tint. The label tells you what the word is. The tint tells you how it feels.
-
-### Shortcuts & Tricks
-
-- replace the word with a simpler alternative and test the tone
-- if the sentence still sounds respectful, the choice is probably right
-- if the word adds insult or praise you did not intend, reject it
-- in official writing, balance usually beats flair
-
-### What To Memorize
-
-Memorize common connotation pairs:
-
-- slim / skinny
-- thrifty / cheap
-- childlike / childish
-- determined / stubborn
-- confident / arrogant
-- curious / nosy
-- direct / blunt
-- calm / dull
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these three things:
-
-- explain denotation and connotation in your own words
-- tell whether a word feels positive, negative, or neutral
-- choose the word that matches the tone of the sentence
-
-### Which Method?
-
-Question: The sentence is a formal report. Which kind of wording should you prefer?
-Answer: Neutral and respectful wording.
-
-Question: The sentence is a compliment. Which kind of wording should you prefer?
-Answer: Positive wording.
-
-Question: The sentence is a criticism. Which kind of wording should you prefer?
-Answer: Careful but honest wording.
-
-Question: Two choices mean almost the same thing, but one sounds harsher. Which should you avoid?
-Answer: The harsher one, unless the sentence specifically needs that tone.
-
-### Guided Practice
-
-Question: Which word sounds more positive: slim or skinny?
-Answer: slim.
-
-Question: Which word sounds more respectful: determined or stubborn?
-Answer: determined.
-
-Question: Which word sounds more negative: cheap or thrifty?
-Answer: cheap.
-
-Question: Which word sounds more neutral: small or puny?
-Answer: small.
-
-### Independent Practice
-
-Question: Which word would be best in a friendly compliment?
-Answer: childlike, if the idea is innocent or playful; otherwise choose the word with the most positive shade.
-
-Question: Which word would be safest in an official memo?
-Answer: the most neutral choice.
-
-Question: Which word would sound most insulting?
-Answer: the word with the strongest negative connotation.
-
-Question: Which word would sound most balanced?
-Answer: the word with the most neutral connotation.
-
-### Challenge Questions
-
-Question: Why can a word be correct in meaning but still wrong in a sentence?
-Answer: Because its connotation may not match the tone.
-
-Question: What does a strong connotation do to a sentence?
-Answer: It adds feeling, bias, or emphasis.
-
-Question: How do you keep official writing professional?
-Answer: Use balanced, neutral wording unless the context calls for a clear positive or negative tone.
-
-Question: What is the safest choice when the sentence should sound objective?
-Answer: The neutral word.
-
-### Connections
-
-This lesson connects to several other verbal ability skills:
-
-- **Synonyms** help you compare close meanings.
-- **Context clues** help you infer the intended tone.
-- **Idioms and figurative phrases** also carry meaning beyond the literal words.
-- **Reading comprehension** depends on noticing tone and attitude.
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- define connotation clearly
-- separate connotation from denotation
-- classify words as positive, negative, or neutral
-- spot the emotional shade in a sentence
-- choose the best word for a formal, friendly, or critical situation
 
 ## Key Takeaways
 

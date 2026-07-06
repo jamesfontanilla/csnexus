@@ -119,6 +119,16 @@ TITLE_OVERRIDES: dict[tuple[str, str, str], tuple[str, str, str]] = {
         "Word Meanings",
         "Word Families",
     ),
+    ("verbal-ability", "sentence-completion", "cause-and-effect"): (
+        "Verbal Ability",
+        "Sentence Completion",
+        "Cause and Effect",
+    ),
+    ("verbal-ability", "error-recognition", "subject-verb-agreement"): (
+        "Verbal Ability",
+        "Error Recognition",
+        "Subject-Verb Agreement",
+    ),
 }
 
 QUESTION_CATEGORY_MAP: dict[str, Category] = {

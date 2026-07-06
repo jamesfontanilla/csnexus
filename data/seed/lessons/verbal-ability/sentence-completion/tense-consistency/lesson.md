@@ -1,4 +1,4 @@
-# Tense Consistency
+﻿# Tense Consistency
 
 ## Explanations
 
@@ -106,17 +106,29 @@ Answer: **reviewed**
 
 ### Quick Check
 
-Question: What should you look for first in a tense item?
-Answer: The time clue and the reference point.
+Question: What should you look for first in a tense item
+Choices:
+- the time clue
+- simple past
+- simple present
+Answer: the time clue
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which clue usually points to simple present?
-Answer: `every day` or `usually`.
+Question: Which clue usually points to simple present
+Choices:
+- simple past
+- every day
+- simple present
+Answer: every day
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which clue usually points to simple past?
-Answer: `yesterday` or `last week`.
-
-Question: True or false: the nearest verb is always the correct tense.
-Answer: False.
+Question: Which clue usually points to simple past
+Choices:
+- simple past
+- simple present
+- last week
+Answer: last week
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -171,17 +183,29 @@ Answer: **reviews**
 
 ### Quick Check
 
-Question: Which tense usually fits a habit?
-Answer: Simple present.
+Question: Which tense usually fits a habit
+Choices:
+- simple present
+- simple past
+- future
+Answer: simple present
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which tense usually fits a finished event?
-Answer: Simple past.
+Question: Which tense usually fits a finished event
+Choices:
+- simple present
+- simple past
+- future
+Answer: simple past
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `every day` usually invites past tense.
-Answer: False.
-
-Question: What tense usually fits a past event with a clear finished time clue?
-Answer: Simple past.
+Question: True or false: `every day` usually invites past tense
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -236,17 +260,29 @@ Answer: **will update**
 
 ### Quick Check
 
-Question: Which word often signals a later time?
-Answer: `tomorrow` or `next week`.
+Question: Which word often signals a later time
+Choices:
+- tomorrow
+- simple past
+- simple present
+Answer: tomorrow
+Rationale: The sentence relationship determines the correct choice.
 
-Question: In a future time clause, should `will` usually appear inside the clause?
-Answer: No.
+Question: In a future time clause, should `will` usually appear inside the clause
+Choices:
+- Yes
+- No
+- Not always
+Answer: No
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `when the meeting starts` is a future clause that can still use present tense.
-Answer: True.
-
-Question: What tense usually appears in the main clause when the action is later?
-Answer: Future form.
+Question: True or false: `when the meeting starts` is a future clause that can still use present tense
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -303,17 +339,29 @@ Answer: **had filed**
 
 ### Quick Check
 
-Question: Which tense links a past action to the present?
-Answer: Present perfect.
+Question: Which tense links a past action to the present
+Choices:
+- present perfect
+- simple past
+- simple present
+Answer: present perfect
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which tense shows an earlier past action?
-Answer: Past perfect.
+Question: Which tense shows an earlier past action
+Choices:
+- simple past
+- past perfect
+- simple present
+Answer: past perfect
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `already` often signals perfect tense.
-Answer: True.
-
-Question: What does past perfect help you show?
-Answer: Which past action happened first.
+Question: True or false: `already` often signals perfect tense
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -372,17 +420,29 @@ Answer: **was checking**
 
 ### Quick Check
 
-Question: Which tense shows action in progress now?
-Answer: Present progressive.
+Question: Which tense shows action in progress now
+Choices:
+- present progressive
+- simple past
+- simple present
+Answer: present progressive
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which tense shows action in progress in the past?
-Answer: Past progressive.
+Question: Which tense shows action in progress in the past
+Choices:
+- simple past
+- past progressive
+- simple present
+Answer: past progressive
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: progressive tense focuses on the middle of the action.
-Answer: True.
-
-Question: What clue often points to ongoing action?
-Answer: `while`, `right now`, or a specific moment.
+Question: True or false: progressive tense focuses on the middle of the action
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -444,17 +504,29 @@ Answer: **had reviewed**
 
 ### Quick Check
 
-Question: What is backshifting?
-Answer: Moving a reported verb one step back in time.
+Question: What is backshifting
+Choices:
+- Moving the verb one step back in reported speech
+- simple past
+- simple present
+Answer: Moving the verb one step back in reported speech
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which future form often becomes `would` in reported speech?
-Answer: `will`.
+Question: Which future form often becomes `would` in reported speech
+Choices:
+- simple past
+- The root carries the core meaning
+- simple present
+Answer: The root carries the core meaning
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `said that` often triggers tense shift.
-Answer: True.
-
-Question: Why should you check the reporting verb first?
-Answer: It tells you whether the clause is direct or reported.
+Question: True or false: `said that` often triggers tense shift
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -559,177 +631,11 @@ Reasoning:
 
 Correct answer: **had filed**
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Circle the time clue.
-2. Identify the reference point.
-3. Ask whether the action is present, past, future, completed earlier, ongoing, or reported.
-4. Check whether the sentence has one event or two events.
-5. Eliminate choices that break the timeline.
 
-### Time Management
 
-If the time clue is obvious, answer quickly. If the sentence has two actions, decide which one happened first before looking at the options. If the item contains reported speech, check the reporting verb early so you do not waste time on the wrong timeline.
-
-### Shortcut & Elimination Techniques
-
-- `every`, `usually`, `often` -> simple present
-- `yesterday`, `last`, `ago` -> simple past
-- `tomorrow`, `next`, `later` -> future forms
-- `already`, `just`, `since`, `so far` -> perfect tense
-- `while`, `at that moment`, `right now` -> progressive tense
-- `said that`, `reported that`, `told that` -> sequence of tenses
-- if `when`, `before`, or `after` introduces a future idea, watch the main clause and the time clause separately
-
-### Exam-Day Tips
-
-- read the full sentence before choosing
-- do not let a familiar verb form distract you
-- do not force `will` into every blank
-- pay attention to auxiliaries such as `has`, `had`, `is`, and `was`
-- if two actions are mentioned, mark the earlier one first
-
-## Memory Aids
-
-### Mnemonics
-
-- `NOW` -> present
-- `DONE` -> past
-- `LATER` -> future
-- `ALREADY` -> perfect
-- `MOVING` -> progressive
-- `SAID` -> reported speech and backshift
-
-### Mental Models
-
-- Think of tense as a timeline marker.
-- Think of perfect tense as a backward arrow.
-- Think of progressive tense as a moving camera shot.
-- Think of reported speech as a story told from one step farther away.
-
-### Shortcuts & Tricks
-
-- if the sentence says `every Monday`, check simple present first
-- if it says `by the time`, check whether one past action happened earlier than another
-- if it says `so far`, check present perfect first
-- if it says `at 3 p.m. yesterday`, check past progressive first
-- if it says `said that`, check backshift first
-
-### What To Memorize
-
-- the main time clues for present, past, future, perfect, and progressive forms
-- the difference between simple past and past perfect
-- the difference between simple present habit and present perfect result
-- the basic backshift pattern in reported speech
-- the fact that future meaning can still use present tense inside a time clause
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these things:
-
-- find the time clue
-- identify the reference point
-- tell whether the action is finished, ongoing, later, or reported
-- choose the tense family before choosing the exact form
-- explain why the wrong choices do not fit the timeline
-
-### Which Method?
-
-Question: The sentence says `every day`. Which tense family should you check first?
-Answer: Simple present.
-
-Question: The sentence says `yesterday`. Which tense family should you check first?
-Answer: Simple past.
-
-Question: The sentence says `already` or `so far`. Which tense family should you check first?
-Answer: Perfect tense.
-
-Question: The sentence says `said that`. Which method should you use?
-Answer: Sequence of tenses and backshift.
-
-### Guided Practice
-
-Question: Which verb best completes the sentence below?
-
-"Each morning, the clerk ____ the visitor list."
-
-Hint: The action is a routine.
-
-Answer: **checks**
-
-Question: Which verb best completes the sentence below?
-
-"Before the meeting started, the manager ____ the summary."
-
-Hint: One past action happened earlier than another past event.
-
-Answer: **had reviewed**
-
-Question: Which verb best completes the sentence below?
-
-"The officer said that the team ____ the forms before lunch."
-
-Hint: The reporting verb is past.
-
-Answer: **had filed**
-
-### Independent Practice
-
-Question: Which verb best completes the sentence below?
-
-"Tomorrow morning, the inspector ____ the records after the briefing."
-
-Answer: **will check**
-
-Question: Which verb best completes the sentence below?
-
-"So far this week, the supervisor ____ the request twice."
-
-Answer: **has approved**
-
-Question: Which verb best completes the sentence below?
-
-"At 3 p.m. yesterday, the analyst ____ the report."
-
-Answer: **was drafting**
-
-### Challenge Questions
-
-Question: Which verb best completes the sentence below?
-
-"When the director arrived, the clerk ____ the memo and the files were already ready."
-
-Answer: **had filed**
-
-Question: Which verb best completes the sentence below?
-
-"The notice explained that the staff ____ the room before the power went out."
-
-Answer: **had been organizing**
-
-Question: Which verb best completes the sentence below?
-
-"By Friday, the team ____ the final summary, and the director could sign it."
-
-Answer: **will have finished**
-
-### Connections
-
-Tense consistency connects closely with grammar-fit because you must choose a form that is grammatically complete and timeline-accurate. It also connects with logical-fit because the sentence's meaning must move in the right time order. In formal writing, tense consistency helps reports, memos, and notices sound clear, reliable, and professional.
-
-### Mastery Checklist
-
-- I can spot the time clue in a sentence quickly.
-- I can tell whether the action is present, past, future, perfect, progressive, or reported.
-- I can decide which action happened first when two events appear.
-- I can avoid putting `will` inside a time clause that should stay in the present.
-- I can backshift verbs correctly in reported speech.
 
 ## Key Takeaways
 

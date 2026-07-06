@@ -1,4 +1,4 @@
-# Word Families
+﻿# Word Families
 
 ## Explanations
 
@@ -82,10 +82,29 @@ So the family is the `help` family.
 
 ### Quick Check
 
-1. What is the base word in a word family?
-2. Why is `helpful` part of the `help` family?
-3. Why is meaning more important than letter shape alone?
-4. What changes when a suffix is added?
+Question: What is the base word in a word family
+Choices:
+- The root or main word that related forms grow from
+- base word
+- root
+Answer: The root or main word that related forms grow from
+Rationale: Words in the same family share a base meaning.
+
+Question: Why is `helpful` part of the `help` family
+Choices:
+- base word
+- It comes from the same base word and keeps the related meaning
+- root
+Answer: It comes from the same base word and keeps the related meaning
+Rationale: Words in the same family share a base meaning.
+
+Question: Why is meaning more important than letter shape alone
+Choices:
+- base word
+- root
+- The root carries the core meaning
+Answer: The root carries the core meaning
+Rationale: Words in the same family share a base meaning.
 
 ### Key Insight
 
@@ -129,10 +148,29 @@ So these words belong to the same family because they share the same base meanin
 
 ### Quick Check
 
-1. What is a base word?
-2. What does `national` show about `nation`?
-3. Why is `powerful` part of the `power` family?
-4. Does every family member need to look identical to the base word?
+Question: What is a base word
+Choices:
+- The simplest word that a family grows from
+- base word
+- root
+Answer: The simplest word that a family grows from
+Rationale: Words in the same family share a base meaning.
+
+Question: What does `national` show about `nation`
+Choices:
+- base word
+- National is a related adjective form of nation
+- root
+Answer: National is a related adjective form of nation
+Rationale: Words in the same family share a base meaning.
+
+Question: Why is `powerful` part of the `power` family
+Choices:
+- base word
+- root
+- Words in the same family share a common base meaning
+Answer: Words in the same family share a common base meaning
+Rationale: Words in the same family share a base meaning.
 
 ### Key Insight
 
@@ -176,10 +214,29 @@ The family stays linked through the same core idea, even though the word forms a
 
 ### Quick Check
 
-1. What is the difference between inflection and derivation?
-2. Why is `teacher` related to `teach`?
-3. Why is `happiness` related to `happy`?
-4. What should you check after spotting a family member?
+Question: What is the difference between inflection and derivation
+Choices:
+- Inflection changes grammar; derivation can change meaning or part of speech
+- base word
+- root
+Answer: Inflection changes grammar; derivation can change meaning or part of speech
+Rationale: Words in the same family share a base meaning.
+
+Question: Why is `teacher` related to `teach`
+Choices:
+- base word
+- Teacher is a derived family member meaning one who teaches
+- root
+Answer: Teacher is a derived family member meaning one who teaches
+Rationale: Words in the same family share a base meaning.
+
+Question: Why is `happiness` related to `happy`
+Choices:
+- base word
+- root
+- Happiness is a derived noun for the state of being happy
+Answer: Happiness is a derived noun for the state of being happy
+Rationale: Words in the same family share a base meaning.
 
 ### Key Insight
 
@@ -232,10 +289,29 @@ So the odd one out is the word outside the family.
 
 ### Quick Check
 
-1. What is the first thing you should find in a word family item?
-2. Why should you check the sentence too?
-3. What is the danger of guessing from the first few letters?
-4. Why is family meaning more useful than letter shape alone?
+Question: What is the first thing you should find in a word family item
+Choices:
+- The base word
+- base word
+- root
+Answer: The base word
+Rationale: Words in the same family share a base meaning.
+
+Question: Why should you check the sentence too
+Choices:
+- base word
+- The sentence confirms which family form fits
+- root
+Answer: The sentence confirms which family form fits
+Rationale: Words in the same family share a base meaning.
+
+Question: What is the danger of guessing from the first few letters
+Choices:
+- base word
+- root
+- Words can look similar but be unrelated
+Answer: Words can look similar but be unrelated
+Rationale: Words in the same family share a base meaning.
 
 ### Key Insight
 
@@ -275,136 +351,11 @@ Answer: `portable`.
 
 Reasoning: The other choices keep the `play` base idea. `portable` does not.
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-1. Find the base word first.
-2. Ask what meaning the family shares.
-3. Check whether the answer keeps that meaning.
-4. Eliminate words that only look similar.
-5. Confirm the best choice in the sentence.
 
-### Time Management
 
-- If the family is obvious, answer quickly.
-- If the family is unclear, compare the base word to each option.
-- Do not spend too long on a word that only looks familiar.
 
-### Shortcut And Elimination Techniques
-
-- Look for common endings like `-ful`, `-less`, `-ness`, `-er`, `-tion`, and `-ly`.
-- Watch for prefixes like `un-`, `re-`, `dis-`, and `in-`.
-- Eliminate any word that changes the family meaning too much.
-
-### Exam-Day Tips
-
-- Read the whole word, not just the first syllable.
-- Trust the family meaning, not a guess from appearance.
-- Use context if the question gives a sentence.
-- Keep your base-word list small and sharp.
-
-## Memory Aids
-
-### Mnemonics
-
-- `Base first, branches second.`
-- `Same base, same family.`
-- `Meaning beats appearance.`
-
-### Mental Models
-
-Think of a family tree. The base word is the trunk, and the other forms are branches. The branches may look different, but they still grow from the same center.
-
-### Shortcuts And Tricks
-
-- If you can remove a prefix or suffix and still see the base word, you are probably on the right track.
-- If a word changes part of speech but keeps the same idea, it may still belong to the family.
-
-### What To Memorize
-
-- Common base words: `help`, `care`, `play`, `work`, `move`, `use`, `hope`, `kind`, `friend`, `power`
-- Common family endings: `-ful`, `-less`, `-ness`, `-er`, `-ly`, `-tion`, `-able`, `-al`
-- Common family starters: `un-`, `re-`, `dis-`, `in-`, `over-`
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can answer these three questions:
-
-- What is the base word?
-- What is the shared meaning?
-- Which choice keeps the family meaning?
-
-### Which Method?
-
-Use the base-word method when:
-
-- the question asks for a family member
-- the choices look similar but mean different things
-- the sentence gives a clue about form or meaning
-
-### Guided Practice
-
-Question: What base word is in `helpful`?
-Answer: `help`.
-
-Question: What does the family base in `powerful` mean?
-Answer: Power or strength.
-
-Question: Which word is related to `nation`: `national`, `portable`, `diagram`, or `random`?
-Answer: `national`.
-
-Question: Which word does not belong with `care`, `careful`, and `careless`?
-Answer: A word outside that family, such as `bright`.
-
-### Independent Practice
-
-Question: What family does `friendship` belong to?
-Answer: The `friend` family.
-
-Question: What does `cleanliness` show about `clean`?
-Answer: It turns the idea into a noun.
-
-Question: Which word is the best family match for `teach`?
-Answer: `teacher`.
-
-Question: Which word is the odd one out: `safe`, `safety`, `unsafe`, or `respectful`?
-Answer: `respectful`.
-
-### Challenge Questions
-
-Question: Why is `helpfulness` still linked to `help`?
-Answer: Because it keeps the same base meaning and adds a noun-forming ending.
-
-Question: Why can `unhappy` and `happiness` both be useful family words?
-Answer: They both grow from `happy`, but they change the meaning in different ways.
-
-Question: Why should you not trust the first letters alone?
-Answer: Because some words only look related and do not share the same base meaning.
-
-Question: What is the safest way to solve a family item?
-Answer: Find the base word, test the meaning, and check the sentence.
-
-### Connections
-
-This lesson connects directly to:
-
-- **Prefixes**, which help you see what is added to the front
-- **Suffixes**, which help you see what is added to the end
-- **Root words**, which help you see the deeper core of meaning
-- **Context clues**, which confirm the final answer
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- identify the base word in a family
-- explain the shared family meaning
-- tell inflected forms from derived forms
-- spot an odd one out in a family set
-- use context to confirm the best word
 
 ## Key Takeaways
 

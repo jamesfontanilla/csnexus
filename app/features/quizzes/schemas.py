@@ -71,7 +71,7 @@ class QuizStartRequest(BaseModel):
     for the attempt. Accepted values map to the three quiz modes:
       - Practice: 1200 (20 min)
       - Exam:      900 (15 min)
-      - Power:     600 (10 min)
+      - Sprint:    600 (10 min)
 
     ``None`` (or omitting the body entirely) means no timer — the
     attempt runs until the learner submits manually.

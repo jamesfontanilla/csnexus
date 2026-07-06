@@ -147,7 +147,7 @@ class MarkdownLessonParser:
             next_phase = "after_explanations"
         elif classification.kind == "worked_examples":
             next_phase = "after_worked_examples"
-        elif classification.kind in {"exam_strategies", "memory_aids", "practice_review", "key_takeaways", "summary", "final_challenge"}:
+        elif classification.kind in {"key_takeaways", "summary", "final_challenge"}:
             next_phase = classification.kind
         elif classification.kind == "micro_concept" and phase in {"after_explanations", "microconcepts"}:
             next_phase = "microconcepts"
@@ -173,7 +173,7 @@ class MarkdownLessonParser:
                 parent_kind=child_kind,
                 level=child.level,
             )
-            if classification.kind not in {"explanations", "micro_concept", "worked_examples", "exam_strategies", "memory_aids", "practice_review", "final_challenge"} and child_classification.kind.startswith("generic_"):
+            if classification.kind not in {"explanations", "micro_concept", "worked_examples", "final_challenge"} and child_classification.kind.startswith("generic_"):
                 child_classification = SectionMatch(
                     kind=child_classification.kind,
                     title=child.title,
@@ -309,9 +309,6 @@ class MarkdownLessonParser:
         document.explanations = [section for section in document.sections if section.kind == "explanations"]
         document.microconcepts = [section for section in document.sections if section.kind == "micro_concept"]
         document.worked_examples = [section for section in document.sections if section.kind == "worked_examples"]
-        document.exam_strategies = [section for section in document.sections if section.kind == "exam_strategies"]
-        document.memory_aids = [section for section in document.sections if section.kind == "memory_aids"]
-        document.practice_review = [section for section in document.sections if section.kind == "practice_review"]
         document.final_challenge = [section for section in document.sections if section.kind == "final_challenge"]
         document.generic_sections = [
             section
@@ -415,7 +412,7 @@ class MarkdownLessonParser:
         candidates = [
             section.title
             for section in document.sections
-            if section.kind in {"micro_concept", "worked_examples", "exam_strategies"}
+            if section.kind in {"micro_concept", "worked_examples"}
         ]
         if not candidates:
             candidates = [document.summary or document.title]

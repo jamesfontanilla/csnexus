@@ -153,36 +153,75 @@ describe("QuizPlayer page (Task 18.5)", () => {
   });
 
   describe("Time expired state is visually distinct from sub-30s warning (Requirement 13.6)", () => {
-    it("timer expired state shows 'Time Expired' text with distinct background styling", async () => {
-      // Create an attempt that started long ago so timer is at 0
+    it("expired timer auto-submits and locks the quiz while submit is in flight", async () => {
+      // Create an attempt that started long ago so timer is already at 0.
       const expiredAttempt = {
         ...mockAttemptInProgress,
         started_at: new Date(Date.now() - 1200 * 1000 - 10000).toISOString(),
         time_limit_seconds: 1200,
       };
-      mockPost.mockResolvedValue(expiredAttempt);
+      mockPost.mockResolvedValueOnce(expiredAttempt);
+      mockPost.mockImplementationOnce(() => new Promise(() => {}));
 
       renderQuizPlayer();
 
-      // Click a mode to start the quiz
+      // Click a mode to start the quiz.
       const practiceBtn = await screen.findByLabelText("Start Practice Mode");
       await act(async () => {
         practiceBtn.click();
       });
 
       await waitFor(() => {
-        expect(screen.getByText("Time Expired")).toBeInTheDocument();
+        expect(mockPost).toHaveBeenCalledTimes(2);
       });
+      expect(mockPost.mock.calls[1][0]).toBe("/v1/quiz-attempts/10:submit");
 
-      // The "Time Expired" text should be present (distinct from just showing a countdown)
+      expect(screen.getByText("Time Expired")).toBeInTheDocument();
+      expect(screen.getByLabelText("Select option: 4")).toBeDisabled();
+      expect(screen.getByLabelText("Submit quiz")).toBeDisabled();
+      expect(screen.getByLabelText("Go to question 2")).toBeDisabled();
+
       const timerEl = screen.getByText("Time Expired");
-      // The timer expired state has a distinct background (rgba(212, 100, 92, 0.15))
-      // and a solid danger border, which is different from the sub-30s state
       const timerContainer = timerEl.closest("div");
       expect(timerContainer).not.toBeNull();
-      // The expired state has a specific background and border that differs from sub-30s
       expect(timerContainer!.style.background).toContain("rgba(212, 100, 92, 0.15)");
       expect(timerContainer!.style.border).toContain("var(--color-danger)");
+    });
+
+    it("refreshes the countdown when the tab becomes visible again", async () => {
+      const baseNow = new Date("2025-01-01T00:00:00.000Z").getTime();
+      const nowSpy = vi.spyOn(Date, "now").mockReturnValue(baseNow);
+
+      try {
+        const warningAttempt = {
+          ...mockAttemptInProgress,
+          started_at: new Date(baseNow - (1200 - 15) * 1000).toISOString(),
+          time_limit_seconds: 1200,
+        };
+        mockPost.mockResolvedValueOnce(warningAttempt);
+
+        renderQuizPlayer();
+
+        const practiceBtn = await screen.findByLabelText("Start Practice Mode");
+        await act(async () => {
+          practiceBtn.click();
+        });
+
+        await waitFor(() => {
+          expect(screen.getByText("00:15")).toBeInTheDocument();
+        });
+
+        nowSpy.mockReturnValue(baseNow + 10_000);
+        await act(async () => {
+          document.dispatchEvent(new Event("visibilitychange"));
+        });
+
+        await waitFor(() => {
+          expect(screen.getByText("00:05")).toBeInTheDocument();
+        });
+      } finally {
+        nowSpy.mockRestore();
+      }
     });
 
     it("sub-30s warning state shows countdown numbers, not 'Time Expired'", async () => {

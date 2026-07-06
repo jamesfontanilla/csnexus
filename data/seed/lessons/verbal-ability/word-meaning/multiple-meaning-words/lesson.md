@@ -1,4 +1,4 @@
-# Multiple Meaning Words
+﻿# Multiple Meaning Words
 
 ## Explanations
 
@@ -271,17 +271,29 @@ Reasoning:
 
 ### Quick Check
 
-Question: What is the first thing you should do when you meet a multiple meaning word?
-Answer: Read the whole sentence and identify the part of speech.
+Question: What is the first thing you should do when you meet a multiple meaning word
+Choices:
+- the part of speech and sentence context
+- only one meaning
+- a synonym
+Answer: the part of speech and sentence context
+Rationale: The word meaning or context points to the best answer.
 
-Question: If a word can be a noun or a verb, what should you check?
-Answer: Which part of speech fits the sentence.
+Question: If a word can be a noun or a verb, what should you check
+Choices:
+- only one meaning
+- the part of speech
+- a synonym
+Answer: the part of speech
+Rationale: The word meaning or context points to the best answer.
 
-Question: Should you always choose the most common dictionary meaning?
-Answer: No. Choose the meaning that fits the context.
-
-Question: What is the safest way to test an answer choice?
-Answer: Replace the word with the choice and see whether the sentence still makes sense.
+Question: Should you always choose the most common dictionary meaning
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
 ## Sentence Completion Connection
 
@@ -294,61 +306,7 @@ That is why the same habit matters in both topics:
 - test the part of speech
 - eliminate choices that do not fit the meaning
 
-## Practice & Review
 
-### Guided Practice
-
-Question: In "The fisherman sat on the bank and watched the river," what does **bank** mean?
-Answer: the side of a river.
-
-Question: In "The room was light after the curtains were opened," what does **light** mean?
-Answer: bright or full of illumination.
-
-Question: In "He can file the papers after lunch," what does **file** mean?
-Answer: arrange papers in order.
-
-Question: In "The guard will watch the gate tonight," what does **watch** mean?
-Answer: look after or observe carefully.
-
-### Independent Practice
-
-Question: What does **seal** mean in "The seal swam near the rocks"?
-Answer: a sea animal.
-
-Question: What does **seal** mean in "Please seal the envelope"?
-Answer: close tightly.
-
-Question: What does **fine** mean in "The judge imposed a fine"?
-Answer: a payment or penalty.
-
-Question: What does **fine** mean in "The weather is fine today"?
-Answer: good or pleasant.
-
-Question: What does **right** mean in "Turn right at the corner"?
-Answer: the direction opposite left.
-
-### Challenge Questions
-
-Question: Why can a dictionary be helpful but not enough by itself?
-Answer: Because it lists several meanings, and the sentence must tell you which one fits.
-
-Question: What should you do if two meanings seem possible?
-Answer: Compare them to the full context and choose the one that makes the sentence work best.
-
-Question: Why does part of speech matter?
-Answer: Because the wrong part of speech cannot fit the sentence.
-
-Question: What is the biggest clue when the sentence uses "but" or "however"?
-Answer: The sentence may be shifting to a different meaning.
-
-### Connections
-
-This lesson connects directly to:
-
-- **word meaning**, because you must choose the correct sense
-- **sentence completion**, because the sentence must stay logical and grammatical
-- **context clues**, because nearby words guide the meaning
-- **reading comprehension**, because careful reading improves accuracy
 
 ## Key Takeaways
 

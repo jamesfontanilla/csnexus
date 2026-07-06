@@ -1,4 +1,4 @@
-# Synonyms
+﻿# Synonyms
 
 ## Explanations
 
@@ -115,14 +115,29 @@ The best answer is **brief**.
 
 ### Quick Check
 
-Question: Which word is more formal in office writing: ask or inquire?
-Answer: inquire.
+Question: Which word is more formal in office writing: ask or inquire
+Choices:
+- inquire
+- ask
+- antonym
+Answer: inquire
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: every synonym can replace the original word in every sentence.
-Answer: False.
+Question: True or false: every synonym can replace the original word in every sentence
+Choices:
+- True
+- False
+- It depends
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
-Question: What should you check besides the dictionary meaning?
-Answer: Part of speech, tone, register, and collocation.
+Question: What should you check besides the dictionary meaning
+Choices:
+- antonym
+- same meaning
+- tone and usage
+Answer: tone and usage
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -186,17 +201,29 @@ The best answer is **unclear**.
 
 ### Quick Check
 
-Question: What clue in a sentence often helps you spot the right meaning?
-Answer: Context clues from the surrounding words.
+Question: What clue in a sentence often helps you spot the right meaning
+Choices:
+- context clues
+- antonym
+- same meaning
+Answer: context clues
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: the most common meaning of a word is always the correct meaning in context.
-Answer: False.
+Question: True or false: the most common meaning of a word is always the correct meaning in context
+Choices:
+- True
+- False
+- It depends
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
-Question: In the sentence "The answer was not vague but precise," what clue is being used?
-Answer: An antonym clue.
-
-Question: Which matters more: the target word alone or the target word inside the sentence?
-Answer: The target word inside the sentence.
+Question: In the sentence "The answer was not vague but precise," what clue is being used
+Choices:
+- antonym
+- same meaning
+- contrast
+Answer: contrast
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -259,17 +286,29 @@ The best answer is **inquired**.
 
 ### Quick Check
 
-Question: Which sounds more formal: ask or inquire?
-Answer: Inquire.
+Question: Which sounds more formal: ask or inquire
+Choices:
+- inquire
+- ask
+- antonym
+Answer: inquire
+Rationale: The word meaning or context points to the best answer.
 
-Question: Why is "strong rain" a weaker choice than "heavy rain"?
-Answer: Heavy rain is the natural collocation.
+Question: Why is "strong rain" a weaker choice than "heavy rain"
+Choices:
+- antonym
+- It does not sound natural with rain
+- same meaning
+Answer: It does not sound natural with rain
+Rationale: The word meaning or context points to the best answer.
 
-Question: True or false: two synonyms always have the same connotation.
-Answer: False.
-
-Question: Which word is more likely to sound positive in a description of a person: slim or skinny?
-Answer: Slim.
+Question: True or false: two synonyms always have the same connotation
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -335,17 +374,29 @@ The best answer is **careful**.
 
 ### Quick Check
 
-Question: What should you check first: the word's popularity or its part of speech?
-Answer: The part of speech.
+Question: What should you check first: the word's popularity or its part of speech
+Choices:
+- its part of speech
+- the word's popularity
+- antonym
+Answer: its part of speech
+Rationale: The word meaning or context points to the best answer.
 
-Question: If two answers both look close, what should you do next?
-Answer: Substitute each choice into the sentence and test the fit.
+Question: If two answers both look close, what should you do next
+Choices:
+- antonym
+- Test both choices in the sentence
+- same meaning
+Answer: Test both choices in the sentence
+Rationale: The word meaning or context points to the best answer.
 
-Question: Which options are easiest to eliminate immediately: synonyms, antonyms, or random words?
-Answer: Antonyms and clearly unrelated words.
-
-Question: What matters more: a word you know well or a word that fits the sentence?
-Answer: A word that fits the sentence.
+Question: Which options are easiest to eliminate immediately: synonyms, antonyms, or random words
+Choices:
+- synonyms, antonyms,
+- antonym
+- random words
+Answer: random words
+Rationale: The word meaning or context points to the best answer.
 
 ### Key Insight
 
@@ -442,177 +493,11 @@ Reasoning:
 
 Correct answer: **asked**
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use a simple repeatable sequence:
 
-1. Read the whole sentence.
-2. Identify the target word's part of speech.
-3. State the meaning in plain English.
-4. Compare each option by substitution.
-5. Eliminate choices that are opposite, awkward, or off-tone.
 
-This method works because it turns a word question into a meaning question.
 
-### Time Management
-
-Do not get stuck on one word. If you know the answer quickly, answer quickly. If you are not sure after a short attempt, mark the item and move on. Return later with a fresher mind.
-
-On the CSE, speed matters, but blind speed is dangerous. A careful 10-second check is better than a 30-second guess.
-
-### Shortcut & Elimination Techniques
-
-- eliminate antonyms immediately
-- eliminate choices with the wrong part of speech
-- eliminate words that sound too formal or too casual for the sentence
-- eliminate words that create awkward collocations
-- use substitution: if the sentence sounds strange, the choice is probably wrong
-
-Never use shortcuts as a substitute for understanding. Use them to support understanding.
-
-### Exam-Day Tips
-
-- read the entire sentence before looking at the options
-- watch for not, never, but, although, and because
-- trust the context more than the flashiest word
-- keep your tempo steady
-- if two answers feel close, choose the one that matches the sentence's style and tone
-
-## Memory Aids
-
-### Mnemonics
-
-Use **P-T-C-S**:
-
-- **P**art of speech
-- **T**one
-- **C**ontext
-- **S**ubstitute
-
-If you check those four things, you will avoid many careless synonym errors.
-
-### Mental Models
-
-Picture each word as sitting in a meaning circle.
-
-- the center is the core meaning
-- the next ring is tone
-- the next ring is register
-- the outer ring is collocation
-
-If an answer breaks one of the outer rings, it may not belong.
-
-### Shortcuts & Tricks
-
-- replace the target word with the answer choice and read the sentence aloud
-- if the sentence sounds unnatural, reject the choice
-- if two choices are close, pick the one that matches the sentence's formality
-- use clue words like because, although, or not as anchors
-
-### What to Memorize
-
-Memorize patterns, not just lists:
-
-- common synonym families: ask / inquire, begin / commence, help / assist, thin / slim / skinny
-- common tone differences: formal, neutral, informal
-- common collocation habits: heavy rain, hard frost, slim chance
-- high-frequency words that often appear in CSE-style items
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these three things:
-
-- define synonym in your own words
-- explain why two close words are not always interchangeable
-- use context to choose the better answer
-
-If you can do those, you are ready.
-
-### Which Method?
-
-Question: The sentence includes a clue word that repeats the meaning. Which method should you use?
-Answer: Use the context clue and paraphrase the sentence.
-
-Question: The answer choices are nearly the same, but one is more formal. Which method should you use?
-Answer: Compare register and tone.
-
-Question: The target word has a negative prefix. Which method should you use?
-Answer: Check the prefix, then confirm the meaning in context.
-
-Question: The sentence sounds like an office memo. Which method should you use?
-Answer: Match the register and collocation.
-
-### Guided Practice
-
-Question: Sentence: "The instructions were concise and easy to follow." Hint: concise means short and clear. What is the best synonym?
-Answer: brief.
-
-Question: Sentence: "The witness gave an unclear answer." Hint: look for the meaning that matches ambiguous or vague. What is the best synonym?
-Answer: ambiguous.
-
-Question: Sentence: "The manager asked for the file politely." Hint: think about formality and natural usage. What is the best synonym?
-Answer: inquired.
-
-Question: Sentence: "The rain was heavy all afternoon." Hint: this is a collocation check. What phrase sounds natural?
-Answer: heavy rain.
-
-### Independent Practice
-
-Question: Choose the best synonym for "diligent" in the sentence: "She was diligent in preparing the report."
-Answer: hardworking.
-
-Question: Choose the best synonym for "hesitant" in the sentence: "He gave a hesitant reply."
-Answer: reluctant.
-
-Question: Which word best fits a formal report: help or assist?
-Answer: assist.
-
-Question: What word best replaces begin in a formal ceremony announcement?
-Answer: commence.
-
-Question: In the sentence "The note was terse," which meaning best fits "terse"?
-Answer: brief and blunt.
-
-### Challenge Questions
-
-Question: The sentence sounds formal, but one answer choice sounds casual. Which clue should you trust first?
-Answer: The sentence's register and context.
-
-Question: A word is familiar, but its most common meaning does not fit the sentence. What should you do next?
-Answer: Re-read the sentence and test the less common sense that fits the clues.
-
-Question: Two answer choices are both near synonyms. How do register and collocation help you choose?
-Answer: Pick the word that matches the sentence's formality and natural pairing.
-
-Question: How would you eliminate a choice that is grammatically possible but logically wrong?
-Answer: Substitute it into the sentence and check whether the meaning still works.
-
-### Connections
-
-This lesson connects to several other verbal ability skills:
-
-- **Sentence completion** uses synonym knowledge plus context clues.
-- **Reading comprehension** depends on careful word meaning.
-- **Error recognition** improves when you know how words normally behave.
-- **Antonyms** help you eliminate wrong choices quickly.
-- **Word analogy** depends on seeing relationships between words, not just memorizing lists.
-
-Synonyms are also useful outside the test. They help you write clearer reports, understand instructions faster, and choose better words in everyday communication.
-
-### Mastery Checklist
-
-You are ready to move on when you can:
-
-- explain what a synonym is
-- tell the difference between exact meaning and near meaning
-- use context to infer the intended sense of a word
-- choose the best word based on tone and register
-- spot awkward collocations
-- eliminate wrong answers systematically
 
 ## Key Takeaways
 

@@ -1,4 +1,4 @@
-# Logical Fit
+﻿# Logical Fit
 
 ## Explanations
 
@@ -110,17 +110,29 @@ Answer: **so**
 
 ### Quick Check
 
-Question: Which word usually shows a reason?
-Answer: `because`.
+Question: Which word usually shows a reason
+Choices:
+- because
+- meaning
+- grammar
+Answer: because
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which word usually shows a result?
-Answer: `therefore` or `as a result`.
+Question: Which word usually shows a result
+Choices:
+- meaning
+- so
+- grammar
+Answer: so
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `however` shows cause and effect.
-Answer: False.
-
-Question: What should you ask first in a cause-result item?
-Answer: Whether the blank shows a reason or an effect.
+Question: True or false: `however` shows cause and effect
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -175,17 +187,29 @@ Answer: **however**
 
 ### Quick Check
 
-Question: Which word usually introduces an opposite idea?
-Answer: `however`.
+Question: Which word usually introduces an opposite idea
+Choices:
+- however
+- meaning
+- grammar
+Answer: however
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which connector often admits a fact before the main point continues?
-Answer: `nevertheless`.
+Question: Which connector often admits a fact before the main point continues
+Choices:
+- meaning
+- although
+- grammar
+Answer: although
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: contrast means the same thing as addition.
-Answer: False.
-
-Question: What does `on the other hand` usually do?
-Answer: It presents an opposite or different side.
+Question: True or false: contrast means the same thing as addition
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -238,17 +262,29 @@ Answer: **moreover**
 
 ### Quick Check
 
-Question: Which word adds another point?
-Answer: `in addition`.
+Question: Which word adds another point
+Choices:
+- moreover
+- meaning
+- grammar
+Answer: moreover
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which word is closest to `furthermore`?
-Answer: `moreover`.
+Question: Which word is closest to `furthermore`
+Choices:
+- meaning
+- moreover
+- grammar
+Answer: moreover
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: addition connectors always show a new idea that is unrelated.
-Answer: False.
-
-Question: What do addition connectors usually do?
-Answer: They reinforce the same direction of thought.
+Question: True or false: addition connectors always show a new idea that is unrelated
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -301,17 +337,29 @@ Answer: **next**
 
 ### Quick Check
 
-Question: Which word often signals the last step?
-Answer: `finally`.
+Question: Which word often signals the last step
+Choices:
+- finally
+- meaning
+- grammar
+Answer: finally
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which word often signals the step after the first one?
-Answer: `then` or `next`.
+Question: Which word often signals the step after the first one
+Choices:
+- meaning
+- next
+- grammar
+Answer: next
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: sequence words always show cause.
-Answer: False.
-
-Question: What should you look for in a process question?
-Answer: The order of actions.
+Question: True or false: sequence words always show cause
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -366,17 +414,29 @@ Answer: **for example**
 
 ### Quick Check
 
-Question: Which phrase often introduces a specific case?
-Answer: `for instance`.
+Question: Which phrase often introduces a specific case
+Choices:
+- for example
+- meaning
+- grammar
+Answer: for example
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which phrase often repeats the same idea in clearer words?
-Answer: `in other words`.
+Question: Which phrase often repeats the same idea in clearer words
+Choices:
+- meaning
+- in other words
+- grammar
+Answer: in other words
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: example and restatement mean exactly the same thing.
-Answer: False.
-
-Question: What should you ask first in this type of item?
-Answer: Is the sentence illustrating or rephrasing?
+Question: True or false: example and restatement mean exactly the same thing
+Choices:
+- True
+- It depends
+- False
+Answer: False
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -430,17 +490,29 @@ Answer: **if**
 
 ### Quick Check
 
-Question: Which word means "except if"?
-Answer: `unless`.
+Question: Which word means "except if"
+Choices:
+- unless
+- meaning
+- grammar
+Answer: unless
+Rationale: The sentence relationship determines the correct choice.
 
-Question: Which phrase prepares for a possible problem?
-Answer: `in case`.
+Question: Which phrase prepares for a possible problem
+Choices:
+- meaning
+- otherwise
+- grammar
+Answer: otherwise
+Rationale: The sentence relationship determines the correct choice.
 
-Question: True or false: `provided that` shows a condition.
-Answer: True.
-
-Question: What should you look for in an exception item?
-Answer: What happens if the rule is not met.
+Question: True or false: `provided that` shows a condition
+Choices:
+- False
+- It depends
+- True
+Answer: True
+Rationale: The sentence relationship determines the correct choice.
 
 ### Key Insight
 
@@ -529,177 +601,11 @@ Reasoning:
 
 Correct answer: **until**
 
-## Exam Strategies
 
-### Universal Solving Framework
 
-Use this sequence:
 
-1. Read the whole sentence.
-2. Ask what relationship the blank must show.
-3. Identify the clue words around the blank.
-4. Test each option against the relationship.
-5. Eliminate choices that are logical but off-target.
 
-### Time Management
 
-If the relationship is obvious, answer quickly. If the sentence contains more than one possible clue, slow down and test the direction carefully. Do not rush just because the options look familiar.
-
-### Shortcut & Elimination Techniques
-
-- ask whether the sentence needs a reason, result, contrast, or addition
-- check if the blank shows sequence or time order
-- separate example from restatement
-- watch for clue words like `however`, `because`, `therefore`, and `for example`
-- eliminate choices that change the sentence's direction
-
-### Exam-Day Tips
-
-- read the sentence as one complete thought
-- cover the options and predict the relation first
-- do not pick a connector only because it is common
-- if two choices are both possible in general, choose the one that fits this sentence exactly
-- trust the idea flow before you trust the surface sound
-
-## Memory Aids
-
-### Mnemonics
-
-- `R`eason: `because`, `since`
-- `R`esult: `so`, `therefore`, `as a result`
-- `T`urn: `however`, `yet`, `nevertheless`
-- `A`dd: `also`, `moreover`, `in addition`
-- `O`rder: `next`, `then`, `finally`
-- `E`xplain: `for example`, `in other words`
-- `C`ondition: `if`, `unless`, `provided that`
-
-### Mental Models
-
-- Think of a transition as a road sign.
-- Think of cause and result as an arrow.
-- Think of contrast as a turn in the road.
-- Think of example and restatement as a zoom lens.
-- Think of condition as a gate that must open before the action can happen.
-
-### Shortcuts & Tricks
-
-- `because` usually answers why
-- `therefore` and `as a result` usually show outcome
-- `however` and `nevertheless` usually show a turn
-- `for example` gives a specific case
-- `in other words` repeats the same idea in a new form
-- `if` and `unless` set conditions
-
-### What To Memorize
-
-- the main connector categories
-- the most common contrast words
-- the difference between example and restatement
-- the difference between reason and result
-- the words that show condition or exception
-
-## Practice & Review
-
-### Before You Practice
-
-Make sure you can do these things:
-
-- identify the relationship between two ideas
-- predict whether the blank needs a reason or a result
-- tell contrast from addition
-- tell example from restatement
-- recognize a condition or exception
-
-### Which Method?
-
-Question: The sentence needs to show a result. Which method should you use?
-Answer: Cause and result.
-
-Question: The sentence turns to an opposite idea. Which method should you use?
-Answer: Contrast and concession.
-
-Question: The sentence adds another point. Which method should you use?
-Answer: Addition and reinforcement.
-
-Question: The sentence gives a specific case. Which method should you use?
-Answer: Example and restatement.
-
-### Guided Practice
-
-Question: Which word best completes the sentence below?
-
-"The memo was unclear, ____ the staff asked for revision."
-
-Answer: **so**
-
-Question: Which word best completes the sentence below?
-
-"The first plan was costly; ____ , the second plan saved money."
-
-Answer: **on the other hand**
-
-Question: Which word best completes the sentence below?
-
-"The team had many files to check; ____ , it reviewed the dates."
-
-Answer: **moreover**
-
-Question: Which word best completes the sentence below?
-
-"The clerk will resend the form ____ the signature is missing."
-
-Answer: **if**
-
-### Independent Practice
-
-Question: Which word best completes the sentence below?
-
-"The storm lasted all morning; ____ , the inspection was postponed."
-
-Answer: **as a result**
-
-Question: Which word best completes the sentence below?
-
-"The file will stay open ____ the missing page arrives."
-
-Answer: **until**
-
-Question: Which phrase best completes the sentence below?
-
-"The policy covered several checks; ____ , it required two signatures."
-
-Answer: **for example**
-
-Question: Which word best completes the sentence below?
-
-"The report was short; ____ , it was clear."
-
-Answer: **however**
-
-### Challenge Questions
-
-Question: Why can a connector be grammatically correct but still wrong?
-Answer: Because the sentence may need a different relationship, such as contrast instead of result.
-
-Question: Why should you not stop at the first familiar word?
-Answer: Because logical fit depends on the full sentence, not just a familiar connector.
-
-Question: Why are example and restatement easy to confuse?
-Answer: Because both explain the idea, but one gives a case and the other rephrases the idea.
-
-Question: Why does punctuation matter in logical-fit items?
-Answer: Because it can help show whether the sentence is continuing, contrasting, or concluding.
-
-### Connections
-
-This lesson connects directly to:
-
-- **connector words**, because many blanks are transition words or phrases
-- **grammar fit**, because the chosen word must still fit the sentence structure
-- **pronoun reference**, because logic often depends on tracking what a pronoun points to
-- **cause and effect**, because many items ask for a reason or result
-- **contrast signals**, because the sentence may turn in the opposite direction
-- **elimination strategy**, because wrong answers often fail the relationship test
 
 ## Key Takeaways
 

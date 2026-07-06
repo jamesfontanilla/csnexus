@@ -969,13 +969,13 @@ private class SvgRenderView(context: Context) : View(context) {
 private fun QuizMode.quizColor(): Color = when (this) {
     QuizMode.Practice -> SuccessGreen
     QuizMode.Exam -> GoldAccent
-    QuizMode.Power -> DangerRed
+    QuizMode.Sprint -> DangerRed
 }
 
 private fun QuizMode.quizIcon(): ImageVector = when (this) {
     QuizMode.Practice -> Icons.Outlined.MenuBook
     QuizMode.Exam -> Icons.Outlined.EditNote
-    QuizMode.Power -> Icons.Outlined.Bolt
+    QuizMode.Sprint -> Icons.Outlined.Bolt
 }
 
 @Composable
