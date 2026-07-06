@@ -18,6 +18,7 @@ from fastapi.testclient import TestClient
 
 from app.common.deps import get_current_user
 from app.features.gamification.milestone_router import (
+    _build_xp_service,
     get_milestone_service,
     router as milestone_router,
 )
@@ -38,7 +39,7 @@ def mock_user() -> User:
         display_name="Tester",
         age=25,
         category=Category.SUB_PROFESSIONAL,
-        role=Role.USER,
+        role=Role.LEARNER,
         account_state=AccountState.VERIFIED,
     )
 
@@ -62,6 +63,26 @@ def client(mock_user: User, mock_milestone_service: MagicMock) -> TestClient:
 # ---------------------------------------------------------------------------
 # GET /v1/milestones
 # ---------------------------------------------------------------------------
+
+
+class TestDependencyFactories:
+    def test_build_xp_service_injects_both_repositories(self) -> None:
+        """XPService construction must match the current required signature."""
+        db = MagicMock(name="db")
+
+        with patch("app.features.gamification.milestone_router.XPRepository") as mock_xp_repo, patch(
+            "app.features.gamification.milestone_router.UserRepository"
+        ) as mock_user_repo, patch(
+            "app.features.gamification.milestone_router.XPService"
+        ) as mock_xp_service:
+            _build_xp_service(db)
+
+        mock_xp_repo.assert_called_once_with(db=db)
+        mock_user_repo.assert_called_once_with(db=db)
+        mock_xp_service.assert_called_once_with(
+            xp_repo=mock_xp_repo.return_value,
+            user_repo=mock_user_repo.return_value,
+        )
 
 
 class TestGetMilestones:

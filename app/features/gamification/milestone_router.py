@@ -28,6 +28,7 @@ from app.features.gamification.models import (
     StudyConsistency,
 )
 from app.features.users.models import User
+from app.features.users.repository import UserRepository
 from app.features.xp.repository import XPRepository
 from app.features.xp.service import XPService
 from app.infrastructure.database.session import get_db
@@ -77,7 +78,10 @@ class ConsistencyMetricResponse(BaseModel):
 
 
 def _build_xp_service(db: Session) -> XPService:
-    return XPService(xp_repo=XPRepository(db=db))
+    return XPService(
+        xp_repo=XPRepository(db=db),
+        user_repo=UserRepository(db=db),
+    )
 
 
 def get_milestone_service(db: Session = Depends(get_db)) -> MilestoneService:
