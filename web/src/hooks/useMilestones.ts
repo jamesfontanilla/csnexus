@@ -26,14 +26,27 @@ export function useMilestones(): UseMilestonesReturn {
     setLoading(true);
     setError(null);
     try {
-      const [milestonesRes, consistencyRes] = await Promise.all([
+      const [milestonesRes, consistencyRes] = await Promise.allSettled([
         milestonesApi.getAll(),
         milestonesApi.getConsistency(),
       ]);
-      setMilestones(milestonesRes);
-      setConsistency(consistencyRes);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load milestones");
+
+      if (milestonesRes.status === "fulfilled") {
+        setMilestones(milestonesRes.value);
+      } else {
+        setMilestones(null);
+        setError(
+          milestonesRes.reason instanceof Error
+            ? milestonesRes.reason.message
+            : "Failed to load milestones",
+        );
+      }
+
+      if (consistencyRes.status === "fulfilled") {
+        setConsistency(consistencyRes.value);
+      } else {
+        setConsistency(null);
+      }
     } finally {
       setLoading(false);
     }

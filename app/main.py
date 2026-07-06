@@ -179,6 +179,9 @@ def _ensure_milestone_enrichment_schema() -> None:
                 "ON mastery_score_history (user_id, subtopic_id, recorded_at)"
             )
             conn.execute(text(idx_stmt))
+
+
+def _ensure_question_difficulty_schema() -> None:
     """Patch the questions difficulty check so ``Ultra`` is accepted."""
 
     from sqlalchemy import inspect, text

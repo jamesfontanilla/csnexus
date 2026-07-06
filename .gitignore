@@ -52,3 +52,6 @@ node_modules/
 build/
 dist/
 *.egg-info/
+
+# Windows null device artifact (created when WSL/bash redirects to nul)
+nul
