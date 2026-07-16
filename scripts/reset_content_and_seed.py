@@ -154,6 +154,11 @@ TITLE_OVERRIDES: dict[tuple[str, str, str], tuple[str, str, str]] = {
         "Sentence Structure",
         "Complex Sentences",
     ),
+    ("verbal-ability", "sentence-structure", "inversion"): (
+        "Verbal Ability",
+        "Sentence Structure",
+        "Inversion",
+    ),
     ("verbal-ability", "error-recognition", "tense-consistency"): (
         "Verbal Ability",
         "Error Recognition",
