@@ -134,6 +134,26 @@ TITLE_OVERRIDES: dict[tuple[str, str, str], tuple[str, str, str]] = {
         "Error Recognition",
         "Pronoun Agreement",
     ),
+    ("verbal-ability", "error-recognition", "fragments-and-run-ons"): (
+        "Verbal Ability",
+        "Error Recognition",
+        "Fragments and Run-ons",
+    ),
+    ("verbal-ability", "sentence-structure", "run-ons"): (
+        "Verbal Ability",
+        "Sentence Structure",
+        "Run-ons",
+    ),
+    ("verbal-ability", "sentence-structure", "compound-sentences"): (
+        "Verbal Ability",
+        "Sentence Structure",
+        "Compound Sentences",
+    ),
+    ("verbal-ability", "sentence-structure", "complex-sentences"): (
+        "Verbal Ability",
+        "Sentence Structure",
+        "Complex Sentences",
+    ),
     ("verbal-ability", "error-recognition", "tense-consistency"): (
         "Verbal Ability",
         "Error Recognition",
