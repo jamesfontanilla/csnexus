@@ -1,4 +1,4 @@
-﻿# Antonyms
+# Antonyms
 
 ## Explanations
 
@@ -285,27 +285,27 @@ The best answer is **valid**.
 
 Question: Why should you check part of speech before using a prefix clue
 Choices:
-- A prefix changes the meaning before the base word
-- synonym
-- same meaning
-Answer: A prefix changes the meaning before the base word
-Rationale: The word meaning or context points to the best answer.
+- Because the opposite must still fit the same word class
+- Because the prefix always gives the final answer
+- Because the word class can be ignored
+Answer: Because the opposite must still fit the same word class
+Rationale: Even if a prefix gives a clue, the answer still has to match the target word's grammar.
 
 Question: Does a negative prefix always guarantee the correct antonym
 Choices:
-- synonym
-- A prefix changes the meaning before the base word
-- same meaning
-Answer: A prefix changes the meaning before the base word
-Rationale: The word meaning or context points to the best answer.
+- True
+- False
+- It depends
+Answer: False
+Rationale: Negative prefixes are helpful clues, but context and word class still matter.
 
 Question: What does dis- often suggest
 Choices:
-- synonym
-- same meaning
-- A prefix changes the meaning before the base word
-Answer: A prefix changes the meaning before the base word
-Rationale: The word meaning or context points to the best answer.
+- not, opposite, or undoing
+- the same meaning
+- a contrast clue
+Answer: not, opposite, or undoing
+Rationale: The prefix dis- often signals reversal or negation, as in words like disagree or disconnect.
 
 ### Key Insight
 

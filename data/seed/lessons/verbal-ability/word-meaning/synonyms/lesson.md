@@ -121,7 +121,7 @@ Choices:
 - ask
 - antonym
 Answer: inquire
-Rationale: The word meaning or context points to the best answer.
+Rationale: Inquire is the more formal office word.
 
 Question: True or false: every synonym can replace the original word in every sentence
 Choices:
@@ -129,7 +129,7 @@ Choices:
 - False
 - It depends
 Answer: False
-Rationale: The word meaning or context points to the best answer.
+Rationale: Synonyms can differ in tone, grammar, or collocation, so they are not always interchangeable.
 
 Question: What should you check besides the dictionary meaning
 Choices:
@@ -137,7 +137,7 @@ Choices:
 - same meaning
 - tone and usage
 Answer: tone and usage
-Rationale: The word meaning or context points to the best answer.
+Rationale: Tone and usage matter because the word has to fit the sentence, not just the dictionary definition.
 
 ### Key Insight
 
@@ -207,7 +207,7 @@ Choices:
 - antonym
 - same meaning
 Answer: context clues
-Rationale: The word meaning or context points to the best answer.
+Rationale: Context clues from surrounding words help reveal the intended meaning.
 
 Question: True or false: the most common meaning of a word is always the correct meaning in context
 Choices:
@@ -215,7 +215,7 @@ Choices:
 - False
 - It depends
 Answer: False
-Rationale: The word meaning or context points to the best answer.
+Rationale: A word's most common meaning is not always the one the sentence uses.
 
 Question: In the sentence "The answer was not vague but precise," what clue is being used
 Choices:
@@ -223,7 +223,7 @@ Choices:
 - same meaning
 - contrast
 Answer: contrast
-Rationale: The word meaning or context points to the best answer.
+Rationale: The phrase "not vague but precise" signals a contrast clue.
 
 ### Key Insight
 
@@ -292,7 +292,7 @@ Choices:
 - ask
 - antonym
 Answer: inquire
-Rationale: The word meaning or context points to the best answer.
+Rationale: Inquire is the more formal choice.
 
 Question: Why is "strong rain" a weaker choice than "heavy rain"
 Choices:
@@ -300,7 +300,7 @@ Choices:
 - It does not sound natural with rain
 - same meaning
 Answer: It does not sound natural with rain
-Rationale: The word meaning or context points to the best answer.
+Rationale: Heavy rain is the natural collocation; strong rain sounds unnatural.
 
 Question: True or false: two synonyms always have the same connotation
 Choices:
@@ -308,7 +308,7 @@ Choices:
 - It depends
 - False
 Answer: False
-Rationale: The word meaning or context points to the best answer.
+Rationale: Synonyms can still differ in connotation, even when the core meaning is similar.
 
 ### Key Insight
 
@@ -380,7 +380,7 @@ Choices:
 - the word's popularity
 - antonym
 Answer: its part of speech
-Rationale: The word meaning or context points to the best answer.
+Rationale: Part of speech has to match the grammar of the sentence.
 
 Question: If two answers both look close, what should you do next
 Choices:
@@ -388,15 +388,15 @@ Choices:
 - Test both choices in the sentence
 - same meaning
 Answer: Test both choices in the sentence
-Rationale: The word meaning or context points to the best answer.
+Rationale: Testing both choices in the sentence shows which one fits naturally.
 
 Question: Which options are easiest to eliminate immediately: synonyms, antonyms, or random words
 Choices:
-- synonyms, antonyms,
-- antonym
+- synonyms
+- antonyms
 - random words
 Answer: random words
-Rationale: The word meaning or context points to the best answer.
+Rationale: Random words are easiest to remove because they are unrelated to the target meaning.
 
 ### Key Insight
 

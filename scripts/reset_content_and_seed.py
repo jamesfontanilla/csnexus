@@ -129,6 +129,31 @@ TITLE_OVERRIDES: dict[tuple[str, str, str], tuple[str, str, str]] = {
         "Error Recognition",
         "Subject-Verb Agreement",
     ),
+    ("verbal-ability", "error-recognition", "pronoun-agreement"): (
+        "Verbal Ability",
+        "Error Recognition",
+        "Pronoun Agreement",
+    ),
+    ("verbal-ability", "error-recognition", "tense-consistency"): (
+        "Verbal Ability",
+        "Error Recognition",
+        "Tense Consistency",
+    ),
+    ("verbal-ability", "error-recognition", "articles-and-determiners"): (
+        "Verbal Ability",
+        "Error Recognition",
+        "Articles and Determiners",
+    ),
+    ("verbal-ability", "error-recognition", "prepositions"): (
+        "Verbal Ability",
+        "Error Recognition",
+        "Prepositions",
+    ),
+    ("verbal-ability", "error-recognition", "modifier-placement"): (
+        "Verbal Ability",
+        "Error Recognition",
+        "Modifier Placement",
+    ),
 }
 
 QUESTION_CATEGORY_MAP: dict[str, Category] = {
